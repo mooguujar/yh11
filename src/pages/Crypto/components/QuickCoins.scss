@@ -1,0 +1,126 @@
+.cionBuy {
+  margin-top: 20px;
+  // width: 708.3px;
+  background-color: #ffffff;
+  border-radius: 13.9px;
+  padding: 0 19px 19px;
+  .split-min {
+    font-size: 30px;
+  }
+  .buytext {
+    height: 84.7px;
+    font-family: MicrosoftYaHei;
+    font-size: 27.8px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 84.3px;
+    letter-spacing: 0px;
+    color: #13161b;
+  }
+  .van-cell-group {
+    margin: 0;
+    background-color: #ebf1f6;
+    margin-bottom: 24px;
+    .van-cell {
+      padding: 15px;
+      background-color: #ebf1f6;
+      border-radius: 6.9px;
+    }
+    .van-field__control {
+      height: 24.3px;
+      font-family: MicrosoftYaHei;
+      font-size: 25px;
+      font-weight: normal;
+      font-stretch: normal;
+      line-height: 38.3px;
+      letter-spacing: 0px;
+      color: #787f8c;
+    }
+    :deep(.van-field__button) {
+      color: #0b75ff;
+    }
+  }
+  .paytext {
+    padding: 20px 0;
+    font-family: MicrosoftYaHei;
+    font-size: 27.8px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 33.3px;
+    letter-spacing: 0px;
+    color: #13161b;
+  }
+  .paypic {
+    .payBox {
+      width: 205.6px;
+      height: 106.9px;
+      background-color: #ebf1f6;
+      border-radius: 6.9px;
+
+      //   margin: 0 auto;
+
+      font-family: MicrosoftYaHei;
+      font-size: 25px;
+      font-weight: normal;
+      font-stretch: normal;
+      line-height: 30.3px;
+      letter-spacing: 0px;
+      color: #333333;
+      text-align: center;
+      :deep(.van-image) {
+        width: 62.5px;
+        height: 48.6px;
+        margin: 10px auto;
+        display: block;
+      }
+      .alipay {
+        width: 52.5px;
+        height: 52.5px;
+      }
+      .WeChatPay {
+        margin: 10px auto 5.6px;
+        width: 61.8px;
+        height: 54.2px;
+      }
+      position: relative;
+    }
+    .payBox {
+      margin-right: 20px;
+    }
+    .payBox:nth-child(3n) {
+      margin-right: 0;
+    }
+    .payBox.active {
+      background-color: #ffffff;
+      border: solid 2.8px #0b75ff;
+    }
+    .payBox.active::after {
+      content: "";
+      display: block;
+      width: 36px;
+      height: 36px;
+      //   background: #d6dce8;
+      background-image: url("@/assets/images/common/dui.png");
+      background-size: cover;
+      background-position: 0px 0px;
+      position: absolute;
+      top: -1px;
+      right: 0;
+    }
+  }
+  .buyButton {
+    margin-top: 59px;
+    width: 668.8px;
+    height: 79.9px;
+    background-color: #0b75ff;
+    border-radius: 6.9px;
+
+    line-height: 79.9px;
+    font-family: MicrosoftYaHei;
+    font-size: 30.6px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #ffffff;
+  }
+}

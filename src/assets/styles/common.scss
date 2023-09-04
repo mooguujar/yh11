@@ -1,0 +1,108 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+input,
+textarea,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  vertical-align: top;
+  color: #666666;
+  vertical-align: text-top;
+}
+a:hover {
+  color: #c81623;
+}
+i {
+  font-style: normal;
+  font-family: consolas;
+}
+img,
+input {
+  border: none;
+  outline: none;
+}
+.clearfix:after {
+  content: ".";
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
+}
+.clearfix {
+  zoom: 1;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.center {
+  margin: 0 auto;
+}
+.posif {
+  position: fixed;
+}
+.posia {
+  position: absolute;
+}
+.posir {
+  position: relative;
+}
+.flex_sz {
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.flex_s {
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+}
+.flex_z {
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-around;
+}
+.marg0 {
+  margin: 0 !important;
+}
+.margr20 {
+  margin-right: 20px !important;
+}
+.height100 {
+  height: 100%;
+}
+.colorred{
+  color: #c81623 !important;
+}
+body {
+  background: #ccc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+}
+#app {
+  max-width: 750px;
+  height: 100%;
+  margin: 0 auto;
+  background: #ebf1f6;
+}
