@@ -71,6 +71,11 @@ export const useAuthStore = defineStore('auth', {
           sessionStorage.setItem('deviceid', params.deviceid)
           sessionStorage.setItem('token', response.token)
           sessionStorage.setItem('md5_pri', response.md5_pri)
+
+          const localTimestamp = Math.round(Date.now() / 1000)
+          const timestampDiff = localTimestamp - +response.sys_time
+          // 记录本地时间和服务系统时间偏移值
+          sessionStorage.setItem('timestamp_diff', timestampDiff.toString())
           // 获取到token后，才能渲染视图
           this.token = response.token
         }

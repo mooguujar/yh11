@@ -162,7 +162,7 @@ const subffix = computed(() => {
 })
 
 onMounted(() => {
-  // getSignInData()
+  //
 })
 </script>
 
@@ -270,6 +270,7 @@ onMounted(() => {
 
   .task-dialog {
     width: 100%;
+    max-width: 686px;
     height: auto;
     padding: unset;
     background-color: #f5e8eb;

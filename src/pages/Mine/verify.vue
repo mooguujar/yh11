@@ -36,7 +36,7 @@
         <div class="text-[#777] text-[20px] mt-2 ml-2">人工审核进行中，请耐心等待......</div>
       </div>
       <van-field v-model="name" label="姓名" placeholder="请输入您的姓名" label-align="top" :disabled="authStore.userInfo.name" v-if="authStore?.userInfo?.verified_status !== 2" />
-      <van-field v-model="user_id" label="身份证号" placeholder="请输入身份证号码" label-align="top" :maxlength="18" v-if="authStore?.userInfo?.verified_status !== 2" />
+      <van-field v-model="user_id" label="身份证号" placeholder="请输入身份证号码" label-align="top" :maxlength="18" v-if="authStore?.userInfo?.verified_status !== 2" autocomplete="false" />
       <div class="w-full px-[32px] mt-[20px]" v-if="isForce && authStore?.userInfo?.verified_status !== 2">
         <div class="label text-black text-[28px]">上传身份证</div>
         <div class="flex justify-between">
@@ -73,7 +73,7 @@
       <van-button size="large" color="#0b75ff" @click="verify" v-if="authStore?.userInfo?.verified_status !== 2">
         提交实名信息
       </van-button>
-      <van-button size="large" color="#0b75ff" @click="router.back()" v-if="authStore?.userInfo?.verified_status === 2">
+      <van-button size="large" color="#0b75ff" @click="backTo" v-if="authStore?.userInfo?.verified_status === 2">
         确认
       </van-button>
 
@@ -93,15 +93,18 @@
 <script setup lang="ts">
 import { onMounted, ref, watch } from 'vue'
 import { useAuthStore, useEntryStore } from '@/store'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { userVerifiedApi } from '@/apis/user'
 import { showToast } from 'vant'
 import identityIDCard from '@/utils/verifyId'
 import info from '@/assets/images/common/info.png'
 import success from '@/assets/images/common/success.png'
 import { uploadImgApi } from '@/apis/common'
+import { storeToRefs } from 'pinia'
+import routes from '@/router/routers'
 
 const router = useRouter()
+const route = useRoute();
 const isLoading = ref(false)
 
 const name = ref('')
@@ -110,6 +113,9 @@ const user_id = ref('')
 const entryStore = useEntryStore();
 const imgServerUrl = entryStore.imgServerUrl;
 const authStore = useAuthStore()
+
+const { config } = storeToRefs(entryStore)
+
 
 const showInfoToast = (title: string) => {
   return showToast({
@@ -169,6 +175,14 @@ const handleForceDialog = (open: boolean) => {
   isForceDialog.value = open;
 }
 
+const backTo = () => {
+  if (route?.query?.from) {
+    router.push(route?.query?.from)
+  } else {
+    router.back()
+  }
+}
+
 const verify = async () => {
   if (isLoading.value) return
   if (!name.value) return showInfoToast('请输入您的姓名')
@@ -204,7 +218,7 @@ const verify = async () => {
       await authStore.getUserInfo()
 
       setTimeout(() => {
-        router.back()
+        backTo()
       }, 1000)
     }
 
@@ -216,7 +230,9 @@ const verify = async () => {
     }
 
     if (res.code === 10044) {
-      isForceDialog.value = true
+      if ((config.value.Web_Set_WebReg as any)?.is_autoverified_qztj?.v == 1) {
+        isForceDialog.value = true
+      }
     }
   } catch (e) {
     console.log(e)

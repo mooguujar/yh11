@@ -10,7 +10,7 @@
     <div class="top-container flex flex-col items-center justify-center">
       <div class="balance-text">余额</div>
       <div class="balance-content">
-        <span class="amount">{{ balance.toFixed(2) }}</span>
+        <span class="amount">{{ balance.toTruncFixed(2) }}</span>
         <span>积分</span>
       </div>
     </div>
@@ -20,7 +20,10 @@
         :loading="isLoading"
         @refresh="getFundingDetailsData"
       >
-        <user-money-details :data="pointDetailsData" />
+        <user-money-details
+          v-show="!isLoading"
+          :data="pointDetailsData"
+        />
       </pull-refresh>
     </div>
   </div>

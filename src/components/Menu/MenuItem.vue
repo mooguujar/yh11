@@ -3,11 +3,10 @@
     class="item flex justify-center"
     :class="{ active: isActive }"
   >
-    <router-link
-      :to="routePath"
-      tag="div"
+    <div
       class="flex-item"
       :class="isActive ? 'active' : ''"
+      @click="to(routePath)"
     >
       <div class="icon-container">
         <i
@@ -16,14 +15,13 @@
         ></i>
       </div>
       <span class="title">{{ title }}</span>
-      <slot></slot>
-    </router-link>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 export interface Props {
   title: string
@@ -38,7 +36,12 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const route = useRoute()
+const router = useRouter()
 const isActive = computed(() => route.path.split('/')[1] === props.routePath.split('/')[1])
+
+const to = (routePath: string) => {
+  router.push(routePath)
+}
 </script>
 
 <style lang="scss" scoped>
@@ -51,9 +54,6 @@ const isActive = computed(() => route.path.split('/')[1] === props.routePath.spl
     .title {
       color: #0b75ff;
     }
-  }
-  a:hover {
-    color: #0b75ff;
   }
 
   .flex-item {
@@ -69,16 +69,12 @@ const isActive = computed(() => route.path.split('/')[1] === props.routePath.spl
       display: block;
     }
   }
-
-  // @each $svg in video, douyin, game, community, mine {
-  //   .bar-#{$svg} {
-  //     background-image: url('~@/assets/images/svg/bar-#{$svg}.svg');
-  //   }
-  // }
+  .title {
+    color: #666;
+  }
 }
 
 .active {
-  //color: #ffff;
   font-weight: 600;
 }
 </style>

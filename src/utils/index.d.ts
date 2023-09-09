@@ -14,6 +14,7 @@ export interface HttpOptions {
 //CustomAxiosRequestConfig
 export interface CustomAxiosRequestConfig extends AxiosRequestConfig {
   options?: HttpOptions
+  withCustomErrorHandle?: boolean
 }
 
 export interface AxiosRequestConfigExtended extends AxiosRequestConfig {

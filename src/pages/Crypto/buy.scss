@@ -1,11 +1,14 @@
 .cionBuy {
+  .nav-bar {
+    padding-bottom: 50px;
+  }
   .content {
     width: 750px;
     background-color: #ebf1f6;
     border-radius: 20.8px 20.8px 0px 0px;
     overflow: hidden;
     z-index: 10;
-    margin-top: -20px;
+    margin-top: -40px;
     position: absolute;
     padding: 0 20px;
     :deep(.van-tabs) {

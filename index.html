@@ -6,11 +6,7 @@
 >
   <head>
     <meta charset="UTF-8" />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="/vite.svg"
-    />
+    <link rel="icon" href="/favicon.png">
     <!-- 在 head 标签中添加 meta 标签，并设置 viewport-fit=cover 值 -->
     <meta
       name="viewport"
@@ -30,27 +26,33 @@
     />
     <title>GDpay</title>
     <script>
+
       window.addEventListener('load', () => {
+        console.log("opener", window.opener)
+        console.log("parent", window.parent)
+        const navigator = window.navigator;
+        const userAgent = navigator.userAgent;
+        const normalizedUserAgent = userAgent.toLowerCase();
+        const standalone = navigator.standalone;
+
+        const isIos = /ip(ad|hone|od)/.test(normalizedUserAgent) || navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
+        const isAndroid = /android/.test(normalizedUserAgent);
+        const isSafari = /safari/.test(normalizedUserAgent);
+        const isWebview = (isAndroid && /; wv\)/.test(normalizedUserAgent)) || (isIos && !standalone && !isSafari);
+
         window.close = function () {
           try {
-            // console.log('imgupcallbcak',imgupcallbcak);
-            var u = navigator.userAgent
-            var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) //ios终端
-            var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1
-            if (isAndroid) {
-              if (window.imgupcallbcak) {
-                imgupcallbcak.exitWeb(JSON.stringify({ code: 0, img: '5555', title: '成功' }))
-              } else {
-                alert('imgupcallbcak is not defined')
+            if (isWebview) {
+              if (isAndroid && window.imgupcallbcak) {
+                return imgupcallbcak.exitWeb(JSON.stringify({ code: 0, img: '5555', title: '成功' }))
               }
-            } else if (isiOS) {
-              if (window.webkit) {
-                window.webkit.messageHandlers.callNativeAndSend.postMessage('exitWeb', '*')
-              } else {
-                alert('window.webkit is not defined')
+              if (isIos && window.webkit) {
+                return window.webkit.messageHandlers.callNativeAndSend.postMessage('exitWeb', '*')
               }
             } else {
-              console.log('no match logic')
+              if (window.parent) {
+                window.parent.postMessage("closeH5", "*")
+              }
             }
           } catch (e) {
             console.log(e)

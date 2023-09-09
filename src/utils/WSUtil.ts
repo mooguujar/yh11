@@ -6,6 +6,7 @@ export class Socket {
   maxReconnectTimes: number
   reconnectTimes: any
   token: string
+  t_s: any
   constructor(url?: any, token?: string, protocols?: any) {
     this.url = url || ''
     this.token = token || ''
@@ -13,6 +14,7 @@ export class Socket {
     this.ws = null
     this.reconnectTimeout = 1000
     this.maxReconnectTimes = 10
+    this.t_s=null
   }
   start(Token: string, url?: string) {
     this.reconnectTimes = 0
@@ -24,14 +26,17 @@ export class Socket {
     this.ws = new WebSocket(this.url)
     this.ws.onopen = () => {
       // console.log('连接以打开--->',this.token,'<---token')
-      this.ws.send(this.token);
+      this.ws.send(this.token)
 
-      var t1 = null;
-      t1 = setInterval(this.ws.send(this.token), 1000 * 30);
+      var t1 = null
+      t1 = setInterval(this.ws.send(this.token), 1000 * 30)
       this.reconnectTimes = 0
     }
     this.ws.onclose = () => {
-      location.reload()
+      clearTimeout(this.t_s)
+      this.t_s=setTimeout(() => {
+        location.reload()
+      }, 8 * 1000 * 60)
       console.log('WebSocket断开连接')
       this.reconnect()
     }
@@ -85,7 +90,7 @@ export function wsInit(URL?: string) {
     if (ev && ev.data && ev.data.indexOf('subscribe') > -1) {
       console.log('subscribe->', ev.data)
     } else if (ev && ev.data) {
-      var data =ev.data=='pong'?ev.data: eval('(' + ev.data + ')');
+      var data = ev.data == 'pong' ? ev.data : eval('(' + ev.data + ')')
       // callback(data)
 
       // cmd 消息返回数据处理
@@ -102,7 +107,7 @@ export function wsInit(URL?: string) {
   }
   // 9秒一次
   heartbeat()
-  var t = null;
+  var t = null
   t = setInterval(heartbeat, 1000 * 9)
   return init
 }

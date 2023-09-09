@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useAuthStore } from '@/store'
-import { onMounted, ref, onUnmounted } from 'vue'
+import { useAuthStore, useEntryStore } from '@/store'
+import { onMounted, ref, onUnmounted, computed } from 'vue'
 import CheckIn from '@/components/Point/CheckIn.vue'
 import LuckyDraw from '@/components/Point/LuckyDraw.vue'
 import TodayActivity from '@/components/Point/TodayActivity.vue'
@@ -11,6 +11,8 @@ import { storeToRefs } from 'pinia'
 import { ICoin } from '@/store/types/coin'
 import mitt from '@/utils/mitt'
 import { useAppBar } from '@/components/AppBar/useAppBar'
+import { INormal } from '@/store/types/entry'
+import dayjs from 'dayjs'
 
 useAppBar({ mode: 'dark' })
 const authStore = useAuthStore()
@@ -46,6 +48,16 @@ const getRewardRecordList = async () => {
 const { getUserCoin } = authStore
 const { coins, getUserMoneyByMType } = storeToRefs(authStore)
 
+const entryStore = useEntryStore()
+const { config } = storeToRefs(entryStore)
+
+// 积分清零时间
+const pointClearTime = computed(
+  () =>
+    (config.value?.Web_Set_JFpoint?.Points_Cleared_Times as INormal)?.v ??
+    `${dayjs().year()}-12-30 00:00:10`
+)
+
 const getUserCoinData = async (isReq: boolean = false) => {
   try {
     window.log('用户积分信息', coins.value, isReq)
@@ -74,7 +86,10 @@ onUnmounted(() => {
 
 <template>
   <div class="point-container">
-    <nav-bar mode="transparent" hide-left>
+    <nav-bar
+      mode="transparent"
+      hide-left
+    >
       <template #title>
         <div class="nav-bar-title">
           <div>会员积分</div>
@@ -83,17 +98,16 @@ onUnmounted(() => {
             @click="openDialog"
           ></i>
         </div>
-
       </template>
     </nav-bar>
 
-<!--    <div class="point-title-container flex items-end justify-center">-->
-<!--      <div class="title">会员积分</div>-->
-<!--      <i-->
-<!--        class="help"-->
-<!--        @click="openDialog"-->
-<!--      ></i>-->
-<!--    </div>-->
+    <!--    <div class="point-title-container flex items-end justify-center">-->
+    <!--      <div class="title">会员积分</div>-->
+    <!--      <i-->
+    <!--        class="help"-->
+    <!--        @click="openDialog"-->
+    <!--      ></i>-->
+    <!--    </div>-->
     <div class="point-info-container flex items-center justify-between">
       <div class="flex flex-col">
         <div class="point-show flex items-center">
@@ -102,7 +116,7 @@ onUnmounted(() => {
             {{ authStore.isLogin ? getUserMoneyByMType(20)?.coincash : '未登录' }}
           </div>
         </div>
-        <div class="point-clear-deadline">积分清零时间：2022-12-30 00:00:10</div>
+        <div class="point-clear-deadline">积分清零时间：{{ pointClearTime }}</div>
       </div>
       <div
         class="flex items-center"
@@ -133,7 +147,7 @@ onUnmounted(() => {
         <p class="get-point-way">1. 每日签到可获得积分，连续多日签到将获得更多积分；</p>
         <p class="get-point-way">2. 完成每日任务获得每日活跃度，活跃度足够时可领取积分；</p>
         <p class="get-point-way">3. 完成累计任务，可直接获得积分；</p>
-        <p class="get-point-way">4. 在任意游戏平台使用GDPay上分/下分，将按金额比例获得积分。</p>
+        <p class="get-point-way">4. 在游戏平台使用GDPay上分/下分，将按金额比例获得积分。</p>
         <p class="text-bold notice-tips">
           注意：积分将定期清零，请留意本页面上方的“积分清零时间”。
         </p>
@@ -215,6 +229,7 @@ onUnmounted(() => {
 
   .point-dialog {
     width: 100%;
+    max-width: 686px;
     height: auto;
     padding: unset;
     background-color: #f5e8eb;

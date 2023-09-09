@@ -18,13 +18,13 @@ const verifyStatus = computed(() => {
   const status = userInfo.value.verified_status
 
   if (status === 0) {
-    return '请先实名'
+    return '未认证'
   } else if (status === 1) {
     return '已认证'
   } else if (status === 2) {
-    return '待审核'
+    return '审核中'
   } else if (status === 3) {
-    return '拒绝请重新认证'
+    return '请重新认证'
   } else {
     return '禁止认证'
   }

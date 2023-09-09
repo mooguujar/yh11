@@ -1,12 +1,14 @@
 <template>
   <div class="nav-bar">
-    <nav-bar title="消息" mode="white">
+    <nav-bar
+      title="消息"
+      mode="white"
+    >
       <template #left>
         <i class="arrow-right-gray arrow-back"></i>
       </template>
       <template #right>
         <div
-          v-show="showTopRightBtn"
           class="btn-text"
           @click="onNavBtnClick"
         >
@@ -14,16 +16,6 @@
         </div>
       </template>
     </nav-bar>
-<!--    <van-nav-bar-->
-<!--      title="消息"-->
-<!--      safe-area-inset-top-->
-<!--      @click-left="onBack"-->
-<!--    >-->
-<!--      <template #left>-->
-<!--        <i class="arrow-right-gray arrow-back"></i>-->
-<!--      </template>-->
-
-<!--    </van-nav-bar>-->
   </div>
 
   <div class="message-container">
@@ -58,19 +50,18 @@
 
       <van-swipe-cell
         v-if="messageData.length && !isLoading"
-        v-for="item in messageData"
+        v-for="(item, index) in messageData"
         :key="item.id"
         :before-close="beforeDeleteMessage"
-        :disabled="item.user_type != 4"
       >
         <div
           class="message-item flex"
-          @click="goMessageDetails(item.id as number)"
+          :class="{ 'message-item-end': index === messageData.length - 1 }"
+          @click="handleClickMessage(item)"
         >
           <i
-            v-if="showController && item.user_type == 4"
+            v-if="showController"
             :class="item.checked ? 'radio-checked' : 'item-radio'"
-            @click="item.checked = item.checked === 1 ? 0 : 1"
           ></i>
           <!-- <i class="message"></i> -->
           <img
@@ -123,15 +114,13 @@
     <van-button
       type="primary"
       class="btn-all-readed"
-      :disabled="!hasUnread"
       @click="onAllRead"
     >
-      {{ hasUnread ? '全部已读' : '已读' }}
+      {{ !isSomeChecked ? '全部已读' : '已读' }}
     </van-button>
     <van-button
       type="primary"
       class="btn-all-select"
-      :disabled="!canAllChecked"
       @click="onBtnAllSelect"
     >
       {{ btnAllSelectName }}
@@ -139,7 +128,6 @@
     <van-button
       type="primary"
       class="btn-delete"
-      :disabled="isDisabledDelete"
       @click="onDelete"
     >
       删除
@@ -193,7 +181,10 @@ isLoading.value = false
 // 获取所有ids
 const getAllMessageIds = (type: string) => {
   _ids.value = messageData.value.reduce((prev: string, curr: TMessage) => {
-    if ((type === 'checked' && curr.checked) || (type === 'allRead' && !curr.is_read)) {
+    if (
+      (type === 'checked' && curr.checked) ||
+      (type === 'allRead' && curr.checked && !curr.is_read)
+    ) {
       return (prev !== '' ? prev + ',' : '') + (curr.id?.toString() || '')
     }
     return prev
@@ -215,7 +206,8 @@ const onDelMessage = async () => {
     }
     showToast({
       message: '删除成功',
-      icon: verified
+      icon: verified,
+      iconSize: '48px'
     })
     getUserMessageList()
   }
@@ -259,17 +251,22 @@ const getUserMessageList = async () => {
 // 是否存在未读消息
 const hasUnread = computed(() => messageData.value.some(item => !item.is_read))
 // navBar右侧文字
-const navBarRightText = computed(() =>
-  messageData.value.length && !isDisabledDelete.value ? '完成' : '操作'
-)
+const navBarRightText = computed(() => {
+  // if (messageData.value.length && !isDisabledDelete.value) {
+  //   return '完成'
+  // }
+  // if (showController.value) {
+  //   return '取消'
+  // }
+  // return '操作'
+  return showController.value ? '完成' : '操作'
+})
 // 是否已全选
 const isAllChecked = computed(() => messageData.value.every(item => item.checked))
-// 是否可全选
-const canAllChecked = computed(() => messageData.value.some(item => item.user_type == 4))
+// 是否有选中
+const isSomeChecked = computed(() => messageData.value.some(item => item.checked))
 // 是否显示顶部右侧操作按钮
-const showTopRightBtn = computed(
-  () => hasUnread.value || canAllChecked.value || !isDisabledDelete.value
-)
+const showTopRightBtn = computed(() => hasUnread.value || !isDisabledDelete.value)
 
 const onBack = () => {
   router.back()
@@ -281,14 +278,16 @@ const onNavBtnClick = () => {
     messageData.value.forEach(item => (item.checked = 0))
     showController.value = false
   } else {
-    showController.value = true
+    showController.value = !showController.value
   }
 }
 // 进入消息详情页
-const goMessageDetails = (id: number) => {
-  if (!showController.value) {
-    router.push(`/details/message/${id}`)
+const handleClickMessage = (item: TMessage) => {
+  if (showController.value) {
+    item.checked = item.checked === 1 ? 0 : 1
+    return
   }
+  router.push(`/details/message/${item.id}`)
 }
 
 const description = ref('您确定要删除这些信息吗？')
@@ -327,6 +326,8 @@ const beforeDeleteMessage: Interceptor = ({ position }) => {
 // 全部已读
 const onAllRead = async () => {
   try {
+    if (!hasUnread.value) return
+
     getAllMessageIds('allRead')
 
     const res = await userMessageDetailsApi({
@@ -334,6 +335,7 @@ const onAllRead = async () => {
     })
 
     if (res) {
+      showController.value = false
       getUserMessageList()
     }
 
@@ -352,6 +354,8 @@ const onBtnAllSelect = () => {
 }
 // 底部删除按钮点击
 const onDelete = () => {
+  if (isDisabledDelete.value) return
+
   description.value = '您确定要删除这些信息吗？'
   showConfirmSheet.type = 2
   showConfirmSheet.value = true
@@ -390,37 +394,21 @@ onBeforeUnmount(() => {
 @import '@/assets/styles/sprite-home.scss';
 
 :deep(.van-nav-bar) {
-//  &.van-hairline--bottom::after {
-//    border-bottom-width: 0;
-//  }
-//  .van-nav-bar__content {
-//    height: 90px;
-//    .arrow-back {
-//      margin-left: 24px;
-//      transform: rotate(180deg) scale(1.5);
-//    }
-//    .van-nav-bar__title {
-//      height: 100%;
-//      line-height: 90px;
-//      font-size: 33px;
-//      color: #13161b;
-//    }
-    .van-nav-bar__right {
-      top: 80px;
-      height: 80px;
-      padding-right: 40px;
-    }
-    .btn-text {
-      font-size: 33px;
-      color: #0b75ff;
-    }
-//  }
+  .van-nav-bar__right {
+    top: 80px;
+    height: 80px;
+    padding-right: 40px;
+  }
+  .btn-text {
+    font-size: 33px;
+    color: #0b75ff;
+  }
 }
 
 .message-container {
   width: 100%;
-  height: calc(100% - 90px);
-  padding: 40px 0 0 0;
+  height: calc(100% - 120px);
+  padding: 20px 0 20px 0;
   background-color: #fff;
   :deep(.van-pull-refresh) {
     overflow: auto;
@@ -462,6 +450,9 @@ onBeforeUnmount(() => {
   .message-item {
     margin-bottom: 40px;
     padding: 0 32px;
+    &.message-item-end {
+      margin-bottom: 0;
+    }
     .unread {
       width: 14px;
       height: 14px;
@@ -534,7 +525,7 @@ onBeforeUnmount(() => {
     font-size: 31px;
     border-radius: 7px;
     &.btn-all-select {
-      margin: 0 17px 0 36px;
+      margin: 0 17px 0 17px;
     }
     &.van-button--disabled {
       opacity: 1;

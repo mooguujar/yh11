@@ -35,6 +35,7 @@ const handleBtnClick = () => {
   position: fixed;
   bottom: 0;
   width: 100%;
+  max-width: 750px;
   padding: 0 41px;
   .buttom-view {
     width: 100%;

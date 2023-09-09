@@ -1,5 +1,5 @@
 <template>
-  <div class="mine w-100 bg-[#f6fbff]">
+  <div class="mine w-100 bg-[#f6fbff] overflow-y-scroll">
     <nav-bar
       class="nav-bar"
       title="订单中心"
@@ -34,7 +34,7 @@
           </div>
         </div>
         <div
-          class="pt-[20px] w-[calc(100%-40px)] h-[calc(100vh-300px)] pb-[100px] overflow-scroll fixed top-[280px]"
+          class="pt-[20px] w-[calc(100%-0px)] h-[calc(100vh-300px)] pb-[100px] overflow-scroll max-w-[710px]"
           v-if="list.length > 0"
         >
           <van-pull-refresh
@@ -93,7 +93,7 @@
                     {{ item.order_id }}
                     <div
                       class="copy ml-[10px]"
-                      @click="onCopy(item.order_id, '订单编号')"
+                      @click="copy(item.order_id)"
                     ></div>
                   </div>
                 </div>
@@ -107,10 +107,10 @@
                   <div class="text-[#13161b] text-[25px] flex items-center">
                     <img
                       class="w-[57px] h-[57px] block mr-[10px] rounded-sm"
-                      :src="imgServerUrl + item.headimg"
+                      :src="imgServerUrl + item.sell_info.headimg"
                       alt=""
                     />
-                    <span class="text-[28px]">{{ item.nickname }}</span>
+                    <span class="text-[28px]">{{ item.sell_info.nickname }}</span>
                   </div>
                   <div
                     class="text-[#ff0000] text-[28px]"
@@ -153,7 +153,7 @@
           </div>
         </div>
         <div
-          class="pt-[20px] w-[calc(100%-40px)] h-[calc(100vh-300px)] pb-[100px] overflow-scroll fixed top-[280px]"
+          class="pt-[20px] w-[calc(100%-0px)] h-[calc(100vh-300px)] pb-[100px] overflow-scroll max-w-[710px]"
           v-if="list.length > 0"
         >
           <van-pull-refresh
@@ -213,8 +213,8 @@
                   </div>
                 </div>
                 <div class="flex items-center justify-between mb-[10px]">
-                  <div class="text-[#787f8c] text-[20px]">额外奖励</div>
-                  <div class="text-[#000] text-[25px]">{{ financial(item.sell_gift) }}GDB</div>
+                  <div class="text-[#787f8c] text-[20px]">已获奖励</div>
+                  <div class="text-[#000] text-[25px]">{{ financial(item.get_sell_gift) }}GDB</div>
                 </div>
                 <div class="flex items-center justify-between mb-[10px]">
                   <div class="text-[#787f8c] text-[20px]">挂单编号</div>
@@ -222,7 +222,7 @@
                     {{ item.order_id }}
                     <div
                       class="copy ml-[10px]"
-                      @click="onCopy(item.order_id, '挂单编号')"
+                      @click="copy(item.order_id)"
                     ></div>
                   </div>
                 </div>
@@ -266,6 +266,7 @@ import { myBuyOrdersApi, mySellOrdersApi } from '@/apis/buySellCoin'
 import { computed } from 'vue'
 import { watch } from 'vue'
 import Timer from '@/components/TImer.vue'
+import clipboard3 from 'vue-clipboard3'
 
 const entryStore = useEntryStore()
 const imgServerUrl = entryStore.imgServerUrl
@@ -275,29 +276,26 @@ const router = useRouter()
 const route = useRoute()
 
 const financial = (x: string) => {
-  return x ? Number.parseFloat(x).toFixed(2) : '0.00'
+  return x ? Number.parseFloat(x).toTruncFixed(2) : '0.00'
 }
 
-// 封装onCopy函数，绑定到一键复制的按钮中
-const onCopy = (order_id: string, name: string) => {
-  const source = ref(order_id)
-  // 考虑到兼容性问题，
-  // 先判断当前有没有clipboard实例，如果有，则使用useClipboard；如果没有，则使用js原生方法
-  if (navigator.clipboard) {
-    const { copy } = useClipboard({ source })
-    copy()
-  } else {
-    const input = document.createElement('input')
-    input.setAttribute('value', source.value)
-    document.body.appendChild(input)
-    input.select()
-    document.execCommand('copy')
-    document.body.removeChild(input)
+const { toClipboard } = clipboard3()
+const copy = async (text: any) => {
+  try {
+    await toClipboard(text)
+    // showToast('复制成功');
+    showToast({
+      message: '复制成功',
+      icon: verified,
+      iconSize: '48px'
+    })
+  } catch (error) {
+    // showToast('复制失败!!');
+    showToast({
+      message: '复制失败!!',
+      icon: verified
+    })
   }
-  showToast({
-    message: `${name}已复制到剪切板`,
-    icon: verified
-  })
 }
 
 const action_tabs = [
@@ -359,6 +357,8 @@ const onRefresh = () => {
   finished.value = false
   oderParm.value.page = 1
   list.value = []
+
+  console.log(list.value, 'list.value')
 
   // 重新加载数据
   // 将 loading 设置为 true，表示处于加载状态
@@ -429,7 +429,7 @@ const renderBuyStatusText = (status: number) => {
     { text: '已付待收', color: 'text-[#ff0000]' },
     { text: '挂起待确认', color: 'text-[#ff0000]' },
     { text: '交易完成', color: 'text-[#58cf00]' },
-    { text: '强制失败', color: 'text-[#777]' },
+    { text: '强制失败', color: 'text-[#58cf00]' },
     { text: '强制成功', color: 'text-[#58cf00]' }
   ]
   return buyStatusList[status - 1]
@@ -444,7 +444,7 @@ const renderSellStatusText = (status: number) => {
     { text: '挂起待确认', color: 'text-[#ff0000]' },
     { text: '全部完成', color: 'text-[#58cf00]' },
     { text: '取消卖出', color: 'text-[#777]' },
-    { text: '部分完成（已取消但部分完成）', color: 'text-[#777]' }
+    { text: '部分完成', color: 'text-[#58cf00]' }
   ]
   return sellStatusList[status - 1]
 }
@@ -472,9 +472,11 @@ onMounted(async () => {
   if (route.query.status_index && route.query.active_index) {
     action_index.value = Number(route.query.active_index)
     status_index.value = Number(route.query.status_index)
+  } else {
+    console.log(1)
+    onRefresh()
   }
   getUserInfo()
-  onRefresh()
 })
 </script>
 

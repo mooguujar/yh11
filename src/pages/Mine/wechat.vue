@@ -41,17 +41,18 @@
         className="dialog-bulletin" @confirm="() => !bind_bank.coin_address ? addWechat() : deleteWechat()">
         <i class="icon-close close-dark block" @click="handleConfirmDialog(false)"></i>
         <div>
-          <van-field v-model="pay_pass" placeholder="请输入支付密码" />
+          <van-field v-model="pay_pass" placeholder="请输入支付密码" type="password" readonly clickable @focus="showKeyboard = true" @touchstart.stop="showKeyboard = true" />
         </div>
       </van-dialog>
-      <van-dialog v-model:show="dialogContent.show" :title="dialogContent.title" theme="round-button"
+      <van-number-keyboard v-model="pay_pass" :show="showKeyboard" :maxlength="6" @blur="showKeyboard = false" class="!z-[3000]" />
+      <!-- <van-dialog v-model:show="dialogContent.show" :title="dialogContent.title" theme="round-button"
         :className="['dialog-deal']" :confirmButtonText="dialogContent.confirmButtonText" @confirm="onConfirm">
         <i class="icon-close block close-dark" @click="onClose"></i>
         <div class="flex flex-col items-center justify-between">
           <img :src="dialogContent.img" :class="!authStore?.userInfo.verified_status ? 'verifi-id' : 'add-card'" />
           <div class="content text-center">{{ dialogContent.content }}</div>
         </div>
-      </van-dialog>
+      </van-dialog> -->
     </div>
   </div>
 </template>
@@ -125,6 +126,8 @@ const isConfirmDialog = ref(false);
 const pay_pass = ref('');
 const isLoading = ref(false)
 const regPayPass = /^[0-9]{6}$/;
+
+const showKeyboard = ref(false);
 
 const handleConfirmDialog = (open: boolean) => {
   if (authStore?.userInfo?.verified_status !== 1) {
@@ -237,64 +240,9 @@ const getWallets = async () => {
   }
 }
 
-import verifyID from '@/assets/images/common/ID-verify.png'
-import passIcon from '@/assets/images/common/key.png'
-import { reactive } from 'vue';
-
-const dialogContent = reactive({
-  show: false,
-  title: '',
-  img: '',
-  content: '',
-  confirmButtonText: ''
-})
-
-const onClose = () => {
-  dialogContent.show = false
-}
-
-const onConfirm = () => {
-  dialogContent.show = false
-  if (authStore?.userInfo?.verified_status !== 1) {
-    router.push('/verify')
-  }
-
-  if (authStore.userInfo.is_set_paypassword === 2) {
-    router.push('/pay_password')
-  }
-}
-
-const canBindPayment = () => {
-  if (authStore?.userInfo?.verified_status !== 1) {
-    const dialogInfo = {
-      show: true,
-      title: '身份认证',
-      img: verifyID,
-      content: '完成身份认证，可核对真实身份，保障合法权益',
-      confirmButtonText: '立即认证'
-    }
-    Object.assign(dialogContent, dialogInfo)
-    return false
-  }
-  if (authStore.userInfo.is_set_paypassword === 2) {
-    const dialogInfo = {
-      show: true,
-      title: '设置支付密码',
-      img: passIcon,
-      content: '请先设置支付密码',
-      confirmButtonText: '立即设置'
-    }
-    Object.assign(dialogContent, dialogInfo)
-    return false
-  }
-
-  return true
-}
-
 onMounted(async () => {
   await getWallets()
   await authStore.getUserInfo()
-  canBindPayment()
 })
 </script>
 

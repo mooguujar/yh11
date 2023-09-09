@@ -449,7 +449,7 @@ onBeforeUnmount(() => {
           }
         }
         .award-name {
-          font-size: 19px;
+          font-size: 17px;
           color: #cf0224;
         }
       }

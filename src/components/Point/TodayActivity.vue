@@ -86,12 +86,15 @@ const awardBoxPos = (item: TAction, index: number) => {
   if (awardBox.value?.[index]) {
     if (!item.target) return
 
+    // 宝箱一半的距离，最后一个宝箱微调
+    const distance = +(item.target as unknown as number) === finalTarget.value ? 32 : 53 / 2
+    // 宝箱偏移位置
     const left =
       Math.abs(
         (+(item.target as unknown as number) / finalTarget.value) * barGrey.value.clientWidth -
-          53 / 2
+          distance
       ) + 'px'
-    return +(item.target as unknown as number) === finalTarget.value ? 'right: 0' : `left: ${left}`
+    return `left: ${left}`
   }
 }
 
@@ -250,16 +253,8 @@ onUnmounted(() => {
     }
     .item-point-column {
       position: absolute;
-      // width: 106px;
-      // height: 114px;
-      // margin-right: 49px;
-      &:nth-child(4) {
-        margin-right: 0;
-      }
-      &:last-child {
-        margin-left: auto;
-        margin-right: -16px;
-      }
+      left: 0;
+      transition: all 0.3s ease-in-out;
       [class*='point-'] {
         position: relative;
         z-index: 9;

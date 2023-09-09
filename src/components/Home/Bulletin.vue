@@ -4,8 +4,10 @@ import { useArticleStore } from '@/store/modules/article'
 import { useAuthStore } from '@/store/modules/auth'
 import { IArticleListType } from '@/store/types/article'
 import { storeToRefs } from 'pinia'
-import { computed, onMounted, reactive, ref } from 'vue'
+import { computed, onMounted, onUnmounted, reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
+import mitt from '@/utils/mitt'
+import { IGlobalNotification } from '@/store/types/global'
 
 const authStore = useAuthStore()
 const { token, userInfo } = storeToRefs(authStore)
@@ -16,19 +18,27 @@ const articleStore = useArticleStore()
 const { getArticleListApi } = articleStore
 const { rollingNotice } = storeToRefs(articleStore)
 
+const emit = defineEmits(['update-article'])
+
 const bulletinData = ref<IArticleListType[]>([])
+const currStatus = reactive({
+  AuthExpire: false
+})
 
 const isLogin = computed(() => !!token.value)
 
-const emit = defineEmits(['update-article'])
-
+let updateArticleTimer: NodeJS.Timeout | null
 const handleRollingNoticeData = async () => {
   try {
     let res: IArticleListType[] = await getArticleListApi({
       bind_key: 'OpenNotice,RollingNotice,HomeHuanDeng'
     })
 
-    emit('update-article')
+    updateArticleTimer = setTimeout(() => {
+      if (!currStatus.AuthExpire) {
+        emit('update-article')
+      }
+    }, 1000)
     // res = rollingNotice.value
 
     // if (res.length) {
@@ -51,9 +61,20 @@ const handleShowDialog = (_dialog: IArticleListType) => {
 const closeDialog = () => {
   dialogShow.value = false
 }
+const setCurrStatus = (data: IGlobalNotification) => {
+  if (data.type === 'AuthExpire') {
+    currStatus.AuthExpire = data.value
+  }
+}
 
 onMounted(() => {
+  mitt.on('global-notification', setCurrStatus)
   handleRollingNoticeData()
+})
+onUnmounted(() => {
+  mitt.off('global-notification', setCurrStatus)
+  updateArticleTimer && clearTimeout(updateArticleTimer)
+  updateArticleTimer = null
 })
 </script>
 

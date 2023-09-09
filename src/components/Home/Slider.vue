@@ -8,6 +8,10 @@ import { INormal } from '@/store/types/entry'
 import { storeToRefs } from 'pinia'
 import { computed, onMounted, ref, watch, nextTick } from 'vue'
 import { useRouter } from 'vue-router'
+import { useCoinBuySellStore } from '@/store/modules/coinBuySell'
+const coinBuySellStore = useCoinBuySellStore()
+const { getWithdrawddresslist } = coinBuySellStore
+const { withdrawddresslist } = storeToRefs(coinBuySellStore)
 
 const authStore = useAuthStore()
 const { token } = storeToRefs(authStore)
@@ -45,32 +49,7 @@ const homeSliderList = ref<IArticleListType[]>([])
 // banner列表变更记录
 const checkCount = ref(0)
 
-// const sliderList = ref<IArticleListType[]>([])
-
-// const getSliderList = async () => {
-//   try {
-//     let res: IArticleListType[] = []
-
-//     if (homeSlider.value.length) {
-//       res = homeSlider.value
-//     } else {
-//       await getArticleListApi({
-//         bind_key: 'HomeHuanDeng'
-//       })
-//       res = homeSlider.value
-//     }
-
-//     if (res.length) {
-//       sliderList.value = res
-//     }
-
-//     window.log('轮播公告内容', res)
-//   } catch (error) {
-//     console.error(error)
-//   }
-// }
-
-const handleClick = (data: any) => {
+const handleClick = async (data: any) => {
   if (data.app_exts) {
     const { app_action, WebUrlLink } = JSON.parse(data.app_exts)
 
@@ -140,11 +119,13 @@ onMounted(() => {
 .slider-container {
   width: 100%;
   height: 300px;
+
   :deep(.swipe-slider) {
     --van-swipe-indicator-size: 12px;
     width: 100%;
     height: 100%;
     border-radius: 14px;
+
     .van-image {
       width: 100%;
       height: 100%;

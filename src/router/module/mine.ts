@@ -1,4 +1,4 @@
-// import Mine from '@/pages/Mine/index.vue'
+import { CompletionPaymentPasswordMiddleware, CompletionIdCardMiddleware, CompletionPaymentMiddleware } from "@/router/middleware";
 
 const mine = [
   {
@@ -9,12 +9,14 @@ const mine = [
   {
     path: '/alipay',
     name: 'alipay',
-    component: () => import(/* webpackChunkName: "home" */ '@/pages/Mine/alipay.vue')
+    component: () => import(/* webpackChunkName: "home" */ '@/pages/Mine/alipay.vue'),
+    beforeEnter: [CompletionIdCardMiddleware, CompletionPaymentPasswordMiddleware]
   },
   {
     path: '/bank_card',
     name: 'bank_card',
-    component: () => import(/* webpackChunkName: "home" */ '@/pages/Mine/bank_card.vue')
+    component: () => import(/* webpackChunkName: "home" */ '@/pages/Mine/bank_card.vue'),
+    beforeEnter: [CompletionIdCardMiddleware, CompletionPaymentPasswordMiddleware]
   },
   {
     path: '/pay_password',
@@ -39,7 +41,8 @@ const mine = [
   {
     path: '/wechat',
     name: 'wechat',
-    component: () => import(/* webpackChunkName: "home" */ '@/pages/Mine/wechat.vue')
+    component: () => import(/* webpackChunkName: "home" */ '@/pages/Mine/wechat.vue'),
+    beforeEnter: [CompletionIdCardMiddleware, CompletionPaymentPasswordMiddleware]
   },
   {
     path: '/credit',

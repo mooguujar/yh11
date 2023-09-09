@@ -7,7 +7,7 @@
     <div class="top-container flex flex-col items-center justify-center">
       <Balance
         :money="{
-          coinCash: getUserMoneyByMType(1)?.available_coincash ?? '0',
+          coinCash: Number(getUserMoneyByMType(1)?.available_coincash ?? '0').toTruncFixed(3),
           canSale: canSaleAmount as unknown as number,
           notSale: notSaleAmount as unknown as number
         }"
@@ -19,7 +19,10 @@
         :loading="isLoading"
         @refresh="getFundingDetailsData"
       >
-        <user-money-details :data="fundingDetailsData" />
+        <user-money-details
+          v-show="!isLoading"
+          :data="fundingDetailsData"
+        />
       </pull-refresh>
     </div>
   </div>
@@ -90,9 +93,9 @@ onMounted(() => {
 
 .funding-details-container {
   width: 100%;
-  height: calc(100% - 90px);
+  height: calc(100% - 120px);
   .top-container {
-    // height: 175px;
+    height: 184px;
     // padding: 20px 0 29px 0;
     background-color: #0b75ff;
     .balance-text {
@@ -138,7 +141,7 @@ onMounted(() => {
 
   .funding-details-list-container {
     width: 100%;
-    height: calc(100% - 144px);
+    height: calc(100% - 184px);
   }
 }
 </style>

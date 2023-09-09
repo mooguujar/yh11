@@ -100,6 +100,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent;
 }
+.overflow_a{
+  overflow: auto;
+}
 #app {
   max-width: 750px;
   height: 100%;

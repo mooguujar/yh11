@@ -51,17 +51,7 @@ const onCheckIn = async () => {
       mitt.emit('updateTodayActivity', true)
 
       getSignInData(true)
-      // const newSignInData = cloneDeep(signInData)
 
-      // newSignInData.value.list.forEach((item: ISignInRecord) => {
-      //   if (item.datetxt === '今天') {
-      //     item.hisokflag = 1
-      //     newSignInData.value.todayisok = 1
-      //   }
-      // })
-
-      // // 更新签到列表数据
-      // taskActivityStore.updateSignInData(newSignInData.value as ISignInData)
       showToast({
         message: `签到成功，+${res.money}积分`,
         icon: success,
@@ -77,13 +67,9 @@ const onCheckIn = async () => {
 const getSignInData = async (isReq: boolean = false) => {
   window.log('每日签到积分列表', signInData.value)
 
-  if (signInData.value.list && !isReq) {
-    const today = signInData.value.list.find((item: ISignInRecord) => item.datetxt === '今天') || {}
-    const isToday = dayjs().isSame(dayjs(today.date ?? null), 'day')
-
-    // 今日数据有缓存，就不再请求
-    if (isToday) return
-  }
+  // 签到缓存数据是否异常，若异常则需重新请求接口数据
+  const listError = signInData.value.list?.[3]?.date !== dayjs().format('YYYY-MM-DD')
+  if (signInData.value.list && !listError && !isReq) return
 
   await taskActivityStore.getSignInListApi()
 

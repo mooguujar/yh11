@@ -5,9 +5,9 @@
   >
     <div
       v-if="data.length"
-      v-for="item in data"
+      v-for="(item, index) in data"
       :key="item.id"
-      class="item-list flex flex-col justify-between"
+      class="item-list flex flex-col justify-between hairline-border"
     >
       <div class="item-title-amount flex items-center justify-between">
         <div class="title">{{ item.trade_type_name }}</div>
@@ -52,11 +52,12 @@ const isIncome = computed(() => {
 // 转化输出区分交易增减数额
 const transformAmount = computed(() => {
   return (item: TIMoneyDetailsItem) =>
-    (incomeType.includes(item.money_type as number) ? '+' : '-') + item.money
+    (incomeType.includes(item.money_type as number) ? '+' : '-') +
+    Number(item.money).toTruncFixed(2)
 })
 // 货币为非积分时，补齐两位小数
 const transformMoneyCash = computed(() => {
-  return (item: TIMoneyDetailsItem) => (+(item?.money_cash ?? 0)).toFixed(2)
+  return (item: TIMoneyDetailsItem) => (+(item?.money_cash ?? 0)).toTruncFixed(2)
 })
 
 // 监听scrollTop值变化，通知pull-refresh组件变更disabled状态
@@ -71,14 +72,16 @@ const onPageScroll = (e: Event) => {
 .user-money-details-container {
   width: 100%;
   height: 100%;
+  padding-bottom: 20px;
   background-color: #fff;
   overflow-y: auto;
+  scroll-behavior: smooth;
   .item-list {
-    // height: 133px;
-    // padding: 0 20px 0 18px;
-    // height: 267px;
     padding: 20px;
-    border-bottom: 1px solid #d6dce8;
+    &.hairline-border::after {
+      border-width: 0 !important;
+      border-bottom-width: 1px !important;
+    }
   }
   .item-title-amount {
     font-size: 28px;

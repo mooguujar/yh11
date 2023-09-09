@@ -61,7 +61,7 @@ onMounted(() => {})
         :key="item.sell_order_id"
         class="order-item flex items-center"
         @click="
-          sell
+          sell && item.status === 1
             ? router.push('/orderList?order_id=' + item.sell_order_id)
             : router.push('/orderCreate?order_id=' + item.buy_order_id)
         "

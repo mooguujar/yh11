@@ -15,7 +15,7 @@ export interface BuyQuickly {
 export const BuyQuickly = (params: BuyQuickly) => {
   return request.post<{ order_id: string }>('/api/Coin/BuyQuickly', params, {
     options: {
-      auth: true
+      auth: true,
     }
   })
 }
@@ -29,7 +29,7 @@ export interface Buy {
 export const Buy = (params: Buy) => {
   return request.post<{ order_id: string }>('/api/Coin/Buy', params, {
     options: {
-      auth: true
+      auth: true,
     }
   })
 }

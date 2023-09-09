@@ -68,14 +68,14 @@ const onClose = () => {
 onMounted(() => {
   mitt.on('push_coin_buy_order_status', (data: any) => {
     console.log('推送买币订单状态 ', data)
-    if (![6].includes(data.data.status)) {
+    if (![1,6].includes(data.data.status)) {
       toast.data.content = data.data.msg
       toast.show = true
     }
 
     setTimeout(() => {
       const hash = window.location.hash
-      if (!hash.includes('orderCreate')) {
+      if (!hash.includes('orderCreate') && !hash.includes('orderList')) {
         dialog.data = {
           title: '订单编号' + data.data.order_id,
           content: '订单状态更新，请尽快操作',
@@ -100,7 +100,7 @@ onMounted(() => {
     }
 
     const hash = window.location.hash
-    if (!hash.includes('orderCreate')) {
+    if (!hash.includes('orderCreate') && !hash.includes('orderList')) {
       dialog.data = {
         title: '订单编号' + data.data.order_id,
         content: '订单状态更新，请尽快操作',
@@ -120,7 +120,7 @@ onMounted(() => {
     console.log('买方发送给卖方催单 data', data)
     dialog.data = {
       title: '订单编号' + data.data.order_id,
-      content: '买方发送催单了，请尽快操作',
+      content: '买方发送交易提醒，请尽快操作',
       confirmButtonText: '去处理',
       confirmAction: () => {
         !hash.includes('orderCreate') && router.push('/orderCreate?order_id=' + data.data.order_id)
@@ -136,7 +136,7 @@ onMounted(() => {
 
     dialog.data = {
       title: '订单编号' + data.data.order_id,
-      content: '卖方发送催单了，请尽快操作',
+      content: '卖方发送交易提醒，请尽快操作',
       confirmButtonText: '去处理',
       confirmAction: () => {
         !hash.includes('orderCreate') && router.push('/orderCreate?order_id=' + data.data.order_id)
@@ -163,13 +163,13 @@ onMounted(() => {
 
   mitt.on('push_coinsellcomment', (data: any) => {
     console.log('交易申诉更新 data', data)
-
+    mitt.emit('update_appeal_f', data)
     dialog.data = {
-      title: '订单编号' + data.data.order_id,
+      title: '订单编号' + data.data.coin_buy_order_id,
       content: '交易申诉更新，请尽快操作',
       confirmButtonText: '去处理',
       confirmAction: () => {
-        router.push('/orderCreate?order_id=' + data.data.order_id)
+        router.push('/orderCreate?order_id=' + data.data.coin_buy_order_id)
         onClose()
       }
     }

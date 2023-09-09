@@ -68,7 +68,9 @@ export const defaultParams = (type: string, data: Record<string, any>) => {
   const lang = 'cn'
   const platform = 'H5'
   const ver = import.meta.env.VITE_APP_VERSION
-  const timestamp = Math.round(new Date().getTime() / 1000)
+  const localTimestamp = Math.round(Date.now() / 1000)
+  const timestampDiff = sessionStorage.getItem('timestamp_diff')
+  const timestamp = timestampDiff ? localTimestamp + -timestampDiff : localTimestamp
   const PRIVATE_KEY =
     sessionStorage.getItem('md5_pri') || import.meta.env.VITE_APP_PRIVATE_KEY || ''
   const PUBLIC_KEY = sessionStorage.getItem('md5_pub') || 'c9e1fecb78306e13fb3cfdc89cca2d3d'
@@ -200,9 +202,9 @@ export const requireImg = (imgPath: string) => {
 }
 
 export function secondsToMinutesWithSeconds(seconds: number) {
-  const minutes = Math.floor(seconds / 60);
-  const remainingSeconds = seconds % 60;
-  const formattedMinutes = String(minutes).padStart(2, '0');
-  const formattedSeconds = String(remainingSeconds).padStart(2, '0');
-  return ` ${formattedMinutes}:${formattedSeconds} `;
+  const minutes = Math.floor(seconds / 60)
+  const remainingSeconds = seconds % 60
+  const formattedMinutes = String(minutes).padStart(2, '0')
+  const formattedSeconds = String(remainingSeconds).padStart(2, '0')
+  return ` ${formattedMinutes}:${formattedSeconds} `
 }

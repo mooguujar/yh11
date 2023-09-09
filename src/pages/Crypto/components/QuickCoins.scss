@@ -124,3 +124,28 @@
     color: #ffffff;
   }
 }
+:deep(.buy_input_f){
+  input[disabled] {
+    color: #000 !important; /* 设置你想要的颜色 */
+    -webkit-text-fill-color:#000;
+  }
+}
+.unbind-payment-popup {
+  width: 500px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  &__text {
+    white-space: pre-wrap;
+    text-align: center;
+    font-size: 30px;
+    line-height: 1.5;
+    margin-top: 40px;
+  }
+  &__btn {
+    display: flex;
+    gap: 30px;
+    margin-top: 80px;
+  }
+}

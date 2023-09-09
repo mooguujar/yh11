@@ -15,6 +15,7 @@ import GlobalDialog from '@/components/Common/GlobalDialog.vue'
 
 const AppBar = enableAppBar()
 
+// 需显示底部导航栏的路由列表
 const MenuBarRouteList = ['Home', 'Point', 'Order', 'Mine']
 const route = useRoute()
 const commonStore = useCommonStore()
@@ -25,9 +26,7 @@ const isOpen = ref(false)
 
 const { token } = storeToRefs(useAuthStore())
 
-onMounted(() => {
-  initApp()
-})
+initApp()
 
 async function initApp() {
   try {
@@ -130,13 +129,32 @@ async function initApp() {
 watch(showLoading, (newValue, oldValue) => {
   reqLoading.value = newValue
 })
+
+onMounted(() => {
+  // 检测断网
+  window.addEventListener('offline', () => {
+    //
+  })
+  // 检测有网络
+  window.addEventListener('online', () => {
+    // window.location.reload()
+  })
+  // 检测页面可见性
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+      // window.location.reload()
+    } else {
+      //
+    }
+  })
+})
 </script>
 
 <template>
   <div class="content-container">
     <AppBar />
     <router-view v-if="isOpen" />
-    <MenuBar v-if="MenuBarRouteList.includes(route.name as string)" />
+    <MenuBar v-if="isOpen && MenuBarRouteList.includes(route.name as string)" />
 
     <van-toast
       v-model:show="reqLoading"
@@ -160,6 +178,8 @@ watch(showLoading, (newValue, oldValue) => {
     </van-toast>
 
     <GlobalDialog />
+
+    <PreloadResources />
   </div>
 </template>
 <style scoped lang="scss">

@@ -5,32 +5,28 @@ import { useClipboard } from '@vueuse/core'
 import { showToast } from 'vant'
 import verified from '@/assets/images/common/verified.png'
 import { storeToRefs } from 'pinia'
+import clipboard3 from 'vue-clipboard3'
 
 const authStore = useAuthStore()
 const { userInfo } = storeToRefs(authStore)
 
 const walletAddress = computed(() => userInfo.value.uuid)
 
-// 封装onCopy函数，绑定到一键复制的按钮中
-const onCopy = (walletAddress: string) => {
-  const source = ref(walletAddress)
-  // 考虑到兼容性问题，
-  // 先判断当前有没有clipboard实例，如果有，则使用useClipboard；如果没有，则使用js原生方法
-  if (navigator.clipboard) {
-    const { copy } = useClipboard({ source })
-    copy()
-  } else {
-    const input = document.createElement('input')
-    input.setAttribute('value', source.value)
-    document.body.appendChild(input)
-    input.select()
-    document.execCommand('copy')
-    document.body.removeChild(input)
+const { toClipboard } = clipboard3()
+const onCopy = async (text: any) => {
+  try {
+    await toClipboard(text)
+    showToast({
+      message: '钱包地址已复制到剪切板',
+      icon: verified,
+      iconSize: '48px'
+    })
+  } catch (error) {
+    showToast({
+      message: '复制失败!!',
+      icon: verified
+    })
   }
-  showToast({
-    message: '钱包地址已复制到剪切板',
-    icon: verified
-  })
 }
 </script>
 

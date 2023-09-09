@@ -1,39 +1,38 @@
 .orderCreate {
-  overflow: auto;
   height: 100%;
   background: #fff;
   .nav-bar--transparent {
     background: #ebf1f6;
   }
-  //:deep(.van-nav-bar__content) {
-  //  width: 100%;
-  //  height: 105px;
-  //  background-color: #ebf1f6;
-  //  .van-icon {
-  //    width: 16px;
-  //    height: 27.1px;
-  //    color: #787f8c;
-  //    font-size: 0.45rem;
-  //    font-weight: 600;
-  //    // margin-top: -20px;
-  //  }
-  //  .van-nav-bar__title {
-  //    height: 105px;
-  //    font-family: MicrosoftYaHei;
-  //    font-size: 41.7px;
-  //    font-weight: normal;
-  //    font-stretch: normal;
-  //    line-height: 105px;
-  //    letter-spacing: 0px;
-  //    // color: #ffffff;
-  //    // margin-top: -20px;
-  //  }
-  //}
-  //:deep(.processActive) {
-  //  .van-nav-bar__content {
-  //    background-color: #fff;
-  //  }
-  //}
+  :deep(.van-nav-bar__content) {
+   width: 100%;
+   height: 105px;
+   background-color: #e7eff4;
+   .van-icon {
+     width: 16px;
+     height: 27.1px;
+     color: #787f8c;
+     font-size: 0.45rem;
+     font-weight: 600;
+     // margin-top: -20px;
+   }
+   .van-nav-bar__title {
+     height: 105px;
+     font-family: MicrosoftYaHei;
+     font-size: 41.7px;
+     font-weight: normal;
+     font-stretch: normal;
+     line-height: 110px;
+     letter-spacing: 0px;
+     // color: #ffffff;
+     // margin-top: -20px;
+   }
+  }
+  :deep(.processActive) {
+   .van-nav-bar__content {
+     background-color: #e7eff4;
+   }
+  }
   .van-hairline--bottom:after {
     border: 0px;
     display: none;
@@ -144,23 +143,23 @@
         overflow: hidden;
       }
       .OuserName {
-        vertical-align: top;
+        // vertical-align: top;
         display: inline-block;
         margin-left: 18.5px;
-        margin-top: 37.5px;
-        width: 263px;
+        // margin-top: 37.5px;
+        width: 303px;
         font-family: MicrosoftYaHei-Bold;
         font-size: 29.167px;
         font-weight: 600;
         font-stretch: normal;
-        line-height: 26.667px;
+        // line-height: 26.667px;
         letter-spacing: 0px;
         color: #13161b;
       }
       .contactSeller {
         padding: 0;
         float: right;
-        margin-top: 20px;
+        // margin-top: 20px;
         width: 208.333px;
         height: 69.444px;
         background-image: linear-gradient(#0b75ff, #0b75ff), linear-gradient(#ffe257, #ffe257);
@@ -259,6 +258,15 @@
     }
   }
   .O_orderInfo.O_pay {
+    .O_amount{
+      height: 100px;
+      line-height: 100px;
+    }
+    .payImg1 {
+      height: 100px;
+      max-width: 250px;
+      margin-right: 30px;
+    }
     .payImg {
       width: 60px;
       margin-right: 20px;
@@ -269,11 +277,26 @@
       line-height: 45px;
     }
   }
+  .O_orderInfo.pingfen {
+    margin: 0 auto;
+    text-align: left;
+  }
+  .S_Ctips{
+    margin-top: 20px !important;
+  }
+  .bigtxt{
+    font-size: 35px !important;
+    font-weight:500 !important;
+  }
   .orderButton {
     width: 100%;
     position: absolute;
     bottom: 100px;
     left: 0;
+  }
+  .appeal{
+    margin-top: 30px;
+    color: #ff474c;
   }
   .orderButton.processActive {
     .orderOperation {
@@ -490,7 +513,11 @@
     color: #ffffff !important;
   }
   .O_red {
-    color: #ff0000;
+    color: #ff0000 !important;
+  }
+  .big_tit{
+    font-size: 33px !important;
+    font-weight: 500 !important;
   }
   .appeal_c {
     // overflow: auto;
@@ -503,6 +530,7 @@
       letter-spacing: 0px;
       color: #000;
       border-bottom: #000 1px solid;
+      margin-bottom: 18px;
     }
     .commen {
       font-family: MicrosoftYaHei;
@@ -524,8 +552,11 @@
           }
           .OuserName {
             padding: 0 20px;
+            vertical-align: top;
           }
           .judeg {
+            vertical-align: top;
+            margin-top: 6px;
             background: #db2855f4;
             font-size: 20px;
             text-align: center;
@@ -536,6 +567,12 @@
             border-radius: 50%;
             display: inline-block;
           }
+          .buyer_blue{
+            background: #009ee9;
+          }
+          .f_kefu{
+            background:#de001f;
+          }
         }
         .right {
           width: 50%;
@@ -544,6 +581,7 @@
       }
       .text_c {
         color: #5e5d5d;
+        line-break: anywhere;
       }
       .pic_commen {
         width: 30%;
@@ -603,5 +641,58 @@
   }
   .top_margin20{
     padding-top: 20px;
+  }
+  :deep(.dialog-global-info) {
+    width: 708px;
+    height: auto;
+    padding: 40px;
+    .van-dialog__header {
+      padding: 0;
+      font-size: 29px;
+      color: #13161b;
+    }
+    .van-dialog__content {
+      margin: 33px 0 35px 0;
+      font-size: 25px;
+      color: #787f8c;
+      text-align: center;
+    }
+    .title {
+      margin-bottom: 20px;
+    }
+    .content {
+      color: #13161b;
+    }
+    .content1 {
+      height: 150px;
+      line-height: 150px;
+    }
+    .van-dialog__footer {
+      padding: 0;
+    }
+    .van-dialog__confirm,
+    .btn-confirm {
+      width: 48%;
+      height: 80px;
+      font-size: 31px;
+      background: #0b75ff;
+      color: #fff;
+      border: 0;
+      border-radius: 8px;
+    }
+    .backcc{
+      background-color: #777777 !important;
+    }
+    .flex_z{
+      justify-content: space-between;
+    }
+    .icon-close {
+      position: absolute;
+      right: 40px;
+      top: 24px;
+    }
+  }
+  :deep(.dialog-global-info.order_cancel_show){
+    width: 500px !important;
   }
 }

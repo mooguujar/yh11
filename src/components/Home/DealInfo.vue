@@ -91,7 +91,7 @@ onUnmounted(() => {
       :class="item.id === 2 ? 'deal-info-item hairline-border' : 'deal-info-item'"
     >
       <div class="flex items-center justify-center">
-        <span class="item-amount">{{ item.amount.toFixed(2) }}</span>
+        <span class="item-amount">{{ item.amount.toTruncFixed(2) }}</span>
         <span class="item-GDB">GDB</span>
       </div>
       <div class="item-title">{{ item.title }}</div>

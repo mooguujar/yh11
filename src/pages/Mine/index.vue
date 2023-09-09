@@ -4,37 +4,70 @@
       <div class="topbar-container">
         <div class="van-safe-area-top">
           <div class="topbar-content-view flex justify-between items-end">
-            <div v-for="item in topBarItemList" :key="item.icon"
-                 :class="item.icon === 'logo' ? 'logo-container' : item.icon" @click="changeRoute(item.routePath)">
+            <div
+              v-for="item in topBarItemList"
+              :key="item.icon"
+              :class="item.icon === 'logo' ? 'logo-container' : item.icon"
+              @click="changeRoute(item.routePath)"
+            >
               <template v-if="item.title">
                 <!-- <div :class="item.icon"></div> -->
                 <!-- <img :src="homeTopLogo" class="home-top-logo" /> -->
                 <div class="text-logo">我的</div>
               </template>
 
-              <div v-if="item.icon === 'message' && unReadCount" class="unread-sign">
+              <div
+                v-if="item.icon === 'message' && unReadCount"
+                class="unread-sign"
+              >
                 {{ unReadCount }}
               </div>
             </div>
           </div>
-          </div>
+        </div>
         <div class="mt-[30px] flex items-center justify-between">
           <div class="flex items-center">
             <div class="avatar relative overflow-hidden rounded-md bg-[#fff]">
-              <div class="avatar1" v-if="!authStore?.userInfo?.headimg"></div>
-              <img v-else class="w-[110px] h-[110px] block" :src="imgServerUrl + authStore?.userInfo?.headimg" alt="" />
-              <div class="mask w-full bg-black/50 absolute bottom-0 left-0 h-[30px] flex items-center">
+              <div
+                class="avatar1"
+                v-if="!authStore?.userInfo?.headimg"
+              ></div>
+              <img
+                v-else
+                class="w-[110px] h-[110px] block"
+                :src="imgServerUrl + authStore?.userInfo?.headimg"
+                alt=""
+              />
+              <div
+                class="mask w-full bg-black/50 absolute bottom-0 left-0 h-[30px] flex items-center"
+              >
                 <div class="camera mx-auto"></div>
               </div>
-              <input className="avatar-input absolute top-0 left-0 w-full h-full opacity-0 z-2" type="file"
-                accept="image/*" @change="afterRead" />
+              <input
+                className="avatar-input absolute top-0 left-0 w-full h-full opacity-0 z-2"
+                type="file"
+                accept="image/*"
+                @change="afterRead"
+                @click="onAvatarClick"
+              />
             </div>
             <div class="ml-[7.5px]">
               <div class="text-[30px] text-white flex items-center mb-[10px]">
                 {{ authStore?.userInfo?.nickname }}
-                <div class="edit ml-[10px] scale-[0.8]" @click="handleEditNicknameDialog(true)"></div>
+                <div
+                  class="edit ml-[10px] scale-[0.8]"
+                  @click="handleEditNicknameDialog(true)"
+                ></div>
               </div>
-              <div class="text-[#94c3ff] text-[24px]">{{ authStore?.userInfo?.username }}</div>
+              <div class="text-[#94c3ff] text-[24px] flex items-center">
+                {{ authStore?.userInfo?.username }}
+                <img
+                  :src="copyIcon"
+                  alt=""
+                  class="w-[30px] ml-[10px]"
+                  @click="copy(authStore?.userInfo?.username)"
+                />
+              </div>
             </div>
           </div>
           <div @click="goFundingDetails">
@@ -48,9 +81,12 @@
       </div>
     </div>
     <div class="mine-content p-[24px] bg-[#ebf1f6]">
-      <div :key="entry.title"
+      <div
+        :key="entry.title"
         class="entry-row bg-white rounded-sm w-full h-[82px] px-[24px] flex items-center justify-between"
-        v-for="entry in entry_list_1" @click="entry.action">
+        v-for="entry in entry_list_1"
+        @click="entry.action"
+      >
         <div class="text-[30px] text-[#13161b] flex items-center">
           <div :class="`${entry.icon} mr-1`"></div>
           {{ entry.title }}
@@ -63,8 +99,12 @@
 
       <div class="text-[24px] text-[#787f8c] mt-2 mb-[7.5px] ml-1">收款及支付方式</div>
       <div class="bg-white rounded-sm">
-        <div :key="entry.title" class="entry-row w-full h-[82px] px-[24px] flex items-center justify-between"
-          v-for="entry in entry_list_2" @click="entry.action">
+        <div
+          :key="entry.title"
+          class="entry-row w-full h-[82px] px-[24px] flex items-center justify-between"
+          v-for="entry in entry_list_2"
+          @click="entry.action"
+        >
           <div class="text-[30px] text-[#13161b] flex items-center">
             <div :class="`${entry.icon} mr-1`"></div>
             {{ entry.title }}
@@ -78,8 +118,12 @@
 
       <div class="text-[24px] text-[#787f8c] mt-2 mb-[7.5px] ml-1">账号安全</div>
       <div class="bg-white rounded-sm">
-        <div :key="entry.title" class="entry-row w-full h-[82px] px-[24px] flex items-center justify-between"
-          v-for="entry in entry_list_3" @click="entry.action">
+        <div
+          :key="entry.title"
+          class="entry-row w-full h-[82px] px-[24px] flex items-center justify-between"
+          v-for="entry in entry_list_3"
+          @click="entry.action"
+        >
           <div class="text-[30px] text-[#13161b] flex items-center">
             <div :class="`${entry.icon} mr-1`"></div>
             {{ entry.title }}
@@ -93,11 +137,23 @@
 
       <div class="text-[24px] text-[#787f8c] mt-2 mb-[7.5px] ml-1">其他</div>
       <div class="bg-white rounded-sm">
-        <div :key="entry.title" class="entry-row w-full h-[82px] px-[24px] flex items-center justify-between"
-          v-for="entry in entry_list_4" @click="entry.action">
+        <div
+          :key="entry.title"
+          class="entry-row w-full h-[82px] px-[24px] flex items-center justify-between"
+          v-for="entry in entry_list_4"
+          @click="entry.action"
+        >
           <div class="text-[30px] text-[#13161b] flex items-center">
-            <img v-if="entry.img_src" :src="entry.img_src" alt="" class="w-[40px] mr-1" />
-            <div v-else :class="`${entry.icon} mr-1`"></div>
+            <img
+              v-if="entry.img_src"
+              :src="entry.img_src"
+              alt=""
+              class="w-[40px] mr-1"
+            />
+            <div
+              v-else
+              :class="`${entry.icon} mr-1`"
+            ></div>
             {{ entry.title }}
           </div>
           <div class="text-[24px] text-[#787f8c] flex items-center">
@@ -108,34 +164,60 @@
       </div>
     </div>
 
-    <van-dialog v-model:show="dialog.show" :title="dialog.data.title" theme="round-button" className="dialog-msg"
-      @confirm="onCloseDialog">
-      <i class="icon-close block close-dark" @click="onCloseDialog"></i>
+    <van-dialog
+      v-model:show="dialog.show"
+      :title="dialog.data.title"
+      theme="round-button"
+      className="dialog-msg"
+      @confirm="onCloseDialog"
+    >
+      <i
+        class="icon-close block close-dark"
+        @click="onCloseDialog"
+      ></i>
 
       <div class="add-time">{{ dialog.data.add_time }}</div>
-      <div class="content" v-html="dialog.data.content"></div>
+      <div
+        class="content"
+        v-html="dialog.data.content"
+      ></div>
 
       <template #footer>
-        <div class="btn-confirm flex items-center justify-center" @click="onCloseDialog">
+        <div
+          class="btn-confirm flex items-center justify-center"
+          @click="onCloseDialog"
+        >
           我知道了
         </div>
       </template>
     </van-dialog>
-    <van-dialog v-model:show="isEditNicknameDialog" title="昵称修改" confirmButtonText="提交" theme="round-button"
-      className="dialog-bulletin" @confirm="() => editNickname()">
-      <i class="icon-close close-dark block" @click="handleEditNicknameDialog(false)"></i>
+    <van-dialog
+      v-model:show="isEditNicknameDialog"
+      title="昵称修改"
+      confirmButtonText="提交"
+      theme="round-button"
+      className="dialog-bulletin"
+      @confirm="() => editNickname()"
+    >
+      <i
+        class="icon-close close-dark block"
+        @click="handleEditNicknameDialog(false)"
+      ></i>
       <div>
-        <van-field v-model="edit_nickname" placeholder="昵称限制2-8位长度" />
+        <van-field
+          v-model="edit_nickname"
+          placeholder="昵称限制3-8位长度"
+        />
       </div>
     </van-dialog>
-    <van-dialog v-model:show="dialogContent.show" :title="dialogContent.title" theme="round-button"
+    <!-- <van-dialog v-model:show="dialogContent.show" :title="dialogContent.title" theme="round-button"
       :className="['dialog-deal']" :confirmButtonText="dialogContent.confirmButtonText" @confirm="onConfirm">
       <i class="icon-close block close-dark" @click="onClose"></i>
       <div class="flex flex-col items-center justify-between">
         <img :src="dialogContent.img" :class="!authStore?.userInfo.verified_status ? 'verifi-id' : 'add-card'" />
         <div class="content text-center">{{ dialogContent.content }}</div>
       </div>
-    </van-dialog>
+    </van-dialog> -->
   </div>
 </template>
 
@@ -151,14 +233,17 @@ import { IMessage } from '@/store/types/article'
 import { userMessageDetailsApi, userMessageListApi } from '@/apis/article'
 import { showToast } from 'vant'
 import { useAppBar } from '@/components/AppBar/useAppBar'
-import verifyID from '@/assets/images/common/ID-verify.png'
-import passIcon from '@/assets/images/common/key.png'
+// import verifyID from '@/assets/images/common/ID-verify.png'
+// import passIcon from '@/assets/images/common/key.png'
+import copyIcon from '@/assets/images/mine/copy.png'
 
-import homeTopLogo from '@/assets/images/home_top_logo.png'
-import addCard from '@/assets/images/common/add-card.png'
+// import homeTopLogo from '@/assets/images/home_top_logo.png'
+// import addCard from '@/assets/images/common/add-card.png'
 import info from '@/assets/images/common/info.png'
 import success from '@/assets/images/common/success.png'
+import verified from '@/assets/images/common/verified.png'
 import { storeToRefs } from 'pinia'
+import clipboard3 from 'vue-clipboard3'
 
 useAppBar({ mode: 'dark' })
 
@@ -167,6 +252,15 @@ const showInfoToast = (title: string) => {
     message: title,
     icon: info
   })
+}
+const onAvatarClick = function (e: Event) {
+  if (authStore?.editreview?.headimg?.status === -1) {
+    e.preventDefault()
+    return showToast({
+      message: '头像正在审核中，请等待',
+      icon: info
+    })
+  }
 }
 const showSuceedToast = (title: string) => {
   return showToast({
@@ -200,6 +294,25 @@ const topBarItemList = [
 const router = useRouter()
 const changeRoute = (path: string) => {
   router.push(path)
+}
+
+const { toClipboard } = clipboard3()
+const copy = async (text: any) => {
+  try {
+    await toClipboard(text)
+    // showToast('复制成功');
+    showToast({
+      message: '复制成功',
+      icon: verified,
+      iconSize: '48px'
+    })
+  } catch (error) {
+    // showToast('复制失败!!');
+    showToast({
+      message: '复制失败!!',
+      icon: verified
+    })
+  }
 }
 
 const entryStore = useEntryStore()
@@ -253,10 +366,11 @@ const getMineInfo = async () => {
 }
 
 const verifyStatusText = () => {
+  // 0 未认证 1 已认证   2审核中   3 请重新认证   4禁止认证
   if (authStore?.userInfo?.verified_status === 0) {
     return { text: '未认证', color: 'text-[#ff0000]' }
   } else if (authStore?.userInfo?.verified_status === 3) {
-    return { text: '已拒绝', color: 'text-[#ff0000]' }
+    return { text: '请重新认证', color: 'text-[#ff0000]' }
   } else if (authStore?.userInfo?.verified_status === 4) {
     return { text: '禁止认证', color: 'text-[#ff0000]' }
   } else if (authStore?.userInfo?.verified_status === 1) {
@@ -305,60 +419,12 @@ const payPassStatusText = (is_set_pass: number) => {
   return is_set_pass === 1 ? '已设置' : '未设置'
 }
 
-const dialogContent = reactive({
-  show: false,
-  title: '',
-  img: '',
-  content: '',
-  confirmButtonText: ''
-})
-
-const canBindPayment = () => {
-  if (authStore?.userInfo?.verified_status !== 1) {
-    const dialogInfo = {
-      show: true,
-      title: '身份认证',
-      img: verifyID,
-      content: '完成身份认证，可核对真实身份，保障合法权益',
-      confirmButtonText: '立即认证'
-    }
-    Object.assign(dialogContent, dialogInfo)
-    return false
-  }
-  if (authStore.userInfo.is_set_paypassword === 2) {
-    const dialogInfo = {
-      show: true,
-      title: '设置支付密码',
-      img: passIcon,
-      content: '请先设置支付密码',
-      confirmButtonText: '立即设置'
-    }
-    Object.assign(dialogContent, dialogInfo)
-    return false
-  }
-
-  return true
-}
-
-const onConfirm = () => {
-  dialog.show = false
-  if (authStore?.userInfo?.verified_status !== 1) {
-    router.push('/verify')
-  }
-
-  if (authStore.userInfo.is_set_paypassword === 2) {
-    router.push('/pay_password')
-  }
-}
-
 const entry_list_1 = computed(() => [
   {
     title: '实名认证',
     action: () => {
       // DEFAULT '2' COMMENT '是否实名认证  1 成功   2待审核   3 拒绝请重新认证  4禁止认证',
-      if (
-        [0, 1, 2].includes(authStore?.userInfo?.verified_status)
-      ) {
+      if ([0, 1, 2, 3].includes(authStore?.userInfo?.verified_status)) {
         router.push('verify')
       } else {
         showInfoToast(verifyStatusText().text)
@@ -374,9 +440,7 @@ const entry_list_2 = computed(() => [
   {
     title: '银行卡',
     action: () => {
-      if (canBindPayment()) {
         router.push('bank_card')
-      }
     },
     status_text: bankCardStatusText(bind_bank.value),
     is_finished: false,
@@ -385,9 +449,7 @@ const entry_list_2 = computed(() => [
   {
     title: '微信支付',
     action: () => {
-      if (canBindPayment()) {
         router.push('wechat')
-      }
     },
     status_text: bankCardStatusText(bind_wechat.value),
     is_finished: false,
@@ -396,9 +458,7 @@ const entry_list_2 = computed(() => [
   {
     title: '支付宝',
     action: () => {
-      if (canBindPayment()) {
         router.push('alipay')
-      }
     },
     status_text: bankCardStatusText(bind_alipay.value),
     is_finished: false,
@@ -519,14 +579,13 @@ const getDialogMessage = async () => {
 const onCloseDialog = () => {
   dialog.show = false
 }
-const onClose = () => {
-  dialogContent.show = false
-}
+// const onClose = () => {
+//   dialogContent.show = false
+// }
 
 const edit_nickname = ref('')
 const isEditNicknameDialog = ref(false)
 const handleEditNicknameDialog = (open: boolean) => {
-  console.log(authStore?.editreview?.nickname?.status, 'userInfo')
   if (authStore?.editreview?.nickname?.status === -1) {
     showInfoToast('昵称正在审核中请等待')
   } else {
@@ -536,14 +595,14 @@ const handleEditNicknameDialog = (open: boolean) => {
 
 const editNickname = async () => {
   try {
-    if (edit_nickname.value.length >= 2 && edit_nickname.value.length <= 8) {
+    if (edit_nickname.value.length >= 3 && edit_nickname.value.length <= 8) {
       await updateUserInfoApi({
         nickname: edit_nickname.value
       })
       authStore?.getUserInfo()
     } else {
       edit_nickname.value = ''
-      showInfoToast('昵称限制2-8位长度')
+      showInfoToast('昵称限制3-8位长度')
     }
   } catch (e) {
     console.log(e)
@@ -552,8 +611,6 @@ const editNickname = async () => {
     edit_nickname.value = ''
   }
 }
-
-
 
 onMounted(() => {
   getMineInfo()
@@ -564,6 +621,7 @@ onMounted(() => {
   bind_alipay.value = coin?.withdrawddresslist.filter(
     address => address.coin_protocol === 'ALIPAY'
   )[0]
+
   getWithdrawddresslist({}).then(() => {
     if (coin?.withdrawddresslist.filter(address => address.coin_protocol === 'BANK').length > 0) {
       bind_bank.value = coin?.withdrawddresslist.filter(

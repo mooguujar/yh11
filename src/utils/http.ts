@@ -7,6 +7,8 @@ import errorIcon from '@/assets/images/common/error.png'
 import infoIcon from '@/assets/images/common/info.png'
 import { AxiosErrorConfigExtended, AxiosRequestConfigExtended, CustomAxiosRequestConfig } from '.'
 import { useCommonStore } from '@/store/modules/common'
+import { AuthExpirePopup } from '@/components/CommonPopup/AuthExpirePopup'
+
 // 保存 Content-Type 的图片类型
 const contentTypeImg = ['image/jpeg', 'image/png', 'image/gif', 'image/bmp', 'image/webp']
 const defaultOptions = {
@@ -55,17 +57,12 @@ class CustomAxios {
         const search = new URLSearchParams(window.location.search || window.location.hash)
         const vtoken = search.get('vtoken') || ''
         const deviceid = search.get('deviceid') || ''
-        if (!vtoken && !deviceid) {
+        if (import.meta.env.VITE_APP_ENV === 'dev' && !vtoken && !deviceid) {
           const { href, hash } = window.location
           window.location.href = href.replace(hash, '#/auth/login')
         } else {
-          showToast({
-            type: 'html',
-            message: '登录已过期，请手动关闭页面，\n返回游戏重新打开',
-            className: 'session-expired-toast',
-            icon: warningIcon,
-            duration: 0,
-            overlay: true
+          AuthExpirePopup({
+            action: () => window.close()
           })
           // setTimeout(() => {
           //   window.close()
@@ -94,6 +91,10 @@ class CustomAxios {
           showToast({ message: msg, icon: infoIcon })
         } else if (code === 10021) {
           showToast({ message: '身份证信息已被注册', icon: errorIcon })
+        } else if (code === 10217) {
+          showToast({ message: `您的交易密码重置申请已提交，交易密码暂时不可用`, icon: infoIcon })
+        } else if (code === 10046) {
+          showToast({ message: '经检测您的卡号与姓名不符', icon: errorIcon })
         } else {
           showToast({ message: msg, icon: errorIcon })
         }
@@ -174,8 +175,7 @@ class CustomAxios {
 
   response() {
     return {
-      success: (response: AxiosResponse): AxiosResponse => {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      success: (response: AxiosResponse): AxiosResponse | Promise<any> => {
         const _options = (response.config as CustomAxiosRequestConfig).options
 
         if (contentTypeImg.includes(response.headers['content-type'])) {
@@ -183,7 +183,6 @@ class CustomAxios {
         }
         if (response.data.code !== 0) {
           this.errorHandler(response.data, _options)
-          // throw response.data;
         }
 
         return response

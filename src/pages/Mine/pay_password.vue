@@ -18,9 +18,10 @@
           <div class="input-view flex items-center">
             <i :class="['block', item.icon]"></i>
             <input :value="item.value" :type="item.type" :placeholder="item.placeholder" v-model="item.value"
-              :maxlength="6" pattern="[0-9]*" :onkeypress="onlyNumberKey" />
+              :maxlength="6" pattern="[0-9]*" :onkeypress="onlyNumberKey" :readonly="true" @click="item.showKeyboard = true" />
             <van-number-keyboard :show="item.showKeyboard" @blur="item.showKeyboard = false" :maxlength="6"
-              @input="handleInput(item.key, item.value + $event)" />
+              @input="handleInput(item.key, item.value + $event)"
+              @delete="clearInput(item.key)" />
             <i v-if="item.key.toLowerCase().includes('pass')" :class="item.type === 'password' ? 'eye-close' : 'eye-open'"
               @click="togglePasswordStatus(index)"></i>
           </div>
@@ -33,6 +34,7 @@
         <div class="bg-[#ebf1f6] p-[18px] w-full flex flex-wrap">
           <div class="bg-white w-[300px] h-[170px] mr-[8px] flex items-center flex-wrap justify-center relative">
             <div class="upload-img-icon"></div>
+            <img v-if="forgetPassImg" :src="imgServerUrl + forgetPassImg" alt="" class="w-full h-full absolute">
             <div class="text-[28px] text-[#0b75ff]">
               上传手持证件照信息页
             </div>
@@ -82,6 +84,7 @@ import success from '@/assets/images/common/success.png'
 
 const authStore = useAuthStore();
 const entryStore = useEntryStore();
+const imgServerUrl = entryStore.imgServerUrl;
 
 const router = useRouter();
 
@@ -119,58 +122,58 @@ let fieldList = reactive(
   !isSetPass ? [
     {
       key: 'pass',
-      placeholder: '请输入6位支付密码',
+      placeholder: '请输入6位数字的支付密码',
       typeKey: 'pass',
       icon: 'lock',
       value: '',
       type: 'password',
-      require: '请输入6位支付密码',
-      formatError: '支付密码格式错误',
+      require: '请输入6位数字的支付密码',
+      formatError: '支付密码仅支持6位数字格式',
       showKeyboard: false,
     },
     {
       key: 'c_pass',
-      placeholder: '确认6位支付新密码',
+      placeholder: '确认6位数字的支付新密码',
       typeKey: 'c_pass',
       icon: 'lock',
       value: '',
       type: 'password',
-      require: '请输入确认6位支付密码',
-      formatError: '支付密码格式错误',
+      require: '请输入确认6位数字的支付密码',
+      formatError: '支付密码仅支持6位数字格式',
       showKeyboard: false,
     }
   ] :
     [
       {
         key: 'o_pass',
-        placeholder: '原6位支付密码',
+        placeholder: '原6位数字的支付密码',
         typeKey: 'o_pass',
         icon: 'lock',
         value: '',
         type: 'password',
-        require: '请输入原6位支付密码',
-        formatError: '支付密码格式错误',
+        require: '请输入原6位数字的支付密码',
+        formatError: '支付密码仅支持6位数字格式',
         showKeyboard: false,
       },
       {
         key: 'n_pass',
-        placeholder: '新6位支付密码',
+        placeholder: '新6位数字的支付密码',
         typeKey: 'n_pass',
         icon: 'lock',
         value: '',
         type: 'password',
-        require: '请输入新6位支付密码',
-        formatError: '支付密码格式错误',
+        require: '请输入新6位数字的支付密码',
+        formatError: '支付密码仅支持6位数字格式',
         showKeyboard: false,
       },
       {
         key: 'c_pass',
-        placeholder: '确认6位支付新密码',
+        placeholder: '确认6位数字的支付新密码',
         typeKey: 'c_pass',
         icon: 'lock',
         value: '',
         type: 'password',
-        formatError: '支付密码格式错误',
+        formatError: '支付密码仅支持6位数字格式',
         showKeyboard: false,
       }
     ]);
@@ -183,8 +186,16 @@ const handleInput = (key: string, inputValue: string) => {
   }
 };
 
+const clearInput = (key: string) => {
+  const itemIndex = fieldList.findIndex(item => item.key === key);
+  if (itemIndex > -1) {
+    fieldList[itemIndex].value = '';
+  }
+};
+
 
 const forgetPass = () => {
+  if (authStore?.userInfo?.verified_status !== 1) return showInfoToast('请实名认证后继续此操作')
   fieldList = fieldList.filter(item => item.key !== 'o_pass')
   isForgetPass.value = true;
 }
@@ -205,7 +216,7 @@ const getItem = (key: string) => {
 
 const onlyNumberKey = (evt) => {
   // Only ASCII character in that range allowed
-  console.log(evt, 'evt')
+  // console.log(evt, 'evt')
   var ASCIICode = (evt.which) ? evt.which : evt.keyCode
   if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
     return false;

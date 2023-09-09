@@ -91,6 +91,7 @@ export interface IWebSetWebReg {
   is_noreg_phonecode: INormal
   is_userdit_review: INormal
   is_wxalipay_codereview: INormal
+  is_autobank_qztj: INormal
 }
 
 interface IExchangeRateMoneyWithdraw {
@@ -271,4 +272,5 @@ export interface IConfigData {
   Web_Set_SysMoney_Config: IWebSetSysMoneyConfig | Record<string, unknown>
   WEB_Set_App_Version: IWEBSetAppVersion | Record<string, unknown>
   WEB_SET_coinset_config: IWEBSETCoinsetConfig | Record<string, unknown>
+  is_autoverified_qztj: IWEBSETCoinsetConfig | Record<string, unknown>
 }

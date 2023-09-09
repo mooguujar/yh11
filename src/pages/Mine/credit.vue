@@ -216,7 +216,7 @@ const imgServerUrl = entryStore.imgServerUrl;
 const { userScore } = storeToRefs(userStore)
 const { userInfo } = storeToRefs(authStore)
 
-console.log(userInfo.value, 'userInfo')
+console.log(userScore.value, 'userScore')
 
 // 信誉评分等级
 const star_level = computed(() => userScore.value.scorelevel)

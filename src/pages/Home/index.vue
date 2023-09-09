@@ -35,7 +35,8 @@ const topBarItemList = [
   },
   {
     // routePath: '/iframe-page/tutorial',
-    routePath: '/iframe-page/third?url=' + import.meta.env.VITE_APP_TUTORIAL_URL + '?from=gdpay_h5',
+    routePath:
+      '/iframe-page/third?url=' + import.meta.env.VITE_APP_TUTORIAL_URL + '/?from=gdpay_h5',
     icon: 'help'
   },
   {
@@ -175,15 +176,14 @@ const canSaleAmount = computed(() => {
   const coinCash = +(getUserMoneyByMType.value(1)?.available_coincash ?? 0)
   const freeSellAmount = +(userInfo.value?.freesell_amount ?? 0)
 
-  if (freeSellAmount > coinCash) return currency(coinCash)
-  return currency(freeSellAmount)
+  if (freeSellAmount > coinCash) return coinCash.toTruncFixed(2)
+  return freeSellAmount.toTruncFixed(2)
 })
 
 // 不可售金额
 const notSaleAmount = computed(() => {
   const coinCash = +(getUserMoneyByMType.value(1)?.available_coincash ?? 0)
-
-  return currency(coinCash).subtract(canSaleAmount.value)
+  return (coinCash - Number(canSaleAmount.value)).toTruncFixed(2)
 })
 
 const handleArticleData = () => {
@@ -253,7 +253,7 @@ onMounted(() => {
               </div> -->
               <Balance
                 :money="{
-                coinCash: getUserMoneyByMType(1)?.available_coincash ?? '0',
+                coinCash: Number(getUserMoneyByMType(1)?.available_coincash ?? '0').toTruncFixed(3),
                 canSale: canSaleAmount as unknown as number,
                 notSale: notSaleAmount as unknown as number
               }"
@@ -306,11 +306,13 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 @import '@/assets/styles/sprite-home.scss';
+
 .home-container {
   width: 100%;
   height: 100%;
   background-color: #ebf1f6;
   overflow: auto;
+
   .topbar-container {
     width: 100%;
     height: 264px;
@@ -318,10 +320,12 @@ onMounted(() => {
     padding: 0 30px;
     box-sizing: border-box;
     background-color: #0b75ff;
+
     .topbar-content-view {
       position: relative;
       width: 100%;
       height: 90px;
+
       .logo-container {
         position: absolute;
         top: 48px;
@@ -330,23 +334,28 @@ onMounted(() => {
         display: flex;
         justify-content: space-between;
         align-items: center;
+
         .home-top-logo {
           width: 45px;
         }
+
         .text-logo {
           margin-left: 10px;
           font-size: 42px;
           color: #fff;
         }
       }
+
       .help {
         margin: 0 28px;
       }
+
       .message {
         position: relative;
         margin-bottom: -3px;
         margin-right: auto;
       }
+
       .unread-sign {
         position: absolute;
         top: -7px;
@@ -362,22 +371,27 @@ onMounted(() => {
       }
     }
   }
+
   .main-content-container {
     width: 100%;
     padding: 0 20px;
+
     .wallet-info-container {
       position: relative;
       width: 100%;
       z-index: 1;
+
       .wallet-info {
         width: 100%;
         margin-top: -140px;
         border-radius: 14px;
         background-color: #fff;
+
         .wallet-main-content {
           padding: 21px;
           font-size: 26px;
           color: #868d9a;
+
           .text-funding-details {
             color: #0b75ff;
           }
@@ -390,20 +404,26 @@ onMounted(() => {
     width: 708px;
     height: auto;
     padding: 40px;
+
     .van-dialog__header {
       padding: 0;
       font-size: 29px;
       color: #13161b;
     }
+
     .van-dialog__content {
+      max-height: 600px;
       margin: 33px 0 35px 0;
       font-size: 25px;
       color: #787f8c;
       text-align: justify;
+      overflow-y: auto;
     }
+
     .van-dialog__footer {
       padding: 0;
     }
+
     .van-dialog__confirm,
     .btn-confirm {
       width: 100%;
@@ -414,27 +434,33 @@ onMounted(() => {
       border: 0;
       border-radius: 8px;
     }
+
     .dialog-radio-controler {
       margin-top: 20px;
+
       .radio {
         margin-right: 10px;
       }
+
       .radio-uncheck {
         width: 35px;
         height: 35px;
         border: 1px solid #868d9a;
         border-radius: 50%;
       }
+
       .radio-text {
         font-size: 25px;
         color: #13161b;
       }
     }
+
     .icon-close {
       position: absolute;
       right: 40px;
       top: 24px;
     }
+
     img {
       width: 100%;
       margin-top: 20px;
@@ -442,19 +468,25 @@ onMounted(() => {
 
     &.dialog-bg-img {
       padding: 0;
+
       .van-dialog__content {
         height: 572px;
+        max-height: 600px;
         margin: 0;
         background: v-bind('dialogBgImg') no-repeat center / cover;
+        overflow-y: auto;
       }
+
       .van-dialog__confirm {
         margin: 0 40px 40px 40px;
       }
+
       .btn-confirm {
         width: 626px;
         margin: 0 auto;
         margin-top: 30px;
       }
+
       .dialog-radio-controler {
         margin: 20px auto;
       }

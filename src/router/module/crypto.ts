@@ -1,8 +1,11 @@
+import { CompletionPaymentPasswordMiddleware, CompletionIdCardMiddleware, CompletionPaymentMiddleware } from "@/router/middleware";
+
 const crypto = [
   {
     path: '/buyCoin',
     name: 'BuyCoin',
-    component: () => import(/* webpackChunkName: "crypto" */ '@/pages/Crypto/buy.vue')
+    component: () => import(/* webpackChunkName: "crypto" */ '@/pages/Crypto/buy.vue'),
+    beforeEnter: [CompletionIdCardMiddleware, CompletionPaymentMiddleware]
   },
   {
     path: '/selfbuyCoin',
@@ -12,7 +15,8 @@ const crypto = [
   {
     path: '/sellCoin',
     name: 'SellCoin',
-    component: () => import(/* webpackChunkName: "crypto" */ '@/pages/Crypto/sell.vue')
+    component: () => import(/* webpackChunkName: "crypto" */ '@/pages/Crypto/sell.vue'),
+    beforeEnter: [CompletionIdCardMiddleware, CompletionPaymentPasswordMiddleware, CompletionPaymentMiddleware]
   },
   {
     path: '/orderCreate',

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useAppBar } from '@/components/AppBar/useAppBar'
 
@@ -7,6 +7,12 @@ const hiddenDefaultNavBarRoutes = ['FundingDetails', 'PointDetails']
 const route = useRoute()
 const router = useRouter()
 const childView = ref()
+
+const title = computed(() => {
+  if (route.name === 'MessageDetail') return '消息详情'
+  return '消息'
+})
+
 const onBack = () => {
   router.back()
 }
@@ -28,12 +34,11 @@ const onNavBtnClick = () => {
   <div class="details-nav-bar">
     <nav-bar
       v-if="!hiddenDefaultNavBarRoutes.includes(route.name as string)"
-      title="消息"
+      :title="title"
       mode="white"
     >
       <template #right>
         <van-icon
-          v-show="childView?.showDelIcon"
           name="delete-o"
           @click="onNavBtnClick"
         />

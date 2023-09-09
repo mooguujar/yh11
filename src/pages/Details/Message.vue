@@ -24,7 +24,8 @@ const onDelMessage = async () => {
   if (res) {
     showToast({
       message: '删除成功',
-      icon: verified
+      icon: verified,
+      iconSize: '48px'
     })
 
     router.back()
@@ -50,12 +51,24 @@ const getMessageDetails = async () => {
   }
 }
 
-const showDelIcon = computed(() => details.value.user_type == 4)
+// 自定义指令处理富文本内容
+const vDetailsContent = {
+  updated: (el: HTMLElement) => {
+    let template = ''
+    el.childNodes.forEach(item => {
+      if (item.nodeType === 3 && item.parentElement?.className.includes('message-content')) {
+        template += `<p>${item.textContent}</p>`
+      } else {
+        template += (item as HTMLElement).outerHTML
+      }
+    })
+    el.innerHTML = template
+  }
+}
 
 defineExpose({
   showConfirmSheet,
-  toggleShowConfirmSheet,
-  showDelIcon
+  toggleShowConfirmSheet
 })
 onMounted(() => {
   getMessageDetails()
@@ -69,6 +82,7 @@ onMounted(() => {
     <div
       class="message-content text-justify"
       v-html="details.content"
+      v-details-content
     ></div>
   </div>
 
@@ -102,6 +116,14 @@ onMounted(() => {
     padding: 33px 0 33px 0;
     :deep(img) {
       width: 100%;
+      &[alt*='['] {
+        width: auto;
+      }
+    }
+    :deep(strike) {
+      img {
+        width: auto;
+      }
     }
   }
 }

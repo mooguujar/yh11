@@ -49,6 +49,8 @@ onMounted(() => {
 
   // 获取coins信息
   authStore.getUserCoin({})
+  // 获取最新用户信息
+  authStore.getUserInfo()
 })
 onBeforeUnmount(() => {
   document.removeEventListener('click', handleCloseInfoTips)
@@ -61,19 +63,19 @@ onBeforeUnmount(() => {
       <div class="flex flex-col justify-between items-center">
         <div class="title text-center">余额(GDB)</div>
         <div className="balance-value text-center">
-          {{ (+money.coinCash).toFixed(2) }}
+          {{ (+money.coinCash).toTruncFixed(2) }}
         </div>
       </div>
       <div class="flex flex-col justify-between items-center">
         <div class="title text-center">可售</div>
         <div className="balance-value balance-sell-status text-center">
-          {{ (+money.canSale).toFixed(2) }}
+          {{ (+money.canSale).toTruncFixed(2) }}
         </div>
       </div>
       <div class="flex flex-col relative justify-between items-center">
         <div class="title text-center">不可售</div>
         <div className="balance-value balance-sell-status text-center">
-          {{ (+money.notSale).toFixed(2) }}
+          {{ (+money.notSale).toTruncFixed(2) }}
         </div>
 
         <div
@@ -97,16 +99,16 @@ onBeforeUnmount(() => {
     <!-- <div class="balance-content2">
       <div class="coin-cash-container flex flex-col items-start justify-between">
         <div class="title">余额(GDB)</div>
-        <div class="amount">{{ (+money.coinCash).toFixed(2) }}</div>
+        <div class="amount">{{ (+money.coinCash).toTruncFixed(2) }}</div>
       </div>
       <div class="coin-other-container relative flex justify-between items-center">
         <div class="item-sale flex justify-between items-center">
           <div class="title">可售</div>
-          <div class="amount">{{ (+money.canSale).toFixed(2) }}</div>
+          <div class="amount">{{ (+money.canSale).toTruncFixed(2) }}</div>
         </div>
         <div class="item-sale flex justify-between items-center">
           <div class="title">不可售</div>
-          <div class="amount">{{ (+money.notSale).toFixed(2) }}</div>
+          <div class="amount">{{ (+money.notSale).toTruncFixed(2) }}</div>
         </div>
 
         <div
@@ -130,7 +132,7 @@ onBeforeUnmount(() => {
     <div class="balance-content3 flex flex-col justify-between">
       <div class="coin-cash-container flex justify-center items-center">
         <div>余额</div>
-        <div class="amount">{{ (+money.coinCash).toTruncFixed(3) }}</div>
+        <div class="amount">{{ money.coinCash }}</div>
         <div>GDB</div>
         <div
           v-if="route.name === 'Home'"
@@ -143,11 +145,11 @@ onBeforeUnmount(() => {
       <div class="coin-other-container relative flex justify-between items-center">
         <div class="item-sale flex justify-between items-center">
           <div class="title">可售</div>
-          <div class="amount">{{ (+money.canSale).toTruncFixed(2) }}</div>
+          <div class="amount">{{ money.canSale }}</div>
         </div>
         <div class="item-sale flex justify-between items-center">
           <div class="title">不可售</div>
-          <div class="amount">{{ (+money.notSale).toTruncFixed(2) }}</div>
+          <div class="amount">{{ money.notSale }}</div>
         </div>
 
         <div

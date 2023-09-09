@@ -40,8 +40,18 @@ router.beforeEach((to, from, next) => {
     const search = new URLSearchParams(window.location.search)
     const vtoken = search.get('vtoken') || ''
     const deviceid = search.get('deviceid') || ''
+
+    // 非开发环境，屏蔽跳转到登录页
+    if (import.meta.env.VITE_APP_ENV !== 'dev' && to.name === 'Login') return
+
     // 兼容本地H5调式页面，未获取到token，则跳转到登录页，避免页面显示异常
-    if (!vtoken && !deviceid && !sessionStorage.getItem('token') && to.name !== 'Login') {
+    if (
+      import.meta.env.VITE_APP_ENV === 'dev' &&
+      !vtoken &&
+      !deviceid &&
+      !sessionStorage.getItem('token') &&
+      to.name !== 'Login'
+    ) {
       next('/auth/login')
       return
     }

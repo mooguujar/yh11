@@ -1,6 +1,6 @@
 <template>
   <div class="cionBuy">
-    <nav-bar title="买币" mode="blue" />
+    <nav-bar title="买币" mode="blue" class="nav-bar" />
 
 <!--    <van-nav-bar title="买币" left-arrow @click-left="onClickLeft" />-->
     <div class="content">

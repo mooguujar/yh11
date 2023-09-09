@@ -7,13 +7,11 @@ import configImageminPlugin from './plugin/imagemin'
 const lifecycle = process.env.npm_lifecycle_event
 const isHttpsLifecycle = lifecycle === 'dev:https'
 const env = loadEnv(process.env.NODE_ENV, process.cwd())
-let SERVE_URL=''
-import config from '../public/config.json';
-SERVE_URL=config.SERVE_URL;
+let SERVE_URL = ''
+import config from '../public/config.json'
+SERVE_URL = config.SERVE_URL
 
-
-
-console.log('生产环境信息', env,SERVE_URL)
+console.log('生产环境信息', env, SERVE_URL)
 export default mergeConfig(
   {
     mode: 'production', // vite生产模式
@@ -23,8 +21,8 @@ export default mergeConfig(
       minify: 'terser',
       terserOptions: {
         compress: {
-          // drop_console: true,
-          // drop_debugger: true
+          drop_console: true,
+          drop_debugger: true
         }
       },
       rollupOptions: {
