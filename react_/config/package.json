@@ -1,0 +1,79 @@
+{
+  "name": "app",
+  "version": "0.1.9",
+  "private": true,
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.36",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "axios": "^1.4.0",
+    "idb": "^7.1.1",
+    "nprogress": "^0.2.0",
+    "react": "^18.2.0",
+    "react-activation": "^0.12.4",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.1.1",
+    "react-router-dom": "^6.14.0",
+    "react-scripts": "5.0.1",
+    "redux-persist": "^6.0.0",
+    "styled-components": "^6.0.0-rc.6",
+    "typescript": "*",
+    "web-vitals": "^2.1.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "scripts": {
+    "start": "dotenv -e .env.dev react-app-rewired start",
+    "start:dev": "dotenv -e .env.dev react-app-rewired start",
+    "start:prod": "dotenv -e .env.prod react-app-rewired start",
+    "build:dev": "dotenv -e .env.dev react-app-rewired build",
+    "build:prod": "dotenv -e .env.prod react-app-rewired build",
+    "lint": "npx eslint .",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject",
+    "serve:dev": "npm run build:dev && serve -s build",
+    "serve:prod": "npm run build:prod && serve -s build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@types/nprogress": "^0.2.0",
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "customize-cra": "^1.0.0",
+    "dotenv-cli": "^7.2.1",
+    "eslint": "^8.0.1",
+    "eslint-config-standard-with-typescript": "^35.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.32.2",
+    "husky": "^8.0.3",
+    "react-app-rewired": "^2.2.1",
+    "serve": "^14.2.0"
+  }
+}
