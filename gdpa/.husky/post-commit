@@ -1,0 +1,13 @@
+#!/bin/bash
+# osascript -e 'tell application "Visual Studio Code" to activate'
+# osascript -e 'tell application "System Events" to keystroke "b" using {command down, shift down}'
+
+#!/bin/bash
+
+# 获取当前 git 分支
+current_branch=$(git rev-parse --abbrev-ref HEAD)
+
+# 如果当前分支是 master，则触发 Command+Shift+B 快捷键
+if [ "$current_branch" == "master" ]; then
+    osascript -e 'tell application "System Events" to keystroke "b" using {command down, shift down}'
+fi
