@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/composables/use-touch.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { ref } from \"vue\";\nimport { TAP_OFFSET } from \"../utils/index.mjs\";\nfunction getDirection(x, y) {\n  if (x > y) {\n    return \"horizontal\";\n  }\n  if (y > x) {\n    return \"vertical\";\n  }\n  return \"\";\n}\nfunction useTouch() {\n  const startX = ref(0);\n  const startY = ref(0);\n  const deltaX = ref(0);\n  const deltaY = ref(0);\n  const offsetX = ref(0);\n  const offsetY = ref(0);\n  const direction = ref(\"\");\n  const isTap = ref(true);\n  const isVertical = () => direction.value === \"vertical\";\n  const isHorizontal = () => direction.value === \"horizontal\";\n  const reset = () => {\n    deltaX.value = 0;\n    deltaY.value = 0;\n    offsetX.value = 0;\n    offsetY.value = 0;\n    direction.value = \"\";\n    isTap.value = true;\n  };\n  const start = (event) => {\n    reset();\n    startX.value = event.touches[0].clientX;\n    startY.value = event.touches[0].clientY;\n  };\n  const move = (event) => {\n    const touch = event.touches[0];\n    deltaX.value = (touch.clientX < 0 ? 0 : touch.clientX) - startX.value;\n    deltaY.value = touch.clientY - startY.value;\n    offsetX.value = Math.abs(deltaX.value);\n    offsetY.value = Math.abs(deltaY.value);\n    const LOCK_DIRECTION_DISTANCE = 10;\n    if (!direction.value || offsetX.value < LOCK_DIRECTION_DISTANCE && offsetY.value < LOCK_DIRECTION_DISTANCE) {\n      direction.value = getDirection(offsetX.value, offsetY.value);\n    }\n    if (isTap.value && (offsetX.value > TAP_OFFSET || offsetY.value > TAP_OFFSET)) {\n      isTap.value = false;\n    }\n  };\n  return {\n    move,\n    start,\n    reset,\n    startX,\n    startY,\n    deltaX,\n    deltaY,\n    offsetX,\n    offsetY,\n    direction,\n    isVertical,\n    isHorizontal,\n    isTap\n  };\n}\nexport {\n  useTouch\n};\n",
+      "start": 1714699767871,
+      "end": 1714699767891,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { ref } from \"vue\";\nimport { TAP_OFFSET } from \"../utils/index.mjs\";\nfunction getDirection(x, y) {\n  if (x > y) {\n    return \"horizontal\";\n  }\n  if (y > x) {\n    return \"vertical\";\n  }\n  return \"\";\n}\nfunction useTouch() {\n  const startX = ref(0);\n  const startY = ref(0);\n  const deltaX = ref(0);\n  const deltaY = ref(0);\n  const offsetX = ref(0);\n  const offsetY = ref(0);\n  const direction = ref(\"\");\n  const isTap = ref(true);\n  const isVertical = () => direction.value === \"vertical\";\n  const isHorizontal = () => direction.value === \"horizontal\";\n  const reset = () => {\n    deltaX.value = 0;\n    deltaY.value = 0;\n    offsetX.value = 0;\n    offsetY.value = 0;\n    direction.value = \"\";\n    isTap.value = true;\n  };\n  const start = (event) => {\n    reset();\n    startX.value = event.touches[0].clientX;\n    startY.value = event.touches[0].clientY;\n  };\n  const move = (event) => {\n    const touch = event.touches[0];\n    deltaX.value = (touch.clientX < 0 ? 0 : touch.clientX) - startX.value;\n    deltaY.value = touch.clientY - startY.value;\n    offsetX.value = Math.abs(deltaX.value);\n    offsetY.value = Math.abs(deltaY.value);\n    const LOCK_DIRECTION_DISTANCE = 10;\n    if (!direction.value || offsetX.value < LOCK_DIRECTION_DISTANCE && offsetY.value < LOCK_DIRECTION_DISTANCE) {\n      direction.value = getDirection(offsetX.value, offsetY.value);\n    }\n    if (isTap.value && (offsetX.value > TAP_OFFSET || offsetY.value > TAP_OFFSET)) {\n      isTap.value = false;\n    }\n  };\n  return {\n    move,\n    start,\n    reset,\n    startX,\n    startY,\n    deltaX,\n    deltaY,\n    offsetX,\n    offsetY,\n    direction,\n    isVertical,\n    isHorizontal,\n    isTap\n  };\n}\nexport {\n  useTouch\n};\n",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    }
+  ]
+}

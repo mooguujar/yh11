@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/index.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\nimport logo from '@/assets/images/logo.png'\nimport { useEntryStore } from '@/store/modules/entry'\nimport { onMounted, onUpdated, ref, watch, nextTick, computed } from 'vue'\nimport { storeToRefs } from 'pinia'\nimport { useRoute, useRouter } from 'vue-router'\nconst entryStore = useEntryStore()\nconst { config } = storeToRefs(entryStore)\nconst h5logo_url = computed(() => {\n  return config.value.Web_Set_DefaultInfo.h5logo_url?.v || ''\n})\nconst h5loginlogo_url = computed(() => {\n  return config.value.Web_Set_DefaultInfo.h5loginlogo_url?.v || ''\n})\nconst imgserver_url = computed(() => {\n  return config.value.Web_Set_DefaultInfo.imgserver_url?.v || ''\n})\nconst api_logo = ref(imgserver_url.value + (h5loginlogo_url.value || h5logo_url.value))\n// console.log('api_logo', api_logo.value)\n\ninterface TabsItem {\n  title: string\n  path: string\n}\nconst tabsItems: TabsItem[] = [\n  {\n    title: '登录',\n    path: '/auth/login'\n  },\n  {\n    title: '注册',\n    path: '/auth/register'\n  }\n]\nconst router = useRouter()\nconst tabIndex = ref(0)\nconst addAnimation = ref(true)\nconst tabsActiveBar = ref()\nconst tabItem = ref()\n\nconst toggleTopMenu = (tab: TabsItem, index: number, needAnimation = true) => {\n  nextTick(() => {\n    changeView(tab, index)\n    if (tabItem.value.length) {\n      let width = tabItem.value[index].clientWidth + 'px'\n      // const width = tabItem.clientWidth * 0.7 + 'px' //\t在页面上返回内容的可视宽度（不包括边框，边距或滚动条）\n      // const width = tabItem.value?.clientWidth + 'px' //\t在页面上返回内容的可视宽度（不包括边框，边距或滚动条）\n\n      tabsActiveBar.value.style.width = width\n      tabIndex.value = index\n      addAnimation.value = needAnimation\n      if (tabIndex.value == 0) {\n        // tabsActiveBar.style.left = dom_.tabItem[0].$el.clientWidth * 0.15 + 'px'\n        tabsActiveBar.value.style.left = '0'\n      } else {\n        // const left = tabItem.offsetLeft + tabItem.clientWidth * 0.15 + 'px' // 返回当前元素的相对水平偏移位置的偏移容器\n        tabsActiveBar.value.style.left = tabItem.value[index].offsetLeft + 'px'\n      }\n    }\n  })\n}\nconst changeView = (tab: TabsItem, index: number) => {\n  if (index === tabIndex.value) return\n\n  tabIndex.value = index\n  router.replace(tab.path)\n}\nconst route = useRoute()\nconst forgetPasw = ref(false)\nonMounted(() => {\n  const path = route.path\n  path.includes('register') ? toggleTopMenu(tabsItems[1], 1) : toggleTopMenu(tabsItems[0], 0)\n  if (path.includes('forgetPasw')) {\n    forgetPasw.value = true\n  } else {\n    forgetPasw.value = false\n  }\n  // console.log('route00', forgetPasw.value, route, tabIndex.value)\n})\nwatch(route, () => {\n  const path = route.path\n  if (!path.includes('country')) {\n    path.includes('register') ? toggleTopMenu(tabsItems[1], 1) : toggleTopMenu(tabsItems[0], 0)\n  }\n  if (path.includes('forgetPasw')) {\n    forgetPasw.value = true\n  } else {\n    forgetPasw.value = false\n  }\n  // console.log('route11', forgetPasw.value, route, tabIndex.value)\n})\nconst onBack = () => {\n  router.back()\n}\nlet gopath = sessionStorage.getItem('gopath')\nconst dopath = () => {\n  // console.log('gopath', gopath)\n  if (!!gopath) {\n    router.push('/')\n  }\n}\n</script>\n\n<template>\n  <div class=\"top-icon-container flex_s flex_z text-center z-[20000]\">\n    <i\n      v-if=\"!!!gopath\"\n      class=\"arrow-right-gray\"\n      @click=\"onBack\"\n    ></i>\n    <span\n      v-else\n      @click=\"dopath\"\n      class=\"absolute left-[20px] text-[26px]\"\n    >\n      首页\n    </span>\n    <div\n      class=\"flex1 text-[30px]\"\n      v-if=\"forgetPasw\"\n    >\n      忘记密码\n    </div>\n    <i\n      class=\"customer-service-dark\"\n      @click=\"$router.push('/iframe-page/third?url=customer-service')\"\n    ></i>\n  </div>\n  <div class=\"auth-container overflow_a\">\n    <div class=\"logo-view-container flex justify-center items-center flex-col\">\n      <van-image\n        :src=\"api_logo || logo\"\n        fit=\"cover\"\n        class=\"app-logo\"\n      />\n    </div>\n    <div\n      class=\"tab-container\"\n      v-if=\"!forgetPasw\"\n    >\n      <div class=\"items-view flex justify-between items-center\">\n        <div\n          ref=\"tabItem\"\n          v-for=\"(tab, index) in tabsItems\"\n          :key=\"tab.path\"\n          class=\"item flex justify-center items-center\"\n          :class=\"{ active: index === tabIndex }\"\n          @click=\"toggleTopMenu(tab, index)\"\n        >\n          <div class=\"name\">{{ tab.title }}</div>\n        </div>\n        <div\n          class=\"tabs-active-bar norem\"\n          :class=\"{ 'tabs-move': addAnimation }\"\n          ref=\"tabsActiveBar\"\n        ></div>\n      </div>\n    </div>\n\n    <router-view />\n  </div>\n</template>\n\n<style lang=\"scss\" scoped>\n@import '@/assets/styles/sprite-home.scss';\n.customer-service-dark {\n  position: absolute;\n  right: 50px;\n}\n.top-icon-container {\n  width: 100%;\n  height: 92px;\n  padding: 0 41px;\n  .arrow-right-gray {\n    position: absolute;\n    left: 50px;\n    transform: scale(1.3) rotate(180deg);\n  }\n}\n.auth-container {\n  flex: 1;\n  background-color: #fff;\n\n  .logo-view-container {\n    width: 100%;\n    height: 314px;\n    :deep(.van-image) {\n      &.app-logo {\n        width: 139px;\n      }\n      &.app-logotext {\n        width: 154px;\n        height: 31px;\n        margin-top: 18px;\n      }\n    }\n  }\n  .tab-container {\n    width: 100%;\n    height: 50px;\n    padding: 0 220px;\n    .items-view {\n      width: 100%;\n      position: relative;\n      padding-bottom: 4px;\n      .item {\n        width: 87px;\n        color: #868d9a;\n        &.active {\n          color: var(--van-button-primary-background);\n        }\n        .name {\n          font-size: 31px;\n          transition: color 0.3s;\n        }\n      }\n      .tabs-active-bar {\n        position: absolute;\n        left: 0;\n        bottom: 0;\n        width: 87px;\n        height: 4px;\n        background-color: var(--van-button-primary-background);\n        border-radius: 2px;\n        &.tabs-move {\n          transition: all 0.3s ease-in-out;\n        }\n        &.norem {\n          height: 2px;\n        }\n      }\n    }\n  }\n}\n</style>\n",
+      "start": 1714699769408,
+      "end": 1714699769450,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769450,
+      "end": 1714699769450,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769450,
+      "end": 1714699769450,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769450,
+      "end": 1714699769450,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769450,
+      "end": 1714699769450,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/index.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/index.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/index.vue?vue&type=style&index=0&scoped=b6686629&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-b6686629\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/index.vue\"]]);\n",
+      "start": 1714699769450,
+      "end": 1714699769587,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769587,
+      "end": 1714699769587,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/index.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/index.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/index.vue?vue&type=style&index=0&scoped=b6686629&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-b6686629\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/index.vue\"]]);\n",
+      "start": 1714699769587,
+      "end": 1714699769587,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/index.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/index.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/index.vue?vue&type=style&index=0&scoped=b6686629&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-b6686629\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/index.vue\"]]);\n",
+      "start": 1714699769587,
+      "end": 1714699770122,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/index.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/index.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/index.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/index.vue?vue&type=style&index=0&scoped=b6686629&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-b6686629\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/index.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,gEAAgE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770122,
+      "end": 1714699770122,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699770122,
+      "end": 1714699770122,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770122,
+      "end": 1714699770122,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770122,
+      "end": 1714699770122,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770122,
+      "end": 1714699770122,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770122,
+      "end": 1714699770122,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770122,
+      "end": 1714699770122,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770122,
+      "end": 1714699770122,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770122,
+      "end": 1714699770123,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/index.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/index.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/index.vue?vue&type=style&index=0&scoped=b6686629&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-b6686629\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/index.vue\"]]);\n",
+      "start": 1714699770123,
+      "end": 1714699770123,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/index.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/index.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/index.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/index.vue?vue&type=style&index=0&scoped=b6686629&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-b6686629\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/index.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770124,
+      "end": 1714699770124,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770124,
+      "end": 1714699770124,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770124,
+      "end": 1714699770124,
+      "order": "normal"
+    }
+  ]
+}

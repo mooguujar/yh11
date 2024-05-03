@@ -39,6 +39,16 @@ const WHITERLIST_REQUEST = [
   '/api/Coin/SellOrders'
 ]
 
+// 非token校验接口名单
+const NO_AUTH_REQUEST = ['/api/Systeminfo/Defaultinfo', '/pay/cjfpay/h5init']
+// 重定向登录页路由白名单
+const NO_REDIRECT_LOGIN_ROUTE = ['Home', 'SellCoin', 'Point']
+
+// url参数
+const search = new URLSearchParams(mergeHrefParams())
+const vtoken = search.get('vtoken') || ''
+const deviceid = search.get('deviceid') || ''
+
 class CustomAxios {
   private axiosInstance: AxiosInstance
 
@@ -64,9 +74,6 @@ class CustomAxios {
         // if (matchArr) {
         //   window.location.href = window.location.href.replace(matchArr[0], '/auth/login')
         // }
-        const search = new URLSearchParams(mergeHrefParams())
-        const vtoken = search.get('vtoken') || ''
-        const deviceid = search.get('deviceid') || ''
         if (!vtoken && !deviceid) {
           const { href, hash } = window.location
           if (hash.includes('send')) {
@@ -80,6 +87,12 @@ class CustomAxios {
               commonStore.abortAllRequest()
             } else if (op.login) {
               router.replace('/auth/login')
+            } else {
+              sessionStorage.setItem('token', '')
+              localStorage.setItem('token', '')
+              if (!NO_REDIRECT_LOGIN_ROUTE.includes(router.currentRoute.value.name as string)) {
+                router.replace('/auth/login')
+              }
             }
           } else {
             router.replace('/auth/login')
@@ -208,7 +221,11 @@ class CustomAxios {
             config.params.token = localStorage.getItem('token') || ''
           }
 
-          config.params = defaultParams('post', config.params)
+          if (NO_AUTH_REQUEST.includes(config.url!) && !vtoken && !deviceid) {
+            delete config.params.token
+          }
+
+          config.params = defaultParams('post', config)
         }
         if (config.method === 'post') {
           if (config.data && typeof config.data === 'object') {
@@ -219,14 +236,19 @@ class CustomAxios {
             }
           }
 
-          config.data = defaultParams('post', config.data)
+          // 内嵌保留token,h5去除token
+          if (NO_AUTH_REQUEST.includes(config.url!) && !vtoken && !deviceid) {
+            delete config.data.token
+          }
+
+          config.data = defaultParams('post', config)
         }
         // if (isLogin) config.headers.Authorization = `Bearer ${token}`;
 
         return Object.assign(config, { options })
       },
       error: (error: AxiosError) => {
-        console.log('request:error', error)
+        console.error('request:error', error)
         this.errorHandler(error)
 
         return Promise.reject(error)

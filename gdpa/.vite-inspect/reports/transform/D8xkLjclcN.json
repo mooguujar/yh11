@@ -1,0 +1,165 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\n\nimport { ref } from 'vue'\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'Loding',\n  props: {\n  action: {\n    type: Function\n  },\n  cancelAction: {\n    type: Function\n  },\n  dialogType: {\n    type: String,\n    default: 'alert'\n  },\n  onVanish: {\n    type: Function\n  },\n  closeable: {\n    type: Boolean,\n    default: true\n  },\n  teleport: {\n    type: String,\n    default: 'body'\n  }\n},\n  setup(__props, { expose: __expose }) {\n\nconst visible = ref(false)\nconst loadingConfirm = ref(false)\nconst loadingCancel = ref(false)\n\nconst props = __props\n\n__expose({\n  visible\n})\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_van_loading = _resolveComponent(\"van-loading\")!\n  const _component_van_overlay = _resolveComponent(\"van-overlay\")!\n\n  return (_openBlock(), _createBlock(_component_van_overlay, {\n    show: visible.value,\n    class: \"jz_f\"\n  }, {\n    default: _withCtx(() => [\n      _createVNode(_component_van_loading, {\n        class: \"top-[50%] left-[50%]\",\n        size: \"50\",\n        type: \"spinner\",\n        color: \"#1989fa\"\n      })\n    ]),\n    _: 1 /* STABLE */\n  }, 8 /* PROPS */, [\"show\"]))\n}\n}\n\n})",
+      "start": 1714699772233,
+      "end": 1714699772233
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699772233,
+      "end": 1714699772233,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock } from \"vue\";\nimport { ref } from \"vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"Loding\",\n  props: {\n    action: {\n      type: Function\n    },\n    cancelAction: {\n      type: Function\n    },\n    dialogType: {\n      type: String,\n      default: \"alert\"\n    },\n    onVanish: {\n      type: Function\n    },\n    closeable: {\n      type: Boolean,\n      default: true\n    },\n    teleport: {\n      type: String,\n      default: \"body\"\n    }\n  },\n  setup(__props, { expose: __expose }) {\n    const visible = ref(false);\n    const loadingConfirm = ref(false);\n    const loadingCancel = ref(false);\n    const props = __props;\n    __expose({\n      visible\n    });\n    return (_ctx, _cache) => {\n      const _component_van_loading = _resolveComponent(\"van-loading\");\n      const _component_van_overlay = _resolveComponent(\"van-overlay\");\n      return _openBlock(), _createBlock(_component_van_overlay, {\n        show: visible.value,\n        class: \"jz_f\"\n      }, {\n        default: _withCtx(() => [\n          _createVNode(_component_van_loading, {\n            class: \"top-[50%] left-[50%]\",\n            size: \"50\",\n            type: \"spinner\",\n            color: \"#1989fa\"\n          })\n        ]),\n        _: 1\n        /* STABLE */\n      }, 8, [\"show\"]);\n    };\n  }\n});\n",
+      "start": 1714699772234,
+      "end": 1714699772334,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\n\nimport { ref } from 'vue'\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'Loding',\n  props: {\n  action: {\n    type: Function\n  },\n  cancelAction: {\n    type: Function\n  },\n  dialogType: {\n    type: String,\n    default: 'alert'\n  },\n  onVanish: {\n    type: Function\n  },\n  closeable: {\n    type: Boolean,\n    default: true\n  },\n  teleport: {\n    type: String,\n    default: 'body'\n  }\n},\n  setup(__props, { expose: __expose }) {\n\nconst visible = ref(false)\nconst loadingConfirm = ref(false)\nconst loadingCancel = ref(false)\n\nconst props = __props\n\n__expose({\n  visible\n})\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_van_loading = _resolveComponent(\"van-loading\")!\n  const _component_van_overlay = _resolveComponent(\"van-overlay\")!\n\n  return (_openBlock(), _createBlock(_component_van_overlay, {\n    show: visible.value,\n    class: \"jz_f\"\n  }, {\n    default: _withCtx(() => [\n      _createVNode(_component_van_loading, {\n        class: \"top-[50%] left-[50%]\",\n        size: \"50\",\n        type: \"spinner\",\n        color: \"#1989fa\"\n      })\n    ]),\n    _: 1 /* STABLE */\n  }, 8 /* PROPS */, [\"show\"]))\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,oBAAoB,mBAAmB,eAAe,cAAc,WAAW,UAAU,aAAa,YAAY,eAAe,oBAAoB;AAE9J,SAAS,WAAW;AAGpB,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,OAAO;AAAA,IACP,QAAQ;AAAA,MACN,MAAM;AAAA,IACR;AAAA,IACA,cAAc;AAAA,MACZ,MAAM;AAAA,IACR;AAAA,IACA,YAAY;AAAA,MACV,MAAM;AAAA,MACN,SAAS;AAAA,IACX;AAAA,IACA,UAAU;AAAA,MACR,MAAM;AAAA,IACR;AAAA,IACA,WAAW;AAAA,MACT,MAAM;AAAA,MACN,SAAS;AAAA,IACX;AAAA,IACA,UAAU;AAAA,MACR,MAAM;AAAA,MACN,SAAS;AAAA,IACX;AAAA,EACF;AAAA,EACE,MAAM,SAAS,EAAE,QAAQ,SAAS,GAAG;AAEvC,UAAM,UAAU,IAAI,KAAK;AACzB,UAAM,iBAAiB,IAAI,KAAK;AAChC,UAAM,gBAAgB,IAAI,KAAK;AAE/B,UAAM,QAAQ;AAEd,aAAS;AAAA,MACP;AAAA,IACF,CAAC;AAED,WAAO,CAAC,MAAU,WAAgB;AAChC,YAAM,yBAAyB,kBAAkB,aAAa;AAC9D,YAAM,yBAAyB,kBAAkB,aAAa;AAE9D,aAAQ,WAAW,GAAG,aAAa,wBAAwB;AAAA,QACzD,MAAM,QAAQ;AAAA,QACd,OAAO;AAAA,MACT,GAAG;AAAA,QACD,SAAS,SAAS,MAAM;AAAA,UACtB,aAAa,wBAAwB;AAAA,YACnC,OAAO;AAAA,YACP,MAAM;AAAA,YACN,MAAM;AAAA,YACN,OAAO;AAAA,UACT,CAAC;AAAA,QACH,CAAC;AAAA,QACD,GAAG;AAAA;AAAA,MACL,GAAG,GAAe,CAAC,MAAM,CAAC;AAAA,IAC5B;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699772335,
+      "end": 1714699772335,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699772335,
+      "end": 1714699772335,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699772335,
+      "end": 1714699772335,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699772335,
+      "end": 1714699772335,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock } from \"vue\";\nimport { ref } from \"vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"Loding\",\n  props: {\n    action: {\n      type: Function\n    },\n    cancelAction: {\n      type: Function\n    },\n    dialogType: {\n      type: String,\n      default: \"alert\"\n    },\n    onVanish: {\n      type: Function\n    },\n    closeable: {\n      type: Boolean,\n      default: true\n    },\n    teleport: {\n      type: String,\n      default: \"body\"\n    }\n  },\n  setup(__props, { expose: __expose }) {\n    const visible = ref(false);\n    const loadingConfirm = ref(false);\n    const loadingCancel = ref(false);\n    const props = __props;\n    __expose({\n      visible\n    });\n    return (_ctx, _cache) => {\n      const _component_van_loading = _resolveComponent(\"van-loading\");\n      const _component_van_overlay = _resolveComponent(\"van-overlay\");\n      return _openBlock(), _createBlock(_component_van_overlay, {\n        show: visible.value,\n        class: \"jz_f\"\n      }, {\n        default: _withCtx(() => [\n          _createVNode(_component_van_loading, {\n            class: \"top-[50%] left-[50%]\",\n            size: \"50\",\n            type: \"spinner\",\n            color: \"#1989fa\"\n          })\n        ]),\n        _: 1\n        /* STABLE */\n      }, 8, [\"show\"]);\n    };\n  }\n});\n",
+      "start": 1714699772335,
+      "end": 1714699772335,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock } from \"vue\";\nimport { ref } from \"vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"Loding\",\n  props: {\n    action: {\n      type: Function\n    },\n    cancelAction: {\n      type: Function\n    },\n    dialogType: {\n      type: String,\n      default: \"alert\"\n    },\n    onVanish: {\n      type: Function\n    },\n    closeable: {\n      type: Boolean,\n      default: true\n    },\n    teleport: {\n      type: String,\n      default: \"body\"\n    }\n  },\n  setup(__props, { expose: __expose }) {\n    const visible = ref(false);\n    const loadingConfirm = ref(false);\n    const loadingCancel = ref(false);\n    const props = __props;\n    __expose({\n      visible\n    });\n    return (_ctx, _cache) => {\n      const _component_van_loading = _resolveComponent(\"van-loading\");\n      const _component_van_overlay = _resolveComponent(\"van-overlay\");\n      return _openBlock(), _createBlock(_component_van_overlay, {\n        show: visible.value,\n        class: \"jz_f\"\n      }, {\n        default: _withCtx(() => [\n          _createVNode(_component_van_loading, {\n            class: \"top-[50%] left-[50%]\",\n            size: \"50\",\n            type: \"spinner\",\n            color: \"#1989fa\"\n          })\n        ]),\n        _: 1\n        /* STABLE */\n      }, 8, [\"show\"]);\n    };\n  }\n});\n",
+      "start": 1714699772335,
+      "end": 1714699772407,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue?vue&type=script&setup=true&lang.ts\"],\n  \"sourcesContent\": [\"import { defineComponent as _defineComponent } from \\\"vue\\\";\\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock } from \\\"vue\\\";\\nimport { ref } from \\\"vue\\\";\\nexport default /* @__PURE__ */ _defineComponent({\\n  __name: \\\"Loding\\\",\\n  props: {\\n    action: {\\n      type: Function\\n    },\\n    cancelAction: {\\n      type: Function\\n    },\\n    dialogType: {\\n      type: String,\\n      default: \\\"alert\\\"\\n    },\\n    onVanish: {\\n      type: Function\\n    },\\n    closeable: {\\n      type: Boolean,\\n      default: true\\n    },\\n    teleport: {\\n      type: String,\\n      default: \\\"body\\\"\\n    }\\n  },\\n  setup(__props, { expose: __expose }) {\\n    const visible = ref(false);\\n    const loadingConfirm = ref(false);\\n    const loadingCancel = ref(false);\\n    const props = __props;\\n    __expose({\\n      visible\\n    });\\n    return (_ctx, _cache) => {\\n      const _component_van_loading = _resolveComponent(\\\"van-loading\\\");\\n      const _component_van_overlay = _resolveComponent(\\\"van-overlay\\\");\\n      return _openBlock(), _createBlock(_component_van_overlay, {\\n        show: visible.value,\\n        class: \\\"jz_f\\\"\\n      }, {\\n        default: _withCtx(() => [\\n          _createVNode(_component_van_loading, {\\n            class: \\\"top-[50%] left-[50%]\\\",\\n            size: \\\"50\\\",\\n            type: \\\"spinner\\\",\\n            color: \\\"#1989fa\\\"\\n          })\\n        ]),\\n        _: 1\\n        /* STABLE */\\n      }, 8, [\\\"show\\\"]);\\n    };\\n  }\\n});\\n\"],\n  \"mappings\": \";AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,oBAAoB,mBAAmB,eAAe,cAAc,WAAW,UAAU,aAAa,YAAY,eAAe,oBAAoB;AAC9J,SAAS,WAAW;AACpB,eAA+B,iCAAiB;AAAA,EAC9C,QAAQ;AAAA,EACR,OAAO;AAAA,IACL,QAAQ;AAAA,MACN,MAAM;AAAA,IACR;AAAA,IACA,cAAc;AAAA,MACZ,MAAM;AAAA,IACR;AAAA,IACA,YAAY;AAAA,MACV,MAAM;AAAA,MACN,SAAS;AAAA,IACX;AAAA,IACA,UAAU;AAAA,MACR,MAAM;AAAA,IACR;AAAA,IACA,WAAW;AAAA,MACT,MAAM;AAAA,MACN,SAAS;AAAA,IACX;AAAA,IACA,UAAU;AAAA,MACR,MAAM;AAAA,MACN,SAAS;AAAA,IACX;AAAA,EACF;AAAA,EACA,MAAM,SAAS,EAAE,QAAQ,SAAS,GAAG;AACnC,UAAM,UAAU,IAAI,KAAK;AACzB,UAAM,iBAAiB,IAAI,KAAK;AAChC,UAAM,gBAAgB,IAAI,KAAK;AAC/B,UAAM,QAAQ;AACd,aAAS;AAAA,MACP;AAAA,IACF,CAAC;AACD,WAAO,CAAC,MAAM,WAAW;AACvB,YAAM,yBAAyB,kBAAkB,aAAa;AAC9D,YAAM,yBAAyB,kBAAkB,aAAa;AAC9D,aAAO,WAAW,GAAG,aAAa,wBAAwB;AAAA,QACxD,MAAM,QAAQ;AAAA,QACd,OAAO;AAAA,MACT,GAAG;AAAA,QACD,SAAS,SAAS,MAAM;AAAA,UACtB,aAAa,wBAAwB;AAAA,YACnC,OAAO;AAAA,YACP,MAAM;AAAA,YACN,MAAM;AAAA,YACN,OAAO;AAAA,UACT,CAAC;AAAA,QACH,CAAC;AAAA,QACD,GAAG;AAAA;AAAA,MAEL,GAAG,GAAG,CAAC,MAAM,CAAC;AAAA,IAChB;AAAA,EACF;AACF,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699772407,
+      "end": 1714699772407,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699772407,
+      "end": 1714699772407,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699772407,
+      "end": 1714699772407,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699772407,
+      "end": 1714699772408,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699772408,
+      "end": 1714699772408,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699772408,
+      "end": 1714699772408,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699772408,
+      "end": 1714699772408,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699772408,
+      "end": 1714699772408,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699772409,
+      "end": 1714699772410,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */import { Overlay as __unplugin_components_1 } from 'vant/es';import 'vant/es/overlay/style/index';\nimport { Loading as __unplugin_components_0 } from 'vant/es';import 'vant/es/loading/style/index';\n\"use strict\";\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock } from \"vue\";\nimport { ref } from \"vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"Loding\",\n  props: {\n    action: {\n      type: Function\n    },\n    cancelAction: {\n      type: Function\n    },\n    dialogType: {\n      type: String,\n      default: \"alert\"\n    },\n    onVanish: {\n      type: Function\n    },\n    closeable: {\n      type: Boolean,\n      default: true\n    },\n    teleport: {\n      type: String,\n      default: \"body\"\n    }\n  },\n  setup(__props, { expose: __expose }) {\n    const visible = ref(false);\n    const loadingConfirm = ref(false);\n    const loadingCancel = ref(false);\n    const props = __props;\n    __expose({\n      visible\n    });\n    return (_ctx, _cache) => {\n      const _component_van_loading = __unplugin_components_0;\n      const _component_van_overlay = __unplugin_components_1;\n      return _openBlock(), _createBlock(_component_van_overlay, {\n        show: visible.value,\n        class: \"jz_f\"\n      }, {\n        default: _withCtx(() => [\n          _createVNode(_component_van_loading, {\n            class: \"top-[50%] left-[50%]\",\n            size: \"50\",\n            type: \"spinner\",\n            color: \"#1989fa\"\n          })\n        ]),\n        _: 1\n        /* STABLE */\n      }, 8, [\"show\"]);\n    };\n  }\n});\n",
+      "start": 1714699772410,
+      "end": 1714699772410,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock } from \"vue\";\nimport { ref } from \"vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"Loding\",\n  props: {\n    action: {\n      type: Function\n    },\n    cancelAction: {\n      type: Function\n    },\n    dialogType: {\n      type: String,\n      default: \"alert\"\n    },\n    onVanish: {\n      type: Function\n    },\n    closeable: {\n      type: Boolean,\n      default: true\n    },\n    teleport: {\n      type: String,\n      default: \"body\"\n    }\n  },\n  setup(__props, { expose: __expose }) {\n    const visible = ref(false);\n    const loadingConfirm = ref(false);\n    const loadingCancel = ref(false);\n    const props = __props;\n    __expose({\n      visible\n    });\n    return (_ctx, _cache) => {\n      const _component_van_loading = _resolveComponent(\"van-loading\");\n      const _component_van_overlay = _resolveComponent(\"van-overlay\");\n      return _openBlock(), _createBlock(_component_van_overlay, {\n        show: visible.value,\n        class: \"jz_f\"\n      }, {\n        default: _withCtx(() => [\n          _createVNode(_component_van_loading, {\n            class: \"top-[50%] left-[50%]\",\n            size: \"50\",\n            type: \"spinner\",\n            color: \"#1989fa\"\n          })\n        ]),\n        _: 1\n        /* STABLE */\n      }, 8, [\"show\"]);\n    };\n  }\n});\n"
+        ],
+        "names": [],
+        "mappings": ";;AAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,qCAAqC,uBAAgC;AACrE,qCAAqC,uBAAgC;AACrE;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699772410,
+      "end": 1714699772410,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699772410,
+      "end": 1714699772411,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699772411,
+      "end": 1714699772411,
+      "order": "normal"
+    }
+  ]
+}

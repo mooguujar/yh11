@@ -1,0 +1,163 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/applyRecord.vue?vue&type=style&index=0&scoped=c3aad20b&lang.scss",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\n.activityRecord {\n  font-size: 30px;\n  height: 100%;\n  .Record_top {\n    height: 200px;\n    padding: 20px;\n    background: var(--app-spring-festival-activity-theme);\n    p {\n      font-size: 31px;\n      font-weight: normal;\n      font-stretch: normal;\n      color: #711f13;\n      padding: 10px 0;\n      span {\n        font-size: 33rpx;\n        font-weight: normal;\n        font-stretch: normal;\n        letter-spacing: 0rpx;\n        color: #f6e364;\n      }\n    }\n  }\n  :deep(.van-tabs) {\n    .van-tabs__nav {\n      padding-left: 150px;\n    }\n    .van-tabs__wrap {\n      height: 80px;\n    }\n    .van-tabs__content {\n      margin-top: 0;\n    }\n    .van-dropdown-menu__title {\n      font-weight: normal;\n    }\n    #van-tabs-1-2 {\n    }\n    .van-tabs__line {\n      display: none;\n    }\n  }\n  .Record_tab {\n    width: 100%;\n    padding: 0 20px;\n    top: -14px;\n    :deep(.van-dropdown-menu) {\n      width: 100px;\n      height: 44px;\n      border-radius: 3px;\n      border: solid 1px rgba(80, 82, 85, 0.8);\n      float: left;\n      .van-dropdown-menu__bar {\n        background-color: rgba(0, 0, 0, 0);\n        height: 44px;\n        .van-dropdown-menu__title {\n          font-size: 24px;\n          margin-left: -20px;\n          &::after {\n            right: -2px;\n          }\n        }\n      }\n      .van-dropdown-item--down {\n        width: 750px;\n        margin: 0 auto;\n      }\n    }\n  }\n  .Record-container {\n    height: calc(100vh - 368px);\n    padding-bottom: 80px;\n    .title {\n      padding: 20px 0;\n      border-bottom: 1px #ccc solid;\n      width: 100%;\n      font-size: 28px;\n    }\n    .list {\n      font-size: 28px;\n      padding: 15px 0;\n      width: 100%;\n      border-bottom: 1px #ccc solid;\n      .AR_listImg {\n        height: 63px;\n        img {\n          width: auto;\n        }\n      }\n    }\n  }\n}\n",
+      "start": 1714699770644,
+      "end": 1714699770644
+    },
+    {
+      "name": "vite:css",
+      "result": ".activityRecord {\n  font-size: 0.4rem;\n  height: 100%;\n}\n.activityRecord .Record_top {\n  height: 2.66667rem;\n  padding: 0.26667rem;\n  background: var(--app-spring-festival-activity-theme);\n}\n.activityRecord .Record_top p {\n  font-size: 0.41333rem;\n  font-weight: normal;\n  font-stretch: normal;\n  color: #711f13;\n  padding: 0.13333rem 0;\n}\n.activityRecord .Record_top p span {\n  font-size: 33rpx;\n  font-weight: normal;\n  font-stretch: normal;\n  letter-spacing: 0rpx;\n  color: #f6e364;\n}\n.activityRecord :deep(.van-tabs) .van-tabs__nav {\n  padding-left: 2rem;\n}\n.activityRecord :deep(.van-tabs) .van-tabs__wrap {\n  height: 1.06667rem;\n}\n.activityRecord :deep(.van-tabs) .van-tabs__content {\n  margin-top: 0;\n}\n.activityRecord :deep(.van-tabs) .van-dropdown-menu__title {\n  font-weight: normal;\n}\n.activityRecord :deep(.van-tabs) .van-tabs__line {\n  display: none;\n}\n.activityRecord .Record_tab {\n  width: 100%;\n  padding: 0 0.26667rem;\n  top: -0.18667rem;\n}\n.activityRecord .Record_tab :deep(.van-dropdown-menu) {\n  width: 1.33333rem;\n  height: 0.58667rem;\n  border-radius: 0.04rem;\n  border: solid 1px rgba(80, 82, 85, 0.8);\n  float: left;\n}\n.activityRecord .Record_tab :deep(.van-dropdown-menu) .van-dropdown-menu__bar {\n  background-color: rgba(0, 0, 0, 0);\n  height: 0.58667rem;\n}\n.activityRecord .Record_tab :deep(.van-dropdown-menu) .van-dropdown-menu__bar .van-dropdown-menu__title {\n  font-size: 0.32rem;\n  margin-left: -0.26667rem;\n}\n.activityRecord .Record_tab :deep(.van-dropdown-menu) .van-dropdown-menu__bar .van-dropdown-menu__title::after {\n  right: -0.02667rem;\n}\n.activityRecord .Record_tab :deep(.van-dropdown-menu) .van-dropdown-item--down {\n  width: 10rem;\n  margin: 0 auto;\n}\n.activityRecord .Record-container {\n  height: calc(100vh - 4.90667rem);\n  padding-bottom: 1.06667rem;\n}\n.activityRecord .Record-container .title {\n  padding: 0.26667rem 0;\n  border-bottom: 1px #ccc solid;\n  width: 100%;\n  font-size: 0.37333rem;\n}\n.activityRecord .Record-container .list {\n  font-size: 0.37333rem;\n  padding: 0.2rem 0;\n  width: 100%;\n  border-bottom: 1px #ccc solid;\n}\n.activityRecord .Record-container .list .AR_listImg {\n  height: 0.84rem;\n}\n.activityRecord .Record-container .list .AR_listImg img {\n  width: auto;\n}",
+      "start": 1714699770644,
+      "end": 1714699770656,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699770656,
+      "end": 1714699770656,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699770656,
+      "end": 1714699770656,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699770656,
+      "end": 1714699770656,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".activityRecord[data-v-c3aad20b] {\n  font-size: 0.4rem;\n  height: 100%;\n}\n.activityRecord .Record_top[data-v-c3aad20b] {\n  height: 2.66667rem;\n  padding: 0.26667rem;\n  background: var(--app-spring-festival-activity-theme);\n}\n.activityRecord .Record_top p[data-v-c3aad20b] {\n  font-size: 0.41333rem;\n  font-weight: normal;\n  font-stretch: normal;\n  color: #711f13;\n  padding: 0.13333rem 0;\n}\n.activityRecord .Record_top p span[data-v-c3aad20b] {\n  font-size: 33rpx;\n  font-weight: normal;\n  font-stretch: normal;\n  letter-spacing: 0rpx;\n  color: #f6e364;\n}\n.activityRecord[data-v-c3aad20b] .van-tabs .van-tabs__nav {\n  padding-left: 2rem;\n}\n.activityRecord[data-v-c3aad20b] .van-tabs .van-tabs__wrap {\n  height: 1.06667rem;\n}\n.activityRecord[data-v-c3aad20b] .van-tabs .van-tabs__content {\n  margin-top: 0;\n}\n.activityRecord[data-v-c3aad20b] .van-tabs .van-dropdown-menu__title {\n  font-weight: normal;\n}\n.activityRecord[data-v-c3aad20b] .van-tabs .van-tabs__line {\n  display: none;\n}\n.activityRecord .Record_tab[data-v-c3aad20b] {\n  width: 100%;\n  padding: 0 0.26667rem;\n  top: -0.18667rem;\n}\n.activityRecord .Record_tab[data-v-c3aad20b] .van-dropdown-menu {\n  width: 1.33333rem;\n  height: 0.58667rem;\n  border-radius: 0.04rem;\n  border: solid 1px rgba(80, 82, 85, 0.8);\n  float: left;\n}\n.activityRecord .Record_tab[data-v-c3aad20b] .van-dropdown-menu .van-dropdown-menu__bar {\n  background-color: rgba(0, 0, 0, 0);\n  height: 0.58667rem;\n}\n.activityRecord .Record_tab[data-v-c3aad20b] .van-dropdown-menu .van-dropdown-menu__bar .van-dropdown-menu__title {\n  font-size: 0.32rem;\n  margin-left: -0.26667rem;\n}\n.activityRecord .Record_tab[data-v-c3aad20b] .van-dropdown-menu .van-dropdown-menu__bar .van-dropdown-menu__title::after {\n  right: -0.02667rem;\n}\n.activityRecord .Record_tab[data-v-c3aad20b] .van-dropdown-menu .van-dropdown-item--down {\n  width: 10rem;\n  margin: 0 auto;\n}\n.activityRecord .Record-container[data-v-c3aad20b] {\n  height: calc(100vh - 4.90667rem);\n  padding-bottom: 1.06667rem;\n}\n.activityRecord .Record-container .title[data-v-c3aad20b] {\n  padding: 0.26667rem 0;\n  border-bottom: 1px #ccc solid;\n  width: 100%;\n  font-size: 0.37333rem;\n}\n.activityRecord .Record-container .list[data-v-c3aad20b] {\n  font-size: 0.37333rem;\n  padding: 0.2rem 0;\n  width: 100%;\n  border-bottom: 1px #ccc solid;\n}\n.activityRecord .Record-container .list .AR_listImg[data-v-c3aad20b] {\n  height: 0.84rem;\n}\n.activityRecord .Record-container .list .AR_listImg img[data-v-c3aad20b] {\n  width: auto;\n}",
+      "start": 1714699770656,
+      "end": 1714699770657,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699770657,
+      "end": 1714699770657,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": ".activityRecord[data-v-c3aad20b] {\n  font-size: 0.4rem;\n  height: 100%;\n}\n.activityRecord .Record_top[data-v-c3aad20b] {\n  height: 2.66667rem;\n  padding: 0.26667rem;\n  background: var(--app-spring-festival-activity-theme);\n}\n.activityRecord .Record_top p[data-v-c3aad20b] {\n  font-size: 0.41333rem;\n  font-weight: normal;\n  font-stretch: normal;\n  color: #711f13;\n  padding: 0.13333rem 0;\n}\n.activityRecord .Record_top p span[data-v-c3aad20b] {\n  font-size: 33rpx;\n  font-weight: normal;\n  font-stretch: normal;\n  letter-spacing: 0rpx;\n  color: #f6e364;\n}\n.activityRecord[data-v-c3aad20b] .van-tabs .van-tabs__nav {\n  padding-left: 2rem;\n}\n.activityRecord[data-v-c3aad20b] .van-tabs .van-tabs__wrap {\n  height: 1.06667rem;\n}\n.activityRecord[data-v-c3aad20b] .van-tabs .van-tabs__content {\n  margin-top: 0;\n}\n.activityRecord[data-v-c3aad20b] .van-tabs .van-dropdown-menu__title {\n  font-weight: normal;\n}\n.activityRecord[data-v-c3aad20b] .van-tabs .van-tabs__line {\n  display: none;\n}\n.activityRecord .Record_tab[data-v-c3aad20b] {\n  width: 100%;\n  padding: 0 0.26667rem;\n  top: -0.18667rem;\n}\n.activityRecord .Record_tab[data-v-c3aad20b] .van-dropdown-menu {\n  width: 1.33333rem;\n  height: 0.58667rem;\n  border-radius: 0.04rem;\n  border: solid 1px rgba(80, 82, 85, 0.8);\n  float: left;\n}\n.activityRecord .Record_tab[data-v-c3aad20b] .van-dropdown-menu .van-dropdown-menu__bar {\n  background-color: rgba(0, 0, 0, 0);\n  height: 0.58667rem;\n}\n.activityRecord .Record_tab[data-v-c3aad20b] .van-dropdown-menu .van-dropdown-menu__bar .van-dropdown-menu__title {\n  font-size: 0.32rem;\n  margin-left: -0.26667rem;\n}\n.activityRecord .Record_tab[data-v-c3aad20b] .van-dropdown-menu .van-dropdown-menu__bar .van-dropdown-menu__title::after {\n  right: -0.02667rem;\n}\n.activityRecord .Record_tab[data-v-c3aad20b] .van-dropdown-menu .van-dropdown-item--down {\n  width: 10rem;\n  margin: 0 auto;\n}\n.activityRecord .Record-container[data-v-c3aad20b] {\n  height: calc(100vh - 4.90667rem);\n  padding-bottom: 1.06667rem;\n}\n.activityRecord .Record-container .title[data-v-c3aad20b] {\n  padding: 0.26667rem 0;\n  border-bottom: 1px #ccc solid;\n  width: 100%;\n  font-size: 0.37333rem;\n}\n.activityRecord .Record-container .list[data-v-c3aad20b] {\n  font-size: 0.37333rem;\n  padding: 0.2rem 0;\n  width: 100%;\n  border-bottom: 1px #ccc solid;\n}\n.activityRecord .Record-container .list .AR_listImg[data-v-c3aad20b] {\n  height: 0.84rem;\n}\n.activityRecord .Record-container .list .AR_listImg img[data-v-c3aad20b] {\n  width: auto;\n}",
+      "start": 1714699770657,
+      "end": 1714699770657,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699770657,
+      "end": 1714699770657,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770657,
+      "end": 1714699770657,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699770657,
+      "end": 1714699770657,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770657,
+      "end": 1714699770657,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770657,
+      "end": 1714699770657,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770657,
+      "end": 1714699770657,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770657,
+      "end": 1714699770657,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770657,
+      "end": 1714699770657,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770657,
+      "end": 1714699770657,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770657,
+      "end": 1714699770657,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */",
+      "start": 1714699770657,
+      "end": 1714699770657,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/applyRecord.vue?vue&type=style&index=0&scoped=c3aad20b&lang.scss"
+        ],
+        "sourcesContent": [
+          ""
+        ],
+        "names": [],
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770657,
+      "end": 1714699770657,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770657,
+      "end": 1714699770657,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770657,
+      "end": 1714699770657,
+      "order": "normal"
+    }
+  ]
+}

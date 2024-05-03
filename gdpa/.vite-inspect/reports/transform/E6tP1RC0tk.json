@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/slice.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var toNumber = require('./toNumber')\r\n\r\n/**\r\n * 裁剪 Arguments 或数组 array，从 start 位置开始到 end 结束，但不包括 end 本身的位置\r\n * @param {Array/Arguments} array 数组或Arguments\r\n * @param {Number} startIndex 开始索引\r\n * @param {Number} endIndex 结束索引\r\n */\r\nfunction slice (array, startIndex, endIndex) {\r\n  var result = []\r\n  var argsSize = arguments.length\r\n  if (array) {\r\n    startIndex = argsSize >= 2 ? toNumber(startIndex) : 0\r\n    endIndex = argsSize >= 3 ? toNumber(endIndex) : array.length\r\n    if (array.slice) {\r\n      return array.slice(startIndex, endIndex)\r\n    }\r\n    for (; startIndex < endIndex; startIndex++) {\r\n      result.push(array[startIndex])\r\n    }\r\n  }\r\n  return result\r\n}\r\n\r\nmodule.exports = slice\r\n",
+      "start": 1714699767528,
+      "end": 1714699767581,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767581,
+      "end": 1714699767581,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767581,
+      "end": 1714699767581,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767581,
+      "end": 1714699767581,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767581,
+      "end": 1714699767581,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767581,
+      "end": 1714699767581,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767581,
+      "end": 1714699767581,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var toNumber = require('./toNumber')\r\n\r\n/**\r\n * 裁剪 Arguments 或数组 array，从 start 位置开始到 end 结束，但不包括 end 本身的位置\r\n * @param {Array/Arguments} array 数组或Arguments\r\n * @param {Number} startIndex 开始索引\r\n * @param {Number} endIndex 结束索引\r\n */\r\nfunction slice (array, startIndex, endIndex) {\r\n  var result = []\r\n  var argsSize = arguments.length\r\n  if (array) {\r\n    startIndex = argsSize >= 2 ? toNumber(startIndex) : 0\r\n    endIndex = argsSize >= 3 ? toNumber(endIndex) : array.length\r\n    if (array.slice) {\r\n      return array.slice(startIndex, endIndex)\r\n    }\r\n    for (; startIndex < endIndex; startIndex++) {\r\n      result.push(array[startIndex])\r\n    }\r\n  }\r\n  return result\r\n}\r\n\r\nmodule.exports = slice\r\n",
+      "start": 1714699767581,
+      "end": 1714699767581,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767581,
+      "end": 1714699767581,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767581,
+      "end": 1714699767581,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767581,
+      "end": 1714699767581,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767581,
+      "end": 1714699767581,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767581,
+      "end": 1714699767581,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767581,
+      "end": 1714699767581,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/toNumber.js?commonjs-proxy\";\n\nvar toNumber = require$$0\r\n\r\n/**\r\n * 裁剪 Arguments 或数组 array，从 start 位置开始到 end 结束，但不包括 end 本身的位置\r\n * @param {Array/Arguments} array 数组或Arguments\r\n * @param {Number} startIndex 开始索引\r\n * @param {Number} endIndex 结束索引\r\n */\r\nfunction slice (array, startIndex, endIndex) {\r\n  var result = []\r\n  var argsSize = arguments.length\r\n  if (array) {\r\n    startIndex = argsSize >= 2 ? toNumber(startIndex) : 0\r\n    endIndex = argsSize >= 3 ? toNumber(endIndex) : array.length\r\n    if (array.slice) {\r\n      return array.slice(startIndex, endIndex)\r\n    }\r\n    for (; startIndex < endIndex; startIndex++) {\r\n      result.push(array[startIndex])\r\n    }\r\n  }\r\n  return result\r\n}\r\n\r\nvar slice_1 = slice\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(slice_1);\nexport { slice_1 as __moduleExports };",
+      "start": 1714699767581,
+      "end": 1714699768187,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;AAAA,IAAI,QAAQ,GAAG,UAAqB;AACpC;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,KAAK,EAAE,KAAK,EAAE,UAAU,EAAE,QAAQ,EAAE;AAC7C,EAAE,IAAI,MAAM,GAAG,EAAE;AACjB,EAAE,IAAI,QAAQ,GAAG,SAAS,CAAC,MAAM;AACjC,EAAE,IAAI,KAAK,EAAE;AACb,IAAI,UAAU,GAAG,QAAQ,IAAI,CAAC,GAAG,QAAQ,CAAC,UAAU,CAAC,GAAG,CAAC;AACzD,IAAI,QAAQ,GAAG,QAAQ,IAAI,CAAC,GAAG,QAAQ,CAAC,QAAQ,CAAC,GAAG,KAAK,CAAC,MAAM;AAChE,IAAI,IAAI,KAAK,CAAC,KAAK,EAAE;AACrB,MAAM,OAAO,KAAK,CAAC,KAAK,CAAC,UAAU,EAAE,QAAQ,CAAC;AAC9C,KAAK;AACL,IAAI,OAAO,UAAU,GAAG,QAAQ,EAAE,UAAU,EAAE,EAAE;AAChD,MAAM,MAAM,CAAC,IAAI,CAAC,KAAK,CAAC,UAAU,CAAC,CAAC;AACpC,KAAK;AACL,GAAG;AACH,EAAE,OAAO,MAAM;AACf,CAAC;AACD;IACA,OAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768187,
+      "end": 1714699768187,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768187,
+      "end": 1714699768187,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768187,
+      "end": 1714699768187,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768187,
+      "end": 1714699768187,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768187,
+      "end": 1714699768187,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768187,
+      "end": 1714699768187,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768187,
+      "end": 1714699768187,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/templateSettings.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import escape from './escape.js';\nimport reEscape from './_reEscape.js';\nimport reEvaluate from './_reEvaluate.js';\nimport reInterpolate from './_reInterpolate.js';\n\n/**\n * By default, the template delimiters used by lodash are like those in\n * embedded Ruby (ERB) as well as ES2015 template strings. Change the\n * following template settings to use alternative delimiters.\n *\n * @static\n * @memberOf _\n * @type {Object}\n */\nvar templateSettings = {\n\n  /**\n   * Used to detect `data` property values to be HTML-escaped.\n   *\n   * @memberOf _.templateSettings\n   * @type {RegExp}\n   */\n  'escape': reEscape,\n\n  /**\n   * Used to detect code to be evaluated.\n   *\n   * @memberOf _.templateSettings\n   * @type {RegExp}\n   */\n  'evaluate': reEvaluate,\n\n  /**\n   * Used to detect `data` property values to inject.\n   *\n   * @memberOf _.templateSettings\n   * @type {RegExp}\n   */\n  'interpolate': reInterpolate,\n\n  /**\n   * Used to reference the data object in the template text.\n   *\n   * @memberOf _.templateSettings\n   * @type {string}\n   */\n  'variable': '',\n\n  /**\n   * Used to import variables into the compiled template.\n   *\n   * @memberOf _.templateSettings\n   * @type {Object}\n   */\n  'imports': {\n\n    /**\n     * A reference to the `lodash` function.\n     *\n     * @memberOf _.templateSettings.imports\n     * @type {Function}\n     */\n    '_': { 'escape': escape }\n  }\n};\n\nexport default templateSettings;\n",
+      "start": 1714699768522,
+      "end": 1714699768537,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768537,
+      "end": 1714699768537,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768537,
+      "end": 1714699768537,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768537,
+      "end": 1714699768537,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768537,
+      "end": 1714699768537,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768537,
+      "end": 1714699768537,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768537,
+      "end": 1714699768537,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import escape from './escape.js';\nimport reEscape from './_reEscape.js';\nimport reEvaluate from './_reEvaluate.js';\nimport reInterpolate from './_reInterpolate.js';\n\n/**\n * By default, the template delimiters used by lodash are like those in\n * embedded Ruby (ERB) as well as ES2015 template strings. Change the\n * following template settings to use alternative delimiters.\n *\n * @static\n * @memberOf _\n * @type {Object}\n */\nvar templateSettings = {\n\n  /**\n   * Used to detect `data` property values to be HTML-escaped.\n   *\n   * @memberOf _.templateSettings\n   * @type {RegExp}\n   */\n  'escape': reEscape,\n\n  /**\n   * Used to detect code to be evaluated.\n   *\n   * @memberOf _.templateSettings\n   * @type {RegExp}\n   */\n  'evaluate': reEvaluate,\n\n  /**\n   * Used to detect `data` property values to inject.\n   *\n   * @memberOf _.templateSettings\n   * @type {RegExp}\n   */\n  'interpolate': reInterpolate,\n\n  /**\n   * Used to reference the data object in the template text.\n   *\n   * @memberOf _.templateSettings\n   * @type {string}\n   */\n  'variable': '',\n\n  /**\n   * Used to import variables into the compiled template.\n   *\n   * @memberOf _.templateSettings\n   * @type {Object}\n   */\n  'imports': {\n\n    /**\n     * A reference to the `lodash` function.\n     *\n     * @memberOf _.templateSettings.imports\n     * @type {Function}\n     */\n    '_': { 'escape': escape }\n  }\n};\n\nexport default templateSettings;\n",
+      "start": 1714699768537,
+      "end": 1714699768537,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768537,
+      "end": 1714699768537,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768537,
+      "end": 1714699768537,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768537,
+      "end": 1714699768537,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768537,
+      "end": 1714699768537,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768537,
+      "end": 1714699768537,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768537,
+      "end": 1714699768537,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768537,
+      "end": 1714699768537,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768537,
+      "end": 1714699768537,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768537,
+      "end": 1714699768537,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768537,
+      "end": 1714699768537,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768537,
+      "end": 1714699768537,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768537,
+      "end": 1714699768537,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768537,
+      "end": 1714699768537,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768537,
+      "end": 1714699768537,
+      "order": "normal"
+    }
+  ]
+}

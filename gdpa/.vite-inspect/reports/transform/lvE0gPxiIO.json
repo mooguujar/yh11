@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/startsWith.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var toValueString = require('./toValueString')\r\n\r\n/**\r\n  * 判断字符串是否在源字符串的头部\r\n  *\r\n  * @param {String} str 字符串\r\n  * @param {String/Number} val 值\r\n  * @param {Number} startIndex 开始索引\r\n  * @return {String}\r\n  */\r\nfunction startsWith (str, val, startIndex) {\r\n  var rest = toValueString(str)\r\n  return (arguments.length === 1 ? rest : rest.substring(startIndex)).indexOf(val) === 0\r\n}\r\n\r\nmodule.exports = startsWith\r\n",
+      "start": 1714699767712,
+      "end": 1714699767720,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767720,
+      "end": 1714699767720,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767720,
+      "end": 1714699767720,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767720,
+      "end": 1714699767720,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767720,
+      "end": 1714699767720,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767720,
+      "end": 1714699767720,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767720,
+      "end": 1714699767720,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var toValueString = require('./toValueString')\r\n\r\n/**\r\n  * 判断字符串是否在源字符串的头部\r\n  *\r\n  * @param {String} str 字符串\r\n  * @param {String/Number} val 值\r\n  * @param {Number} startIndex 开始索引\r\n  * @return {String}\r\n  */\r\nfunction startsWith (str, val, startIndex) {\r\n  var rest = toValueString(str)\r\n  return (arguments.length === 1 ? rest : rest.substring(startIndex)).indexOf(val) === 0\r\n}\r\n\r\nmodule.exports = startsWith\r\n",
+      "start": 1714699767720,
+      "end": 1714699767720,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767720,
+      "end": 1714699767720,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767720,
+      "end": 1714699767720,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767720,
+      "end": 1714699767720,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767720,
+      "end": 1714699767720,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767720,
+      "end": 1714699767720,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767720,
+      "end": 1714699767720,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/toValueString.js?commonjs-proxy\";\n\nvar toValueString = require$$0\r\n\r\n/**\r\n  * 判断字符串是否在源字符串的头部\r\n  *\r\n  * @param {String} str 字符串\r\n  * @param {String/Number} val 值\r\n  * @param {Number} startIndex 开始索引\r\n  * @return {String}\r\n  */\r\nfunction startsWith (str, val, startIndex) {\r\n  var rest = toValueString(str)\r\n  return (arguments.length === 1 ? rest : rest.substring(startIndex)).indexOf(val) === 0\r\n}\r\n\r\nvar startsWith_1 = startsWith\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(startsWith_1);\nexport { startsWith_1 as __moduleExports };",
+      "start": 1714699767720,
+      "end": 1714699768213,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;AAAA,IAAI,aAAa,GAAG,UAA0B;AAC9C;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,UAAU,EAAE,GAAG,EAAE,GAAG,EAAE,UAAU,EAAE;AAC3C,EAAE,IAAI,IAAI,GAAG,aAAa,CAAC,GAAG,CAAC;AAC/B,EAAE,OAAO,CAAC,SAAS,CAAC,MAAM,KAAK,CAAC,GAAG,IAAI,GAAG,IAAI,CAAC,SAAS,CAAC,UAAU,CAAC,EAAE,OAAO,CAAC,GAAG,CAAC,KAAK,CAAC;AACxF,CAAC;AACD;IACA,YAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768213,
+      "end": 1714699768213,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768213,
+      "end": 1714699768213,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768213,
+      "end": 1714699768213,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768213,
+      "end": 1714699768213,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768213,
+      "end": 1714699768213,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768213,
+      "end": 1714699768213,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768213,
+      "end": 1714699768213,
+      "order": "normal"
+    }
+  ]
+}

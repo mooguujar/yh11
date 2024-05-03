@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/es/checkbox/src/checkbox.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { defineComponent, h, computed, inject } from 'vue';\nimport XEUtils from 'xe-utils';\nimport { getFuncText } from '../../tools/utils';\nimport GlobalConfig from '../../v-x-e-table/src/conf';\nimport { useSize } from '../../hooks/size';\nexport default defineComponent({\n    name: 'VxeCheckbox',\n    props: {\n        modelValue: [String, Number, Boolean],\n        label: { type: [String, Number], default: null },\n        indeterminate: Boolean,\n        title: [String, Number],\n        checkedValue: { type: [String, Number, Boolean], default: true },\n        uncheckedValue: { type: [String, Number, Boolean], default: false },\n        content: [String, Number],\n        disabled: Boolean,\n        size: { type: String, default: function () { return GlobalConfig.checkbox.size || GlobalConfig.size; } }\n    },\n    emits: [\n        'update:modelValue',\n        'change'\n    ],\n    setup: function (props, context) {\n        var slots = context.slots, emit = context.emit;\n        var $xeform = inject('$xeform', null);\n        var $xeformiteminfo = inject('$xeformiteminfo', null);\n        var xID = XEUtils.uniqueId();\n        var $xecheckbox = {\n            xID: xID,\n            props: props,\n            context: context\n        };\n        var checkboxMethods = {};\n        var computeSize = useSize(props);\n        var $xecheckboxgroup = inject('$xecheckboxgroup', null);\n        var computeIsChecked = computed(function () {\n            if ($xecheckboxgroup) {\n                return XEUtils.includes($xecheckboxgroup.props.modelValue, props.label);\n            }\n            return props.modelValue === props.checkedValue;\n        });\n        var computeIsDisabled = computed(function () {\n            if (props.disabled) {\n                return true;\n            }\n            if ($xecheckboxgroup) {\n                var groupProps = $xecheckboxgroup.props;\n                var computeIsMaximize = $xecheckboxgroup.getComputeMaps().computeIsMaximize;\n                var isMaximize = computeIsMaximize.value;\n                var isChecked = computeIsChecked.value;\n                return groupProps.disabled || (isMaximize && !isChecked);\n            }\n            return false;\n        });\n        var changeEvent = function (evnt) {\n            var checkedValue = props.checkedValue, uncheckedValue = props.uncheckedValue;\n            var isDisabled = computeIsDisabled.value;\n            if (!isDisabled) {\n                var checked = evnt.target.checked;\n                var value = checked ? checkedValue : uncheckedValue;\n                var params = { checked: checked, value: value, label: props.label };\n                if ($xecheckboxgroup) {\n                    $xecheckboxgroup.handleChecked(params, evnt);\n                }\n                else {\n                    emit('update:modelValue', value);\n                    checkboxMethods.dispatchEvent('change', params, evnt);\n                    // 自动更新校验状态\n                    if ($xeform && $xeformiteminfo) {\n                        $xeform.triggerItemEvent(evnt, $xeformiteminfo.itemConfig.field, value);\n                    }\n                }\n            }\n        };\n        checkboxMethods = {\n            dispatchEvent: function (type, params, evnt) {\n                emit(type, Object.assign({ $checkbox: $xecheckbox, $event: evnt }, params));\n            }\n        };\n        Object.assign($xecheckbox, checkboxMethods);\n        var renderVN = function () {\n            var _a;\n            var vSize = computeSize.value;\n            var isDisabled = computeIsDisabled.value;\n            var isChecked = computeIsChecked.value;\n            var indeterminate = props.indeterminate;\n            return h('label', {\n                class: ['vxe-checkbox', (_a = {},\n                        _a[\"size--\".concat(vSize)] = vSize,\n                        _a['is--indeterminate'] = indeterminate,\n                        _a['is--disabled'] = isDisabled,\n                        _a['is--checked'] = isChecked,\n                        _a)],\n                title: props.title\n            }, [\n                h('input', {\n                    class: 'vxe-checkbox--input',\n                    type: 'checkbox',\n                    disabled: isDisabled,\n                    checked: isChecked,\n                    onChange: changeEvent\n                }),\n                h('span', {\n                    class: ['vxe-checkbox--icon', indeterminate ? 'vxe-icon-checkbox-indeterminate' : (isChecked ? 'vxe-icon-checkbox-checked' : 'vxe-icon-checkbox-unchecked')]\n                }),\n                h('span', {\n                    class: 'vxe-checkbox--label'\n                }, slots.default ? slots.default({}) : getFuncText(props.content))\n            ]);\n        };\n        $xecheckbox.renderVN = renderVN;\n        return $xecheckbox;\n    },\n    render: function () {\n        return this.renderVN();\n    }\n});\n",
+      "start": 1714699767740,
+      "end": 1714699767778,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { defineComponent, h, computed, inject } from 'vue';\nimport XEUtils from 'xe-utils';\nimport { getFuncText } from '../../tools/utils';\nimport GlobalConfig from '../../v-x-e-table/src/conf';\nimport { useSize } from '../../hooks/size';\nexport default defineComponent({\n    name: 'VxeCheckbox',\n    props: {\n        modelValue: [String, Number, Boolean],\n        label: { type: [String, Number], default: null },\n        indeterminate: Boolean,\n        title: [String, Number],\n        checkedValue: { type: [String, Number, Boolean], default: true },\n        uncheckedValue: { type: [String, Number, Boolean], default: false },\n        content: [String, Number],\n        disabled: Boolean,\n        size: { type: String, default: function () { return GlobalConfig.checkbox.size || GlobalConfig.size; } }\n    },\n    emits: [\n        'update:modelValue',\n        'change'\n    ],\n    setup: function (props, context) {\n        var slots = context.slots, emit = context.emit;\n        var $xeform = inject('$xeform', null);\n        var $xeformiteminfo = inject('$xeformiteminfo', null);\n        var xID = XEUtils.uniqueId();\n        var $xecheckbox = {\n            xID: xID,\n            props: props,\n            context: context\n        };\n        var checkboxMethods = {};\n        var computeSize = useSize(props);\n        var $xecheckboxgroup = inject('$xecheckboxgroup', null);\n        var computeIsChecked = computed(function () {\n            if ($xecheckboxgroup) {\n                return XEUtils.includes($xecheckboxgroup.props.modelValue, props.label);\n            }\n            return props.modelValue === props.checkedValue;\n        });\n        var computeIsDisabled = computed(function () {\n            if (props.disabled) {\n                return true;\n            }\n            if ($xecheckboxgroup) {\n                var groupProps = $xecheckboxgroup.props;\n                var computeIsMaximize = $xecheckboxgroup.getComputeMaps().computeIsMaximize;\n                var isMaximize = computeIsMaximize.value;\n                var isChecked = computeIsChecked.value;\n                return groupProps.disabled || (isMaximize && !isChecked);\n            }\n            return false;\n        });\n        var changeEvent = function (evnt) {\n            var checkedValue = props.checkedValue, uncheckedValue = props.uncheckedValue;\n            var isDisabled = computeIsDisabled.value;\n            if (!isDisabled) {\n                var checked = evnt.target.checked;\n                var value = checked ? checkedValue : uncheckedValue;\n                var params = { checked: checked, value: value, label: props.label };\n                if ($xecheckboxgroup) {\n                    $xecheckboxgroup.handleChecked(params, evnt);\n                }\n                else {\n                    emit('update:modelValue', value);\n                    checkboxMethods.dispatchEvent('change', params, evnt);\n                    // 自动更新校验状态\n                    if ($xeform && $xeformiteminfo) {\n                        $xeform.triggerItemEvent(evnt, $xeformiteminfo.itemConfig.field, value);\n                    }\n                }\n            }\n        };\n        checkboxMethods = {\n            dispatchEvent: function (type, params, evnt) {\n                emit(type, Object.assign({ $checkbox: $xecheckbox, $event: evnt }, params));\n            }\n        };\n        Object.assign($xecheckbox, checkboxMethods);\n        var renderVN = function () {\n            var _a;\n            var vSize = computeSize.value;\n            var isDisabled = computeIsDisabled.value;\n            var isChecked = computeIsChecked.value;\n            var indeterminate = props.indeterminate;\n            return h('label', {\n                class: ['vxe-checkbox', (_a = {},\n                        _a[\"size--\".concat(vSize)] = vSize,\n                        _a['is--indeterminate'] = indeterminate,\n                        _a['is--disabled'] = isDisabled,\n                        _a['is--checked'] = isChecked,\n                        _a)],\n                title: props.title\n            }, [\n                h('input', {\n                    class: 'vxe-checkbox--input',\n                    type: 'checkbox',\n                    disabled: isDisabled,\n                    checked: isChecked,\n                    onChange: changeEvent\n                }),\n                h('span', {\n                    class: ['vxe-checkbox--icon', indeterminate ? 'vxe-icon-checkbox-indeterminate' : (isChecked ? 'vxe-icon-checkbox-checked' : 'vxe-icon-checkbox-unchecked')]\n                }),\n                h('span', {\n                    class: 'vxe-checkbox--label'\n                }, slots.default ? slots.default({}) : getFuncText(props.content))\n            ]);\n        };\n        $xecheckbox.renderVN = renderVN;\n        return $xecheckbox;\n    },\n    render: function () {\n        return this.renderVN();\n    }\n});\n",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767778,
+      "end": 1714699767779,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767779,
+      "end": 1714699767779,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767779,
+      "end": 1714699767779,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767779,
+      "end": 1714699767779,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767779,
+      "end": 1714699767779,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767779,
+      "end": 1714699767779,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767779,
+      "end": 1714699767779,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767779,
+      "end": 1714699767779,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767779,
+      "end": 1714699767779,
+      "order": "normal"
+    }
+  ]
+}

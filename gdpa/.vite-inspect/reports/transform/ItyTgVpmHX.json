@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/mode.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "const VersionCheck = require('./version-check')\nconst Regex = require('./regex')\n\n/**\n * Numeric mode encodes data from the decimal digit set (0 - 9)\n * (byte values 30HEX to 39HEX).\n * Normally, 3 data characters are represented by 10 bits.\n *\n * @type {Object}\n */\nexports.NUMERIC = {\n  id: 'Numeric',\n  bit: 1 << 0,\n  ccBits: [10, 12, 14]\n}\n\n/**\n * Alphanumeric mode encodes data from a set of 45 characters,\n * i.e. 10 numeric digits (0 - 9),\n *      26 alphabetic characters (A - Z),\n *   and 9 symbols (SP, $, %, *, +, -, ., /, :).\n * Normally, two input characters are represented by 11 bits.\n *\n * @type {Object}\n */\nexports.ALPHANUMERIC = {\n  id: 'Alphanumeric',\n  bit: 1 << 1,\n  ccBits: [9, 11, 13]\n}\n\n/**\n * In byte mode, data is encoded at 8 bits per character.\n *\n * @type {Object}\n */\nexports.BYTE = {\n  id: 'Byte',\n  bit: 1 << 2,\n  ccBits: [8, 16, 16]\n}\n\n/**\n * The Kanji mode efficiently encodes Kanji characters in accordance with\n * the Shift JIS system based on JIS X 0208.\n * The Shift JIS values are shifted from the JIS X 0208 values.\n * JIS X 0208 gives details of the shift coded representation.\n * Each two-byte character value is compacted to a 13-bit binary codeword.\n *\n * @type {Object}\n */\nexports.KANJI = {\n  id: 'Kanji',\n  bit: 1 << 3,\n  ccBits: [8, 10, 12]\n}\n\n/**\n * Mixed mode will contain a sequences of data in a combination of any of\n * the modes described above\n *\n * @type {Object}\n */\nexports.MIXED = {\n  bit: -1\n}\n\n/**\n * Returns the number of bits needed to store the data length\n * according to QR Code specifications.\n *\n * @param  {Mode}   mode    Data mode\n * @param  {Number} version QR Code version\n * @return {Number}         Number of bits\n */\nexports.getCharCountIndicator = function getCharCountIndicator (mode, version) {\n  if (!mode.ccBits) throw new Error('Invalid mode: ' + mode)\n\n  if (!VersionCheck.isValid(version)) {\n    throw new Error('Invalid version: ' + version)\n  }\n\n  if (version >= 1 && version < 10) return mode.ccBits[0]\n  else if (version < 27) return mode.ccBits[1]\n  return mode.ccBits[2]\n}\n\n/**\n * Returns the most efficient mode to store the specified data\n *\n * @param  {String} dataStr Input data string\n * @return {Mode}           Best mode\n */\nexports.getBestModeForData = function getBestModeForData (dataStr) {\n  if (Regex.testNumeric(dataStr)) return exports.NUMERIC\n  else if (Regex.testAlphanumeric(dataStr)) return exports.ALPHANUMERIC\n  else if (Regex.testKanji(dataStr)) return exports.KANJI\n  else return exports.BYTE\n}\n\n/**\n * Return mode name as string\n *\n * @param {Mode} mode Mode object\n * @returns {String}  Mode name\n */\nexports.toString = function toString (mode) {\n  if (mode && mode.id) return mode.id\n  throw new Error('Invalid mode')\n}\n\n/**\n * Check if input param is a valid mode object\n *\n * @param   {Mode}    mode Mode object\n * @returns {Boolean} True if valid mode, false otherwise\n */\nexports.isValid = function isValid (mode) {\n  return mode && mode.bit && mode.ccBits\n}\n\n/**\n * Get mode object from its name\n *\n * @param   {String} string Mode name\n * @returns {Mode}          Mode object\n */\nfunction fromString (string) {\n  if (typeof string !== 'string') {\n    throw new Error('Param is not a string')\n  }\n\n  const lcStr = string.toLowerCase()\n\n  switch (lcStr) {\n    case 'numeric':\n      return exports.NUMERIC\n    case 'alphanumeric':\n      return exports.ALPHANUMERIC\n    case 'kanji':\n      return exports.KANJI\n    case 'byte':\n      return exports.BYTE\n    default:\n      throw new Error('Unknown mode: ' + string)\n  }\n}\n\n/**\n * Returns mode from a value.\n * If value is not a valid mode, returns defaultValue\n *\n * @param  {Mode|String} value        Encoding mode\n * @param  {Mode}        defaultValue Fallback value\n * @return {Mode}                     Encoding mode\n */\nexports.from = function from (value, defaultValue) {\n  if (exports.isValid(value)) {\n    return value\n  }\n\n  try {\n    return fromString(value)\n  } catch (e) {\n    return defaultValue\n  }\n}\n",
+      "start": 1714699771036,
+      "end": 1714699771060,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771060,
+      "end": 1714699771060,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771060,
+      "end": 1714699771060,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771060,
+      "end": 1714699771060,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771060,
+      "end": 1714699771060,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771060,
+      "end": 1714699771060,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771060,
+      "end": 1714699771060,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "const VersionCheck = require('./version-check')\nconst Regex = require('./regex')\n\n/**\n * Numeric mode encodes data from the decimal digit set (0 - 9)\n * (byte values 30HEX to 39HEX).\n * Normally, 3 data characters are represented by 10 bits.\n *\n * @type {Object}\n */\nexports.NUMERIC = {\n  id: 'Numeric',\n  bit: 1 << 0,\n  ccBits: [10, 12, 14]\n}\n\n/**\n * Alphanumeric mode encodes data from a set of 45 characters,\n * i.e. 10 numeric digits (0 - 9),\n *      26 alphabetic characters (A - Z),\n *   and 9 symbols (SP, $, %, *, +, -, ., /, :).\n * Normally, two input characters are represented by 11 bits.\n *\n * @type {Object}\n */\nexports.ALPHANUMERIC = {\n  id: 'Alphanumeric',\n  bit: 1 << 1,\n  ccBits: [9, 11, 13]\n}\n\n/**\n * In byte mode, data is encoded at 8 bits per character.\n *\n * @type {Object}\n */\nexports.BYTE = {\n  id: 'Byte',\n  bit: 1 << 2,\n  ccBits: [8, 16, 16]\n}\n\n/**\n * The Kanji mode efficiently encodes Kanji characters in accordance with\n * the Shift JIS system based on JIS X 0208.\n * The Shift JIS values are shifted from the JIS X 0208 values.\n * JIS X 0208 gives details of the shift coded representation.\n * Each two-byte character value is compacted to a 13-bit binary codeword.\n *\n * @type {Object}\n */\nexports.KANJI = {\n  id: 'Kanji',\n  bit: 1 << 3,\n  ccBits: [8, 10, 12]\n}\n\n/**\n * Mixed mode will contain a sequences of data in a combination of any of\n * the modes described above\n *\n * @type {Object}\n */\nexports.MIXED = {\n  bit: -1\n}\n\n/**\n * Returns the number of bits needed to store the data length\n * according to QR Code specifications.\n *\n * @param  {Mode}   mode    Data mode\n * @param  {Number} version QR Code version\n * @return {Number}         Number of bits\n */\nexports.getCharCountIndicator = function getCharCountIndicator (mode, version) {\n  if (!mode.ccBits) throw new Error('Invalid mode: ' + mode)\n\n  if (!VersionCheck.isValid(version)) {\n    throw new Error('Invalid version: ' + version)\n  }\n\n  if (version >= 1 && version < 10) return mode.ccBits[0]\n  else if (version < 27) return mode.ccBits[1]\n  return mode.ccBits[2]\n}\n\n/**\n * Returns the most efficient mode to store the specified data\n *\n * @param  {String} dataStr Input data string\n * @return {Mode}           Best mode\n */\nexports.getBestModeForData = function getBestModeForData (dataStr) {\n  if (Regex.testNumeric(dataStr)) return exports.NUMERIC\n  else if (Regex.testAlphanumeric(dataStr)) return exports.ALPHANUMERIC\n  else if (Regex.testKanji(dataStr)) return exports.KANJI\n  else return exports.BYTE\n}\n\n/**\n * Return mode name as string\n *\n * @param {Mode} mode Mode object\n * @returns {String}  Mode name\n */\nexports.toString = function toString (mode) {\n  if (mode && mode.id) return mode.id\n  throw new Error('Invalid mode')\n}\n\n/**\n * Check if input param is a valid mode object\n *\n * @param   {Mode}    mode Mode object\n * @returns {Boolean} True if valid mode, false otherwise\n */\nexports.isValid = function isValid (mode) {\n  return mode && mode.bit && mode.ccBits\n}\n\n/**\n * Get mode object from its name\n *\n * @param   {String} string Mode name\n * @returns {Mode}          Mode object\n */\nfunction fromString (string) {\n  if (typeof string !== 'string') {\n    throw new Error('Param is not a string')\n  }\n\n  const lcStr = string.toLowerCase()\n\n  switch (lcStr) {\n    case 'numeric':\n      return exports.NUMERIC\n    case 'alphanumeric':\n      return exports.ALPHANUMERIC\n    case 'kanji':\n      return exports.KANJI\n    case 'byte':\n      return exports.BYTE\n    default:\n      throw new Error('Unknown mode: ' + string)\n  }\n}\n\n/**\n * Returns mode from a value.\n * If value is not a valid mode, returns defaultValue\n *\n * @param  {Mode|String} value        Encoding mode\n * @param  {Mode}        defaultValue Fallback value\n * @return {Mode}                     Encoding mode\n */\nexports.from = function from (value, defaultValue) {\n  if (exports.isValid(value)) {\n    return value\n  }\n\n  try {\n    return fromString(value)\n  } catch (e) {\n    return defaultValue\n  }\n}\n",
+      "start": 1714699771060,
+      "end": 1714699771060,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699771060,
+      "end": 1714699771060,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771060,
+      "end": 1714699771060,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771060,
+      "end": 1714699771060,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771060,
+      "end": 1714699771060,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771060,
+      "end": 1714699771060,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771060,
+      "end": 1714699771060,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as mode } from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/mode.js?commonjs-exports\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/version-check.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/regex.js?commonjs-proxy\";\n\n(function (exports) {\n\tconst VersionCheck = require$$0\n\tconst Regex = require$$1\n\n\t/**\n\t * Numeric mode encodes data from the decimal digit set (0 - 9)\n\t * (byte values 30HEX to 39HEX).\n\t * Normally, 3 data characters are represented by 10 bits.\n\t *\n\t * @type {Object}\n\t */\n\texports.NUMERIC = {\n\t  id: 'Numeric',\n\t  bit: 1 << 0,\n\t  ccBits: [10, 12, 14]\n\t}\n\n\t/**\n\t * Alphanumeric mode encodes data from a set of 45 characters,\n\t * i.e. 10 numeric digits (0 - 9),\n\t *      26 alphabetic characters (A - Z),\n\t *   and 9 symbols (SP, $, %, *, +, -, ., /, :).\n\t * Normally, two input characters are represented by 11 bits.\n\t *\n\t * @type {Object}\n\t */\n\texports.ALPHANUMERIC = {\n\t  id: 'Alphanumeric',\n\t  bit: 1 << 1,\n\t  ccBits: [9, 11, 13]\n\t}\n\n\t/**\n\t * In byte mode, data is encoded at 8 bits per character.\n\t *\n\t * @type {Object}\n\t */\n\texports.BYTE = {\n\t  id: 'Byte',\n\t  bit: 1 << 2,\n\t  ccBits: [8, 16, 16]\n\t}\n\n\t/**\n\t * The Kanji mode efficiently encodes Kanji characters in accordance with\n\t * the Shift JIS system based on JIS X 0208.\n\t * The Shift JIS values are shifted from the JIS X 0208 values.\n\t * JIS X 0208 gives details of the shift coded representation.\n\t * Each two-byte character value is compacted to a 13-bit binary codeword.\n\t *\n\t * @type {Object}\n\t */\n\texports.KANJI = {\n\t  id: 'Kanji',\n\t  bit: 1 << 3,\n\t  ccBits: [8, 10, 12]\n\t}\n\n\t/**\n\t * Mixed mode will contain a sequences of data in a combination of any of\n\t * the modes described above\n\t *\n\t * @type {Object}\n\t */\n\texports.MIXED = {\n\t  bit: -1\n\t}\n\n\t/**\n\t * Returns the number of bits needed to store the data length\n\t * according to QR Code specifications.\n\t *\n\t * @param  {Mode}   mode    Data mode\n\t * @param  {Number} version QR Code version\n\t * @return {Number}         Number of bits\n\t */\n\texports.getCharCountIndicator = function getCharCountIndicator (mode, version) {\n\t  if (!mode.ccBits) throw new Error('Invalid mode: ' + mode)\n\n\t  if (!VersionCheck.isValid(version)) {\n\t    throw new Error('Invalid version: ' + version)\n\t  }\n\n\t  if (version >= 1 && version < 10) return mode.ccBits[0]\n\t  else if (version < 27) return mode.ccBits[1]\n\t  return mode.ccBits[2]\n\t}\n\n\t/**\n\t * Returns the most efficient mode to store the specified data\n\t *\n\t * @param  {String} dataStr Input data string\n\t * @return {Mode}           Best mode\n\t */\n\texports.getBestModeForData = function getBestModeForData (dataStr) {\n\t  if (Regex.testNumeric(dataStr)) return exports.NUMERIC\n\t  else if (Regex.testAlphanumeric(dataStr)) return exports.ALPHANUMERIC\n\t  else if (Regex.testKanji(dataStr)) return exports.KANJI\n\t  else return exports.BYTE\n\t}\n\n\t/**\n\t * Return mode name as string\n\t *\n\t * @param {Mode} mode Mode object\n\t * @returns {String}  Mode name\n\t */\n\texports.toString = function toString (mode) {\n\t  if (mode && mode.id) return mode.id\n\t  throw new Error('Invalid mode')\n\t}\n\n\t/**\n\t * Check if input param is a valid mode object\n\t *\n\t * @param   {Mode}    mode Mode object\n\t * @returns {Boolean} True if valid mode, false otherwise\n\t */\n\texports.isValid = function isValid (mode) {\n\t  return mode && mode.bit && mode.ccBits\n\t}\n\n\t/**\n\t * Get mode object from its name\n\t *\n\t * @param   {String} string Mode name\n\t * @returns {Mode}          Mode object\n\t */\n\tfunction fromString (string) {\n\t  if (typeof string !== 'string') {\n\t    throw new Error('Param is not a string')\n\t  }\n\n\t  const lcStr = string.toLowerCase()\n\n\t  switch (lcStr) {\n\t    case 'numeric':\n\t      return exports.NUMERIC\n\t    case 'alphanumeric':\n\t      return exports.ALPHANUMERIC\n\t    case 'kanji':\n\t      return exports.KANJI\n\t    case 'byte':\n\t      return exports.BYTE\n\t    default:\n\t      throw new Error('Unknown mode: ' + string)\n\t  }\n\t}\n\n\t/**\n\t * Returns mode from a value.\n\t * If value is not a valid mode, returns defaultValue\n\t *\n\t * @param  {Mode|String} value        Encoding mode\n\t * @param  {Mode}        defaultValue Fallback value\n\t * @return {Mode}                     Encoding mode\n\t */\n\texports.from = function from (value, defaultValue) {\n\t  if (exports.isValid(value)) {\n\t    return value\n\t  }\n\n\t  try {\n\t    return fromString(value)\n\t  } catch (e) {\n\t    return defaultValue\n\t  }\n\t} \n} (mode));\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(mode);\nexport { mode as __moduleExports };",
+      "start": 1714699771060,
+      "end": 1714699771099,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "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"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771099,
+      "end": 1714699771099,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771099,
+      "end": 1714699771099,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771099,
+      "end": 1714699771099,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699771099,
+      "end": 1714699771099,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771099,
+      "end": 1714699771099,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771099,
+      "end": 1714699771099,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771099,
+      "end": 1714699771099,
+      "order": "normal"
+    }
+  ]
+}

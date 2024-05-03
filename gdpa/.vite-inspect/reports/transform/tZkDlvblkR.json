@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/activityRules.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <nav-bar\n    class=\"nav-bar\"\n    title=\"活动规则\"\n    mode=\"cardActivity\"\n  />\n\n  <div class=\"activityRules\">\n    <div class=\"rulesTop flex_sz activityColor\">\n      <div class=\"item\">\n        <div class=\"circle\"></div>\n        <p>1.完成任务</p>\n      </div>\n      <div class=\"item\">\n        <div class=\"circle\"></div>\n        <p>2.获得翻卡</p>\n      </div>\n      <div class=\"item\">\n        <div class=\"circle\"></div>\n        <p>3.合成卡</p>\n      </div>\n      <div class=\"item\">\n        <div class=\"circle\"></div>\n        <p>4.等待派奖</p>\n      </div>\n    </div>\n    <div class=\"rules-content activity_container activitydarkColor overflow_a\">\n      <!-- <span class=\"text-[#d8281f]\">【活动对象】</span>\n      全体会员\n      <br />\n      <span class=\"text-[#d8281f]\">【活动周期】</span>\n      即日起\n      <span class=\"text-[#d8281f]\">【活动结束时间以官方通知为准】</span>\n      <br />\n      <span class=\"text-[#d8281f]\">【参与方式】</span>\n      完成任务即可参与活动\n      <br />\n      <br />\n      <span class=\"text-[#d8281f]\">【活动内容】</span> -->\n      <div v-html=\"content\"></div>\n      <!-- {{ content }} -->\n      <!-- <br />\n      1、每完成一个任务可以获得一个翻卡的机会；\n      <br />\n      2、上分到与GDpay合作的游戏平台即可申请翻卡机会；\n      <br />\n      3、买币卖币金额超过最低获卡金额，即可获得翻卡机会；\n      <br />\n      4、获得的卡片若有富余，可以相互赠送, 赠送达到 5 次后也 可获得翻卡机会；\n      <br />\n      5、集卡【恭】【喜】【发】【财】4字套卡，集全1套后立即 派奖，瓜分10W大奖；单次最高可得999大奖；\n      <br />\n      6、排行榜大奖：按集全1套【恭喜发财】的数量与时间先后顺 序排名，统计自然周，周一00：00 01 -\n      周日每周日23：00 00 的数据，每周日23:00自动派奖，进行瓜分大奖，第一名最高 可得1999大奖；\n      <br />\n      7、当参与优惠会员未能完全遵守、或违反、或滥用任何有关\n      公司优惠或推广的条款，公司保留权利向此团队或个人停止、 取消或索回已支付的全部奖励；\n      <br />\n      8、公司保留对活动的最终解释权适用于所有会员。 -->\n    </div>\n  </div>\n</template>\n<script setup lang=\"ts\">\nimport { articleListApi } from '@/apis/article'\nimport { onMounted, ref } from 'vue'\nimport { useAppBar } from '@/components/AppBar/useAppBar'\nuseAppBar({ mode: 'dark' })\nconst content = ref('')\narticleListApi({\n  bind_key: 'Jifuka_Notice'\n}).then(data => {\n  if ((data as any).code) return console.log('数据异常')\n  content.value = data[0].content\n})\nonMounted(() => {})\n</script>\n<style lang=\"scss\" scoped>\n.activityRules {\n  height: 100%;\n  font-size: 30px;\n  .rulesTop {\n    width: 100%;\n    padding: 20px;\n    height: 200px;\n    background: var(--app-spring-festival-activity-theme);\n    .item {\n      width: 25%;\n      height: 100px;\n      .circle {\n        margin: 0 auto;\n        border-radius: 50%;\n        width: 53px;\n        height: 53px;\n        line-height: 53px;\n        text-align: center;\n        background: #ccc;\n        background: url('../../../assets/images/common/qianbi.png');\n        background-size: cover;\n        margin-bottom: 10px;\n      }\n      p {\n        text-align: center;\n        font-size: 25px;\n      }\n    }\n  }\n  .rules-content {\n    top: -14px;\n    padding: 20px 20px;\n    height: calc(100vh - 300px);\n  }\n}\n</style>\n",
+      "start": 1714699769442,
+      "end": 1714699769506,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769506,
+      "end": 1714699769506,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769506,
+      "end": 1714699769506,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769506,
+      "end": 1714699769506,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769506,
+      "end": 1714699769506,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/activityRules.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/activityRules.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/activityRules.vue?vue&type=style&index=0&scoped=ff7a1e68&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-ff7a1e68\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/activityRules.vue\"]]);\n",
+      "start": 1714699769506,
+      "end": 1714699769606,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769606,
+      "end": 1714699769606,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/activityRules.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/activityRules.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/activityRules.vue?vue&type=style&index=0&scoped=ff7a1e68&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-ff7a1e68\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/activityRules.vue\"]]);\n",
+      "start": 1714699769606,
+      "end": 1714699769606,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/activityRules.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/activityRules.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/activityRules.vue?vue&type=style&index=0&scoped=ff7a1e68&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-ff7a1e68\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/activityRules.vue\"]]);\n",
+      "start": 1714699769606,
+      "end": 1714699770585,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/activityRules.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/activityRules.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/activityRules.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/activityRules.vue?vue&type=style&index=0&scoped=ff7a1e68&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-ff7a1e68\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/activityRules.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,qFAAqF,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770585,
+      "end": 1714699770585,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699770585,
+      "end": 1714699770585,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770585,
+      "end": 1714699770585,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770585,
+      "end": 1714699770585,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770585,
+      "end": 1714699770585,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770585,
+      "end": 1714699770585,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770585,
+      "end": 1714699770585,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770585,
+      "end": 1714699770585,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770585,
+      "end": 1714699770585,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/activityRules.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/activityRules.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/activityRules.vue?vue&type=style&index=0&scoped=ff7a1e68&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-ff7a1e68\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/activityRules.vue\"]]);\n",
+      "start": 1714699770585,
+      "end": 1714699770585,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/activityRules.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/activityRules.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/activityRules.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/activityRules.vue?vue&type=style&index=0&scoped=ff7a1e68&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-ff7a1e68\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/activityRules.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770585,
+      "end": 1714699770585,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770585,
+      "end": 1714699770585,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770585,
+      "end": 1714699770585,
+      "order": "normal"
+    }
+  ]
+}

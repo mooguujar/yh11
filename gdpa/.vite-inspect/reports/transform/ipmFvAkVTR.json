@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/_mapCacheSet.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import getMapData from './_getMapData.js';\n\n/**\n * Sets the map `key` to `value`.\n *\n * @private\n * @name set\n * @memberOf MapCache\n * @param {string} key The key of the value to set.\n * @param {*} value The value to set.\n * @returns {Object} Returns the map cache instance.\n */\nfunction mapCacheSet(key, value) {\n  var data = getMapData(this, key),\n      size = data.size;\n\n  data.set(key, value);\n  this.size += data.size == size ? 0 : 1;\n  return this;\n}\n\nexport default mapCacheSet;\n",
+      "start": 1714699768912,
+      "end": 1714699768925,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768925,
+      "end": 1714699768925,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768925,
+      "end": 1714699768925,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768925,
+      "end": 1714699768925,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768925,
+      "end": 1714699768925,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768925,
+      "end": 1714699768925,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768925,
+      "end": 1714699768925,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import getMapData from './_getMapData.js';\n\n/**\n * Sets the map `key` to `value`.\n *\n * @private\n * @name set\n * @memberOf MapCache\n * @param {string} key The key of the value to set.\n * @param {*} value The value to set.\n * @returns {Object} Returns the map cache instance.\n */\nfunction mapCacheSet(key, value) {\n  var data = getMapData(this, key),\n      size = data.size;\n\n  data.set(key, value);\n  this.size += data.size == size ? 0 : 1;\n  return this;\n}\n\nexport default mapCacheSet;\n",
+      "start": 1714699768925,
+      "end": 1714699768925,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768925,
+      "end": 1714699768925,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768925,
+      "end": 1714699768925,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768925,
+      "end": 1714699768925,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768925,
+      "end": 1714699768925,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768925,
+      "end": 1714699768925,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768925,
+      "end": 1714699768925,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768925,
+      "end": 1714699768925,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768925,
+      "end": 1714699768925,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768925,
+      "end": 1714699768925,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768925,
+      "end": 1714699768925,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768925,
+      "end": 1714699768925,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768925,
+      "end": 1714699768925,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768925,
+      "end": 1714699768925,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768925,
+      "end": 1714699768925,
+      "order": "normal"
+    }
+  ]
+}

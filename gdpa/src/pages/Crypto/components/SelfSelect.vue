@@ -271,7 +271,7 @@
                         @click="
                           onlineCharge
                             ? gd_buy_fixmomey == 1 && (fixedAmount || amountScope)
-                              ? showDIYDialog(+item.remaining_num + '')
+                              ? showDIYDialog(item)
                               : mitt.emit('onlineCharge_show', item)
                             : router.push(
                                 '/selfbuy_coin?money=' +
@@ -463,7 +463,7 @@
 
 <script setup lang="ts">
 const coin_name = sessionStorage.getItem('coin_name')
-import { SellOrders } from '@/apis/buySellCoin'
+import { SellOrders, sellOrderLockApi } from '@/apis/buySellCoin'
 import verified from '@/assets/images/common/verified.png'
 import { useAppBar } from '@/components/AppBar/useAppBar'
 import Dialog from '@/components/CommonPopup/Dialog/index'
@@ -501,27 +501,48 @@ const { toClipboard } = clipboard3()
 const msgtext = `
 </br>
 </br>
-复制成功！是否返回重新输入金额充值？ </br>
+复制成功，请返回游戏平台重新输入金额充值！</br>
 </br>
 </br>
 `
-const showDIYDialog = async (remaining_num: string) => {
-  // console.log('remaining_num', remaining_num)
+const msgtext2 = `
+</br>
+</br>
+订单失效，请复制其他金额！</br>
+</br>
+</br>
+`
+const showDIYDialog = async (item: any) => {
+  // window.log('item', item)
   try {
-    await toClipboard(remaining_num)
-    // showToast('复制成功');
-    Dialog.confirm({
-      title: '温馨提示',
-      message: msgtext,
-      allowHtml: true,
-      messageAlign: 'center',
-      className: 'selldialog',
-      confirmButtonText: '返回充值',
-      cancelButtonText: '取消',
-      action: () => {
-        window.DIYclose()
-      }
-    })
+    const res = await sellOrderLockApi({ sell_order_id: item.order_id })
+    if (res.sell_order_id) {
+      await toClipboard(item.remaining_num)
+      // showToast('复制成功');
+      Dialog.confirm({
+        title: '温馨提示',
+        message: msgtext,
+        allowHtml: true,
+        messageAlign: 'center',
+        className: 'selldialog',
+        confirmButtonText: '联知道了',
+        hideCancelButton: true,
+        action: () => {}
+      })
+    } else {
+      Dialog.confirm({
+        title: '温馨提示',
+        message: msgtext2,
+        allowHtml: true,
+        messageAlign: 'center',
+        className: 'selldialog',
+        confirmButtonText: '联知道了',
+        hideCancelButton: true,
+        action: () => {
+          onConfirm()
+        }
+      })
+    }
   } catch (error) {
     showToast('复制失败!!')
     showToast({

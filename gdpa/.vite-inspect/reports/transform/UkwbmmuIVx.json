@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/_cloneArrayBuffer.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import Uint8Array from './_Uint8Array.js';\n\n/**\n * Creates a clone of `arrayBuffer`.\n *\n * @private\n * @param {ArrayBuffer} arrayBuffer The array buffer to clone.\n * @returns {ArrayBuffer} Returns the cloned array buffer.\n */\nfunction cloneArrayBuffer(arrayBuffer) {\n  var result = new arrayBuffer.constructor(arrayBuffer.byteLength);\n  new Uint8Array(result).set(new Uint8Array(arrayBuffer));\n  return result;\n}\n\nexport default cloneArrayBuffer;\n",
+      "start": 1714699769015,
+      "end": 1714699769036,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769036,
+      "end": 1714699769036,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769036,
+      "end": 1714699769036,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769036,
+      "end": 1714699769036,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769036,
+      "end": 1714699769036,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699769036,
+      "end": 1714699769036,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769036,
+      "end": 1714699769036,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import Uint8Array from './_Uint8Array.js';\n\n/**\n * Creates a clone of `arrayBuffer`.\n *\n * @private\n * @param {ArrayBuffer} arrayBuffer The array buffer to clone.\n * @returns {ArrayBuffer} Returns the cloned array buffer.\n */\nfunction cloneArrayBuffer(arrayBuffer) {\n  var result = new arrayBuffer.constructor(arrayBuffer.byteLength);\n  new Uint8Array(result).set(new Uint8Array(arrayBuffer));\n  return result;\n}\n\nexport default cloneArrayBuffer;\n",
+      "start": 1714699769036,
+      "end": 1714699769036,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699769036,
+      "end": 1714699769036,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769036,
+      "end": 1714699769036,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769036,
+      "end": 1714699769036,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769036,
+      "end": 1714699769036,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769036,
+      "end": 1714699769036,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769036,
+      "end": 1714699769036,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769036,
+      "end": 1714699769036,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769036,
+      "end": 1714699769036,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769036,
+      "end": 1714699769036,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769036,
+      "end": 1714699769036,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699769036,
+      "end": 1714699769036,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769036,
+      "end": 1714699769036,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769036,
+      "end": 1714699769036,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769036,
+      "end": 1714699769036,
+      "order": "normal"
+    }
+  ]
+}

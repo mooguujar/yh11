@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/picker/utils.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { isDef, clamp, extend, createNamespace } from \"../utils/index.mjs\";\nconst [name, bem, t] = createNamespace(\"picker\");\nconst getFirstEnabledOption = (options) => options.find((option) => !option.disabled) || options[0];\nfunction getColumnsType(columns, fields) {\n  const firstColumn = columns[0];\n  if (firstColumn) {\n    if (Array.isArray(firstColumn)) {\n      return \"multiple\";\n    }\n    if (fields.children in firstColumn) {\n      return \"cascade\";\n    }\n  }\n  return \"default\";\n}\nfunction findIndexOfEnabledOption(options, index) {\n  index = clamp(index, 0, options.length);\n  for (let i = index; i < options.length; i++) {\n    if (!options[i].disabled)\n      return i;\n  }\n  for (let i = index - 1; i >= 0; i--) {\n    if (!options[i].disabled)\n      return i;\n  }\n  return 0;\n}\nconst isOptionExist = (options, value, fields) => value !== void 0 && !!options.find((option) => option[fields.value] === value);\nfunction findOptionByValue(options, value, fields) {\n  const index = options.findIndex((option) => option[fields.value] === value);\n  const enabledIndex = findIndexOfEnabledOption(options, index);\n  return options[enabledIndex];\n}\nfunction formatCascadeColumns(columns, fields, selectedValues) {\n  const formatted = [];\n  let cursor = {\n    [fields.children]: columns\n  };\n  let columnIndex = 0;\n  while (cursor && cursor[fields.children]) {\n    const options = cursor[fields.children];\n    const value = selectedValues.value[columnIndex];\n    cursor = isDef(value) ? findOptionByValue(options, value, fields) : void 0;\n    if (!cursor && options.length) {\n      const firstValue = getFirstEnabledOption(options)[fields.value];\n      cursor = findOptionByValue(options, firstValue, fields);\n    }\n    columnIndex++;\n    formatted.push(options);\n  }\n  return formatted;\n}\nfunction getElementTranslateY(element) {\n  const { transform } = window.getComputedStyle(element);\n  const translateY = transform.slice(7, transform.length - 1).split(\", \")[5];\n  return Number(translateY);\n}\nfunction assignDefaultFields(fields) {\n  return extend(\n    {\n      text: \"text\",\n      value: \"value\",\n      children: \"children\"\n    },\n    fields\n  );\n}\nexport {\n  assignDefaultFields,\n  bem,\n  findIndexOfEnabledOption,\n  findOptionByValue,\n  formatCascadeColumns,\n  getColumnsType,\n  getElementTranslateY,\n  getFirstEnabledOption,\n  isOptionExist,\n  name,\n  t\n};\n",
+      "start": 1714699767875,
+      "end": 1714699767924,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767924,
+      "end": 1714699767924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767924,
+      "end": 1714699767924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767924,
+      "end": 1714699767924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767924,
+      "end": 1714699767924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767924,
+      "end": 1714699767924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767924,
+      "end": 1714699767924,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { isDef, clamp, extend, createNamespace } from \"../utils/index.mjs\";\nconst [name, bem, t] = createNamespace(\"picker\");\nconst getFirstEnabledOption = (options) => options.find((option) => !option.disabled) || options[0];\nfunction getColumnsType(columns, fields) {\n  const firstColumn = columns[0];\n  if (firstColumn) {\n    if (Array.isArray(firstColumn)) {\n      return \"multiple\";\n    }\n    if (fields.children in firstColumn) {\n      return \"cascade\";\n    }\n  }\n  return \"default\";\n}\nfunction findIndexOfEnabledOption(options, index) {\n  index = clamp(index, 0, options.length);\n  for (let i = index; i < options.length; i++) {\n    if (!options[i].disabled)\n      return i;\n  }\n  for (let i = index - 1; i >= 0; i--) {\n    if (!options[i].disabled)\n      return i;\n  }\n  return 0;\n}\nconst isOptionExist = (options, value, fields) => value !== void 0 && !!options.find((option) => option[fields.value] === value);\nfunction findOptionByValue(options, value, fields) {\n  const index = options.findIndex((option) => option[fields.value] === value);\n  const enabledIndex = findIndexOfEnabledOption(options, index);\n  return options[enabledIndex];\n}\nfunction formatCascadeColumns(columns, fields, selectedValues) {\n  const formatted = [];\n  let cursor = {\n    [fields.children]: columns\n  };\n  let columnIndex = 0;\n  while (cursor && cursor[fields.children]) {\n    const options = cursor[fields.children];\n    const value = selectedValues.value[columnIndex];\n    cursor = isDef(value) ? findOptionByValue(options, value, fields) : void 0;\n    if (!cursor && options.length) {\n      const firstValue = getFirstEnabledOption(options)[fields.value];\n      cursor = findOptionByValue(options, firstValue, fields);\n    }\n    columnIndex++;\n    formatted.push(options);\n  }\n  return formatted;\n}\nfunction getElementTranslateY(element) {\n  const { transform } = window.getComputedStyle(element);\n  const translateY = transform.slice(7, transform.length - 1).split(\", \")[5];\n  return Number(translateY);\n}\nfunction assignDefaultFields(fields) {\n  return extend(\n    {\n      text: \"text\",\n      value: \"value\",\n      children: \"children\"\n    },\n    fields\n  );\n}\nexport {\n  assignDefaultFields,\n  bem,\n  findIndexOfEnabledOption,\n  findOptionByValue,\n  formatCascadeColumns,\n  getColumnsType,\n  getElementTranslateY,\n  getFirstEnabledOption,\n  isOptionExist,\n  name,\n  t\n};\n",
+      "start": 1714699767924,
+      "end": 1714699767924,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767924,
+      "end": 1714699767924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767924,
+      "end": 1714699767924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767924,
+      "end": 1714699767924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767924,
+      "end": 1714699767924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767924,
+      "end": 1714699767924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767924,
+      "end": 1714699767924,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767924,
+      "end": 1714699767924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767924,
+      "end": 1714699767924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767924,
+      "end": 1714699767924,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767924,
+      "end": 1714699767924,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767924,
+      "end": 1714699767924,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767924,
+      "end": 1714699767924,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767924,
+      "end": 1714699767924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767924,
+      "end": 1714699767924,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/es/radio/src/group.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { defineComponent, h, provide, inject } from 'vue';\nimport XEUtils from 'xe-utils';\nimport GlobalConfig from '../../v-x-e-table/src/conf';\nimport { useSize } from '../../hooks/size';\nexport default defineComponent({\n    name: 'VxeRadioGroup',\n    props: {\n        modelValue: [String, Number, Boolean],\n        disabled: Boolean,\n        strict: { type: Boolean, default: function () { return GlobalConfig.radio.strict; } },\n        size: { type: String, default: function () { return GlobalConfig.radio.size || GlobalConfig.size; } }\n    },\n    emits: [\n        'update:modelValue',\n        'change'\n    ],\n    setup: function (props, context) {\n        var slots = context.slots, emit = context.emit;\n        var $xeform = inject('$xeform', null);\n        var $xeformiteminfo = inject('$xeformiteminfo', null);\n        var xID = XEUtils.uniqueId();\n        var $xeradiogroup = {\n            xID: xID,\n            props: props,\n            context: context,\n            name: XEUtils.uniqueId('xegroup_')\n        };\n        var radioGroupMethods = {};\n        useSize(props);\n        var radioGroupPrivateMethods = {\n            handleChecked: function (params, evnt) {\n                emit('update:modelValue', params.label);\n                radioGroupMethods.dispatchEvent('change', params);\n                // 自动更新校验状态\n                if ($xeform && $xeformiteminfo) {\n                    $xeform.triggerItemEvent(evnt, $xeformiteminfo.itemConfig.field, params.label);\n                }\n            }\n        };\n        radioGroupMethods = {\n            dispatchEvent: function (type, params, evnt) {\n                emit(type, Object.assign({ $radioGroup: $xeradiogroup, $event: evnt }, params));\n            }\n        };\n        var renderVN = function () {\n            return h('div', {\n                class: 'vxe-radio-group'\n            }, slots.default ? slots.default({}) : []);\n        };\n        Object.assign($xeradiogroup, radioGroupPrivateMethods, {\n            renderVN: renderVN,\n            dispatchEvent: dispatchEvent\n        });\n        provide('$xeradiogroup', $xeradiogroup);\n        return renderVN;\n    }\n});\n",
+      "start": 1714699767743,
+      "end": 1714699767784,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767784,
+      "end": 1714699767784,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767784,
+      "end": 1714699767784,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767784,
+      "end": 1714699767784,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767784,
+      "end": 1714699767784,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767784,
+      "end": 1714699767784,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767784,
+      "end": 1714699767784,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { defineComponent, h, provide, inject } from 'vue';\nimport XEUtils from 'xe-utils';\nimport GlobalConfig from '../../v-x-e-table/src/conf';\nimport { useSize } from '../../hooks/size';\nexport default defineComponent({\n    name: 'VxeRadioGroup',\n    props: {\n        modelValue: [String, Number, Boolean],\n        disabled: Boolean,\n        strict: { type: Boolean, default: function () { return GlobalConfig.radio.strict; } },\n        size: { type: String, default: function () { return GlobalConfig.radio.size || GlobalConfig.size; } }\n    },\n    emits: [\n        'update:modelValue',\n        'change'\n    ],\n    setup: function (props, context) {\n        var slots = context.slots, emit = context.emit;\n        var $xeform = inject('$xeform', null);\n        var $xeformiteminfo = inject('$xeformiteminfo', null);\n        var xID = XEUtils.uniqueId();\n        var $xeradiogroup = {\n            xID: xID,\n            props: props,\n            context: context,\n            name: XEUtils.uniqueId('xegroup_')\n        };\n        var radioGroupMethods = {};\n        useSize(props);\n        var radioGroupPrivateMethods = {\n            handleChecked: function (params, evnt) {\n                emit('update:modelValue', params.label);\n                radioGroupMethods.dispatchEvent('change', params);\n                // 自动更新校验状态\n                if ($xeform && $xeformiteminfo) {\n                    $xeform.triggerItemEvent(evnt, $xeformiteminfo.itemConfig.field, params.label);\n                }\n            }\n        };\n        radioGroupMethods = {\n            dispatchEvent: function (type, params, evnt) {\n                emit(type, Object.assign({ $radioGroup: $xeradiogroup, $event: evnt }, params));\n            }\n        };\n        var renderVN = function () {\n            return h('div', {\n                class: 'vxe-radio-group'\n            }, slots.default ? slots.default({}) : []);\n        };\n        Object.assign($xeradiogroup, radioGroupPrivateMethods, {\n            renderVN: renderVN,\n            dispatchEvent: dispatchEvent\n        });\n        provide('$xeradiogroup', $xeradiogroup);\n        return renderVN;\n    }\n});\n",
+      "start": 1714699767784,
+      "end": 1714699767784,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767784,
+      "end": 1714699767784,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767784,
+      "end": 1714699767784,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767784,
+      "end": 1714699767784,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767784,
+      "end": 1714699767784,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767784,
+      "end": 1714699767784,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767784,
+      "end": 1714699767784,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767784,
+      "end": 1714699767784,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767784,
+      "end": 1714699767784,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767784,
+      "end": 1714699767784,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767784,
+      "end": 1714699767784,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767784,
+      "end": 1714699767784,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767784,
+      "end": 1714699767784,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767784,
+      "end": 1714699767784,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767784,
+      "end": 1714699767784,
+      "order": "normal"
+    }
+  ]
+}

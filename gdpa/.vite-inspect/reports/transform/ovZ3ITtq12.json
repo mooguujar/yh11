@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/_createCaseFirst.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import castSlice from './_castSlice.js';\nimport hasUnicode from './_hasUnicode.js';\nimport stringToArray from './_stringToArray.js';\nimport toString from './toString.js';\n\n/**\n * Creates a function like `_.lowerFirst`.\n *\n * @private\n * @param {string} methodName The name of the `String` case method to use.\n * @returns {Function} Returns the new case function.\n */\nfunction createCaseFirst(methodName) {\n  return function(string) {\n    string = toString(string);\n\n    var strSymbols = hasUnicode(string)\n      ? stringToArray(string)\n      : undefined;\n\n    var chr = strSymbols\n      ? strSymbols[0]\n      : string.charAt(0);\n\n    var trailing = strSymbols\n      ? castSlice(strSymbols, 1).join('')\n      : string.slice(1);\n\n    return chr[methodName]() + trailing;\n  };\n}\n\nexport default createCaseFirst;\n",
+      "start": 1714699768726,
+      "end": 1714699768734,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768734,
+      "end": 1714699768734,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768734,
+      "end": 1714699768734,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768734,
+      "end": 1714699768734,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768734,
+      "end": 1714699768734,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768734,
+      "end": 1714699768734,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768734,
+      "end": 1714699768734,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import castSlice from './_castSlice.js';\nimport hasUnicode from './_hasUnicode.js';\nimport stringToArray from './_stringToArray.js';\nimport toString from './toString.js';\n\n/**\n * Creates a function like `_.lowerFirst`.\n *\n * @private\n * @param {string} methodName The name of the `String` case method to use.\n * @returns {Function} Returns the new case function.\n */\nfunction createCaseFirst(methodName) {\n  return function(string) {\n    string = toString(string);\n\n    var strSymbols = hasUnicode(string)\n      ? stringToArray(string)\n      : undefined;\n\n    var chr = strSymbols\n      ? strSymbols[0]\n      : string.charAt(0);\n\n    var trailing = strSymbols\n      ? castSlice(strSymbols, 1).join('')\n      : string.slice(1);\n\n    return chr[methodName]() + trailing;\n  };\n}\n\nexport default createCaseFirst;\n",
+      "start": 1714699768734,
+      "end": 1714699768734,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768735,
+      "end": 1714699768735,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768735,
+      "end": 1714699768735,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768735,
+      "end": 1714699768735,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768735,
+      "end": 1714699768735,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768735,
+      "end": 1714699768735,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768735,
+      "end": 1714699768735,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768735,
+      "end": 1714699768735,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768735,
+      "end": 1714699768735,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768735,
+      "end": 1714699768735,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768735,
+      "end": 1714699768735,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768735,
+      "end": 1714699768735,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768735,
+      "end": 1714699768735,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768735,
+      "end": 1714699768735,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768735,
+      "end": 1714699768735,
+      "order": "normal"
+    }
+  ]
+}

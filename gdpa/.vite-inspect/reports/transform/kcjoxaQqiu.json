@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/es/select/src/util.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { watch } from 'vue';\nimport XEUtils from 'xe-utils';\nimport { OptionInfo } from './optionInfo';\nexport function isOption(option) {\n    return option instanceof OptionInfo;\n}\nexport function createOption($xeselect, _vm) {\n    return isOption(_vm) ? _vm : new OptionInfo($xeselect, _vm);\n}\nexport function watchOption(props, option) {\n    Object.keys(props).forEach(function (name) {\n        watch(function () { return props[name]; }, function (value) {\n            option.update(name, value);\n        });\n    });\n}\nexport function assemOption($xeselect, el, option, optgroup) {\n    var reactData = $xeselect.reactData;\n    var staticOptions = reactData.staticOptions;\n    var parentElem = el.parentNode;\n    var parentOption = optgroup ? optgroup.option : null;\n    var parentCols = parentOption ? parentOption.options : staticOptions;\n    if (parentElem && parentCols) {\n        parentCols.splice(XEUtils.arrayIndexOf(parentElem.children, el), 0, option);\n        reactData.staticOptions = staticOptions.slice(0);\n    }\n}\nexport function destroyOption($xeselect, option) {\n    var reactData = $xeselect.reactData;\n    var staticOptions = reactData.staticOptions;\n    var matchObj = XEUtils.findTree(staticOptions, function (item) { return item.id === option.id; }, { children: 'options' });\n    if (matchObj) {\n        matchObj.items.splice(matchObj.index, 1);\n    }\n    reactData.staticOptions = staticOptions.slice(0);\n}\n",
+      "start": 1714699768241,
+      "end": 1714699768286,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768286,
+      "end": 1714699768286,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768286,
+      "end": 1714699768286,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768286,
+      "end": 1714699768286,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768286,
+      "end": 1714699768286,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768286,
+      "end": 1714699768286,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768286,
+      "end": 1714699768286,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { watch } from 'vue';\nimport XEUtils from 'xe-utils';\nimport { OptionInfo } from './optionInfo';\nexport function isOption(option) {\n    return option instanceof OptionInfo;\n}\nexport function createOption($xeselect, _vm) {\n    return isOption(_vm) ? _vm : new OptionInfo($xeselect, _vm);\n}\nexport function watchOption(props, option) {\n    Object.keys(props).forEach(function (name) {\n        watch(function () { return props[name]; }, function (value) {\n            option.update(name, value);\n        });\n    });\n}\nexport function assemOption($xeselect, el, option, optgroup) {\n    var reactData = $xeselect.reactData;\n    var staticOptions = reactData.staticOptions;\n    var parentElem = el.parentNode;\n    var parentOption = optgroup ? optgroup.option : null;\n    var parentCols = parentOption ? parentOption.options : staticOptions;\n    if (parentElem && parentCols) {\n        parentCols.splice(XEUtils.arrayIndexOf(parentElem.children, el), 0, option);\n        reactData.staticOptions = staticOptions.slice(0);\n    }\n}\nexport function destroyOption($xeselect, option) {\n    var reactData = $xeselect.reactData;\n    var staticOptions = reactData.staticOptions;\n    var matchObj = XEUtils.findTree(staticOptions, function (item) { return item.id === option.id; }, { children: 'options' });\n    if (matchObj) {\n        matchObj.items.splice(matchObj.index, 1);\n    }\n    reactData.staticOptions = staticOptions.slice(0);\n}\n",
+      "start": 1714699768286,
+      "end": 1714699768286,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768286,
+      "end": 1714699768286,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768286,
+      "end": 1714699768286,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768286,
+      "end": 1714699768286,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768286,
+      "end": 1714699768286,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768286,
+      "end": 1714699768286,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768286,
+      "end": 1714699768287,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768287,
+      "end": 1714699768287,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768287,
+      "end": 1714699768287,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768287,
+      "end": 1714699768287,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768287,
+      "end": 1714699768287,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768287,
+      "end": 1714699768287,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768287,
+      "end": 1714699768287,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768287,
+      "end": 1714699768287,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768287,
+      "end": 1714699768287,
+      "order": "normal"
+    }
+  ]
+}

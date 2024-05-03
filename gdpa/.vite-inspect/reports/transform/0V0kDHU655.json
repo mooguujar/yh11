@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/serialize.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var staticEncodeURIComponent = require('./staticEncodeURIComponent')\r\n\r\nvar each = require('./each')\r\nvar isArray = require('./isArray')\r\nvar isNull = require('./isNull')\r\nvar isUndefined = require('./isUndefined')\r\nvar isPlainObject = require('./isPlainObject')\r\n\r\nfunction stringifyParams (resultVal, resultKey, isArr) {\r\n  var _arr\r\n  var result = []\r\n  each(resultVal, function (item, key) {\r\n    _arr = isArray(item)\r\n    if (isPlainObject(item) || _arr) {\r\n      result = result.concat(stringifyParams(item, resultKey + '[' + key + ']', _arr))\r\n    } else {\r\n      result.push(staticEncodeURIComponent(resultKey + '[' + (isArr ? '' : key) + ']') + '=' + staticEncodeURIComponent(isNull(item) ? '' : item))\r\n    }\r\n  })\r\n  return result\r\n}\r\n\r\n/**\r\n * 序列化查询参数\r\n *\r\n * @param {Object} query 查询参数\r\n */\r\nfunction serialize (query) {\r\n  var _arr\r\n  var params = []\r\n  each(query, function (item, key) {\r\n    if (!isUndefined(item)) {\r\n      _arr = isArray(item)\r\n      if (isPlainObject(item) || _arr) {\r\n        params = params.concat(stringifyParams(item, key, _arr))\r\n      } else {\r\n        params.push(staticEncodeURIComponent(key) + '=' + staticEncodeURIComponent(isNull(item) ? '' : item))\r\n      }\r\n    }\r\n  })\r\n  return params.join('&').replace(/%20/g, '+')\r\n}\r\n\r\nmodule.exports = serialize\r\n",
+      "start": 1714699767718,
+      "end": 1714699767728,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767728,
+      "end": 1714699767728,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767728,
+      "end": 1714699767728,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767728,
+      "end": 1714699767728,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767728,
+      "end": 1714699767728,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767728,
+      "end": 1714699767728,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767728,
+      "end": 1714699767728,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var staticEncodeURIComponent = require('./staticEncodeURIComponent')\r\n\r\nvar each = require('./each')\r\nvar isArray = require('./isArray')\r\nvar isNull = require('./isNull')\r\nvar isUndefined = require('./isUndefined')\r\nvar isPlainObject = require('./isPlainObject')\r\n\r\nfunction stringifyParams (resultVal, resultKey, isArr) {\r\n  var _arr\r\n  var result = []\r\n  each(resultVal, function (item, key) {\r\n    _arr = isArray(item)\r\n    if (isPlainObject(item) || _arr) {\r\n      result = result.concat(stringifyParams(item, resultKey + '[' + key + ']', _arr))\r\n    } else {\r\n      result.push(staticEncodeURIComponent(resultKey + '[' + (isArr ? '' : key) + ']') + '=' + staticEncodeURIComponent(isNull(item) ? '' : item))\r\n    }\r\n  })\r\n  return result\r\n}\r\n\r\n/**\r\n * 序列化查询参数\r\n *\r\n * @param {Object} query 查询参数\r\n */\r\nfunction serialize (query) {\r\n  var _arr\r\n  var params = []\r\n  each(query, function (item, key) {\r\n    if (!isUndefined(item)) {\r\n      _arr = isArray(item)\r\n      if (isPlainObject(item) || _arr) {\r\n        params = params.concat(stringifyParams(item, key, _arr))\r\n      } else {\r\n        params.push(staticEncodeURIComponent(key) + '=' + staticEncodeURIComponent(isNull(item) ? '' : item))\r\n      }\r\n    }\r\n  })\r\n  return params.join('&').replace(/%20/g, '+')\r\n}\r\n\r\nmodule.exports = serialize\r\n",
+      "start": 1714699767728,
+      "end": 1714699767728,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767728,
+      "end": 1714699767728,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767728,
+      "end": 1714699767728,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767728,
+      "end": 1714699767728,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767728,
+      "end": 1714699767728,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767728,
+      "end": 1714699767728,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767728,
+      "end": 1714699767728,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/staticEncodeURIComponent.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/each.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isArray.js?commonjs-proxy\";\nimport require$$3 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isNull.js?commonjs-proxy\";\nimport require$$4 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isUndefined.js?commonjs-proxy\";\nimport require$$5 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isPlainObject.js?commonjs-proxy\";\n\nvar staticEncodeURIComponent = require$$0\r\n\r\nvar each = require$$1\r\nvar isArray = require$$2\r\nvar isNull = require$$3\r\nvar isUndefined = require$$4\r\nvar isPlainObject = require$$5\r\n\r\nfunction stringifyParams (resultVal, resultKey, isArr) {\r\n  var _arr\r\n  var result = []\r\n  each(resultVal, function (item, key) {\r\n    _arr = isArray(item)\r\n    if (isPlainObject(item) || _arr) {\r\n      result = result.concat(stringifyParams(item, resultKey + '[' + key + ']', _arr))\r\n    } else {\r\n      result.push(staticEncodeURIComponent(resultKey + '[' + (isArr ? '' : key) + ']') + '=' + staticEncodeURIComponent(isNull(item) ? '' : item))\r\n    }\r\n  })\r\n  return result\r\n}\r\n\r\n/**\r\n * 序列化查询参数\r\n *\r\n * @param {Object} query 查询参数\r\n */\r\nfunction serialize (query) {\r\n  var _arr\r\n  var params = []\r\n  each(query, function (item, key) {\r\n    if (!isUndefined(item)) {\r\n      _arr = isArray(item)\r\n      if (isPlainObject(item) || _arr) {\r\n        params = params.concat(stringifyParams(item, key, _arr))\r\n      } else {\r\n        params.push(staticEncodeURIComponent(key) + '=' + staticEncodeURIComponent(isNull(item) ? '' : item))\r\n      }\r\n    }\r\n  })\r\n  return params.join('&').replace(/%20/g, '+')\r\n}\r\n\r\nvar serialize_1 = serialize\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(serialize_1);\nexport { serialize_1 as __moduleExports };",
+      "start": 1714699767728,
+      "end": 1714699768243,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;;;;AAAA,IAAI,wBAAwB,GAAG,UAAqC;AACpE;AACA,IAAI,IAAI,GAAG,UAAiB;AAC5B,IAAI,OAAO,GAAG,UAAoB;AAClC,IAAI,MAAM,GAAG,UAAmB;AAChC,IAAI,WAAW,GAAG,UAAwB;AAC1C,IAAI,aAAa,GAAG,UAA0B;AAC9C;AACA,SAAS,eAAe,EAAE,SAAS,EAAE,SAAS,EAAE,KAAK,EAAE;AACvD,EAAE,IAAI,IAAI;AACV,EAAE,IAAI,MAAM,GAAG,EAAE;AACjB,EAAE,IAAI,CAAC,SAAS,EAAE,UAAU,IAAI,EAAE,GAAG,EAAE;AACvC,IAAI,IAAI,GAAG,OAAO,CAAC,IAAI,CAAC;AACxB,IAAI,IAAI,aAAa,CAAC,IAAI,CAAC,IAAI,IAAI,EAAE;AACrC,MAAM,MAAM,GAAG,MAAM,CAAC,MAAM,CAAC,eAAe,CAAC,IAAI,EAAE,SAAS,GAAG,GAAG,GAAG,GAAG,GAAG,GAAG,EAAE,IAAI,CAAC,CAAC;AACtF,KAAK,MAAM;AACX,MAAM,MAAM,CAAC,IAAI,CAAC,wBAAwB,CAAC,SAAS,GAAG,GAAG,IAAI,KAAK,GAAG,EAAE,GAAG,GAAG,CAAC,GAAG,GAAG,CAAC,GAAG,GAAG,GAAG,wBAAwB,CAAC,MAAM,CAAC,IAAI,CAAC,GAAG,EAAE,GAAG,IAAI,CAAC,CAAC;AAClJ,KAAK;AACL,GAAG,CAAC;AACJ,EAAE,OAAO,MAAM;AACf,CAAC;AACD;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,SAAS,EAAE,KAAK,EAAE;AAC3B,EAAE,IAAI,IAAI;AACV,EAAE,IAAI,MAAM,GAAG,EAAE;AACjB,EAAE,IAAI,CAAC,KAAK,EAAE,UAAU,IAAI,EAAE,GAAG,EAAE;AACnC,IAAI,IAAI,CAAC,WAAW,CAAC,IAAI,CAAC,EAAE;AAC5B,MAAM,IAAI,GAAG,OAAO,CAAC,IAAI,CAAC;AAC1B,MAAM,IAAI,aAAa,CAAC,IAAI,CAAC,IAAI,IAAI,EAAE;AACvC,QAAQ,MAAM,GAAG,MAAM,CAAC,MAAM,CAAC,eAAe,CAAC,IAAI,EAAE,GAAG,EAAE,IAAI,CAAC,CAAC;AAChE,OAAO,MAAM;AACb,QAAQ,MAAM,CAAC,IAAI,CAAC,wBAAwB,CAAC,GAAG,CAAC,GAAG,GAAG,GAAG,wBAAwB,CAAC,MAAM,CAAC,IAAI,CAAC,GAAG,EAAE,GAAG,IAAI,CAAC,CAAC;AAC7G,OAAO;AACP,KAAK;AACL,GAAG,CAAC;AACJ,EAAE,OAAO,MAAM,CAAC,IAAI,CAAC,GAAG,CAAC,CAAC,OAAO,CAAC,MAAM,EAAE,GAAG,CAAC;AAC9C,CAAC;AACD;IACA,WAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768243,
+      "end": 1714699768243,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768243,
+      "end": 1714699768243,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768243,
+      "end": 1714699768243,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768243,
+      "end": 1714699768243,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768243,
+      "end": 1714699768243,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768243,
+      "end": 1714699768243,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768243,
+      "end": 1714699768243,
+      "order": "normal"
+    }
+  ]
+}

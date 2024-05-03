@@ -1,0 +1,167 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/TImer.vue?vue&type=script&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\nimport { computed } from 'vue'\nimport { ref, onMounted, onUnmounted } from 'vue'\n\nexport default {\n  props: {\n    value: {\n      type: Number,\n      default: 0,\n      required: true\n    }\n  },\n  setup(props) {\n    const seconds = ref(0)\n    const min = ref('00')\n    const sec = ref('00')\n    const timeText = ref('00:00')\n\n    let _timerId: any = null\n\n    const transToTimeText = (seconds: number) => {\n      let minutes = Math.floor(seconds / 60)\n      let extraSeconds = seconds % 60\n      min.value = minutes < 10 ? '0' + minutes : `${minutes <= 0 ? '00' : minutes}`\n      sec.value =\n        extraSeconds < 10 ? '0' + extraSeconds : `${extraSeconds <= 0 ? '00' : extraSeconds}`\n      return `${min.value}:${sec.value}`\n    }\n    onMounted(() => {\n      seconds.value = props.value\n      timeText.value = transToTimeText(props.value)\n      if (seconds.value > 0) {\n        _timerId = setInterval(() => {\n          seconds.value--\n          console.log(transToTimeText(seconds.value), 'transToTimeText(seconds.value)')\n          timeText.value = transToTimeText(seconds.value)\n          console.log(timeText.value, 'timeText.value')\n          if (seconds.value <= 0) {\n            clearInterval(_timerId)\n          }\n        }, 1000)\n      }\n    })\n\n    onUnmounted(() => clearInterval(_timerId))\n\n    return {\n      seconds,\n      timeText\n    }\n  }\n}\n",
+      "start": 1714699771966,
+      "end": 1714699771966
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771967,
+      "end": 1714699771967,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { ref, onMounted, onUnmounted } from \"vue\";\nexport default {\n  props: {\n    value: {\n      type: Number,\n      default: 0,\n      required: true\n    }\n  },\n  setup(props) {\n    const seconds = ref(0);\n    const min = ref(\"00\");\n    const sec = ref(\"00\");\n    const timeText = ref(\"00:00\");\n    let _timerId = null;\n    const transToTimeText = (seconds2) => {\n      let minutes = Math.floor(seconds2 / 60);\n      let extraSeconds = seconds2 % 60;\n      min.value = minutes < 10 ? \"0\" + minutes : `${minutes <= 0 ? \"00\" : minutes}`;\n      sec.value = extraSeconds < 10 ? \"0\" + extraSeconds : `${extraSeconds <= 0 ? \"00\" : extraSeconds}`;\n      return `${min.value}:${sec.value}`;\n    };\n    onMounted(() => {\n      seconds.value = props.value;\n      timeText.value = transToTimeText(props.value);\n      if (seconds.value > 0) {\n        _timerId = setInterval(() => {\n          seconds.value--;\n          console.log(transToTimeText(seconds.value), \"transToTimeText(seconds.value)\");\n          timeText.value = transToTimeText(seconds.value);\n          console.log(timeText.value, \"timeText.value\");\n          if (seconds.value <= 0) {\n            clearInterval(_timerId);\n          }\n        }, 1e3);\n      }\n    });\n    onUnmounted(() => clearInterval(_timerId));\n    return {\n      seconds,\n      timeText\n    };\n  }\n};\n",
+      "start": 1714699771967,
+      "end": 1714699772181,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/TImer.vue?vue&type=script&lang.ts"
+        ],
+        "sourcesContent": [
+          "\nimport { computed } from 'vue'\nimport { ref, onMounted, onUnmounted } from 'vue'\n\nexport default {\n  props: {\n    value: {\n      type: Number,\n      default: 0,\n      required: true\n    }\n  },\n  setup(props) {\n    const seconds = ref(0)\n    const min = ref('00')\n    const sec = ref('00')\n    const timeText = ref('00:00')\n\n    let _timerId: any = null\n\n    const transToTimeText = (seconds: number) => {\n      let minutes = Math.floor(seconds / 60)\n      let extraSeconds = seconds % 60\n      min.value = minutes < 10 ? '0' + minutes : `${minutes <= 0 ? '00' : minutes}`\n      sec.value =\n        extraSeconds < 10 ? '0' + extraSeconds : `${extraSeconds <= 0 ? '00' : extraSeconds}`\n      return `${min.value}:${sec.value}`\n    }\n    onMounted(() => {\n      seconds.value = props.value\n      timeText.value = transToTimeText(props.value)\n      if (seconds.value > 0) {\n        _timerId = setInterval(() => {\n          seconds.value--\n          console.log(transToTimeText(seconds.value), 'transToTimeText(seconds.value)')\n          timeText.value = transToTimeText(seconds.value)\n          console.log(timeText.value, 'timeText.value')\n          if (seconds.value <= 0) {\n            clearInterval(_timerId)\n          }\n        }, 1000)\n      }\n    })\n\n    onUnmounted(() => clearInterval(_timerId))\n\n    return {\n      seconds,\n      timeText\n    }\n  }\n}\n"
+        ],
+        "mappings": "AAEA,SAAS,KAAK,WAAW,mBAAmB;AAE5C,eAAe;AAAA,EACb,OAAO;AAAA,IACL,OAAO;AAAA,MACL,MAAM;AAAA,MACN,SAAS;AAAA,MACT,UAAU;AAAA,IACZ;AAAA,EACF;AAAA,EACA,MAAM,OAAO;AACX,UAAM,UAAU,IAAI,CAAC;AACrB,UAAM,MAAM,IAAI,IAAI;AACpB,UAAM,MAAM,IAAI,IAAI;AACpB,UAAM,WAAW,IAAI,OAAO;AAE5B,QAAI,WAAgB;AAEpB,UAAM,kBAAkB,CAACA,aAAoB;AAC3C,UAAI,UAAU,KAAK,MAAMA,WAAU,EAAE;AACrC,UAAI,eAAeA,WAAU;AAC7B,UAAI,QAAQ,UAAU,KAAK,MAAM,UAAU,GAAG,WAAW,IAAI,OAAO,OAAO;AAC3E,UAAI,QACF,eAAe,KAAK,MAAM,eAAe,GAAG,gBAAgB,IAAI,OAAO,YAAY;AACrF,aAAO,GAAG,IAAI,KAAK,IAAI,IAAI,KAAK;AAAA,IAClC;AACA,cAAU,MAAM;AACd,cAAQ,QAAQ,MAAM;AACtB,eAAS,QAAQ,gBAAgB,MAAM,KAAK;AAC5C,UAAI,QAAQ,QAAQ,GAAG;AACrB,mBAAW,YAAY,MAAM;AAC3B,kBAAQ;AACR,kBAAQ,IAAI,gBAAgB,QAAQ,KAAK,GAAG,gCAAgC;AAC5E,mBAAS,QAAQ,gBAAgB,QAAQ,KAAK;AAC9C,kBAAQ,IAAI,SAAS,OAAO,gBAAgB;AAC5C,cAAI,QAAQ,SAAS,GAAG;AACtB,0BAAc,QAAQ;AAAA,UACxB;AAAA,QACF,GAAG,GAAI;AAAA,MACT;AAAA,IACF,CAAC;AAED,gBAAY,MAAM,cAAc,QAAQ,CAAC;AAEzC,WAAO;AAAA,MACL;AAAA,MACA;AAAA,IACF;AAAA,EACF;AACF;",
+        "names": [
+          "seconds"
+        ]
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699772181,
+      "end": 1714699772181,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699772181,
+      "end": 1714699772181,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699772181,
+      "end": 1714699772181,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699772181,
+      "end": 1714699772181,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { ref, onMounted, onUnmounted } from \"vue\";\nexport default {\n  props: {\n    value: {\n      type: Number,\n      default: 0,\n      required: true\n    }\n  },\n  setup(props) {\n    const seconds = ref(0);\n    const min = ref(\"00\");\n    const sec = ref(\"00\");\n    const timeText = ref(\"00:00\");\n    let _timerId = null;\n    const transToTimeText = (seconds2) => {\n      let minutes = Math.floor(seconds2 / 60);\n      let extraSeconds = seconds2 % 60;\n      min.value = minutes < 10 ? \"0\" + minutes : `${minutes <= 0 ? \"00\" : minutes}`;\n      sec.value = extraSeconds < 10 ? \"0\" + extraSeconds : `${extraSeconds <= 0 ? \"00\" : extraSeconds}`;\n      return `${min.value}:${sec.value}`;\n    };\n    onMounted(() => {\n      seconds.value = props.value;\n      timeText.value = transToTimeText(props.value);\n      if (seconds.value > 0) {\n        _timerId = setInterval(() => {\n          seconds.value--;\n          console.log(transToTimeText(seconds.value), \"transToTimeText(seconds.value)\");\n          timeText.value = transToTimeText(seconds.value);\n          console.log(timeText.value, \"timeText.value\");\n          if (seconds.value <= 0) {\n            clearInterval(_timerId);\n          }\n        }, 1e3);\n      }\n    });\n    onUnmounted(() => clearInterval(_timerId));\n    return {\n      seconds,\n      timeText\n    };\n  }\n};\n",
+      "start": 1714699772181,
+      "end": 1714699772181,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport { ref, onMounted, onUnmounted } from \"vue\";\nexport default {\n  props: {\n    value: {\n      type: Number,\n      default: 0,\n      required: true\n    }\n  },\n  setup(props) {\n    const seconds = ref(0);\n    const min = ref(\"00\");\n    const sec = ref(\"00\");\n    const timeText = ref(\"00:00\");\n    let _timerId = null;\n    const transToTimeText = (seconds2) => {\n      let minutes = Math.floor(seconds2 / 60);\n      let extraSeconds = seconds2 % 60;\n      min.value = minutes < 10 ? \"0\" + minutes : `${minutes <= 0 ? \"00\" : minutes}`;\n      sec.value = extraSeconds < 10 ? \"0\" + extraSeconds : `${extraSeconds <= 0 ? \"00\" : extraSeconds}`;\n      return `${min.value}:${sec.value}`;\n    };\n    onMounted(() => {\n      seconds.value = props.value;\n      timeText.value = transToTimeText(props.value);\n      if (seconds.value > 0) {\n        _timerId = setInterval(() => {\n          seconds.value--;\n          console.log(transToTimeText(seconds.value), \"transToTimeText(seconds.value)\");\n          timeText.value = transToTimeText(seconds.value);\n          console.log(timeText.value, \"timeText.value\");\n          if (seconds.value <= 0) {\n            clearInterval(_timerId);\n          }\n        }, 1e3);\n      }\n    });\n    onUnmounted(() => clearInterval(_timerId));\n    return {\n      seconds,\n      timeText\n    };\n  }\n};\n",
+      "start": 1714699772181,
+      "end": 1714699772266,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/TImer.vue?vue&type=script&lang.ts\"],\n  \"sourcesContent\": [\"import { ref, onMounted, onUnmounted } from \\\"vue\\\";\\nexport default {\\n  props: {\\n    value: {\\n      type: Number,\\n      default: 0,\\n      required: true\\n    }\\n  },\\n  setup(props) {\\n    const seconds = ref(0);\\n    const min = ref(\\\"00\\\");\\n    const sec = ref(\\\"00\\\");\\n    const timeText = ref(\\\"00:00\\\");\\n    let _timerId = null;\\n    const transToTimeText = (seconds2) => {\\n      let minutes = Math.floor(seconds2 / 60);\\n      let extraSeconds = seconds2 % 60;\\n      min.value = minutes < 10 ? \\\"0\\\" + minutes : `${minutes <= 0 ? \\\"00\\\" : minutes}`;\\n      sec.value = extraSeconds < 10 ? \\\"0\\\" + extraSeconds : `${extraSeconds <= 0 ? \\\"00\\\" : extraSeconds}`;\\n      return `${min.value}:${sec.value}`;\\n    };\\n    onMounted(() => {\\n      seconds.value = props.value;\\n      timeText.value = transToTimeText(props.value);\\n      if (seconds.value > 0) {\\n        _timerId = setInterval(() => {\\n          seconds.value--;\\n          console.log(transToTimeText(seconds.value), \\\"transToTimeText(seconds.value)\\\");\\n          timeText.value = transToTimeText(seconds.value);\\n          console.log(timeText.value, \\\"timeText.value\\\");\\n          if (seconds.value <= 0) {\\n            clearInterval(_timerId);\\n          }\\n        }, 1e3);\\n      }\\n    });\\n    onUnmounted(() => clearInterval(_timerId));\\n    return {\\n      seconds,\\n      timeText\\n    };\\n  }\\n};\\n\"],\n  \"mappings\": \";AAAA,SAAS,KAAK,WAAW,mBAAmB;AAC5C,eAAe;AAAA,EACb,OAAO;AAAA,IACL,OAAO;AAAA,MACL,MAAM;AAAA,MACN,SAAS;AAAA,MACT,UAAU;AAAA,IACZ;AAAA,EACF;AAAA,EACA,MAAM,OAAO;AACX,UAAM,UAAU,IAAI,CAAC;AACrB,UAAM,MAAM,IAAI,IAAI;AACpB,UAAM,MAAM,IAAI,IAAI;AACpB,UAAM,WAAW,IAAI,OAAO;AAC5B,QAAI,WAAW;AACf,UAAM,kBAAkB,CAAC,aAAa;AACpC,UAAI,UAAU,KAAK,MAAM,WAAW,EAAE;AACtC,UAAI,eAAe,WAAW;AAC9B,UAAI,QAAQ,UAAU,KAAK,MAAM,UAAU,GAAG,WAAW,IAAI,OAAO,OAAO;AAC3E,UAAI,QAAQ,eAAe,KAAK,MAAM,eAAe,GAAG,gBAAgB,IAAI,OAAO,YAAY;AAC/F,aAAO,GAAG,IAAI,KAAK,IAAI,IAAI,KAAK;AAAA,IAClC;AACA,cAAU,MAAM;AACd,cAAQ,QAAQ,MAAM;AACtB,eAAS,QAAQ,gBAAgB,MAAM,KAAK;AAC5C,UAAI,QAAQ,QAAQ,GAAG;AACrB,mBAAW,YAAY,MAAM;AAC3B,kBAAQ;AACR,kBAAQ,IAAI,gBAAgB,QAAQ,KAAK,GAAG,gCAAgC;AAC5E,mBAAS,QAAQ,gBAAgB,QAAQ,KAAK;AAC9C,kBAAQ,IAAI,SAAS,OAAO,gBAAgB;AAC5C,cAAI,QAAQ,SAAS,GAAG;AACtB,0BAAc,QAAQ;AAAA,UACxB;AAAA,QACF,GAAG,GAAG;AAAA,MACR;AAAA,IACF,CAAC;AACD,gBAAY,MAAM,cAAc,QAAQ,CAAC;AACzC,WAAO;AAAA,MACL;AAAA,MACA;AAAA,IACF;AAAA,EACF;AACF;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699772267,
+      "end": 1714699772267,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699772267,
+      "end": 1714699772267,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699772267,
+      "end": 1714699772267,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699772267,
+      "end": 1714699772267,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699772267,
+      "end": 1714699772267,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699772267,
+      "end": 1714699772267,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699772267,
+      "end": 1714699772267,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699772267,
+      "end": 1714699772267,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699772267,
+      "end": 1714699772267,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport { ref, onMounted, onUnmounted } from \"vue\";\nexport default {\n  props: {\n    value: {\n      type: Number,\n      default: 0,\n      required: true\n    }\n  },\n  setup(props) {\n    const seconds = ref(0);\n    const min = ref(\"00\");\n    const sec = ref(\"00\");\n    const timeText = ref(\"00:00\");\n    let _timerId = null;\n    const transToTimeText = (seconds2) => {\n      let minutes = Math.floor(seconds2 / 60);\n      let extraSeconds = seconds2 % 60;\n      min.value = minutes < 10 ? \"0\" + minutes : `${minutes <= 0 ? \"00\" : minutes}`;\n      sec.value = extraSeconds < 10 ? \"0\" + extraSeconds : `${extraSeconds <= 0 ? \"00\" : extraSeconds}`;\n      return `${min.value}:${sec.value}`;\n    };\n    onMounted(() => {\n      seconds.value = props.value;\n      timeText.value = transToTimeText(props.value);\n      if (seconds.value > 0) {\n        _timerId = setInterval(() => {\n          seconds.value--;\n          console.log(transToTimeText(seconds.value), \"transToTimeText(seconds.value)\");\n          timeText.value = transToTimeText(seconds.value);\n          console.log(timeText.value, \"timeText.value\");\n          if (seconds.value <= 0) {\n            clearInterval(_timerId);\n          }\n        }, 1e3);\n      }\n    });\n    onUnmounted(() => clearInterval(_timerId));\n    return {\n      seconds,\n      timeText\n    };\n  }\n};\n",
+      "start": 1714699772267,
+      "end": 1714699772267,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/TImer.vue?vue&type=script&lang.ts"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport { ref, onMounted, onUnmounted } from \"vue\";\nexport default {\n  props: {\n    value: {\n      type: Number,\n      default: 0,\n      required: true\n    }\n  },\n  setup(props) {\n    const seconds = ref(0);\n    const min = ref(\"00\");\n    const sec = ref(\"00\");\n    const timeText = ref(\"00:00\");\n    let _timerId = null;\n    const transToTimeText = (seconds2) => {\n      let minutes = Math.floor(seconds2 / 60);\n      let extraSeconds = seconds2 % 60;\n      min.value = minutes < 10 ? \"0\" + minutes : `${minutes <= 0 ? \"00\" : minutes}`;\n      sec.value = extraSeconds < 10 ? \"0\" + extraSeconds : `${extraSeconds <= 0 ? \"00\" : extraSeconds}`;\n      return `${min.value}:${sec.value}`;\n    };\n    onMounted(() => {\n      seconds.value = props.value;\n      timeText.value = transToTimeText(props.value);\n      if (seconds.value > 0) {\n        _timerId = setInterval(() => {\n          seconds.value--;\n          console.log(transToTimeText(seconds.value), \"transToTimeText(seconds.value)\");\n          timeText.value = transToTimeText(seconds.value);\n          console.log(timeText.value, \"timeText.value\");\n          if (seconds.value <= 0) {\n            clearInterval(_timerId);\n          }\n        }, 1e3);\n      }\n    });\n    onUnmounted(() => clearInterval(_timerId));\n    return {\n      seconds,\n      timeText\n    };\n  }\n};\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699772267,
+      "end": 1714699772267,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699772267,
+      "end": 1714699772267,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699772267,
+      "end": 1714699772267,
+      "order": "normal"
+    }
+  ]
+}

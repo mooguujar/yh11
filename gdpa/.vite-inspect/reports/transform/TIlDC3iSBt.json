@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/skeleton/Skeleton.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { mergeProps as _mergeProps, Fragment as _Fragment, createVNode as _createVNode } from \"vue\";\nimport { defineComponent } from \"vue\";\nimport { addUnit, truthProp, numericProp, makeStringProp, makeNumericProp, createNamespace } from \"../utils/index.mjs\";\nimport SkeletonTitle from \"../skeleton-title/index.mjs\";\nimport SkeletonAvatar from \"../skeleton-avatar/index.mjs\";\nimport SkeletonParagraph, { DEFAULT_ROW_WIDTH } from \"../skeleton-paragraph/index.mjs\";\nconst [name, bem] = createNamespace(\"skeleton\");\nconst DEFAULT_LAST_ROW_WIDTH = \"60%\";\nconst skeletonProps = {\n  row: makeNumericProp(0),\n  round: Boolean,\n  title: Boolean,\n  titleWidth: numericProp,\n  avatar: Boolean,\n  avatarSize: numericProp,\n  avatarShape: makeStringProp(\"round\"),\n  loading: truthProp,\n  animate: truthProp,\n  rowWidth: {\n    type: [Number, String, Array],\n    default: DEFAULT_ROW_WIDTH\n  }\n};\nvar stdin_default = defineComponent({\n  name,\n  inheritAttrs: false,\n  props: skeletonProps,\n  setup(props, {\n    slots,\n    attrs\n  }) {\n    const renderAvatar = () => {\n      if (props.avatar) {\n        return _createVNode(SkeletonAvatar, {\n          \"avatarShape\": props.avatarShape,\n          \"avatarSize\": props.avatarSize\n        }, null);\n      }\n    };\n    const renderTitle = () => {\n      if (props.title) {\n        return _createVNode(SkeletonTitle, {\n          \"round\": props.round,\n          \"titleWidth\": props.titleWidth\n        }, null);\n      }\n    };\n    const getRowWidth = (index) => {\n      const {\n        rowWidth\n      } = props;\n      if (rowWidth === DEFAULT_ROW_WIDTH && index === +props.row - 1) {\n        return DEFAULT_LAST_ROW_WIDTH;\n      }\n      if (Array.isArray(rowWidth)) {\n        return rowWidth[index];\n      }\n      return rowWidth;\n    };\n    const renderRows = () => Array(+props.row).fill(\"\").map((_, i) => _createVNode(SkeletonParagraph, {\n      \"key\": i,\n      \"round\": props.round,\n      \"rowWidth\": addUnit(getRowWidth(i))\n    }, null));\n    const renderContents = () => {\n      if (slots.template) {\n        return slots.template();\n      }\n      return _createVNode(_Fragment, null, [renderAvatar(), _createVNode(\"div\", {\n        \"class\": bem(\"content\")\n      }, [renderTitle(), renderRows()])]);\n    };\n    return () => {\n      var _a;\n      if (!props.loading) {\n        return (_a = slots.default) == null ? void 0 : _a.call(slots);\n      }\n      return _createVNode(\"div\", _mergeProps({\n        \"class\": bem({\n          animate: props.animate,\n          round: props.round\n        })\n      }, attrs), [renderContents()]);\n    };\n  }\n});\nexport {\n  stdin_default as default,\n  skeletonProps\n};\n",
+      "start": 1714699767315,
+      "end": 1714699767350,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767350,
+      "end": 1714699767350,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767350,
+      "end": 1714699767350,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767350,
+      "end": 1714699767350,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767350,
+      "end": 1714699767350,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767351,
+      "end": 1714699767351,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767351,
+      "end": 1714699767351,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { mergeProps as _mergeProps, Fragment as _Fragment, createVNode as _createVNode } from \"vue\";\nimport { defineComponent } from \"vue\";\nimport { addUnit, truthProp, numericProp, makeStringProp, makeNumericProp, createNamespace } from \"../utils/index.mjs\";\nimport SkeletonTitle from \"../skeleton-title/index.mjs\";\nimport SkeletonAvatar from \"../skeleton-avatar/index.mjs\";\nimport SkeletonParagraph, { DEFAULT_ROW_WIDTH } from \"../skeleton-paragraph/index.mjs\";\nconst [name, bem] = createNamespace(\"skeleton\");\nconst DEFAULT_LAST_ROW_WIDTH = \"60%\";\nconst skeletonProps = {\n  row: makeNumericProp(0),\n  round: Boolean,\n  title: Boolean,\n  titleWidth: numericProp,\n  avatar: Boolean,\n  avatarSize: numericProp,\n  avatarShape: makeStringProp(\"round\"),\n  loading: truthProp,\n  animate: truthProp,\n  rowWidth: {\n    type: [Number, String, Array],\n    default: DEFAULT_ROW_WIDTH\n  }\n};\nvar stdin_default = defineComponent({\n  name,\n  inheritAttrs: false,\n  props: skeletonProps,\n  setup(props, {\n    slots,\n    attrs\n  }) {\n    const renderAvatar = () => {\n      if (props.avatar) {\n        return _createVNode(SkeletonAvatar, {\n          \"avatarShape\": props.avatarShape,\n          \"avatarSize\": props.avatarSize\n        }, null);\n      }\n    };\n    const renderTitle = () => {\n      if (props.title) {\n        return _createVNode(SkeletonTitle, {\n          \"round\": props.round,\n          \"titleWidth\": props.titleWidth\n        }, null);\n      }\n    };\n    const getRowWidth = (index) => {\n      const {\n        rowWidth\n      } = props;\n      if (rowWidth === DEFAULT_ROW_WIDTH && index === +props.row - 1) {\n        return DEFAULT_LAST_ROW_WIDTH;\n      }\n      if (Array.isArray(rowWidth)) {\n        return rowWidth[index];\n      }\n      return rowWidth;\n    };\n    const renderRows = () => Array(+props.row).fill(\"\").map((_, i) => _createVNode(SkeletonParagraph, {\n      \"key\": i,\n      \"round\": props.round,\n      \"rowWidth\": addUnit(getRowWidth(i))\n    }, null));\n    const renderContents = () => {\n      if (slots.template) {\n        return slots.template();\n      }\n      return _createVNode(_Fragment, null, [renderAvatar(), _createVNode(\"div\", {\n        \"class\": bem(\"content\")\n      }, [renderTitle(), renderRows()])]);\n    };\n    return () => {\n      var _a;\n      if (!props.loading) {\n        return (_a = slots.default) == null ? void 0 : _a.call(slots);\n      }\n      return _createVNode(\"div\", _mergeProps({\n        \"class\": bem({\n          animate: props.animate,\n          round: props.round\n        })\n      }, attrs), [renderContents()]);\n    };\n  }\n});\nexport {\n  stdin_default as default,\n  skeletonProps\n};\n",
+      "start": 1714699767351,
+      "end": 1714699767351,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767351,
+      "end": 1714699767351,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767351,
+      "end": 1714699767351,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767351,
+      "end": 1714699767351,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767351,
+      "end": 1714699767351,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767351,
+      "end": 1714699767351,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767351,
+      "end": 1714699767351,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767351,
+      "end": 1714699767351,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767351,
+      "end": 1714699767351,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767351,
+      "end": 1714699767351,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767351,
+      "end": 1714699767351,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767351,
+      "end": 1714699767351,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767351,
+      "end": 1714699767351,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767351,
+      "end": 1714699767351,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767351,
+      "end": 1714699767351,
+      "order": "normal"
+    }
+  ]
+}

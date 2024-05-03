@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/_Stack.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import ListCache from './_ListCache.js';\nimport stackClear from './_stackClear.js';\nimport stackDelete from './_stackDelete.js';\nimport stackGet from './_stackGet.js';\nimport stackHas from './_stackHas.js';\nimport stackSet from './_stackSet.js';\n\n/**\n * Creates a stack cache object to store key-value pairs.\n *\n * @private\n * @constructor\n * @param {Array} [entries] The key-value pairs to cache.\n */\nfunction Stack(entries) {\n  var data = this.__data__ = new ListCache(entries);\n  this.size = data.size;\n}\n\n// Add methods to `Stack`.\nStack.prototype.clear = stackClear;\nStack.prototype['delete'] = stackDelete;\nStack.prototype.get = stackGet;\nStack.prototype.has = stackHas;\nStack.prototype.set = stackSet;\n\nexport default Stack;\n",
+      "start": 1714699768828,
+      "end": 1714699768883,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768883,
+      "end": 1714699768883,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768883,
+      "end": 1714699768883,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768883,
+      "end": 1714699768883,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768883,
+      "end": 1714699768883,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768883,
+      "end": 1714699768883,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768883,
+      "end": 1714699768883,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import ListCache from './_ListCache.js';\nimport stackClear from './_stackClear.js';\nimport stackDelete from './_stackDelete.js';\nimport stackGet from './_stackGet.js';\nimport stackHas from './_stackHas.js';\nimport stackSet from './_stackSet.js';\n\n/**\n * Creates a stack cache object to store key-value pairs.\n *\n * @private\n * @constructor\n * @param {Array} [entries] The key-value pairs to cache.\n */\nfunction Stack(entries) {\n  var data = this.__data__ = new ListCache(entries);\n  this.size = data.size;\n}\n\n// Add methods to `Stack`.\nStack.prototype.clear = stackClear;\nStack.prototype['delete'] = stackDelete;\nStack.prototype.get = stackGet;\nStack.prototype.has = stackHas;\nStack.prototype.set = stackSet;\n\nexport default Stack;\n",
+      "start": 1714699768883,
+      "end": 1714699768883,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768883,
+      "end": 1714699768883,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768883,
+      "end": 1714699768883,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768883,
+      "end": 1714699768883,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768883,
+      "end": 1714699768883,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768883,
+      "end": 1714699768883,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768883,
+      "end": 1714699768883,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768884,
+      "end": 1714699768884,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768884,
+      "end": 1714699768884,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768884,
+      "end": 1714699768884,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768884,
+      "end": 1714699768884,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768884,
+      "end": 1714699768884,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768884,
+      "end": 1714699768884,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768884,
+      "end": 1714699768884,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768884,
+      "end": 1714699768884,
+      "order": "normal"
+    }
+  ]
+}

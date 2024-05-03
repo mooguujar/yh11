@@ -1,0 +1,163 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/PullRefresh.vue?vue&type=style&index=0&scoped=93d2b379&lang.scss",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\n.pull-refresh-container {\n  width: 100%;\n  height: 100%;\n  background-color: #fff;\n  .item-list {\n    height: 133px;\n    padding: 0 20px 0 18px;\n    border-bottom: 1px solid #d6dce8;\n  }\n  .item-title-amount {\n    font-size: 28px;\n    .title {\n      color: #13161b;\n    }\n    .income {\n      color: #ffc400;\n    }\n    .pay-out {\n      color: #13161b;\n    }\n  }\n  .item-datetime-balance {\n    font-size: 25px;\n    color: #868d9a;\n  }\n  .item-remark {\n    font-size: 21px;\n    color: #868d9a;\n  }\n\n  .no-data {\n    position: absolute;\n    left: 50%;\n    top: 35%;\n    transform: translate3d(-50%, -50%, 0);\n    img {\n      width: 240px;\n    }\n    .text-no-data {\n      width: 100%;\n      margin-bottom: 22px;\n      font-size: 18px;\n    }\n  }\n}\n",
+      "start": 1714699772032,
+      "end": 1714699772032
+    },
+    {
+      "name": "vite:css",
+      "result": ".pull-refresh-container {\n  width: 100%;\n  height: 100%;\n  background-color: #fff;\n}\n.pull-refresh-container .item-list {\n  height: 1.77333rem;\n  padding: 0 0.26667rem 0 0.24rem;\n  border-bottom: 1px solid #d6dce8;\n}\n.pull-refresh-container .item-title-amount {\n  font-size: 0.37333rem;\n}\n.pull-refresh-container .item-title-amount .title {\n  color: #13161b;\n}\n.pull-refresh-container .item-title-amount .income {\n  color: #ffc400;\n}\n.pull-refresh-container .item-title-amount .pay-out {\n  color: #13161b;\n}\n.pull-refresh-container .item-datetime-balance {\n  font-size: 0.33333rem;\n  color: #868d9a;\n}\n.pull-refresh-container .item-remark {\n  font-size: 0.28rem;\n  color: #868d9a;\n}\n.pull-refresh-container .no-data {\n  position: absolute;\n  left: 50%;\n  top: 35%;\n  transform: translate3d(-50%, -50%, 0);\n}\n.pull-refresh-container .no-data img {\n  width: 3.2rem;\n}\n.pull-refresh-container .no-data .text-no-data {\n  width: 100%;\n  margin-bottom: 0.29333rem;\n  font-size: 0.24rem;\n}",
+      "start": 1714699772032,
+      "end": 1714699772069,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699772069,
+      "end": 1714699772069,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699772069,
+      "end": 1714699772069,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699772074,
+      "end": 1714699772074,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".pull-refresh-container[data-v-93d2b379] {\n  width: 100%;\n  height: 100%;\n  background-color: #fff;\n}\n.pull-refresh-container .item-list[data-v-93d2b379] {\n  height: 1.77333rem;\n  padding: 0 0.26667rem 0 0.24rem;\n  border-bottom: 1px solid #d6dce8;\n}\n.pull-refresh-container .item-title-amount[data-v-93d2b379] {\n  font-size: 0.37333rem;\n}\n.pull-refresh-container .item-title-amount .title[data-v-93d2b379] {\n  color: #13161b;\n}\n.pull-refresh-container .item-title-amount .income[data-v-93d2b379] {\n  color: #ffc400;\n}\n.pull-refresh-container .item-title-amount .pay-out[data-v-93d2b379] {\n  color: #13161b;\n}\n.pull-refresh-container .item-datetime-balance[data-v-93d2b379] {\n  font-size: 0.33333rem;\n  color: #868d9a;\n}\n.pull-refresh-container .item-remark[data-v-93d2b379] {\n  font-size: 0.28rem;\n  color: #868d9a;\n}\n.pull-refresh-container .no-data[data-v-93d2b379] {\n  position: absolute;\n  left: 50%;\n  top: 35%;\n  transform: translate3d(-50%, -50%, 0);\n}\n.pull-refresh-container .no-data img[data-v-93d2b379] {\n  width: 3.2rem;\n}\n.pull-refresh-container .no-data .text-no-data[data-v-93d2b379] {\n  width: 100%;\n  margin-bottom: 0.29333rem;\n  font-size: 0.24rem;\n}",
+      "start": 1714699772074,
+      "end": 1714699772077,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699772077,
+      "end": 1714699772077,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": ".pull-refresh-container[data-v-93d2b379] {\n  width: 100%;\n  height: 100%;\n  background-color: #fff;\n}\n.pull-refresh-container .item-list[data-v-93d2b379] {\n  height: 1.77333rem;\n  padding: 0 0.26667rem 0 0.24rem;\n  border-bottom: 1px solid #d6dce8;\n}\n.pull-refresh-container .item-title-amount[data-v-93d2b379] {\n  font-size: 0.37333rem;\n}\n.pull-refresh-container .item-title-amount .title[data-v-93d2b379] {\n  color: #13161b;\n}\n.pull-refresh-container .item-title-amount .income[data-v-93d2b379] {\n  color: #ffc400;\n}\n.pull-refresh-container .item-title-amount .pay-out[data-v-93d2b379] {\n  color: #13161b;\n}\n.pull-refresh-container .item-datetime-balance[data-v-93d2b379] {\n  font-size: 0.33333rem;\n  color: #868d9a;\n}\n.pull-refresh-container .item-remark[data-v-93d2b379] {\n  font-size: 0.28rem;\n  color: #868d9a;\n}\n.pull-refresh-container .no-data[data-v-93d2b379] {\n  position: absolute;\n  left: 50%;\n  top: 35%;\n  transform: translate3d(-50%, -50%, 0);\n}\n.pull-refresh-container .no-data img[data-v-93d2b379] {\n  width: 3.2rem;\n}\n.pull-refresh-container .no-data .text-no-data[data-v-93d2b379] {\n  width: 100%;\n  margin-bottom: 0.29333rem;\n  font-size: 0.24rem;\n}",
+      "start": 1714699772077,
+      "end": 1714699772077,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699772081,
+      "end": 1714699772081,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699772081,
+      "end": 1714699772081,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699772081,
+      "end": 1714699772081,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699772081,
+      "end": 1714699772081,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699772081,
+      "end": 1714699772081,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699772081,
+      "end": 1714699772081,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699772081,
+      "end": 1714699772081,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699772081,
+      "end": 1714699772081,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699772081,
+      "end": 1714699772081,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699772081,
+      "end": 1714699772082,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */",
+      "start": 1714699772082,
+      "end": 1714699772082,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/PullRefresh.vue?vue&type=style&index=0&scoped=93d2b379&lang.scss"
+        ],
+        "sourcesContent": [
+          ""
+        ],
+        "names": [],
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699772082,
+      "end": 1714699772082,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699772082,
+      "end": 1714699772082,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699772082,
+      "end": 1714699772082,
+      "order": "normal"
+    }
+  ]
+}

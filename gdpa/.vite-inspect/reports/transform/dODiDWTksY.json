@@ -1,0 +1,163 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/moveBrick.vue?vue&type=style&index=1&lang.scss",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\n.date-action-sheet1 {\n  height: 542px;\n  .van-action-sheet__close {\n    color: #230503;\n    // font-size: 29px;\n    line-height: 90px;\n  }\n  .van-action-sheet__header {\n    font-size: 42px;\n    font-weight: bold;\n  }\n  .van-action-sheet__content {\n    padding: 16px 28px 65px 28px;\n  }\n  .date-range-container {\n    gap: 56px 35px;\n    .item-date {\n      flex: 0 0 207px;\n      height: 69px;\n      font-size: 39px;\n      background-color: #fff;\n      border-radius: 15px;\n      border: solid 1px #d1d1d1;\n      &.active {\n        color: var(--app-color-font-date-choose-1);\n        background-color: #e0ebfe;\n        border: solid 1px var(--app-color-border-date-choose-1);\n      }\n    }\n  }\n  .item-btn {\n    width: 320px;\n    height: 80px;\n    line-height: 80px;\n    font-size: 39px;\n    color: #fff;\n    border-radius: 15px;\n    text-align: center;\n    &.btn-confirm {\n      background-color: var(--van-button-primary-background);\n    }\n    &.btn-cancel {\n      background-color: #8d8d8d;\n    }\n  }\n}\n",
+      "start": 1714699770162,
+      "end": 1714699770162
+    },
+    {
+      "name": "vite:css",
+      "result": ".date-action-sheet1 {\n  height: 7.22667rem;\n}\n.date-action-sheet1 .van-action-sheet__close {\n  color: #230503;\n  line-height: 1.2rem;\n}\n.date-action-sheet1 .van-action-sheet__header {\n  font-size: 0.56rem;\n  font-weight: bold;\n}\n.date-action-sheet1 .van-action-sheet__content {\n  padding: 0.21333rem 0.37333rem 0.86667rem 0.37333rem;\n}\n.date-action-sheet1 .date-range-container {\n  gap: 0.74667rem 0.46667rem;\n}\n.date-action-sheet1 .date-range-container .item-date {\n  flex: 0 0 2.76rem;\n  height: 0.92rem;\n  font-size: 0.52rem;\n  background-color: #fff;\n  border-radius: 0.2rem;\n  border: solid 1px #d1d1d1;\n}\n.date-action-sheet1 .date-range-container .item-date.active {\n  color: var(--app-color-font-date-choose-1);\n  background-color: #e0ebfe;\n  border: solid 1px var(--app-color-border-date-choose-1);\n}\n.date-action-sheet1 .item-btn {\n  width: 4.26667rem;\n  height: 1.06667rem;\n  line-height: 1.06667rem;\n  font-size: 0.52rem;\n  color: #fff;\n  border-radius: 0.2rem;\n  text-align: center;\n}\n.date-action-sheet1 .item-btn.btn-confirm {\n  background-color: var(--van-button-primary-background);\n}\n.date-action-sheet1 .item-btn.btn-cancel {\n  background-color: #8d8d8d;\n}",
+      "start": 1714699770162,
+      "end": 1714699770187,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699770187,
+      "end": 1714699770187,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699770187,
+      "end": 1714699770188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699770188,
+      "end": 1714699770188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".date-action-sheet1 {\n  height: 7.22667rem;\n}\n.date-action-sheet1 .van-action-sheet__close {\n  color: #230503;\n  line-height: 1.2rem;\n}\n.date-action-sheet1 .van-action-sheet__header {\n  font-size: 0.56rem;\n  font-weight: bold;\n}\n.date-action-sheet1 .van-action-sheet__content {\n  padding: 0.21333rem 0.37333rem 0.86667rem 0.37333rem;\n}\n.date-action-sheet1 .date-range-container {\n  gap: 0.74667rem 0.46667rem;\n}\n.date-action-sheet1 .date-range-container .item-date {\n  flex: 0 0 2.76rem;\n  height: 0.92rem;\n  font-size: 0.52rem;\n  background-color: #fff;\n  border-radius: 0.2rem;\n  border: solid 1px #d1d1d1;\n}\n.date-action-sheet1 .date-range-container .item-date.active {\n  color: var(--app-color-font-date-choose-1);\n  background-color: #e0ebfe;\n  border: solid 1px var(--app-color-border-date-choose-1);\n}\n.date-action-sheet1 .item-btn {\n  width: 4.26667rem;\n  height: 1.06667rem;\n  line-height: 1.06667rem;\n  font-size: 0.52rem;\n  color: #fff;\n  border-radius: 0.2rem;\n  text-align: center;\n}\n.date-action-sheet1 .item-btn.btn-confirm {\n  background-color: var(--van-button-primary-background);\n}\n.date-action-sheet1 .item-btn.btn-cancel {\n  background-color: #8d8d8d;\n}",
+      "start": 1714699770188,
+      "end": 1714699770188,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699770188,
+      "end": 1714699770188,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": ".date-action-sheet1 {\n  height: 7.22667rem;\n}\n.date-action-sheet1 .van-action-sheet__close {\n  color: #230503;\n  line-height: 1.2rem;\n}\n.date-action-sheet1 .van-action-sheet__header {\n  font-size: 0.56rem;\n  font-weight: bold;\n}\n.date-action-sheet1 .van-action-sheet__content {\n  padding: 0.21333rem 0.37333rem 0.86667rem 0.37333rem;\n}\n.date-action-sheet1 .date-range-container {\n  gap: 0.74667rem 0.46667rem;\n}\n.date-action-sheet1 .date-range-container .item-date {\n  flex: 0 0 2.76rem;\n  height: 0.92rem;\n  font-size: 0.52rem;\n  background-color: #fff;\n  border-radius: 0.2rem;\n  border: solid 1px #d1d1d1;\n}\n.date-action-sheet1 .date-range-container .item-date.active {\n  color: var(--app-color-font-date-choose-1);\n  background-color: #e0ebfe;\n  border: solid 1px var(--app-color-border-date-choose-1);\n}\n.date-action-sheet1 .item-btn {\n  width: 4.26667rem;\n  height: 1.06667rem;\n  line-height: 1.06667rem;\n  font-size: 0.52rem;\n  color: #fff;\n  border-radius: 0.2rem;\n  text-align: center;\n}\n.date-action-sheet1 .item-btn.btn-confirm {\n  background-color: var(--van-button-primary-background);\n}\n.date-action-sheet1 .item-btn.btn-cancel {\n  background-color: #8d8d8d;\n}",
+      "start": 1714699770188,
+      "end": 1714699770188,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699770190,
+      "end": 1714699770190,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770190,
+      "end": 1714699770190,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699770190,
+      "end": 1714699770190,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770190,
+      "end": 1714699770190,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770190,
+      "end": 1714699770190,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770190,
+      "end": 1714699770190,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770190,
+      "end": 1714699770190,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770190,
+      "end": 1714699770190,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770190,
+      "end": 1714699770190,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770190,
+      "end": 1714699770190,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */",
+      "start": 1714699770190,
+      "end": 1714699770190,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/moveBrick.vue?vue&type=style&index=1&lang.scss"
+        ],
+        "sourcesContent": [
+          ""
+        ],
+        "names": [],
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770190,
+      "end": 1714699770190,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770190,
+      "end": 1714699770190,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770190,
+      "end": 1714699770190,
+      "order": "normal"
+    }
+  ]
+}

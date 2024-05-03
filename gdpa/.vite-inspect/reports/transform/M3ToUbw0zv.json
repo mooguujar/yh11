@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/es/v-x-e-table/src/conf.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var iconPrefix = 'vxe-icon-';\nvar GlobalConfig = {\n    size: null,\n    zIndex: 999,\n    version: 0,\n    // resizeInterval: 500,\n    emptyCell: '　',\n    // loadingText: null, // 自定义loading提示内容，如果为null则不显示文本\n    table: {\n        fit: true,\n        showHeader: true,\n        animat: true,\n        delayHover: 250,\n        autoResize: true,\n        minHeight: 144,\n        // keepSource: false,\n        // showOverflow: null,\n        // showHeaderOverflow: null,\n        // showFooterOverflow: null,\n        // resizeInterval: 500,\n        // size: null,\n        // zIndex: null,\n        // stripe: false,\n        // border: false,\n        // round: false,\n        // emptyText: '暂无数据',\n        // emptyRender: {\n        //   name: ''\n        // },\n        // rowConfig: {\n        //   keyField: '_X_ROW_KEY' // 行数据的唯一主键字段名\n        // },\n        resizeConfig: {\n            refreshDelay: 250\n        },\n        radioConfig: {\n            // trigger: 'default'\n            strict: true\n        },\n        checkboxConfig: {\n            // trigger: 'default',\n            strict: true\n        },\n        tooltipConfig: {\n            enterable: true\n        },\n        validConfig: {\n            showMessage: true,\n            autoClear: true,\n            message: 'inline',\n            msgMode: 'single'\n        },\n        columnConfig: {\n            maxFixedSize: 4\n        },\n        // menuConfig: {\n        //   visibleMethod () {}\n        // },\n        // customConfig: {\n        //  storage: false,\n        //  checkMethod () {}\n        // },\n        sortConfig: {\n            // remote: false,\n            // trigger: 'default',\n            // orders: ['asc', 'desc', null],\n            // sortMethod: null,\n            showIcon: true,\n            iconLayout: 'vertical'\n        },\n        filterConfig: {\n            // remote: false,\n            // filterMethod: null,\n            showIcon: true\n        },\n        treeConfig: {\n            rowField: 'id',\n            parentField: 'parentId',\n            childrenField: 'children',\n            hasChildField: 'hasChild',\n            mapChildrenField: '_X_ROW_CHILD',\n            indent: 20,\n            showIcon: true\n        },\n        expandConfig: {\n            // trigger: 'default',\n            showIcon: true\n        },\n        editConfig: {\n            // mode: 'cell',\n            showIcon: true,\n            showAsterisk: true\n        },\n        importConfig: {\n            modes: ['insert', 'covering']\n        },\n        exportConfig: {\n            modes: ['current', 'selected']\n        },\n        printConfig: {\n            modes: ['current', 'selected']\n        },\n        mouseConfig: {\n            extension: true\n        },\n        keyboardConfig: {\n            isEsc: true\n        },\n        areaConfig: {\n            selectCellByHeader: true\n        },\n        clipConfig: {\n            isCopy: true,\n            isCut: true,\n            isPaste: true\n        },\n        fnrConfig: {\n            isFind: true,\n            isReplace: true\n        },\n        scrollX: {\n            // enabled: false,\n            gt: 60\n            // oSize: 0\n        },\n        scrollY: {\n            // enabled: false,\n            gt: 100\n            // oSize: 0\n        }\n    },\n    export: {\n        types: {}\n    },\n    icon: {\n        // loading\n        LOADING: iconPrefix + 'spinner roll vxe-loading--default-icon',\n        // table\n        TABLE_SORT_ASC: iconPrefix + 'caret-up',\n        TABLE_SORT_DESC: iconPrefix + 'caret-down',\n        TABLE_FILTER_NONE: iconPrefix + 'funnel',\n        TABLE_FILTER_MATCH: iconPrefix + 'funnel',\n        TABLE_EDIT: iconPrefix + 'edit',\n        TABLE_TITLE_PREFIX: iconPrefix + 'question-circle-fill',\n        TABLE_TITLE_SUFFIX: iconPrefix + 'question-circle-fill',\n        TABLE_TREE_LOADED: iconPrefix + 'spinner roll',\n        TABLE_TREE_OPEN: iconPrefix + 'caret-right rotate90',\n        TABLE_TREE_CLOSE: iconPrefix + 'caret-right',\n        TABLE_EXPAND_LOADED: iconPrefix + 'spinner roll',\n        TABLE_EXPAND_OPEN: iconPrefix + 'arrow-right rotate90',\n        TABLE_EXPAND_CLOSE: iconPrefix + 'arrow-right',\n        TABLE_CHECKBOX_CHECKED: iconPrefix + 'checkbox-checked',\n        TABLE_CHECKBOX_UNCHECKED: iconPrefix + 'checkbox-unchecked',\n        TABLE_CHECKBOX_INDETERMINATE: iconPrefix + 'checkbox-indeterminate',\n        TABLE_RADIO_CHECKED: iconPrefix + 'radio-checked',\n        TABLE_RADIO_UNCHECKED: iconPrefix + 'radio-unchecked',\n        // button\n        BUTTON_DROPDOWN: iconPrefix + 'arrow-down',\n        BUTTON_LOADING: iconPrefix + 'spinner roll',\n        // select\n        SELECT_LOADED: iconPrefix + 'spinner roll',\n        SELECT_OPEN: iconPrefix + 'caret-down rotate180',\n        SELECT_CLOSE: iconPrefix + 'caret-down',\n        // pager\n        PAGER_HOME: iconPrefix + 'home-page',\n        PAGER_END: iconPrefix + 'end-page',\n        PAGER_JUMP_PREV: iconPrefix + 'arrow-double-left',\n        PAGER_JUMP_NEXT: iconPrefix + 'arrow-double-right',\n        PAGER_PREV_PAGE: iconPrefix + 'arrow-left',\n        PAGER_NEXT_PAGE: iconPrefix + 'arrow-right',\n        PAGER_JUMP_MORE: iconPrefix + 'ellipsis-h',\n        // input\n        INPUT_CLEAR: iconPrefix + 'error-circle-fill',\n        INPUT_PWD: iconPrefix + 'eye-fill',\n        INPUT_SHOW_PWD: iconPrefix + 'eye-fill-close',\n        INPUT_PREV_NUM: iconPrefix + 'caret-up',\n        INPUT_NEXT_NUM: iconPrefix + 'caret-down',\n        INPUT_DATE: iconPrefix + 'calendar',\n        INPUT_SEARCH: iconPrefix + 'search',\n        // modal\n        MODAL_ZOOM_IN: iconPrefix + 'square',\n        MODAL_ZOOM_OUT: iconPrefix + 'maximize',\n        MODAL_CLOSE: iconPrefix + 'close',\n        MODAL_INFO: iconPrefix + 'info-circle-fill',\n        MODAL_SUCCESS: iconPrefix + 'success-circle-fill',\n        MODAL_WARNING: iconPrefix + 'warnion-circle-fill',\n        MODAL_ERROR: iconPrefix + 'error-circle-fill',\n        MODAL_QUESTION: iconPrefix + 'question-circle-fill',\n        MODAL_LOADING: iconPrefix + 'spinner roll',\n        // toolbar\n        TOOLBAR_TOOLS_REFRESH: iconPrefix + 'repeat',\n        TOOLBAR_TOOLS_REFRESH_LOADING: iconPrefix + 'repeat roll',\n        TOOLBAR_TOOLS_IMPORT: iconPrefix + 'upload',\n        TOOLBAR_TOOLS_EXPORT: iconPrefix + 'download',\n        TOOLBAR_TOOLS_PRINT: iconPrefix + 'print',\n        TOOLBAR_TOOLS_FULLSCREEN: iconPrefix + 'fullscreen',\n        TOOLBAR_TOOLS_MINIMIZE: iconPrefix + 'minimize',\n        TOOLBAR_TOOLS_CUSTOM: iconPrefix + 'custom-column',\n        TOOLBAR_TOOLS_FIXED_LEFT: iconPrefix + 'fixed-left',\n        TOOLBAR_TOOLS_FIXED_LEFT_ACTIVED: iconPrefix + 'fixed-left-fill',\n        TOOLBAR_TOOLS_FIXED_RIGHT: iconPrefix + 'fixed-right',\n        TOOLBAR_TOOLS_FIXED_RIGHT_ACTIVED: iconPrefix + 'fixed-right-fill',\n        // form\n        FORM_PREFIX: iconPrefix + 'question-circle-fill',\n        FORM_SUFFIX: iconPrefix + 'question-circle-fill',\n        FORM_FOLDING: iconPrefix + 'arrow-up rotate180',\n        FORM_UNFOLDING: iconPrefix + 'arrow-up'\n    },\n    grid: {\n        // size: null,\n        // zoomConfig: {\n        //   escRestore: true\n        // },\n        formConfig: {\n            enabled: true\n        },\n        pagerConfig: {\n            enabled: true\n            // perfect: false\n        },\n        toolbarConfig: {\n            enabled: true\n            // perfect: false\n        },\n        proxyConfig: {\n            enabled: true,\n            autoLoad: true,\n            message: true,\n            props: {\n                list: null,\n                result: 'result',\n                total: 'page.total',\n                message: 'message'\n            }\n            // beforeItem: null,\n            // beforeColumn: null,\n            // beforeQuery: null,\n            // afterQuery: null,\n            // beforeDelete: null,\n            // afterDelete: null,\n            // beforeSave: null,\n            // afterSave: null\n        }\n    },\n    tooltip: {\n        // size: null,\n        trigger: 'hover',\n        theme: 'dark',\n        enterDelay: 500,\n        leaveDelay: 300\n    },\n    pager: {\n    // size: null,\n    // autoHidden: false,\n    // perfect: true,\n    // pageSize: 10,\n    // pagerCount: 7,\n    // pageSizes: [10, 15, 20, 50, 100],\n    // layouts: ['PrevJump', 'PrevPage', 'Jump', 'PageCount', 'NextPage', 'NextJump', 'Sizes', 'Total']\n    },\n    form: {\n        // preventSubmit: false,\n        // size: null,\n        // colon: false,\n        validConfig: {\n            showMessage: true,\n            autoPos: true\n        },\n        tooltipConfig: {\n            enterable: true\n        },\n        titleAsterisk: true\n    },\n    input: {\n        // size: null,\n        // transfer: false\n        // parseFormat: 'yyyy-MM-dd HH:mm:ss.SSS',\n        // labelFormat: '',\n        // valueFormat: '',\n        startDate: new Date(1900, 0, 1),\n        endDate: new Date(2100, 0, 1),\n        startDay: 1,\n        selectDay: 1,\n        digits: 2,\n        controls: true\n    },\n    textarea: {\n    // size: null,\n    // autosize: {\n    //   minRows: 1,\n    //   maxRows: 10\n    // }\n    },\n    select: {\n        // size: null,\n        // transfer: false,\n        // optionConfig: {\n        //   keyField: '_X_OPTION_KEY'\n        // },\n        multiCharOverflow: 8\n    },\n    toolbar: {\n        // size: null,\n        // import: {\n        //   mode: 'covering'\n        // },\n        // export: {\n        //   types: ['csv', 'html', 'xml', 'txt']\n        // },\n        custom: {\n            allowFixed: true,\n            showFooter: true\n        }\n        // buttons: []\n    },\n    button: {\n    // size: null,\n    // transfer: false\n    },\n    radio: {\n        // size: null,\n        strict: true\n    },\n    radioButton: {\n        // size: null,\n        strict: true\n    },\n    radioGroup: {\n        // size: null,\n        strict: true\n    },\n    checkbox: {\n    // size: null\n    },\n    switch: {\n    // size: null\n    },\n    modal: {\n        // size: null,\n        top: 15,\n        showHeader: true,\n        minWidth: 340,\n        minHeight: 140,\n        lockView: true,\n        mask: true,\n        duration: 3000,\n        marginSize: 0,\n        dblclickZoom: true,\n        showTitleOverflow: true,\n        animat: true,\n        showClose: true,\n        draggable: true,\n        // storage: false,\n        storageKey: 'VXE_MODAL_POSITION'\n    },\n    list: {\n        // size: null,\n        scrollY: {\n            enabled: true,\n            gt: 100\n            // oSize: 0\n        }\n    },\n    i18n: function (key) { return key; }\n};\nexport default GlobalConfig;\n",
+      "start": 1714699767722,
+      "end": 1714699767734,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767734,
+      "end": 1714699767734,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767734,
+      "end": 1714699767734,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767734,
+      "end": 1714699767734,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767734,
+      "end": 1714699767734,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767734,
+      "end": 1714699767734,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767734,
+      "end": 1714699767734,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var iconPrefix = 'vxe-icon-';\nvar GlobalConfig = {\n    size: null,\n    zIndex: 999,\n    version: 0,\n    // resizeInterval: 500,\n    emptyCell: '　',\n    // loadingText: null, // 自定义loading提示内容，如果为null则不显示文本\n    table: {\n        fit: true,\n        showHeader: true,\n        animat: true,\n        delayHover: 250,\n        autoResize: true,\n        minHeight: 144,\n        // keepSource: false,\n        // showOverflow: null,\n        // showHeaderOverflow: null,\n        // showFooterOverflow: null,\n        // resizeInterval: 500,\n        // size: null,\n        // zIndex: null,\n        // stripe: false,\n        // border: false,\n        // round: false,\n        // emptyText: '暂无数据',\n        // emptyRender: {\n        //   name: ''\n        // },\n        // rowConfig: {\n        //   keyField: '_X_ROW_KEY' // 行数据的唯一主键字段名\n        // },\n        resizeConfig: {\n            refreshDelay: 250\n        },\n        radioConfig: {\n            // trigger: 'default'\n            strict: true\n        },\n        checkboxConfig: {\n            // trigger: 'default',\n            strict: true\n        },\n        tooltipConfig: {\n            enterable: true\n        },\n        validConfig: {\n            showMessage: true,\n            autoClear: true,\n            message: 'inline',\n            msgMode: 'single'\n        },\n        columnConfig: {\n            maxFixedSize: 4\n        },\n        // menuConfig: {\n        //   visibleMethod () {}\n        // },\n        // customConfig: {\n        //  storage: false,\n        //  checkMethod () {}\n        // },\n        sortConfig: {\n            // remote: false,\n            // trigger: 'default',\n            // orders: ['asc', 'desc', null],\n            // sortMethod: null,\n            showIcon: true,\n            iconLayout: 'vertical'\n        },\n        filterConfig: {\n            // remote: false,\n            // filterMethod: null,\n            showIcon: true\n        },\n        treeConfig: {\n            rowField: 'id',\n            parentField: 'parentId',\n            childrenField: 'children',\n            hasChildField: 'hasChild',\n            mapChildrenField: '_X_ROW_CHILD',\n            indent: 20,\n            showIcon: true\n        },\n        expandConfig: {\n            // trigger: 'default',\n            showIcon: true\n        },\n        editConfig: {\n            // mode: 'cell',\n            showIcon: true,\n            showAsterisk: true\n        },\n        importConfig: {\n            modes: ['insert', 'covering']\n        },\n        exportConfig: {\n            modes: ['current', 'selected']\n        },\n        printConfig: {\n            modes: ['current', 'selected']\n        },\n        mouseConfig: {\n            extension: true\n        },\n        keyboardConfig: {\n            isEsc: true\n        },\n        areaConfig: {\n            selectCellByHeader: true\n        },\n        clipConfig: {\n            isCopy: true,\n            isCut: true,\n            isPaste: true\n        },\n        fnrConfig: {\n            isFind: true,\n            isReplace: true\n        },\n        scrollX: {\n            // enabled: false,\n            gt: 60\n            // oSize: 0\n        },\n        scrollY: {\n            // enabled: false,\n            gt: 100\n            // oSize: 0\n        }\n    },\n    export: {\n        types: {}\n    },\n    icon: {\n        // loading\n        LOADING: iconPrefix + 'spinner roll vxe-loading--default-icon',\n        // table\n        TABLE_SORT_ASC: iconPrefix + 'caret-up',\n        TABLE_SORT_DESC: iconPrefix + 'caret-down',\n        TABLE_FILTER_NONE: iconPrefix + 'funnel',\n        TABLE_FILTER_MATCH: iconPrefix + 'funnel',\n        TABLE_EDIT: iconPrefix + 'edit',\n        TABLE_TITLE_PREFIX: iconPrefix + 'question-circle-fill',\n        TABLE_TITLE_SUFFIX: iconPrefix + 'question-circle-fill',\n        TABLE_TREE_LOADED: iconPrefix + 'spinner roll',\n        TABLE_TREE_OPEN: iconPrefix + 'caret-right rotate90',\n        TABLE_TREE_CLOSE: iconPrefix + 'caret-right',\n        TABLE_EXPAND_LOADED: iconPrefix + 'spinner roll',\n        TABLE_EXPAND_OPEN: iconPrefix + 'arrow-right rotate90',\n        TABLE_EXPAND_CLOSE: iconPrefix + 'arrow-right',\n        TABLE_CHECKBOX_CHECKED: iconPrefix + 'checkbox-checked',\n        TABLE_CHECKBOX_UNCHECKED: iconPrefix + 'checkbox-unchecked',\n        TABLE_CHECKBOX_INDETERMINATE: iconPrefix + 'checkbox-indeterminate',\n        TABLE_RADIO_CHECKED: iconPrefix + 'radio-checked',\n        TABLE_RADIO_UNCHECKED: iconPrefix + 'radio-unchecked',\n        // button\n        BUTTON_DROPDOWN: iconPrefix + 'arrow-down',\n        BUTTON_LOADING: iconPrefix + 'spinner roll',\n        // select\n        SELECT_LOADED: iconPrefix + 'spinner roll',\n        SELECT_OPEN: iconPrefix + 'caret-down rotate180',\n        SELECT_CLOSE: iconPrefix + 'caret-down',\n        // pager\n        PAGER_HOME: iconPrefix + 'home-page',\n        PAGER_END: iconPrefix + 'end-page',\n        PAGER_JUMP_PREV: iconPrefix + 'arrow-double-left',\n        PAGER_JUMP_NEXT: iconPrefix + 'arrow-double-right',\n        PAGER_PREV_PAGE: iconPrefix + 'arrow-left',\n        PAGER_NEXT_PAGE: iconPrefix + 'arrow-right',\n        PAGER_JUMP_MORE: iconPrefix + 'ellipsis-h',\n        // input\n        INPUT_CLEAR: iconPrefix + 'error-circle-fill',\n        INPUT_PWD: iconPrefix + 'eye-fill',\n        INPUT_SHOW_PWD: iconPrefix + 'eye-fill-close',\n        INPUT_PREV_NUM: iconPrefix + 'caret-up',\n        INPUT_NEXT_NUM: iconPrefix + 'caret-down',\n        INPUT_DATE: iconPrefix + 'calendar',\n        INPUT_SEARCH: iconPrefix + 'search',\n        // modal\n        MODAL_ZOOM_IN: iconPrefix + 'square',\n        MODAL_ZOOM_OUT: iconPrefix + 'maximize',\n        MODAL_CLOSE: iconPrefix + 'close',\n        MODAL_INFO: iconPrefix + 'info-circle-fill',\n        MODAL_SUCCESS: iconPrefix + 'success-circle-fill',\n        MODAL_WARNING: iconPrefix + 'warnion-circle-fill',\n        MODAL_ERROR: iconPrefix + 'error-circle-fill',\n        MODAL_QUESTION: iconPrefix + 'question-circle-fill',\n        MODAL_LOADING: iconPrefix + 'spinner roll',\n        // toolbar\n        TOOLBAR_TOOLS_REFRESH: iconPrefix + 'repeat',\n        TOOLBAR_TOOLS_REFRESH_LOADING: iconPrefix + 'repeat roll',\n        TOOLBAR_TOOLS_IMPORT: iconPrefix + 'upload',\n        TOOLBAR_TOOLS_EXPORT: iconPrefix + 'download',\n        TOOLBAR_TOOLS_PRINT: iconPrefix + 'print',\n        TOOLBAR_TOOLS_FULLSCREEN: iconPrefix + 'fullscreen',\n        TOOLBAR_TOOLS_MINIMIZE: iconPrefix + 'minimize',\n        TOOLBAR_TOOLS_CUSTOM: iconPrefix + 'custom-column',\n        TOOLBAR_TOOLS_FIXED_LEFT: iconPrefix + 'fixed-left',\n        TOOLBAR_TOOLS_FIXED_LEFT_ACTIVED: iconPrefix + 'fixed-left-fill',\n        TOOLBAR_TOOLS_FIXED_RIGHT: iconPrefix + 'fixed-right',\n        TOOLBAR_TOOLS_FIXED_RIGHT_ACTIVED: iconPrefix + 'fixed-right-fill',\n        // form\n        FORM_PREFIX: iconPrefix + 'question-circle-fill',\n        FORM_SUFFIX: iconPrefix + 'question-circle-fill',\n        FORM_FOLDING: iconPrefix + 'arrow-up rotate180',\n        FORM_UNFOLDING: iconPrefix + 'arrow-up'\n    },\n    grid: {\n        // size: null,\n        // zoomConfig: {\n        //   escRestore: true\n        // },\n        formConfig: {\n            enabled: true\n        },\n        pagerConfig: {\n            enabled: true\n            // perfect: false\n        },\n        toolbarConfig: {\n            enabled: true\n            // perfect: false\n        },\n        proxyConfig: {\n            enabled: true,\n            autoLoad: true,\n            message: true,\n            props: {\n                list: null,\n                result: 'result',\n                total: 'page.total',\n                message: 'message'\n            }\n            // beforeItem: null,\n            // beforeColumn: null,\n            // beforeQuery: null,\n            // afterQuery: null,\n            // beforeDelete: null,\n            // afterDelete: null,\n            // beforeSave: null,\n            // afterSave: null\n        }\n    },\n    tooltip: {\n        // size: null,\n        trigger: 'hover',\n        theme: 'dark',\n        enterDelay: 500,\n        leaveDelay: 300\n    },\n    pager: {\n    // size: null,\n    // autoHidden: false,\n    // perfect: true,\n    // pageSize: 10,\n    // pagerCount: 7,\n    // pageSizes: [10, 15, 20, 50, 100],\n    // layouts: ['PrevJump', 'PrevPage', 'Jump', 'PageCount', 'NextPage', 'NextJump', 'Sizes', 'Total']\n    },\n    form: {\n        // preventSubmit: false,\n        // size: null,\n        // colon: false,\n        validConfig: {\n            showMessage: true,\n            autoPos: true\n        },\n        tooltipConfig: {\n            enterable: true\n        },\n        titleAsterisk: true\n    },\n    input: {\n        // size: null,\n        // transfer: false\n        // parseFormat: 'yyyy-MM-dd HH:mm:ss.SSS',\n        // labelFormat: '',\n        // valueFormat: '',\n        startDate: new Date(1900, 0, 1),\n        endDate: new Date(2100, 0, 1),\n        startDay: 1,\n        selectDay: 1,\n        digits: 2,\n        controls: true\n    },\n    textarea: {\n    // size: null,\n    // autosize: {\n    //   minRows: 1,\n    //   maxRows: 10\n    // }\n    },\n    select: {\n        // size: null,\n        // transfer: false,\n        // optionConfig: {\n        //   keyField: '_X_OPTION_KEY'\n        // },\n        multiCharOverflow: 8\n    },\n    toolbar: {\n        // size: null,\n        // import: {\n        //   mode: 'covering'\n        // },\n        // export: {\n        //   types: ['csv', 'html', 'xml', 'txt']\n        // },\n        custom: {\n            allowFixed: true,\n            showFooter: true\n        }\n        // buttons: []\n    },\n    button: {\n    // size: null,\n    // transfer: false\n    },\n    radio: {\n        // size: null,\n        strict: true\n    },\n    radioButton: {\n        // size: null,\n        strict: true\n    },\n    radioGroup: {\n        // size: null,\n        strict: true\n    },\n    checkbox: {\n    // size: null\n    },\n    switch: {\n    // size: null\n    },\n    modal: {\n        // size: null,\n        top: 15,\n        showHeader: true,\n        minWidth: 340,\n        minHeight: 140,\n        lockView: true,\n        mask: true,\n        duration: 3000,\n        marginSize: 0,\n        dblclickZoom: true,\n        showTitleOverflow: true,\n        animat: true,\n        showClose: true,\n        draggable: true,\n        // storage: false,\n        storageKey: 'VXE_MODAL_POSITION'\n    },\n    list: {\n        // size: null,\n        scrollY: {\n            enabled: true,\n            gt: 100\n            // oSize: 0\n        }\n    },\n    i18n: function (key) { return key; }\n};\nexport default GlobalConfig;\n",
+      "start": 1714699767734,
+      "end": 1714699767734,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767734,
+      "end": 1714699767734,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767734,
+      "end": 1714699767734,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767734,
+      "end": 1714699767734,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767734,
+      "end": 1714699767734,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767734,
+      "end": 1714699767734,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767734,
+      "end": 1714699767735,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767735,
+      "end": 1714699767735,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767735,
+      "end": 1714699767735,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767735,
+      "end": 1714699767735,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767735,
+      "end": 1714699767735,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767735,
+      "end": 1714699767735,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767735,
+      "end": 1714699767735,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767735,
+      "end": 1714699767735,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767735,
+      "end": 1714699767735,
+      "order": "normal"
+    }
+  ]
+}

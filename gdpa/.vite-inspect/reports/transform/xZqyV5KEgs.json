@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/checkbox-group/CheckboxGroup.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { watch, defineComponent } from \"vue\";\nimport { numericProp, makeArrayProp, makeStringProp, createNamespace } from \"../utils/index.mjs\";\nimport { useChildren, useCustomFieldValue } from \"@vant/use\";\nimport { useExpose } from \"../composables/use-expose.mjs\";\nconst [name, bem] = createNamespace(\"checkbox-group\");\nconst checkboxGroupProps = {\n  max: numericProp,\n  shape: makeStringProp(\"round\"),\n  disabled: Boolean,\n  iconSize: numericProp,\n  direction: String,\n  modelValue: makeArrayProp(),\n  checkedColor: String\n};\nconst CHECKBOX_GROUP_KEY = Symbol(name);\nvar stdin_default = defineComponent({\n  name,\n  props: checkboxGroupProps,\n  emits: [\"change\", \"update:modelValue\"],\n  setup(props, {\n    emit,\n    slots\n  }) {\n    const {\n      children,\n      linkChildren\n    } = useChildren(CHECKBOX_GROUP_KEY);\n    const updateValue = (value) => emit(\"update:modelValue\", value);\n    const toggleAll = (options = {}) => {\n      if (typeof options === \"boolean\") {\n        options = {\n          checked: options\n        };\n      }\n      const {\n        checked,\n        skipDisabled\n      } = options;\n      const checkedChildren = children.filter((item) => {\n        if (!item.props.bindGroup) {\n          return false;\n        }\n        if (item.props.disabled && skipDisabled) {\n          return item.checked.value;\n        }\n        return checked != null ? checked : !item.checked.value;\n      });\n      const names = checkedChildren.map((item) => item.name);\n      updateValue(names);\n    };\n    watch(() => props.modelValue, (value) => emit(\"change\", value));\n    useExpose({\n      toggleAll\n    });\n    useCustomFieldValue(() => props.modelValue);\n    linkChildren({\n      props,\n      updateValue\n    });\n    return () => {\n      var _a;\n      return _createVNode(\"div\", {\n        \"class\": bem([props.direction])\n      }, [(_a = slots.default) == null ? void 0 : _a.call(slots)]);\n    };\n  }\n});\nexport {\n  CHECKBOX_GROUP_KEY,\n  checkboxGroupProps,\n  stdin_default as default\n};\n",
+      "start": 1714699767188,
+      "end": 1714699767248,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { watch, defineComponent } from \"vue\";\nimport { numericProp, makeArrayProp, makeStringProp, createNamespace } from \"../utils/index.mjs\";\nimport { useChildren, useCustomFieldValue } from \"@vant/use\";\nimport { useExpose } from \"../composables/use-expose.mjs\";\nconst [name, bem] = createNamespace(\"checkbox-group\");\nconst checkboxGroupProps = {\n  max: numericProp,\n  shape: makeStringProp(\"round\"),\n  disabled: Boolean,\n  iconSize: numericProp,\n  direction: String,\n  modelValue: makeArrayProp(),\n  checkedColor: String\n};\nconst CHECKBOX_GROUP_KEY = Symbol(name);\nvar stdin_default = defineComponent({\n  name,\n  props: checkboxGroupProps,\n  emits: [\"change\", \"update:modelValue\"],\n  setup(props, {\n    emit,\n    slots\n  }) {\n    const {\n      children,\n      linkChildren\n    } = useChildren(CHECKBOX_GROUP_KEY);\n    const updateValue = (value) => emit(\"update:modelValue\", value);\n    const toggleAll = (options = {}) => {\n      if (typeof options === \"boolean\") {\n        options = {\n          checked: options\n        };\n      }\n      const {\n        checked,\n        skipDisabled\n      } = options;\n      const checkedChildren = children.filter((item) => {\n        if (!item.props.bindGroup) {\n          return false;\n        }\n        if (item.props.disabled && skipDisabled) {\n          return item.checked.value;\n        }\n        return checked != null ? checked : !item.checked.value;\n      });\n      const names = checkedChildren.map((item) => item.name);\n      updateValue(names);\n    };\n    watch(() => props.modelValue, (value) => emit(\"change\", value));\n    useExpose({\n      toggleAll\n    });\n    useCustomFieldValue(() => props.modelValue);\n    linkChildren({\n      props,\n      updateValue\n    });\n    return () => {\n      var _a;\n      return _createVNode(\"div\", {\n        \"class\": bem([props.direction])\n      }, [(_a = slots.default) == null ? void 0 : _a.call(slots)]);\n    };\n  }\n});\nexport {\n  CHECKBOX_GROUP_KEY,\n  checkboxGroupProps,\n  stdin_default as default\n};\n",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/helperGetLocatOrigin.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var staticLocation = require('./staticLocation')\r\n\r\nfunction helperGetLocatOrigin () {\r\n  return staticLocation ? (staticLocation.origin || (staticLocation.protocol + '//' + staticLocation.host)) : ''\r\n}\r\n\r\nmodule.exports = helperGetLocatOrigin\r\n",
+      "start": 1714699768210,
+      "end": 1714699768240,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768240,
+      "end": 1714699768240,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768240,
+      "end": 1714699768240,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768240,
+      "end": 1714699768240,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768240,
+      "end": 1714699768240,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768240,
+      "end": 1714699768240,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768240,
+      "end": 1714699768240,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var staticLocation = require('./staticLocation')\r\n\r\nfunction helperGetLocatOrigin () {\r\n  return staticLocation ? (staticLocation.origin || (staticLocation.protocol + '//' + staticLocation.host)) : ''\r\n}\r\n\r\nmodule.exports = helperGetLocatOrigin\r\n",
+      "start": 1714699768240,
+      "end": 1714699768240,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768240,
+      "end": 1714699768240,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768240,
+      "end": 1714699768240,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768240,
+      "end": 1714699768240,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768240,
+      "end": 1714699768240,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768240,
+      "end": 1714699768240,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768240,
+      "end": 1714699768240,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/staticLocation.js?commonjs-proxy\";\n\nvar staticLocation = require$$0\r\n\r\nfunction helperGetLocatOrigin () {\r\n  return staticLocation ? (staticLocation.origin || (staticLocation.protocol + '//' + staticLocation.host)) : ''\r\n}\r\n\r\nvar helperGetLocatOrigin_1 = helperGetLocatOrigin\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(helperGetLocatOrigin_1);\nexport { helperGetLocatOrigin_1 as __moduleExports };",
+      "start": 1714699768240,
+      "end": 1714699768246,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;AAAA,IAAI,cAAc,GAAG,UAA2B;AAChD;AACA,SAAS,oBAAoB,IAAI;AACjC,EAAE,OAAO,cAAc,IAAI,cAAc,CAAC,MAAM,KAAK,cAAc,CAAC,QAAQ,GAAG,IAAI,GAAG,cAAc,CAAC,IAAI,CAAC,IAAI,EAAE;AAChH,CAAC;AACD;IACA,sBAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768246,
+      "end": 1714699768246,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768246,
+      "end": 1714699768246,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768246,
+      "end": 1714699768246,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768246,
+      "end": 1714699768246,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768246,
+      "end": 1714699768246,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768246,
+      "end": 1714699768246,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768246,
+      "end": 1714699768246,
+      "order": "normal"
+    }
+  ]
+}

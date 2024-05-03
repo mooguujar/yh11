@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/shuffle.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import arrayShuffle from './_arrayShuffle.js';\nimport baseShuffle from './_baseShuffle.js';\nimport isArray from './isArray.js';\n\n/**\n * Creates an array of shuffled values, using a version of the\n * [Fisher-Yates shuffle](https://en.wikipedia.org/wiki/Fisher-Yates_shuffle).\n *\n * @static\n * @memberOf _\n * @since 0.1.0\n * @category Collection\n * @param {Array|Object} collection The collection to shuffle.\n * @returns {Array} Returns the new shuffled array.\n * @example\n *\n * _.shuffle([1, 2, 3, 4]);\n * // => [4, 1, 3, 2]\n */\nfunction shuffle(collection) {\n  var func = isArray(collection) ? arrayShuffle : baseShuffle;\n  return func(collection);\n}\n\nexport default shuffle;\n",
+      "start": 1714699768489,
+      "end": 1714699768512,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768512,
+      "end": 1714699768512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768512,
+      "end": 1714699768512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768512,
+      "end": 1714699768512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768512,
+      "end": 1714699768512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768512,
+      "end": 1714699768512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768512,
+      "end": 1714699768512,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import arrayShuffle from './_arrayShuffle.js';\nimport baseShuffle from './_baseShuffle.js';\nimport isArray from './isArray.js';\n\n/**\n * Creates an array of shuffled values, using a version of the\n * [Fisher-Yates shuffle](https://en.wikipedia.org/wiki/Fisher-Yates_shuffle).\n *\n * @static\n * @memberOf _\n * @since 0.1.0\n * @category Collection\n * @param {Array|Object} collection The collection to shuffle.\n * @returns {Array} Returns the new shuffled array.\n * @example\n *\n * _.shuffle([1, 2, 3, 4]);\n * // => [4, 1, 3, 2]\n */\nfunction shuffle(collection) {\n  var func = isArray(collection) ? arrayShuffle : baseShuffle;\n  return func(collection);\n}\n\nexport default shuffle;\n",
+      "start": 1714699768512,
+      "end": 1714699768512,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768512,
+      "end": 1714699768512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768512,
+      "end": 1714699768512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768512,
+      "end": 1714699768512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768512,
+      "end": 1714699768512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768512,
+      "end": 1714699768512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768512,
+      "end": 1714699768512,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768512,
+      "end": 1714699768512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768512,
+      "end": 1714699768512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768512,
+      "end": 1714699768512,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768512,
+      "end": 1714699768512,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768512,
+      "end": 1714699768512,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768512,
+      "end": 1714699768513,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768513,
+      "end": 1714699768513,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768513,
+      "end": 1714699768513,
+      "order": "normal"
+    }
+  ]
+}

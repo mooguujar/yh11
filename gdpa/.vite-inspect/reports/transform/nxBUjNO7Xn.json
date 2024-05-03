@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/rolling-text/RollingText.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { ref, defineComponent, computed, watch } from \"vue\";\nimport { raf } from \"@vant/use\";\nimport { createNamespace, makeArrayProp, makeNumberProp, makeStringProp, truthProp, padZero } from \"../utils/index.mjs\";\nimport { useExpose } from \"../composables/use-expose.mjs\";\nimport RollingTextItem from \"./RollingTextItem.mjs\";\nconst [name, bem] = createNamespace(\"rolling-text\");\nconst rollingTextProps = {\n  startNum: makeNumberProp(0),\n  targetNum: Number,\n  textList: makeArrayProp(),\n  duration: makeNumberProp(2),\n  autoStart: truthProp,\n  direction: makeStringProp(\"down\"),\n  stopOrder: makeStringProp(\"ltr\"),\n  height: makeNumberProp(40)\n};\nconst CIRCLE_NUM = 2;\nvar stdin_default = defineComponent({\n  name,\n  props: rollingTextProps,\n  setup(props) {\n    const isCustomType = computed(() => Array.isArray(props.textList) && props.textList.length);\n    const itemLength = computed(() => {\n      if (isCustomType.value)\n        return props.textList[0].length;\n      return `${Math.max(props.startNum, props.targetNum)}`.length;\n    });\n    const getTextArrByIdx = (idx) => {\n      const result = [];\n      for (let i = 0; i < props.textList.length; i++) {\n        result.push(props.textList[i][idx]);\n      }\n      return result;\n    };\n    const targetNumArr = computed(() => {\n      if (isCustomType.value)\n        return new Array(itemLength.value).fill(\"\");\n      return padZero(props.targetNum, itemLength.value).split(\"\");\n    });\n    const startNumArr = computed(() => padZero(props.startNum, itemLength.value).split(\"\"));\n    const getFigureArr = (i) => {\n      const start2 = +startNumArr.value[i];\n      const target = +targetNumArr.value[i];\n      const result = [];\n      for (let i2 = start2; i2 <= 9; i2++) {\n        result.push(i2);\n      }\n      for (let i2 = 0; i2 <= CIRCLE_NUM; i2++) {\n        for (let j = 0; j <= 9; j++) {\n          result.push(j);\n        }\n      }\n      for (let i2 = 0; i2 <= target; i2++) {\n        result.push(i2);\n      }\n      return result;\n    };\n    const getDelay = (i, len) => {\n      if (props.stopOrder === \"ltr\")\n        return 0.2 * i;\n      return 0.2 * (len - 1 - i);\n    };\n    const rolling = ref(props.autoStart);\n    const start = () => {\n      rolling.value = true;\n    };\n    const reset = () => {\n      rolling.value = false;\n      if (props.autoStart) {\n        raf(() => start());\n      }\n    };\n    watch(() => props.autoStart, (value) => {\n      if (value) {\n        start();\n      }\n    });\n    useExpose({\n      start,\n      reset\n    });\n    return () => _createVNode(\"div\", {\n      \"class\": bem()\n    }, [targetNumArr.value.map((_, i) => _createVNode(RollingTextItem, {\n      \"figureArr\": isCustomType.value ? getTextArrByIdx(i) : getFigureArr(i),\n      \"duration\": props.duration,\n      \"direction\": props.direction,\n      \"isStart\": rolling.value,\n      \"height\": props.height,\n      \"delay\": getDelay(i, itemLength.value)\n    }, null))]);\n  }\n});\nexport {\n  stdin_default as default,\n  rollingTextProps\n};\n",
+      "start": 1714699767312,
+      "end": 1714699767344,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767344,
+      "end": 1714699767344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767344,
+      "end": 1714699767344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767344,
+      "end": 1714699767344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767344,
+      "end": 1714699767344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767344,
+      "end": 1714699767344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767344,
+      "end": 1714699767344,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { ref, defineComponent, computed, watch } from \"vue\";\nimport { raf } from \"@vant/use\";\nimport { createNamespace, makeArrayProp, makeNumberProp, makeStringProp, truthProp, padZero } from \"../utils/index.mjs\";\nimport { useExpose } from \"../composables/use-expose.mjs\";\nimport RollingTextItem from \"./RollingTextItem.mjs\";\nconst [name, bem] = createNamespace(\"rolling-text\");\nconst rollingTextProps = {\n  startNum: makeNumberProp(0),\n  targetNum: Number,\n  textList: makeArrayProp(),\n  duration: makeNumberProp(2),\n  autoStart: truthProp,\n  direction: makeStringProp(\"down\"),\n  stopOrder: makeStringProp(\"ltr\"),\n  height: makeNumberProp(40)\n};\nconst CIRCLE_NUM = 2;\nvar stdin_default = defineComponent({\n  name,\n  props: rollingTextProps,\n  setup(props) {\n    const isCustomType = computed(() => Array.isArray(props.textList) && props.textList.length);\n    const itemLength = computed(() => {\n      if (isCustomType.value)\n        return props.textList[0].length;\n      return `${Math.max(props.startNum, props.targetNum)}`.length;\n    });\n    const getTextArrByIdx = (idx) => {\n      const result = [];\n      for (let i = 0; i < props.textList.length; i++) {\n        result.push(props.textList[i][idx]);\n      }\n      return result;\n    };\n    const targetNumArr = computed(() => {\n      if (isCustomType.value)\n        return new Array(itemLength.value).fill(\"\");\n      return padZero(props.targetNum, itemLength.value).split(\"\");\n    });\n    const startNumArr = computed(() => padZero(props.startNum, itemLength.value).split(\"\"));\n    const getFigureArr = (i) => {\n      const start2 = +startNumArr.value[i];\n      const target = +targetNumArr.value[i];\n      const result = [];\n      for (let i2 = start2; i2 <= 9; i2++) {\n        result.push(i2);\n      }\n      for (let i2 = 0; i2 <= CIRCLE_NUM; i2++) {\n        for (let j = 0; j <= 9; j++) {\n          result.push(j);\n        }\n      }\n      for (let i2 = 0; i2 <= target; i2++) {\n        result.push(i2);\n      }\n      return result;\n    };\n    const getDelay = (i, len) => {\n      if (props.stopOrder === \"ltr\")\n        return 0.2 * i;\n      return 0.2 * (len - 1 - i);\n    };\n    const rolling = ref(props.autoStart);\n    const start = () => {\n      rolling.value = true;\n    };\n    const reset = () => {\n      rolling.value = false;\n      if (props.autoStart) {\n        raf(() => start());\n      }\n    };\n    watch(() => props.autoStart, (value) => {\n      if (value) {\n        start();\n      }\n    });\n    useExpose({\n      start,\n      reset\n    });\n    return () => _createVNode(\"div\", {\n      \"class\": bem()\n    }, [targetNumArr.value.map((_, i) => _createVNode(RollingTextItem, {\n      \"figureArr\": isCustomType.value ? getTextArrByIdx(i) : getFigureArr(i),\n      \"duration\": props.duration,\n      \"direction\": props.direction,\n      \"isStart\": rolling.value,\n      \"height\": props.height,\n      \"delay\": getDelay(i, itemLength.value)\n    }, null))]);\n  }\n});\nexport {\n  stdin_default as default,\n  rollingTextProps\n};\n",
+      "start": 1714699767344,
+      "end": 1714699767344,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767344,
+      "end": 1714699767344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767344,
+      "end": 1714699767344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767344,
+      "end": 1714699767344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767344,
+      "end": 1714699767344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767344,
+      "end": 1714699767344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767344,
+      "end": 1714699767344,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767344,
+      "end": 1714699767344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767344,
+      "end": 1714699767344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767344,
+      "end": 1714699767344,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767344,
+      "end": 1714699767344,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767344,
+      "end": 1714699767344,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767344,
+      "end": 1714699767344,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767344,
+      "end": 1714699767344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767344,
+      "end": 1714699767344,
+      "order": "normal"
+    }
+  ]
+}

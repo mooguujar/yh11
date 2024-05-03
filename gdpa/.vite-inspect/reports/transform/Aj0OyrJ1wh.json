@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/applyRecord.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <nav-bar\n    class=\"nav-bar\"\n    title=\"申请记录\"\n    mode=\"cardActivity\"\n  />\n  <div class=\"activityRecord\">\n    <div class=\"Record_tab clearfix activity_container\">\n      <van-tabs\n        @change=\"tabChange\"\n        v-model:active=\"active\"\n      >\n        <van-tab\n          v-for=\"item in tabList\"\n          :title=\"item.title\"\n          :name=\"item.code\"\n          :key=\"item.title\"\n        >\n          <template #title>\n            <van-dropdown-menu class=\"absolute left-[-130px] top-[20px]\">\n              <van-dropdown-item\n                @change=\"changeMenu\"\n                v-model=\"value1\"\n                :options=\"option1\"\n              />\n            </van-dropdown-menu>\n          </template>\n          <div class=\"Record-container\">\n            <div class=\"title flex_z_between\">\n              <div class=\"text-left w-[20%]\">申请次数</div>\n              <div class=\"text-center w-[20%]\">商户/状态</div>\n              <div class=\"text-right w-[39%]\">申请时间</div>\n            </div>\n            <van-pull-refresh\n              v-model=\"refreshing\"\n              @refresh=\"onRefresh\"\n            >\n              <van-list\n                v-model:loading=\"loading\"\n                :finished=\"finished\"\n                finished-text=\"没有更多了\"\n                @load=\"getGameresult\"\n              >\n                <div\n                  class=\"list flex_z_between\"\n                  v-for=\"item in dataList\"\n                  :key=\"item.codes\"\n                >\n                  <div class=\"text-left w-[24%] leading-[73px]\">\n                    <span>{{ parseInt(item.daily_num) }}</span>\n                  </div>\n                  <div class=\"text-center w-[36%]\">\n                    <p class=\"w-[100%] van-ellipsis\">{{ item.mname }}</p>\n                    <p\n                      :class=\"\n                        item.status == 0\n                          ? 'text-[#e39127]'\n                          : item.status == 1\n                          ? 'text-[#07a11d]'\n                          : 'text-[#d81607]'\n                      \"\n                    >\n                      {{ item.status == 0 ? '审核中' : item.status == 1 ? '通过' : '拒绝' }}\n                    </p>\n                  </div>\n                  <div class=\"text-right w-[40%] text-[26px] leading-[73px]\">\n                    {{ item.add_time }}\n                  </div>\n                </div>\n              </van-list>\n            </van-pull-refresh>\n          </div>\n        </van-tab>\n      </van-tabs>\n    </div>\n  </div>\n</template>\n<script setup lang=\"ts\">\nimport { gamemerapplist } from '@/apis/taskActivity'\nimport { requireImg } from '@/utils/tools'\nimport { onMounted, ref } from 'vue'\nimport { useAppBar } from '@/components/AppBar/useAppBar'\nuseAppBar({ mode: 'dark' })\n// const thisweek_award = ref(0)\n// const lastweek_award = ref(0)\nconst active = ref('申请记录')\nconst tabList = [{ title: '', code: '申请记录' }]\nconst value1 = ref(1)\nconst option1 = ref([\n  { text: '本周', value: 1 },\n  { text: '上周', value: -1 }\n])\nconst dataList = ref<any>([])\nconst parm = ref({\n  week: value1.value\n})\nconst getGameresult = () => {\n  if (refreshing.value) {\n    refreshing.value = false\n  }\n  gamemerapplist(parm.value).then(data => {\n    if (data.code || data.errmsg) return console.log('数据异常')\n    dataList.value = data\n    // dataList.value = [{}]\n\n    loading.value = false\n    finished.value = true\n  })\n}\n\nconst loading = ref(false)\nconst finished = ref(false)\nconst refreshing = ref(false)\nconst onRefresh = () => {\n  // 清空列表数据\n  finished.value = false\n  // 重新加载数据\n  // 将 loading 设置为 true，表示处于加载状态\n  loading.value = true\n  // showToast('刷新成功')\n  getGameresult()\n}\nonRefresh()\n\nconst tabChange = (code: string) => {\n  console.log('code', code)\n  if (code == '翻卡记录') {\n    // dataList.value = sendList.value\n    // parm.value.type = 1\n  } else if (code == '奖励记录') {\n    // dataList.value = sendList.value\n    // parm.value.type = 2\n  } else {\n    // parm.value.type = 3\n    // dataList.value = receiveList.value\n  }\n  onRefresh()\n}\n\nconst changeMenu = (e: number) => {\n  // console.log('e', e)\n  parm.value.week = e\n  onRefresh()\n}\n\nconst getNum_type = (type: number) => {\n  // console.log('card', card)\n  let num_type = ''\n  switch (type) {\n    case 1:\n      num_type = '参与活动派发'\n      break\n    case 2:\n      num_type = '参与活动扣除'\n      break\n    case 3:\n      num_type = '收到赠送'\n      break\n    case 4:\n      num_type = '赠送支出'\n      break\n    case 5:\n      num_type = '操作增加'\n      break\n    case 6:\n      num_type = '操作扣除'\n      break\n    case 7:\n      num_type = '交换增加'\n      break\n    case 8:\n      num_type = '交换减少'\n      break\n    case 9:\n      num_type = '赠送返点'\n      break\n    case 10:\n      num_type = '买币任务'\n      break\n    case 11:\n      num_type = '卖币任务'\n      break\n    case 12:\n      num_type = '积分轮盘派发'\n      break\n    default:\n      num_type = ''\n      break\n  }\n  return num_type\n}\nconst cardPic = (card: number) => {\n  // console.log('card', card)\n  let pic = ''\n  switch (card) {\n    case 1:\n      pic = 'gong'\n      break\n    case 2:\n      pic = 'xi'\n      break\n    case 3:\n      pic = 'fa'\n      break\n    case 4:\n      pic = 'cai'\n      break\n    case 5:\n      pic = 'gongxifacai'\n      break\n    case 6:\n      pic = 'xxcy'\n      break\n    case 7:\n      pic = 'btn_phb02'\n      break\n    case 0:\n      pic = ''\n      break\n    default:\n      pic = ''\n      break\n  }\n  return pic\n}\nonMounted(() => {})\n</script>\n\n<style lang=\"scss\" scoped>\n.activityRecord {\n  font-size: 30px;\n  height: 100%;\n  .Record_top {\n    height: 200px;\n    padding: 20px;\n    background: var(--app-spring-festival-activity-theme);\n    p {\n      font-size: 31px;\n      font-weight: normal;\n      font-stretch: normal;\n      color: #711f13;\n      padding: 10px 0;\n      span {\n        font-size: 33rpx;\n        font-weight: normal;\n        font-stretch: normal;\n        letter-spacing: 0rpx;\n        color: #f6e364;\n      }\n    }\n  }\n  :deep(.van-tabs) {\n    .van-tabs__nav {\n      padding-left: 150px;\n    }\n    .van-tabs__wrap {\n      height: 80px;\n    }\n    .van-tabs__content {\n      margin-top: 0;\n    }\n    .van-dropdown-menu__title {\n      font-weight: normal;\n    }\n    #van-tabs-1-2 {\n    }\n    .van-tabs__line {\n      display: none;\n    }\n  }\n  .Record_tab {\n    width: 100%;\n    padding: 0 20px;\n    top: -14px;\n    :deep(.van-dropdown-menu) {\n      width: 100px;\n      height: 44px;\n      border-radius: 3px;\n      border: solid 1px rgba(80, 82, 85, 0.8);\n      float: left;\n      .van-dropdown-menu__bar {\n        background-color: rgba(0, 0, 0, 0);\n        height: 44px;\n        .van-dropdown-menu__title {\n          font-size: 24px;\n          margin-left: -20px;\n          &::after {\n            right: -2px;\n          }\n        }\n      }\n      .van-dropdown-item--down {\n        width: 750px;\n        margin: 0 auto;\n      }\n    }\n  }\n  .Record-container {\n    height: calc(100vh - 368px);\n    padding-bottom: 80px;\n    .title {\n      padding: 20px 0;\n      border-bottom: 1px #ccc solid;\n      width: 100%;\n      font-size: 28px;\n    }\n    .list {\n      font-size: 28px;\n      padding: 15px 0;\n      width: 100%;\n      border-bottom: 1px #ccc solid;\n      .AR_listImg {\n        height: 63px;\n        img {\n          width: auto;\n        }\n      }\n    }\n  }\n}\n</style>\n",
+      "start": 1714699769445,
+      "end": 1714699769512,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769512,
+      "end": 1714699769512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769512,
+      "end": 1714699769512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769512,
+      "end": 1714699769512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769512,
+      "end": 1714699769512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/applyRecord.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/applyRecord.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/applyRecord.vue?vue&type=style&index=0&scoped=c3aad20b&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-c3aad20b\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/applyRecord.vue\"]]);\n",
+      "start": 1714699769512,
+      "end": 1714699769607,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769607,
+      "end": 1714699769607,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/applyRecord.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/applyRecord.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/applyRecord.vue?vue&type=style&index=0&scoped=c3aad20b&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-c3aad20b\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/applyRecord.vue\"]]);\n",
+      "start": 1714699769607,
+      "end": 1714699769607,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/applyRecord.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/applyRecord.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/applyRecord.vue?vue&type=style&index=0&scoped=c3aad20b&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-c3aad20b\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/applyRecord.vue\"]]);\n",
+      "start": 1714699769607,
+      "end": 1714699770628,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/applyRecord.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/applyRecord.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/applyRecord.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/applyRecord.vue?vue&type=style&index=0&scoped=c3aad20b&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-c3aad20b\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/applyRecord.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,mFAAmF,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770628,
+      "end": 1714699770628,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699770628,
+      "end": 1714699770628,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770628,
+      "end": 1714699770628,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770628,
+      "end": 1714699770628,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770628,
+      "end": 1714699770628,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770628,
+      "end": 1714699770628,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770628,
+      "end": 1714699770628,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770628,
+      "end": 1714699770628,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770628,
+      "end": 1714699770628,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/applyRecord.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/applyRecord.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/applyRecord.vue?vue&type=style&index=0&scoped=c3aad20b&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-c3aad20b\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/applyRecord.vue\"]]);\n",
+      "start": 1714699770628,
+      "end": 1714699770628,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/applyRecord.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/applyRecord.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/applyRecord.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/applyRecord.vue?vue&type=style&index=0&scoped=c3aad20b&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-c3aad20b\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/applyRecord.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770629,
+      "end": 1714699770629,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770629,
+      "end": 1714699770629,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770629,
+      "end": 1714699770629,
+      "order": "normal"
+    }
+  ]
+}

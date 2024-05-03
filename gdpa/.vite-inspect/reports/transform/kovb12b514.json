@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/math.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "export { default as add } from './add.js';\nexport { default as ceil } from './ceil.js';\nexport { default as divide } from './divide.js';\nexport { default as floor } from './floor.js';\nexport { default as max } from './max.js';\nexport { default as maxBy } from './maxBy.js';\nexport { default as mean } from './mean.js';\nexport { default as meanBy } from './meanBy.js';\nexport { default as min } from './min.js';\nexport { default as minBy } from './minBy.js';\nexport { default as multiply } from './multiply.js';\nexport { default as round } from './round.js';\nexport { default as subtract } from './subtract.js';\nexport { default as sum } from './sum.js';\nexport { default as sumBy } from './sumBy.js';\nexport { default } from './math.default.js';\n",
+      "start": 1714699768771,
+      "end": 1714699768803,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768803,
+      "end": 1714699768803,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768803,
+      "end": 1714699768803,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768803,
+      "end": 1714699768803,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768803,
+      "end": 1714699768803,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768803,
+      "end": 1714699768803,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768803,
+      "end": 1714699768803,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "export { default as add } from './add.js';\nexport { default as ceil } from './ceil.js';\nexport { default as divide } from './divide.js';\nexport { default as floor } from './floor.js';\nexport { default as max } from './max.js';\nexport { default as maxBy } from './maxBy.js';\nexport { default as mean } from './mean.js';\nexport { default as meanBy } from './meanBy.js';\nexport { default as min } from './min.js';\nexport { default as minBy } from './minBy.js';\nexport { default as multiply } from './multiply.js';\nexport { default as round } from './round.js';\nexport { default as subtract } from './subtract.js';\nexport { default as sum } from './sum.js';\nexport { default as sumBy } from './sumBy.js';\nexport { default } from './math.default.js';\n",
+      "start": 1714699768803,
+      "end": 1714699768803,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768803,
+      "end": 1714699768803,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768803,
+      "end": 1714699768803,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768803,
+      "end": 1714699768803,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768803,
+      "end": 1714699768803,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768803,
+      "end": 1714699768803,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768803,
+      "end": 1714699768803,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768803,
+      "end": 1714699768803,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768803,
+      "end": 1714699768803,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768803,
+      "end": 1714699768803,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768803,
+      "end": 1714699768803,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768803,
+      "end": 1714699768803,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768803,
+      "end": 1714699768803,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768803,
+      "end": 1714699768803,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768803,
+      "end": 1714699768803,
+      "order": "normal"
+    }
+  ]
+}

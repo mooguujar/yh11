@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/_compareAscending.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import isSymbol from './isSymbol.js';\n\n/**\n * Compares values to sort them in ascending order.\n *\n * @private\n * @param {*} value The value to compare.\n * @param {*} other The other value to compare.\n * @returns {number} Returns the sort order indicator for `value`.\n */\nfunction compareAscending(value, other) {\n  if (value !== other) {\n    var valIsDefined = value !== undefined,\n        valIsNull = value === null,\n        valIsReflexive = value === value,\n        valIsSymbol = isSymbol(value);\n\n    var othIsDefined = other !== undefined,\n        othIsNull = other === null,\n        othIsReflexive = other === other,\n        othIsSymbol = isSymbol(other);\n\n    if ((!othIsNull && !othIsSymbol && !valIsSymbol && value > other) ||\n        (valIsSymbol && othIsDefined && othIsReflexive && !othIsNull && !othIsSymbol) ||\n        (valIsNull && othIsDefined && othIsReflexive) ||\n        (!valIsDefined && othIsReflexive) ||\n        !valIsReflexive) {\n      return 1;\n    }\n    if ((!valIsNull && !valIsSymbol && !othIsSymbol && value < other) ||\n        (othIsSymbol && valIsDefined && valIsReflexive && !valIsNull && !valIsSymbol) ||\n        (othIsNull && valIsDefined && valIsReflexive) ||\n        (!othIsDefined && valIsReflexive) ||\n        !othIsReflexive) {\n      return -1;\n    }\n  }\n  return 0;\n}\n\nexport default compareAscending;\n",
+      "start": 1714699768736,
+      "end": 1714699768748,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import isSymbol from './isSymbol.js';\n\n/**\n * Compares values to sort them in ascending order.\n *\n * @private\n * @param {*} value The value to compare.\n * @param {*} other The other value to compare.\n * @returns {number} Returns the sort order indicator for `value`.\n */\nfunction compareAscending(value, other) {\n  if (value !== other) {\n    var valIsDefined = value !== undefined,\n        valIsNull = value === null,\n        valIsReflexive = value === value,\n        valIsSymbol = isSymbol(value);\n\n    var othIsDefined = other !== undefined,\n        othIsNull = other === null,\n        othIsReflexive = other === other,\n        othIsSymbol = isSymbol(other);\n\n    if ((!othIsNull && !othIsSymbol && !valIsSymbol && value > other) ||\n        (valIsSymbol && othIsDefined && othIsReflexive && !othIsNull && !othIsSymbol) ||\n        (valIsNull && othIsDefined && othIsReflexive) ||\n        (!valIsDefined && othIsReflexive) ||\n        !valIsReflexive) {\n      return 1;\n    }\n    if ((!valIsNull && !valIsSymbol && !othIsSymbol && value < other) ||\n        (othIsSymbol && valIsDefined && valIsReflexive && !valIsNull && !valIsSymbol) ||\n        (othIsNull && valIsDefined && valIsReflexive) ||\n        (!othIsDefined && valIsReflexive) ||\n        !othIsReflexive) {\n      return -1;\n    }\n  }\n  return 0;\n}\n\nexport default compareAscending;\n",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768749,
+      "end": 1714699768749,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768749,
+      "end": 1714699768749,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768749,
+      "end": 1714699768749,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768749,
+      "end": 1714699768749,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768749,
+      "end": 1714699768749,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768749,
+      "end": 1714699768749,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768749,
+      "end": 1714699768749,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768749,
+      "end": 1714699768749,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768749,
+      "end": 1714699768749,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768749,
+      "end": 1714699768749,
+      "order": "normal"
+    }
+  ]
+}

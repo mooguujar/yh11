@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/template.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var setupDefaults = require('./setupDefaults')\r\n\r\nvar toValueString = require('./toValueString')\r\nvar trim = require('./trim')\r\n\r\nvar get = require('./get')\r\n\r\n/**\r\n * 解析动态字符串模板\r\n * @param {atring} str 字符串模板\r\n * @param {any | any[]} args 对象\r\n * @param {any} options \r\n */\r\nfunction template (str, args, options) {\r\n  return toValueString(str).replace((options || setupDefaults).tmplRE || /\\{{2}([.\\w[\\]\\s]+)\\}{2}/g, function (match, key) {\r\n    return get(args, trim(key))\r\n  })\r\n}\r\n\r\nmodule.exports = template\r\n",
+      "start": 1714699767712,
+      "end": 1714699767721,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767721,
+      "end": 1714699767721,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767721,
+      "end": 1714699767722,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767722,
+      "end": 1714699767722,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767722,
+      "end": 1714699767722,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767722,
+      "end": 1714699767722,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767722,
+      "end": 1714699767722,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var setupDefaults = require('./setupDefaults')\r\n\r\nvar toValueString = require('./toValueString')\r\nvar trim = require('./trim')\r\n\r\nvar get = require('./get')\r\n\r\n/**\r\n * 解析动态字符串模板\r\n * @param {atring} str 字符串模板\r\n * @param {any | any[]} args 对象\r\n * @param {any} options \r\n */\r\nfunction template (str, args, options) {\r\n  return toValueString(str).replace((options || setupDefaults).tmplRE || /\\{{2}([.\\w[\\]\\s]+)\\}{2}/g, function (match, key) {\r\n    return get(args, trim(key))\r\n  })\r\n}\r\n\r\nmodule.exports = template\r\n",
+      "start": 1714699767722,
+      "end": 1714699767722,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767722,
+      "end": 1714699767722,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767722,
+      "end": 1714699767722,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767722,
+      "end": 1714699767722,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767722,
+      "end": 1714699767722,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767722,
+      "end": 1714699767722,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767722,
+      "end": 1714699767722,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/setupDefaults.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/toValueString.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/trim.js?commonjs-proxy\";\nimport require$$3 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/get.js?commonjs-proxy\";\n\nvar setupDefaults = require$$0\r\n\r\nvar toValueString = require$$1\r\nvar trim = require$$2\r\n\r\nvar get = require$$3\r\n\r\n/**\r\n * 解析动态字符串模板\r\n * @param {atring} str 字符串模板\r\n * @param {any | any[]} args 对象\r\n * @param {any} options \r\n */\r\nfunction template (str, args, options) {\r\n  return toValueString(str).replace((options || setupDefaults).tmplRE || /\\{{2}([.\\w[\\]\\s]+)\\}{2}/g, function (match, key) {\r\n    return get(args, trim(key))\r\n  })\r\n}\r\n\r\nvar template_1 = template\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(template_1);\nexport { template_1 as __moduleExports };",
+      "start": 1714699767722,
+      "end": 1714699768231,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;;AAAA,IAAI,aAAa,GAAG,UAA0B;AAC9C;AACA,IAAI,aAAa,GAAG,UAA0B;AAC9C,IAAI,IAAI,GAAG,UAAiB;AAC5B;AACA,IAAI,GAAG,GAAG,UAAgB;AAC1B;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,QAAQ,EAAE,GAAG,EAAE,IAAI,EAAE,OAAO,EAAE;AACvC,EAAE,OAAO,aAAa,CAAC,GAAG,CAAC,CAAC,OAAO,CAAC,CAAC,OAAO,IAAI,aAAa,EAAE,MAAM,IAAI,0BAA0B,EAAE,UAAU,KAAK,EAAE,GAAG,EAAE;AAC3H,IAAI,OAAO,GAAG,CAAC,IAAI,EAAE,IAAI,CAAC,GAAG,CAAC,CAAC;AAC/B,GAAG,CAAC;AACJ,CAAC;AACD;IACA,UAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768231,
+      "end": 1714699768231,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768231,
+      "end": 1714699768231,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768231,
+      "end": 1714699768231,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768231,
+      "end": 1714699768231,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768231,
+      "end": 1714699768231,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768231,
+      "end": 1714699768231,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768231,
+      "end": 1714699768231,
+      "order": "normal"
+    }
+  ]
+}

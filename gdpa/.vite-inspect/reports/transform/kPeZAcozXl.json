@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/picker-group/PickerGroup.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { defineComponent, Comment } from \"vue\";\nimport { pick, extend, makeArrayProp, makeNumericProp, createNamespace } from \"../utils/index.mjs\";\nimport { useChildren } from \"@vant/use\";\nimport { useSyncPropRef } from \"../composables/use-sync-prop-ref.mjs\";\nimport { Tab } from \"../tab/index.mjs\";\nimport { Tabs } from \"../tabs/index.mjs\";\nimport Toolbar, { pickerToolbarProps, pickerToolbarSlots } from \"../picker/PickerToolbar.mjs\";\nconst [name, bem] = createNamespace(\"picker-group\");\nconst PICKER_GROUP_KEY = Symbol(name);\nconst pickerGroupProps = extend({\n  tabs: makeArrayProp(),\n  activeTab: makeNumericProp(0),\n  nextStepText: String\n}, pickerToolbarProps);\nvar stdin_default = defineComponent({\n  name,\n  props: pickerGroupProps,\n  emits: [\"confirm\", \"cancel\", \"update:activeTab\"],\n  setup(props, {\n    emit,\n    slots\n  }) {\n    const activeTab = useSyncPropRef(() => props.activeTab, (value) => emit(\"update:activeTab\", value));\n    const {\n      children,\n      linkChildren\n    } = useChildren(PICKER_GROUP_KEY);\n    linkChildren();\n    const showNextButton = () => +activeTab.value < props.tabs.length - 1 && props.nextStepText;\n    const onConfirm = () => {\n      if (showNextButton()) {\n        activeTab.value = +activeTab.value + 1;\n      } else {\n        emit(\"confirm\", children.map((item) => item.confirm()));\n      }\n    };\n    const onCancel = () => emit(\"cancel\");\n    return () => {\n      var _a, _b;\n      const childNodes = (_b = (_a = slots.default) == null ? void 0 : _a.call(slots)) == null ? void 0 : _b.filter((node) => node.type !== Comment);\n      const confirmButtonText = showNextButton() ? props.nextStepText : props.confirmButtonText;\n      return _createVNode(\"div\", {\n        \"class\": bem()\n      }, [_createVNode(Toolbar, {\n        \"title\": props.title,\n        \"cancelButtonText\": props.cancelButtonText,\n        \"confirmButtonText\": confirmButtonText,\n        \"onConfirm\": onConfirm,\n        \"onCancel\": onCancel\n      }, pick(slots, pickerToolbarSlots)), _createVNode(Tabs, {\n        \"active\": activeTab.value,\n        \"onUpdate:active\": ($event) => activeTab.value = $event,\n        \"class\": bem(\"tabs\"),\n        \"shrink\": true,\n        \"animated\": true,\n        \"lazyRender\": false\n      }, {\n        default: () => [props.tabs.map((title, index) => _createVNode(Tab, {\n          \"title\": title,\n          \"titleClass\": bem(\"tab-title\")\n        }, {\n          default: () => [childNodes == null ? void 0 : childNodes[index]]\n        }))]\n      })]);\n    };\n  }\n});\nexport {\n  PICKER_GROUP_KEY,\n  stdin_default as default,\n  pickerGroupProps\n};\n",
+      "start": 1714699767305,
+      "end": 1714699767333,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767333,
+      "end": 1714699767333,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767333,
+      "end": 1714699767333,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767333,
+      "end": 1714699767333,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767333,
+      "end": 1714699767333,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767333,
+      "end": 1714699767333,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767333,
+      "end": 1714699767333,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { defineComponent, Comment } from \"vue\";\nimport { pick, extend, makeArrayProp, makeNumericProp, createNamespace } from \"../utils/index.mjs\";\nimport { useChildren } from \"@vant/use\";\nimport { useSyncPropRef } from \"../composables/use-sync-prop-ref.mjs\";\nimport { Tab } from \"../tab/index.mjs\";\nimport { Tabs } from \"../tabs/index.mjs\";\nimport Toolbar, { pickerToolbarProps, pickerToolbarSlots } from \"../picker/PickerToolbar.mjs\";\nconst [name, bem] = createNamespace(\"picker-group\");\nconst PICKER_GROUP_KEY = Symbol(name);\nconst pickerGroupProps = extend({\n  tabs: makeArrayProp(),\n  activeTab: makeNumericProp(0),\n  nextStepText: String\n}, pickerToolbarProps);\nvar stdin_default = defineComponent({\n  name,\n  props: pickerGroupProps,\n  emits: [\"confirm\", \"cancel\", \"update:activeTab\"],\n  setup(props, {\n    emit,\n    slots\n  }) {\n    const activeTab = useSyncPropRef(() => props.activeTab, (value) => emit(\"update:activeTab\", value));\n    const {\n      children,\n      linkChildren\n    } = useChildren(PICKER_GROUP_KEY);\n    linkChildren();\n    const showNextButton = () => +activeTab.value < props.tabs.length - 1 && props.nextStepText;\n    const onConfirm = () => {\n      if (showNextButton()) {\n        activeTab.value = +activeTab.value + 1;\n      } else {\n        emit(\"confirm\", children.map((item) => item.confirm()));\n      }\n    };\n    const onCancel = () => emit(\"cancel\");\n    return () => {\n      var _a, _b;\n      const childNodes = (_b = (_a = slots.default) == null ? void 0 : _a.call(slots)) == null ? void 0 : _b.filter((node) => node.type !== Comment);\n      const confirmButtonText = showNextButton() ? props.nextStepText : props.confirmButtonText;\n      return _createVNode(\"div\", {\n        \"class\": bem()\n      }, [_createVNode(Toolbar, {\n        \"title\": props.title,\n        \"cancelButtonText\": props.cancelButtonText,\n        \"confirmButtonText\": confirmButtonText,\n        \"onConfirm\": onConfirm,\n        \"onCancel\": onCancel\n      }, pick(slots, pickerToolbarSlots)), _createVNode(Tabs, {\n        \"active\": activeTab.value,\n        \"onUpdate:active\": ($event) => activeTab.value = $event,\n        \"class\": bem(\"tabs\"),\n        \"shrink\": true,\n        \"animated\": true,\n        \"lazyRender\": false\n      }, {\n        default: () => [props.tabs.map((title, index) => _createVNode(Tab, {\n          \"title\": title,\n          \"titleClass\": bem(\"tab-title\")\n        }, {\n          default: () => [childNodes == null ? void 0 : childNodes[index]]\n        }))]\n      })]);\n    };\n  }\n});\nexport {\n  PICKER_GROUP_KEY,\n  stdin_default as default,\n  pickerGroupProps\n};\n",
+      "start": 1714699767333,
+      "end": 1714699767333,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767333,
+      "end": 1714699767333,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767334,
+      "end": 1714699767334,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767334,
+      "end": 1714699767334,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767334,
+      "end": 1714699767334,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767334,
+      "end": 1714699767334,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767334,
+      "end": 1714699767334,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767334,
+      "end": 1714699767334,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767334,
+      "end": 1714699767334,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767334,
+      "end": 1714699767334,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767334,
+      "end": 1714699767334,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767334,
+      "end": 1714699767334,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767334,
+      "end": 1714699767334,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767334,
+      "end": 1714699767334,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767334,
+      "end": 1714699767334,
+      "order": "normal"
+    }
+  ]
+}

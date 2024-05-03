@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/encode-utf8@1.0.3/node_modules/encode-utf8/index.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "'use strict'\n\nmodule.exports = function encodeUtf8 (input) {\n  var result = []\n  var size = input.length\n\n  for (var index = 0; index < size; index++) {\n    var point = input.charCodeAt(index)\n\n    if (point >= 0xD800 && point <= 0xDBFF && size > index + 1) {\n      var second = input.charCodeAt(index + 1)\n\n      if (second >= 0xDC00 && second <= 0xDFFF) {\n        // https://mathiasbynens.be/notes/javascript-encoding#surrogate-formulae\n        point = (point - 0xD800) * 0x400 + second - 0xDC00 + 0x10000\n        index += 1\n      }\n    }\n\n    // US-ASCII\n    if (point < 0x80) {\n      result.push(point)\n      continue\n    }\n\n    // 2-byte UTF-8\n    if (point < 0x800) {\n      result.push((point >> 6) | 192)\n      result.push((point & 63) | 128)\n      continue\n    }\n\n    // 3-byte UTF-8\n    if (point < 0xD800 || (point >= 0xE000 && point < 0x10000)) {\n      result.push((point >> 12) | 224)\n      result.push(((point >> 6) & 63) | 128)\n      result.push((point & 63) | 128)\n      continue\n    }\n\n    // 4-byte UTF-8\n    if (point >= 0x10000 && point <= 0x10FFFF) {\n      result.push((point >> 18) | 240)\n      result.push(((point >> 12) & 63) | 128)\n      result.push(((point >> 6) & 63) | 128)\n      result.push((point & 63) | 128)\n      continue\n    }\n\n    // Invalid character\n    result.push(0xEF, 0xBF, 0xBD)\n  }\n\n  return new Uint8Array(result).buffer\n}\n",
+      "start": 1714699771096,
+      "end": 1714699771106,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771107,
+      "end": 1714699771107,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771107,
+      "end": 1714699771107,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771107,
+      "end": 1714699771107,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771107,
+      "end": 1714699771107,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771107,
+      "end": 1714699771107,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771107,
+      "end": 1714699771107,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "'use strict'\n\nmodule.exports = function encodeUtf8 (input) {\n  var result = []\n  var size = input.length\n\n  for (var index = 0; index < size; index++) {\n    var point = input.charCodeAt(index)\n\n    if (point >= 0xD800 && point <= 0xDBFF && size > index + 1) {\n      var second = input.charCodeAt(index + 1)\n\n      if (second >= 0xDC00 && second <= 0xDFFF) {\n        // https://mathiasbynens.be/notes/javascript-encoding#surrogate-formulae\n        point = (point - 0xD800) * 0x400 + second - 0xDC00 + 0x10000\n        index += 1\n      }\n    }\n\n    // US-ASCII\n    if (point < 0x80) {\n      result.push(point)\n      continue\n    }\n\n    // 2-byte UTF-8\n    if (point < 0x800) {\n      result.push((point >> 6) | 192)\n      result.push((point & 63) | 128)\n      continue\n    }\n\n    // 3-byte UTF-8\n    if (point < 0xD800 || (point >= 0xE000 && point < 0x10000)) {\n      result.push((point >> 12) | 224)\n      result.push(((point >> 6) & 63) | 128)\n      result.push((point & 63) | 128)\n      continue\n    }\n\n    // 4-byte UTF-8\n    if (point >= 0x10000 && point <= 0x10FFFF) {\n      result.push((point >> 18) | 240)\n      result.push(((point >> 12) & 63) | 128)\n      result.push(((point >> 6) & 63) | 128)\n      result.push((point & 63) | 128)\n      continue\n    }\n\n    // Invalid character\n    result.push(0xEF, 0xBF, 0xBD)\n  }\n\n  return new Uint8Array(result).buffer\n}\n",
+      "start": 1714699771107,
+      "end": 1714699771107,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699771107,
+      "end": 1714699771107,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771107,
+      "end": 1714699771107,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771107,
+      "end": 1714699771107,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771107,
+      "end": 1714699771107,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771107,
+      "end": 1714699771107,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771107,
+      "end": 1714699771107,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\n\n'use strict'\n\nvar encodeUtf8 = function encodeUtf8 (input) {\n  var result = []\n  var size = input.length\n\n  for (var index = 0; index < size; index++) {\n    var point = input.charCodeAt(index)\n\n    if (point >= 0xD800 && point <= 0xDBFF && size > index + 1) {\n      var second = input.charCodeAt(index + 1)\n\n      if (second >= 0xDC00 && second <= 0xDFFF) {\n        // https://mathiasbynens.be/notes/javascript-encoding#surrogate-formulae\n        point = (point - 0xD800) * 0x400 + second - 0xDC00 + 0x10000\n        index += 1\n      }\n    }\n\n    // US-ASCII\n    if (point < 0x80) {\n      result.push(point)\n      continue\n    }\n\n    // 2-byte UTF-8\n    if (point < 0x800) {\n      result.push((point >> 6) | 192)\n      result.push((point & 63) | 128)\n      continue\n    }\n\n    // 3-byte UTF-8\n    if (point < 0xD800 || (point >= 0xE000 && point < 0x10000)) {\n      result.push((point >> 12) | 224)\n      result.push(((point >> 6) & 63) | 128)\n      result.push((point & 63) | 128)\n      continue\n    }\n\n    // 4-byte UTF-8\n    if (point >= 0x10000 && point <= 0x10FFFF) {\n      result.push((point >> 18) | 240)\n      result.push(((point >> 12) & 63) | 128)\n      result.push(((point >> 6) & 63) | 128)\n      result.push((point & 63) | 128)\n      continue\n    }\n\n    // Invalid character\n    result.push(0xEF, 0xBF, 0xBD)\n  }\n\n  return new Uint8Array(result).buffer\n}\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(encodeUtf8);\nexport { encodeUtf8 as __moduleExports };",
+      "start": 1714699771107,
+      "end": 1714699771107,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;AAAA,YAAY;AACZ;IACA,UAAc,GAAG,SAAS,UAAU,EAAE,KAAK,EAAE;AAC7C,EAAE,IAAI,MAAM,GAAG,EAAE;AACjB,EAAE,IAAI,IAAI,GAAG,KAAK,CAAC,MAAM;AACzB;AACA,EAAE,KAAK,IAAI,KAAK,GAAG,CAAC,EAAE,KAAK,GAAG,IAAI,EAAE,KAAK,EAAE,EAAE;AAC7C,IAAI,IAAI,KAAK,GAAG,KAAK,CAAC,UAAU,CAAC,KAAK,CAAC;AACvC;AACA,IAAI,IAAI,KAAK,IAAI,MAAM,IAAI,KAAK,IAAI,MAAM,IAAI,IAAI,GAAG,KAAK,GAAG,CAAC,EAAE;AAChE,MAAM,IAAI,MAAM,GAAG,KAAK,CAAC,UAAU,CAAC,KAAK,GAAG,CAAC,CAAC;AAC9C;AACA,MAAM,IAAI,MAAM,IAAI,MAAM,IAAI,MAAM,IAAI,MAAM,EAAE;AAChD;AACA,QAAQ,KAAK,GAAG,CAAC,KAAK,GAAG,MAAM,IAAI,KAAK,GAAG,MAAM,GAAG,MAAM,GAAG,OAAO;AACpE,QAAQ,KAAK,IAAI,CAAC;AAClB,OAAO;AACP,KAAK;AACL;AACA;AACA,IAAI,IAAI,KAAK,GAAG,IAAI,EAAE;AACtB,MAAM,MAAM,CAAC,IAAI,CAAC,KAAK,CAAC;AACxB,MAAM,QAAQ;AACd,KAAK;AACL;AACA;AACA,IAAI,IAAI,KAAK,GAAG,KAAK,EAAE;AACvB,MAAM,MAAM,CAAC,IAAI,CAAC,CAAC,KAAK,IAAI,CAAC,IAAI,GAAG,CAAC;AACrC,MAAM,MAAM,CAAC,IAAI,CAAC,CAAC,KAAK,GAAG,EAAE,IAAI,GAAG,CAAC;AACrC,MAAM,QAAQ;AACd,KAAK;AACL;AACA;AACA,IAAI,IAAI,KAAK,GAAG,MAAM,KAAK,KAAK,IAAI,MAAM,IAAI,KAAK,GAAG,OAAO,CAAC,EAAE;AAChE,MAAM,MAAM,CAAC,IAAI,CAAC,CAAC,KAAK,IAAI,EAAE,IAAI,GAAG,CAAC;AACtC,MAAM,MAAM,CAAC,IAAI,CAAC,CAAC,CAAC,KAAK,IAAI,CAAC,IAAI,EAAE,IAAI,GAAG,CAAC;AAC5C,MAAM,MAAM,CAAC,IAAI,CAAC,CAAC,KAAK,GAAG,EAAE,IAAI,GAAG,CAAC;AACrC,MAAM,QAAQ;AACd,KAAK;AACL;AACA;AACA,IAAI,IAAI,KAAK,IAAI,OAAO,IAAI,KAAK,IAAI,QAAQ,EAAE;AAC/C,MAAM,MAAM,CAAC,IAAI,CAAC,CAAC,KAAK,IAAI,EAAE,IAAI,GAAG,CAAC;AACtC,MAAM,MAAM,CAAC,IAAI,CAAC,CAAC,CAAC,KAAK,IAAI,EAAE,IAAI,EAAE,IAAI,GAAG,CAAC;AAC7C,MAAM,MAAM,CAAC,IAAI,CAAC,CAAC,CAAC,KAAK,IAAI,CAAC,IAAI,EAAE,IAAI,GAAG,CAAC;AAC5C,MAAM,MAAM,CAAC,IAAI,CAAC,CAAC,KAAK,GAAG,EAAE,IAAI,GAAG,CAAC;AACrC,MAAM,QAAQ;AACd,KAAK;AACL;AACA;AACA,IAAI,MAAM,CAAC,IAAI,CAAC,IAAI,EAAE,IAAI,EAAE,IAAI,CAAC;AACjC,GAAG;AACH;AACA,EAAE,OAAO,IAAI,UAAU,CAAC,MAAM,CAAC,CAAC,MAAM;AACtC"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771107,
+      "end": 1714699771107,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771107,
+      "end": 1714699771107,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771107,
+      "end": 1714699771107,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699771107,
+      "end": 1714699771107,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771107,
+      "end": 1714699771107,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771107,
+      "end": 1714699771107,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771107,
+      "end": 1714699771107,
+      "order": "normal"
+    }
+  ]
+}

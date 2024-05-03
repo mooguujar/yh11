@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/version-check.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "/**\n * Check if QR Code version is valid\n *\n * @param  {Number}  version QR Code version\n * @return {Boolean}         true if valid version, false otherwise\n */\nexports.isValid = function isValid (version) {\n  return !isNaN(version) && version >= 1 && version <= 40\n}\n",
+      "start": 1714699771062,
+      "end": 1714699771088,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "/**\n * Check if QR Code version is valid\n *\n * @param  {Number}  version QR Code version\n * @return {Boolean}         true if valid version, false otherwise\n */\nexports.isValid = function isValid (version) {\n  return !isNaN(version) && version >= 1 && version <= 40\n}\n",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "/**\n * Check if QR Code version is valid\n *\n * @param  {Number}  version QR Code version\n * @return {Boolean}         true if valid version, false otherwise\n */\nimport * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as versionCheck } from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/version-check.js?commonjs-exports\";\n\nvar isValid = versionCheck.isValid = function isValid (version) {\n  return !isNaN(version) && version >= 1 && version <= 40\n}\n\nexport { versionCheck as __moduleExports, isValid, versionCheck as default };",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;;;;;AAMA,kCAAe,GAAG,SAAS,OAAO,EAAE,OAAO,EAAE;AAC7C,EAAE,OAAO,CAAC,KAAK,CAAC,OAAO,CAAC,IAAI,OAAO,IAAI,CAAC,IAAI,OAAO,IAAI,EAAE;AACzD"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    }
+  ]
+}

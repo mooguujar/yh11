@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/es/textarea/index.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import VxeTextareaComponent from './src/textarea';\nimport { dynamicApp } from '../dynamics';\nexport var VxeTextarea = Object.assign(VxeTextareaComponent, {\n    install: function (app) {\n        app.component(VxeTextareaComponent.name, VxeTextareaComponent);\n    }\n});\nexport var Textarea = VxeTextarea;\ndynamicApp.component(VxeTextareaComponent.name, VxeTextareaComponent);\nexport default VxeTextarea;\n",
+      "start": 1714699767107,
+      "end": 1714699767147,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767147,
+      "end": 1714699767147,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767147,
+      "end": 1714699767147,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767147,
+      "end": 1714699767147,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767147,
+      "end": 1714699767147,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767147,
+      "end": 1714699767147,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767147,
+      "end": 1714699767147,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import VxeTextareaComponent from './src/textarea';\nimport { dynamicApp } from '../dynamics';\nexport var VxeTextarea = Object.assign(VxeTextareaComponent, {\n    install: function (app) {\n        app.component(VxeTextareaComponent.name, VxeTextareaComponent);\n    }\n});\nexport var Textarea = VxeTextarea;\ndynamicApp.component(VxeTextareaComponent.name, VxeTextareaComponent);\nexport default VxeTextarea;\n",
+      "start": 1714699767147,
+      "end": 1714699767147,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767147,
+      "end": 1714699767147,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767147,
+      "end": 1714699767147,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767147,
+      "end": 1714699767147,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767147,
+      "end": 1714699767147,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767147,
+      "end": 1714699767147,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767147,
+      "end": 1714699767147,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767147,
+      "end": 1714699767147,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767147,
+      "end": 1714699767147,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767147,
+      "end": 1714699767147,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767147,
+      "end": 1714699767147,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767147,
+      "end": 1714699767147,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767147,
+      "end": 1714699767147,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767147,
+      "end": 1714699767147,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767147,
+      "end": 1714699767147,
+      "order": "normal"
+    }
+  ]
+}

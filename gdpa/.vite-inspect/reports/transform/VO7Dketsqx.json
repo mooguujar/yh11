@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/es/all.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import XEUtils from 'xe-utils';\nimport { setup } from './v-x-e-table';\nimport { VxeModuleFilter } from './filter';\nimport { VxeModuleMenu } from './menu';\nimport { VxeModuleEdit } from './edit';\nimport { VxeModuleExport } from './export';\nimport { VxeModuleKeyboard } from './keyboard';\nimport { VxeModuleValidator } from './validator';\nimport { VxeIcon } from './icon';\nimport { VxeColumn } from './column';\nimport { VxeColgroup } from './colgroup';\nimport { VxeGrid } from './grid';\nimport { VxeToolbar } from './toolbar';\nimport { VxePager } from './pager';\nimport { VxeCheckbox } from './checkbox';\nimport { VxeCheckboxGroup } from './checkbox-group';\nimport { VxeRadio } from './radio';\nimport { VxeRadioGroup } from './radio-group';\nimport { VxeRadioButton } from './radio-button';\nimport { VxeInput } from './input';\nimport { VxeTextarea } from './textarea';\nimport { VxeButton } from './button';\nimport { VxeModal } from './modal';\nimport { VxeTooltip } from './tooltip';\nimport { VxeForm } from './form';\nimport { VxeFormItem } from './form-item';\nimport { VxeFormGather } from './form-gather';\nimport { VxeSelect } from './select';\nimport { VxeOptgroup } from './optgroup';\nimport { VxeOption } from './option';\nimport { VxeSwitch } from './switch';\nimport { VxeList } from './list';\nimport { VxePulldown } from './pulldown';\nimport { VxeTable } from './table';\nimport zhCN from './locale/lang/zh-CN';\n// 按需加载的组件\nvar components = [\n    // 功能模块\n    VxeModuleFilter,\n    VxeModuleMenu,\n    VxeModuleEdit,\n    VxeModuleExport,\n    VxeModuleKeyboard,\n    VxeModuleValidator,\n    // 可选组件\n    VxeIcon,\n    VxeColumn,\n    VxeColgroup,\n    VxeGrid,\n    VxeToolbar,\n    VxePager,\n    VxeCheckbox,\n    VxeCheckboxGroup,\n    VxeRadio,\n    VxeRadioGroup,\n    VxeRadioButton,\n    VxeInput,\n    VxeTextarea,\n    VxeButton,\n    VxeModal,\n    VxeTooltip,\n    VxeForm,\n    VxeFormItem,\n    VxeFormGather,\n    VxeSelect,\n    VxeOptgroup,\n    VxeOption,\n    VxeSwitch,\n    VxeList,\n    VxePulldown,\n    // 核心\n    VxeTable\n];\n// 默认中文\nsetup({\n    i18n: function (key, args) { return XEUtils.toFormatString(XEUtils.get(zhCN, key), args); }\n});\n// 默认安装\nexport function install(app, options) {\n    if (XEUtils.isPlainObject(options)) {\n        setup(options);\n    }\n    components.forEach(function (component) { return component.install(app); });\n}\nexport * from './v-x-e-table';\nexport * from './icon';\nexport * from './filter';\nexport * from './edit';\nexport * from './export';\nexport * from './keyboard';\nexport * from './validator';\nexport * from './header';\nexport * from './column';\nexport * from './colgroup';\nexport * from './grid';\nexport * from './menu';\nexport * from './toolbar';\nexport * from './pager';\nexport * from './checkbox';\nexport * from './checkbox-group';\nexport * from './radio';\nexport * from './radio-group';\nexport * from './radio-button';\nexport * from './input';\nexport * from './textarea';\nexport * from './button';\nexport * from './modal';\nexport * from './tooltip';\nexport * from './form';\nexport * from './form-item';\nexport * from './form-gather';\nexport * from './select';\nexport * from './optgroup';\nexport * from './option';\nexport * from './switch';\nexport * from './list';\nexport * from './pulldown';\nexport * from './table';\n",
+      "start": 1714699766132,
+      "end": 1714699766372,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699766372,
+      "end": 1714699766372,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699766372,
+      "end": 1714699766372,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699766372,
+      "end": 1714699766372,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699766372,
+      "end": 1714699766372,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699766372,
+      "end": 1714699766372,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699766372,
+      "end": 1714699766372,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import XEUtils from 'xe-utils';\nimport { setup } from './v-x-e-table';\nimport { VxeModuleFilter } from './filter';\nimport { VxeModuleMenu } from './menu';\nimport { VxeModuleEdit } from './edit';\nimport { VxeModuleExport } from './export';\nimport { VxeModuleKeyboard } from './keyboard';\nimport { VxeModuleValidator } from './validator';\nimport { VxeIcon } from './icon';\nimport { VxeColumn } from './column';\nimport { VxeColgroup } from './colgroup';\nimport { VxeGrid } from './grid';\nimport { VxeToolbar } from './toolbar';\nimport { VxePager } from './pager';\nimport { VxeCheckbox } from './checkbox';\nimport { VxeCheckboxGroup } from './checkbox-group';\nimport { VxeRadio } from './radio';\nimport { VxeRadioGroup } from './radio-group';\nimport { VxeRadioButton } from './radio-button';\nimport { VxeInput } from './input';\nimport { VxeTextarea } from './textarea';\nimport { VxeButton } from './button';\nimport { VxeModal } from './modal';\nimport { VxeTooltip } from './tooltip';\nimport { VxeForm } from './form';\nimport { VxeFormItem } from './form-item';\nimport { VxeFormGather } from './form-gather';\nimport { VxeSelect } from './select';\nimport { VxeOptgroup } from './optgroup';\nimport { VxeOption } from './option';\nimport { VxeSwitch } from './switch';\nimport { VxeList } from './list';\nimport { VxePulldown } from './pulldown';\nimport { VxeTable } from './table';\nimport zhCN from './locale/lang/zh-CN';\n// 按需加载的组件\nvar components = [\n    // 功能模块\n    VxeModuleFilter,\n    VxeModuleMenu,\n    VxeModuleEdit,\n    VxeModuleExport,\n    VxeModuleKeyboard,\n    VxeModuleValidator,\n    // 可选组件\n    VxeIcon,\n    VxeColumn,\n    VxeColgroup,\n    VxeGrid,\n    VxeToolbar,\n    VxePager,\n    VxeCheckbox,\n    VxeCheckboxGroup,\n    VxeRadio,\n    VxeRadioGroup,\n    VxeRadioButton,\n    VxeInput,\n    VxeTextarea,\n    VxeButton,\n    VxeModal,\n    VxeTooltip,\n    VxeForm,\n    VxeFormItem,\n    VxeFormGather,\n    VxeSelect,\n    VxeOptgroup,\n    VxeOption,\n    VxeSwitch,\n    VxeList,\n    VxePulldown,\n    // 核心\n    VxeTable\n];\n// 默认中文\nsetup({\n    i18n: function (key, args) { return XEUtils.toFormatString(XEUtils.get(zhCN, key), args); }\n});\n// 默认安装\nexport function install(app, options) {\n    if (XEUtils.isPlainObject(options)) {\n        setup(options);\n    }\n    components.forEach(function (component) { return component.install(app); });\n}\nexport * from './v-x-e-table';\nexport * from './icon';\nexport * from './filter';\nexport * from './edit';\nexport * from './export';\nexport * from './keyboard';\nexport * from './validator';\nexport * from './header';\nexport * from './column';\nexport * from './colgroup';\nexport * from './grid';\nexport * from './menu';\nexport * from './toolbar';\nexport * from './pager';\nexport * from './checkbox';\nexport * from './checkbox-group';\nexport * from './radio';\nexport * from './radio-group';\nexport * from './radio-button';\nexport * from './input';\nexport * from './textarea';\nexport * from './button';\nexport * from './modal';\nexport * from './tooltip';\nexport * from './form';\nexport * from './form-item';\nexport * from './form-gather';\nexport * from './select';\nexport * from './optgroup';\nexport * from './option';\nexport * from './switch';\nexport * from './list';\nexport * from './pulldown';\nexport * from './table';\n",
+      "start": 1714699766372,
+      "end": 1714699766372,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699766372,
+      "end": 1714699766372,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699766372,
+      "end": 1714699766372,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699766372,
+      "end": 1714699766372,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699766372,
+      "end": 1714699766372,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699766372,
+      "end": 1714699766372,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699766372,
+      "end": 1714699766372,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699766372,
+      "end": 1714699766373,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699766373,
+      "end": 1714699766373,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699766373,
+      "end": 1714699766373,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699766373,
+      "end": 1714699766373,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699766373,
+      "end": 1714699766373,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699766373,
+      "end": 1714699766373,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699766373,
+      "end": 1714699766373,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699766373,
+      "end": 1714699766373,
+      "order": "normal"
+    }
+  ]
+}

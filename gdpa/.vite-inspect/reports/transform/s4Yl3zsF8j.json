@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <div :class=\"`bank w-100 ${isBind ? 'bg-[#edf2f6]' : 'bg-white'}`\">\n    <nav-bar\n      :title=\"isBind ? '银行卡' : '添加银行卡'\"\n      mode=\"white\"\n    />\n\n    <div class=\"order-content overflow-y-auto h-[calc(100vh-100px)] pb-[40px]\">\n      <div\n        v-if=\"!isBind\"\n        class=\"bg-[#fff] flex items-center flex-wrap justify-center\"\n      >\n        <van-field\n          v-model=\"account_bank_realname\"\n          label=\"姓名\"\n          placeholder=\"\"\n          label-align=\"top\"\n          disabled\n          class=\"disable\"\n        />\n        <div class=\"px-[30px] w-full mt-[15px]\">\n          <div class=\"label text-black text-[28px] text-left mb-[12px] w-full\">银行名称</div>\n          <div\n            class=\"w-full mb-[15px] h-[90px] border-none bg-[#ebf1f6] relative flex items-center left-0 rounded-[22px] pl-[20px] select\"\n            @click=\"changeclick\"\n          >\n            <!-- <div class=\"text-[24px] text-black\" v-if=\"bank.bank_name\">{{ bank.bank_name }}</div> -->\n            <!-- <div class=\"text-[24px] text-[#787f8c]\" v-else>点击选择银行</div> -->\n            <van-field\n              class=\"custombank text-[24px] text-[#787f8c]\"\n              @update:model-value=\"changeBank\"\n              @blur=\"customfinish\"\n              v-model=\"custombank\"\n              placeholder=\"点击选择银行或输入自定义银行名称\"\n            />\n            <div\n              v-if=\"!isExpand\"\n              class=\"chervon-right absolute right-[20px] top-[35px] rotate-90\"\n            ></div>\n            <div\n              v-if=\"isExpand\"\n              class=\"chervon-right absolute right-[20px] top-[35px] -rotate-90\"\n            ></div>\n            <div\n              class=\"options_f options bg-[#ebf1f6] absolute top-[75px] z-10 w-full h-[500px] overflow-scroll left-0\"\n              v-if=\"isExpand\"\n            >\n              <div\n                class=\"text-[24px] flex p-[17px] items-center border-solid border-0 border-b border-[#999]\"\n                :key=\"bank.bank_code + index\"\n                v-for=\"(bank, index) in bankList\"\n                @click.stop=\"seletBank(index)\"\n              >\n                <img\n                  :src=\"imgServerUrl + bank.bank_logo\"\n                  alt=\"\"\n                  class=\"w-[50px] mr-[10px]\"\n                />\n                {{ bank.bank_name }}\n              </div>\n            </div>\n          </div>\n        </div>\n        <van-field\n          v-model=\"coin_address\"\n          label=\"添加银行卡号\"\n          placeholder=\"请输入银行账号/卡号\"\n          label-align=\"top\"\n          @blur=\"onCoinAddressBlur\"\n        />\n        <div\n          class=\"bg-[#ebf1f6] rounded-[7px] w-full mx-[30px] mb-[40px] py-[26px] px-[40px] mt-[20px]\"\n        >\n          <div class=\"text-[25px] text-[#13161b]\">特别提示</div>\n          <div class=\"text-[25px] text-[#787f8c] mt-[10px] mb-[20px]\">\n            请确保添加您的银行卡号以进行即时收付款。请勿包含其他银行\n            或付款方式的详细信息。您必须添加所选银行的付款/收款信息。\n          </div>\n        </div>\n        <van-button\n          size=\"large\"\n          color=\"var(--van-button-primary-background)\"\n          @click=\"handleConfirmDialog(true)\"\n        >\n          {{ bind_bank.coin_address ? '刪除' : '确认' }}\n        </van-button>\n      </div>\n      <div\n        v-else\n        class=\"px-[37px] pt-[30px]\"\n      >\n        <div\n          class=\"bg-[#fff] flex items-center flex-wrap justify-center rounded-[22px] p-[75px] shadow-md\"\n        >\n          <div class=\"w-full px-[33px]\">\n            <div class=\"flex items-center mb-[25px]\">\n              <div class=\"text-[28px] text-[#918f8f] mr-[25px]\">姓名</div>\n              <div class=\"text-[28px] text-[#13161b]\">{{ account_bank_realname }}</div>\n            </div>\n            <div class=\"flex items-center mb-[25px]\">\n              <div class=\"text-[28px] text-[#918f8f] mr-[25px]\">帐号</div>\n              <div class=\"text-[28px] text-[#13161b]\">{{ bind_bank?.coin_address }}</div>\n            </div>\n            <div class=\"flex items-center mb-[25px]\">\n              <div class=\"text-[28px] text-[#918f8f] mr-[25px]\">银行名称</div>\n              <div class=\"text-[28px] text-[#13161b]\">{{ bind_bank?.account_bankname }}</div>\n            </div>\n          </div>\n          <div class=\"frame w-full rounded-[22px] relative\">\n            <img\n              :src=\"BANK\"\n              alt=\"\"\n              class=\"w-full\"\n            />\n            <div\n              class=\"mask absolute top-0 left-0 w-full h-full flex items-center justify-center bg-[#666] bg-opacity-60 z-2 rounded-[22px]\"\n              v-if=\"bind_bank.status !== 1\"\n            >\n              <div>\n                <img\n                  v-if=\"bind_bank.status === -1\"\n                  :src=\"shz\"\n                  alt=\"\"\n                  class=\"w-[250px] mb-[20px]\"\n                />\n                <img\n                  v-if=\"bind_bank.status === 2\"\n                  :src=\"zj\"\n                  alt=\"\"\n                  class=\"w-[250px] mb-[20px]\"\n                />\n                <div\n                  v-if=\"bind_bank.status === -1\"\n                  class=\"text-white text-[42px] text-center\"\n                >\n                  审核中\n                </div>\n                <div\n                  v-if=\"bind_bank.status === 2\"\n                  class=\"text-white text-[42px] text-center\"\n                >\n                  已拒绝\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"text-[28px] text-[#918f8f] mt-[100px] text-center\">\n            添加时间：{{ bind_bank?.add_time }}\n          </div>\n        </div>\n        <van-button\n          class=\"!w-full !mt-[80px]\"\n          size=\"large\"\n          color=\"var(--van-button-primary-background)\"\n          @click=\"handleConfirmDialog(true)\"\n        >\n          {{ isBind ? '刪除' : '确认' }}\n        </van-button>\n      </div>\n      <van-dialog\n        v-model:show=\"isConfirmDialog\"\n        title=\"身份验证\"\n        confirmButtonText=\"提交\"\n        theme=\"round-button\"\n        className=\"dialog-bulletin\"\n        @confirm=\"() => (!bind_bank.coin_address ? addBank() : deleteBank())\"\n      >\n        <i\n          class=\"icon-close close-dark block\"\n          @click=\"handleConfirmDialog(false)\"\n        ></i>\n        <div>\n          <van-field\n            v-model=\"pay_pass\"\n            placeholder=\"请输入支付密码\"\n            type=\"number\"\n            :maxlength=\"6\"\n            clickable\n            @touchstart.stop=\"showKeyboard = true\"\n            @focus=\"showKeyboard = true\"\n          />\n        </div>\n      </van-dialog>\n      <!-- <van-number-keyboard\n        v-model=\"pay_pass\"\n        :show=\"showKeyboard\"\n        :maxlength=\"6\"\n        @blur=\"showKeyboard = false\"\n        class=\"!z-[3000]\"\n      /> -->\n      <van-dialog\n        v-model:show=\"isForceDialog\"\n        title=\"\"\n        confirmButtonText=\"确认\"\n        theme=\"round-button\"\n        className=\"dialog-bulletin\"\n        @confirm=\"\n          () => {\n            isForce = true\n            isConfirmDialog = true\n          }\n        \"\n        :showCancelButton=\"true\"\n        cancelButtonColor=\"#999\"\n        @cancel=\"handleForceDialog(false)\"\n      >\n        <i\n          class=\"icon-close close-dark block\"\n          @click=\"handleForceDialog(false)\"\n        ></i>\n        <div>\n          经检测您的卡号与姓名不符\n          <br />\n          是否仍继续提交银行卡信息？\n        </div>\n      </van-dialog>\n    </div>\n    <!-- <van-dialog v-model:show=\"dialogContent.show\" :title=\"dialogContent.title\" theme=\"round-button\"\n      :className=\"['dialog-deal']\" :confirmButtonText=\"dialogContent.confirmButtonText\" @confirm=\"onConfirm\">\n      <i class=\"icon-close block close-dark\" @click=\"onClose\"></i>\n      <div class=\"flex flex-col items-center justify-between\">\n        <img :src=\"dialogContent.img\" :class=\"!authStore?.userInfo.verified_status ? 'verifi-id' : 'add-card'\" />\n        <div class=\"content text-center\">{{ dialogContent.content }}</div>\n      </div>\n    </van-dialog> -->\n  </div>\n</template>\n\n<script setup lang=\"ts\">\nimport { addWithdrawAddressApi, bankListApi, deleteWithdrawAddressApi } from '@/apis/user'\nimport info from '@/assets/images/common/info.png'\nimport success from '@/assets/images/common/success.png'\nimport shz from '@/assets/images/mine/shz.png'\nimport BANK from '@/assets/images/mine/yhk-icon.png'\nimport zj from '@/assets/images/mine/zj.png'\nimport { useAuthStore, useEntryStore } from '@/store'\nimport { useCoinBuySellStore } from '@/store/modules/coinBuySell'\nimport mitt from '@/utils/mitt'\nimport { storeToRefs } from 'pinia'\nimport { showToast } from 'vant'\nimport { onMounted, ref } from 'vue'\nimport { useRouter } from 'vue-router'\n\nconst router = useRouter()\nconst authStore = useAuthStore()\nconst entryStore = useEntryStore()\nconst imgServerUrl = entryStore.imgServerUrl\nconst { config } = storeToRefs(entryStore)\n// const isBind = computed(() => !!bind_bank.value.coin_address)\nconst isBind = false\n\nconst custombank = ref()\nlet t: any = null\nconst changeBank = (value: any) => {\n  isExpand.value = true\n  clearTimeout(t)\n  t = setTimeout(() => {\n    bankList.value = [...backuplist.value.filter(item => item.bank_name.includes(value))]\n    // console.log('filter',bankList.value.length );\n    if (!!!bankList.value.length) isExpand.value = false\n    custombank.value = value.replace(/[^\\u4e00-\\u9fa5]/g, '')\n    bank.value.bank_code = 'ZDYYH'\n    bank.value.bank_name = custombank.value\n  }, 800)\n}\nconst changeclick = () => {\n  // console.log(bankList.value);\n  isExpand.value = !isExpand.value\n  bankList.value = [...backuplist.value]\n  custombank.value = ''\n}\n\nconst customfinish = (index: number) => {\n  setTimeout(() => {\n    isExpand.value = false\n    window.scroll(0, 0)\n  }, 200)\n}\n\nconst coin = useCoinBuySellStore()\nconst { getWithdrawddresslist } = coin\n\nconst showInfoToast = (title: string) => {\n  return showToast({\n    message: title,\n    icon: info\n  })\n}\nconst showSuceedToast = (title: string) => {\n  return showToast({\n    message: title,\n    icon: success\n  })\n}\n\ninterface bank {\n  id: number\n  bank_code: string\n  bank_name: string\n  status: number\n  remark: string | null\n  sort: number\n  country_code: string\n}\n\nconst bank = ref<any>({})\nconst bankList = ref<bank[]>([])\nconst backuplist = ref<bank[]>([])\nconst account_bank_realname = ref(authStore?.userInfo?.name)\nconst coin_address = ref('')\n\nconst isExpand = ref(false)\n\nconst getBankList = async () => {\n  try {\n    const res = await bankListApi({\n      country_code: authStore?.userInfo?.set_country_code\n    })\n    backuplist.value = res\n    bankList.value = res\n  } catch (error) {\n    console.error(error)\n  } finally {\n  }\n}\n\nconst seletBank = (index: number) => {\n  bank.value = { ...bankList.value[index] }\n  custombank.value = bankList.value[index].bank_name\n  isExpand.value = !isExpand.value\n}\n\nconst isConfirmDialog = ref(false)\nconst pay_pass = ref('')\nconst isLoading = ref(false)\n\nconst regBankCode = /^[0-9]{15,19}$/\nconst regPayPass = /^[0-9]{6}$/\n\nconst showKeyboard = ref(false)\n\nconst handleConfirmDialog = (open: boolean) => {\n  if (authStore?.userInfo?.verified_status !== 1) {\n    return showInfoToast('请先完成实名认证')\n  }\n  if (authStore?.userInfo?.is_set_paypassword !== 1) {\n    return showInfoToast('请先设置支付密码')\n  }\n\n  if (\n    bank.value.bank_code == 'ZDYYH' &&\n    !(\n      bank.value.bank_name.endsWith('银行') ||\n      bank.value.bank_name.endsWith('农信') ||\n      bank.value.bank_name.endsWith('信用社')\n    )\n  ) {\n    return showInfoToast('自定义输入必须以银行/信用社/农信结尾')\n  }\n  if (bank.value.bank_code == 'ZDYYH' && !/^[\\u4e00-\\u9fa5]{1,8}$/.test(bank.value.bank_name)) {\n    return showInfoToast('银行名称只允许包含中文字符，并且长度不能超过8个汉字')\n  }\n\n  if (!bind_bank.value.coin_address) {\n    if (!bank?.value.bank_name) return showInfoToast('点击选择银行')\n    if (!coin_address.value || !regBankCode.test(coin_address.value))\n      return showInfoToast('请输入15位-19位银行卡卡号')\n    isConfirmDialog.value = open\n  } else {\n    isConfirmDialog.value = open\n  }\n}\n\nconst isForce = ref(false)\nconst isForceDialog = ref(false)\nconst handleForceDialog = (open: boolean) => {\n  isForceDialog.value = open\n}\n\nconst addBank = async () => {\n  if (isLoading.value) return\n  if (authStore?.userInfo?.verified_status !== 1) {\n    return showInfoToast('请先完成实名认证')\n  }\n  if (authStore?.userInfo?.is_set_paypassword !== 1) {\n    return showInfoToast('请先设置支付密码')\n  }\n  if (!pay_pass.value || !regPayPass.test(pay_pass.value)) {\n    pay_pass.value = ''\n    return showInfoToast('请输入6位支付密码')\n  }\n  if (\n    bank.value.bank_code == 'ZDYYH' &&\n    !(\n      bank.value.bank_name.endsWith('银行') ||\n      bank.value.bank_name.endsWith('农信') ||\n      bank.value.bank_name.endsWith('信用社')\n    )\n  ) {\n    return showInfoToast('自定义输入必须以银行/信用社/农信结尾')\n  }\n  if (bank.value.bank_code == 'ZDYYH' && !/^[\\u4e00-\\u9fa5]{1,8}$/.test(bank.value.bank_name)) {\n    return showInfoToast('银行名称只允许包含中文字符，并且长度不能超过8个汉字')\n  }\n  try {\n    let req = {\n      passwd: pay_pass.value,\n      mtype: '1',\n      coin_name: 'SYS',\n      coin_protocol: 'BANK',\n      coin_address: coin_address.value,\n      account_bank_realname: account_bank_realname.value,\n      account_bankname: bank?.value.bank_name,\n      account_bankcode: bank?.value.bank_code,\n      code_imgurl: ''\n    }\n    if (isForce.value) {\n      req = {\n        ...req,\n        force: 1\n      }\n    }\n    const res = await addWithdrawAddressApi(req)\n    console.log(res, 'res')\n    if (!res.code) {\n      showSuceedToast('银行卡添加成功')\n      await getWallets()\n      setTimeout(() => {\n        router.push('/payment_list?way=bank')\n      }, 1000)\n    }\n\n    if (res.code === 10040) {\n      setTimeout(() => {\n        router.push('/verifyList')\n      }, 1000)\n    }\n\n    if (res.code === 10046) {\n      if (config?.value.Web_Set_WebReg?.is_autobank_qztj?.v == 1) {\n        isForceDialog.value = true\n      }\n    }\n  } catch (e) {\n    console.log(e)\n  } finally {\n    isLoading.value = false\n    isConfirmDialog.value = false\n    pay_pass.value = ''\n  }\n}\n\nconst deleteBank = async () => {\n  if (isLoading.value) return\n  if (authStore?.userInfo?.verified_status !== 1) {\n    return showInfoToast('请先完成实名认证')\n  }\n  if (!pay_pass.value || !regPayPass.test(pay_pass.value)) {\n    pay_pass.value = ''\n    return showInfoToast('请输入6位支付密码')\n  }\n  try {\n    const res = await deleteWithdrawAddressApi({\n      passwd: pay_pass.value,\n      id: bind_bank.value?.id\n    })\n    if (!res.code) {\n      showSuceedToast('银行卡刪除成功')\n      await getWallets()\n    }\n\n    if (res.code === 10040) {\n      setTimeout(() => {\n        router.push('/verifyList')\n      }, 1000)\n    }\n  } catch (e) {\n    console.log(e)\n  } finally {\n    pay_pass.value = ''\n    isLoading.value = false\n    isConfirmDialog.value = false\n  }\n}\n\n// 失焦后兼容处理ios\nconst onCoinAddressBlur = () => {\n  window.scroll(0, 0)\n}\n\nconst bind_bank = ref<any>({})\nconst getWallets = async () => {\n  await getWithdrawddresslist({})\n  const bind_list = coin.withdrawddresslist.filter(address => address.coin_protocol === 'BANK')\n  if (bind_list.length > 0) {\n    bind_bank.value = bind_list[0]\n  } else {\n    bind_bank.value = {}\n  }\n}\n\nonMounted(async () => {\n  getBankList()\n  // await getWallets()\n  await authStore.getUserInfo()\n  console.log(authStore.userInfo, 'authStore.userInfo')\n  account_bank_realname.value = authStore.userInfo.name\n  console.log(bankList.value, 'bankList')\n  mitt.emit('number-keyboard-show')\n})\n</script>\n\n<style lang=\"scss\" scoped>\n@import '@/assets/styles/sprite-mine.scss';\n@import '@/assets/styles/sprite-home.scss';\n\n.bank-card {\n  position: relative;\n  flex-direction: column;\n  width: 100%;\n  height: 100%;\n}\n\n:deep(.van-field__label) {\n  font-size: 28px;\n  color: #13161b;\n  margin-bottom: 8px;\n}\n\n.disable {\n  :deep(.van-cell__value) {\n    background: #ebf1f6;\n  }\n}\n\n.select {\n  :deep(.van-cell__value) {\n    border-radius: 0;\n  }\n}\n:deep(.van-cell__value) {\n  height: 90px;\n  background: #ebf1f6;\n  border: 1px solid #eee;\n  display: flex;\n  align-items: center;\n  font-size: 28px;\n  margin-bottom: 30px;\n  padding: 15px;\n  border-radius: 22px;\n}\n\n:deep(.van-cell) {\n  padding-bottom: 0;\n  padding-top: 0;\n}\n\n:deep(.van-cell:after) {\n  display: none;\n}\n\n:deep(.van-button--large) {\n  width: 92%;\n  height: 90px;\n  margin: 0 auto;\n  font-size: 31px;\n  border-radius: 22px;\n}\n\n:deep(.van-field__body) {\n  width: 100%;\n}\n\n:deep(.van-field__control:disabled) {\n  color: #000;\n  -webkit-text-fill-color: #000;\n}\n\n:deep(.dialog-bulletin) {\n  width: 708px;\n  height: auto;\n  padding: 20px 30px 30px 30px;\n  border-radius: 10px;\n\n  .van-dialog__header {\n    padding: 0;\n    font-size: 29px;\n    color: #13161b;\n    font-weight: normal;\n  }\n\n  .van-dialog__content {\n    margin: 33px 0 35px 0;\n    font-size: 25px;\n    color: #787f8c;\n    text-align: justify;\n  }\n\n  .van-dialog__footer {\n    padding: 0;\n  }\n\n  .van-dialog__confirm {\n    width: 100%;\n    height: 80px;\n    font-size: 31px;\n    background: var(--van-button-primary-background);\n    border-radius: 8px;\n    border-width: 0;\n  }\n\n  .icon-close {\n    position: absolute;\n    right: 40px;\n    top: 35px;\n  }\n\n  img {\n    width: 100%;\n    margin-top: 20px;\n  }\n\n  .van-cell {\n    padding: 0;\n  }\n}\n:deep(.dialog-bulletin) {\n  width: 708px;\n  height: auto;\n  padding: 20px 30px 30px 30px;\n  border-radius: 10px;\n\n  .van-dialog__header {\n    padding: 0;\n    font-size: 29px;\n    color: #13161b;\n    font-weight: normal;\n  }\n\n  .van-dialog__content {\n    margin: 33px 0 35px 0;\n    font-size: 25px;\n    color: #787f8c;\n    text-align: justify;\n  }\n\n  .van-dialog__footer {\n    padding: 0;\n  }\n\n  .van-dialog__confirm {\n    width: 100%;\n    height: 80px;\n    font-size: 31px;\n    background: var(--van-button-primary-background);\n    border-radius: 8px;\n    border-width: 0;\n  }\n\n  .icon-close {\n    position: absolute;\n    right: 40px;\n    top: 35px;\n  }\n\n  img {\n    width: 100%;\n    margin-top: 20px;\n  }\n\n  .van-cell {\n    padding: 0;\n  }\n\n  .van-button--large {\n    width: 45%;\n    height: 80px;\n    margin: 0 5px;\n    font-size: 31px;\n    margin-top: 30px;\n    border-radius: 3px !important;\n  }\n\n  .van-dialog__cancel {\n    border-radius: 3px !important;\n  }\n}\n:deep(.dialog-deal) {\n  width: 708px;\n  height: auto;\n  padding: 40px;\n\n  .van-dialog__header {\n    padding: 0;\n    font-size: 29px;\n    color: #13161b;\n  }\n\n  .van-dialog__content {\n    margin: 33px 0 35px 0;\n    font-size: 25px;\n    color: #787f8c;\n    text-align: justify;\n  }\n\n  .van-dialog__footer {\n    padding: 0;\n  }\n\n  .van-dialog__confirm,\n  .btn-confirm {\n    width: 100%;\n    height: 80px;\n    font-size: 31px;\n    background: var(--van-button-primary-background);\n    color: #fff;\n    border: 0;\n    border-radius: 8px;\n  }\n\n  .dialog-radio-controler {\n    margin-top: 20px;\n\n    .radio {\n      margin-right: 10px;\n    }\n\n    .radio-uncheck {\n      width: 35px;\n      height: 35px;\n      border: 1px solid #868d9a;\n      border-radius: 50%;\n    }\n\n    .radio-text {\n      font-size: 25px;\n      color: #13161b;\n    }\n  }\n\n  .icon-close {\n    position: absolute;\n    right: 40px;\n    top: 24px;\n  }\n\n  img {\n    width: 100%;\n\n    &.verifi-id {\n      width: 260px;\n    }\n\n    &.add-card {\n      width: 295px;\n    }\n  }\n\n  .content {\n    width: 380px;\n    margin-top: 24px;\n  }\n}\n.custombank {\n  padding: 0;\n  :deep(.van-cell__value) {\n    padding: 0;\n    margin: 0;\n  }\n}\n.options_f {\n  height: auto;\n  max-height: 500px;\n}\n</style>\n\n<style lang=\"css\">\n:root {\n  --van-field-placeholder-text-color: #c6c7c8;\n}\n</style>\n",
+      "start": 1714699769100,
+      "end": 1714699769253,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769253,
+      "end": 1714699769253,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769253,
+      "end": 1714699769253,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769253,
+      "end": 1714699769253,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769253,
+      "end": 1714699769253,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue?vue&type=style&index=0&scoped=48765484&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue?vue&type=style&index=1&lang.css\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-48765484\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue\"]]);\n",
+      "start": 1714699769253,
+      "end": 1714699769529,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769529,
+      "end": 1714699769529,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue?vue&type=style&index=0&scoped=48765484&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue?vue&type=style&index=1&lang.css\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-48765484\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue\"]]);\n",
+      "start": 1714699769529,
+      "end": 1714699769529,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue?vue&type=style&index=0&scoped=48765484&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue?vue&type=style&index=1&lang.css\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-48765484\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue\"]]);\n",
+      "start": 1714699769529,
+      "end": 1714699769650,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue?vue&type=style&index=0&scoped=48765484&lang.scss\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue?vue&type=style&index=1&lang.css\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-48765484\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,oEAAoE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769650,
+      "end": 1714699769650,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769650,
+      "end": 1714699769650,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769650,
+      "end": 1714699769650,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769650,
+      "end": 1714699769650,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769650,
+      "end": 1714699769650,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769650,
+      "end": 1714699769650,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769650,
+      "end": 1714699769650,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769650,
+      "end": 1714699769650,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769650,
+      "end": 1714699769651,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue?vue&type=style&index=0&scoped=48765484&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue?vue&type=style&index=1&lang.css\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-48765484\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue\"]]);\n",
+      "start": 1714699769651,
+      "end": 1714699769651,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue?vue&type=style&index=0&scoped=48765484&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue?vue&type=style&index=1&lang.css\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-48765484\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bank_card.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769651,
+      "end": 1714699769651,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769651,
+      "end": 1714699769651,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769651,
+      "end": 1714699769651,
+      "order": "normal"
+    }
+  ]
+}

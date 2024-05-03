@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/without.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import baseDifference from './_baseDifference.js';\nimport baseRest from './_baseRest.js';\nimport isArrayLikeObject from './isArrayLikeObject.js';\n\n/**\n * Creates an array excluding all given values using\n * [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)\n * for equality comparisons.\n *\n * **Note:** Unlike `_.pull`, this method returns a new array.\n *\n * @static\n * @memberOf _\n * @since 0.1.0\n * @category Array\n * @param {Array} array The array to inspect.\n * @param {...*} [values] The values to exclude.\n * @returns {Array} Returns the new array of filtered values.\n * @see _.difference, _.xor\n * @example\n *\n * _.without([2, 1, 2, 3], 1, 2);\n * // => [3]\n */\nvar without = baseRest(function(array, values) {\n  return isArrayLikeObject(array)\n    ? baseDifference(array, values)\n    : [];\n});\n\nexport default without;\n",
+      "start": 1714699768565,
+      "end": 1714699768592,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768592,
+      "end": 1714699768592,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768592,
+      "end": 1714699768592,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768592,
+      "end": 1714699768592,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768592,
+      "end": 1714699768592,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768592,
+      "end": 1714699768592,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768592,
+      "end": 1714699768592,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import baseDifference from './_baseDifference.js';\nimport baseRest from './_baseRest.js';\nimport isArrayLikeObject from './isArrayLikeObject.js';\n\n/**\n * Creates an array excluding all given values using\n * [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)\n * for equality comparisons.\n *\n * **Note:** Unlike `_.pull`, this method returns a new array.\n *\n * @static\n * @memberOf _\n * @since 0.1.0\n * @category Array\n * @param {Array} array The array to inspect.\n * @param {...*} [values] The values to exclude.\n * @returns {Array} Returns the new array of filtered values.\n * @see _.difference, _.xor\n * @example\n *\n * _.without([2, 1, 2, 3], 1, 2);\n * // => [3]\n */\nvar without = baseRest(function(array, values) {\n  return isArrayLikeObject(array)\n    ? baseDifference(array, values)\n    : [];\n});\n\nexport default without;\n",
+      "start": 1714699768592,
+      "end": 1714699768592,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768592,
+      "end": 1714699768592,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768592,
+      "end": 1714699768592,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768592,
+      "end": 1714699768592,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768592,
+      "end": 1714699768592,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768592,
+      "end": 1714699768592,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768592,
+      "end": 1714699768592,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768592,
+      "end": 1714699768592,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768592,
+      "end": 1714699768592,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768592,
+      "end": 1714699768592,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768592,
+      "end": 1714699768592,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768592,
+      "end": 1714699768592,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768592,
+      "end": 1714699768592,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768592,
+      "end": 1714699768592,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768592,
+      "end": 1714699768592,
+      "order": "normal"
+    }
+  ]
+}

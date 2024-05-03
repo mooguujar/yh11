@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/forOwnRight.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import baseForOwnRight from './_baseForOwnRight.js';\nimport castFunction from './_castFunction.js';\n\n/**\n * This method is like `_.forOwn` except that it iterates over properties of\n * `object` in the opposite order.\n *\n * @static\n * @memberOf _\n * @since 2.0.0\n * @category Object\n * @param {Object} object The object to iterate over.\n * @param {Function} [iteratee=_.identity] The function invoked per iteration.\n * @returns {Object} Returns `object`.\n * @see _.forOwn\n * @example\n *\n * function Foo() {\n *   this.a = 1;\n *   this.b = 2;\n * }\n *\n * Foo.prototype.c = 3;\n *\n * _.forOwnRight(new Foo, function(value, key) {\n *   console.log(key);\n * });\n * // => Logs 'b' then 'a' assuming `_.forOwn` logs 'a' then 'b'.\n */\nfunction forOwnRight(object, iteratee) {\n  return object && baseForOwnRight(object, castFunction(iteratee));\n}\n\nexport default forOwnRight;\n",
+      "start": 1714699768358,
+      "end": 1714699768382,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768382,
+      "end": 1714699768382,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768382,
+      "end": 1714699768382,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768382,
+      "end": 1714699768382,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768382,
+      "end": 1714699768382,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768382,
+      "end": 1714699768382,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768382,
+      "end": 1714699768382,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import baseForOwnRight from './_baseForOwnRight.js';\nimport castFunction from './_castFunction.js';\n\n/**\n * This method is like `_.forOwn` except that it iterates over properties of\n * `object` in the opposite order.\n *\n * @static\n * @memberOf _\n * @since 2.0.0\n * @category Object\n * @param {Object} object The object to iterate over.\n * @param {Function} [iteratee=_.identity] The function invoked per iteration.\n * @returns {Object} Returns `object`.\n * @see _.forOwn\n * @example\n *\n * function Foo() {\n *   this.a = 1;\n *   this.b = 2;\n * }\n *\n * Foo.prototype.c = 3;\n *\n * _.forOwnRight(new Foo, function(value, key) {\n *   console.log(key);\n * });\n * // => Logs 'b' then 'a' assuming `_.forOwn` logs 'a' then 'b'.\n */\nfunction forOwnRight(object, iteratee) {\n  return object && baseForOwnRight(object, castFunction(iteratee));\n}\n\nexport default forOwnRight;\n",
+      "start": 1714699768382,
+      "end": 1714699768382,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768382,
+      "end": 1714699768382,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768382,
+      "end": 1714699768382,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768382,
+      "end": 1714699768382,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768382,
+      "end": 1714699768382,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768382,
+      "end": 1714699768382,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768382,
+      "end": 1714699768382,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768382,
+      "end": 1714699768382,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768382,
+      "end": 1714699768382,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768382,
+      "end": 1714699768382,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768382,
+      "end": 1714699768382,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768382,
+      "end": 1714699768382,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768382,
+      "end": 1714699768382,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768382,
+      "end": 1714699768382,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768382,
+      "end": 1714699768382,
+      "order": "normal"
+    }
+  ]
+}

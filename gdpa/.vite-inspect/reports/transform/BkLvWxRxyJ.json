@@ -1,0 +1,163 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Ad/AdBanner.vue?vue&type=style&index=0&scoped=ea6fb864&lang.scss",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\n.app-ad-banner-container {\n  margin: 0 auto;\n  margin-bottom: 30px;\n  padding: 0 41px;\n  img {\n    width: 100%;\n  }\n\n  :deep(.swipe-slider) {\n    --van-swipe-indicator-size: 12px;\n    width: 100%;\n    height: 100%;\n    border-radius: 14px;\n\n    .van-image {\n      width: 100%;\n      height: 100%;\n    }\n  }\n}\n",
+      "start": 1714699772084,
+      "end": 1714699772084
+    },
+    {
+      "name": "vite:css",
+      "result": ".app-ad-banner-container {\n  margin: 0 auto;\n  margin-bottom: 0.4rem;\n  padding: 0 0.54667rem;\n}\n.app-ad-banner-container img {\n  width: 100%;\n}\n.app-ad-banner-container :deep(.swipe-slider) {\n  --van-swipe-indicator-size: 0.16rem;\n  width: 100%;\n  height: 100%;\n  border-radius: 0.18667rem;\n}\n.app-ad-banner-container :deep(.swipe-slider) .van-image {\n  width: 100%;\n  height: 100%;\n}",
+      "start": 1714699772084,
+      "end": 1714699772108,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699772108,
+      "end": 1714699772108,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699772108,
+      "end": 1714699772108,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699772111,
+      "end": 1714699772111,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".app-ad-banner-container[data-v-ea6fb864] {\n  margin: 0 auto;\n  margin-bottom: 0.4rem;\n  padding: 0 0.54667rem;\n}\n.app-ad-banner-container img[data-v-ea6fb864] {\n  width: 100%;\n}\n.app-ad-banner-container[data-v-ea6fb864] .swipe-slider {\n  --van-swipe-indicator-size: 0.16rem;\n  width: 100%;\n  height: 100%;\n  border-radius: 0.18667rem;\n}\n.app-ad-banner-container[data-v-ea6fb864] .swipe-slider .van-image {\n  width: 100%;\n  height: 100%;\n}",
+      "start": 1714699772111,
+      "end": 1714699772111,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699772111,
+      "end": 1714699772111,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": ".app-ad-banner-container[data-v-ea6fb864] {\n  margin: 0 auto;\n  margin-bottom: 0.4rem;\n  padding: 0 0.54667rem;\n}\n.app-ad-banner-container img[data-v-ea6fb864] {\n  width: 100%;\n}\n.app-ad-banner-container[data-v-ea6fb864] .swipe-slider {\n  --van-swipe-indicator-size: 0.16rem;\n  width: 100%;\n  height: 100%;\n  border-radius: 0.18667rem;\n}\n.app-ad-banner-container[data-v-ea6fb864] .swipe-slider .van-image {\n  width: 100%;\n  height: 100%;\n}",
+      "start": 1714699772111,
+      "end": 1714699772111,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699772114,
+      "end": 1714699772114,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699772114,
+      "end": 1714699772114,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699772114,
+      "end": 1714699772114,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699772114,
+      "end": 1714699772114,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699772114,
+      "end": 1714699772114,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699772114,
+      "end": 1714699772114,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699772114,
+      "end": 1714699772114,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699772114,
+      "end": 1714699772114,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699772114,
+      "end": 1714699772114,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699772114,
+      "end": 1714699772115,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */",
+      "start": 1714699772115,
+      "end": 1714699772115,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Ad/AdBanner.vue?vue&type=style&index=0&scoped=ea6fb864&lang.scss"
+        ],
+        "sourcesContent": [
+          ""
+        ],
+        "names": [],
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699772115,
+      "end": 1714699772115,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699772115,
+      "end": 1714699772115,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699772115,
+      "end": 1714699772115,
+      "order": "normal"
+    }
+  ]
+}

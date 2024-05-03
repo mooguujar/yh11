@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/mask-pattern.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "/**\n * Data mask pattern reference\n * @type {Object}\n */\nexports.Patterns = {\n  PATTERN000: 0,\n  PATTERN001: 1,\n  PATTERN010: 2,\n  PATTERN011: 3,\n  PATTERN100: 4,\n  PATTERN101: 5,\n  PATTERN110: 6,\n  PATTERN111: 7\n}\n\n/**\n * Weighted penalty scores for the undesirable features\n * @type {Object}\n */\nconst PenaltyScores = {\n  N1: 3,\n  N2: 3,\n  N3: 40,\n  N4: 10\n}\n\n/**\n * Check if mask pattern value is valid\n *\n * @param  {Number}  mask    Mask pattern\n * @return {Boolean}         true if valid, false otherwise\n */\nexports.isValid = function isValid (mask) {\n  return mask != null && mask !== '' && !isNaN(mask) && mask >= 0 && mask <= 7\n}\n\n/**\n * Returns mask pattern from a value.\n * If value is not valid, returns undefined\n *\n * @param  {Number|String} value        Mask pattern value\n * @return {Number}                     Valid mask pattern or undefined\n */\nexports.from = function from (value) {\n  return exports.isValid(value) ? parseInt(value, 10) : undefined\n}\n\n/**\n* Find adjacent modules in row/column with the same color\n* and assign a penalty value.\n*\n* Points: N1 + i\n* i is the amount by which the number of adjacent modules of the same color exceeds 5\n*/\nexports.getPenaltyN1 = function getPenaltyN1 (data) {\n  const size = data.size\n  let points = 0\n  let sameCountCol = 0\n  let sameCountRow = 0\n  let lastCol = null\n  let lastRow = null\n\n  for (let row = 0; row < size; row++) {\n    sameCountCol = sameCountRow = 0\n    lastCol = lastRow = null\n\n    for (let col = 0; col < size; col++) {\n      let module = data.get(row, col)\n      if (module === lastCol) {\n        sameCountCol++\n      } else {\n        if (sameCountCol >= 5) points += PenaltyScores.N1 + (sameCountCol - 5)\n        lastCol = module\n        sameCountCol = 1\n      }\n\n      module = data.get(col, row)\n      if (module === lastRow) {\n        sameCountRow++\n      } else {\n        if (sameCountRow >= 5) points += PenaltyScores.N1 + (sameCountRow - 5)\n        lastRow = module\n        sameCountRow = 1\n      }\n    }\n\n    if (sameCountCol >= 5) points += PenaltyScores.N1 + (sameCountCol - 5)\n    if (sameCountRow >= 5) points += PenaltyScores.N1 + (sameCountRow - 5)\n  }\n\n  return points\n}\n\n/**\n * Find 2x2 blocks with the same color and assign a penalty value\n *\n * Points: N2 * (m - 1) * (n - 1)\n */\nexports.getPenaltyN2 = function getPenaltyN2 (data) {\n  const size = data.size\n  let points = 0\n\n  for (let row = 0; row < size - 1; row++) {\n    for (let col = 0; col < size - 1; col++) {\n      const last = data.get(row, col) +\n        data.get(row, col + 1) +\n        data.get(row + 1, col) +\n        data.get(row + 1, col + 1)\n\n      if (last === 4 || last === 0) points++\n    }\n  }\n\n  return points * PenaltyScores.N2\n}\n\n/**\n * Find 1:1:3:1:1 ratio (dark:light:dark:light:dark) pattern in row/column,\n * preceded or followed by light area 4 modules wide\n *\n * Points: N3 * number of pattern found\n */\nexports.getPenaltyN3 = function getPenaltyN3 (data) {\n  const size = data.size\n  let points = 0\n  let bitsCol = 0\n  let bitsRow = 0\n\n  for (let row = 0; row < size; row++) {\n    bitsCol = bitsRow = 0\n    for (let col = 0; col < size; col++) {\n      bitsCol = ((bitsCol << 1) & 0x7FF) | data.get(row, col)\n      if (col >= 10 && (bitsCol === 0x5D0 || bitsCol === 0x05D)) points++\n\n      bitsRow = ((bitsRow << 1) & 0x7FF) | data.get(col, row)\n      if (col >= 10 && (bitsRow === 0x5D0 || bitsRow === 0x05D)) points++\n    }\n  }\n\n  return points * PenaltyScores.N3\n}\n\n/**\n * Calculate proportion of dark modules in entire symbol\n *\n * Points: N4 * k\n *\n * k is the rating of the deviation of the proportion of dark modules\n * in the symbol from 50% in steps of 5%\n */\nexports.getPenaltyN4 = function getPenaltyN4 (data) {\n  let darkCount = 0\n  const modulesCount = data.data.length\n\n  for (let i = 0; i < modulesCount; i++) darkCount += data.data[i]\n\n  const k = Math.abs(Math.ceil((darkCount * 100 / modulesCount) / 5) - 10)\n\n  return k * PenaltyScores.N4\n}\n\n/**\n * Return mask value at given position\n *\n * @param  {Number} maskPattern Pattern reference value\n * @param  {Number} i           Row\n * @param  {Number} j           Column\n * @return {Boolean}            Mask value\n */\nfunction getMaskAt (maskPattern, i, j) {\n  switch (maskPattern) {\n    case exports.Patterns.PATTERN000: return (i + j) % 2 === 0\n    case exports.Patterns.PATTERN001: return i % 2 === 0\n    case exports.Patterns.PATTERN010: return j % 3 === 0\n    case exports.Patterns.PATTERN011: return (i + j) % 3 === 0\n    case exports.Patterns.PATTERN100: return (Math.floor(i / 2) + Math.floor(j / 3)) % 2 === 0\n    case exports.Patterns.PATTERN101: return (i * j) % 2 + (i * j) % 3 === 0\n    case exports.Patterns.PATTERN110: return ((i * j) % 2 + (i * j) % 3) % 2 === 0\n    case exports.Patterns.PATTERN111: return ((i * j) % 3 + (i + j) % 2) % 2 === 0\n\n    default: throw new Error('bad maskPattern:' + maskPattern)\n  }\n}\n\n/**\n * Apply a mask pattern to a BitMatrix\n *\n * @param  {Number}    pattern Pattern reference number\n * @param  {BitMatrix} data    BitMatrix data\n */\nexports.applyMask = function applyMask (pattern, data) {\n  const size = data.size\n\n  for (let col = 0; col < size; col++) {\n    for (let row = 0; row < size; row++) {\n      if (data.isReserved(row, col)) continue\n      data.xor(row, col, getMaskAt(pattern, row, col))\n    }\n  }\n}\n\n/**\n * Returns the best mask pattern for data\n *\n * @param  {BitMatrix} data\n * @return {Number} Mask pattern reference number\n */\nexports.getBestMask = function getBestMask (data, setupFormatFunc) {\n  const numPatterns = Object.keys(exports.Patterns).length\n  let bestPattern = 0\n  let lowerPenalty = Infinity\n\n  for (let p = 0; p < numPatterns; p++) {\n    setupFormatFunc(p)\n    exports.applyMask(p, data)\n\n    // Calculate penalty\n    const penalty =\n      exports.getPenaltyN1(data) +\n      exports.getPenaltyN2(data) +\n      exports.getPenaltyN3(data) +\n      exports.getPenaltyN4(data)\n\n    // Undo previously applied mask\n    exports.applyMask(p, data)\n\n    if (penalty < lowerPenalty) {\n      lowerPenalty = penalty\n      bestPattern = p\n    }\n  }\n\n  return bestPattern\n}\n",
+      "start": 1714699771036,
+      "end": 1714699771057,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771057,
+      "end": 1714699771057,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771057,
+      "end": 1714699771057,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771057,
+      "end": 1714699771057,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771057,
+      "end": 1714699771057,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771057,
+      "end": 1714699771057,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771057,
+      "end": 1714699771057,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "/**\n * Data mask pattern reference\n * @type {Object}\n */\nexports.Patterns = {\n  PATTERN000: 0,\n  PATTERN001: 1,\n  PATTERN010: 2,\n  PATTERN011: 3,\n  PATTERN100: 4,\n  PATTERN101: 5,\n  PATTERN110: 6,\n  PATTERN111: 7\n}\n\n/**\n * Weighted penalty scores for the undesirable features\n * @type {Object}\n */\nconst PenaltyScores = {\n  N1: 3,\n  N2: 3,\n  N3: 40,\n  N4: 10\n}\n\n/**\n * Check if mask pattern value is valid\n *\n * @param  {Number}  mask    Mask pattern\n * @return {Boolean}         true if valid, false otherwise\n */\nexports.isValid = function isValid (mask) {\n  return mask != null && mask !== '' && !isNaN(mask) && mask >= 0 && mask <= 7\n}\n\n/**\n * Returns mask pattern from a value.\n * If value is not valid, returns undefined\n *\n * @param  {Number|String} value        Mask pattern value\n * @return {Number}                     Valid mask pattern or undefined\n */\nexports.from = function from (value) {\n  return exports.isValid(value) ? parseInt(value, 10) : undefined\n}\n\n/**\n* Find adjacent modules in row/column with the same color\n* and assign a penalty value.\n*\n* Points: N1 + i\n* i is the amount by which the number of adjacent modules of the same color exceeds 5\n*/\nexports.getPenaltyN1 = function getPenaltyN1 (data) {\n  const size = data.size\n  let points = 0\n  let sameCountCol = 0\n  let sameCountRow = 0\n  let lastCol = null\n  let lastRow = null\n\n  for (let row = 0; row < size; row++) {\n    sameCountCol = sameCountRow = 0\n    lastCol = lastRow = null\n\n    for (let col = 0; col < size; col++) {\n      let module = data.get(row, col)\n      if (module === lastCol) {\n        sameCountCol++\n      } else {\n        if (sameCountCol >= 5) points += PenaltyScores.N1 + (sameCountCol - 5)\n        lastCol = module\n        sameCountCol = 1\n      }\n\n      module = data.get(col, row)\n      if (module === lastRow) {\n        sameCountRow++\n      } else {\n        if (sameCountRow >= 5) points += PenaltyScores.N1 + (sameCountRow - 5)\n        lastRow = module\n        sameCountRow = 1\n      }\n    }\n\n    if (sameCountCol >= 5) points += PenaltyScores.N1 + (sameCountCol - 5)\n    if (sameCountRow >= 5) points += PenaltyScores.N1 + (sameCountRow - 5)\n  }\n\n  return points\n}\n\n/**\n * Find 2x2 blocks with the same color and assign a penalty value\n *\n * Points: N2 * (m - 1) * (n - 1)\n */\nexports.getPenaltyN2 = function getPenaltyN2 (data) {\n  const size = data.size\n  let points = 0\n\n  for (let row = 0; row < size - 1; row++) {\n    for (let col = 0; col < size - 1; col++) {\n      const last = data.get(row, col) +\n        data.get(row, col + 1) +\n        data.get(row + 1, col) +\n        data.get(row + 1, col + 1)\n\n      if (last === 4 || last === 0) points++\n    }\n  }\n\n  return points * PenaltyScores.N2\n}\n\n/**\n * Find 1:1:3:1:1 ratio (dark:light:dark:light:dark) pattern in row/column,\n * preceded or followed by light area 4 modules wide\n *\n * Points: N3 * number of pattern found\n */\nexports.getPenaltyN3 = function getPenaltyN3 (data) {\n  const size = data.size\n  let points = 0\n  let bitsCol = 0\n  let bitsRow = 0\n\n  for (let row = 0; row < size; row++) {\n    bitsCol = bitsRow = 0\n    for (let col = 0; col < size; col++) {\n      bitsCol = ((bitsCol << 1) & 0x7FF) | data.get(row, col)\n      if (col >= 10 && (bitsCol === 0x5D0 || bitsCol === 0x05D)) points++\n\n      bitsRow = ((bitsRow << 1) & 0x7FF) | data.get(col, row)\n      if (col >= 10 && (bitsRow === 0x5D0 || bitsRow === 0x05D)) points++\n    }\n  }\n\n  return points * PenaltyScores.N3\n}\n\n/**\n * Calculate proportion of dark modules in entire symbol\n *\n * Points: N4 * k\n *\n * k is the rating of the deviation of the proportion of dark modules\n * in the symbol from 50% in steps of 5%\n */\nexports.getPenaltyN4 = function getPenaltyN4 (data) {\n  let darkCount = 0\n  const modulesCount = data.data.length\n\n  for (let i = 0; i < modulesCount; i++) darkCount += data.data[i]\n\n  const k = Math.abs(Math.ceil((darkCount * 100 / modulesCount) / 5) - 10)\n\n  return k * PenaltyScores.N4\n}\n\n/**\n * Return mask value at given position\n *\n * @param  {Number} maskPattern Pattern reference value\n * @param  {Number} i           Row\n * @param  {Number} j           Column\n * @return {Boolean}            Mask value\n */\nfunction getMaskAt (maskPattern, i, j) {\n  switch (maskPattern) {\n    case exports.Patterns.PATTERN000: return (i + j) % 2 === 0\n    case exports.Patterns.PATTERN001: return i % 2 === 0\n    case exports.Patterns.PATTERN010: return j % 3 === 0\n    case exports.Patterns.PATTERN011: return (i + j) % 3 === 0\n    case exports.Patterns.PATTERN100: return (Math.floor(i / 2) + Math.floor(j / 3)) % 2 === 0\n    case exports.Patterns.PATTERN101: return (i * j) % 2 + (i * j) % 3 === 0\n    case exports.Patterns.PATTERN110: return ((i * j) % 2 + (i * j) % 3) % 2 === 0\n    case exports.Patterns.PATTERN111: return ((i * j) % 3 + (i + j) % 2) % 2 === 0\n\n    default: throw new Error('bad maskPattern:' + maskPattern)\n  }\n}\n\n/**\n * Apply a mask pattern to a BitMatrix\n *\n * @param  {Number}    pattern Pattern reference number\n * @param  {BitMatrix} data    BitMatrix data\n */\nexports.applyMask = function applyMask (pattern, data) {\n  const size = data.size\n\n  for (let col = 0; col < size; col++) {\n    for (let row = 0; row < size; row++) {\n      if (data.isReserved(row, col)) continue\n      data.xor(row, col, getMaskAt(pattern, row, col))\n    }\n  }\n}\n\n/**\n * Returns the best mask pattern for data\n *\n * @param  {BitMatrix} data\n * @return {Number} Mask pattern reference number\n */\nexports.getBestMask = function getBestMask (data, setupFormatFunc) {\n  const numPatterns = Object.keys(exports.Patterns).length\n  let bestPattern = 0\n  let lowerPenalty = Infinity\n\n  for (let p = 0; p < numPatterns; p++) {\n    setupFormatFunc(p)\n    exports.applyMask(p, data)\n\n    // Calculate penalty\n    const penalty =\n      exports.getPenaltyN1(data) +\n      exports.getPenaltyN2(data) +\n      exports.getPenaltyN3(data) +\n      exports.getPenaltyN4(data)\n\n    // Undo previously applied mask\n    exports.applyMask(p, data)\n\n    if (penalty < lowerPenalty) {\n      lowerPenalty = penalty\n      bestPattern = p\n    }\n  }\n\n  return bestPattern\n}\n",
+      "start": 1714699771057,
+      "end": 1714699771057,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699771057,
+      "end": 1714699771057,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771057,
+      "end": 1714699771057,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771057,
+      "end": 1714699771057,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771057,
+      "end": 1714699771057,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771057,
+      "end": 1714699771057,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771057,
+      "end": 1714699771057,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "/**\n * Data mask pattern reference\n * @type {Object}\n */\nimport * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as maskPattern } from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/mask-pattern.js?commonjs-exports\";\n\n(function (exports) {\n\texports.Patterns = {\n\t  PATTERN000: 0,\n\t  PATTERN001: 1,\n\t  PATTERN010: 2,\n\t  PATTERN011: 3,\n\t  PATTERN100: 4,\n\t  PATTERN101: 5,\n\t  PATTERN110: 6,\n\t  PATTERN111: 7\n\t}\n\n\t/**\n\t * Weighted penalty scores for the undesirable features\n\t * @type {Object}\n\t */\n\tconst PenaltyScores = {\n\t  N1: 3,\n\t  N2: 3,\n\t  N3: 40,\n\t  N4: 10\n\t}\n\n\t/**\n\t * Check if mask pattern value is valid\n\t *\n\t * @param  {Number}  mask    Mask pattern\n\t * @return {Boolean}         true if valid, false otherwise\n\t */\n\texports.isValid = function isValid (mask) {\n\t  return mask != null && mask !== '' && !isNaN(mask) && mask >= 0 && mask <= 7\n\t}\n\n\t/**\n\t * Returns mask pattern from a value.\n\t * If value is not valid, returns undefined\n\t *\n\t * @param  {Number|String} value        Mask pattern value\n\t * @return {Number}                     Valid mask pattern or undefined\n\t */\n\texports.from = function from (value) {\n\t  return exports.isValid(value) ? parseInt(value, 10) : undefined\n\t}\n\n\t/**\n\t* Find adjacent modules in row/column with the same color\n\t* and assign a penalty value.\n\t*\n\t* Points: N1 + i\n\t* i is the amount by which the number of adjacent modules of the same color exceeds 5\n\t*/\n\texports.getPenaltyN1 = function getPenaltyN1 (data) {\n\t  const size = data.size\n\t  let points = 0\n\t  let sameCountCol = 0\n\t  let sameCountRow = 0\n\t  let lastCol = null\n\t  let lastRow = null\n\n\t  for (let row = 0; row < size; row++) {\n\t    sameCountCol = sameCountRow = 0\n\t    lastCol = lastRow = null\n\n\t    for (let col = 0; col < size; col++) {\n\t      let module = data.get(row, col)\n\t      if (module === lastCol) {\n\t        sameCountCol++\n\t      } else {\n\t        if (sameCountCol >= 5) points += PenaltyScores.N1 + (sameCountCol - 5)\n\t        lastCol = module\n\t        sameCountCol = 1\n\t      }\n\n\t      module = data.get(col, row)\n\t      if (module === lastRow) {\n\t        sameCountRow++\n\t      } else {\n\t        if (sameCountRow >= 5) points += PenaltyScores.N1 + (sameCountRow - 5)\n\t        lastRow = module\n\t        sameCountRow = 1\n\t      }\n\t    }\n\n\t    if (sameCountCol >= 5) points += PenaltyScores.N1 + (sameCountCol - 5)\n\t    if (sameCountRow >= 5) points += PenaltyScores.N1 + (sameCountRow - 5)\n\t  }\n\n\t  return points\n\t}\n\n\t/**\n\t * Find 2x2 blocks with the same color and assign a penalty value\n\t *\n\t * Points: N2 * (m - 1) * (n - 1)\n\t */\n\texports.getPenaltyN2 = function getPenaltyN2 (data) {\n\t  const size = data.size\n\t  let points = 0\n\n\t  for (let row = 0; row < size - 1; row++) {\n\t    for (let col = 0; col < size - 1; col++) {\n\t      const last = data.get(row, col) +\n\t        data.get(row, col + 1) +\n\t        data.get(row + 1, col) +\n\t        data.get(row + 1, col + 1)\n\n\t      if (last === 4 || last === 0) points++\n\t    }\n\t  }\n\n\t  return points * PenaltyScores.N2\n\t}\n\n\t/**\n\t * Find 1:1:3:1:1 ratio (dark:light:dark:light:dark) pattern in row/column,\n\t * preceded or followed by light area 4 modules wide\n\t *\n\t * Points: N3 * number of pattern found\n\t */\n\texports.getPenaltyN3 = function getPenaltyN3 (data) {\n\t  const size = data.size\n\t  let points = 0\n\t  let bitsCol = 0\n\t  let bitsRow = 0\n\n\t  for (let row = 0; row < size; row++) {\n\t    bitsCol = bitsRow = 0\n\t    for (let col = 0; col < size; col++) {\n\t      bitsCol = ((bitsCol << 1) & 0x7FF) | data.get(row, col)\n\t      if (col >= 10 && (bitsCol === 0x5D0 || bitsCol === 0x05D)) points++\n\n\t      bitsRow = ((bitsRow << 1) & 0x7FF) | data.get(col, row)\n\t      if (col >= 10 && (bitsRow === 0x5D0 || bitsRow === 0x05D)) points++\n\t    }\n\t  }\n\n\t  return points * PenaltyScores.N3\n\t}\n\n\t/**\n\t * Calculate proportion of dark modules in entire symbol\n\t *\n\t * Points: N4 * k\n\t *\n\t * k is the rating of the deviation of the proportion of dark modules\n\t * in the symbol from 50% in steps of 5%\n\t */\n\texports.getPenaltyN4 = function getPenaltyN4 (data) {\n\t  let darkCount = 0\n\t  const modulesCount = data.data.length\n\n\t  for (let i = 0; i < modulesCount; i++) darkCount += data.data[i]\n\n\t  const k = Math.abs(Math.ceil((darkCount * 100 / modulesCount) / 5) - 10)\n\n\t  return k * PenaltyScores.N4\n\t}\n\n\t/**\n\t * Return mask value at given position\n\t *\n\t * @param  {Number} maskPattern Pattern reference value\n\t * @param  {Number} i           Row\n\t * @param  {Number} j           Column\n\t * @return {Boolean}            Mask value\n\t */\n\tfunction getMaskAt (maskPattern, i, j) {\n\t  switch (maskPattern) {\n\t    case exports.Patterns.PATTERN000: return (i + j) % 2 === 0\n\t    case exports.Patterns.PATTERN001: return i % 2 === 0\n\t    case exports.Patterns.PATTERN010: return j % 3 === 0\n\t    case exports.Patterns.PATTERN011: return (i + j) % 3 === 0\n\t    case exports.Patterns.PATTERN100: return (Math.floor(i / 2) + Math.floor(j / 3)) % 2 === 0\n\t    case exports.Patterns.PATTERN101: return (i * j) % 2 + (i * j) % 3 === 0\n\t    case exports.Patterns.PATTERN110: return ((i * j) % 2 + (i * j) % 3) % 2 === 0\n\t    case exports.Patterns.PATTERN111: return ((i * j) % 3 + (i + j) % 2) % 2 === 0\n\n\t    default: throw new Error('bad maskPattern:' + maskPattern)\n\t  }\n\t}\n\n\t/**\n\t * Apply a mask pattern to a BitMatrix\n\t *\n\t * @param  {Number}    pattern Pattern reference number\n\t * @param  {BitMatrix} data    BitMatrix data\n\t */\n\texports.applyMask = function applyMask (pattern, data) {\n\t  const size = data.size\n\n\t  for (let col = 0; col < size; col++) {\n\t    for (let row = 0; row < size; row++) {\n\t      if (data.isReserved(row, col)) continue\n\t      data.xor(row, col, getMaskAt(pattern, row, col))\n\t    }\n\t  }\n\t}\n\n\t/**\n\t * Returns the best mask pattern for data\n\t *\n\t * @param  {BitMatrix} data\n\t * @return {Number} Mask pattern reference number\n\t */\n\texports.getBestMask = function getBestMask (data, setupFormatFunc) {\n\t  const numPatterns = Object.keys(exports.Patterns).length\n\t  let bestPattern = 0\n\t  let lowerPenalty = Infinity\n\n\t  for (let p = 0; p < numPatterns; p++) {\n\t    setupFormatFunc(p)\n\t    exports.applyMask(p, data)\n\n\t    // Calculate penalty\n\t    const penalty =\n\t      exports.getPenaltyN1(data) +\n\t      exports.getPenaltyN2(data) +\n\t      exports.getPenaltyN3(data) +\n\t      exports.getPenaltyN4(data)\n\n\t    // Undo previously applied mask\n\t    exports.applyMask(p, data)\n\n\t    if (penalty < lowerPenalty) {\n\t      lowerPenalty = penalty\n\t      bestPattern = p\n\t    }\n\t  }\n\n\t  return bestPattern\n\t} \n} (maskPattern));\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(maskPattern);\nexport { maskPattern as __moduleExports };",
+      "start": 1714699771057,
+      "end": 1714699771059,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "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"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771059,
+      "end": 1714699771059,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771059,
+      "end": 1714699771059,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771059,
+      "end": 1714699771059,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699771059,
+      "end": 1714699771059,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771059,
+      "end": 1714699771059,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771059,
+      "end": 1714699771059,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771059,
+      "end": 1714699771059,
+      "order": "normal"
+    }
+  ]
+}

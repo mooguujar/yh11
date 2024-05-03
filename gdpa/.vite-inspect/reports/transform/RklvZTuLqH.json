@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/eachTree.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var helperCreateTreeFunc = require('./helperCreateTreeFunc')\r\nvar each = require('./each')\r\n\r\nfunction eachTreeItem (parent, obj, iterate, context, path, node, parseChildren, opts) {\r\n  var paths, nodes\r\n  each(obj, function (item, index) {\r\n    paths = path.concat(['' + index])\r\n    nodes = node.concat([item])\r\n    iterate.call(context, item, index, obj, paths, parent, nodes)\r\n    if (item && parseChildren) {\r\n      paths.push(parseChildren)\r\n      eachTreeItem(item, item[parseChildren], iterate, context, paths, nodes, parseChildren, opts)\r\n    }\r\n  })\r\n}\r\n\r\n/**\r\n  * 从树结构中遍历数据的键、值、路径\r\n  *\r\n  * @param {Object} obj 对象/数组\r\n  * @param {Function} iterate(item, index, items, path, parent, nodes) 回调\r\n  * @param {Object} options {children: 'children', mapChildren: 'children}\r\n  * @param {Object} context 上下文\r\n  */\r\nvar eachTree = helperCreateTreeFunc(eachTreeItem)\r\n\r\nmodule.exports = eachTree\r\n",
+      "start": 1714699767581,
+      "end": 1714699767601,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767601,
+      "end": 1714699767601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767601,
+      "end": 1714699767601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767601,
+      "end": 1714699767601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767601,
+      "end": 1714699767601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767601,
+      "end": 1714699767601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767601,
+      "end": 1714699767601,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var helperCreateTreeFunc = require('./helperCreateTreeFunc')\r\nvar each = require('./each')\r\n\r\nfunction eachTreeItem (parent, obj, iterate, context, path, node, parseChildren, opts) {\r\n  var paths, nodes\r\n  each(obj, function (item, index) {\r\n    paths = path.concat(['' + index])\r\n    nodes = node.concat([item])\r\n    iterate.call(context, item, index, obj, paths, parent, nodes)\r\n    if (item && parseChildren) {\r\n      paths.push(parseChildren)\r\n      eachTreeItem(item, item[parseChildren], iterate, context, paths, nodes, parseChildren, opts)\r\n    }\r\n  })\r\n}\r\n\r\n/**\r\n  * 从树结构中遍历数据的键、值、路径\r\n  *\r\n  * @param {Object} obj 对象/数组\r\n  * @param {Function} iterate(item, index, items, path, parent, nodes) 回调\r\n  * @param {Object} options {children: 'children', mapChildren: 'children}\r\n  * @param {Object} context 上下文\r\n  */\r\nvar eachTree = helperCreateTreeFunc(eachTreeItem)\r\n\r\nmodule.exports = eachTree\r\n",
+      "start": 1714699767601,
+      "end": 1714699767601,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767601,
+      "end": 1714699767601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767601,
+      "end": 1714699767601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767601,
+      "end": 1714699767601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767601,
+      "end": 1714699767601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767601,
+      "end": 1714699767601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767601,
+      "end": 1714699767601,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/helperCreateTreeFunc.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/each.js?commonjs-proxy\";\n\nvar helperCreateTreeFunc = require$$0\r\nvar each = require$$1\r\n\r\nfunction eachTreeItem (parent, obj, iterate, context, path, node, parseChildren, opts) {\r\n  var paths, nodes\r\n  each(obj, function (item, index) {\r\n    paths = path.concat(['' + index])\r\n    nodes = node.concat([item])\r\n    iterate.call(context, item, index, obj, paths, parent, nodes)\r\n    if (item && parseChildren) {\r\n      paths.push(parseChildren)\r\n      eachTreeItem(item, item[parseChildren], iterate, context, paths, nodes, parseChildren, opts)\r\n    }\r\n  })\r\n}\r\n\r\n/**\r\n  * 从树结构中遍历数据的键、值、路径\r\n  *\r\n  * @param {Object} obj 对象/数组\r\n  * @param {Function} iterate(item, index, items, path, parent, nodes) 回调\r\n  * @param {Object} options {children: 'children', mapChildren: 'children}\r\n  * @param {Object} context 上下文\r\n  */\r\nvar eachTree = helperCreateTreeFunc(eachTreeItem)\r\n\r\nvar eachTree_1 = eachTree\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(eachTree_1);\nexport { eachTree_1 as __moduleExports };",
+      "start": 1714699767601,
+      "end": 1714699768188,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;AAAA,IAAI,oBAAoB,GAAG,UAAiC;AAC5D,IAAI,IAAI,GAAG,UAAiB;AAC5B;AACA,SAAS,YAAY,EAAE,MAAM,EAAE,GAAG,EAAE,OAAO,EAAE,OAAO,EAAE,IAAI,EAAE,IAAI,EAAE,aAAa,EAAE,IAAI,EAAE;AACvF,EAAE,IAAI,KAAK,EAAE,KAAK;AAClB,EAAE,IAAI,CAAC,GAAG,EAAE,UAAU,IAAI,EAAE,KAAK,EAAE;AACnC,IAAI,KAAK,GAAG,IAAI,CAAC,MAAM,CAAC,CAAC,EAAE,GAAG,KAAK,CAAC,CAAC;AACrC,IAAI,KAAK,GAAG,IAAI,CAAC,MAAM,CAAC,CAAC,IAAI,CAAC,CAAC;AAC/B,IAAI,OAAO,CAAC,IAAI,CAAC,OAAO,EAAE,IAAI,EAAE,KAAK,EAAE,GAAG,EAAE,KAAK,EAAE,MAAM,EAAE,KAAK,CAAC;AACjE,IAAI,IAAI,IAAI,IAAI,aAAa,EAAE;AAC/B,MAAM,KAAK,CAAC,IAAI,CAAC,aAAa,CAAC;AAC/B,MAAM,YAAY,CAAC,IAAI,EAAE,IAAI,CAAC,aAAa,CAAC,EAAE,OAAO,EAAE,OAAO,EAAE,KAAK,EAAE,KAAK,EAAE,aAAa,EAAE,IAAI,CAAC;AAClG,KAAK;AACL,GAAG,CAAC;AACJ,CAAC;AACD;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,IAAI,QAAQ,GAAG,oBAAoB,CAAC,YAAY,CAAC;AACjD;IACA,UAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768188,
+      "end": 1714699768188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768188,
+      "end": 1714699768188,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768188,
+      "end": 1714699768188,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768188,
+      "end": 1714699768188,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768188,
+      "end": 1714699768188,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768188,
+      "end": 1714699768188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768188,
+      "end": 1714699768188,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/helperDeleteProperty.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "function helperDeleteProperty (obj, property) {\r\n  try {\r\n    delete obj[property]\r\n  } catch (e) {\r\n    obj[property] = undefined\r\n  }\r\n}\r\n\r\nmodule.exports = helperDeleteProperty\r\n",
+      "start": 1714699768013,
+      "end": 1714699768091,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768091,
+      "end": 1714699768091,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768091,
+      "end": 1714699768091,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768091,
+      "end": 1714699768091,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768091,
+      "end": 1714699768091,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768091,
+      "end": 1714699768091,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768091,
+      "end": 1714699768091,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "function helperDeleteProperty (obj, property) {\r\n  try {\r\n    delete obj[property]\r\n  } catch (e) {\r\n    obj[property] = undefined\r\n  }\r\n}\r\n\r\nmodule.exports = helperDeleteProperty\r\n",
+      "start": 1714699768091,
+      "end": 1714699768091,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768091,
+      "end": 1714699768091,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768091,
+      "end": 1714699768091,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768091,
+      "end": 1714699768091,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768091,
+      "end": 1714699768091,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768091,
+      "end": 1714699768091,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768091,
+      "end": 1714699768091,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\n\nfunction helperDeleteProperty (obj, property) {\r\n  try {\r\n    delete obj[property]\r\n  } catch (e) {\r\n    obj[property] = undefined\r\n  }\r\n}\r\n\r\nvar helperDeleteProperty_1 = helperDeleteProperty\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(helperDeleteProperty_1);\nexport { helperDeleteProperty_1 as __moduleExports };",
+      "start": 1714699768091,
+      "end": 1714699768091,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;AAAA,SAAS,oBAAoB,EAAE,GAAG,EAAE,QAAQ,EAAE;AAC9C,EAAE,IAAI;AACN,IAAI,OAAO,GAAG,CAAC,QAAQ,CAAC;AACxB,GAAG,CAAC,OAAO,CAAC,EAAE;AACd,IAAI,GAAG,CAAC,QAAQ,CAAC,GAAG,SAAS;AAC7B,GAAG;AACH,CAAC;AACD;IACA,sBAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768091,
+      "end": 1714699768091,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768091,
+      "end": 1714699768091,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768091,
+      "end": 1714699768091,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768091,
+      "end": 1714699768091,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768091,
+      "end": 1714699768091,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768091,
+      "end": 1714699768091,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768091,
+      "end": 1714699768091,
+      "order": "normal"
+    }
+  ]
+}

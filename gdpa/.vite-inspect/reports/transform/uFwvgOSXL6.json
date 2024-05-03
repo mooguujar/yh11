@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/onlineCharge.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <NavBar\n    v-if=\"wideMode\"\n    class=\"nav-bar\"\n    title=\"在线充值\"\n    mode=\"icons\"\n  >\n    <template #title>\n      <div\n        class=\"title_buy_top title_left\"\n        :class=\"active == 0 ? 'active' : ''\"\n        @click=\"toggleBuyCoin(0)\"\n      >\n        自选买币\n      </div>\n      <div\n        class=\"title_buy_top title_right relative\"\n        @click=\"toggleBuyCoin(2)\"\n        :class=\"[active == 2 ? 'active' : '', redDot ? 'redDot' : '']\"\n      >\n        我的购买\n        <div\n          class=\"redDotNum flex_z\"\n          v-if=\"redDot\"\n        >\n          {{ redDot }}\n        </div>\n      </div>\n    </template>\n    <!-- <template #right>\n      <div class=\"!float-right username flex_s mr-[24px] relative\">\n        <span class=\"!text-[18px] text-[#fff]\">\n          {{\n            authStore?.userInfo?.username?.length > 14\n              ? authStore?.userInfo?.username.slice(0, 14) + '...'\n              : authStore?.userInfo?.username || '.'\n          }}\n        </span>\n        <div\n          class=\"copy copy-white mx-[10px] w-[30px] !float-right text-[#3a2828]\"\n          @click=\"copy(authStore?.userInfo?.username)\"\n        ></div>\n      </div>\n    </template> -->\n  </NavBar>\n  <NavBar\n    v-else\n    class=\"nav-bar\"\n    :title=\"gd_buy_fixmomey == 1 && active == 2 ? '我的购买' : '在线充值'\"\n    mode=\"icons\"\n  >\n    <template #right>\n      <div class=\"right_nav mr-[65px]\">\n        <van-icon\n          v-if=\"gd_buy_fixmomey == 1 && active != 2 && !amountScope\"\n          name=\"orders-o !text-[#fff]\"\n          @click=\"router.push('/onlineCharge?active=2')\"\n        />\n      </div>\n    </template>\n  </NavBar>\n  <div\n    class=\"blue-bg\"\n    v-if=\"!onlineCharge\"\n  ></div>\n  <div :class=\"`home-container flex flex-col ${onlineCharge ? 'wide' : ''}`\">\n    <div class=\"main-content-container flex flex-col\">\n      <BuyCoin />\n    </div>\n\n    <van-dialog\n      v-model:show=\"dialog.show\"\n      :title=\"dialog.data.img ? '' : dialog.data.desc || '温馨提醒'\"\n      theme=\"round-button\"\n      :class=\"wideMode ? 'wideMode select_dialog' : ''\"\n      :className=\"[\n        'dialog-open-notice',\n        { 'dialog-bg-img': dialog.data.img },\n        { 'dialog-open-notice-wide-mode': wideMode }\n      ]\"\n      @confirm=\"onClose\"\n    >\n      <!-- <i\n        class=\"icon-close block\"\n        :class=\"dialog.data.img ? 'close-white' : 'close-dark'\"\n        @click=\"onClose\"\n      ></i> -->\n      <div\n        class=\"dialog-content\"\n        v-html=\"dialog.data.img ? '' : dialog.data.content\"\n        v-content\n      ></div>\n\n      <template #footer>\n        <div\n          class=\"btn-confirm flex items-center justify-center\"\n          @click=\"onClose\"\n        >\n          我知道了\n        </div>\n        <div class=\"dialog-radio-controler flex items-center justify-center\">\n          <i\n            class=\"radio\"\n            :class=\"dialog.allowShow ? 'radio-uncheck' : 'radio-checked'\"\n            @click=\"onCheck\"\n          ></i>\n          <div class=\"radio-text\">今日不再显示</div>\n        </div>\n      </template>\n    </van-dialog>\n  </div>\n</template>\n<script setup lang=\"ts\">\nimport { BuyCancel } from '@/apis/buySellCoin'\nimport { appLogApi } from '@/apis/common'\nimport topIconBgImg from '@/assets/images/common/icon_bg.png'\nimport info from '@/assets/images/common/info.png'\nimport verified from '@/assets/images/common/verified.png'\nimport { useAppBar } from '@/components/AppBar/useAppBar'\nimport Dialog from '@/components/CommonPopup/Dialog'\nimport BuyCoin from '@/pages/Crypto/buy.vue'\nimport { useEntryStore } from '@/store'\nimport { useAuthStore } from '@/store/modules/auth'\nimport { useCoinBuySellStore } from '@/store/modules/coinBuySell'\nimport { useCommonStore } from '@/store/modules/common'\nimport { IArticleListType } from '@/store/types/article'\nimport { BuyOrder } from '@/store/types/buySellCoin'\nimport mitt from '@/utils/mitt'\nimport { mergeHrefParams } from '@/utils/tools'\nimport { storeToRefs } from 'pinia'\nimport { showToast } from 'vant'\nimport { computed, onMounted, reactive, ref, watch } from 'vue'\nimport clipboard3 from 'vue-clipboard3'\nimport { useRoute, useRouter } from 'vue-router'\n\nuseAppBar({ mode: 'dark' })\n\nconst route = useRoute()\nconst router = useRouter()\n\nconst coin = useCoinBuySellStore()\nconst { getBuySellCoinInfo } = coin\nconst { buy_orders } = storeToRefs(coin)\n\nconst active = ref(0)\nconst search = new URLSearchParams(mergeHrefParams())\nconst hs = search.get('hs') || ''\nconst wideMode = hs == 'h'\n\nconst amountScope = ref() //直接查看 金额范围的数据\namountScope.value = search.get('amountScope') || ''\n\nconst topIconBg = ref(`url(${topIconBgImg})`)\n// 切换买币类型\nconst toggleBuyCoin = (type: number = 0) => {\n  active.value = type\n  router.replace('/onlineCharge?active=' + type)\n}\n\nconst entryStore = useEntryStore()\nconst { config } = storeToRefs(entryStore)\n\n// 未处理订单数(过滤掉搬砖卖币)\nconst redDot = computed(() => {\n  const buyOrders =\n    processnum.value?.buy_orders?.filter((item: BuyOrder) => item.mtype !== 30) ?? []\n  return buyOrders.length\n})\n// console.log('redDot', redDot.value)\n\nconst authStore = useAuthStore()\nconst { userInfo, processnum } = storeToRefs(authStore)\n\n// 复制\nconst { toClipboard } = clipboard3()\nconst copy = async (text: any) => {\n  try {\n    await toClipboard(text)\n    showToast({\n      message: '复制成功',\n      icon: verified,\n      iconSize: '48px'\n    })\n  } catch (error) {\n    showToast({\n      message: '复制失败!!',\n      icon: verified\n    })\n  }\n}\n\nconst onlineCharge = ref(false)\n\nconst dialog = reactive({\n  show: false,\n  data: {\n    content: `\n<p>1 下单后请在15分钟内完成付款,并主动上传付款凭证</p>\n<p>2 无法付款请主动取消订单,避免影响后续充值权益</p>\n<p>3 请按照下单金额进行付款,修改金额造成的损失由您承担</p>\n<p>4 超过15分钟订单将自动撤销,造成损害自行承担！</p>\n`\n  } as IArticleListType,\n  allowShow: true\n})\nconst dialogBgImg = ref(`url('')`)\nlet dataItem = ''\nconst num = ref(search.get('money') || '')\nlet { query, path, fullPath } = route\n\nconst gd_buy_fixmomey = ref(search.get('gd_buy_fixmomey') || (wideMode ? 1 : 0))\n\nconst onClose = () => {\n  if (!!!dialog.allowShow) {\n    dialog.show = false\n    const currentTime: any = new Date()\n    localStorage.setItem('onlineChargeLastClickTime', currentTime)\n  } else {\n    dialog.show = false\n  }\n  router.push(\n    '/selfbuy_coin?onlineCharge=1&money=' +\n      num.value +\n      '&gd_buy_fixmomey=' +\n      gd_buy_fixmomey.value +\n      '&data=' +\n      JSON.stringify(dataItem)\n  )\n}\nmitt.on('onlineCharge_show', async item => {\n  dataItem = item\n  if (gd_buy_fixmomey.value != 1 && handleClick()) {\n    dialog.show = true\n  } else {\n    router.push(\n      '/selfbuy_coin?onlineCharge=1&money=' +\n        num.value +\n        '&gd_buy_fixmomey=' +\n        gd_buy_fixmomey.value +\n        '&data=' +\n        JSON.stringify(dataItem)\n    )\n  }\n})\n\nfunction handleClick() {\n  let lastClickTime: any = localStorage.getItem('onlineChargeLastClickTime')\n  const currentTime: any = new Date()\n  if (\n    lastClickTime === null ||\n    currentTime - new Date(lastClickTime).getTime() > 24 * 60 * 60 * 1000\n    // currentTime - new Date(lastClickTime).getTime() > 6 * 1000\n  ) {\n    return true\n  } else {\n    return false\n  }\n}\n\nconst onCheck = () => {\n  dialog.allowShow = !dialog.allowShow\n}\n\nactive.value = query.active ? +query.active : 0\nwatch(\n  () => router.currentRoute.value,\n  async route => {\n    // await appLogApi({\n    //   platform: 'H5',\n    //   filepath: 'src/pages/Other/onlineCharge.vue',\n    //   runningFunction: 'watch----() => router.currentRoute.value',\n    //   url: window.location.href\n    // })\n    const { query, path, fullPath } = route\n    active.value = query.active ? +query.active : 0\n\n    // if (route.name === 'onlineCharge' && wideMode) {\n    //   setTimeout(() => {\n    //     useAppBar({ mode: 'dark', right: '0' })\n    //   }, 1000)\n    // }\n  }\n)\n\nonMounted(async () => {\n  // await appLogApi({\n  //   platform: 'H5',\n  //   filepath: 'src/pages/Other/onlineCharge.vue',\n  //   runningFunction: 'onMounted',\n  //   url: window.location.href\n  // })\n  if (wideMode) {\n    document.body.classList.add('wideMode')\n  }\n  const commonStore = useCommonStore()\n  commonStore.setShowLoading(false)\n  getBuySellCoinInfo({}).then(() => {\n    // console.log('buy_orders.value', buy_orders.value)\n    setTimeout(() => {\n      let { path } = route\n      if (buy_orders.value.length && !path.includes('orderCreate')) {\n        const msgtext = `\n          </br>\n          </br>\n          你还有进行中的订单 <span class=\"red_f\">【${buy_orders.value[0].buy_num}元】</span> ，请完成支付或者取消重新下单。</br>\n          </br>\n          </br>\n          `\n        Dialog.confirm({\n          title: '温馨提示',\n          message: msgtext,\n          allowHtml: true,\n          messageAlign: 'center',\n          className: 'selldialog',\n          confirmButtonText: '前往支付',\n          cancelButtonText: '取消上笔订单',\n          action: () => {\n            const targetRoute = wideMode ? 'wideOrderCreate' : 'orderCreate'\n            router.push(`/${targetRoute}?order_id=${buy_orders.value[0].buy_order_id}`)\n          },\n          cancelAction: () => {\n            BuyCancel({ buy_order_id: buy_orders.value[0].buy_order_id }).then(() => {\n              showToast({\n                message: '操作成功',\n                icon: info\n              })\n            })\n          }\n        })\n      }\n    }, 800)\n  })\n  // 获取最新用户信息\n  authStore.getUserInfo().then(() => {\n    if (route.name === 'Home' && processnum.value?.total) {\n      mitt.emit('global-notification', { type: 'ProcessOrder', value: processnum.value })\n    }\n  })\n\n  const { query, path } = route\n  onlineCharge.value = path.includes('onlineCharge') ? true : false\n})\n</script>\n\n<style lang=\"scss\" scoped>\n@import '@/assets/styles/sprite-home.scss';\n@import '@/assets/styles/sprite-001.scss';\n\n:deep(.nav-bar) {\n  .van-nav-bar__title {\n    overflow: visible;\n  }\n  .van-nav-bar__right {\n    bottom: unset !important;\n    top: 50%;\n    transform: translate3d(0px, -50%, 0px);\n  }\n}\n\n:deep(.title_buy_top) {\n  font-size: 18px;\n  padding: 0 15px;\n  background: #004b6b;\n  transform-origin: 0 0;\n  height: calc(1 / var(--scale-factor) * 30px);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.title_left {\n  border-radius: 5px 0 0 5px;\n}\n\n.title_right {\n  border-radius: 0 5px 5px 0;\n}\n\n.active {\n  font-size: 19px;\n  font-weight: 700;\n  background: #fff;\n  color: var(--van-button-primary-background);\n  border-radius: 5px;\n}\n\n.copy-white {\n  filter: grayscale(100%) brightness(130%);\n}\n\n.active.title_left {\n  position: relative;\n  right: -8px;\n}\n\n.blue-bg {\n  width: 100%;\n  height: 30px;\n  background-color: var(--van-button-primary-background);\n}\n\n.home-container {\n  position: relative;\n  width: 100%;\n  height: calc(100% - 30px);\n  margin-top: -30px;\n  background-color: #ebf1f6;\n  overflow: hidden;\n\n  &.wide {\n    margin-top: 0;\n  }\n\n  .topbar-container {\n    width: 100%;\n    height: 264px;\n    flex: 0 0 264px;\n    padding: 0 30px;\n    box-sizing: border-box;\n    background-color: var(--van-button-primary-background);\n\n    .topbar-content-view {\n      position: relative;\n      width: 100%;\n      height: 90px;\n\n      .top-icon-bg {\n        display: flex;\n        align-items: center;\n        justify-content: space-between;\n        width: 132px;\n        height: 50px;\n        padding: 0 19px;\n        background: v-bind('topIconBg') no-repeat center / cover;\n      }\n\n      .logo-container {\n        position: absolute;\n        top: 48px;\n        left: 50%;\n        transform: translate3d(-50%, 0, 0);\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n\n        .home-top-logo {\n          width: 45px;\n        }\n\n        .text-logo {\n          margin-left: 10px;\n          font-size: 42px;\n          color: #fff;\n        }\n      }\n\n      .help {\n        margin: 0 28px;\n      }\n\n      .message {\n        position: relative;\n        margin-bottom: -3px;\n        margin-right: auto;\n      }\n\n      .unread-sign {\n        position: absolute;\n        top: -7px;\n        right: -9px;\n        width: 24px;\n        height: 24px;\n        line-height: 24px;\n        background-color: red;\n        color: #fff;\n        font-size: 14px;\n        text-align: center;\n        border-radius: 50%;\n      }\n    }\n  }\n\n  .main-content-container {\n    flex: 1;\n    width: 100%;\n    padding: 0 20px;\n\n    .wallet-info-container {\n      position: relative;\n      width: 100%;\n      z-index: 1;\n\n      .wallet-info {\n        width: 100%;\n        // margin-top: -140px;\n        border-radius: 14px;\n        background-color: #fff;\n\n        .wallet-main-content {\n          padding: 21px;\n          font-size: 26px;\n          color: #868d9a;\n\n          .text-funding-details {\n            color: var(--van-button-primary-background);\n          }\n        }\n      }\n    }\n  }\n\n  .go-banzhuan {\n    position: absolute;\n    right: 0;\n    top: 356px;\n    width: 198px;\n    height: 52px;\n    padding: 10px 0 12px 22px;\n    color: #fff;\n    background-color: #fea703;\n    font-size: 25px;\n    border-top-left-radius: 26px;\n    border-bottom-left-radius: 26px;\n    white-space: nowrap;\n\n    img {\n      width: 31px;\n      height: 31px;\n      margin-right: 7px;\n    }\n\n    .process-order-sign {\n      position: absolute;\n      top: -7px;\n      right: 6px;\n      width: 35px;\n      height: 35px;\n      line-height: 35px;\n      background-color: #d9001c;\n      color: #fff;\n      font-size: 21px;\n      text-align: center;\n      border-radius: 50%;\n    }\n  }\n\n  :deep(.dialog-open-notice) {\n    width: 708px;\n    height: auto;\n    padding: 40px;\n\n    &.dialog-open-notice-wide-mode {\n      width: 530px;\n      padding: 20px;\n      overflow-y: auto;\n      display: flex;\n      flex-direction: column;\n      justify-content: space-between;\n\n      .van-dialog__header {\n        font-size: 20px;\n        line-height: unset;\n      }\n\n      .van-dialog__content {\n        max-height: unset;\n        margin: 15px 0 15px 0;\n        flex: 1;\n      }\n\n      .dialog-content {\n        // height: 100px;\n        font-size: 16px;\n      }\n\n      .btn-confirm {\n        height: 40px;\n        font-size: 16px;\n      }\n\n      .dialog-radio-controler {\n        margin-top: 10px;\n      }\n\n      .radio-uncheck {\n        width: 18px !important;\n        height: 18px !important;\n      }\n\n      .radio-checked {\n        $scale: calc(18 / 35);\n        background: url($spriteHome) calc(-0px * $sprite-computed-factor * $scale)\n          calc(-282px * $sprite-computed-factor * $scale) no-repeat;\n        width: 18px;\n        height: 18px;\n        background-size: calc(108px * (7 / 10) * $scale) calc(730px * (7 / 10) * $scale);\n      }\n\n      .radio-text {\n        font-size: 12px !important;\n      }\n    }\n\n    .van-dialog__header {\n      padding: 0;\n      font-size: 29px;\n      color: #13161b;\n    }\n\n    .van-dialog__content {\n      max-height: 600px;\n      margin: 33px 0 35px 0;\n      font-size: 25px;\n      color: #787f8c;\n      text-align: justify;\n      overflow-y: auto;\n    }\n\n    .dialog-content {\n      img {\n        width: 100%;\n\n        &[alt*='['] {\n          width: auto;\n        }\n      }\n\n      p {\n        margin-bottom: 10px;\n      }\n    }\n\n    .van-dialog__footer {\n      padding: 0;\n    }\n\n    .van-dialog__confirm,\n    .btn-confirm {\n      width: 100%;\n      height: 80px;\n      font-size: 31px;\n      background: var(--van-button-primary-background);\n      color: #fff;\n      border: 0;\n      border-radius: 8px;\n    }\n\n    .dialog-radio-controler {\n      margin-top: 20px;\n\n      .radio {\n        margin-right: 10px;\n      }\n\n      .radio-uncheck {\n        width: 35px;\n        height: 35px;\n        border: 1px solid #868d9a;\n        border-radius: 50%;\n      }\n\n      .radio-text {\n        font-size: 25px;\n        color: #13161b;\n      }\n    }\n\n    .icon-close {\n      position: absolute;\n      right: 40px;\n      top: 24px;\n    }\n\n    img {\n      width: 100%;\n      margin-top: 20px;\n    }\n\n    &.dialog-bg-img {\n      padding: 0;\n\n      .van-dialog__content {\n        height: 572px;\n        max-height: 600px;\n        margin: 0;\n        background: v-bind('dialogBgImg') no-repeat center / cover;\n        overflow-y: auto;\n      }\n\n      .van-dialog__confirm {\n        margin: 0 40px 40px 40px;\n      }\n\n      .btn-confirm {\n        width: 626px;\n        margin: 0 auto;\n        margin-top: 30px;\n      }\n\n      .dialog-radio-controler {\n        margin: 20px auto;\n      }\n    }\n  }\n}\n.redDotNum {\n  position: absolute;\n  right: -5px;\n  top: -5px;\n  width: 15px;\n  height: 15px;\n  line-height: 15px;\n  font-size: 12px;\n  background: red;\n  color: #fff;\n  border-radius: 50%;\n}\n</style>\n",
+      "start": 1714699769294,
+      "end": 1714699769363,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769363,
+      "end": 1714699769363,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769363,
+      "end": 1714699769363,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769363,
+      "end": 1714699769363,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769363,
+      "end": 1714699769363,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/onlineCharge.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/onlineCharge.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/onlineCharge.vue?vue&type=style&index=0&scoped=5875ca44&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-5875ca44\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/onlineCharge.vue\"]]);\n",
+      "start": 1714699769363,
+      "end": 1714699769538,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769538,
+      "end": 1714699769538,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/onlineCharge.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/onlineCharge.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/onlineCharge.vue?vue&type=style&index=0&scoped=5875ca44&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-5875ca44\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/onlineCharge.vue\"]]);\n",
+      "start": 1714699769538,
+      "end": 1714699769538,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/onlineCharge.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/onlineCharge.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/onlineCharge.vue?vue&type=style&index=0&scoped=5875ca44&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-5875ca44\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/onlineCharge.vue\"]]);\n",
+      "start": 1714699769538,
+      "end": 1714699770036,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/onlineCharge.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/onlineCharge.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/onlineCharge.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/onlineCharge.vue?vue&type=style&index=0&scoped=5875ca44&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-5875ca44\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/onlineCharge.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,wEAAwE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770036,
+      "end": 1714699770036,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699770036,
+      "end": 1714699770036,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770036,
+      "end": 1714699770036,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770036,
+      "end": 1714699770036,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770036,
+      "end": 1714699770036,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770036,
+      "end": 1714699770036,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770036,
+      "end": 1714699770036,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770036,
+      "end": 1714699770036,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770036,
+      "end": 1714699770036,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/onlineCharge.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/onlineCharge.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/onlineCharge.vue?vue&type=style&index=0&scoped=5875ca44&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-5875ca44\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/onlineCharge.vue\"]]);\n",
+      "start": 1714699770036,
+      "end": 1714699770036,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/onlineCharge.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/onlineCharge.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/onlineCharge.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/onlineCharge.vue?vue&type=style&index=0&scoped=5875ca44&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-5875ca44\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/onlineCharge.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770036,
+      "end": 1714699770036,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770036,
+      "end": 1714699770037,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770037,
+      "end": 1714699770037,
+      "order": "normal"
+    }
+  ]
+}

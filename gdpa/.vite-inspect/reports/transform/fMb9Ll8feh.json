@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/_baseRange.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "/* Built-in method references for those with the same name as other `lodash` methods. */\nvar nativeCeil = Math.ceil,\n    nativeMax = Math.max;\n\n/**\n * The base implementation of `_.range` and `_.rangeRight` which doesn't\n * coerce arguments.\n *\n * @private\n * @param {number} start The start of the range.\n * @param {number} end The end of the range.\n * @param {number} step The value to increment or decrement by.\n * @param {boolean} [fromRight] Specify iterating from right to left.\n * @returns {Array} Returns the range of numbers.\n */\nfunction baseRange(start, end, step, fromRight) {\n  var index = -1,\n      length = nativeMax(nativeCeil((end - start) / (step || 1)), 0),\n      result = Array(length);\n\n  while (length--) {\n    result[fromRight ? length : ++index] = start;\n    start += step;\n  }\n  return result;\n}\n\nexport default baseRange;\n",
+      "start": 1714699768918,
+      "end": 1714699768967,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768967,
+      "end": 1714699768967,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768967,
+      "end": 1714699768967,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768967,
+      "end": 1714699768967,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768967,
+      "end": 1714699768967,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768967,
+      "end": 1714699768967,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768967,
+      "end": 1714699768967,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "/* Built-in method references for those with the same name as other `lodash` methods. */\nvar nativeCeil = Math.ceil,\n    nativeMax = Math.max;\n\n/**\n * The base implementation of `_.range` and `_.rangeRight` which doesn't\n * coerce arguments.\n *\n * @private\n * @param {number} start The start of the range.\n * @param {number} end The end of the range.\n * @param {number} step The value to increment or decrement by.\n * @param {boolean} [fromRight] Specify iterating from right to left.\n * @returns {Array} Returns the range of numbers.\n */\nfunction baseRange(start, end, step, fromRight) {\n  var index = -1,\n      length = nativeMax(nativeCeil((end - start) / (step || 1)), 0),\n      result = Array(length);\n\n  while (length--) {\n    result[fromRight ? length : ++index] = start;\n    start += step;\n  }\n  return result;\n}\n\nexport default baseRange;\n",
+      "start": 1714699768967,
+      "end": 1714699768967,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768967,
+      "end": 1714699768967,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768967,
+      "end": 1714699768967,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768967,
+      "end": 1714699768967,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768967,
+      "end": 1714699768967,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768967,
+      "end": 1714699768967,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768968,
+      "end": 1714699768968,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768968,
+      "end": 1714699768968,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768968,
+      "end": 1714699768968,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768968,
+      "end": 1714699768968,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768968,
+      "end": 1714699768968,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768968,
+      "end": 1714699768968,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768968,
+      "end": 1714699768968,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768968,
+      "end": 1714699768968,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768968,
+      "end": 1714699768968,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Iframe/index.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-68ce4eff\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = { class: \"view-container\" }\n\nimport { onUnmounted, watch } from 'vue'\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'index',\n  setup(__props) {\n\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_router_view = _resolveComponent(\"router-view\")!\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createVNode(_component_router_view)\n  ]))\n}\n}\n\n})",
+      "start": 1714699769592,
+      "end": 1714699769592
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769592,
+      "end": 1714699769592,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\";\nconst _withScopeId = (n) => (_pushScopeId(\"data-v-68ce4eff\"), n = n(), _popScopeId(), n);\nconst _hoisted_1 = { class: \"view-container\" };\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"index\",\n  setup(__props) {\n    return (_ctx, _cache) => {\n      const _component_router_view = _resolveComponent(\"router-view\");\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createVNode(_component_router_view)\n      ]);\n    };\n  }\n});\n",
+      "start": 1714699769592,
+      "end": 1714699770446,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Iframe/index.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-68ce4eff\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = { class: \"view-container\" }\n\nimport { onUnmounted, watch } from 'vue'\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'index',\n  setup(__props) {\n\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_router_view = _resolveComponent(\"router-view\")!\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createVNode(_component_router_view)\n  ]))\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,oBAAoB,mBAAmB,eAAe,cAAc,aAAa,YAAY,sBAAsB,qBAAqB,eAAe,cAAc,cAAc,mBAAmB;AAE/M,MAAM,eAAe,QAAM,aAAa,iBAAiB,GAAE,IAAE,EAAE,GAAE,YAAY,GAAE;AAC/E,MAAM,aAAa,EAAE,OAAO,iBAAiB;AAI7C,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,MAAM,SAAS;AAGjB,WAAO,CAAC,MAAU,WAAgB;AAChC,YAAM,yBAAyB,kBAAkB,aAAa;AAE9D,aAAQ,WAAW,GAAG,oBAAoB,OAAO,YAAY;AAAA,QAC3D,aAAa,sBAAsB;AAAA,MACrC,CAAC;AAAA,IACH;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699770446,
+      "end": 1714699770446,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699770446,
+      "end": 1714699770446,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699770446,
+      "end": 1714699770446,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699770446,
+      "end": 1714699770446,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\";\nconst _withScopeId = (n) => (_pushScopeId(\"data-v-68ce4eff\"), n = n(), _popScopeId(), n);\nconst _hoisted_1 = { class: \"view-container\" };\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"index\",\n  setup(__props) {\n    return (_ctx, _cache) => {\n      const _component_router_view = _resolveComponent(\"router-view\");\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createVNode(_component_router_view)\n      ]);\n    };\n  }\n});\n",
+      "start": 1714699770446,
+      "end": 1714699770446,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\";\nconst _withScopeId = (n) => (_pushScopeId(\"data-v-68ce4eff\"), n = n(), _popScopeId(), n);\nconst _hoisted_1 = { class: \"view-container\" };\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"index\",\n  setup(__props) {\n    return (_ctx, _cache) => {\n      const _component_router_view = _resolveComponent(\"router-view\");\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createVNode(_component_router_view)\n      ]);\n    };\n  }\n});\n",
+      "start": 1714699770446,
+      "end": 1714699770700,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Iframe/index.vue?vue&type=script&setup=true&lang.ts\"],\n  \"sourcesContent\": [\"import { defineComponent as _defineComponent } from \\\"vue\\\";\\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \\\"vue\\\";\\nconst _withScopeId = (n) => (_pushScopeId(\\\"data-v-68ce4eff\\\"), n = n(), _popScopeId(), n);\\nconst _hoisted_1 = { class: \\\"view-container\\\" };\\nexport default /* @__PURE__ */ _defineComponent({\\n  __name: \\\"index\\\",\\n  setup(__props) {\\n    return (_ctx, _cache) => {\\n      const _component_router_view = _resolveComponent(\\\"router-view\\\");\\n      return _openBlock(), _createElementBlock(\\\"div\\\", _hoisted_1, [\\n        _createVNode(_component_router_view)\\n      ]);\\n    };\\n  }\\n});\\n\"],\n  \"mappings\": \";AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,oBAAoB,mBAAmB,eAAe,cAAc,aAAa,YAAY,sBAAsB,qBAAqB,eAAe,cAAc,cAAc,mBAAmB;AAC/M,MAAM,eAAe,CAAC,OAAO,aAAa,iBAAiB,GAAG,IAAI,EAAE,GAAG,YAAY,GAAG;AACtF,MAAM,aAAa,EAAE,OAAO,iBAAiB;AAC7C,eAA+B,iCAAiB;AAAA,EAC9C,QAAQ;AAAA,EACR,MAAM,SAAS;AACb,WAAO,CAAC,MAAM,WAAW;AACvB,YAAM,yBAAyB,kBAAkB,aAAa;AAC9D,aAAO,WAAW,GAAG,oBAAoB,OAAO,YAAY;AAAA,QAC1D,aAAa,sBAAsB;AAAA,MACrC,CAAC;AAAA,IACH;AAAA,EACF;AACF,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770700,
+      "end": 1714699770700,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699770700,
+      "end": 1714699770700,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770700,
+      "end": 1714699770700,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770700,
+      "end": 1714699770700,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770700,
+      "end": 1714699770700,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770700,
+      "end": 1714699770700,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770700,
+      "end": 1714699770700,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770700,
+      "end": 1714699770700,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770700,
+      "end": 1714699770700,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\";\nconst _withScopeId = (n) => (_pushScopeId(\"data-v-68ce4eff\"), n = n(), _popScopeId(), n);\nconst _hoisted_1 = { class: \"view-container\" };\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"index\",\n  setup(__props) {\n    return (_ctx, _cache) => {\n      const _component_router_view = _resolveComponent(\"router-view\");\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createVNode(_component_router_view)\n      ]);\n    };\n  }\n});\n",
+      "start": 1714699770700,
+      "end": 1714699770700,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Iframe/index.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\";\nconst _withScopeId = (n) => (_pushScopeId(\"data-v-68ce4eff\"), n = n(), _popScopeId(), n);\nconst _hoisted_1 = { class: \"view-container\" };\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"index\",\n  setup(__props) {\n    return (_ctx, _cache) => {\n      const _component_router_view = _resolveComponent(\"router-view\");\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createVNode(_component_router_view)\n      ]);\n    };\n  }\n});\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770700,
+      "end": 1714699770700,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770700,
+      "end": 1714699770700,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770700,
+      "end": 1714699770700,
+      "order": "normal"
+    }
+  ]
+}

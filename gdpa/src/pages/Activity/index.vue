@@ -51,7 +51,7 @@ watch(
     if (sessionStorage.getItem('isApp')) {
       showBackBtn.value = false
     } else {
-      const activityEntryRoute = ['/index', '/point', '/mine', '/auth/login']
+      const activityEntryRoute = ['/index', '/point', '/activeList', '/mine', '/auth/login']
       if (activityEntryRoute.includes(newRoute.back as string)) {
         sessionStorage.setItem('activity_entry_route', newRoute.back as string)
       }

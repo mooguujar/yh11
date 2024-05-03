@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/setupDefaults.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "'use strict'\r\n\r\nvar setupDefaults = {\r\n  cookies: {\r\n    path: '/'\r\n  },\r\n  treeOptions: {\r\n    parentKey: 'parentId',\r\n    key: 'id',\r\n    children: 'children'\r\n  },\r\n  parseDateFormat: 'yyyy-MM-dd HH:mm:ss',\r\n  firstDayOfWeek: 1\r\n}\r\n\r\nmodule.exports = setupDefaults\r\n",
+      "start": 1714699767891,
+      "end": 1714699767973,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767974,
+      "end": 1714699767974,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767974,
+      "end": 1714699767974,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767974,
+      "end": 1714699767974,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767974,
+      "end": 1714699767974,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767974,
+      "end": 1714699767974,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767974,
+      "end": 1714699767974,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "'use strict'\r\n\r\nvar setupDefaults = {\r\n  cookies: {\r\n    path: '/'\r\n  },\r\n  treeOptions: {\r\n    parentKey: 'parentId',\r\n    key: 'id',\r\n    children: 'children'\r\n  },\r\n  parseDateFormat: 'yyyy-MM-dd HH:mm:ss',\r\n  firstDayOfWeek: 1\r\n}\r\n\r\nmodule.exports = setupDefaults\r\n",
+      "start": 1714699767974,
+      "end": 1714699767974,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767974,
+      "end": 1714699767974,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767974,
+      "end": 1714699767974,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767974,
+      "end": 1714699767974,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767974,
+      "end": 1714699767974,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767974,
+      "end": 1714699767974,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767974,
+      "end": 1714699767974,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\n\n'use strict'\r\n\r\nvar setupDefaults = {\r\n  cookies: {\r\n    path: '/'\r\n  },\r\n  treeOptions: {\r\n    parentKey: 'parentId',\r\n    key: 'id',\r\n    children: 'children'\r\n  },\r\n  parseDateFormat: 'yyyy-MM-dd HH:mm:ss',\r\n  firstDayOfWeek: 1\r\n}\r\n\r\nvar setupDefaults_1 = setupDefaults\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(setupDefaults_1);\nexport { setupDefaults_1 as __moduleExports };",
+      "start": 1714699767974,
+      "end": 1714699767974,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;AAAA,YAAY;AACZ;AACA,IAAI,aAAa,GAAG;AACpB,EAAE,OAAO,EAAE;AACX,IAAI,IAAI,EAAE,GAAG;AACb,GAAG;AACH,EAAE,WAAW,EAAE;AACf,IAAI,SAAS,EAAE,UAAU;AACzB,IAAI,GAAG,EAAE,IAAI;AACb,IAAI,QAAQ,EAAE,UAAU;AACxB,GAAG;AACH,EAAE,eAAe,EAAE,qBAAqB;AACxC,EAAE,cAAc,EAAE,CAAC;AACnB,CAAC;AACD;IACA,eAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767974,
+      "end": 1714699767974,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767974,
+      "end": 1714699767974,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767974,
+      "end": 1714699767974,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767974,
+      "end": 1714699767974,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767974,
+      "end": 1714699767974,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767974,
+      "end": 1714699767974,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767974,
+      "end": 1714699767974,
+      "order": "normal"
+    }
+  ]
+}

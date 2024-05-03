@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/_basePullAt.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import baseUnset from './_baseUnset.js';\nimport isIndex from './_isIndex.js';\n\n/** Used for built-in method references. */\nvar arrayProto = Array.prototype;\n\n/** Built-in value references. */\nvar splice = arrayProto.splice;\n\n/**\n * The base implementation of `_.pullAt` without support for individual\n * indexes or capturing the removed elements.\n *\n * @private\n * @param {Array} array The array to modify.\n * @param {number[]} indexes The indexes of elements to remove.\n * @returns {Array} Returns `array`.\n */\nfunction basePullAt(array, indexes) {\n  var length = array ? indexes.length : 0,\n      lastIndex = length - 1;\n\n  while (length--) {\n    var index = indexes[length];\n    if (length == lastIndex || index !== previous) {\n      var previous = index;\n      if (isIndex(index)) {\n        splice.call(array, index, 1);\n      } else {\n        baseUnset(array, index);\n      }\n    }\n  }\n  return array;\n}\n\nexport default basePullAt;\n",
+      "start": 1714699768736,
+      "end": 1714699768748,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import baseUnset from './_baseUnset.js';\nimport isIndex from './_isIndex.js';\n\n/** Used for built-in method references. */\nvar arrayProto = Array.prototype;\n\n/** Built-in value references. */\nvar splice = arrayProto.splice;\n\n/**\n * The base implementation of `_.pullAt` without support for individual\n * indexes or capturing the removed elements.\n *\n * @private\n * @param {Array} array The array to modify.\n * @param {number[]} indexes The indexes of elements to remove.\n * @returns {Array} Returns `array`.\n */\nfunction basePullAt(array, indexes) {\n  var length = array ? indexes.length : 0,\n      lastIndex = length - 1;\n\n  while (length--) {\n    var index = indexes[length];\n    if (length == lastIndex || index !== previous) {\n      var previous = index;\n      if (isIndex(index)) {\n        splice.call(array, index, 1);\n      } else {\n        baseUnset(array, index);\n      }\n    }\n  }\n  return array;\n}\n\nexport default basePullAt;\n",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768748,
+      "end": 1714699768748,
+      "order": "normal"
+    }
+  ]
+}

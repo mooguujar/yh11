@@ -1,0 +1,163 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue?vue&type=style&index=0&scoped=72e0a096&lang.scss",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\n.card-list-container {\n  .payBox {\n    display: flex;\n    align-items: center;\n    margin-right: 8px;\n    &:last-child {\n      margin-right: 0;\n    }\n  }\n  .credit {\n    width: 32.6px;\n    height: 25.7px;\n  }\n  .alipay {\n    width: 27.8px;\n    height: 27.1px;\n  }\n  .WeChatPay {\n    width: 32.6px;\n    height: 29.2px;\n  }\n  .SZRMB {\n    width: 20.5px;\n    height: 20.5px;\n  }\n}\n",
+      "start": 1714699771964,
+      "end": 1714699771964
+    },
+    {
+      "name": "vite:css",
+      "result": ".card-list-container .payBox {\n  display: flex;\n  align-items: center;\n  margin-right: 0.10667rem;\n}\n.card-list-container .payBox:last-child {\n  margin-right: 0;\n}\n.card-list-container .credit {\n  width: 0.43467rem;\n  height: 0.34267rem;\n}\n.card-list-container .alipay {\n  width: 0.37067rem;\n  height: 0.36133rem;\n}\n.card-list-container .WeChatPay {\n  width: 0.43467rem;\n  height: 0.38933rem;\n}\n.card-list-container .SZRMB {\n  width: 0.27333rem;\n  height: 0.27333rem;\n}",
+      "start": 1714699771964,
+      "end": 1714699771969,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771969,
+      "end": 1714699771969,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771969,
+      "end": 1714699771969,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771969,
+      "end": 1714699771969,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".card-list-container .payBox[data-v-72e0a096] {\n  display: flex;\n  align-items: center;\n  margin-right: 0.10667rem;\n}\n.card-list-container .payBox[data-v-72e0a096]:last-child {\n  margin-right: 0;\n}\n.card-list-container .credit[data-v-72e0a096] {\n  width: 0.43467rem;\n  height: 0.34267rem;\n}\n.card-list-container .alipay[data-v-72e0a096] {\n  width: 0.37067rem;\n  height: 0.36133rem;\n}\n.card-list-container .WeChatPay[data-v-72e0a096] {\n  width: 0.43467rem;\n  height: 0.38933rem;\n}\n.card-list-container .SZRMB[data-v-72e0a096] {\n  width: 0.27333rem;\n  height: 0.27333rem;\n}",
+      "start": 1714699771969,
+      "end": 1714699771969,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771969,
+      "end": 1714699771969,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": ".card-list-container .payBox[data-v-72e0a096] {\n  display: flex;\n  align-items: center;\n  margin-right: 0.10667rem;\n}\n.card-list-container .payBox[data-v-72e0a096]:last-child {\n  margin-right: 0;\n}\n.card-list-container .credit[data-v-72e0a096] {\n  width: 0.43467rem;\n  height: 0.34267rem;\n}\n.card-list-container .alipay[data-v-72e0a096] {\n  width: 0.37067rem;\n  height: 0.36133rem;\n}\n.card-list-container .WeChatPay[data-v-72e0a096] {\n  width: 0.43467rem;\n  height: 0.38933rem;\n}\n.card-list-container .SZRMB[data-v-72e0a096] {\n  width: 0.27333rem;\n  height: 0.27333rem;\n}",
+      "start": 1714699771969,
+      "end": 1714699771969,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699771969,
+      "end": 1714699771969,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771969,
+      "end": 1714699771969,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699771969,
+      "end": 1714699771970,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771970,
+      "end": 1714699771970,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771970,
+      "end": 1714699771970,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771970,
+      "end": 1714699771970,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699771970,
+      "end": 1714699771970,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771970,
+      "end": 1714699771970,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771970,
+      "end": 1714699771970,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771970,
+      "end": 1714699771970,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */",
+      "start": 1714699771970,
+      "end": 1714699771970,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue?vue&type=style&index=0&scoped=72e0a096&lang.scss"
+        ],
+        "sourcesContent": [
+          ""
+        ],
+        "names": [],
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771970,
+      "end": 1714699771970,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771970,
+      "end": 1714699771970,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771970,
+      "end": 1714699771970,
+      "order": "normal"
+    }
+  ]
+}

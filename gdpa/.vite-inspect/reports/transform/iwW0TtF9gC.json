@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/notify/function-call.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode, mergeProps as _mergeProps } from \"vue\";\nimport { extend, isObject, inBrowser } from \"../utils/index.mjs\";\nimport { mountComponent, usePopupState } from \"../utils/mount-component.mjs\";\nimport VanNotify from \"./Notify.mjs\";\nlet timer;\nlet instance;\nconst parseOptions = (message) => isObject(message) ? message : {\n  message\n};\nfunction initInstance() {\n  ({\n    instance\n  } = mountComponent({\n    setup() {\n      const {\n        state,\n        toggle\n      } = usePopupState();\n      return () => _createVNode(VanNotify, _mergeProps(state, {\n        \"onUpdate:show\": toggle\n      }), null);\n    }\n  }));\n}\nconst getDefaultOptions = () => ({\n  type: \"danger\",\n  color: void 0,\n  message: \"\",\n  onClose: void 0,\n  onClick: void 0,\n  onOpened: void 0,\n  duration: 3e3,\n  position: void 0,\n  className: \"\",\n  lockScroll: false,\n  background: void 0\n});\nlet currentOptions = getDefaultOptions();\nconst closeNotify = () => {\n  if (instance) {\n    instance.toggle(false);\n  }\n};\nfunction showNotify(options) {\n  if (!inBrowser) {\n    return;\n  }\n  if (!instance) {\n    initInstance();\n  }\n  options = extend({}, currentOptions, parseOptions(options));\n  instance.open(options);\n  clearTimeout(timer);\n  if (options.duration > 0) {\n    timer = setTimeout(closeNotify, options.duration);\n  }\n  return instance;\n}\nconst setNotifyDefaultOptions = (options) => extend(currentOptions, options);\nconst resetNotifyDefaultOptions = () => {\n  currentOptions = getDefaultOptions();\n};\nexport {\n  closeNotify,\n  resetNotifyDefaultOptions,\n  setNotifyDefaultOptions,\n  showNotify\n};\n",
+      "start": 1714699767292,
+      "end": 1714699767313,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767313,
+      "end": 1714699767313,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767313,
+      "end": 1714699767313,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767313,
+      "end": 1714699767313,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767313,
+      "end": 1714699767313,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767313,
+      "end": 1714699767313,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767313,
+      "end": 1714699767313,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { createVNode as _createVNode, mergeProps as _mergeProps } from \"vue\";\nimport { extend, isObject, inBrowser } from \"../utils/index.mjs\";\nimport { mountComponent, usePopupState } from \"../utils/mount-component.mjs\";\nimport VanNotify from \"./Notify.mjs\";\nlet timer;\nlet instance;\nconst parseOptions = (message) => isObject(message) ? message : {\n  message\n};\nfunction initInstance() {\n  ({\n    instance\n  } = mountComponent({\n    setup() {\n      const {\n        state,\n        toggle\n      } = usePopupState();\n      return () => _createVNode(VanNotify, _mergeProps(state, {\n        \"onUpdate:show\": toggle\n      }), null);\n    }\n  }));\n}\nconst getDefaultOptions = () => ({\n  type: \"danger\",\n  color: void 0,\n  message: \"\",\n  onClose: void 0,\n  onClick: void 0,\n  onOpened: void 0,\n  duration: 3e3,\n  position: void 0,\n  className: \"\",\n  lockScroll: false,\n  background: void 0\n});\nlet currentOptions = getDefaultOptions();\nconst closeNotify = () => {\n  if (instance) {\n    instance.toggle(false);\n  }\n};\nfunction showNotify(options) {\n  if (!inBrowser) {\n    return;\n  }\n  if (!instance) {\n    initInstance();\n  }\n  options = extend({}, currentOptions, parseOptions(options));\n  instance.open(options);\n  clearTimeout(timer);\n  if (options.duration > 0) {\n    timer = setTimeout(closeNotify, options.duration);\n  }\n  return instance;\n}\nconst setNotifyDefaultOptions = (options) => extend(currentOptions, options);\nconst resetNotifyDefaultOptions = () => {\n  currentOptions = getDefaultOptions();\n};\nexport {\n  closeNotify,\n  resetNotifyDefaultOptions,\n  setNotifyDefaultOptions,\n  showNotify\n};\n",
+      "start": 1714699767313,
+      "end": 1714699767313,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767313,
+      "end": 1714699767313,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767313,
+      "end": 1714699767313,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767313,
+      "end": 1714699767313,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767313,
+      "end": 1714699767313,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767313,
+      "end": 1714699767313,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767313,
+      "end": 1714699767313,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767313,
+      "end": 1714699767313,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767313,
+      "end": 1714699767313,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767313,
+      "end": 1714699767313,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767313,
+      "end": 1714699767313,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767313,
+      "end": 1714699767313,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767313,
+      "end": 1714699767313,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767313,
+      "end": 1714699767313,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767313,
+      "end": 1714699767313,
+      "order": "normal"
+    }
+  ]
+}

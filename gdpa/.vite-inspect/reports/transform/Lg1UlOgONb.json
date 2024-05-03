@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/verifyList.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <div class=\"verify w-100 bg-white\">\n    <nav-bar\n      title=\"实名认证\"\n      mode=\"white\"\n    />\n\n    <div class=\"order-content p-[0px] bg-[#fff] flex items-center flex-wrap justify-center\">\n      <div class=\"text-[#787f8c] text-[22px] text-left w-full pl-2 mb-1\">\n        为保证您的账号安全，请先完成实名认证\n      </div>\n    </div>\n    <div class=\"verify_list\">\n      <div class=\"verify_item\">\n        <h3 class=\"clearfix\">\n          初级实名认证\n          <span\n            class=\"right\"\n            :class=\"\n              verified_status == 0 || verified_status == 3 || verified_status == 4\n                ? 'text-[red]'\n                : verified_status == 1\n                ? 'text-[#23d94f]'\n                : verified_status == 2\n                ? 'text-[#fcb273]'\n                : ''\n            \"\n          >\n            {{\n              verified_status == 0\n                ? '未认证'\n                : verified_status == 1\n                ? '已认证'\n                : verified_status == 2\n                ? '审核中'\n                : verified_status == 3\n                ? '审核未通过'\n                : verified_status == 4\n                ? '拒绝认证'\n                : '加载中'\n            }}\n          </span>\n        </h3>\n        <p>个人信息+身份证正反面照片</p>\n        <p class=\"clearfix !p-[0] leading-[75px]\">\n          <span v-if=\"verified_H5login\">\n            日买币限额\n            <span class=\"text-[var(--van-button-primary-background)]\">\n              {{ verified_chuji_buysell.buycoin }}\n            </span>\n            、日卖币限额\n            <span class=\"text-[var(--van-button-primary-background)]\">\n              {{ verified_chuji_buysell.sellcoin }}\n            </span>\n          </span>\n          <van-button\n            v-show=\"verified_status != 4 && verified_status != 2 && verified_status != 1\"\n            type=\"primary\"\n            class=\"right\"\n            @click=\"$router.push('newVerify')\"\n          >\n            去认证\n          </van-button>\n        </p>\n      </div>\n      <div\n        class=\"verify_item\"\n        v-if=\"verified_H5login\"\n      >\n        <h3 class=\"clearfix\">\n          高级实名认证\n          <span\n            class=\"right\"\n            :class=\"advanced_verified == 0 ? 'text-[red]' : 'text-[#08d53b]'\"\n          >\n            {{ advanced_verified == 0 ? '未认证' : '已认证' }}\n          </span>\n        </h3>\n        <p>个人信息+身份证正反面照片+人脸识别</p>\n        <p class=\"clearfix !p-[0] leading-[75px]\">\n          日买币、卖币不限额\n          <van-button\n            v-if=\"advanced_verified != 1\"\n            :disabled=\"[2, 4].includes(verified_status)\"\n            @click=\"$router.push('newVerify?advanced_verified=1&advanced_v=1')\"\n            type=\"primary\"\n            class=\"right\"\n          >\n            去认证\n          </van-button>\n        </p>\n      </div>\n    </div>\n  </div>\n</template>\n\n<script setup lang=\"ts\">\nimport { facecheck } from '@/apis/auth'\nimport { uploadImgApi } from '@/apis/common'\nimport { userVerifiedApi } from '@/apis/user'\nimport info from '@/assets/images/common/info.png'\nimport success from '@/assets/images/common/success.png'\nimport { useAuthStore, useEntryStore } from '@/store'\nimport { InWEB } from '@/utils/tools'\nimport identityIDCard from '@/utils/verifyId'\nimport { storeToRefs } from 'pinia'\nimport { showToast } from 'vant'\nimport { computed, onMounted, ref } from 'vue'\nimport { useRoute, useRouter } from 'vue-router'\n\nconst router = useRouter()\nconst route = useRoute()\nconst isLoading = ref(false)\n\nconst name = ref('')\nconst user_id = ref('')\n\nconst entryStore = useEntryStore()\nconst imgServerUrl = entryStore.imgServerUrl\nconst authStore = useAuthStore()\nauthStore?.getUserInfo()\nconst verified_status = computed(() => {\n  return authStore?.userInfo?.verified_status || 0\n})\nconst advanced_verified = computed(() => {\n  return authStore?.userInfo?.advanced_verified\n})\nconst { config } = storeToRefs(entryStore)\n\nconst verified_chuji_buysell = computed(() => {\n  return config.value.Web_Transfer_BuySell_Coin_Fee?.verified_chuji_buysell || {}\n})\nconst verified_H5login = computed(() => {\n  // return 0\n  const v =\n    config.value.Web_Transfer_BuySell_Coin_Fee?.verified_chuji_buysell.verified_H5login == 1 ||\n    InWEB() ||\n    0\n  return v\n})\nconst showInfoToast = (title: string) => {\n  return showToast({\n    message: title,\n    icon: info\n  })\n}\nconst showSuceedToast = (title: string) => {\n  return showToast({\n    message: title,\n    icon: success\n  })\n}\n\nconst fileupload2 = ref()\n\nconst uploadImg = async (file: string): Promise<any> => {\n  try {\n    const res = await uploadImgApi({\n      file,\n      type: 'realname'\n    })\n\n    return res\n  } catch (e) {\n    console.log(e)\n  } finally {\n    fileupload2.value.value = ''\n  }\n}\n\nconst isForceDialog = ref(false)\nconst handleForceDialog = (open: boolean) => {\n  isForceDialog.value = open\n}\n\nconst backTo = () => {\n  if (route?.query?.from) {\n    router.push(route.query.from as any)\n  } else {\n    router.back()\n  }\n}\n\nconst canEdit = ref(false)\nonMounted(() => {\n  canEdit.value = !authStore?.userInfo?.name\n  name.value = authStore.userInfo.name\n})\n</script>\n\n<style lang=\"scss\" scoped>\n@import '@/assets/styles/sprite-mine.scss';\n.verify {\n  position: relative;\n  flex-direction: column;\n  width: 100%;\n  height: 100%;\n}\n\n:deep(.van-field__label) {\n  font-size: 28px;\n  color: #13161b;\n  margin-bottom: 13px;\n}\n\n:deep(.van-cell__value) {\n  height: 79px;\n  background: #ebf1f6;\n  display: flex;\n  align-items: center;\n  padding: 0 17px;\n  font-size: 25px;\n  margin-bottom: 12px;\n}\n:deep(.van-cell) {\n  padding-bottom: 0;\n  padding-top: 0;\n}\n:deep(.van-cell:after) {\n  display: none;\n}\n:deep(.van-button--large) {\n  width: 92%;\n  height: 80px;\n  margin: 0 auto;\n  font-size: 31px;\n  margin-top: 30px;\n}\n:deep(.van-field__body) {\n  width: 100%;\n}\n:deep(.van-field__control:disabled) {\n  color: #000;\n  -webkit-text-fill-color: #000;\n}\n.item {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 44px;\n  height: 44px;\n  border-radius: 999px;\n  background-color: var(--van-button-primary-background);\n}\n.bg-front {\n  background-image: url('@/assets/images/verify-bg-front.png');\n  background-size: cover;\n}\n.bg-back {\n  background-image: url('@/assets/images/verify-bg-back.png');\n  background-size: cover;\n}\n.verify_list {\n  padding: 20px;\n  font-size: 27px;\n  .verify_item {\n    border-radius: 20px;\n    background: #e9eff5;\n    padding: 20px;\n    margin-bottom: 20px;\n    h3 {\n      font-size: 35px;\n      padding: 10px 0;\n    }\n    p {\n      padding: 15px 0;\n      .right {\n        height: 75px;\n      }\n    }\n  }\n}\n</style>\n",
+      "start": 1714699769100,
+      "end": 1714699769274,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769274,
+      "end": 1714699769274,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769274,
+      "end": 1714699769274,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769274,
+      "end": 1714699769274,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769274,
+      "end": 1714699769274,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/verifyList.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/verifyList.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/verifyList.vue?vue&type=style&index=0&scoped=fa2bc0b7&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-fa2bc0b7\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/verifyList.vue\"]]);\n",
+      "start": 1714699769274,
+      "end": 1714699769529,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769529,
+      "end": 1714699769529,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/verifyList.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/verifyList.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/verifyList.vue?vue&type=style&index=0&scoped=fa2bc0b7&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-fa2bc0b7\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/verifyList.vue\"]]);\n",
+      "start": 1714699769529,
+      "end": 1714699769529,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/verifyList.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/verifyList.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/verifyList.vue?vue&type=style&index=0&scoped=fa2bc0b7&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-fa2bc0b7\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/verifyList.vue\"]]);\n",
+      "start": 1714699769529,
+      "end": 1714699769609,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/verifyList.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/verifyList.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/verifyList.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/verifyList.vue?vue&type=style&index=0&scoped=fa2bc0b7&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-fa2bc0b7\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/verifyList.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,qEAAqE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769609,
+      "end": 1714699769609,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769609,
+      "end": 1714699769609,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769609,
+      "end": 1714699769609,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769609,
+      "end": 1714699769609,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769609,
+      "end": 1714699769609,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769609,
+      "end": 1714699769609,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769609,
+      "end": 1714699769609,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769609,
+      "end": 1714699769609,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769609,
+      "end": 1714699769609,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/verifyList.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/verifyList.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/verifyList.vue?vue&type=style&index=0&scoped=fa2bc0b7&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-fa2bc0b7\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/verifyList.vue\"]]);\n",
+      "start": 1714699769609,
+      "end": 1714699769610,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/verifyList.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/verifyList.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/verifyList.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/verifyList.vue?vue&type=style&index=0&scoped=fa2bc0b7&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-fa2bc0b7\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/verifyList.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769610,
+      "end": 1714699769610,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769610,
+      "end": 1714699769610,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769610,
+      "end": 1714699769610,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isNull.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "/**\r\n  * 判断是否为Null\r\n  *\r\n  * @param {Object} obj 对象\r\n  * @return {Boolean}\r\n  */\r\nfunction isNull (obj) {\r\n  return obj === null\r\n}\r\n\r\nmodule.exports = isNull\r\n",
+      "start": 1714699767588,
+      "end": 1714699767611,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767611,
+      "end": 1714699767611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767611,
+      "end": 1714699767611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767611,
+      "end": 1714699767611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767611,
+      "end": 1714699767611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767611,
+      "end": 1714699767611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767611,
+      "end": 1714699767611,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "/**\r\n  * 判断是否为Null\r\n  *\r\n  * @param {Object} obj 对象\r\n  * @return {Boolean}\r\n  */\r\nfunction isNull (obj) {\r\n  return obj === null\r\n}\r\n\r\nmodule.exports = isNull\r\n",
+      "start": 1714699767611,
+      "end": 1714699767611,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767611,
+      "end": 1714699767611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767611,
+      "end": 1714699767611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767611,
+      "end": 1714699767611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767611,
+      "end": 1714699767611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767611,
+      "end": 1714699767611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767611,
+      "end": 1714699767611,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "/**\r\n  * 判断是否为Null\r\n  *\r\n  * @param {Object} obj 对象\r\n  * @return {Boolean}\r\n  */\nimport * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\n\nfunction isNull (obj) {\r\n  return obj === null\r\n}\r\n\r\nvar isNull_1 = isNull\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(isNull_1);\nexport { isNull_1 as __moduleExports };",
+      "start": 1714699767611,
+      "end": 1714699767611,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;;;;AAMA,SAAS,MAAM,EAAE,GAAG,EAAE;AACtB,EAAE,OAAO,GAAG,KAAK,IAAI;AACrB,CAAC;AACD;IACA,QAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767611,
+      "end": 1714699767611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767611,
+      "end": 1714699767611,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767611,
+      "end": 1714699767611,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767611,
+      "end": 1714699767611,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767611,
+      "end": 1714699767611,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767611,
+      "end": 1714699767611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767611,
+      "end": 1714699767611,
+      "order": "normal"
+    }
+  ]
+}

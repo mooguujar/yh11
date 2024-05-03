@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/dialog/function-call.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode, mergeProps as _mergeProps } from \"vue\";\nimport { extend, inBrowser } from \"../utils/index.mjs\";\nimport { mountComponent, usePopupState } from \"../utils/mount-component.mjs\";\nimport Dialog from \"./Dialog.mjs\";\nlet instance;\nconst DEFAULT_OPTIONS = {\n  title: \"\",\n  width: \"\",\n  theme: null,\n  message: \"\",\n  overlay: true,\n  callback: null,\n  teleport: \"body\",\n  className: \"\",\n  allowHtml: false,\n  lockScroll: true,\n  transition: void 0,\n  beforeClose: null,\n  overlayClass: \"\",\n  overlayStyle: void 0,\n  messageAlign: \"\",\n  cancelButtonText: \"\",\n  cancelButtonColor: null,\n  cancelButtonDisabled: false,\n  confirmButtonText: \"\",\n  confirmButtonColor: null,\n  confirmButtonDisabled: false,\n  showConfirmButton: true,\n  showCancelButton: false,\n  closeOnPopstate: true,\n  closeOnClickOverlay: false\n};\nlet currentOptions = extend({}, DEFAULT_OPTIONS);\nfunction initInstance() {\n  const Wrapper = {\n    setup() {\n      const {\n        state,\n        toggle\n      } = usePopupState();\n      return () => _createVNode(Dialog, _mergeProps(state, {\n        \"onUpdate:show\": toggle\n      }), null);\n    }\n  };\n  ({\n    instance\n  } = mountComponent(Wrapper));\n}\nfunction showDialog(options) {\n  if (!inBrowser) {\n    return Promise.resolve(void 0);\n  }\n  return new Promise((resolve, reject) => {\n    if (!instance) {\n      initInstance();\n    }\n    instance.open(extend({}, currentOptions, options, {\n      callback: (action) => {\n        (action === \"confirm\" ? resolve : reject)(action);\n      }\n    }));\n  });\n}\nconst setDialogDefaultOptions = (options) => {\n  extend(currentOptions, options);\n};\nconst resetDialogDefaultOptions = () => {\n  currentOptions = extend({}, DEFAULT_OPTIONS);\n};\nconst showConfirmDialog = (options) => showDialog(extend({\n  showCancelButton: true\n}, options));\nconst closeDialog = () => {\n  if (instance) {\n    instance.toggle(false);\n  }\n};\nexport {\n  closeDialog,\n  resetDialogDefaultOptions,\n  setDialogDefaultOptions,\n  showConfirmDialog,\n  showDialog\n};\n",
+      "start": 1714699767247,
+      "end": 1714699767291,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767291,
+      "end": 1714699767291,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767291,
+      "end": 1714699767291,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767291,
+      "end": 1714699767291,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767291,
+      "end": 1714699767291,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767291,
+      "end": 1714699767291,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767291,
+      "end": 1714699767291,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { createVNode as _createVNode, mergeProps as _mergeProps } from \"vue\";\nimport { extend, inBrowser } from \"../utils/index.mjs\";\nimport { mountComponent, usePopupState } from \"../utils/mount-component.mjs\";\nimport Dialog from \"./Dialog.mjs\";\nlet instance;\nconst DEFAULT_OPTIONS = {\n  title: \"\",\n  width: \"\",\n  theme: null,\n  message: \"\",\n  overlay: true,\n  callback: null,\n  teleport: \"body\",\n  className: \"\",\n  allowHtml: false,\n  lockScroll: true,\n  transition: void 0,\n  beforeClose: null,\n  overlayClass: \"\",\n  overlayStyle: void 0,\n  messageAlign: \"\",\n  cancelButtonText: \"\",\n  cancelButtonColor: null,\n  cancelButtonDisabled: false,\n  confirmButtonText: \"\",\n  confirmButtonColor: null,\n  confirmButtonDisabled: false,\n  showConfirmButton: true,\n  showCancelButton: false,\n  closeOnPopstate: true,\n  closeOnClickOverlay: false\n};\nlet currentOptions = extend({}, DEFAULT_OPTIONS);\nfunction initInstance() {\n  const Wrapper = {\n    setup() {\n      const {\n        state,\n        toggle\n      } = usePopupState();\n      return () => _createVNode(Dialog, _mergeProps(state, {\n        \"onUpdate:show\": toggle\n      }), null);\n    }\n  };\n  ({\n    instance\n  } = mountComponent(Wrapper));\n}\nfunction showDialog(options) {\n  if (!inBrowser) {\n    return Promise.resolve(void 0);\n  }\n  return new Promise((resolve, reject) => {\n    if (!instance) {\n      initInstance();\n    }\n    instance.open(extend({}, currentOptions, options, {\n      callback: (action) => {\n        (action === \"confirm\" ? resolve : reject)(action);\n      }\n    }));\n  });\n}\nconst setDialogDefaultOptions = (options) => {\n  extend(currentOptions, options);\n};\nconst resetDialogDefaultOptions = () => {\n  currentOptions = extend({}, DEFAULT_OPTIONS);\n};\nconst showConfirmDialog = (options) => showDialog(extend({\n  showCancelButton: true\n}, options));\nconst closeDialog = () => {\n  if (instance) {\n    instance.toggle(false);\n  }\n};\nexport {\n  closeDialog,\n  resetDialogDefaultOptions,\n  setDialogDefaultOptions,\n  showConfirmDialog,\n  showDialog\n};\n",
+      "start": 1714699767291,
+      "end": 1714699767291,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767291,
+      "end": 1714699767291,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767291,
+      "end": 1714699767291,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767291,
+      "end": 1714699767291,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767291,
+      "end": 1714699767291,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767291,
+      "end": 1714699767291,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767291,
+      "end": 1714699767291,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767291,
+      "end": 1714699767291,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767291,
+      "end": 1714699767291,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767291,
+      "end": 1714699767291,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767291,
+      "end": 1714699767291,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767291,
+      "end": 1714699767291,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767291,
+      "end": 1714699767291,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767291,
+      "end": 1714699767291,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767291,
+      "end": 1714699767291,
+      "order": "normal"
+    }
+  ]
+}

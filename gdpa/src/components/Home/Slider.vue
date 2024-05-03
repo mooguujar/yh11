@@ -5,7 +5,9 @@ import { useCoinBuySellStore } from '@/store/modules/coinBuySell'
 import { useEntryStore } from '@/store/modules/entry'
 import { IArticleListType } from '@/store/types/article'
 import { INormal } from '@/store/types/entry'
+import { requireImg } from '@/utils/tools'
 import { storeToRefs } from 'pinia'
+import { showToast } from 'vant'
 import { computed, nextTick, onMounted, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 const coinBuySellStore = useCoinBuySellStore()
@@ -50,11 +52,20 @@ const checkCount = ref(0)
 
 const handleClick = async (data: any) => {
   if (data.app_exts) {
-    const { app_action, H5_action, WebUrlLink } = JSON.parse(data.app_exts)
+    const appExts = JSON.parse(data.app_exts)
+    const { app_action, H5_action, WebUrlLink, isAppLogin } = appExts
 
-    window.log('当前轮播跳转信息', data)
+    window.log('当前轮播跳转信息', data, appExts, isAppLogin)
 
     if (app_action === 'Mod_UserReg' && isLogin) return
+    if (isAppLogin && !isLogin.value) {
+      return showToast({
+        message: '请先登录',
+        icon: requireImg('common/info.png'),
+        iconSize: '48px'
+      })
+    }
+
     if (H5_action) {
       router.push(H5_action)
     } else if (app_action === 'Mod_Movingbricks') {

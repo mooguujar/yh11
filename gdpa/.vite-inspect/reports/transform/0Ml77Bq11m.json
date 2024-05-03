@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\nimport { ref } from 'vue'\n\nconst visible = ref(false)\nconst loadingConfirm = ref(false)\nconst loadingCancel = ref(false)\n\nconst props = defineProps({\n  action: {\n    type: Function\n  },\n  cancelAction: {\n    type: Function\n  },\n  dialogType: {\n    type: String,\n    default: 'alert'\n  },\n  onVanish: {\n    type: Function\n  },\n  closeable: {\n    type: Boolean,\n    default: true\n  },\n  teleport: {\n    type: String,\n    default: 'body'\n  }\n})\n\ndefineExpose({\n  visible\n})\n</script>\n\n<template>\n  <van-overlay\n    :show=\"visible\"\n    class=\"jz_f\"\n  >\n    <van-loading\n      class=\"top-[50%] left-[50%]\"\n      size=\"50\"\n      type=\"spinner\"\n      color=\"#1989fa\"\n    />\n  </van-overlay>\n</template>\n\n<style scoped lang=\"scss\">\n.van-overlay {\n  width: 755px;\n  z-index: 3000;\n  background: 0;\n  :deep(.van-loading) {\n    .van-loading__spinner {\n      margin-left: -60px;\n    }\n  }\n}\n</style>\n",
+      "start": 1714699771922,
+      "end": 1714699771962,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771962,
+      "end": 1714699771962,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771962,
+      "end": 1714699771962,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771962,
+      "end": 1714699771962,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771962,
+      "end": 1714699771962,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue?vue&type=style&index=0&scoped=da75b41f&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-da75b41f\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue\"]]);\n",
+      "start": 1714699771962,
+      "end": 1714699772180,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699772180,
+      "end": 1714699772180,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue?vue&type=style&index=0&scoped=da75b41f&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-da75b41f\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue\"]]);\n",
+      "start": 1714699772180,
+      "end": 1714699772180,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue?vue&type=style&index=0&scoped=da75b41f&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-da75b41f\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue\"]]);\n",
+      "start": 1714699772180,
+      "end": 1714699772231,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue?vue&type=style&index=0&scoped=da75b41f&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-da75b41f\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,oFAAoF,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699772231,
+      "end": 1714699772231,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699772231,
+      "end": 1714699772231,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699772231,
+      "end": 1714699772231,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699772231,
+      "end": 1714699772231,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699772231,
+      "end": 1714699772231,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699772231,
+      "end": 1714699772231,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699772231,
+      "end": 1714699772231,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699772231,
+      "end": 1714699772231,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699772231,
+      "end": 1714699772231,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue?vue&type=style&index=0&scoped=da75b41f&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-da75b41f\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue\"]]);\n",
+      "start": 1714699772231,
+      "end": 1714699772231,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue?vue&type=style&index=0&scoped=da75b41f&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-da75b41f\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699772231,
+      "end": 1714699772231,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699772231,
+      "end": 1714699772231,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699772231,
+      "end": 1714699772231,
+      "order": "normal"
+    }
+  ]
+}

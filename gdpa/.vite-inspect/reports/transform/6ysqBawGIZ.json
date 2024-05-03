@@ -1,0 +1,156 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/router/index.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { AuthExpirePopup } from '@/components/CommonPopup/AuthExpirePopup'\nimport { buy_sell_v } from '@/router/middleware'\nimport { UntokenInWEB, filterList } from '@/utils/tools'\nimport { createRouter, createWebHashHistory } from 'vue-router'\nimport routes from './routers'\nconst router = createRouter({\n  // history: createWebHistory(import.meta.env.BASE_URL),\n  history: createWebHashHistory('/h5'),\n  routes: routes\n})\n\nrouter.beforeEach(async (to, from, next) => {\n  // 如果未匹配到路由\n  if (to.matched.length === 0) {\n    // 如果上级也未匹配到路由则跳转主页面，如果上级能匹配到则转上级路由\n    from.path ? next({ path: from.path }) : next('/')\n  } else {\n    // const commonStore = useCommonStore()\n    // 跳转路由前，终止所有未完成的请求\n    // commonStore.abortAllRequest()\n\n    const search = new URLSearchParams(window.location.search)\n    const vtoken = search.get('vtoken') || ''\n    const deviceid = search.get('deviceid') || ''\n\n    // 非开发环境，屏蔽跳转到登录页\n    // if (import.meta.env.VITE_APP_ENV === 'prod' && to.name === 'Login') return\n\n    // 兼容本地H5调式页面，未获取到token，则跳转到登录页，避免页面显示异常\n    // if (\n    //   import.meta.env.VITE_APP_ENV === 'dev' &&\n    //   !vtoken &&\n    //   !deviceid &&\n    //   !localStorage.getItem('token') &&\n    //   to.name !== 'Login'\n    // ) {\n    //   next('/auth/login')\n    //   return\n    // }\n\n    // 提现后，点击确认进入详情后，点返回，应返回到搬砖页\n    if (to.name === 'WithdrawCoins' && from.name === 'CoinDetails') {\n      next('/bricks/move-brick')\n      return\n    }\n    if (to.name === 'buy_coin' && from.name !== 'buy_coin' && from.name) {\n      if (!!!(await buy_sell_v())) return next(false)\n    }\n    if (to.name === 'sell_coin' && from.name !== 'sell_coin' && from.name) {\n      if (!!!(await buy_sell_v())) return next(false)\n    }\n    if (UntokenInWEB() && !!!filterList(to.fullPath)) {\n      return next('/auth/login')\n    }\n\n    if (to.meta.title) {\n      document.title = to.meta.title as string\n    }\n\n    // 如果匹配到正确跳转\n    next()\n  }\n})\n\nrouter.afterEach((to, from) => {\n  const hash = window.location.hash\n  if (UntokenInWEB() && hash.includes('send')) {\n    setTimeout(() => {\n      AuthExpirePopup({\n        action: () => {\n          router.replace('/auth/login')\n        },\n        msgtext: '登录已失效，请返回登录。'\n      })\n    }, 500)\n    return\n  }\n})\n\nexport default router\n",
+      "start": 1714699765945,
+      "end": 1714699766106,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699766106,
+      "end": 1714699766106,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { AuthExpirePopup } from \"@/components/CommonPopup/AuthExpirePopup\";\nimport { buy_sell_v } from \"@/router/middleware\";\nimport { UntokenInWEB, filterList } from \"@/utils/tools\";\nimport { createRouter, createWebHashHistory } from \"vue-router\";\nimport routes from \"./routers\";\nconst router = createRouter({\n  // history: createWebHistory(import.meta.env.BASE_URL),\n  history: createWebHashHistory(\"/h5\"),\n  routes\n});\nrouter.beforeEach(async (to, from, next) => {\n  if (to.matched.length === 0) {\n    from.path ? next({ path: from.path }) : next(\"/\");\n  } else {\n    const search = new URLSearchParams(window.location.search);\n    const vtoken = search.get(\"vtoken\") || \"\";\n    const deviceid = search.get(\"deviceid\") || \"\";\n    if (to.name === \"WithdrawCoins\" && from.name === \"CoinDetails\") {\n      next(\"/bricks/move-brick\");\n      return;\n    }\n    if (to.name === \"buy_coin\" && from.name !== \"buy_coin\" && from.name) {\n      if (!!!await buy_sell_v())\n        return next(false);\n    }\n    if (to.name === \"sell_coin\" && from.name !== \"sell_coin\" && from.name) {\n      if (!!!await buy_sell_v())\n        return next(false);\n    }\n    if (UntokenInWEB() && !!!filterList(to.fullPath)) {\n      return next(\"/auth/login\");\n    }\n    if (to.meta.title) {\n      document.title = to.meta.title;\n    }\n    next();\n  }\n});\nrouter.afterEach((to, from) => {\n  const hash = window.location.hash;\n  if (UntokenInWEB() && hash.includes(\"send\")) {\n    setTimeout(() => {\n      AuthExpirePopup({\n        action: () => {\n          router.replace(\"/auth/login\");\n        },\n        msgtext: \"登录已失效，请返回登录。\"\n      });\n    }, 500);\n    return;\n  }\n});\nexport default router;\n",
+      "start": 1714699766106,
+      "end": 1714699766210,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/router/index.ts"
+        ],
+        "sourcesContent": [
+          "import { AuthExpirePopup } from '@/components/CommonPopup/AuthExpirePopup'\nimport { buy_sell_v } from '@/router/middleware'\nimport { UntokenInWEB, filterList } from '@/utils/tools'\nimport { createRouter, createWebHashHistory } from 'vue-router'\nimport routes from './routers'\nconst router = createRouter({\n  // history: createWebHistory(import.meta.env.BASE_URL),\n  history: createWebHashHistory('/h5'),\n  routes: routes\n})\n\nrouter.beforeEach(async (to, from, next) => {\n  // 如果未匹配到路由\n  if (to.matched.length === 0) {\n    // 如果上级也未匹配到路由则跳转主页面，如果上级能匹配到则转上级路由\n    from.path ? next({ path: from.path }) : next('/')\n  } else {\n    // const commonStore = useCommonStore()\n    // 跳转路由前，终止所有未完成的请求\n    // commonStore.abortAllRequest()\n\n    const search = new URLSearchParams(window.location.search)\n    const vtoken = search.get('vtoken') || ''\n    const deviceid = search.get('deviceid') || ''\n\n    // 非开发环境，屏蔽跳转到登录页\n    // if (import.meta.env.VITE_APP_ENV === 'prod' && to.name === 'Login') return\n\n    // 兼容本地H5调式页面，未获取到token，则跳转到登录页，避免页面显示异常\n    // if (\n    //   import.meta.env.VITE_APP_ENV === 'dev' &&\n    //   !vtoken &&\n    //   !deviceid &&\n    //   !localStorage.getItem('token') &&\n    //   to.name !== 'Login'\n    // ) {\n    //   next('/auth/login')\n    //   return\n    // }\n\n    // 提现后，点击确认进入详情后，点返回，应返回到搬砖页\n    if (to.name === 'WithdrawCoins' && from.name === 'CoinDetails') {\n      next('/bricks/move-brick')\n      return\n    }\n    if (to.name === 'buy_coin' && from.name !== 'buy_coin' && from.name) {\n      if (!!!(await buy_sell_v())) return next(false)\n    }\n    if (to.name === 'sell_coin' && from.name !== 'sell_coin' && from.name) {\n      if (!!!(await buy_sell_v())) return next(false)\n    }\n    if (UntokenInWEB() && !!!filterList(to.fullPath)) {\n      return next('/auth/login')\n    }\n\n    if (to.meta.title) {\n      document.title = to.meta.title as string\n    }\n\n    // 如果匹配到正确跳转\n    next()\n  }\n})\n\nrouter.afterEach((to, from) => {\n  const hash = window.location.hash\n  if (UntokenInWEB() && hash.includes('send')) {\n    setTimeout(() => {\n      AuthExpirePopup({\n        action: () => {\n          router.replace('/auth/login')\n        },\n        msgtext: '登录已失效，请返回登录。'\n      })\n    }, 500)\n    return\n  }\n})\n\nexport default router\n"
+        ],
+        "mappings": "AAAA,SAAS,uBAAuB;AAChC,SAAS,kBAAkB;AAC3B,SAAS,cAAc,kBAAkB;AACzC,SAAS,cAAc,4BAA4B;AACnD,OAAO,YAAY;AACnB,MAAM,SAAS,aAAa;AAAA;AAAA,EAE1B,SAAS,qBAAqB,KAAK;AAAA,EACnC;AACF,CAAC;AAED,OAAO,WAAW,OAAO,IAAI,MAAM,SAAS;AAE1C,MAAI,GAAG,QAAQ,WAAW,GAAG;AAE3B,SAAK,OAAO,KAAK,EAAE,MAAM,KAAK,KAAK,CAAC,IAAI,KAAK,GAAG;AAAA,EAClD,OAAO;AAKL,UAAM,SAAS,IAAI,gBAAgB,OAAO,SAAS,MAAM;AACzD,UAAM,SAAS,OAAO,IAAI,QAAQ,KAAK;AACvC,UAAM,WAAW,OAAO,IAAI,UAAU,KAAK;AAkB3C,QAAI,GAAG,SAAS,mBAAmB,KAAK,SAAS,eAAe;AAC9D,WAAK,oBAAoB;AACzB;AAAA,IACF;AACA,QAAI,GAAG,SAAS,cAAc,KAAK,SAAS,cAAc,KAAK,MAAM;AACnE,UAAI,CAAC,CAAC,CAAE,MAAM,WAAW;AAAI,eAAO,KAAK,KAAK;AAAA,IAChD;AACA,QAAI,GAAG,SAAS,eAAe,KAAK,SAAS,eAAe,KAAK,MAAM;AACrE,UAAI,CAAC,CAAC,CAAE,MAAM,WAAW;AAAI,eAAO,KAAK,KAAK;AAAA,IAChD;AACA,QAAI,aAAa,KAAK,CAAC,CAAC,CAAC,WAAW,GAAG,QAAQ,GAAG;AAChD,aAAO,KAAK,aAAa;AAAA,IAC3B;AAEA,QAAI,GAAG,KAAK,OAAO;AACjB,eAAS,QAAQ,GAAG,KAAK;AAAA,IAC3B;AAGA,SAAK;AAAA,EACP;AACF,CAAC;AAED,OAAO,UAAU,CAAC,IAAI,SAAS;AAC7B,QAAM,OAAO,OAAO,SAAS;AAC7B,MAAI,aAAa,KAAK,KAAK,SAAS,MAAM,GAAG;AAC3C,eAAW,MAAM;AACf,sBAAgB;AAAA,QACd,QAAQ,MAAM;AACZ,iBAAO,QAAQ,aAAa;AAAA,QAC9B;AAAA,QACA,SAAS;AAAA,MACX,CAAC;AAAA,IACH,GAAG,GAAG;AACN;AAAA,EACF;AACF,CAAC;AAED,eAAe;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699766210,
+      "end": 1714699766210,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699766210,
+      "end": 1714699766210,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699766210,
+      "end": 1714699766210,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699766210,
+      "end": 1714699766210,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { AuthExpirePopup } from \"@/components/CommonPopup/AuthExpirePopup\";\nimport { buy_sell_v } from \"@/router/middleware\";\nimport { UntokenInWEB, filterList } from \"@/utils/tools\";\nimport { createRouter, createWebHashHistory } from \"vue-router\";\nimport routes from \"./routers\";\nconst router = createRouter({\n  // history: createWebHistory(import.meta.env.BASE_URL),\n  history: createWebHashHistory(\"/h5\"),\n  routes\n});\nrouter.beforeEach(async (to, from, next) => {\n  if (to.matched.length === 0) {\n    from.path ? next({ path: from.path }) : next(\"/\");\n  } else {\n    const search = new URLSearchParams(window.location.search);\n    const vtoken = search.get(\"vtoken\") || \"\";\n    const deviceid = search.get(\"deviceid\") || \"\";\n    if (to.name === \"WithdrawCoins\" && from.name === \"CoinDetails\") {\n      next(\"/bricks/move-brick\");\n      return;\n    }\n    if (to.name === \"buy_coin\" && from.name !== \"buy_coin\" && from.name) {\n      if (!!!await buy_sell_v())\n        return next(false);\n    }\n    if (to.name === \"sell_coin\" && from.name !== \"sell_coin\" && from.name) {\n      if (!!!await buy_sell_v())\n        return next(false);\n    }\n    if (UntokenInWEB() && !!!filterList(to.fullPath)) {\n      return next(\"/auth/login\");\n    }\n    if (to.meta.title) {\n      document.title = to.meta.title;\n    }\n    next();\n  }\n});\nrouter.afterEach((to, from) => {\n  const hash = window.location.hash;\n  if (UntokenInWEB() && hash.includes(\"send\")) {\n    setTimeout(() => {\n      AuthExpirePopup({\n        action: () => {\n          router.replace(\"/auth/login\");\n        },\n        msgtext: \"登录已失效，请返回登录。\"\n      });\n    }, 500);\n    return;\n  }\n});\nexport default router;\n",
+      "start": 1714699766210,
+      "end": 1714699766210,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport { AuthExpirePopup } from \"@/components/CommonPopup/AuthExpirePopup\";\nimport { buy_sell_v } from \"@/router/middleware\";\nimport { UntokenInWEB, filterList } from \"@/utils/tools\";\nimport { createRouter, createWebHashHistory } from \"vue-router\";\nimport routes from \"./routers\";\nconst router = createRouter({\n  // history: createWebHistory(import.meta.env.BASE_URL),\n  history: createWebHashHistory(\"/h5\"),\n  routes\n});\nrouter.beforeEach(async (to, from, next) => {\n  if (to.matched.length === 0) {\n    from.path ? next({ path: from.path }) : next(\"/\");\n  } else {\n    const search = new URLSearchParams(window.location.search);\n    const vtoken = search.get(\"vtoken\") || \"\";\n    const deviceid = search.get(\"deviceid\") || \"\";\n    if (to.name === \"WithdrawCoins\" && from.name === \"CoinDetails\") {\n      next(\"/bricks/move-brick\");\n      return;\n    }\n    if (to.name === \"buy_coin\" && from.name !== \"buy_coin\" && from.name) {\n      if (!!!await buy_sell_v())\n        return next(false);\n    }\n    if (to.name === \"sell_coin\" && from.name !== \"sell_coin\" && from.name) {\n      if (!!!await buy_sell_v())\n        return next(false);\n    }\n    if (UntokenInWEB() && !!!filterList(to.fullPath)) {\n      return next(\"/auth/login\");\n    }\n    if (to.meta.title) {\n      document.title = to.meta.title;\n    }\n    next();\n  }\n});\nrouter.afterEach((to, from) => {\n  const hash = window.location.hash;\n  if (UntokenInWEB() && hash.includes(\"send\")) {\n    setTimeout(() => {\n      AuthExpirePopup({\n        action: () => {\n          router.replace(\"/auth/login\");\n        },\n        msgtext: \"\\u767B\\u5F55\\u5DF2\\u5931\\u6548\\uFF0C\\u8BF7\\u8FD4\\u56DE\\u767B\\u5F55\\u3002\"\n      });\n    }, 500);\n    return;\n  }\n});\nexport default router;\n",
+      "start": 1714699766210,
+      "end": 1714699766405,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/router/index.ts\"],\n  \"sourcesContent\": [\"import { AuthExpirePopup } from \\\"@/components/CommonPopup/AuthExpirePopup\\\";\\nimport { buy_sell_v } from \\\"@/router/middleware\\\";\\nimport { UntokenInWEB, filterList } from \\\"@/utils/tools\\\";\\nimport { createRouter, createWebHashHistory } from \\\"vue-router\\\";\\nimport routes from \\\"./routers\\\";\\nconst router = createRouter({\\n  // history: createWebHistory(import.meta.env.BASE_URL),\\n  history: createWebHashHistory(\\\"/h5\\\"),\\n  routes\\n});\\nrouter.beforeEach(async (to, from, next) => {\\n  if (to.matched.length === 0) {\\n    from.path ? next({ path: from.path }) : next(\\\"/\\\");\\n  } else {\\n    const search = new URLSearchParams(window.location.search);\\n    const vtoken = search.get(\\\"vtoken\\\") || \\\"\\\";\\n    const deviceid = search.get(\\\"deviceid\\\") || \\\"\\\";\\n    if (to.name === \\\"WithdrawCoins\\\" && from.name === \\\"CoinDetails\\\") {\\n      next(\\\"/bricks/move-brick\\\");\\n      return;\\n    }\\n    if (to.name === \\\"buy_coin\\\" && from.name !== \\\"buy_coin\\\" && from.name) {\\n      if (!!!await buy_sell_v())\\n        return next(false);\\n    }\\n    if (to.name === \\\"sell_coin\\\" && from.name !== \\\"sell_coin\\\" && from.name) {\\n      if (!!!await buy_sell_v())\\n        return next(false);\\n    }\\n    if (UntokenInWEB() && !!!filterList(to.fullPath)) {\\n      return next(\\\"/auth/login\\\");\\n    }\\n    if (to.meta.title) {\\n      document.title = to.meta.title;\\n    }\\n    next();\\n  }\\n});\\nrouter.afterEach((to, from) => {\\n  const hash = window.location.hash;\\n  if (UntokenInWEB() && hash.includes(\\\"send\\\")) {\\n    setTimeout(() => {\\n      AuthExpirePopup({\\n        action: () => {\\n          router.replace(\\\"/auth/login\\\");\\n        },\\n        msgtext: \\\"\\u767B\\u5F55\\u5DF2\\u5931\\u6548\\uFF0C\\u8BF7\\u8FD4\\u56DE\\u767B\\u5F55\\u3002\\\"\\n      });\\n    }, 500);\\n    return;\\n  }\\n});\\nexport default router;\\n\"],\n  \"mappings\": \";AAAA,SAAS,uBAAuB;AAChC,SAAS,kBAAkB;AAC3B,SAAS,cAAc,kBAAkB;AACzC,SAAS,cAAc,4BAA4B;AACnD,OAAO,YAAY;AACnB,MAAM,SAAS,aAAa;AAAA;AAAA,EAE1B,SAAS,qBAAqB,KAAK;AAAA,EACnC;AACF,CAAC;AACD,OAAO,WAAW,OAAO,IAAI,MAAM,SAAS;AAC1C,MAAI,GAAG,QAAQ,WAAW,GAAG;AAC3B,SAAK,OAAO,KAAK,EAAE,MAAM,KAAK,KAAK,CAAC,IAAI,KAAK,GAAG;AAAA,EAClD,OAAO;AACL,UAAM,SAAS,IAAI,gBAAgB,OAAO,SAAS,MAAM;AACzD,UAAM,SAAS,OAAO,IAAI,QAAQ,KAAK;AACvC,UAAM,WAAW,OAAO,IAAI,UAAU,KAAK;AAC3C,QAAI,GAAG,SAAS,mBAAmB,KAAK,SAAS,eAAe;AAC9D,WAAK,oBAAoB;AACzB;AAAA,IACF;AACA,QAAI,GAAG,SAAS,cAAc,KAAK,SAAS,cAAc,KAAK,MAAM;AACnE,UAAI,CAAC,CAAC,CAAC,MAAM,WAAW;AACtB,eAAO,KAAK,KAAK;AAAA,IACrB;AACA,QAAI,GAAG,SAAS,eAAe,KAAK,SAAS,eAAe,KAAK,MAAM;AACrE,UAAI,CAAC,CAAC,CAAC,MAAM,WAAW;AACtB,eAAO,KAAK,KAAK;AAAA,IACrB;AACA,QAAI,aAAa,KAAK,CAAC,CAAC,CAAC,WAAW,GAAG,QAAQ,GAAG;AAChD,aAAO,KAAK,aAAa;AAAA,IAC3B;AACA,QAAI,GAAG,KAAK,OAAO;AACjB,eAAS,QAAQ,GAAG,KAAK;AAAA,IAC3B;AACA,SAAK;AAAA,EACP;AACF,CAAC;AACD,OAAO,UAAU,CAAC,IAAI,SAAS;AAC7B,QAAM,OAAO,OAAO,SAAS;AAC7B,MAAI,aAAa,KAAK,KAAK,SAAS,MAAM,GAAG;AAC3C,eAAW,MAAM;AACf,sBAAgB;AAAA,QACd,QAAQ,MAAM;AACZ,iBAAO,QAAQ,aAAa;AAAA,QAC9B;AAAA,QACA,SAAS;AAAA,MACX,CAAC;AAAA,IACH,GAAG,GAAG;AACN;AAAA,EACF;AACF,CAAC;AACD,eAAe;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "result": "\"use strict\";\nimport { AuthExpirePopup } from \"@/components/CommonPopup/AuthExpirePopup\";\nimport { buy_sell_v } from \"@/router/middleware\";\nimport { UntokenInWEB, filterList } from \"@/utils/tools\";\nimport { createRouter, createWebHashHistory } from \"vue-router\";\nimport routes from \"./routers\";\nconst router = createRouter({\n  // history: createWebHistory(import.meta.env.BASE_URL),\n  history: createWebHashHistory(\"/h5\"),\n  routes\n});\nrouter.beforeEach(async (to, from, next) => {\n  if (to.matched.length === 0) {\n    from.path ? next({ path: from.path }) : next(\"/\");\n  } else {\n    const search = new URLSearchParams(window.location.search);\n    const vtoken = search.get(\"vtoken\") || \"\";\n    const deviceid = search.get(\"deviceid\") || \"\";\n    if (to.name === \"WithdrawCoins\" && from.name === \"CoinDetails\") {\n      next(\"/bricks/move-brick\");\n      return;\n    }\n    if (to.name === \"buy_coin\" && from.name !== \"buy_coin\" && from.name) {\n      if (!!!await buy_sell_v())\n        return next(false);\n    }\n    if (to.name === \"sell_coin\" && from.name !== \"sell_coin\" && from.name) {\n      if (!!!await buy_sell_v())\n        return next(false);\n    }\n    if (UntokenInWEB() && !!!filterList(to.fullPath)) {\n      return next(\"/auth/login\");\n    }\n    if (to.meta.title) {\n      document.title = to.meta.title;\n    }\n    next();\n  }\n});\nrouter.afterEach((to, from) => {\n  const hash = window.location.hash;\n  if (UntokenInWEB() && hash.includes(\"send\")) {\n    setTimeout(() => {\n      AuthExpirePopup({\n        action: () => {\n          router.replace(\"/auth/login\");\n        },\n        msgtext: \"登录已失效，请返回登录。\"\n      });\n    }, 500);\n    return;\n  }\n});\nexport default router;\n",
+      "start": 1714699766405,
+      "end": 1714699766950,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699766950,
+      "end": 1714699766950,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699766950,
+      "end": 1714699766950,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699766950,
+      "end": 1714699766950,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699766950,
+      "end": 1714699766950,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699766950,
+      "end": 1714699766950,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699766950,
+      "end": 1714699766950,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699766950,
+      "end": 1714699766950,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699766950,
+      "end": 1714699766952,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699766952,
+      "end": 1714699766952,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699766952,
+      "end": 1714699766953,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699766953,
+      "end": 1714699766953,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699766953,
+      "end": 1714699766953,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/includeArrays.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var isArray = require('./isArray')\r\nvar includes = require('./includes')\r\n\r\n/**\r\n  * 判断数组是否包含另一数组\r\n  *\r\n  * @param {Array} array1 数组\r\n  * @param {Array} array2 被包含数组\r\n  * @return {Boolean}\r\n  */\r\nfunction includeArrays (array1, array2) {\r\n  var len\r\n  var index = 0\r\n  if (isArray(array1) && isArray(array2)) {\r\n    for (len = array2.length; index < len; index++) {\r\n      if (!includes(array1, array2[index])) {\r\n        return false\r\n      }\r\n    }\r\n    return true\r\n  }\r\n  return includes(array1, array2)\r\n}\r\n\r\nmodule.exports = includeArrays\r\n",
+      "start": 1714699767525,
+      "end": 1714699767568,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767568,
+      "end": 1714699767568,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767568,
+      "end": 1714699767568,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767568,
+      "end": 1714699767568,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767568,
+      "end": 1714699767568,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767568,
+      "end": 1714699767568,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767568,
+      "end": 1714699767568,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var isArray = require('./isArray')\r\nvar includes = require('./includes')\r\n\r\n/**\r\n  * 判断数组是否包含另一数组\r\n  *\r\n  * @param {Array} array1 数组\r\n  * @param {Array} array2 被包含数组\r\n  * @return {Boolean}\r\n  */\r\nfunction includeArrays (array1, array2) {\r\n  var len\r\n  var index = 0\r\n  if (isArray(array1) && isArray(array2)) {\r\n    for (len = array2.length; index < len; index++) {\r\n      if (!includes(array1, array2[index])) {\r\n        return false\r\n      }\r\n    }\r\n    return true\r\n  }\r\n  return includes(array1, array2)\r\n}\r\n\r\nmodule.exports = includeArrays\r\n",
+      "start": 1714699767568,
+      "end": 1714699767568,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767568,
+      "end": 1714699767568,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767568,
+      "end": 1714699767568,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767568,
+      "end": 1714699767568,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767568,
+      "end": 1714699767568,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767568,
+      "end": 1714699767568,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767568,
+      "end": 1714699767568,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isArray.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/includes.js?commonjs-proxy\";\n\nvar isArray = require$$0\r\nvar includes = require$$1\r\n\r\n/**\r\n  * 判断数组是否包含另一数组\r\n  *\r\n  * @param {Array} array1 数组\r\n  * @param {Array} array2 被包含数组\r\n  * @return {Boolean}\r\n  */\r\nfunction includeArrays (array1, array2) {\r\n  var len\r\n  var index = 0\r\n  if (isArray(array1) && isArray(array2)) {\r\n    for (len = array2.length; index < len; index++) {\r\n      if (!includes(array1, array2[index])) {\r\n        return false\r\n      }\r\n    }\r\n    return true\r\n  }\r\n  return includes(array1, array2)\r\n}\r\n\r\nvar includeArrays_1 = includeArrays\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(includeArrays_1);\nexport { includeArrays_1 as __moduleExports };",
+      "start": 1714699767568,
+      "end": 1714699768104,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;AAAA,IAAI,OAAO,GAAG,UAAoB;AAClC,IAAI,QAAQ,GAAG,UAAqB;AACpC;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,aAAa,EAAE,MAAM,EAAE,MAAM,EAAE;AACxC,EAAE,IAAI,GAAG;AACT,EAAE,IAAI,KAAK,GAAG,CAAC;AACf,EAAE,IAAI,OAAO,CAAC,MAAM,CAAC,IAAI,OAAO,CAAC,MAAM,CAAC,EAAE;AAC1C,IAAI,KAAK,GAAG,GAAG,MAAM,CAAC,MAAM,EAAE,KAAK,GAAG,GAAG,EAAE,KAAK,EAAE,EAAE;AACpD,MAAM,IAAI,CAAC,QAAQ,CAAC,MAAM,EAAE,MAAM,CAAC,KAAK,CAAC,CAAC,EAAE;AAC5C,QAAQ,OAAO,KAAK;AACpB,OAAO;AACP,KAAK;AACL,IAAI,OAAO,IAAI;AACf,GAAG;AACH,EAAE,OAAO,QAAQ,CAAC,MAAM,EAAE,MAAM,CAAC;AACjC,CAAC;AACD;IACA,eAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768104,
+      "end": 1714699768104,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768104,
+      "end": 1714699768104,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768104,
+      "end": 1714699768104,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768104,
+      "end": 1714699768104,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768104,
+      "end": 1714699768104,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768104,
+      "end": 1714699768104,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768105,
+      "end": 1714699768105,
+      "order": "normal"
+    }
+  ]
+}

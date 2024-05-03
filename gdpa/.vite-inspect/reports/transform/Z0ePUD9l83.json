@@ -1,0 +1,154 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/AuthExpirePopup/index.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { AppContext, ComponentInternalInstance } from 'vue'\nimport AuthExpireConstruct from './AuthExpirePopup.vue'\nimport { createVM } from '../core'\nimport mitt from '@/utils/mitt'\n\ntype ProfileCompletionPopupProps = {\n  action: () => void\n  msgtext?: string\n}\n\nlet vm: ComponentInternalInstance | null = null\nexport function AuthExpirePopup(\n  props: ProfileCompletionPopupProps,\n  appContext?: AppContext | null\n) {\n  if (!vm) {\n    vm = createVM<ProfileCompletionPopupProps>(AuthExpireConstruct, props, appContext)\n  }\n  vm!.exposed!.visible.value = true\n  // 全局通知，便于其他后续逻辑控制\n  mitt.emit('global-notification', { type: 'AuthExpire', value: true })\n}\n",
+      "start": 1714699767248,
+      "end": 1714699767291,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767291,
+      "end": 1714699767291,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import AuthExpireConstruct from \"./AuthExpirePopup.vue\";\nimport { createVM } from \"../core\";\nimport mitt from \"@/utils/mitt\";\nlet vm = null;\nexport function AuthExpirePopup(props, appContext) {\n  if (!vm) {\n    vm = createVM(AuthExpireConstruct, props, appContext);\n  }\n  vm.exposed.visible.value = true;\n  mitt.emit(\"global-notification\", { type: \"AuthExpire\", value: true });\n}\n",
+      "start": 1714699767291,
+      "end": 1714699767488,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/AuthExpirePopup/index.ts"
+        ],
+        "sourcesContent": [
+          "import { AppContext, ComponentInternalInstance } from 'vue'\nimport AuthExpireConstruct from './AuthExpirePopup.vue'\nimport { createVM } from '../core'\nimport mitt from '@/utils/mitt'\n\ntype ProfileCompletionPopupProps = {\n  action: () => void\n  msgtext?: string\n}\n\nlet vm: ComponentInternalInstance | null = null\nexport function AuthExpirePopup(\n  props: ProfileCompletionPopupProps,\n  appContext?: AppContext | null\n) {\n  if (!vm) {\n    vm = createVM<ProfileCompletionPopupProps>(AuthExpireConstruct, props, appContext)\n  }\n  vm!.exposed!.visible.value = true\n  // 全局通知，便于其他后续逻辑控制\n  mitt.emit('global-notification', { type: 'AuthExpire', value: true })\n}\n"
+        ],
+        "mappings": "AACA,OAAO,yBAAyB;AAChC,SAAS,gBAAgB;AACzB,OAAO,UAAU;AAOjB,IAAI,KAAuC;AACpC,gBAAS,gBACd,OACA,YACA;AACA,MAAI,CAAC,IAAI;AACP,SAAK,SAAsC,qBAAqB,OAAO,UAAU;AAAA,EACnF;AACA,KAAI,QAAS,QAAQ,QAAQ;AAE7B,OAAK,KAAK,uBAAuB,EAAE,MAAM,cAAc,OAAO,KAAK,CAAC;AACtE;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767488,
+      "end": 1714699767488,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767488,
+      "end": 1714699767488,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767488,
+      "end": 1714699767488,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767488,
+      "end": 1714699767488,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import AuthExpireConstruct from \"./AuthExpirePopup.vue\";\nimport { createVM } from \"../core\";\nimport mitt from \"@/utils/mitt\";\nlet vm = null;\nexport function AuthExpirePopup(props, appContext) {\n  if (!vm) {\n    vm = createVM(AuthExpireConstruct, props, appContext);\n  }\n  vm.exposed.visible.value = true;\n  mitt.emit(\"global-notification\", { type: \"AuthExpire\", value: true });\n}\n",
+      "start": 1714699767488,
+      "end": 1714699767488,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport AuthExpireConstruct from \"./AuthExpirePopup.vue\";\nimport { createVM } from \"../core\";\nimport mitt from \"@/utils/mitt\";\nlet vm = null;\nexport function AuthExpirePopup(props, appContext) {\n  if (!vm) {\n    vm = createVM(AuthExpireConstruct, props, appContext);\n  }\n  vm.exposed.visible.value = true;\n  mitt.emit(\"global-notification\", { type: \"AuthExpire\", value: true });\n}\n",
+      "start": 1714699767488,
+      "end": 1714699767593,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/AuthExpirePopup/index.ts\"],\n  \"sourcesContent\": [\"import AuthExpireConstruct from \\\"./AuthExpirePopup.vue\\\";\\nimport { createVM } from \\\"../core\\\";\\nimport mitt from \\\"@/utils/mitt\\\";\\nlet vm = null;\\nexport function AuthExpirePopup(props, appContext) {\\n  if (!vm) {\\n    vm = createVM(AuthExpireConstruct, props, appContext);\\n  }\\n  vm.exposed.visible.value = true;\\n  mitt.emit(\\\"global-notification\\\", { type: \\\"AuthExpire\\\", value: true });\\n}\\n\"],\n  \"mappings\": \";AAAA,OAAO,yBAAyB;AAChC,SAAS,gBAAgB;AACzB,OAAO,UAAU;AACjB,IAAI,KAAK;AACF,gBAAS,gBAAgB,OAAO,YAAY;AACjD,MAAI,CAAC,IAAI;AACP,SAAK,SAAS,qBAAqB,OAAO,UAAU;AAAA,EACtD;AACA,KAAG,QAAQ,QAAQ,QAAQ;AAC3B,OAAK,KAAK,uBAAuB,EAAE,MAAM,cAAc,OAAO,KAAK,CAAC;AACtE;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767593,
+      "end": 1714699767593,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767593,
+      "end": 1714699767593,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767593,
+      "end": 1714699767593,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767593,
+      "end": 1714699767593,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767593,
+      "end": 1714699767593,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767593,
+      "end": 1714699767593,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767593,
+      "end": 1714699767593,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767593,
+      "end": 1714699767593,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767593,
+      "end": 1714699767594,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767594,
+      "end": 1714699767594,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767594,
+      "end": 1714699767594,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767594,
+      "end": 1714699767595,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767595,
+      "end": 1714699767595,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/arrayEach.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "function arrayEach (list, iterate, context) {\r\n  if (list) {\r\n    if (list.forEach) {\r\n      list.forEach(iterate, context)\r\n    } else {\r\n      for (var index = 0, len = list.length; index < len; index++) {\r\n        iterate.call(context, list[index], index, list)\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\nmodule.exports = arrayEach\r\n",
+      "start": 1714699767526,
+      "end": 1714699767567,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767567,
+      "end": 1714699767567,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767567,
+      "end": 1714699767567,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767567,
+      "end": 1714699767567,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767567,
+      "end": 1714699767567,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767567,
+      "end": 1714699767567,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767567,
+      "end": 1714699767567,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "function arrayEach (list, iterate, context) {\r\n  if (list) {\r\n    if (list.forEach) {\r\n      list.forEach(iterate, context)\r\n    } else {\r\n      for (var index = 0, len = list.length; index < len; index++) {\r\n        iterate.call(context, list[index], index, list)\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\nmodule.exports = arrayEach\r\n",
+      "start": 1714699767567,
+      "end": 1714699767567,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767567,
+      "end": 1714699767567,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767567,
+      "end": 1714699767567,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767567,
+      "end": 1714699767567,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767567,
+      "end": 1714699767567,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767567,
+      "end": 1714699767567,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767567,
+      "end": 1714699767567,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\n\nfunction arrayEach (list, iterate, context) {\r\n  if (list) {\r\n    if (list.forEach) {\r\n      list.forEach(iterate, context)\r\n    } else {\r\n      for (var index = 0, len = list.length; index < len; index++) {\r\n        iterate.call(context, list[index], index, list)\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\nvar arrayEach_1 = arrayEach\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(arrayEach_1);\nexport { arrayEach_1 as __moduleExports };",
+      "start": 1714699767567,
+      "end": 1714699767568,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;AAAA,SAAS,SAAS,EAAE,IAAI,EAAE,OAAO,EAAE,OAAO,EAAE;AAC5C,EAAE,IAAI,IAAI,EAAE;AACZ,IAAI,IAAI,IAAI,CAAC,OAAO,EAAE;AACtB,MAAM,IAAI,CAAC,OAAO,CAAC,OAAO,EAAE,OAAO,CAAC;AACpC,KAAK,MAAM;AACX,MAAM,KAAK,IAAI,KAAK,GAAG,CAAC,EAAE,GAAG,GAAG,IAAI,CAAC,MAAM,EAAE,KAAK,GAAG,GAAG,EAAE,KAAK,EAAE,EAAE;AACnE,QAAQ,OAAO,CAAC,IAAI,CAAC,OAAO,EAAE,IAAI,CAAC,KAAK,CAAC,EAAE,KAAK,EAAE,IAAI,CAAC;AACvD,OAAO;AACP,KAAK;AACL,GAAG;AACH,CAAC;AACD;IACA,WAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767568,
+      "end": 1714699767568,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767568,
+      "end": 1714699767568,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767568,
+      "end": 1714699767568,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767568,
+      "end": 1714699767568,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767568,
+      "end": 1714699767568,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767568,
+      "end": 1714699767568,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767568,
+      "end": 1714699767568,
+      "order": "normal"
+    }
+  ]
+}

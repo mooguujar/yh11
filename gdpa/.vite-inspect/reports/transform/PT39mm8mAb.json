@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/utils/dom.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { useRect, useWindowSize } from \"@vant/use\";\nimport { unref } from \"vue\";\nimport { isIOS as checkIsIOS } from \"./basic.mjs\";\nfunction getScrollTop(el) {\n  const top = \"scrollTop\" in el ? el.scrollTop : el.pageYOffset;\n  return Math.max(top, 0);\n}\nfunction setScrollTop(el, value) {\n  if (\"scrollTop\" in el) {\n    el.scrollTop = value;\n  } else {\n    el.scrollTo(el.scrollX, value);\n  }\n}\nfunction getRootScrollTop() {\n  return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;\n}\nfunction setRootScrollTop(value) {\n  setScrollTop(window, value);\n  setScrollTop(document.body, value);\n}\nfunction getElementTop(el, scroller) {\n  if (el === window) {\n    return 0;\n  }\n  const scrollTop = scroller ? getScrollTop(scroller) : getRootScrollTop();\n  return useRect(el).top + scrollTop;\n}\nconst isIOS = checkIsIOS();\nfunction resetScroll() {\n  if (isIOS) {\n    setRootScrollTop(getRootScrollTop());\n  }\n}\nconst stopPropagation = (event) => event.stopPropagation();\nfunction preventDefault(event, isStopPropagation) {\n  if (typeof event.cancelable !== \"boolean\" || event.cancelable) {\n    event.preventDefault();\n  }\n  if (isStopPropagation) {\n    stopPropagation(event);\n  }\n}\nfunction isHidden(elementRef) {\n  const el = unref(elementRef);\n  if (!el) {\n    return false;\n  }\n  const style = window.getComputedStyle(el);\n  const hidden = style.display === \"none\";\n  const parentHidden = el.offsetParent === null && style.position !== \"fixed\";\n  return hidden || parentHidden;\n}\nconst { width: windowWidth, height: windowHeight } = useWindowSize();\nfunction isContainingBlock(el) {\n  const css = window.getComputedStyle(el);\n  return css.transform !== \"none\" || css.perspective !== \"none\" || [\"transform\", \"perspective\", \"filter\"].some(\n    (value) => (css.willChange || \"\").includes(value)\n  );\n}\nfunction getContainingBlock(el) {\n  let node = el.parentElement;\n  while (node) {\n    if (node && node.tagName !== \"HTML\" && node.tagName !== \"BODY\" && isContainingBlock(node)) {\n      return node;\n    }\n    node = node.parentElement;\n  }\n  return null;\n}\nexport {\n  getContainingBlock,\n  getElementTop,\n  getRootScrollTop,\n  getScrollTop,\n  isHidden,\n  preventDefault,\n  resetScroll,\n  setRootScrollTop,\n  setScrollTop,\n  stopPropagation,\n  windowHeight,\n  windowWidth\n};\n",
+      "start": 1714699767784,
+      "end": 1714699767868,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767868,
+      "end": 1714699767868,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767868,
+      "end": 1714699767868,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767868,
+      "end": 1714699767868,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767868,
+      "end": 1714699767868,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767868,
+      "end": 1714699767868,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767868,
+      "end": 1714699767868,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { useRect, useWindowSize } from \"@vant/use\";\nimport { unref } from \"vue\";\nimport { isIOS as checkIsIOS } from \"./basic.mjs\";\nfunction getScrollTop(el) {\n  const top = \"scrollTop\" in el ? el.scrollTop : el.pageYOffset;\n  return Math.max(top, 0);\n}\nfunction setScrollTop(el, value) {\n  if (\"scrollTop\" in el) {\n    el.scrollTop = value;\n  } else {\n    el.scrollTo(el.scrollX, value);\n  }\n}\nfunction getRootScrollTop() {\n  return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;\n}\nfunction setRootScrollTop(value) {\n  setScrollTop(window, value);\n  setScrollTop(document.body, value);\n}\nfunction getElementTop(el, scroller) {\n  if (el === window) {\n    return 0;\n  }\n  const scrollTop = scroller ? getScrollTop(scroller) : getRootScrollTop();\n  return useRect(el).top + scrollTop;\n}\nconst isIOS = checkIsIOS();\nfunction resetScroll() {\n  if (isIOS) {\n    setRootScrollTop(getRootScrollTop());\n  }\n}\nconst stopPropagation = (event) => event.stopPropagation();\nfunction preventDefault(event, isStopPropagation) {\n  if (typeof event.cancelable !== \"boolean\" || event.cancelable) {\n    event.preventDefault();\n  }\n  if (isStopPropagation) {\n    stopPropagation(event);\n  }\n}\nfunction isHidden(elementRef) {\n  const el = unref(elementRef);\n  if (!el) {\n    return false;\n  }\n  const style = window.getComputedStyle(el);\n  const hidden = style.display === \"none\";\n  const parentHidden = el.offsetParent === null && style.position !== \"fixed\";\n  return hidden || parentHidden;\n}\nconst { width: windowWidth, height: windowHeight } = useWindowSize();\nfunction isContainingBlock(el) {\n  const css = window.getComputedStyle(el);\n  return css.transform !== \"none\" || css.perspective !== \"none\" || [\"transform\", \"perspective\", \"filter\"].some(\n    (value) => (css.willChange || \"\").includes(value)\n  );\n}\nfunction getContainingBlock(el) {\n  let node = el.parentElement;\n  while (node) {\n    if (node && node.tagName !== \"HTML\" && node.tagName !== \"BODY\" && isContainingBlock(node)) {\n      return node;\n    }\n    node = node.parentElement;\n  }\n  return null;\n}\nexport {\n  getContainingBlock,\n  getElementTop,\n  getRootScrollTop,\n  getScrollTop,\n  isHidden,\n  preventDefault,\n  resetScroll,\n  setRootScrollTop,\n  setScrollTop,\n  stopPropagation,\n  windowHeight,\n  windowWidth\n};\n",
+      "start": 1714699767868,
+      "end": 1714699767868,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767868,
+      "end": 1714699767868,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767868,
+      "end": 1714699767868,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767868,
+      "end": 1714699767868,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767868,
+      "end": 1714699767868,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767868,
+      "end": 1714699767868,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767868,
+      "end": 1714699767868,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767868,
+      "end": 1714699767868,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767868,
+      "end": 1714699767868,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767868,
+      "end": 1714699767868,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767868,
+      "end": 1714699767868,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767868,
+      "end": 1714699767868,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767868,
+      "end": 1714699767868,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767868,
+      "end": 1714699767868,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767868,
+      "end": 1714699767868,
+      "order": "normal"
+    }
+  ]
+}

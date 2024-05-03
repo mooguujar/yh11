@@ -1,0 +1,154 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/basic-type-extensions.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "Number.prototype.toTruncFixed = function (dig = 2) {\n  const [int, dec] = (this + '.').toString().split('.')\n  if (dig === 0) return int\n  return int + '.' + (dec + '0'.repeat(dig)).substring(0, dig)\n}\n",
+      "start": 1714699765945,
+      "end": 1714699766106,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699766106,
+      "end": 1714699766106,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "Number.prototype.toTruncFixed = function(dig = 2) {\n  const [int, dec] = (this + \".\").toString().split(\".\");\n  if (dig === 0)\n    return int;\n  return int + \".\" + (dec + \"0\".repeat(dig)).substring(0, dig);\n};\n",
+      "start": 1714699766106,
+      "end": 1714699766177,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/basic-type-extensions.ts"
+        ],
+        "sourcesContent": [
+          "Number.prototype.toTruncFixed = function (dig = 2) {\n  const [int, dec] = (this + '.').toString().split('.')\n  if (dig === 0) return int\n  return int + '.' + (dec + '0'.repeat(dig)).substring(0, dig)\n}\n"
+        ],
+        "mappings": "AAAA,OAAO,UAAU,eAAe,SAAU,MAAM,GAAG;AACjD,QAAM,CAAC,KAAK,GAAG,KAAK,OAAO,KAAK,SAAS,EAAE,MAAM,GAAG;AACpD,MAAI,QAAQ;AAAG,WAAO;AACtB,SAAO,MAAM,OAAO,MAAM,IAAI,OAAO,GAAG,GAAG,UAAU,GAAG,GAAG;AAC7D;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699766177,
+      "end": 1714699766177,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699766177,
+      "end": 1714699766177,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699766177,
+      "end": 1714699766177,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699766177,
+      "end": 1714699766177,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "Number.prototype.toTruncFixed = function(dig = 2) {\n  const [int, dec] = (this + \".\").toString().split(\".\");\n  if (dig === 0)\n    return int;\n  return int + \".\" + (dec + \"0\".repeat(dig)).substring(0, dig);\n};\n",
+      "start": 1714699766177,
+      "end": 1714699766177,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nNumber.prototype.toTruncFixed = function(dig = 2) {\n  const [int, dec] = (this + \".\").toString().split(\".\");\n  if (dig === 0)\n    return int;\n  return int + \".\" + (dec + \"0\".repeat(dig)).substring(0, dig);\n};\n",
+      "start": 1714699766177,
+      "end": 1714699766378,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/basic-type-extensions.ts\"],\n  \"sourcesContent\": [\"Number.prototype.toTruncFixed = function(dig = 2) {\\n  const [int, dec] = (this + \\\".\\\").toString().split(\\\".\\\");\\n  if (dig === 0)\\n    return int;\\n  return int + \\\".\\\" + (dec + \\\"0\\\".repeat(dig)).substring(0, dig);\\n};\\n\"],\n  \"mappings\": \";AAAA,OAAO,UAAU,eAAe,SAAS,MAAM,GAAG;AAChD,QAAM,CAAC,KAAK,GAAG,KAAK,OAAO,KAAK,SAAS,EAAE,MAAM,GAAG;AACpD,MAAI,QAAQ;AACV,WAAO;AACT,SAAO,MAAM,OAAO,MAAM,IAAI,OAAO,GAAG,GAAG,UAAU,GAAG,GAAG;AAC7D;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699766378,
+      "end": 1714699766378,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699766378,
+      "end": 1714699766378,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699766378,
+      "end": 1714699766378,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699766378,
+      "end": 1714699766378,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699766378,
+      "end": 1714699766378,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699766378,
+      "end": 1714699766378,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699766378,
+      "end": 1714699766378,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699766378,
+      "end": 1714699766378,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699766378,
+      "end": 1714699766379,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699766380,
+      "end": 1714699766380,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699766380,
+      "end": 1714699766380,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699766380,
+      "end": 1714699766380,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699766380,
+      "end": 1714699766380,
+      "order": "normal"
+    }
+  ]
+}

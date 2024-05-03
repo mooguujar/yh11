@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\nimport { computed, onMounted, ref } from 'vue'\nimport Task from './Task.vue'\nimport { TOTALTASK } from './tools'\nimport { useTaskActivityStore } from '@/store/modules/taskActivity'\nimport { IAllTaskData } from '@/store/types/taskActivity'\n\nconst taskActivityStore = useTaskActivityStore()\nconst { getAllTaskBandsListApi } = taskActivityStore\nconst totalTaskList = ref<IAllTaskData[]>([])\n\nconst getAllTaskBandsList = async () => {\n  try {\n    const res = await getAllTaskBandsListApi()\n\n    if (res) {\n      window.log('累计任务列表', res)\n      totalTaskList.value = res\n    }\n  } catch (error) {\n    console.error(error)\n  }\n}\n\nonMounted(() => {\n  getAllTaskBandsList()\n})\n</script>\n\n<template>\n  <div class=\"total-task-container\">\n    <div class=\"container-title\">累计任务</div>\n    <Task\n      :list=\"totalTaskList\"\n      :type=\"TOTALTASK\"\n      @update-list=\"getAllTaskBandsList\"\n    />\n  </div>\n</template>\n\n<style lang=\"scss\" score>\n@import '@/assets/styles/sprite-point.scss';\n\n.total-task-container {\n  width: 100%;\n  padding: 30px 20px;\n  margin-bottom: 20px;\n  background-color: #fff;\n  border-radius: 14px;\n  .container-title {\n    font-size: 28px;\n    text-align: left;\n    margin-bottom: 14px;\n    color: #13161b;\n  }\n}\n</style>\n",
+      "start": 1714699770786,
+      "end": 1714699770800,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699770800,
+      "end": 1714699770800,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699770800,
+      "end": 1714699770800,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699770800,
+      "end": 1714699770800,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699770800,
+      "end": 1714699770800,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue\"]]);\n",
+      "start": 1714699770800,
+      "end": 1714699771796,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771796,
+      "end": 1714699771796,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue\"]]);\n",
+      "start": 1714699771796,
+      "end": 1714699771796,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue\"]]);\n",
+      "start": 1714699771796,
+      "end": 1714699771919,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue?vue&type=style&index=0&score=true&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,UAAU,0EAA0E,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771919,
+      "end": 1714699771919,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771919,
+      "end": 1714699771919,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771919,
+      "end": 1714699771919,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771919,
+      "end": 1714699771919,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771919,
+      "end": 1714699771919,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699771919,
+      "end": 1714699771919,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771920,
+      "end": 1714699771920,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771920,
+      "end": 1714699771920,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771920,
+      "end": 1714699771920,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue\"]]);\n",
+      "start": 1714699771920,
+      "end": 1714699771920,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771920,
+      "end": 1714699771920,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771920,
+      "end": 1714699771921,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771921,
+      "end": 1714699771921,
+      "order": "normal"
+    }
+  ]
+}

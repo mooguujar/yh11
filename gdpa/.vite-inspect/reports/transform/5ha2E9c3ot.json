@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/image/Image.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { withDirectives as _withDirectives, mergeProps as _mergeProps, resolveDirective as _resolveDirective, createVNode as _createVNode } from \"vue\";\nimport { ref, watch, computed, nextTick, onMounted, onBeforeUnmount, defineComponent, getCurrentInstance } from \"vue\";\nimport { isDef, addUnit, inBrowser, truthProp, numericProp, makeStringProp, createNamespace } from \"../utils/index.mjs\";\nimport { Icon } from \"../icon/index.mjs\";\nconst [name, bem] = createNamespace(\"image\");\nconst imageProps = {\n  src: String,\n  alt: String,\n  fit: String,\n  position: String,\n  round: Boolean,\n  block: Boolean,\n  width: numericProp,\n  height: numericProp,\n  radius: numericProp,\n  lazyLoad: Boolean,\n  iconSize: numericProp,\n  showError: truthProp,\n  errorIcon: makeStringProp(\"photo-fail\"),\n  iconPrefix: String,\n  showLoading: truthProp,\n  loadingIcon: makeStringProp(\"photo\")\n};\nvar stdin_default = defineComponent({\n  name,\n  props: imageProps,\n  emits: [\"load\", \"error\"],\n  setup(props, {\n    emit,\n    slots\n  }) {\n    const error = ref(false);\n    const loading = ref(true);\n    const imageRef = ref();\n    const {\n      $Lazyload\n    } = getCurrentInstance().proxy;\n    const style = computed(() => {\n      const style2 = {\n        width: addUnit(props.width),\n        height: addUnit(props.height)\n      };\n      if (isDef(props.radius)) {\n        style2.overflow = \"hidden\";\n        style2.borderRadius = addUnit(props.radius);\n      }\n      return style2;\n    });\n    watch(() => props.src, () => {\n      error.value = false;\n      loading.value = true;\n    });\n    const onLoad = (event) => {\n      if (loading.value) {\n        loading.value = false;\n        emit(\"load\", event);\n      }\n    };\n    const triggerLoad = () => {\n      const loadEvent = new Event(\"load\");\n      Object.defineProperty(loadEvent, \"target\", {\n        value: imageRef.value,\n        enumerable: true\n      });\n      onLoad(loadEvent);\n    };\n    const onError = (event) => {\n      error.value = true;\n      loading.value = false;\n      emit(\"error\", event);\n    };\n    const renderIcon = (name2, className, slot) => {\n      if (slot) {\n        return slot();\n      }\n      return _createVNode(Icon, {\n        \"name\": name2,\n        \"size\": props.iconSize,\n        \"class\": className,\n        \"classPrefix\": props.iconPrefix\n      }, null);\n    };\n    const renderPlaceholder = () => {\n      if (loading.value && props.showLoading) {\n        return _createVNode(\"div\", {\n          \"class\": bem(\"loading\")\n        }, [renderIcon(props.loadingIcon, bem(\"loading-icon\"), slots.loading)]);\n      }\n      if (error.value && props.showError) {\n        return _createVNode(\"div\", {\n          \"class\": bem(\"error\")\n        }, [renderIcon(props.errorIcon, bem(\"error-icon\"), slots.error)]);\n      }\n    };\n    const renderImage = () => {\n      if (error.value || !props.src) {\n        return;\n      }\n      const attrs = {\n        alt: props.alt,\n        class: bem(\"img\"),\n        style: {\n          objectFit: props.fit,\n          objectPosition: props.position\n        }\n      };\n      if (props.lazyLoad) {\n        return _withDirectives(_createVNode(\"img\", _mergeProps({\n          \"ref\": imageRef\n        }, attrs), null), [[_resolveDirective(\"lazy\"), props.src]]);\n      }\n      return _createVNode(\"img\", _mergeProps({\n        \"ref\": imageRef,\n        \"src\": props.src,\n        \"onLoad\": onLoad,\n        \"onError\": onError\n      }, attrs), null);\n    };\n    const onLazyLoaded = ({\n      el\n    }) => {\n      const check = () => {\n        if (el === imageRef.value && loading.value) {\n          triggerLoad();\n        }\n      };\n      if (imageRef.value) {\n        check();\n      } else {\n        nextTick(check);\n      }\n    };\n    const onLazyLoadError = ({\n      el\n    }) => {\n      if (el === imageRef.value && !error.value) {\n        onError();\n      }\n    };\n    if ($Lazyload && inBrowser) {\n      $Lazyload.$on(\"loaded\", onLazyLoaded);\n      $Lazyload.$on(\"error\", onLazyLoadError);\n      onBeforeUnmount(() => {\n        $Lazyload.$off(\"loaded\", onLazyLoaded);\n        $Lazyload.$off(\"error\", onLazyLoadError);\n      });\n    }\n    onMounted(() => {\n      nextTick(() => {\n        var _a;\n        if (((_a = imageRef.value) == null ? void 0 : _a.complete) && !props.lazyLoad) {\n          triggerLoad();\n        }\n      });\n    });\n    return () => {\n      var _a;\n      return _createVNode(\"div\", {\n        \"class\": bem({\n          round: props.round,\n          block: props.block\n        }),\n        \"style\": style.value\n      }, [renderImage(), renderPlaceholder(), (_a = slots.default) == null ? void 0 : _a.call(slots)]);\n    };\n  }\n});\nexport {\n  stdin_default as default,\n  imageProps\n};\n",
+      "start": 1714699767287,
+      "end": 1714699767305,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767305,
+      "end": 1714699767305,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767305,
+      "end": 1714699767305,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767305,
+      "end": 1714699767305,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767305,
+      "end": 1714699767305,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767305,
+      "end": 1714699767305,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767305,
+      "end": 1714699767305,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { withDirectives as _withDirectives, mergeProps as _mergeProps, resolveDirective as _resolveDirective, createVNode as _createVNode } from \"vue\";\nimport { ref, watch, computed, nextTick, onMounted, onBeforeUnmount, defineComponent, getCurrentInstance } from \"vue\";\nimport { isDef, addUnit, inBrowser, truthProp, numericProp, makeStringProp, createNamespace } from \"../utils/index.mjs\";\nimport { Icon } from \"../icon/index.mjs\";\nconst [name, bem] = createNamespace(\"image\");\nconst imageProps = {\n  src: String,\n  alt: String,\n  fit: String,\n  position: String,\n  round: Boolean,\n  block: Boolean,\n  width: numericProp,\n  height: numericProp,\n  radius: numericProp,\n  lazyLoad: Boolean,\n  iconSize: numericProp,\n  showError: truthProp,\n  errorIcon: makeStringProp(\"photo-fail\"),\n  iconPrefix: String,\n  showLoading: truthProp,\n  loadingIcon: makeStringProp(\"photo\")\n};\nvar stdin_default = defineComponent({\n  name,\n  props: imageProps,\n  emits: [\"load\", \"error\"],\n  setup(props, {\n    emit,\n    slots\n  }) {\n    const error = ref(false);\n    const loading = ref(true);\n    const imageRef = ref();\n    const {\n      $Lazyload\n    } = getCurrentInstance().proxy;\n    const style = computed(() => {\n      const style2 = {\n        width: addUnit(props.width),\n        height: addUnit(props.height)\n      };\n      if (isDef(props.radius)) {\n        style2.overflow = \"hidden\";\n        style2.borderRadius = addUnit(props.radius);\n      }\n      return style2;\n    });\n    watch(() => props.src, () => {\n      error.value = false;\n      loading.value = true;\n    });\n    const onLoad = (event) => {\n      if (loading.value) {\n        loading.value = false;\n        emit(\"load\", event);\n      }\n    };\n    const triggerLoad = () => {\n      const loadEvent = new Event(\"load\");\n      Object.defineProperty(loadEvent, \"target\", {\n        value: imageRef.value,\n        enumerable: true\n      });\n      onLoad(loadEvent);\n    };\n    const onError = (event) => {\n      error.value = true;\n      loading.value = false;\n      emit(\"error\", event);\n    };\n    const renderIcon = (name2, className, slot) => {\n      if (slot) {\n        return slot();\n      }\n      return _createVNode(Icon, {\n        \"name\": name2,\n        \"size\": props.iconSize,\n        \"class\": className,\n        \"classPrefix\": props.iconPrefix\n      }, null);\n    };\n    const renderPlaceholder = () => {\n      if (loading.value && props.showLoading) {\n        return _createVNode(\"div\", {\n          \"class\": bem(\"loading\")\n        }, [renderIcon(props.loadingIcon, bem(\"loading-icon\"), slots.loading)]);\n      }\n      if (error.value && props.showError) {\n        return _createVNode(\"div\", {\n          \"class\": bem(\"error\")\n        }, [renderIcon(props.errorIcon, bem(\"error-icon\"), slots.error)]);\n      }\n    };\n    const renderImage = () => {\n      if (error.value || !props.src) {\n        return;\n      }\n      const attrs = {\n        alt: props.alt,\n        class: bem(\"img\"),\n        style: {\n          objectFit: props.fit,\n          objectPosition: props.position\n        }\n      };\n      if (props.lazyLoad) {\n        return _withDirectives(_createVNode(\"img\", _mergeProps({\n          \"ref\": imageRef\n        }, attrs), null), [[_resolveDirective(\"lazy\"), props.src]]);\n      }\n      return _createVNode(\"img\", _mergeProps({\n        \"ref\": imageRef,\n        \"src\": props.src,\n        \"onLoad\": onLoad,\n        \"onError\": onError\n      }, attrs), null);\n    };\n    const onLazyLoaded = ({\n      el\n    }) => {\n      const check = () => {\n        if (el === imageRef.value && loading.value) {\n          triggerLoad();\n        }\n      };\n      if (imageRef.value) {\n        check();\n      } else {\n        nextTick(check);\n      }\n    };\n    const onLazyLoadError = ({\n      el\n    }) => {\n      if (el === imageRef.value && !error.value) {\n        onError();\n      }\n    };\n    if ($Lazyload && inBrowser) {\n      $Lazyload.$on(\"loaded\", onLazyLoaded);\n      $Lazyload.$on(\"error\", onLazyLoadError);\n      onBeforeUnmount(() => {\n        $Lazyload.$off(\"loaded\", onLazyLoaded);\n        $Lazyload.$off(\"error\", onLazyLoadError);\n      });\n    }\n    onMounted(() => {\n      nextTick(() => {\n        var _a;\n        if (((_a = imageRef.value) == null ? void 0 : _a.complete) && !props.lazyLoad) {\n          triggerLoad();\n        }\n      });\n    });\n    return () => {\n      var _a;\n      return _createVNode(\"div\", {\n        \"class\": bem({\n          round: props.round,\n          block: props.block\n        }),\n        \"style\": style.value\n      }, [renderImage(), renderPlaceholder(), (_a = slots.default) == null ? void 0 : _a.call(slots)]);\n    };\n  }\n});\nexport {\n  stdin_default as default,\n  imageProps\n};\n",
+      "start": 1714699767305,
+      "end": 1714699767305,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767305,
+      "end": 1714699767305,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767305,
+      "end": 1714699767305,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767305,
+      "end": 1714699767305,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767305,
+      "end": 1714699767305,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767305,
+      "end": 1714699767305,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767305,
+      "end": 1714699767305,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767305,
+      "end": 1714699767305,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767305,
+      "end": 1714699767305,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767305,
+      "end": 1714699767305,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767305,
+      "end": 1714699767305,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767305,
+      "end": 1714699767305,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767305,
+      "end": 1714699767305,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767305,
+      "end": 1714699767305,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767305,
+      "end": 1714699767305,
+      "order": "normal"
+    }
+  ]
+}

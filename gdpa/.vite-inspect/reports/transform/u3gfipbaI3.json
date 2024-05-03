@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/random.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "/**\r\n  * 获取一个指定范围内随机数\r\n  *\r\n  * @param {Number} minVal 最小值\r\n  * @param {Number} maxVal 最大值\r\n  * @return {Number}\r\n  */\r\nfunction random (minVal, maxVal) {\r\n  return minVal >= maxVal ? minVal : ((minVal = minVal >> 0) + Math.round(Math.random() * ((maxVal || 9) - minVal)))\r\n}\r\n\r\nmodule.exports = random\r\n",
+      "start": 1714699767655,
+      "end": 1714699767676,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767676,
+      "end": 1714699767676,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767676,
+      "end": 1714699767676,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767676,
+      "end": 1714699767676,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767676,
+      "end": 1714699767676,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767676,
+      "end": 1714699767677,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767677,
+      "end": 1714699767677,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "/**\r\n  * 获取一个指定范围内随机数\r\n  *\r\n  * @param {Number} minVal 最小值\r\n  * @param {Number} maxVal 最大值\r\n  * @return {Number}\r\n  */\r\nfunction random (minVal, maxVal) {\r\n  return minVal >= maxVal ? minVal : ((minVal = minVal >> 0) + Math.round(Math.random() * ((maxVal || 9) - minVal)))\r\n}\r\n\r\nmodule.exports = random\r\n",
+      "start": 1714699767677,
+      "end": 1714699767677,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767677,
+      "end": 1714699767677,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767677,
+      "end": 1714699767677,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767677,
+      "end": 1714699767677,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767677,
+      "end": 1714699767677,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767677,
+      "end": 1714699767677,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767677,
+      "end": 1714699767677,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "/**\r\n  * 获取一个指定范围内随机数\r\n  *\r\n  * @param {Number} minVal 最小值\r\n  * @param {Number} maxVal 最大值\r\n  * @return {Number}\r\n  */\nimport * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\n\nfunction random (minVal, maxVal) {\r\n  return minVal >= maxVal ? minVal : ((minVal = minVal >> 0) + Math.round(Math.random() * ((maxVal || 9) - minVal)))\r\n}\r\n\r\nvar random_1 = random\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(random_1);\nexport { random_1 as __moduleExports };",
+      "start": 1714699767677,
+      "end": 1714699767677,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;;;;;AAOA,SAAS,MAAM,EAAE,MAAM,EAAE,MAAM,EAAE;AACjC,EAAE,OAAO,MAAM,IAAI,MAAM,GAAG,MAAM,IAAI,CAAC,MAAM,GAAG,MAAM,IAAI,CAAC,IAAI,IAAI,CAAC,KAAK,CAAC,IAAI,CAAC,MAAM,EAAE,IAAI,CAAC,MAAM,IAAI,CAAC,IAAI,MAAM,CAAC,CAAC,CAAC;AACpH,CAAC;AACD;IACA,QAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767677,
+      "end": 1714699767677,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767677,
+      "end": 1714699767677,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767677,
+      "end": 1714699767677,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767677,
+      "end": 1714699767677,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767677,
+      "end": 1714699767677,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767677,
+      "end": 1714699767677,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767677,
+      "end": 1714699767677,
+      "order": "normal"
+    }
+  ]
+}

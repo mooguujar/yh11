@@ -1,0 +1,142 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/es/table/src/columnInfo.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import XEUtils from 'xe-utils';\nimport GlobalConfig from '../../v-x-e-table/src/conf';\nimport { formats } from '../../v-x-e-table/src/formats';\nimport { toFilters } from './util';\nimport { getFuncText } from '../../tools/utils';\nimport { warnLog, errLog } from '../../tools/log';\nvar ColumnInfo = /** @class */ (function () {\n    /* eslint-disable @typescript-eslint/no-use-before-define */\n    function ColumnInfo($xetable, _vm, _a) {\n        var _b = _a === void 0 ? {} : _a, renderHeader = _b.renderHeader, renderCell = _b.renderCell, renderFooter = _b.renderFooter, renderData = _b.renderData;\n        var $xegrid = $xetable.xegrid;\n        var formatter = _vm.formatter;\n        var visible = XEUtils.isBoolean(_vm.visible) ? _vm.visible : true;\n        if (process.env.NODE_ENV === 'development') {\n            var types = ['seq', 'checkbox', 'radio', 'expand', 'html'];\n            if (_vm.type && types.indexOf(_vm.type) === -1) {\n                warnLog('vxe.error.errProp', [\"type=\".concat(_vm.type), types.join(', ')]);\n            }\n            if (XEUtils.isBoolean(_vm.cellRender) || (_vm.cellRender && !XEUtils.isObject(_vm.cellRender))) {\n                warnLog('vxe.error.errProp', [\"column.cell-render=\".concat(_vm.cellRender), 'column.cell-render={}']);\n            }\n            if (XEUtils.isBoolean(_vm.editRender) || (_vm.editRender && !XEUtils.isObject(_vm.editRender))) {\n                warnLog('vxe.error.errProp', [\"column.edit-render=\".concat(_vm.editRender), 'column.edit-render={}']);\n            }\n            if (_vm.cellRender && _vm.editRender) {\n                warnLog('vxe.error.errConflicts', ['column.cell-render', 'column.edit-render']);\n            }\n            if (_vm.type === 'expand') {\n                var tableProps = $xetable.props;\n                var treeConfig = tableProps.treeConfig;\n                var computeTreeOpts = $xetable.getComputeMaps().computeTreeOpts;\n                var treeOpts = computeTreeOpts.value;\n                if (treeConfig && (treeOpts.showLine || treeOpts.line)) {\n                    errLog('vxe.error.errConflicts', ['tree-config.showLine', 'column.type=expand']);\n                }\n            }\n            if (formatter) {\n                if (XEUtils.isString(formatter)) {\n                    var gFormatOpts = formats.get(formatter) || XEUtils[formatter];\n                    if (!gFormatOpts || !XEUtils.isFunction(gFormatOpts.cellFormatMethod)) {\n                        errLog('vxe.error.notFormats', [formatter]);\n                    }\n                }\n                else if (XEUtils.isArray(formatter)) {\n                    var gFormatOpts = formats.get(formatter[0]) || XEUtils[formatter[0]];\n                    if (!gFormatOpts || !XEUtils.isFunction(gFormatOpts.cellFormatMethod)) {\n                        errLog('vxe.error.notFormats', [formatter[0]]);\n                    }\n                }\n            }\n        }\n        Object.assign(this, {\n            // 基本属性\n            type: _vm.type,\n            property: _vm.field,\n            field: _vm.field,\n            title: _vm.title,\n            width: _vm.width,\n            minWidth: _vm.minWidth,\n            maxWidth: _vm.maxWidth,\n            resizable: _vm.resizable,\n            fixed: _vm.fixed,\n            align: _vm.align,\n            headerAlign: _vm.headerAlign,\n            footerAlign: _vm.footerAlign,\n            showOverflow: _vm.showOverflow,\n            showHeaderOverflow: _vm.showHeaderOverflow,\n            showFooterOverflow: _vm.showFooterOverflow,\n            className: _vm.className,\n            headerClassName: _vm.headerClassName,\n            footerClassName: _vm.footerClassName,\n            formatter: formatter,\n            sortable: _vm.sortable,\n            sortBy: _vm.sortBy,\n            sortType: _vm.sortType,\n            filters: toFilters(_vm.filters),\n            filterMultiple: XEUtils.isBoolean(_vm.filterMultiple) ? _vm.filterMultiple : true,\n            filterMethod: _vm.filterMethod,\n            filterResetMethod: _vm.filterResetMethod,\n            filterRecoverMethod: _vm.filterRecoverMethod,\n            filterRender: _vm.filterRender,\n            treeNode: _vm.treeNode,\n            cellType: _vm.cellType,\n            cellRender: _vm.cellRender,\n            editRender: _vm.editRender,\n            contentRender: _vm.contentRender,\n            headerExportMethod: _vm.headerExportMethod,\n            exportMethod: _vm.exportMethod,\n            footerExportMethod: _vm.footerExportMethod,\n            titleHelp: _vm.titleHelp,\n            titlePrefix: _vm.titlePrefix,\n            titleSuffix: _vm.titleSuffix,\n            // 自定义参数\n            params: _vm.params,\n            // 渲染属性\n            id: _vm.colId || XEUtils.uniqueId('col_'),\n            parentId: null,\n            visible: visible,\n            // 内部属性（一旦被使用，将导致不可升级版本）\n            halfVisible: false,\n            defaultVisible: visible,\n            defaultFixed: _vm.fixed,\n            checked: false,\n            halfChecked: false,\n            disabled: false,\n            // 分组层级\n            level: 1,\n            // 跨行\n            rowSpan: 1,\n            // 跨列\n            colSpan: 1,\n            // 数据排序-自定义排序\n            order: null,\n            // 数据排序-用于多列的先后顺序\n            sortTime: 0,\n            // 列排序\n            customOrder: 0,\n            renderWidth: 0,\n            renderHeight: 0,\n            resizeWidth: 0,\n            renderLeft: 0,\n            renderArgs: [],\n            model: {},\n            renderHeader: renderHeader || _vm.renderHeader,\n            renderCell: renderCell || _vm.renderCell,\n            renderFooter: renderFooter || _vm.renderFooter,\n            renderData: renderData,\n            // 单元格插槽，只对 grid 有效\n            slots: _vm.slots\n        });\n        if ($xegrid) {\n            var computeProxyOpts = $xegrid.getComputeMaps().computeProxyOpts;\n            var proxyOpts = computeProxyOpts.value;\n            if (proxyOpts.beforeColumn) {\n                proxyOpts.beforeColumn({ $grid: $xegrid, column: this });\n            }\n        }\n    }\n    ColumnInfo.prototype.getTitle = function () {\n        return getFuncText(this.title || (this.type === 'seq' ? GlobalConfig.i18n('vxe.table.seqTitle') : ''));\n    };\n    ColumnInfo.prototype.getKey = function () {\n        return this.field || (this.type ? \"type=\".concat(this.type) : null);\n    };\n    ColumnInfo.prototype.update = function (name, value) {\n        // 不支持直接修改的属性\n        if (name !== 'filters') {\n            if (name === 'field') {\n                // 兼容旧属性\n                this.property = value;\n            }\n            this[name] = value;\n        }\n    };\n    return ColumnInfo;\n}());\nexport { ColumnInfo };\n",
+      "start": 1714699768588,
+      "end": 1714699768617,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768617,
+      "end": 1714699768617,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768617,
+      "end": 1714699768617,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768617,
+      "end": 1714699768617,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768617,
+      "end": 1714699768617,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768617,
+      "end": 1714699768617,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768617,
+      "end": 1714699768617,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import XEUtils from 'xe-utils';\nimport GlobalConfig from '../../v-x-e-table/src/conf';\nimport { formats } from '../../v-x-e-table/src/formats';\nimport { toFilters } from './util';\nimport { getFuncText } from '../../tools/utils';\nimport { warnLog, errLog } from '../../tools/log';\nvar ColumnInfo = /** @class */ (function () {\n    /* eslint-disable @typescript-eslint/no-use-before-define */\n    function ColumnInfo($xetable, _vm, _a) {\n        var _b = _a === void 0 ? {} : _a, renderHeader = _b.renderHeader, renderCell = _b.renderCell, renderFooter = _b.renderFooter, renderData = _b.renderData;\n        var $xegrid = $xetable.xegrid;\n        var formatter = _vm.formatter;\n        var visible = XEUtils.isBoolean(_vm.visible) ? _vm.visible : true;\n        if (process.env.NODE_ENV === 'development') {\n            var types = ['seq', 'checkbox', 'radio', 'expand', 'html'];\n            if (_vm.type && types.indexOf(_vm.type) === -1) {\n                warnLog('vxe.error.errProp', [\"type=\".concat(_vm.type), types.join(', ')]);\n            }\n            if (XEUtils.isBoolean(_vm.cellRender) || (_vm.cellRender && !XEUtils.isObject(_vm.cellRender))) {\n                warnLog('vxe.error.errProp', [\"column.cell-render=\".concat(_vm.cellRender), 'column.cell-render={}']);\n            }\n            if (XEUtils.isBoolean(_vm.editRender) || (_vm.editRender && !XEUtils.isObject(_vm.editRender))) {\n                warnLog('vxe.error.errProp', [\"column.edit-render=\".concat(_vm.editRender), 'column.edit-render={}']);\n            }\n            if (_vm.cellRender && _vm.editRender) {\n                warnLog('vxe.error.errConflicts', ['column.cell-render', 'column.edit-render']);\n            }\n            if (_vm.type === 'expand') {\n                var tableProps = $xetable.props;\n                var treeConfig = tableProps.treeConfig;\n                var computeTreeOpts = $xetable.getComputeMaps().computeTreeOpts;\n                var treeOpts = computeTreeOpts.value;\n                if (treeConfig && (treeOpts.showLine || treeOpts.line)) {\n                    errLog('vxe.error.errConflicts', ['tree-config.showLine', 'column.type=expand']);\n                }\n            }\n            if (formatter) {\n                if (XEUtils.isString(formatter)) {\n                    var gFormatOpts = formats.get(formatter) || XEUtils[formatter];\n                    if (!gFormatOpts || !XEUtils.isFunction(gFormatOpts.cellFormatMethod)) {\n                        errLog('vxe.error.notFormats', [formatter]);\n                    }\n                }\n                else if (XEUtils.isArray(formatter)) {\n                    var gFormatOpts = formats.get(formatter[0]) || XEUtils[formatter[0]];\n                    if (!gFormatOpts || !XEUtils.isFunction(gFormatOpts.cellFormatMethod)) {\n                        errLog('vxe.error.notFormats', [formatter[0]]);\n                    }\n                }\n            }\n        }\n        Object.assign(this, {\n            // 基本属性\n            type: _vm.type,\n            property: _vm.field,\n            field: _vm.field,\n            title: _vm.title,\n            width: _vm.width,\n            minWidth: _vm.minWidth,\n            maxWidth: _vm.maxWidth,\n            resizable: _vm.resizable,\n            fixed: _vm.fixed,\n            align: _vm.align,\n            headerAlign: _vm.headerAlign,\n            footerAlign: _vm.footerAlign,\n            showOverflow: _vm.showOverflow,\n            showHeaderOverflow: _vm.showHeaderOverflow,\n            showFooterOverflow: _vm.showFooterOverflow,\n            className: _vm.className,\n            headerClassName: _vm.headerClassName,\n            footerClassName: _vm.footerClassName,\n            formatter: formatter,\n            sortable: _vm.sortable,\n            sortBy: _vm.sortBy,\n            sortType: _vm.sortType,\n            filters: toFilters(_vm.filters),\n            filterMultiple: XEUtils.isBoolean(_vm.filterMultiple) ? _vm.filterMultiple : true,\n            filterMethod: _vm.filterMethod,\n            filterResetMethod: _vm.filterResetMethod,\n            filterRecoverMethod: _vm.filterRecoverMethod,\n            filterRender: _vm.filterRender,\n            treeNode: _vm.treeNode,\n            cellType: _vm.cellType,\n            cellRender: _vm.cellRender,\n            editRender: _vm.editRender,\n            contentRender: _vm.contentRender,\n            headerExportMethod: _vm.headerExportMethod,\n            exportMethod: _vm.exportMethod,\n            footerExportMethod: _vm.footerExportMethod,\n            titleHelp: _vm.titleHelp,\n            titlePrefix: _vm.titlePrefix,\n            titleSuffix: _vm.titleSuffix,\n            // 自定义参数\n            params: _vm.params,\n            // 渲染属性\n            id: _vm.colId || XEUtils.uniqueId('col_'),\n            parentId: null,\n            visible: visible,\n            // 内部属性（一旦被使用，将导致不可升级版本）\n            halfVisible: false,\n            defaultVisible: visible,\n            defaultFixed: _vm.fixed,\n            checked: false,\n            halfChecked: false,\n            disabled: false,\n            // 分组层级\n            level: 1,\n            // 跨行\n            rowSpan: 1,\n            // 跨列\n            colSpan: 1,\n            // 数据排序-自定义排序\n            order: null,\n            // 数据排序-用于多列的先后顺序\n            sortTime: 0,\n            // 列排序\n            customOrder: 0,\n            renderWidth: 0,\n            renderHeight: 0,\n            resizeWidth: 0,\n            renderLeft: 0,\n            renderArgs: [],\n            model: {},\n            renderHeader: renderHeader || _vm.renderHeader,\n            renderCell: renderCell || _vm.renderCell,\n            renderFooter: renderFooter || _vm.renderFooter,\n            renderData: renderData,\n            // 单元格插槽，只对 grid 有效\n            slots: _vm.slots\n        });\n        if ($xegrid) {\n            var computeProxyOpts = $xegrid.getComputeMaps().computeProxyOpts;\n            var proxyOpts = computeProxyOpts.value;\n            if (proxyOpts.beforeColumn) {\n                proxyOpts.beforeColumn({ $grid: $xegrid, column: this });\n            }\n        }\n    }\n    ColumnInfo.prototype.getTitle = function () {\n        return getFuncText(this.title || (this.type === 'seq' ? GlobalConfig.i18n('vxe.table.seqTitle') : ''));\n    };\n    ColumnInfo.prototype.getKey = function () {\n        return this.field || (this.type ? \"type=\".concat(this.type) : null);\n    };\n    ColumnInfo.prototype.update = function (name, value) {\n        // 不支持直接修改的属性\n        if (name !== 'filters') {\n            if (name === 'field') {\n                // 兼容旧属性\n                this.property = value;\n            }\n            this[name] = value;\n        }\n    };\n    return ColumnInfo;\n}());\nexport { ColumnInfo };\n",
+      "start": 1714699768617,
+      "end": 1714699768617,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768617,
+      "end": 1714699768617,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "result": "import XEUtils from \"xe-utils\";\nimport GlobalConfig from \"../../v-x-e-table/src/conf\";\nimport { formats } from \"../../v-x-e-table/src/formats\";\nimport { toFilters } from \"./util\";\nimport { getFuncText } from \"../../tools/utils\";\nimport { warnLog, errLog } from \"../../tools/log\";\nvar ColumnInfo = (\n  /** @class */\n  function() {\n    function ColumnInfo2($xetable, _vm, _a) {\n      var _b = _a === void 0 ? {} : _a, renderHeader = _b.renderHeader, renderCell = _b.renderCell, renderFooter = _b.renderFooter, renderData = _b.renderData;\n      var $xegrid = $xetable.xegrid;\n      var formatter = _vm.formatter;\n      var visible = XEUtils.isBoolean(_vm.visible) ? _vm.visible : true;\n      if (false) {\n        var types = [\"seq\", \"checkbox\", \"radio\", \"expand\", \"html\"];\n        if (_vm.type && types.indexOf(_vm.type) === -1) {\n          warnLog(\"vxe.error.errProp\", [\"type=\".concat(_vm.type), types.join(\", \")]);\n        }\n        if (XEUtils.isBoolean(_vm.cellRender) || _vm.cellRender && !XEUtils.isObject(_vm.cellRender)) {\n          warnLog(\"vxe.error.errProp\", [\"column.cell-render=\".concat(_vm.cellRender), \"column.cell-render={}\"]);\n        }\n        if (XEUtils.isBoolean(_vm.editRender) || _vm.editRender && !XEUtils.isObject(_vm.editRender)) {\n          warnLog(\"vxe.error.errProp\", [\"column.edit-render=\".concat(_vm.editRender), \"column.edit-render={}\"]);\n        }\n        if (_vm.cellRender && _vm.editRender) {\n          warnLog(\"vxe.error.errConflicts\", [\"column.cell-render\", \"column.edit-render\"]);\n        }\n        if (_vm.type === \"expand\") {\n          var tableProps = $xetable.props;\n          var treeConfig = tableProps.treeConfig;\n          var computeTreeOpts = $xetable.getComputeMaps().computeTreeOpts;\n          var treeOpts = computeTreeOpts.value;\n          if (treeConfig && (treeOpts.showLine || treeOpts.line)) {\n            errLog(\"vxe.error.errConflicts\", [\"tree-config.showLine\", \"column.type=expand\"]);\n          }\n        }\n        if (formatter) {\n          if (XEUtils.isString(formatter)) {\n            var gFormatOpts = formats.get(formatter) || XEUtils[formatter];\n            if (!gFormatOpts || !XEUtils.isFunction(gFormatOpts.cellFormatMethod)) {\n              errLog(\"vxe.error.notFormats\", [formatter]);\n            }\n          } else if (XEUtils.isArray(formatter)) {\n            var gFormatOpts = formats.get(formatter[0]) || XEUtils[formatter[0]];\n            if (!gFormatOpts || !XEUtils.isFunction(gFormatOpts.cellFormatMethod)) {\n              errLog(\"vxe.error.notFormats\", [formatter[0]]);\n            }\n          }\n        }\n      }\n      Object.assign(this, {\n        // 基本属性\n        type: _vm.type,\n        property: _vm.field,\n        field: _vm.field,\n        title: _vm.title,\n        width: _vm.width,\n        minWidth: _vm.minWidth,\n        maxWidth: _vm.maxWidth,\n        resizable: _vm.resizable,\n        fixed: _vm.fixed,\n        align: _vm.align,\n        headerAlign: _vm.headerAlign,\n        footerAlign: _vm.footerAlign,\n        showOverflow: _vm.showOverflow,\n        showHeaderOverflow: _vm.showHeaderOverflow,\n        showFooterOverflow: _vm.showFooterOverflow,\n        className: _vm.className,\n        headerClassName: _vm.headerClassName,\n        footerClassName: _vm.footerClassName,\n        formatter,\n        sortable: _vm.sortable,\n        sortBy: _vm.sortBy,\n        sortType: _vm.sortType,\n        filters: toFilters(_vm.filters),\n        filterMultiple: XEUtils.isBoolean(_vm.filterMultiple) ? _vm.filterMultiple : true,\n        filterMethod: _vm.filterMethod,\n        filterResetMethod: _vm.filterResetMethod,\n        filterRecoverMethod: _vm.filterRecoverMethod,\n        filterRender: _vm.filterRender,\n        treeNode: _vm.treeNode,\n        cellType: _vm.cellType,\n        cellRender: _vm.cellRender,\n        editRender: _vm.editRender,\n        contentRender: _vm.contentRender,\n        headerExportMethod: _vm.headerExportMethod,\n        exportMethod: _vm.exportMethod,\n        footerExportMethod: _vm.footerExportMethod,\n        titleHelp: _vm.titleHelp,\n        titlePrefix: _vm.titlePrefix,\n        titleSuffix: _vm.titleSuffix,\n        // 自定义参数\n        params: _vm.params,\n        // 渲染属性\n        id: _vm.colId || XEUtils.uniqueId(\"col_\"),\n        parentId: null,\n        visible,\n        // 内部属性（一旦被使用，将导致不可升级版本）\n        halfVisible: false,\n        defaultVisible: visible,\n        defaultFixed: _vm.fixed,\n        checked: false,\n        halfChecked: false,\n        disabled: false,\n        // 分组层级\n        level: 1,\n        // 跨行\n        rowSpan: 1,\n        // 跨列\n        colSpan: 1,\n        // 数据排序-自定义排序\n        order: null,\n        // 数据排序-用于多列的先后顺序\n        sortTime: 0,\n        // 列排序\n        customOrder: 0,\n        renderWidth: 0,\n        renderHeight: 0,\n        resizeWidth: 0,\n        renderLeft: 0,\n        renderArgs: [],\n        model: {},\n        renderHeader: renderHeader || _vm.renderHeader,\n        renderCell: renderCell || _vm.renderCell,\n        renderFooter: renderFooter || _vm.renderFooter,\n        renderData,\n        // 单元格插槽，只对 grid 有效\n        slots: _vm.slots\n      });\n      if ($xegrid) {\n        var computeProxyOpts = $xegrid.getComputeMaps().computeProxyOpts;\n        var proxyOpts = computeProxyOpts.value;\n        if (proxyOpts.beforeColumn) {\n          proxyOpts.beforeColumn({ $grid: $xegrid, column: this });\n        }\n      }\n    }\n    ColumnInfo2.prototype.getTitle = function() {\n      return getFuncText(this.title || (this.type === \"seq\" ? GlobalConfig.i18n(\"vxe.table.seqTitle\") : \"\"));\n    };\n    ColumnInfo2.prototype.getKey = function() {\n      return this.field || (this.type ? \"type=\".concat(this.type) : null);\n    };\n    ColumnInfo2.prototype.update = function(name, value) {\n      if (name !== \"filters\") {\n        if (name === \"field\") {\n          this.property = value;\n        }\n        this[name] = value;\n      }\n    };\n    return ColumnInfo2;\n  }()\n);\nexport { ColumnInfo };\n",
+      "start": 1714699768617,
+      "end": 1714699769096,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769096,
+      "end": 1714699769096,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769096,
+      "end": 1714699769096,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769096,
+      "end": 1714699769096,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769096,
+      "end": 1714699769096,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769096,
+      "end": 1714699769096,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769096,
+      "end": 1714699769096,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769096,
+      "end": 1714699769096,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769096,
+      "end": 1714699769096,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699769096,
+      "end": 1714699769096,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769096,
+      "end": 1714699769096,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769096,
+      "end": 1714699769096,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769096,
+      "end": 1714699769096,
+      "order": "normal"
+    }
+  ]
+}

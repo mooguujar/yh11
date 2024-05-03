@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/core/dispatchRequest.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "'use strict';\n\nimport transformData from './transformData.js';\nimport isCancel from '../cancel/isCancel.js';\nimport defaults from '../defaults/index.js';\nimport CanceledError from '../cancel/CanceledError.js';\nimport AxiosHeaders from '../core/AxiosHeaders.js';\nimport adapters from \"../adapters/adapters.js\";\n\n/**\n * Throws a `CanceledError` if cancellation has been requested.\n *\n * @param {Object} config The config that is to be used for the request\n *\n * @returns {void}\n */\nfunction throwIfCancellationRequested(config) {\n  if (config.cancelToken) {\n    config.cancelToken.throwIfRequested();\n  }\n\n  if (config.signal && config.signal.aborted) {\n    throw new CanceledError(null, config);\n  }\n}\n\n/**\n * Dispatch a request to the server using the configured adapter.\n *\n * @param {object} config The config that is to be used for the request\n *\n * @returns {Promise} The Promise to be fulfilled\n */\nexport default function dispatchRequest(config) {\n  throwIfCancellationRequested(config);\n\n  config.headers = AxiosHeaders.from(config.headers);\n\n  // Transform request data\n  config.data = transformData.call(\n    config,\n    config.transformRequest\n  );\n\n  if (['post', 'put', 'patch'].indexOf(config.method) !== -1) {\n    config.headers.setContentType('application/x-www-form-urlencoded', false);\n  }\n\n  const adapter = adapters.getAdapter(config.adapter || defaults.adapter);\n\n  return adapter(config).then(function onAdapterResolution(response) {\n    throwIfCancellationRequested(config);\n\n    // Transform response data\n    response.data = transformData.call(\n      config,\n      config.transformResponse,\n      response\n    );\n\n    response.headers = AxiosHeaders.from(response.headers);\n\n    return response;\n  }, function onAdapterRejection(reason) {\n    if (!isCancel(reason)) {\n      throwIfCancellationRequested(config);\n\n      // Transform response data\n      if (reason && reason.response) {\n        reason.response.data = transformData.call(\n          config,\n          config.transformResponse,\n          reason.response\n        );\n        reason.response.headers = AxiosHeaders.from(reason.response.headers);\n      }\n    }\n\n    return Promise.reject(reason);\n  });\n}\n",
+      "start": 1714699770744,
+      "end": 1714699770759,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699770759,
+      "end": 1714699770759,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699770759,
+      "end": 1714699770759,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699770759,
+      "end": 1714699770759,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699770759,
+      "end": 1714699770759,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699770759,
+      "end": 1714699770759,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699770759,
+      "end": 1714699770759,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "'use strict';\n\nimport transformData from './transformData.js';\nimport isCancel from '../cancel/isCancel.js';\nimport defaults from '../defaults/index.js';\nimport CanceledError from '../cancel/CanceledError.js';\nimport AxiosHeaders from '../core/AxiosHeaders.js';\nimport adapters from \"../adapters/adapters.js\";\n\n/**\n * Throws a `CanceledError` if cancellation has been requested.\n *\n * @param {Object} config The config that is to be used for the request\n *\n * @returns {void}\n */\nfunction throwIfCancellationRequested(config) {\n  if (config.cancelToken) {\n    config.cancelToken.throwIfRequested();\n  }\n\n  if (config.signal && config.signal.aborted) {\n    throw new CanceledError(null, config);\n  }\n}\n\n/**\n * Dispatch a request to the server using the configured adapter.\n *\n * @param {object} config The config that is to be used for the request\n *\n * @returns {Promise} The Promise to be fulfilled\n */\nexport default function dispatchRequest(config) {\n  throwIfCancellationRequested(config);\n\n  config.headers = AxiosHeaders.from(config.headers);\n\n  // Transform request data\n  config.data = transformData.call(\n    config,\n    config.transformRequest\n  );\n\n  if (['post', 'put', 'patch'].indexOf(config.method) !== -1) {\n    config.headers.setContentType('application/x-www-form-urlencoded', false);\n  }\n\n  const adapter = adapters.getAdapter(config.adapter || defaults.adapter);\n\n  return adapter(config).then(function onAdapterResolution(response) {\n    throwIfCancellationRequested(config);\n\n    // Transform response data\n    response.data = transformData.call(\n      config,\n      config.transformResponse,\n      response\n    );\n\n    response.headers = AxiosHeaders.from(response.headers);\n\n    return response;\n  }, function onAdapterRejection(reason) {\n    if (!isCancel(reason)) {\n      throwIfCancellationRequested(config);\n\n      // Transform response data\n      if (reason && reason.response) {\n        reason.response.data = transformData.call(\n          config,\n          config.transformResponse,\n          reason.response\n        );\n        reason.response.headers = AxiosHeaders.from(reason.response.headers);\n      }\n    }\n\n    return Promise.reject(reason);\n  });\n}\n",
+      "start": 1714699770759,
+      "end": 1714699770759,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699770759,
+      "end": 1714699770759,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770759,
+      "end": 1714699770759,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699770759,
+      "end": 1714699770759,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770759,
+      "end": 1714699770759,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770759,
+      "end": 1714699770759,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770759,
+      "end": 1714699770759,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770759,
+      "end": 1714699770760,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770760,
+      "end": 1714699770760,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770760,
+      "end": 1714699770760,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770760,
+      "end": 1714699770760,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699770760,
+      "end": 1714699770760,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770760,
+      "end": 1714699770760,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770760,
+      "end": 1714699770760,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770760,
+      "end": 1714699770760,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/router/module/crypto.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "// import {\n//   CompletionPaymentPasswordMiddleware,\n//   CompletionIdCardMiddleware,\n//   CompletionPaymentMiddleware\n// } from '@/router/middleware'\n\nconst crypto = [\n  {\n    path: '/buy_coin',\n    name: 'buy_coin',\n    component: () => import(/* webpackChunkName: \"crypto\" */ '@/pages/Crypto/buy.vue'),\n    beforeEnter: [\n      // CompletionIdCardMiddleware\n      // CompletionPaymentMiddleware\n    ]\n  },\n  {\n    path: '/send',\n    name: 'send',\n    component: () => import(/* webpackChunkName: \"crypto\" */ '@/pages/Crypto/send_orderTopup.vue'),\n    beforeEnter: [\n      // CompletionIdCardMiddleware\n      // CompletionPaymentMiddleware\n    ]\n  },\n  {\n    path: '/selfbuy_coin',\n    name: 'selfbuy_coin',\n    component: () => import(/* webpackChunkName: \"crypto\" */ '@/pages/Crypto/selfbuyCoin.vue')\n  },\n  {\n    path: '/sell_coin',\n    name: 'sell_coin',\n    component: () => import(/* webpackChunkName: \"crypto\" */ '@/pages/Crypto/sell.vue'),\n    beforeEnter: [\n      // CompletionIdCardMiddleware,\n      // CompletionPaymentPasswordMiddleware\n      // CompletionPaymentMiddleware\n    ]\n  },\n  {\n    path: '/orderCreate',\n    name: 'orderCreate',\n    component: () => import(/* webpackChunkName: \"crypto\" */ '@/pages/Crypto/orderCreate.vue')\n  },\n  {\n    path: '/wideOrderCreate',\n    name: 'wideOrderCreate',\n    component: () => import(/* webpackChunkName: \"crypto\" */ '@/pages/Crypto/wideOrderCreate.vue')\n  },\n  {\n    path: '/onlineCharge',\n    name: 'onlineCharge',\n    component: () => import(/* webpackChunkName: \"crypto\" */ '@/pages/Other/onlineCharge.vue')\n  }\n]\n\nexport default crypto\n",
+      "start": 1714699767904,
+      "end": 1714699768001,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768001,
+      "end": 1714699768001,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "const crypto = [\n  {\n    path: \"/buy_coin\",\n    name: \"buy_coin\",\n    component: () => import(\n      /* webpackChunkName: \"crypto\" */\n      \"@/pages/Crypto/buy.vue\"\n    ),\n    beforeEnter: [\n      // CompletionIdCardMiddleware\n      // CompletionPaymentMiddleware\n    ]\n  },\n  {\n    path: \"/send\",\n    name: \"send\",\n    component: () => import(\n      /* webpackChunkName: \"crypto\" */\n      \"@/pages/Crypto/send_orderTopup.vue\"\n    ),\n    beforeEnter: [\n      // CompletionIdCardMiddleware\n      // CompletionPaymentMiddleware\n    ]\n  },\n  {\n    path: \"/selfbuy_coin\",\n    name: \"selfbuy_coin\",\n    component: () => import(\n      /* webpackChunkName: \"crypto\" */\n      \"@/pages/Crypto/selfbuyCoin.vue\"\n    )\n  },\n  {\n    path: \"/sell_coin\",\n    name: \"sell_coin\",\n    component: () => import(\n      /* webpackChunkName: \"crypto\" */\n      \"@/pages/Crypto/sell.vue\"\n    ),\n    beforeEnter: [\n      // CompletionIdCardMiddleware,\n      // CompletionPaymentPasswordMiddleware\n      // CompletionPaymentMiddleware\n    ]\n  },\n  {\n    path: \"/orderCreate\",\n    name: \"orderCreate\",\n    component: () => import(\n      /* webpackChunkName: \"crypto\" */\n      \"@/pages/Crypto/orderCreate.vue\"\n    )\n  },\n  {\n    path: \"/wideOrderCreate\",\n    name: \"wideOrderCreate\",\n    component: () => import(\n      /* webpackChunkName: \"crypto\" */\n      \"@/pages/Crypto/wideOrderCreate.vue\"\n    )\n  },\n  {\n    path: \"/onlineCharge\",\n    name: \"onlineCharge\",\n    component: () => import(\n      /* webpackChunkName: \"crypto\" */\n      \"@/pages/Other/onlineCharge.vue\"\n    )\n  }\n];\nexport default crypto;\n",
+      "start": 1714699768001,
+      "end": 1714699769054,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/router/module/crypto.ts"
+        ],
+        "sourcesContent": [
+          "// import {\n//   CompletionPaymentPasswordMiddleware,\n//   CompletionIdCardMiddleware,\n//   CompletionPaymentMiddleware\n// } from '@/router/middleware'\n\nconst crypto = [\n  {\n    path: '/buy_coin',\n    name: 'buy_coin',\n    component: () => import(/* webpackChunkName: \"crypto\" */ '@/pages/Crypto/buy.vue'),\n    beforeEnter: [\n      // CompletionIdCardMiddleware\n      // CompletionPaymentMiddleware\n    ]\n  },\n  {\n    path: '/send',\n    name: 'send',\n    component: () => import(/* webpackChunkName: \"crypto\" */ '@/pages/Crypto/send_orderTopup.vue'),\n    beforeEnter: [\n      // CompletionIdCardMiddleware\n      // CompletionPaymentMiddleware\n    ]\n  },\n  {\n    path: '/selfbuy_coin',\n    name: 'selfbuy_coin',\n    component: () => import(/* webpackChunkName: \"crypto\" */ '@/pages/Crypto/selfbuyCoin.vue')\n  },\n  {\n    path: '/sell_coin',\n    name: 'sell_coin',\n    component: () => import(/* webpackChunkName: \"crypto\" */ '@/pages/Crypto/sell.vue'),\n    beforeEnter: [\n      // CompletionIdCardMiddleware,\n      // CompletionPaymentPasswordMiddleware\n      // CompletionPaymentMiddleware\n    ]\n  },\n  {\n    path: '/orderCreate',\n    name: 'orderCreate',\n    component: () => import(/* webpackChunkName: \"crypto\" */ '@/pages/Crypto/orderCreate.vue')\n  },\n  {\n    path: '/wideOrderCreate',\n    name: 'wideOrderCreate',\n    component: () => import(/* webpackChunkName: \"crypto\" */ '@/pages/Crypto/wideOrderCreate.vue')\n  },\n  {\n    path: '/onlineCharge',\n    name: 'onlineCharge',\n    component: () => import(/* webpackChunkName: \"crypto\" */ '@/pages/Other/onlineCharge.vue')\n  }\n]\n\nexport default crypto\n"
+        ],
+        "mappings": "AAMA,MAAM,SAAS;AAAA,EACb;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MAAM;AAAA;AAAA,MAAwC;AAAA,IAAwB;AAAA,IACjF,aAAa;AAAA;AAAA;AAAA,IAGb;AAAA,EACF;AAAA,EACA;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MAAM;AAAA;AAAA,MAAwC;AAAA,IAAoC;AAAA,IAC7F,aAAa;AAAA;AAAA;AAAA,IAGb;AAAA,EACF;AAAA,EACA;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MAAM;AAAA;AAAA,MAAwC;AAAA,IAAgC;AAAA,EAC3F;AAAA,EACA;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MAAM;AAAA;AAAA,MAAwC;AAAA,IAAyB;AAAA,IAClF,aAAa;AAAA;AAAA;AAAA;AAAA,IAIb;AAAA,EACF;AAAA,EACA;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MAAM;AAAA;AAAA,MAAwC;AAAA,IAAgC;AAAA,EAC3F;AAAA,EACA;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MAAM;AAAA;AAAA,MAAwC;AAAA,IAAoC;AAAA,EAC/F;AAAA,EACA;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MAAM;AAAA;AAAA,MAAwC;AAAA,IAAgC;AAAA,EAC3F;AACF;AAEA,eAAe;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769054,
+      "end": 1714699769054,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769054,
+      "end": 1714699769054,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699769054,
+      "end": 1714699769054,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769054,
+      "end": 1714699769054,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "const crypto = [\n  {\n    path: \"/buy_coin\",\n    name: \"buy_coin\",\n    component: () => import(\n      /* webpackChunkName: \"crypto\" */\n      \"@/pages/Crypto/buy.vue\"\n    ),\n    beforeEnter: [\n      // CompletionIdCardMiddleware\n      // CompletionPaymentMiddleware\n    ]\n  },\n  {\n    path: \"/send\",\n    name: \"send\",\n    component: () => import(\n      /* webpackChunkName: \"crypto\" */\n      \"@/pages/Crypto/send_orderTopup.vue\"\n    ),\n    beforeEnter: [\n      // CompletionIdCardMiddleware\n      // CompletionPaymentMiddleware\n    ]\n  },\n  {\n    path: \"/selfbuy_coin\",\n    name: \"selfbuy_coin\",\n    component: () => import(\n      /* webpackChunkName: \"crypto\" */\n      \"@/pages/Crypto/selfbuyCoin.vue\"\n    )\n  },\n  {\n    path: \"/sell_coin\",\n    name: \"sell_coin\",\n    component: () => import(\n      /* webpackChunkName: \"crypto\" */\n      \"@/pages/Crypto/sell.vue\"\n    ),\n    beforeEnter: [\n      // CompletionIdCardMiddleware,\n      // CompletionPaymentPasswordMiddleware\n      // CompletionPaymentMiddleware\n    ]\n  },\n  {\n    path: \"/orderCreate\",\n    name: \"orderCreate\",\n    component: () => import(\n      /* webpackChunkName: \"crypto\" */\n      \"@/pages/Crypto/orderCreate.vue\"\n    )\n  },\n  {\n    path: \"/wideOrderCreate\",\n    name: \"wideOrderCreate\",\n    component: () => import(\n      /* webpackChunkName: \"crypto\" */\n      \"@/pages/Crypto/wideOrderCreate.vue\"\n    )\n  },\n  {\n    path: \"/onlineCharge\",\n    name: \"onlineCharge\",\n    component: () => import(\n      /* webpackChunkName: \"crypto\" */\n      \"@/pages/Other/onlineCharge.vue\"\n    )\n  }\n];\nexport default crypto;\n",
+      "start": 1714699769054,
+      "end": 1714699769054,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nconst crypto = [\n  {\n    path: \"/buy_coin\",\n    name: \"buy_coin\",\n    component: () => import(\n      /* webpackChunkName: \"crypto\" */\n      \"@/pages/Crypto/buy.vue\"\n    ),\n    beforeEnter: [\n      // CompletionIdCardMiddleware\n      // CompletionPaymentMiddleware\n    ]\n  },\n  {\n    path: \"/send\",\n    name: \"send\",\n    component: () => import(\n      /* webpackChunkName: \"crypto\" */\n      \"@/pages/Crypto/send_orderTopup.vue\"\n    ),\n    beforeEnter: [\n      // CompletionIdCardMiddleware\n      // CompletionPaymentMiddleware\n    ]\n  },\n  {\n    path: \"/selfbuy_coin\",\n    name: \"selfbuy_coin\",\n    component: () => import(\n      /* webpackChunkName: \"crypto\" */\n      \"@/pages/Crypto/selfbuyCoin.vue\"\n    )\n  },\n  {\n    path: \"/sell_coin\",\n    name: \"sell_coin\",\n    component: () => import(\n      /* webpackChunkName: \"crypto\" */\n      \"@/pages/Crypto/sell.vue\"\n    ),\n    beforeEnter: [\n      // CompletionIdCardMiddleware,\n      // CompletionPaymentPasswordMiddleware\n      // CompletionPaymentMiddleware\n    ]\n  },\n  {\n    path: \"/orderCreate\",\n    name: \"orderCreate\",\n    component: () => import(\n      /* webpackChunkName: \"crypto\" */\n      \"@/pages/Crypto/orderCreate.vue\"\n    )\n  },\n  {\n    path: \"/wideOrderCreate\",\n    name: \"wideOrderCreate\",\n    component: () => import(\n      /* webpackChunkName: \"crypto\" */\n      \"@/pages/Crypto/wideOrderCreate.vue\"\n    )\n  },\n  {\n    path: \"/onlineCharge\",\n    name: \"onlineCharge\",\n    component: () => import(\n      /* webpackChunkName: \"crypto\" */\n      \"@/pages/Other/onlineCharge.vue\"\n    )\n  }\n];\nexport default crypto;\n",
+      "start": 1714699769054,
+      "end": 1714699769100,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/router/module/crypto.ts\"],\n  \"sourcesContent\": [\"const crypto = [\\n  {\\n    path: \\\"/buy_coin\\\",\\n    name: \\\"buy_coin\\\",\\n    component: () => import(\\n      /* webpackChunkName: \\\"crypto\\\" */\\n      \\\"@/pages/Crypto/buy.vue\\\"\\n    ),\\n    beforeEnter: [\\n      // CompletionIdCardMiddleware\\n      // CompletionPaymentMiddleware\\n    ]\\n  },\\n  {\\n    path: \\\"/send\\\",\\n    name: \\\"send\\\",\\n    component: () => import(\\n      /* webpackChunkName: \\\"crypto\\\" */\\n      \\\"@/pages/Crypto/send_orderTopup.vue\\\"\\n    ),\\n    beforeEnter: [\\n      // CompletionIdCardMiddleware\\n      // CompletionPaymentMiddleware\\n    ]\\n  },\\n  {\\n    path: \\\"/selfbuy_coin\\\",\\n    name: \\\"selfbuy_coin\\\",\\n    component: () => import(\\n      /* webpackChunkName: \\\"crypto\\\" */\\n      \\\"@/pages/Crypto/selfbuyCoin.vue\\\"\\n    )\\n  },\\n  {\\n    path: \\\"/sell_coin\\\",\\n    name: \\\"sell_coin\\\",\\n    component: () => import(\\n      /* webpackChunkName: \\\"crypto\\\" */\\n      \\\"@/pages/Crypto/sell.vue\\\"\\n    ),\\n    beforeEnter: [\\n      // CompletionIdCardMiddleware,\\n      // CompletionPaymentPasswordMiddleware\\n      // CompletionPaymentMiddleware\\n    ]\\n  },\\n  {\\n    path: \\\"/orderCreate\\\",\\n    name: \\\"orderCreate\\\",\\n    component: () => import(\\n      /* webpackChunkName: \\\"crypto\\\" */\\n      \\\"@/pages/Crypto/orderCreate.vue\\\"\\n    )\\n  },\\n  {\\n    path: \\\"/wideOrderCreate\\\",\\n    name: \\\"wideOrderCreate\\\",\\n    component: () => import(\\n      /* webpackChunkName: \\\"crypto\\\" */\\n      \\\"@/pages/Crypto/wideOrderCreate.vue\\\"\\n    )\\n  },\\n  {\\n    path: \\\"/onlineCharge\\\",\\n    name: \\\"onlineCharge\\\",\\n    component: () => import(\\n      /* webpackChunkName: \\\"crypto\\\" */\\n      \\\"@/pages/Other/onlineCharge.vue\\\"\\n    )\\n  }\\n];\\nexport default crypto;\\n\"],\n  \"mappings\": \";AAAA,MAAM,SAAS;AAAA,EACb;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MAAM;AAAA;AAAA,MAEf;AAAA,IACF;AAAA,IACA,aAAa;AAAA;AAAA;AAAA,IAGb;AAAA,EACF;AAAA,EACA;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MAAM;AAAA;AAAA,MAEf;AAAA,IACF;AAAA,IACA,aAAa;AAAA;AAAA;AAAA,IAGb;AAAA,EACF;AAAA,EACA;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MAAM;AAAA;AAAA,MAEf;AAAA,IACF;AAAA,EACF;AAAA,EACA;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MAAM;AAAA;AAAA,MAEf;AAAA,IACF;AAAA,IACA,aAAa;AAAA;AAAA;AAAA;AAAA,IAIb;AAAA,EACF;AAAA,EACA;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MAAM;AAAA;AAAA,MAEf;AAAA,IACF;AAAA,EACF;AAAA,EACA;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MAAM;AAAA;AAAA,MAEf;AAAA,IACF;AAAA,EACF;AAAA,EACA;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MAAM;AAAA;AAAA,MAEf;AAAA,IACF;AAAA,EACF;AACF;AACA,eAAe;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769100,
+      "end": 1714699769100,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769100,
+      "end": 1714699769100,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769100,
+      "end": 1714699769100,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769100,
+      "end": 1714699769100,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769100,
+      "end": 1714699769100,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769100,
+      "end": 1714699769100,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769100,
+      "end": 1714699769100,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769101,
+      "end": 1714699769101,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769101,
+      "end": 1714699769101,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699769101,
+      "end": 1714699769101,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769101,
+      "end": 1714699769101,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "result": "import { __vitePreload } from \"\u0000vite/preload-helper.js\";\"use strict\";\nconst crypto = [\n  {\n    path: \"/buy_coin\",\n    name: \"buy_coin\",\n    component: () => __vitePreload(() => import(\n      /* webpackChunkName: \"crypto\" */\n      \"@/pages/Crypto/buy.vue\"\n    ),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url),\n    beforeEnter: [\n      // CompletionIdCardMiddleware\n      // CompletionPaymentMiddleware\n    ]\n  },\n  {\n    path: \"/send\",\n    name: \"send\",\n    component: () => __vitePreload(() => import(\n      /* webpackChunkName: \"crypto\" */\n      \"@/pages/Crypto/send_orderTopup.vue\"\n    ),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url),\n    beforeEnter: [\n      // CompletionIdCardMiddleware\n      // CompletionPaymentMiddleware\n    ]\n  },\n  {\n    path: \"/selfbuy_coin\",\n    name: \"selfbuy_coin\",\n    component: () => __vitePreload(() => import(\n      /* webpackChunkName: \"crypto\" */\n      \"@/pages/Crypto/selfbuyCoin.vue\"\n    ),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url)\n  },\n  {\n    path: \"/sell_coin\",\n    name: \"sell_coin\",\n    component: () => __vitePreload(() => import(\n      /* webpackChunkName: \"crypto\" */\n      \"@/pages/Crypto/sell.vue\"\n    ),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url),\n    beforeEnter: [\n      // CompletionIdCardMiddleware,\n      // CompletionPaymentPasswordMiddleware\n      // CompletionPaymentMiddleware\n    ]\n  },\n  {\n    path: \"/orderCreate\",\n    name: \"orderCreate\",\n    component: () => __vitePreload(() => import(\n      /* webpackChunkName: \"crypto\" */\n      \"@/pages/Crypto/orderCreate.vue\"\n    ),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url)\n  },\n  {\n    path: \"/wideOrderCreate\",\n    name: \"wideOrderCreate\",\n    component: () => __vitePreload(() => import(\n      /* webpackChunkName: \"crypto\" */\n      \"@/pages/Crypto/wideOrderCreate.vue\"\n    ),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url)\n  },\n  {\n    path: \"/onlineCharge\",\n    name: \"onlineCharge\",\n    component: () => __vitePreload(() => import(\n      /* webpackChunkName: \"crypto\" */\n      \"@/pages/Other/onlineCharge.vue\"\n    ),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url)\n  }\n];\nexport default crypto;\n",
+      "start": 1714699769101,
+      "end": 1714699769101,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769101,
+      "end": 1714699769101,
+      "order": "normal"
+    }
+  ]
+}

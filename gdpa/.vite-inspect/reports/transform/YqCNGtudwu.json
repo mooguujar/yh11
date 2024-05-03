@@ -1,0 +1,148 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/dropdown-item/index.css",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": ":root,:host{--van-dropdown-item-z-index: 10}.van-dropdown-item{position:fixed;right:0;left:0;z-index:var(--van-dropdown-item-z-index);overflow:hidden}.van-dropdown-item__icon{display:block;line-height:inherit}.van-dropdown-item__option{text-align:left}.van-dropdown-item__option--active,.van-dropdown-item__option--active .van-dropdown-item__icon{color:var(--van-dropdown-menu-option-active-color)}.van-dropdown-item--up{top:0}.van-dropdown-item--down{bottom:0}.van-dropdown-item__content{position:absolute;max-height:var(--van-dropdown-menu-content-max-height)}\n",
+      "start": 1714699770961,
+      "end": 1714699770980,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "result": ":root,:host{--van-dropdown-item-z-index: 10}.van-dropdown-item{position:fixed;right:0;left:0;z-index:var(--van-dropdown-item-z-index);overflow:hidden}.van-dropdown-item__icon{display:block;line-height:inherit}.van-dropdown-item__option{text-align:left}.van-dropdown-item__option--active,.van-dropdown-item__option--active .van-dropdown-item__icon{color:var(--van-dropdown-menu-option-active-color)}.van-dropdown-item--up{top:0}.van-dropdown-item--down{bottom:0}.van-dropdown-item__content{position:absolute;max-height:var(--van-dropdown-menu-content-max-height)}\n",
+      "start": 1714699770980,
+      "end": 1714699770980,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699770980,
+      "end": 1714699770980,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699770980,
+      "end": 1714699770980,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699770980,
+      "end": 1714699770980,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699770980,
+      "end": 1714699770980,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699770980,
+      "end": 1714699770980,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": ":root,:host{--van-dropdown-item-z-index: 10}.van-dropdown-item{position:fixed;right:0;left:0;z-index:var(--van-dropdown-item-z-index);overflow:hidden}.van-dropdown-item__icon{display:block;line-height:inherit}.van-dropdown-item__option{text-align:left}.van-dropdown-item__option--active,.van-dropdown-item__option--active .van-dropdown-item__icon{color:var(--van-dropdown-menu-option-active-color)}.van-dropdown-item--up{top:0}.van-dropdown-item--down{bottom:0}.van-dropdown-item__content{position:absolute;max-height:var(--van-dropdown-menu-content-max-height)}\n",
+      "start": 1714699770980,
+      "end": 1714699770980,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699770980,
+      "end": 1714699770980,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770980,
+      "end": 1714699770980,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699770980,
+      "end": 1714699770980,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770980,
+      "end": 1714699770980,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770980,
+      "end": 1714699770980,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770980,
+      "end": 1714699770980,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770980,
+      "end": 1714699770980,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770980,
+      "end": 1714699770980,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770980,
+      "end": 1714699770980,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770980,
+      "end": 1714699770980,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699770980,
+      "end": 1714699770980,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770980,
+      "end": 1714699770980,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770980,
+      "end": 1714699770980,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770980,
+      "end": 1714699770980,
+      "order": "normal"
+    }
+  ]
+}

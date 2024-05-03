@@ -1,0 +1,142 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/sidebar-item/SidebarItem.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode, mergeProps as _mergeProps } from \"vue\";\nimport { defineComponent } from \"vue\";\nimport { extend, numericProp, createNamespace } from \"../utils/index.mjs\";\nimport { SIDEBAR_KEY } from \"../sidebar/Sidebar.mjs\";\nimport { useParent } from \"@vant/use\";\nimport { useRoute, routeProps } from \"../composables/use-route.mjs\";\nimport { Badge } from \"../badge/index.mjs\";\nconst [name, bem] = createNamespace(\"sidebar-item\");\nconst sidebarItemProps = extend({}, routeProps, {\n  dot: Boolean,\n  title: String,\n  badge: numericProp,\n  disabled: Boolean,\n  badgeProps: Object\n});\nvar stdin_default = defineComponent({\n  name,\n  props: sidebarItemProps,\n  emits: [\"click\"],\n  setup(props, {\n    emit,\n    slots\n  }) {\n    const route = useRoute();\n    const {\n      parent,\n      index\n    } = useParent(SIDEBAR_KEY);\n    if (!parent) {\n      if (process.env.NODE_ENV !== \"production\") {\n        console.error(\"[Vant] <SidebarItem> must be a child component of <Sidebar>.\");\n      }\n      return;\n    }\n    const onClick = () => {\n      if (props.disabled) {\n        return;\n      }\n      emit(\"click\", index.value);\n      parent.setActive(index.value);\n      route();\n    };\n    return () => {\n      const {\n        dot,\n        badge,\n        title,\n        disabled\n      } = props;\n      const selected = index.value === parent.getActive();\n      return _createVNode(\"div\", {\n        \"role\": \"tab\",\n        \"class\": bem({\n          select: selected,\n          disabled\n        }),\n        \"tabindex\": disabled ? void 0 : 0,\n        \"aria-selected\": selected,\n        \"onClick\": onClick\n      }, [_createVNode(Badge, _mergeProps({\n        \"dot\": dot,\n        \"class\": bem(\"text\"),\n        \"content\": badge\n      }, props.badgeProps), {\n        default: () => [slots.title ? slots.title() : title]\n      })]);\n    };\n  }\n});\nexport {\n  stdin_default as default,\n  sidebarItemProps\n};\n",
+      "start": 1714699767313,
+      "end": 1714699767345,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767345,
+      "end": 1714699767345,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767345,
+      "end": 1714699767345,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767345,
+      "end": 1714699767345,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767345,
+      "end": 1714699767345,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767345,
+      "end": 1714699767345,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767345,
+      "end": 1714699767345,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { createVNode as _createVNode, mergeProps as _mergeProps } from \"vue\";\nimport { defineComponent } from \"vue\";\nimport { extend, numericProp, createNamespace } from \"../utils/index.mjs\";\nimport { SIDEBAR_KEY } from \"../sidebar/Sidebar.mjs\";\nimport { useParent } from \"@vant/use\";\nimport { useRoute, routeProps } from \"../composables/use-route.mjs\";\nimport { Badge } from \"../badge/index.mjs\";\nconst [name, bem] = createNamespace(\"sidebar-item\");\nconst sidebarItemProps = extend({}, routeProps, {\n  dot: Boolean,\n  title: String,\n  badge: numericProp,\n  disabled: Boolean,\n  badgeProps: Object\n});\nvar stdin_default = defineComponent({\n  name,\n  props: sidebarItemProps,\n  emits: [\"click\"],\n  setup(props, {\n    emit,\n    slots\n  }) {\n    const route = useRoute();\n    const {\n      parent,\n      index\n    } = useParent(SIDEBAR_KEY);\n    if (!parent) {\n      if (process.env.NODE_ENV !== \"production\") {\n        console.error(\"[Vant] <SidebarItem> must be a child component of <Sidebar>.\");\n      }\n      return;\n    }\n    const onClick = () => {\n      if (props.disabled) {\n        return;\n      }\n      emit(\"click\", index.value);\n      parent.setActive(index.value);\n      route();\n    };\n    return () => {\n      const {\n        dot,\n        badge,\n        title,\n        disabled\n      } = props;\n      const selected = index.value === parent.getActive();\n      return _createVNode(\"div\", {\n        \"role\": \"tab\",\n        \"class\": bem({\n          select: selected,\n          disabled\n        }),\n        \"tabindex\": disabled ? void 0 : 0,\n        \"aria-selected\": selected,\n        \"onClick\": onClick\n      }, [_createVNode(Badge, _mergeProps({\n        \"dot\": dot,\n        \"class\": bem(\"text\"),\n        \"content\": badge\n      }, props.badgeProps), {\n        default: () => [slots.title ? slots.title() : title]\n      })]);\n    };\n  }\n});\nexport {\n  stdin_default as default,\n  sidebarItemProps\n};\n",
+      "start": 1714699767345,
+      "end": 1714699767345,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767345,
+      "end": 1714699767345,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "result": "import { createVNode as _createVNode, mergeProps as _mergeProps } from \"vue\";\nimport { defineComponent } from \"vue\";\nimport { extend, numericProp, createNamespace } from \"../utils/index.mjs\";\nimport { SIDEBAR_KEY } from \"../sidebar/Sidebar.mjs\";\nimport { useParent } from \"@vant/use\";\nimport { useRoute, routeProps } from \"../composables/use-route.mjs\";\nimport { Badge } from \"../badge/index.mjs\";\nconst [name, bem] = createNamespace(\"sidebar-item\");\nconst sidebarItemProps = extend({}, routeProps, {\n  dot: Boolean,\n  title: String,\n  badge: numericProp,\n  disabled: Boolean,\n  badgeProps: Object\n});\nvar stdin_default = defineComponent({\n  name,\n  props: sidebarItemProps,\n  emits: [\"click\"],\n  setup(props, {\n    emit,\n    slots\n  }) {\n    const route = useRoute();\n    const {\n      parent,\n      index\n    } = useParent(SIDEBAR_KEY);\n    if (!parent) {\n      if (true) {\n        console.error(\"[Vant] <SidebarItem> must be a child component of <Sidebar>.\");\n      }\n      return;\n    }\n    const onClick = () => {\n      if (props.disabled) {\n        return;\n      }\n      emit(\"click\", index.value);\n      parent.setActive(index.value);\n      route();\n    };\n    return () => {\n      const {\n        dot,\n        badge,\n        title,\n        disabled\n      } = props;\n      const selected = index.value === parent.getActive();\n      return _createVNode(\"div\", {\n        \"role\": \"tab\",\n        \"class\": bem({\n          select: selected,\n          disabled\n        }),\n        \"tabindex\": disabled ? void 0 : 0,\n        \"aria-selected\": selected,\n        \"onClick\": onClick\n      }, [_createVNode(Badge, _mergeProps({\n        \"dot\": dot,\n        \"class\": bem(\"text\"),\n        \"content\": badge\n      }, props.badgeProps), {\n        default: () => [slots.title ? slots.title() : title]\n      })]);\n    };\n  }\n});\nexport {\n  stdin_default as default,\n  sidebarItemProps\n};\n",
+      "start": 1714699767345,
+      "end": 1714699767611,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767611,
+      "end": 1714699767611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767611,
+      "end": 1714699767611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767611,
+      "end": 1714699767611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767611,
+      "end": 1714699767611,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767611,
+      "end": 1714699767611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767612,
+      "end": 1714699767612,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767612,
+      "end": 1714699767612,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767612,
+      "end": 1714699767612,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767612,
+      "end": 1714699767612,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767612,
+      "end": 1714699767612,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767612,
+      "end": 1714699767612,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767612,
+      "end": 1714699767612,
+      "order": "normal"
+    }
+  ]
+}

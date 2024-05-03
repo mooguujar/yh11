@@ -1,0 +1,154 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/index.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import unCompletionIDCardCover from '@/assets/images/common/ID-verify.png'\nimport unCompletionPaymentCover from '@/assets/images/common/add-card.png'\nimport unCompletionPaymentPasswordCover from '@/assets/images/common/key.png'\n\nimport ProfileCompletionPopupConstructor from './ProfileCompletionPopup.vue'\nimport { AppContext, getCurrentInstance } from 'vue'\nimport { useRoute, useRouter } from 'vue-router'\nimport { createVM } from '../core'\nimport { UntokenInWEB } from '@/utils/tools'\nimport { useCoinBuySellStore } from '@/store/modules/coinBuySell'\n\nexport type ProfileCompletionPopupProps = {\n  image?: string\n  title?: string\n  content?: string\n  confirmButtonText?: string\n  type?: string\n  action?: Function\n}\n\nasync function ProfileCompletionPopup(\n  props: ProfileCompletionPopupProps,\n  appContext?: AppContext | null\n) {\n  const coinBuySellStore = useCoinBuySellStore()\n  let info = await coinBuySellStore.getInfo()\n  if (UntokenInWEB() || !!!info) {\n    console.log('不创建弹窗')\n    return\n  }\n  let vm = createVM<ProfileCompletionPopupProps>(\n    ProfileCompletionPopupConstructor,\n    props,\n    appContext\n  )\n  vm!.exposed!.visible.value = true\n}\nfunction isUsedInSetup() {\n  try {\n    throw new Error()\n  } catch (e: any) {\n    return e.stack.includes('vue')\n  }\n}\nexport function useProfileCompletionPopup() {\n  const instance = isUsedInSetup()\n  const router = (instance && useRouter()) || {}\n  const route = (instance && useRoute()) || {}\n  if (UntokenInWEB()) {\n    router.push(`/auth/login`)\n  }\n  const appContext = getCurrentInstance()?.appContext\n  return {\n    idcard: (props?: ProfileCompletionPopupProps) => {\n      const defaultProps = {\n        image: unCompletionIDCardCover,\n        title: '身份认证',\n        content: '完成身份认证，可核对真实身份，\\n保障合法权益',\n        confirmButtonText: '立即认证',\n        action: () => router.push(`/verifyList?from=${route.fullPath}`),\n        type: 'idcard'\n      }\n      const newProps = Object.assign(defaultProps, props)\n      ProfileCompletionPopup(newProps, appContext)\n    },\n    AdvancedIdcard: (props?: ProfileCompletionPopupProps) => {\n      const defaultProps = {\n        image: unCompletionIDCardCover,\n        title: '温馨提示',\n        allowDIY: true,\n        content: '初级实名认证用户，今日卖币超出限制，',\n        confirmButtonText: '立即高级认证',\n        action: () => router.push(`/verifyList?from=${route.fullPath}`),\n        type: 'idcard'\n      }\n      const newProps = Object.assign(defaultProps, props)\n      ProfileCompletionPopup(newProps, appContext)\n    },\n    payment: (props?: ProfileCompletionPopupProps) => {\n      const defaultProps = {\n        image: unCompletionPaymentCover,\n        title: '添加收付款信息',\n        content: '请先添加收付款信息',\n        confirmButtonText: '立即绑定',\n        action: () => router.push(`/bank_card?from=${route.fullPath}`),\n        from: (route && route.path) || null,\n        type: 'payment'\n      }\n      const newProps = Object.assign(defaultProps, props)\n      ProfileCompletionPopup(newProps, appContext)\n    },\n    paymentPassword(props?: ProfileCompletionPopupProps) {\n      const defaultProps = {\n        image: unCompletionPaymentPasswordCover,\n        title: '设置支付密码',\n        content: '请先设置支付密码',\n        confirmButtonText: '立即设置',\n        action: () => router.push(`/pay_password?from=${route.fullPath}`),\n        from: (route && route.path) || null,\n        type: 'payment-password'\n      }\n      const newProps = Object.assign(defaultProps, props)\n      ProfileCompletionPopup(newProps, appContext)\n    }\n  }\n}\n",
+      "start": 1714699767956,
+      "end": 1714699768013,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768013,
+      "end": 1714699768013,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import unCompletionIDCardCover from \"@/assets/images/common/ID-verify.png\";\nimport unCompletionPaymentCover from \"@/assets/images/common/add-card.png\";\nimport unCompletionPaymentPasswordCover from \"@/assets/images/common/key.png\";\nimport ProfileCompletionPopupConstructor from \"./ProfileCompletionPopup.vue\";\nimport { getCurrentInstance } from \"vue\";\nimport { useRoute, useRouter } from \"vue-router\";\nimport { createVM } from \"../core\";\nimport { UntokenInWEB } from \"@/utils/tools\";\nimport { useCoinBuySellStore } from \"@/store/modules/coinBuySell\";\nasync function ProfileCompletionPopup(props, appContext) {\n  const coinBuySellStore = useCoinBuySellStore();\n  let info = await coinBuySellStore.getInfo();\n  if (UntokenInWEB() || !!!info) {\n    console.log(\"不创建弹窗\");\n    return;\n  }\n  let vm = createVM(\n    ProfileCompletionPopupConstructor,\n    props,\n    appContext\n  );\n  vm.exposed.visible.value = true;\n}\nfunction isUsedInSetup() {\n  try {\n    throw new Error();\n  } catch (e) {\n    return e.stack.includes(\"vue\");\n  }\n}\nexport function useProfileCompletionPopup() {\n  const instance = isUsedInSetup();\n  const router = instance && useRouter() || {};\n  const route = instance && useRoute() || {};\n  if (UntokenInWEB()) {\n    router.push(`/auth/login`);\n  }\n  const appContext = getCurrentInstance()?.appContext;\n  return {\n    idcard: (props) => {\n      const defaultProps = {\n        image: unCompletionIDCardCover,\n        title: \"身份认证\",\n        content: \"完成身份认证，可核对真实身份，\\n保障合法权益\",\n        confirmButtonText: \"立即认证\",\n        action: () => router.push(`/verifyList?from=${route.fullPath}`),\n        type: \"idcard\"\n      };\n      const newProps = Object.assign(defaultProps, props);\n      ProfileCompletionPopup(newProps, appContext);\n    },\n    AdvancedIdcard: (props) => {\n      const defaultProps = {\n        image: unCompletionIDCardCover,\n        title: \"温馨提示\",\n        allowDIY: true,\n        content: \"初级实名认证用户，今日卖币超出限制，\",\n        confirmButtonText: \"立即高级认证\",\n        action: () => router.push(`/verifyList?from=${route.fullPath}`),\n        type: \"idcard\"\n      };\n      const newProps = Object.assign(defaultProps, props);\n      ProfileCompletionPopup(newProps, appContext);\n    },\n    payment: (props) => {\n      const defaultProps = {\n        image: unCompletionPaymentCover,\n        title: \"添加收付款信息\",\n        content: \"请先添加收付款信息\",\n        confirmButtonText: \"立即绑定\",\n        action: () => router.push(`/bank_card?from=${route.fullPath}`),\n        from: route && route.path || null,\n        type: \"payment\"\n      };\n      const newProps = Object.assign(defaultProps, props);\n      ProfileCompletionPopup(newProps, appContext);\n    },\n    paymentPassword(props) {\n      const defaultProps = {\n        image: unCompletionPaymentPasswordCover,\n        title: \"设置支付密码\",\n        content: \"请先设置支付密码\",\n        confirmButtonText: \"立即设置\",\n        action: () => router.push(`/pay_password?from=${route.fullPath}`),\n        from: route && route.path || null,\n        type: \"payment-password\"\n      };\n      const newProps = Object.assign(defaultProps, props);\n      ProfileCompletionPopup(newProps, appContext);\n    }\n  };\n}\n",
+      "start": 1714699768013,
+      "end": 1714699769064,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/index.ts"
+        ],
+        "sourcesContent": [
+          "import unCompletionIDCardCover from '@/assets/images/common/ID-verify.png'\nimport unCompletionPaymentCover from '@/assets/images/common/add-card.png'\nimport unCompletionPaymentPasswordCover from '@/assets/images/common/key.png'\n\nimport ProfileCompletionPopupConstructor from './ProfileCompletionPopup.vue'\nimport { AppContext, getCurrentInstance } from 'vue'\nimport { useRoute, useRouter } from 'vue-router'\nimport { createVM } from '../core'\nimport { UntokenInWEB } from '@/utils/tools'\nimport { useCoinBuySellStore } from '@/store/modules/coinBuySell'\n\nexport type ProfileCompletionPopupProps = {\n  image?: string\n  title?: string\n  content?: string\n  confirmButtonText?: string\n  type?: string\n  action?: Function\n}\n\nasync function ProfileCompletionPopup(\n  props: ProfileCompletionPopupProps,\n  appContext?: AppContext | null\n) {\n  const coinBuySellStore = useCoinBuySellStore()\n  let info = await coinBuySellStore.getInfo()\n  if (UntokenInWEB() || !!!info) {\n    console.log('不创建弹窗')\n    return\n  }\n  let vm = createVM<ProfileCompletionPopupProps>(\n    ProfileCompletionPopupConstructor,\n    props,\n    appContext\n  )\n  vm!.exposed!.visible.value = true\n}\nfunction isUsedInSetup() {\n  try {\n    throw new Error()\n  } catch (e: any) {\n    return e.stack.includes('vue')\n  }\n}\nexport function useProfileCompletionPopup() {\n  const instance = isUsedInSetup()\n  const router = (instance && useRouter()) || {}\n  const route = (instance && useRoute()) || {}\n  if (UntokenInWEB()) {\n    router.push(`/auth/login`)\n  }\n  const appContext = getCurrentInstance()?.appContext\n  return {\n    idcard: (props?: ProfileCompletionPopupProps) => {\n      const defaultProps = {\n        image: unCompletionIDCardCover,\n        title: '身份认证',\n        content: '完成身份认证，可核对真实身份，\\n保障合法权益',\n        confirmButtonText: '立即认证',\n        action: () => router.push(`/verifyList?from=${route.fullPath}`),\n        type: 'idcard'\n      }\n      const newProps = Object.assign(defaultProps, props)\n      ProfileCompletionPopup(newProps, appContext)\n    },\n    AdvancedIdcard: (props?: ProfileCompletionPopupProps) => {\n      const defaultProps = {\n        image: unCompletionIDCardCover,\n        title: '温馨提示',\n        allowDIY: true,\n        content: '初级实名认证用户，今日卖币超出限制，',\n        confirmButtonText: '立即高级认证',\n        action: () => router.push(`/verifyList?from=${route.fullPath}`),\n        type: 'idcard'\n      }\n      const newProps = Object.assign(defaultProps, props)\n      ProfileCompletionPopup(newProps, appContext)\n    },\n    payment: (props?: ProfileCompletionPopupProps) => {\n      const defaultProps = {\n        image: unCompletionPaymentCover,\n        title: '添加收付款信息',\n        content: '请先添加收付款信息',\n        confirmButtonText: '立即绑定',\n        action: () => router.push(`/bank_card?from=${route.fullPath}`),\n        from: (route && route.path) || null,\n        type: 'payment'\n      }\n      const newProps = Object.assign(defaultProps, props)\n      ProfileCompletionPopup(newProps, appContext)\n    },\n    paymentPassword(props?: ProfileCompletionPopupProps) {\n      const defaultProps = {\n        image: unCompletionPaymentPasswordCover,\n        title: '设置支付密码',\n        content: '请先设置支付密码',\n        confirmButtonText: '立即设置',\n        action: () => router.push(`/pay_password?from=${route.fullPath}`),\n        from: (route && route.path) || null,\n        type: 'payment-password'\n      }\n      const newProps = Object.assign(defaultProps, props)\n      ProfileCompletionPopup(newProps, appContext)\n    }\n  }\n}\n"
+        ],
+        "mappings": "AAAA,OAAO,6BAA6B;AACpC,OAAO,8BAA8B;AACrC,OAAO,sCAAsC;AAE7C,OAAO,uCAAuC;AAC9C,SAAqB,0BAA0B;AAC/C,SAAS,UAAU,iBAAiB;AACpC,SAAS,gBAAgB;AACzB,SAAS,oBAAoB;AAC7B,SAAS,2BAA2B;AAWpC,eAAe,uBACb,OACA,YACA;AACA,QAAM,mBAAmB,oBAAoB;AAC7C,MAAI,OAAO,MAAM,iBAAiB,QAAQ;AAC1C,MAAI,aAAa,KAAK,CAAC,CAAC,CAAC,MAAM;AAC7B,YAAQ,IAAI,OAAO;AACnB;AAAA,EACF;AACA,MAAI,KAAK;AAAA,IACP;AAAA,IACA;AAAA,IACA;AAAA,EACF;AACA,KAAI,QAAS,QAAQ,QAAQ;AAC/B;AACA,SAAS,gBAAgB;AACvB,MAAI;AACF,UAAM,IAAI,MAAM;AAAA,EAClB,SAAS,GAAQ;AACf,WAAO,EAAE,MAAM,SAAS,KAAK;AAAA,EAC/B;AACF;AACO,gBAAS,4BAA4B;AAC1C,QAAM,WAAW,cAAc;AAC/B,QAAM,SAAU,YAAY,UAAU,KAAM,CAAC;AAC7C,QAAM,QAAS,YAAY,SAAS,KAAM,CAAC;AAC3C,MAAI,aAAa,GAAG;AAClB,WAAO,KAAK,aAAa;AAAA,EAC3B;AACA,QAAM,aAAa,mBAAmB,GAAG;AACzC,SAAO;AAAA,IACL,QAAQ,CAAC,UAAwC;AAC/C,YAAM,eAAe;AAAA,QACnB,OAAO;AAAA,QACP,OAAO;AAAA,QACP,SAAS;AAAA,QACT,mBAAmB;AAAA,QACnB,QAAQ,MAAM,OAAO,KAAK,oBAAoB,MAAM,QAAQ,EAAE;AAAA,QAC9D,MAAM;AAAA,MACR;AACA,YAAM,WAAW,OAAO,OAAO,cAAc,KAAK;AAClD,6BAAuB,UAAU,UAAU;AAAA,IAC7C;AAAA,IACA,gBAAgB,CAAC,UAAwC;AACvD,YAAM,eAAe;AAAA,QACnB,OAAO;AAAA,QACP,OAAO;AAAA,QACP,UAAU;AAAA,QACV,SAAS;AAAA,QACT,mBAAmB;AAAA,QACnB,QAAQ,MAAM,OAAO,KAAK,oBAAoB,MAAM,QAAQ,EAAE;AAAA,QAC9D,MAAM;AAAA,MACR;AACA,YAAM,WAAW,OAAO,OAAO,cAAc,KAAK;AAClD,6BAAuB,UAAU,UAAU;AAAA,IAC7C;AAAA,IACA,SAAS,CAAC,UAAwC;AAChD,YAAM,eAAe;AAAA,QACnB,OAAO;AAAA,QACP,OAAO;AAAA,QACP,SAAS;AAAA,QACT,mBAAmB;AAAA,QACnB,QAAQ,MAAM,OAAO,KAAK,mBAAmB,MAAM,QAAQ,EAAE;AAAA,QAC7D,MAAO,SAAS,MAAM,QAAS;AAAA,QAC/B,MAAM;AAAA,MACR;AACA,YAAM,WAAW,OAAO,OAAO,cAAc,KAAK;AAClD,6BAAuB,UAAU,UAAU;AAAA,IAC7C;AAAA,IACA,gBAAgB,OAAqC;AACnD,YAAM,eAAe;AAAA,QACnB,OAAO;AAAA,QACP,OAAO;AAAA,QACP,SAAS;AAAA,QACT,mBAAmB;AAAA,QACnB,QAAQ,MAAM,OAAO,KAAK,sBAAsB,MAAM,QAAQ,EAAE;AAAA,QAChE,MAAO,SAAS,MAAM,QAAS;AAAA,QAC/B,MAAM;AAAA,MACR;AACA,YAAM,WAAW,OAAO,OAAO,cAAc,KAAK;AAClD,6BAAuB,UAAU,UAAU;AAAA,IAC7C;AAAA,EACF;AACF;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769064,
+      "end": 1714699769064,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769064,
+      "end": 1714699769064,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699769064,
+      "end": 1714699769064,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769064,
+      "end": 1714699769064,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import unCompletionIDCardCover from \"@/assets/images/common/ID-verify.png\";\nimport unCompletionPaymentCover from \"@/assets/images/common/add-card.png\";\nimport unCompletionPaymentPasswordCover from \"@/assets/images/common/key.png\";\nimport ProfileCompletionPopupConstructor from \"./ProfileCompletionPopup.vue\";\nimport { getCurrentInstance } from \"vue\";\nimport { useRoute, useRouter } from \"vue-router\";\nimport { createVM } from \"../core\";\nimport { UntokenInWEB } from \"@/utils/tools\";\nimport { useCoinBuySellStore } from \"@/store/modules/coinBuySell\";\nasync function ProfileCompletionPopup(props, appContext) {\n  const coinBuySellStore = useCoinBuySellStore();\n  let info = await coinBuySellStore.getInfo();\n  if (UntokenInWEB() || !!!info) {\n    console.log(\"不创建弹窗\");\n    return;\n  }\n  let vm = createVM(\n    ProfileCompletionPopupConstructor,\n    props,\n    appContext\n  );\n  vm.exposed.visible.value = true;\n}\nfunction isUsedInSetup() {\n  try {\n    throw new Error();\n  } catch (e) {\n    return e.stack.includes(\"vue\");\n  }\n}\nexport function useProfileCompletionPopup() {\n  const instance = isUsedInSetup();\n  const router = instance && useRouter() || {};\n  const route = instance && useRoute() || {};\n  if (UntokenInWEB()) {\n    router.push(`/auth/login`);\n  }\n  const appContext = getCurrentInstance()?.appContext;\n  return {\n    idcard: (props) => {\n      const defaultProps = {\n        image: unCompletionIDCardCover,\n        title: \"身份认证\",\n        content: \"完成身份认证，可核对真实身份，\\n保障合法权益\",\n        confirmButtonText: \"立即认证\",\n        action: () => router.push(`/verifyList?from=${route.fullPath}`),\n        type: \"idcard\"\n      };\n      const newProps = Object.assign(defaultProps, props);\n      ProfileCompletionPopup(newProps, appContext);\n    },\n    AdvancedIdcard: (props) => {\n      const defaultProps = {\n        image: unCompletionIDCardCover,\n        title: \"温馨提示\",\n        allowDIY: true,\n        content: \"初级实名认证用户，今日卖币超出限制，\",\n        confirmButtonText: \"立即高级认证\",\n        action: () => router.push(`/verifyList?from=${route.fullPath}`),\n        type: \"idcard\"\n      };\n      const newProps = Object.assign(defaultProps, props);\n      ProfileCompletionPopup(newProps, appContext);\n    },\n    payment: (props) => {\n      const defaultProps = {\n        image: unCompletionPaymentCover,\n        title: \"添加收付款信息\",\n        content: \"请先添加收付款信息\",\n        confirmButtonText: \"立即绑定\",\n        action: () => router.push(`/bank_card?from=${route.fullPath}`),\n        from: route && route.path || null,\n        type: \"payment\"\n      };\n      const newProps = Object.assign(defaultProps, props);\n      ProfileCompletionPopup(newProps, appContext);\n    },\n    paymentPassword(props) {\n      const defaultProps = {\n        image: unCompletionPaymentPasswordCover,\n        title: \"设置支付密码\",\n        content: \"请先设置支付密码\",\n        confirmButtonText: \"立即设置\",\n        action: () => router.push(`/pay_password?from=${route.fullPath}`),\n        from: route && route.path || null,\n        type: \"payment-password\"\n      };\n      const newProps = Object.assign(defaultProps, props);\n      ProfileCompletionPopup(newProps, appContext);\n    }\n  };\n}\n",
+      "start": 1714699769064,
+      "end": 1714699769064,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport unCompletionIDCardCover from \"@/assets/images/common/ID-verify.png\";\nimport unCompletionPaymentCover from \"@/assets/images/common/add-card.png\";\nimport unCompletionPaymentPasswordCover from \"@/assets/images/common/key.png\";\nimport ProfileCompletionPopupConstructor from \"./ProfileCompletionPopup.vue\";\nimport { getCurrentInstance } from \"vue\";\nimport { useRoute, useRouter } from \"vue-router\";\nimport { createVM } from \"../core\";\nimport { UntokenInWEB } from \"@/utils/tools\";\nimport { useCoinBuySellStore } from \"@/store/modules/coinBuySell\";\nasync function ProfileCompletionPopup(props, appContext) {\n  const coinBuySellStore = useCoinBuySellStore();\n  let info = await coinBuySellStore.getInfo();\n  if (UntokenInWEB() || !!!info) {\n    console.log(\"\\u4E0D\\u521B\\u5EFA\\u5F39\\u7A97\");\n    return;\n  }\n  let vm = createVM(\n    ProfileCompletionPopupConstructor,\n    props,\n    appContext\n  );\n  vm.exposed.visible.value = true;\n}\nfunction isUsedInSetup() {\n  try {\n    throw new Error();\n  } catch (e) {\n    return e.stack.includes(\"vue\");\n  }\n}\nexport function useProfileCompletionPopup() {\n  var _a;\n  const instance = isUsedInSetup();\n  const router = instance && useRouter() || {};\n  const route = instance && useRoute() || {};\n  if (UntokenInWEB()) {\n    router.push(`/auth/login`);\n  }\n  const appContext = (_a = getCurrentInstance()) == null ? void 0 : _a.appContext;\n  return {\n    idcard: (props) => {\n      const defaultProps = {\n        image: unCompletionIDCardCover,\n        title: \"\\u8EAB\\u4EFD\\u8BA4\\u8BC1\",\n        content: \"\\u5B8C\\u6210\\u8EAB\\u4EFD\\u8BA4\\u8BC1\\uFF0C\\u53EF\\u6838\\u5BF9\\u771F\\u5B9E\\u8EAB\\u4EFD\\uFF0C\\n\\u4FDD\\u969C\\u5408\\u6CD5\\u6743\\u76CA\",\n        confirmButtonText: \"\\u7ACB\\u5373\\u8BA4\\u8BC1\",\n        action: () => router.push(`/verifyList?from=${route.fullPath}`),\n        type: \"idcard\"\n      };\n      const newProps = Object.assign(defaultProps, props);\n      ProfileCompletionPopup(newProps, appContext);\n    },\n    AdvancedIdcard: (props) => {\n      const defaultProps = {\n        image: unCompletionIDCardCover,\n        title: \"\\u6E29\\u99A8\\u63D0\\u793A\",\n        allowDIY: true,\n        content: \"\\u521D\\u7EA7\\u5B9E\\u540D\\u8BA4\\u8BC1\\u7528\\u6237\\uFF0C\\u4ECA\\u65E5\\u5356\\u5E01\\u8D85\\u51FA\\u9650\\u5236\\uFF0C\",\n        confirmButtonText: \"\\u7ACB\\u5373\\u9AD8\\u7EA7\\u8BA4\\u8BC1\",\n        action: () => router.push(`/verifyList?from=${route.fullPath}`),\n        type: \"idcard\"\n      };\n      const newProps = Object.assign(defaultProps, props);\n      ProfileCompletionPopup(newProps, appContext);\n    },\n    payment: (props) => {\n      const defaultProps = {\n        image: unCompletionPaymentCover,\n        title: \"\\u6DFB\\u52A0\\u6536\\u4ED8\\u6B3E\\u4FE1\\u606F\",\n        content: \"\\u8BF7\\u5148\\u6DFB\\u52A0\\u6536\\u4ED8\\u6B3E\\u4FE1\\u606F\",\n        confirmButtonText: \"\\u7ACB\\u5373\\u7ED1\\u5B9A\",\n        action: () => router.push(`/bank_card?from=${route.fullPath}`),\n        from: route && route.path || null,\n        type: \"payment\"\n      };\n      const newProps = Object.assign(defaultProps, props);\n      ProfileCompletionPopup(newProps, appContext);\n    },\n    paymentPassword(props) {\n      const defaultProps = {\n        image: unCompletionPaymentPasswordCover,\n        title: \"\\u8BBE\\u7F6E\\u652F\\u4ED8\\u5BC6\\u7801\",\n        content: \"\\u8BF7\\u5148\\u8BBE\\u7F6E\\u652F\\u4ED8\\u5BC6\\u7801\",\n        confirmButtonText: \"\\u7ACB\\u5373\\u8BBE\\u7F6E\",\n        action: () => router.push(`/pay_password?from=${route.fullPath}`),\n        from: route && route.path || null,\n        type: \"payment-password\"\n      };\n      const newProps = Object.assign(defaultProps, props);\n      ProfileCompletionPopup(newProps, appContext);\n    }\n  };\n}\n",
+      "start": 1714699769064,
+      "end": 1714699769492,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/index.ts\"],\n  \"sourcesContent\": [\"import unCompletionIDCardCover from \\\"@/assets/images/common/ID-verify.png\\\";\\nimport unCompletionPaymentCover from \\\"@/assets/images/common/add-card.png\\\";\\nimport unCompletionPaymentPasswordCover from \\\"@/assets/images/common/key.png\\\";\\nimport ProfileCompletionPopupConstructor from \\\"./ProfileCompletionPopup.vue\\\";\\nimport { getCurrentInstance } from \\\"vue\\\";\\nimport { useRoute, useRouter } from \\\"vue-router\\\";\\nimport { createVM } from \\\"../core\\\";\\nimport { UntokenInWEB } from \\\"@/utils/tools\\\";\\nimport { useCoinBuySellStore } from \\\"@/store/modules/coinBuySell\\\";\\nasync function ProfileCompletionPopup(props, appContext) {\\n  const coinBuySellStore = useCoinBuySellStore();\\n  let info = await coinBuySellStore.getInfo();\\n  if (UntokenInWEB() || !!!info) {\\n    console.log(\\\"\\u4E0D\\u521B\\u5EFA\\u5F39\\u7A97\\\");\\n    return;\\n  }\\n  let vm = createVM(\\n    ProfileCompletionPopupConstructor,\\n    props,\\n    appContext\\n  );\\n  vm.exposed.visible.value = true;\\n}\\nfunction isUsedInSetup() {\\n  try {\\n    throw new Error();\\n  } catch (e) {\\n    return e.stack.includes(\\\"vue\\\");\\n  }\\n}\\nexport function useProfileCompletionPopup() {\\n  const instance = isUsedInSetup();\\n  const router = instance && useRouter() || {};\\n  const route = instance && useRoute() || {};\\n  if (UntokenInWEB()) {\\n    router.push(`/auth/login`);\\n  }\\n  const appContext = getCurrentInstance()?.appContext;\\n  return {\\n    idcard: (props) => {\\n      const defaultProps = {\\n        image: unCompletionIDCardCover,\\n        title: \\\"\\u8EAB\\u4EFD\\u8BA4\\u8BC1\\\",\\n        content: \\\"\\u5B8C\\u6210\\u8EAB\\u4EFD\\u8BA4\\u8BC1\\uFF0C\\u53EF\\u6838\\u5BF9\\u771F\\u5B9E\\u8EAB\\u4EFD\\uFF0C\\\\n\\u4FDD\\u969C\\u5408\\u6CD5\\u6743\\u76CA\\\",\\n        confirmButtonText: \\\"\\u7ACB\\u5373\\u8BA4\\u8BC1\\\",\\n        action: () => router.push(`/verifyList?from=${route.fullPath}`),\\n        type: \\\"idcard\\\"\\n      };\\n      const newProps = Object.assign(defaultProps, props);\\n      ProfileCompletionPopup(newProps, appContext);\\n    },\\n    AdvancedIdcard: (props) => {\\n      const defaultProps = {\\n        image: unCompletionIDCardCover,\\n        title: \\\"\\u6E29\\u99A8\\u63D0\\u793A\\\",\\n        allowDIY: true,\\n        content: \\\"\\u521D\\u7EA7\\u5B9E\\u540D\\u8BA4\\u8BC1\\u7528\\u6237\\uFF0C\\u4ECA\\u65E5\\u5356\\u5E01\\u8D85\\u51FA\\u9650\\u5236\\uFF0C\\\",\\n        confirmButtonText: \\\"\\u7ACB\\u5373\\u9AD8\\u7EA7\\u8BA4\\u8BC1\\\",\\n        action: () => router.push(`/verifyList?from=${route.fullPath}`),\\n        type: \\\"idcard\\\"\\n      };\\n      const newProps = Object.assign(defaultProps, props);\\n      ProfileCompletionPopup(newProps, appContext);\\n    },\\n    payment: (props) => {\\n      const defaultProps = {\\n        image: unCompletionPaymentCover,\\n        title: \\\"\\u6DFB\\u52A0\\u6536\\u4ED8\\u6B3E\\u4FE1\\u606F\\\",\\n        content: \\\"\\u8BF7\\u5148\\u6DFB\\u52A0\\u6536\\u4ED8\\u6B3E\\u4FE1\\u606F\\\",\\n        confirmButtonText: \\\"\\u7ACB\\u5373\\u7ED1\\u5B9A\\\",\\n        action: () => router.push(`/bank_card?from=${route.fullPath}`),\\n        from: route && route.path || null,\\n        type: \\\"payment\\\"\\n      };\\n      const newProps = Object.assign(defaultProps, props);\\n      ProfileCompletionPopup(newProps, appContext);\\n    },\\n    paymentPassword(props) {\\n      const defaultProps = {\\n        image: unCompletionPaymentPasswordCover,\\n        title: \\\"\\u8BBE\\u7F6E\\u652F\\u4ED8\\u5BC6\\u7801\\\",\\n        content: \\\"\\u8BF7\\u5148\\u8BBE\\u7F6E\\u652F\\u4ED8\\u5BC6\\u7801\\\",\\n        confirmButtonText: \\\"\\u7ACB\\u5373\\u8BBE\\u7F6E\\\",\\n        action: () => router.push(`/pay_password?from=${route.fullPath}`),\\n        from: route && route.path || null,\\n        type: \\\"payment-password\\\"\\n      };\\n      const newProps = Object.assign(defaultProps, props);\\n      ProfileCompletionPopup(newProps, appContext);\\n    }\\n  };\\n}\\n\"],\n  \"mappings\": \";AAAA,OAAO,6BAA6B;AACpC,OAAO,8BAA8B;AACrC,OAAO,sCAAsC;AAC7C,OAAO,uCAAuC;AAC9C,SAAS,0BAA0B;AACnC,SAAS,UAAU,iBAAiB;AACpC,SAAS,gBAAgB;AACzB,SAAS,oBAAoB;AAC7B,SAAS,2BAA2B;AACpC,eAAe,uBAAuB,OAAO,YAAY;AACvD,QAAM,mBAAmB,oBAAoB;AAC7C,MAAI,OAAO,MAAM,iBAAiB,QAAQ;AAC1C,MAAI,aAAa,KAAK,CAAC,CAAC,CAAC,MAAM;AAC7B,YAAQ,IAAI,gCAAO;AACnB;AAAA,EACF;AACA,MAAI,KAAK;AAAA,IACP;AAAA,IACA;AAAA,IACA;AAAA,EACF;AACA,KAAG,QAAQ,QAAQ,QAAQ;AAC7B;AACA,SAAS,gBAAgB;AACvB,MAAI;AACF,UAAM,IAAI,MAAM;AAAA,EAClB,SAAS,GAAG;AACV,WAAO,EAAE,MAAM,SAAS,KAAK;AAAA,EAC/B;AACF;AACO,gBAAS,4BAA4B;AA9B5C;AA+BE,QAAM,WAAW,cAAc;AAC/B,QAAM,SAAS,YAAY,UAAU,KAAK,CAAC;AAC3C,QAAM,QAAQ,YAAY,SAAS,KAAK,CAAC;AACzC,MAAI,aAAa,GAAG;AAClB,WAAO,KAAK,aAAa;AAAA,EAC3B;AACA,QAAM,cAAa,wBAAmB,MAAnB,mBAAsB;AACzC,SAAO;AAAA,IACL,QAAQ,CAAC,UAAU;AACjB,YAAM,eAAe;AAAA,QACnB,OAAO;AAAA,QACP,OAAO;AAAA,QACP,SAAS;AAAA,QACT,mBAAmB;AAAA,QACnB,QAAQ,MAAM,OAAO,KAAK,oBAAoB,MAAM,QAAQ,EAAE;AAAA,QAC9D,MAAM;AAAA,MACR;AACA,YAAM,WAAW,OAAO,OAAO,cAAc,KAAK;AAClD,6BAAuB,UAAU,UAAU;AAAA,IAC7C;AAAA,IACA,gBAAgB,CAAC,UAAU;AACzB,YAAM,eAAe;AAAA,QACnB,OAAO;AAAA,QACP,OAAO;AAAA,QACP,UAAU;AAAA,QACV,SAAS;AAAA,QACT,mBAAmB;AAAA,QACnB,QAAQ,MAAM,OAAO,KAAK,oBAAoB,MAAM,QAAQ,EAAE;AAAA,QAC9D,MAAM;AAAA,MACR;AACA,YAAM,WAAW,OAAO,OAAO,cAAc,KAAK;AAClD,6BAAuB,UAAU,UAAU;AAAA,IAC7C;AAAA,IACA,SAAS,CAAC,UAAU;AAClB,YAAM,eAAe;AAAA,QACnB,OAAO;AAAA,QACP,OAAO;AAAA,QACP,SAAS;AAAA,QACT,mBAAmB;AAAA,QACnB,QAAQ,MAAM,OAAO,KAAK,mBAAmB,MAAM,QAAQ,EAAE;AAAA,QAC7D,MAAM,SAAS,MAAM,QAAQ;AAAA,QAC7B,MAAM;AAAA,MACR;AACA,YAAM,WAAW,OAAO,OAAO,cAAc,KAAK;AAClD,6BAAuB,UAAU,UAAU;AAAA,IAC7C;AAAA,IACA,gBAAgB,OAAO;AACrB,YAAM,eAAe;AAAA,QACnB,OAAO;AAAA,QACP,OAAO;AAAA,QACP,SAAS;AAAA,QACT,mBAAmB;AAAA,QACnB,QAAQ,MAAM,OAAO,KAAK,sBAAsB,MAAM,QAAQ,EAAE;AAAA,QAChE,MAAM,SAAS,MAAM,QAAQ;AAAA,QAC7B,MAAM;AAAA,MACR;AACA,YAAM,WAAW,OAAO,OAAO,cAAc,KAAK;AAClD,6BAAuB,UAAU,UAAU;AAAA,IAC7C;AAAA,EACF;AACF;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769492,
+      "end": 1714699769492,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769492,
+      "end": 1714699769492,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769492,
+      "end": 1714699769492,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769492,
+      "end": 1714699769492,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769492,
+      "end": 1714699769492,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769492,
+      "end": 1714699769492,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769492,
+      "end": 1714699769492,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769492,
+      "end": 1714699769492,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769492,
+      "end": 1714699769493,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699769493,
+      "end": 1714699769493,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769493,
+      "end": 1714699769493,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769493,
+      "end": 1714699769493,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769493,
+      "end": 1714699769493,
+      "order": "normal"
+    }
+  ]
+}

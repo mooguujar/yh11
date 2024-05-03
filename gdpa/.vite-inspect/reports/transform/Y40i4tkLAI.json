@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/kanji-data.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "const Mode = require('./mode')\nconst Utils = require('./utils')\n\nfunction KanjiData (data) {\n  this.mode = Mode.KANJI\n  this.data = data\n}\n\nKanjiData.getBitsLength = function getBitsLength (length) {\n  return length * 13\n}\n\nKanjiData.prototype.getLength = function getLength () {\n  return this.data.length\n}\n\nKanjiData.prototype.getBitsLength = function getBitsLength () {\n  return KanjiData.getBitsLength(this.data.length)\n}\n\nKanjiData.prototype.write = function (bitBuffer) {\n  let i\n\n  // In the Shift JIS system, Kanji characters are represented by a two byte combination.\n  // These byte values are shifted from the JIS X 0208 values.\n  // JIS X 0208 gives details of the shift coded representation.\n  for (i = 0; i < this.data.length; i++) {\n    let value = Utils.toSJIS(this.data[i])\n\n    // For characters with Shift JIS values from 0x8140 to 0x9FFC:\n    if (value >= 0x8140 && value <= 0x9FFC) {\n      // Subtract 0x8140 from Shift JIS value\n      value -= 0x8140\n\n    // For characters with Shift JIS values from 0xE040 to 0xEBBF\n    } else if (value >= 0xE040 && value <= 0xEBBF) {\n      // Subtract 0xC140 from Shift JIS value\n      value -= 0xC140\n    } else {\n      throw new Error(\n        'Invalid SJIS character: ' + this.data[i] + '\\n' +\n        'Make sure your charset is UTF-8')\n    }\n\n    // Multiply most significant byte of result by 0xC0\n    // and add least significant byte to product\n    value = (((value >>> 8) & 0xff) * 0xC0) + (value & 0xff)\n\n    // Convert result to a 13-bit binary string\n    bitBuffer.put(value, 13)\n  }\n}\n\nmodule.exports = KanjiData\n",
+      "start": 1714699771069,
+      "end": 1714699771091,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771091,
+      "end": 1714699771091,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771091,
+      "end": 1714699771091,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771091,
+      "end": 1714699771091,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771091,
+      "end": 1714699771091,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771091,
+      "end": 1714699771091,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771091,
+      "end": 1714699771091,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "const Mode = require('./mode')\nconst Utils = require('./utils')\n\nfunction KanjiData (data) {\n  this.mode = Mode.KANJI\n  this.data = data\n}\n\nKanjiData.getBitsLength = function getBitsLength (length) {\n  return length * 13\n}\n\nKanjiData.prototype.getLength = function getLength () {\n  return this.data.length\n}\n\nKanjiData.prototype.getBitsLength = function getBitsLength () {\n  return KanjiData.getBitsLength(this.data.length)\n}\n\nKanjiData.prototype.write = function (bitBuffer) {\n  let i\n\n  // In the Shift JIS system, Kanji characters are represented by a two byte combination.\n  // These byte values are shifted from the JIS X 0208 values.\n  // JIS X 0208 gives details of the shift coded representation.\n  for (i = 0; i < this.data.length; i++) {\n    let value = Utils.toSJIS(this.data[i])\n\n    // For characters with Shift JIS values from 0x8140 to 0x9FFC:\n    if (value >= 0x8140 && value <= 0x9FFC) {\n      // Subtract 0x8140 from Shift JIS value\n      value -= 0x8140\n\n    // For characters with Shift JIS values from 0xE040 to 0xEBBF\n    } else if (value >= 0xE040 && value <= 0xEBBF) {\n      // Subtract 0xC140 from Shift JIS value\n      value -= 0xC140\n    } else {\n      throw new Error(\n        'Invalid SJIS character: ' + this.data[i] + '\\n' +\n        'Make sure your charset is UTF-8')\n    }\n\n    // Multiply most significant byte of result by 0xC0\n    // and add least significant byte to product\n    value = (((value >>> 8) & 0xff) * 0xC0) + (value & 0xff)\n\n    // Convert result to a 13-bit binary string\n    bitBuffer.put(value, 13)\n  }\n}\n\nmodule.exports = KanjiData\n",
+      "start": 1714699771091,
+      "end": 1714699771091,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699771091,
+      "end": 1714699771091,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771091,
+      "end": 1714699771091,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771091,
+      "end": 1714699771091,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771091,
+      "end": 1714699771091,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771091,
+      "end": 1714699771091,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771091,
+      "end": 1714699771091,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/mode.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/utils.js?commonjs-proxy\";\n\nconst Mode = require$$0\nconst Utils = require$$1\n\nfunction KanjiData (data) {\n  this.mode = Mode.KANJI\n  this.data = data\n}\n\nKanjiData.getBitsLength = function getBitsLength (length) {\n  return length * 13\n}\n\nKanjiData.prototype.getLength = function getLength () {\n  return this.data.length\n}\n\nKanjiData.prototype.getBitsLength = function getBitsLength () {\n  return KanjiData.getBitsLength(this.data.length)\n}\n\nKanjiData.prototype.write = function (bitBuffer) {\n  let i\n\n  // In the Shift JIS system, Kanji characters are represented by a two byte combination.\n  // These byte values are shifted from the JIS X 0208 values.\n  // JIS X 0208 gives details of the shift coded representation.\n  for (i = 0; i < this.data.length; i++) {\n    let value = Utils.toSJIS(this.data[i])\n\n    // For characters with Shift JIS values from 0x8140 to 0x9FFC:\n    if (value >= 0x8140 && value <= 0x9FFC) {\n      // Subtract 0x8140 from Shift JIS value\n      value -= 0x8140\n\n    // For characters with Shift JIS values from 0xE040 to 0xEBBF\n    } else if (value >= 0xE040 && value <= 0xEBBF) {\n      // Subtract 0xC140 from Shift JIS value\n      value -= 0xC140\n    } else {\n      throw new Error(\n        'Invalid SJIS character: ' + this.data[i] + '\\n' +\n        'Make sure your charset is UTF-8')\n    }\n\n    // Multiply most significant byte of result by 0xC0\n    // and add least significant byte to product\n    value = (((value >>> 8) & 0xff) * 0xC0) + (value & 0xff)\n\n    // Convert result to a 13-bit binary string\n    bitBuffer.put(value, 13)\n  }\n}\n\nvar kanjiData = KanjiData\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(kanjiData);\nexport { kanjiData as __moduleExports };",
+      "start": 1714699771091,
+      "end": 1714699771103,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;AAAA,MAAM,IAAI,GAAG,UAAiB;AAC9B,MAAM,KAAK,GAAG,UAAkB;AAChC;AACA,SAAS,SAAS,EAAE,IAAI,EAAE;AAC1B,EAAE,IAAI,CAAC,IAAI,GAAG,IAAI,CAAC,KAAK;AACxB,EAAE,IAAI,CAAC,IAAI,GAAG,IAAI;AAClB,CAAC;AACD;AACA,SAAS,CAAC,aAAa,GAAG,SAAS,aAAa,EAAE,MAAM,EAAE;AAC1D,EAAE,OAAO,MAAM,GAAG,EAAE;AACpB,CAAC;AACD;AACA,SAAS,CAAC,SAAS,CAAC,SAAS,GAAG,SAAS,SAAS,IAAI;AACtD,EAAE,OAAO,IAAI,CAAC,IAAI,CAAC,MAAM;AACzB,CAAC;AACD;AACA,SAAS,CAAC,SAAS,CAAC,aAAa,GAAG,SAAS,aAAa,IAAI;AAC9D,EAAE,OAAO,SAAS,CAAC,aAAa,CAAC,IAAI,CAAC,IAAI,CAAC,MAAM,CAAC;AAClD,CAAC;AACD;AACA,SAAS,CAAC,SAAS,CAAC,KAAK,GAAG,UAAU,SAAS,EAAE;AACjD,EAAE,IAAI,CAAC;AACP;AACA;AACA;AACA;AACA,EAAE,KAAK,CAAC,GAAG,CAAC,EAAE,CAAC,GAAG,IAAI,CAAC,IAAI,CAAC,MAAM,EAAE,CAAC,EAAE,EAAE;AACzC,IAAI,IAAI,KAAK,GAAG,KAAK,CAAC,MAAM,CAAC,IAAI,CAAC,IAAI,CAAC,CAAC,CAAC,CAAC;AAC1C;AACA;AACA,IAAI,IAAI,KAAK,IAAI,MAAM,IAAI,KAAK,IAAI,MAAM,EAAE;AAC5C;AACA,MAAM,KAAK,IAAI,MAAM;AACrB;AACA;AACA,KAAK,MAAM,IAAI,KAAK,IAAI,MAAM,IAAI,KAAK,IAAI,MAAM,EAAE;AACnD;AACA,MAAM,KAAK,IAAI,MAAM;AACrB,KAAK,MAAM;AACX,MAAM,MAAM,IAAI,KAAK;AACrB,QAAQ,0BAA0B,GAAG,IAAI,CAAC,IAAI,CAAC,CAAC,CAAC,GAAG,IAAI;AACxD,QAAQ,iCAAiC,CAAC;AAC1C,KAAK;AACL;AACA;AACA;AACA,IAAI,KAAK,GAAG,CAAC,CAAC,CAAC,KAAK,KAAK,CAAC,IAAI,IAAI,IAAI,IAAI,KAAK,KAAK,GAAG,IAAI,CAAC;AAC5D;AACA;AACA,IAAI,SAAS,CAAC,GAAG,CAAC,KAAK,EAAE,EAAE,CAAC;AAC5B,GAAG;AACH,CAAC;AACD;IACA,SAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771103,
+      "end": 1714699771103,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771103,
+      "end": 1714699771103,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771103,
+      "end": 1714699771103,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699771103,
+      "end": 1714699771103,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771103,
+      "end": 1714699771103,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771103,
+      "end": 1714699771103,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771103,
+      "end": 1714699771103,
+      "order": "normal"
+    }
+  ]
+}

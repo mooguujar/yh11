@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/_parent.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import baseGet from './_baseGet.js';\nimport baseSlice from './_baseSlice.js';\n\n/**\n * Gets the parent value at `path` of `object`.\n *\n * @private\n * @param {Object} object The object to query.\n * @param {Array} path The path to get the parent value of.\n * @returns {*} Returns the parent value.\n */\nfunction parent(object, path) {\n  return path.length < 2 ? object : baseGet(object, baseSlice(path, 0, -1));\n}\n\nexport default parent;\n",
+      "start": 1714699768885,
+      "end": 1714699768908,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768908,
+      "end": 1714699768908,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768908,
+      "end": 1714699768908,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768908,
+      "end": 1714699768908,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768908,
+      "end": 1714699768908,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768908,
+      "end": 1714699768908,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768908,
+      "end": 1714699768908,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import baseGet from './_baseGet.js';\nimport baseSlice from './_baseSlice.js';\n\n/**\n * Gets the parent value at `path` of `object`.\n *\n * @private\n * @param {Object} object The object to query.\n * @param {Array} path The path to get the parent value of.\n * @returns {*} Returns the parent value.\n */\nfunction parent(object, path) {\n  return path.length < 2 ? object : baseGet(object, baseSlice(path, 0, -1));\n}\n\nexport default parent;\n",
+      "start": 1714699768908,
+      "end": 1714699768908,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768908,
+      "end": 1714699768908,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768908,
+      "end": 1714699768908,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768908,
+      "end": 1714699768908,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768908,
+      "end": 1714699768908,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768908,
+      "end": 1714699768908,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768908,
+      "end": 1714699768908,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768908,
+      "end": 1714699768908,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768908,
+      "end": 1714699768908,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768908,
+      "end": 1714699768908,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768908,
+      "end": 1714699768908,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768908,
+      "end": 1714699768908,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768908,
+      "end": 1714699768908,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768908,
+      "end": 1714699768908,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768908,
+      "end": 1714699768908,
+      "order": "normal"
+    }
+  ]
+}

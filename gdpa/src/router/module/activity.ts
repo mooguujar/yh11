@@ -7,12 +7,18 @@ const activity = [
       {
         path: 'collect-cards',
         name: 'CollectCards',
-        component: () => import(/* webpackChunkName: "auth" */ '@/pages/Activity/CollectCards.vue')
+        component: () => import(/* webpackChunkName: "auth" */ '@/pages/Activity/CollectCards.vue'),
+        meta: {
+          title: '集福卡瓜分10万大奖'
+        }
       },
       {
         path: 'app-collect-cards',
         name: 'AppCollectCards',
-        component: () => import(/* webpackChunkName: "auth" */ '@/pages/Activity/CollectCards.vue')
+        component: () => import(/* webpackChunkName: "auth" */ '@/pages/Activity/CollectCards.vue'),
+        meta: {
+          title: '集福卡瓜分10万大奖'
+        }
       },
       {
         path: 'ranking-list',

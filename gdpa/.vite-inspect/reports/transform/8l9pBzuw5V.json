@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/popup/shared.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { truthProp, unknownProp, numericProp } from \"../utils/index.mjs\";\nconst popupSharedProps = {\n  // whether to show popup\n  show: Boolean,\n  // z-index\n  zIndex: numericProp,\n  // whether to show overlay\n  overlay: truthProp,\n  // transition duration\n  duration: numericProp,\n  // teleport\n  teleport: [String, Object],\n  // prevent body scroll\n  lockScroll: truthProp,\n  // whether to lazy render\n  lazyRender: truthProp,\n  // callback function before close\n  beforeClose: Function,\n  // overlay custom style\n  overlayStyle: Object,\n  // overlay custom class name\n  overlayClass: unknownProp,\n  // Initial rendering animation\n  transitionAppear: Boolean,\n  // whether to close popup when overlay is clicked\n  closeOnClickOverlay: truthProp\n};\nconst popupSharedPropKeys = Object.keys(\n  popupSharedProps\n);\nexport {\n  popupSharedPropKeys,\n  popupSharedProps\n};\n",
+      "start": 1714699767869,
+      "end": 1714699767880,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767880,
+      "end": 1714699767880,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767880,
+      "end": 1714699767880,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767880,
+      "end": 1714699767880,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767880,
+      "end": 1714699767880,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767880,
+      "end": 1714699767880,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767880,
+      "end": 1714699767880,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { truthProp, unknownProp, numericProp } from \"../utils/index.mjs\";\nconst popupSharedProps = {\n  // whether to show popup\n  show: Boolean,\n  // z-index\n  zIndex: numericProp,\n  // whether to show overlay\n  overlay: truthProp,\n  // transition duration\n  duration: numericProp,\n  // teleport\n  teleport: [String, Object],\n  // prevent body scroll\n  lockScroll: truthProp,\n  // whether to lazy render\n  lazyRender: truthProp,\n  // callback function before close\n  beforeClose: Function,\n  // overlay custom style\n  overlayStyle: Object,\n  // overlay custom class name\n  overlayClass: unknownProp,\n  // Initial rendering animation\n  transitionAppear: Boolean,\n  // whether to close popup when overlay is clicked\n  closeOnClickOverlay: truthProp\n};\nconst popupSharedPropKeys = Object.keys(\n  popupSharedProps\n);\nexport {\n  popupSharedPropKeys,\n  popupSharedProps\n};\n",
+      "start": 1714699767880,
+      "end": 1714699767880,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767880,
+      "end": 1714699767880,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767880,
+      "end": 1714699767880,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767880,
+      "end": 1714699767880,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767880,
+      "end": 1714699767880,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767880,
+      "end": 1714699767880,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767880,
+      "end": 1714699767880,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767880,
+      "end": 1714699767880,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767880,
+      "end": 1714699767880,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767880,
+      "end": 1714699767880,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767880,
+      "end": 1714699767880,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767880,
+      "end": 1714699767880,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767880,
+      "end": 1714699767880,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767880,
+      "end": 1714699767880,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767880,
+      "end": 1714699767880,
+      "order": "normal"
+    }
+  ]
+}

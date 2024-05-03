@@ -1,0 +1,148 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/badge/index.css",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": ":root,:host{--van-badge-size: 16px;--van-badge-color: var(--van-white);--van-badge-padding: 0 3px;--van-badge-font-size: var(--van-font-size-sm);--van-badge-font-weight: var(--van-font-bold);--van-badge-border-width: var(--van-border-width);--van-badge-background: var(--van-danger-color);--van-badge-dot-color: var(--van-danger-color);--van-badge-dot-size: 8px;--van-badge-font: -apple-system-font, helvetica neue, arial, sans-serif}.van-badge{display:inline-block;box-sizing:border-box;min-width:var(--van-badge-size);padding:var(--van-badge-padding);color:var(--van-badge-color);font-weight:var(--van-badge-font-weight);font-size:var(--van-badge-font-size);font-family:var(--van-badge-font);line-height:1.2;text-align:center;background:var(--van-badge-background);border:var(--van-badge-border-width) solid var(--van-background-2);border-radius:var(--van-radius-max)}.van-badge--fixed{position:absolute;transform-origin:100%}.van-badge--top-left{top:0;left:0;transform:translate(-50%,-50%)}.van-badge--top-right{top:0;right:0;transform:translate(50%,-50%)}.van-badge--bottom-left{bottom:0;left:0;transform:translate(-50%,50%)}.van-badge--bottom-right{bottom:0;right:0;transform:translate(50%,50%)}.van-badge--dot{width:var(--van-badge-dot-size);min-width:0;height:var(--van-badge-dot-size);background:var(--van-badge-dot-color);border-radius:100%;border:none;padding:0}.van-badge__wrapper{position:relative;display:inline-block}\n",
+      "start": 1714699767074,
+      "end": 1714699767087,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "result": ":root,:host{--van-badge-size: 0.42667rem;--van-badge-color: var(--van-white);--van-badge-padding: 0 0.08rem;--van-badge-font-size: var(--van-font-size-sm);--van-badge-font-weight: var(--van-font-bold);--van-badge-border-width: var(--van-border-width);--van-badge-background: var(--van-danger-color);--van-badge-dot-color: var(--van-danger-color);--van-badge-dot-size: 0.21333rem;--van-badge-font: -apple-system-font, helvetica neue, arial, sans-serif}.van-badge{display:inline-block;box-sizing:border-box;min-width:var(--van-badge-size);padding:var(--van-badge-padding);color:var(--van-badge-color);font-weight:var(--van-badge-font-weight);font-size:var(--van-badge-font-size);font-family:var(--van-badge-font);line-height:1.2;text-align:center;background:var(--van-badge-background);border:var(--van-badge-border-width) solid var(--van-background-2);border-radius:var(--van-radius-max)}.van-badge--fixed{position:absolute;transform-origin:100%}.van-badge--top-left{top:0;left:0;transform:translate(-50%,-50%)}.van-badge--top-right{top:0;right:0;transform:translate(50%,-50%)}.van-badge--bottom-left{bottom:0;left:0;transform:translate(-50%,50%)}.van-badge--bottom-right{bottom:0;right:0;transform:translate(50%,50%)}.van-badge--dot{width:var(--van-badge-dot-size);min-width:0;height:var(--van-badge-dot-size);background:var(--van-badge-dot-color);border-radius:100%;border:none;padding:0}.van-badge__wrapper{position:relative;display:inline-block}\n",
+      "start": 1714699767087,
+      "end": 1714699767088,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767088,
+      "end": 1714699767088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767088,
+      "end": 1714699767088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767088,
+      "end": 1714699767088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767088,
+      "end": 1714699767088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767088,
+      "end": 1714699767088,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": ":root,:host{--van-badge-size: 0.42667rem;--van-badge-color: var(--van-white);--van-badge-padding: 0 0.08rem;--van-badge-font-size: var(--van-font-size-sm);--van-badge-font-weight: var(--van-font-bold);--van-badge-border-width: var(--van-border-width);--van-badge-background: var(--van-danger-color);--van-badge-dot-color: var(--van-danger-color);--van-badge-dot-size: 0.21333rem;--van-badge-font: -apple-system-font, helvetica neue, arial, sans-serif}.van-badge{display:inline-block;box-sizing:border-box;min-width:var(--van-badge-size);padding:var(--van-badge-padding);color:var(--van-badge-color);font-weight:var(--van-badge-font-weight);font-size:var(--van-badge-font-size);font-family:var(--van-badge-font);line-height:1.2;text-align:center;background:var(--van-badge-background);border:var(--van-badge-border-width) solid var(--van-background-2);border-radius:var(--van-radius-max)}.van-badge--fixed{position:absolute;transform-origin:100%}.van-badge--top-left{top:0;left:0;transform:translate(-50%,-50%)}.van-badge--top-right{top:0;right:0;transform:translate(50%,-50%)}.van-badge--bottom-left{bottom:0;left:0;transform:translate(-50%,50%)}.van-badge--bottom-right{bottom:0;right:0;transform:translate(50%,50%)}.van-badge--dot{width:var(--van-badge-dot-size);min-width:0;height:var(--van-badge-dot-size);background:var(--van-badge-dot-color);border-radius:100%;border:none;padding:0}.van-badge__wrapper{position:relative;display:inline-block}\n",
+      "start": 1714699767088,
+      "end": 1714699767088,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767088,
+      "end": 1714699767088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767088,
+      "end": 1714699767088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699767088,
+      "end": 1714699767088,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767088,
+      "end": 1714699767088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767088,
+      "end": 1714699767088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767088,
+      "end": 1714699767088,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767088,
+      "end": 1714699767088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767088,
+      "end": 1714699767088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767088,
+      "end": 1714699767088,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767088,
+      "end": 1714699767088,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767088,
+      "end": 1714699767088,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767088,
+      "end": 1714699767088,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767088,
+      "end": 1714699767088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767088,
+      "end": 1714699767088,
+      "order": "normal"
+    }
+  ]
+}

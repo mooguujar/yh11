@@ -1,0 +1,154 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/store/modules/user/index.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { UserMessageListParams, userMessageListApi } from '@/apis/article'\nimport {\n  IAllMTypeParams,\n  getAllMTypeApi,\n  getUserCoinApi,\n  getUserCoinsParams,\n  getUserScoreApi,\n  getUserWalletAddressParams,\n  userWalletAddressApi,\n  vipAwardApi\n} from '@/apis/user'\nimport { userState } from '@/store/types/user'\nimport { defineStore } from 'pinia'\n\nexport const useUserStore = defineStore('user', {\n  state: () =>\n    ({\n      userCoins: [],\n      userWallet: [],\n      mtypeList: [],\n      userMessage: {\n        list: [],\n        un_read: 0,\n        count: 0\n      },\n      userScore: {\n        score: 0,\n        scorelevel: 0\n      },\n      vipAward: {\n        account_vip: [],\n        week_money: 0,\n        month_money: 0,\n        all_money: 0,\n        vip: 0\n      }\n    } as userState),\n  getters: {},\n  actions: {\n    async getUserCoinsApi(params: getUserCoinsParams) {\n      try {\n        const response = await getUserCoinApi(params)\n\n        this.userCoins = response\n\n        return response\n      } catch (error) {\n        console.error(error)\n        throw error\n      }\n    },\n    async getUserWalletAddressApi(params: getUserWalletAddressParams) {\n      try {\n        const response = await userWalletAddressApi(params)\n\n        this.userWallet = response\n\n        return response\n      } catch (error) {\n        console.error(error)\n        throw error\n      }\n    },\n    async getAllMType(params: IAllMTypeParams) {\n      try {\n        const response = await getAllMTypeApi(params)\n\n        this.mtypeList = response\n\n        return response\n      } catch (error) {\n        console.error(error)\n        throw error\n      }\n    },\n    async getUserMessageList(params: UserMessageListParams) {\n      try {\n        const response = await userMessageListApi(params)\n        this.userMessage = response\n\n        return response\n      } catch (error) {\n        console.error(error)\n        throw error\n      }\n    },\n    async getUserScore() {\n      try {\n        const response = await getUserScoreApi()\n\n        this.userScore = response\n\n        return response\n      } catch (error) {\n        console.error(error)\n        throw error\n      }\n    },\n    async getVipaward() {\n      try {\n        const response = await vipAwardApi()\n\n        this.vipAward = Array.isArray(response)\n          ? {\n              account_vip: [],\n              week_money: 0,\n              month_money: 0,\n              all_money: 0,\n              vip: 0\n            }\n          : response\n\n        return response\n      } catch (error) {\n        console.error(error)\n        throw error\n      }\n    }\n  },\n  persist: true\n})\n",
+      "start": 1714699770780,
+      "end": 1714699770795,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699770795,
+      "end": 1714699770795,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { userMessageListApi } from \"@/apis/article\";\nimport {\n  getAllMTypeApi,\n  getUserCoinApi,\n  getUserScoreApi,\n  userWalletAddressApi,\n  vipAwardApi\n} from \"@/apis/user\";\nimport { defineStore } from \"pinia\";\nexport const useUserStore = defineStore(\"user\", {\n  state: () => ({\n    userCoins: [],\n    userWallet: [],\n    mtypeList: [],\n    userMessage: {\n      list: [],\n      un_read: 0,\n      count: 0\n    },\n    userScore: {\n      score: 0,\n      scorelevel: 0\n    },\n    vipAward: {\n      account_vip: [],\n      week_money: 0,\n      month_money: 0,\n      all_money: 0,\n      vip: 0\n    }\n  }),\n  getters: {},\n  actions: {\n    async getUserCoinsApi(params) {\n      try {\n        const response = await getUserCoinApi(params);\n        this.userCoins = response;\n        return response;\n      } catch (error) {\n        console.error(error);\n        throw error;\n      }\n    },\n    async getUserWalletAddressApi(params) {\n      try {\n        const response = await userWalletAddressApi(params);\n        this.userWallet = response;\n        return response;\n      } catch (error) {\n        console.error(error);\n        throw error;\n      }\n    },\n    async getAllMType(params) {\n      try {\n        const response = await getAllMTypeApi(params);\n        this.mtypeList = response;\n        return response;\n      } catch (error) {\n        console.error(error);\n        throw error;\n      }\n    },\n    async getUserMessageList(params) {\n      try {\n        const response = await userMessageListApi(params);\n        this.userMessage = response;\n        return response;\n      } catch (error) {\n        console.error(error);\n        throw error;\n      }\n    },\n    async getUserScore() {\n      try {\n        const response = await getUserScoreApi();\n        this.userScore = response;\n        return response;\n      } catch (error) {\n        console.error(error);\n        throw error;\n      }\n    },\n    async getVipaward() {\n      try {\n        const response = await vipAwardApi();\n        this.vipAward = Array.isArray(response) ? {\n          account_vip: [],\n          week_money: 0,\n          month_money: 0,\n          all_money: 0,\n          vip: 0\n        } : response;\n        return response;\n      } catch (error) {\n        console.error(error);\n        throw error;\n      }\n    }\n  },\n  persist: true\n});\n",
+      "start": 1714699770795,
+      "end": 1714699771800,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/store/modules/user/index.ts"
+        ],
+        "sourcesContent": [
+          "import { UserMessageListParams, userMessageListApi } from '@/apis/article'\nimport {\n  IAllMTypeParams,\n  getAllMTypeApi,\n  getUserCoinApi,\n  getUserCoinsParams,\n  getUserScoreApi,\n  getUserWalletAddressParams,\n  userWalletAddressApi,\n  vipAwardApi\n} from '@/apis/user'\nimport { userState } from '@/store/types/user'\nimport { defineStore } from 'pinia'\n\nexport const useUserStore = defineStore('user', {\n  state: () =>\n    ({\n      userCoins: [],\n      userWallet: [],\n      mtypeList: [],\n      userMessage: {\n        list: [],\n        un_read: 0,\n        count: 0\n      },\n      userScore: {\n        score: 0,\n        scorelevel: 0\n      },\n      vipAward: {\n        account_vip: [],\n        week_money: 0,\n        month_money: 0,\n        all_money: 0,\n        vip: 0\n      }\n    } as userState),\n  getters: {},\n  actions: {\n    async getUserCoinsApi(params: getUserCoinsParams) {\n      try {\n        const response = await getUserCoinApi(params)\n\n        this.userCoins = response\n\n        return response\n      } catch (error) {\n        console.error(error)\n        throw error\n      }\n    },\n    async getUserWalletAddressApi(params: getUserWalletAddressParams) {\n      try {\n        const response = await userWalletAddressApi(params)\n\n        this.userWallet = response\n\n        return response\n      } catch (error) {\n        console.error(error)\n        throw error\n      }\n    },\n    async getAllMType(params: IAllMTypeParams) {\n      try {\n        const response = await getAllMTypeApi(params)\n\n        this.mtypeList = response\n\n        return response\n      } catch (error) {\n        console.error(error)\n        throw error\n      }\n    },\n    async getUserMessageList(params: UserMessageListParams) {\n      try {\n        const response = await userMessageListApi(params)\n        this.userMessage = response\n\n        return response\n      } catch (error) {\n        console.error(error)\n        throw error\n      }\n    },\n    async getUserScore() {\n      try {\n        const response = await getUserScoreApi()\n\n        this.userScore = response\n\n        return response\n      } catch (error) {\n        console.error(error)\n        throw error\n      }\n    },\n    async getVipaward() {\n      try {\n        const response = await vipAwardApi()\n\n        this.vipAward = Array.isArray(response)\n          ? {\n              account_vip: [],\n              week_money: 0,\n              month_money: 0,\n              all_money: 0,\n              vip: 0\n            }\n          : response\n\n        return response\n      } catch (error) {\n        console.error(error)\n        throw error\n      }\n    }\n  },\n  persist: true\n})\n"
+        ],
+        "mappings": "AAAA,SAAgC,0BAA0B;AAC1D;AAAA,EAEE;AAAA,EACA;AAAA,EAEA;AAAA,EAEA;AAAA,EACA;AAAA,OACK;AAEP,SAAS,mBAAmB;AAErB,aAAM,eAAe,YAAY,QAAQ;AAAA,EAC9C,OAAO,OACJ;AAAA,IACC,WAAW,CAAC;AAAA,IACZ,YAAY,CAAC;AAAA,IACb,WAAW,CAAC;AAAA,IACZ,aAAa;AAAA,MACX,MAAM,CAAC;AAAA,MACP,SAAS;AAAA,MACT,OAAO;AAAA,IACT;AAAA,IACA,WAAW;AAAA,MACT,OAAO;AAAA,MACP,YAAY;AAAA,IACd;AAAA,IACA,UAAU;AAAA,MACR,aAAa,CAAC;AAAA,MACd,YAAY;AAAA,MACZ,aAAa;AAAA,MACb,WAAW;AAAA,MACX,KAAK;AAAA,IACP;AAAA,EACF;AAAA,EACF,SAAS,CAAC;AAAA,EACV,SAAS;AAAA,IACP,MAAM,gBAAgB,QAA4B;AAChD,UAAI;AACF,cAAM,WAAW,MAAM,eAAe,MAAM;AAE5C,aAAK,YAAY;AAEjB,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,MAAM,KAAK;AACnB,cAAM;AAAA,MACR;AAAA,IACF;AAAA,IACA,MAAM,wBAAwB,QAAoC;AAChE,UAAI;AACF,cAAM,WAAW,MAAM,qBAAqB,MAAM;AAElD,aAAK,aAAa;AAElB,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,MAAM,KAAK;AACnB,cAAM;AAAA,MACR;AAAA,IACF;AAAA,IACA,MAAM,YAAY,QAAyB;AACzC,UAAI;AACF,cAAM,WAAW,MAAM,eAAe,MAAM;AAE5C,aAAK,YAAY;AAEjB,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,MAAM,KAAK;AACnB,cAAM;AAAA,MACR;AAAA,IACF;AAAA,IACA,MAAM,mBAAmB,QAA+B;AACtD,UAAI;AACF,cAAM,WAAW,MAAM,mBAAmB,MAAM;AAChD,aAAK,cAAc;AAEnB,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,MAAM,KAAK;AACnB,cAAM;AAAA,MACR;AAAA,IACF;AAAA,IACA,MAAM,eAAe;AACnB,UAAI;AACF,cAAM,WAAW,MAAM,gBAAgB;AAEvC,aAAK,YAAY;AAEjB,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,MAAM,KAAK;AACnB,cAAM;AAAA,MACR;AAAA,IACF;AAAA,IACA,MAAM,cAAc;AAClB,UAAI;AACF,cAAM,WAAW,MAAM,YAAY;AAEnC,aAAK,WAAW,MAAM,QAAQ,QAAQ,IAClC;AAAA,UACE,aAAa,CAAC;AAAA,UACd,YAAY;AAAA,UACZ,aAAa;AAAA,UACb,WAAW;AAAA,UACX,KAAK;AAAA,QACP,IACA;AAEJ,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,MAAM,KAAK;AACnB,cAAM;AAAA,MACR;AAAA,IACF;AAAA,EACF;AAAA,EACA,SAAS;AACX,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771800,
+      "end": 1714699771800,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771800,
+      "end": 1714699771800,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771800,
+      "end": 1714699771800,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771800,
+      "end": 1714699771800,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { userMessageListApi } from \"@/apis/article\";\nimport {\n  getAllMTypeApi,\n  getUserCoinApi,\n  getUserScoreApi,\n  userWalletAddressApi,\n  vipAwardApi\n} from \"@/apis/user\";\nimport { defineStore } from \"pinia\";\nexport const useUserStore = defineStore(\"user\", {\n  state: () => ({\n    userCoins: [],\n    userWallet: [],\n    mtypeList: [],\n    userMessage: {\n      list: [],\n      un_read: 0,\n      count: 0\n    },\n    userScore: {\n      score: 0,\n      scorelevel: 0\n    },\n    vipAward: {\n      account_vip: [],\n      week_money: 0,\n      month_money: 0,\n      all_money: 0,\n      vip: 0\n    }\n  }),\n  getters: {},\n  actions: {\n    async getUserCoinsApi(params) {\n      try {\n        const response = await getUserCoinApi(params);\n        this.userCoins = response;\n        return response;\n      } catch (error) {\n        console.error(error);\n        throw error;\n      }\n    },\n    async getUserWalletAddressApi(params) {\n      try {\n        const response = await userWalletAddressApi(params);\n        this.userWallet = response;\n        return response;\n      } catch (error) {\n        console.error(error);\n        throw error;\n      }\n    },\n    async getAllMType(params) {\n      try {\n        const response = await getAllMTypeApi(params);\n        this.mtypeList = response;\n        return response;\n      } catch (error) {\n        console.error(error);\n        throw error;\n      }\n    },\n    async getUserMessageList(params) {\n      try {\n        const response = await userMessageListApi(params);\n        this.userMessage = response;\n        return response;\n      } catch (error) {\n        console.error(error);\n        throw error;\n      }\n    },\n    async getUserScore() {\n      try {\n        const response = await getUserScoreApi();\n        this.userScore = response;\n        return response;\n      } catch (error) {\n        console.error(error);\n        throw error;\n      }\n    },\n    async getVipaward() {\n      try {\n        const response = await vipAwardApi();\n        this.vipAward = Array.isArray(response) ? {\n          account_vip: [],\n          week_money: 0,\n          month_money: 0,\n          all_money: 0,\n          vip: 0\n        } : response;\n        return response;\n      } catch (error) {\n        console.error(error);\n        throw error;\n      }\n    }\n  },\n  persist: true\n});\n",
+      "start": 1714699771800,
+      "end": 1714699771800,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport { userMessageListApi } from \"@/apis/article\";\nimport {\n  getAllMTypeApi,\n  getUserCoinApi,\n  getUserScoreApi,\n  userWalletAddressApi,\n  vipAwardApi\n} from \"@/apis/user\";\nimport { defineStore } from \"pinia\";\nexport const useUserStore = defineStore(\"user\", {\n  state: () => ({\n    userCoins: [],\n    userWallet: [],\n    mtypeList: [],\n    userMessage: {\n      list: [],\n      un_read: 0,\n      count: 0\n    },\n    userScore: {\n      score: 0,\n      scorelevel: 0\n    },\n    vipAward: {\n      account_vip: [],\n      week_money: 0,\n      month_money: 0,\n      all_money: 0,\n      vip: 0\n    }\n  }),\n  getters: {},\n  actions: {\n    async getUserCoinsApi(params) {\n      try {\n        const response = await getUserCoinApi(params);\n        this.userCoins = response;\n        return response;\n      } catch (error) {\n        console.error(error);\n        throw error;\n      }\n    },\n    async getUserWalletAddressApi(params) {\n      try {\n        const response = await userWalletAddressApi(params);\n        this.userWallet = response;\n        return response;\n      } catch (error) {\n        console.error(error);\n        throw error;\n      }\n    },\n    async getAllMType(params) {\n      try {\n        const response = await getAllMTypeApi(params);\n        this.mtypeList = response;\n        return response;\n      } catch (error) {\n        console.error(error);\n        throw error;\n      }\n    },\n    async getUserMessageList(params) {\n      try {\n        const response = await userMessageListApi(params);\n        this.userMessage = response;\n        return response;\n      } catch (error) {\n        console.error(error);\n        throw error;\n      }\n    },\n    async getUserScore() {\n      try {\n        const response = await getUserScoreApi();\n        this.userScore = response;\n        return response;\n      } catch (error) {\n        console.error(error);\n        throw error;\n      }\n    },\n    async getVipaward() {\n      try {\n        const response = await vipAwardApi();\n        this.vipAward = Array.isArray(response) ? {\n          account_vip: [],\n          week_money: 0,\n          month_money: 0,\n          all_money: 0,\n          vip: 0\n        } : response;\n        return response;\n      } catch (error) {\n        console.error(error);\n        throw error;\n      }\n    }\n  },\n  persist: true\n});\n",
+      "start": 1714699771800,
+      "end": 1714699771932,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/store/modules/user/index.ts\"],\n  \"sourcesContent\": [\"import { userMessageListApi } from \\\"@/apis/article\\\";\\nimport {\\n  getAllMTypeApi,\\n  getUserCoinApi,\\n  getUserScoreApi,\\n  userWalletAddressApi,\\n  vipAwardApi\\n} from \\\"@/apis/user\\\";\\nimport { defineStore } from \\\"pinia\\\";\\nexport const useUserStore = defineStore(\\\"user\\\", {\\n  state: () => ({\\n    userCoins: [],\\n    userWallet: [],\\n    mtypeList: [],\\n    userMessage: {\\n      list: [],\\n      un_read: 0,\\n      count: 0\\n    },\\n    userScore: {\\n      score: 0,\\n      scorelevel: 0\\n    },\\n    vipAward: {\\n      account_vip: [],\\n      week_money: 0,\\n      month_money: 0,\\n      all_money: 0,\\n      vip: 0\\n    }\\n  }),\\n  getters: {},\\n  actions: {\\n    async getUserCoinsApi(params) {\\n      try {\\n        const response = await getUserCoinApi(params);\\n        this.userCoins = response;\\n        return response;\\n      } catch (error) {\\n        console.error(error);\\n        throw error;\\n      }\\n    },\\n    async getUserWalletAddressApi(params) {\\n      try {\\n        const response = await userWalletAddressApi(params);\\n        this.userWallet = response;\\n        return response;\\n      } catch (error) {\\n        console.error(error);\\n        throw error;\\n      }\\n    },\\n    async getAllMType(params) {\\n      try {\\n        const response = await getAllMTypeApi(params);\\n        this.mtypeList = response;\\n        return response;\\n      } catch (error) {\\n        console.error(error);\\n        throw error;\\n      }\\n    },\\n    async getUserMessageList(params) {\\n      try {\\n        const response = await userMessageListApi(params);\\n        this.userMessage = response;\\n        return response;\\n      } catch (error) {\\n        console.error(error);\\n        throw error;\\n      }\\n    },\\n    async getUserScore() {\\n      try {\\n        const response = await getUserScoreApi();\\n        this.userScore = response;\\n        return response;\\n      } catch (error) {\\n        console.error(error);\\n        throw error;\\n      }\\n    },\\n    async getVipaward() {\\n      try {\\n        const response = await vipAwardApi();\\n        this.vipAward = Array.isArray(response) ? {\\n          account_vip: [],\\n          week_money: 0,\\n          month_money: 0,\\n          all_money: 0,\\n          vip: 0\\n        } : response;\\n        return response;\\n      } catch (error) {\\n        console.error(error);\\n        throw error;\\n      }\\n    }\\n  },\\n  persist: true\\n});\\n\"],\n  \"mappings\": \";AAAA,SAAS,0BAA0B;AACnC;AAAA,EACE;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,OACK;AACP,SAAS,mBAAmB;AACrB,aAAM,eAAe,YAAY,QAAQ;AAAA,EAC9C,OAAO,OAAO;AAAA,IACZ,WAAW,CAAC;AAAA,IACZ,YAAY,CAAC;AAAA,IACb,WAAW,CAAC;AAAA,IACZ,aAAa;AAAA,MACX,MAAM,CAAC;AAAA,MACP,SAAS;AAAA,MACT,OAAO;AAAA,IACT;AAAA,IACA,WAAW;AAAA,MACT,OAAO;AAAA,MACP,YAAY;AAAA,IACd;AAAA,IACA,UAAU;AAAA,MACR,aAAa,CAAC;AAAA,MACd,YAAY;AAAA,MACZ,aAAa;AAAA,MACb,WAAW;AAAA,MACX,KAAK;AAAA,IACP;AAAA,EACF;AAAA,EACA,SAAS,CAAC;AAAA,EACV,SAAS;AAAA,IACP,MAAM,gBAAgB,QAAQ;AAC5B,UAAI;AACF,cAAM,WAAW,MAAM,eAAe,MAAM;AAC5C,aAAK,YAAY;AACjB,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,MAAM,KAAK;AACnB,cAAM;AAAA,MACR;AAAA,IACF;AAAA,IACA,MAAM,wBAAwB,QAAQ;AACpC,UAAI;AACF,cAAM,WAAW,MAAM,qBAAqB,MAAM;AAClD,aAAK,aAAa;AAClB,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,MAAM,KAAK;AACnB,cAAM;AAAA,MACR;AAAA,IACF;AAAA,IACA,MAAM,YAAY,QAAQ;AACxB,UAAI;AACF,cAAM,WAAW,MAAM,eAAe,MAAM;AAC5C,aAAK,YAAY;AACjB,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,MAAM,KAAK;AACnB,cAAM;AAAA,MACR;AAAA,IACF;AAAA,IACA,MAAM,mBAAmB,QAAQ;AAC/B,UAAI;AACF,cAAM,WAAW,MAAM,mBAAmB,MAAM;AAChD,aAAK,cAAc;AACnB,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,MAAM,KAAK;AACnB,cAAM;AAAA,MACR;AAAA,IACF;AAAA,IACA,MAAM,eAAe;AACnB,UAAI;AACF,cAAM,WAAW,MAAM,gBAAgB;AACvC,aAAK,YAAY;AACjB,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,MAAM,KAAK;AACnB,cAAM;AAAA,MACR;AAAA,IACF;AAAA,IACA,MAAM,cAAc;AAClB,UAAI;AACF,cAAM,WAAW,MAAM,YAAY;AACnC,aAAK,WAAW,MAAM,QAAQ,QAAQ,IAAI;AAAA,UACxC,aAAa,CAAC;AAAA,UACd,YAAY;AAAA,UACZ,aAAa;AAAA,UACb,WAAW;AAAA,UACX,KAAK;AAAA,QACP,IAAI;AACJ,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,MAAM,KAAK;AACnB,cAAM;AAAA,MACR;AAAA,IACF;AAAA,EACF;AAAA,EACA,SAAS;AACX,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771932,
+      "end": 1714699771933,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699771933,
+      "end": 1714699771933,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771933,
+      "end": 1714699771933,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771933,
+      "end": 1714699771933,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771933,
+      "end": 1714699771933,
+      "order": "normal"
+    }
+  ]
+}

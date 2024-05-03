@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/finder-pattern.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "const getSymbolSize = require('./utils').getSymbolSize\nconst FINDER_PATTERN_SIZE = 7\n\n/**\n * Returns an array containing the positions of each finder pattern.\n * Each array's element represent the top-left point of the pattern as (x, y) coordinates\n *\n * @param  {Number} version QR Code version\n * @return {Array}          Array of coordinates\n */\nexports.getPositions = function getPositions (version) {\n  const size = getSymbolSize(version)\n\n  return [\n    // top-left\n    [0, 0],\n    // top-right\n    [size - FINDER_PATTERN_SIZE, 0],\n    // bottom-left\n    [0, size - FINDER_PATTERN_SIZE]\n  ]\n}\n",
+      "start": 1714699771036,
+      "end": 1714699771056,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771056,
+      "end": 1714699771056,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771056,
+      "end": 1714699771056,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771056,
+      "end": 1714699771056,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771056,
+      "end": 1714699771056,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771056,
+      "end": 1714699771056,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771056,
+      "end": 1714699771056,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "const getSymbolSize = require('./utils').getSymbolSize\nconst FINDER_PATTERN_SIZE = 7\n\n/**\n * Returns an array containing the positions of each finder pattern.\n * Each array's element represent the top-left point of the pattern as (x, y) coordinates\n *\n * @param  {Number} version QR Code version\n * @return {Array}          Array of coordinates\n */\nexports.getPositions = function getPositions (version) {\n  const size = getSymbolSize(version)\n\n  return [\n    // top-left\n    [0, 0],\n    // top-right\n    [size - FINDER_PATTERN_SIZE, 0],\n    // bottom-left\n    [0, size - FINDER_PATTERN_SIZE]\n  ]\n}\n",
+      "start": 1714699771056,
+      "end": 1714699771056,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699771056,
+      "end": 1714699771056,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771056,
+      "end": 1714699771056,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771056,
+      "end": 1714699771056,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771056,
+      "end": 1714699771056,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771056,
+      "end": 1714699771056,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771056,
+      "end": 1714699771056,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as finderPattern } from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/finder-pattern.js?commonjs-exports\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/utils.js?commonjs-proxy\";\n\nconst getSymbolSize = require$$0.getSymbolSize\nconst FINDER_PATTERN_SIZE = 7\n\n/**\n * Returns an array containing the positions of each finder pattern.\n * Each array's element represent the top-left point of the pattern as (x, y) coordinates\n *\n * @param  {Number} version QR Code version\n * @return {Array}          Array of coordinates\n */\nvar getPositions = finderPattern.getPositions = function getPositions (version) {\n  const size = getSymbolSize(version)\n\n  return [\n    // top-left\n    [0, 0],\n    // top-right\n    [size - FINDER_PATTERN_SIZE, 0],\n    // bottom-left\n    [0, size - FINDER_PATTERN_SIZE]\n  ]\n}\n\nexport { finderPattern as __moduleExports, getPositions, finderPattern as default };",
+      "start": 1714699771056,
+      "end": 1714699771072,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;AAAA,MAAM,aAAa,GAAG,UAAkB,CAAC,aAAa;AACtD,MAAM,mBAAmB,GAAG,CAAC;AAC7B;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,6CAAoB,GAAG,SAAS,YAAY,EAAE,OAAO,EAAE;AACvD,EAAE,MAAM,IAAI,GAAG,aAAa,CAAC,OAAO,CAAC;AACrC;AACA,EAAE,OAAO;AACT;AACA,IAAI,CAAC,CAAC,EAAE,CAAC,CAAC;AACV;AACA,IAAI,CAAC,IAAI,GAAG,mBAAmB,EAAE,CAAC,CAAC;AACnC;AACA,IAAI,CAAC,CAAC,EAAE,IAAI,GAAG,mBAAmB,CAAC;AACnC,GAAG;AACH"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771072,
+      "end": 1714699771072,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771072,
+      "end": 1714699771072,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771072,
+      "end": 1714699771072,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699771072,
+      "end": 1714699771072,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771073,
+      "end": 1714699771073,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771073,
+      "end": 1714699771073,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771073,
+      "end": 1714699771073,
+      "order": "normal"
+    }
+  ]
+}

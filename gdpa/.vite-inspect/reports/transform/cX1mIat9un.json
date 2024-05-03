@@ -1,0 +1,163 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/BuySellCoin.vue?vue&type=style&index=0&scoped=d083c9a7&lang.scss",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\n.buy-sell-coin-container {\n  padding: 20px 23px;\n  border-radius: 14px;\n  border: 2px solid #f7d6c2;\n  background-image: linear-gradient(0deg, #fffaea 0%, #fff2d3 50%, #ffeabb 100%);\n  .text-desc {\n    :deep(span) {\n      font-size: 21px;\n      font-weight: bold;\n      color: #df4954;\n    }\n  }\n}\n",
+      "start": 1714699772172,
+      "end": 1714699772172
+    },
+    {
+      "name": "vite:css",
+      "result": ".buy-sell-coin-container {\n  padding: 0.26667rem 0.30667rem;\n  border-radius: 0.18667rem;\n  border: 0.02667rem solid #f7d6c2;\n  background-image: linear-gradient(0deg, #fffaea 0%, #fff2d3 50%, #ffeabb 100%);\n}\n.buy-sell-coin-container .text-desc :deep(span) {\n  font-size: 0.28rem;\n  font-weight: bold;\n  color: #df4954;\n}",
+      "start": 1714699772172,
+      "end": 1714699772178,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699772178,
+      "end": 1714699772178,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699772178,
+      "end": 1714699772178,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699772178,
+      "end": 1714699772178,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".buy-sell-coin-container[data-v-d083c9a7] {\n  padding: 0.26667rem 0.30667rem;\n  border-radius: 0.18667rem;\n  border: 0.02667rem solid #f7d6c2;\n  background-image: linear-gradient(0deg, #fffaea 0%, #fff2d3 50%, #ffeabb 100%);\n}\n.buy-sell-coin-container .text-desc[data-v-d083c9a7] span {\n  font-size: 0.28rem;\n  font-weight: bold;\n  color: #df4954;\n}",
+      "start": 1714699772179,
+      "end": 1714699772179,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699772179,
+      "end": 1714699772179,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": ".buy-sell-coin-container[data-v-d083c9a7] {\n  padding: 0.26667rem 0.30667rem;\n  border-radius: 0.18667rem;\n  border: 0.02667rem solid #f7d6c2;\n  background-image: linear-gradient(0deg, #fffaea 0%, #fff2d3 50%, #ffeabb 100%);\n}\n.buy-sell-coin-container .text-desc[data-v-d083c9a7] span {\n  font-size: 0.28rem;\n  font-weight: bold;\n  color: #df4954;\n}",
+      "start": 1714699772179,
+      "end": 1714699772179,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699772179,
+      "end": 1714699772179,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699772179,
+      "end": 1714699772179,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699772179,
+      "end": 1714699772179,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699772179,
+      "end": 1714699772179,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699772179,
+      "end": 1714699772179,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699772179,
+      "end": 1714699772179,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699772179,
+      "end": 1714699772179,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699772179,
+      "end": 1714699772179,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699772179,
+      "end": 1714699772179,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699772179,
+      "end": 1714699772180,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */",
+      "start": 1714699772180,
+      "end": 1714699772180,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/BuySellCoin.vue?vue&type=style&index=0&scoped=d083c9a7&lang.scss"
+        ],
+        "sourcesContent": [
+          ""
+        ],
+        "names": [],
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699772180,
+      "end": 1714699772180,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699772180,
+      "end": 1714699772180,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699772180,
+      "end": 1714699772180,
+      "order": "normal"
+    }
+  ]
+}

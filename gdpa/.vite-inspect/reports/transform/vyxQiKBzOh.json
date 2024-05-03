@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/main.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import 'amfe-flexible'\nimport dayjs from 'dayjs'\nimport 'dayjs/locale/zh-cn'\nimport {\n  Button,\n  ConfigProvider,\n  Dialog,\n  Lazyload,\n  Loading,\n  NavBar,\n  PullRefresh,\n  Swipe,\n  SwipeCell,\n  SwipeItem,\n  Tab,\n  Tabs,\n  Toast\n} from 'vant'\nimport 'vant/es/toast/style'\nimport { App as AppType, createApp } from 'vue'\nimport App from './App.vue'\nimport './assets/styles/common.scss'\nimport './basic-type-extensions'\nimport router from './router'\nimport piniaStore from './store'\nimport './style.css'\nimport { MyLog } from './utils/tools'\n\nimport {\n  Column,\n  // 表格功能\n  // Filter,\n  // Edit,\n  // Menu,\n  // Export,\n  // Keyboard,\n  // Validator,\n  // 可选组件\n  Icon,\n  // Colgroup,\n  // Grid,\n  // Tooltip,\n  // Toolbar,\n  // Pager,\n  // Form,\n  // FormItem,\n  // FormGather,\n  // Checkbox,\n  // CheckboxGroup,\n  // Radio,\n  // RadioGroup,\n  // RadioButton,\n  // Switch,\n  // Input,\n  // Select,\n  // Optgroup,\n  // Option,\n  // Textarea,\n  // Button,\n  // Modal,\n  // List,\n  // Pulldown,\n  // 表格\n  Table\n} from 'vxe-table'\nimport 'vxe-table/styles/cssvar.scss'\n\nfunction useTable(app: AppType) {\n  // 表格功能\n  // app.use(Filter)\n  // .use(Edit)\n  // .use(Menu)\n  // .use(Export)\n  // .use(Keyboard)\n  // .use(Validator)\n\n  // 可选组件\n  app\n    .use(Icon)\n    .use(Column)\n    // .use(Colgroup)\n    // .use(Grid)\n    // .use(Tooltip)\n    // .use(Toolbar)\n    // .use(Pager)\n    // .use(Form)\n    // .use(FormItem)\n    // .use(FormGather)\n    // .use(Checkbox)\n    // .use(CheckboxGroup)\n    // .use(Radio)\n    // .use(RadioGroup)\n    // .use(RadioButton)\n    // .use(Switch)\n    // .use(Input)\n    // .use(Select)\n    // .use(Optgroup)\n    // .use(Option)\n    // .use(Textarea)\n    // .use(Button)\n    // .use(Modal)\n    // .use(List)\n    // .use(Pulldown)\n\n    // 安装表格\n    .use(Table)\n}\n\nMyLog()\ndayjs.locale('zh-cn') // 设置 dayjs 语言\n\nconst app = createApp(App)\n// 挂载到 Vue 根实例\napp.use(piniaStore)\napp.use(router)\napp.use(Button)\napp.use(NavBar)\napp.use(Tab)\napp.use(Tabs)\napp.use(Lazyload)\napp.use(Toast)\napp.use(Dialog)\napp.use(Swipe)\napp.use(SwipeItem)\napp.use(SwipeCell)\napp.use(PullRefresh)\napp.use(Loading)\napp.use(ConfigProvider)\n\n// 自定义全局指令处理富文本内容\napp.directive('content', (el, binding) => {\n  const imgs = el.querySelectorAll('img')\n\n  // 处理插入图片前面的文字\n  imgs.forEach((item: HTMLImageElement) => {\n    // 表情符号alt=[xx], 不做处理\n    if (!item.alt) {\n      const prevElement = item.previousSibling as HTMLElement\n\n      if (!prevElement) return\n\n      if (!prevElement.tagName) {\n        const span = document.createElement('span')\n        span.style.display = 'inline-block'\n        span.innerHTML = prevElement.textContent as string\n        prevElement.before(span)\n        prevElement.textContent = ''\n      }\n      if (prevElement.tagName === 'SPAN') {\n        prevElement.style.display = 'inline-block'\n      }\n    }\n  })\n})\n\napp.use(useTable).mount('#app')\n",
+      "start": 1714699765918,
+      "end": 1714699765920,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699765920,
+      "end": 1714699765920,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import \"amfe-flexible\";\nimport dayjs from \"dayjs\";\nimport \"dayjs/locale/zh-cn\";\nimport {\n  Button,\n  ConfigProvider,\n  Dialog,\n  Lazyload,\n  Loading,\n  NavBar,\n  PullRefresh,\n  Swipe,\n  SwipeCell,\n  SwipeItem,\n  Tab,\n  Tabs,\n  Toast\n} from \"vant\";\nimport \"vant/es/toast/style\";\nimport { createApp } from \"vue\";\nimport App from \"./App.vue\";\nimport \"./assets/styles/common.scss\";\nimport \"./basic-type-extensions\";\nimport router from \"./router\";\nimport piniaStore from \"./store\";\nimport \"./style.css\";\nimport { MyLog } from \"./utils/tools\";\nimport {\n  Column,\n  Icon,\n  Table\n} from \"vxe-table\";\nimport \"vxe-table/styles/cssvar.scss\";\nfunction useTable(app2) {\n  app2.use(Icon).use(Column).use(Table);\n}\nMyLog();\ndayjs.locale(\"zh-cn\");\nconst app = createApp(App);\napp.use(piniaStore);\napp.use(router);\napp.use(Button);\napp.use(NavBar);\napp.use(Tab);\napp.use(Tabs);\napp.use(Lazyload);\napp.use(Toast);\napp.use(Dialog);\napp.use(Swipe);\napp.use(SwipeItem);\napp.use(SwipeCell);\napp.use(PullRefresh);\napp.use(Loading);\napp.use(ConfigProvider);\napp.directive(\"content\", (el, binding) => {\n  const imgs = el.querySelectorAll(\"img\");\n  imgs.forEach((item) => {\n    if (!item.alt) {\n      const prevElement = item.previousSibling;\n      if (!prevElement)\n        return;\n      if (!prevElement.tagName) {\n        const span = document.createElement(\"span\");\n        span.style.display = \"inline-block\";\n        span.innerHTML = prevElement.textContent;\n        prevElement.before(span);\n        prevElement.textContent = \"\";\n      }\n      if (prevElement.tagName === \"SPAN\") {\n        prevElement.style.display = \"inline-block\";\n      }\n    }\n  });\n});\napp.use(useTable).mount(\"#app\");\n",
+      "start": 1714699765920,
+      "end": 1714699765924,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/main.ts"
+        ],
+        "sourcesContent": [
+          "import 'amfe-flexible'\nimport dayjs from 'dayjs'\nimport 'dayjs/locale/zh-cn'\nimport {\n  Button,\n  ConfigProvider,\n  Dialog,\n  Lazyload,\n  Loading,\n  NavBar,\n  PullRefresh,\n  Swipe,\n  SwipeCell,\n  SwipeItem,\n  Tab,\n  Tabs,\n  Toast\n} from 'vant'\nimport 'vant/es/toast/style'\nimport { App as AppType, createApp } from 'vue'\nimport App from './App.vue'\nimport './assets/styles/common.scss'\nimport './basic-type-extensions'\nimport router from './router'\nimport piniaStore from './store'\nimport './style.css'\nimport { MyLog } from './utils/tools'\n\nimport {\n  Column,\n  // 表格功能\n  // Filter,\n  // Edit,\n  // Menu,\n  // Export,\n  // Keyboard,\n  // Validator,\n  // 可选组件\n  Icon,\n  // Colgroup,\n  // Grid,\n  // Tooltip,\n  // Toolbar,\n  // Pager,\n  // Form,\n  // FormItem,\n  // FormGather,\n  // Checkbox,\n  // CheckboxGroup,\n  // Radio,\n  // RadioGroup,\n  // RadioButton,\n  // Switch,\n  // Input,\n  // Select,\n  // Optgroup,\n  // Option,\n  // Textarea,\n  // Button,\n  // Modal,\n  // List,\n  // Pulldown,\n  // 表格\n  Table\n} from 'vxe-table'\nimport 'vxe-table/styles/cssvar.scss'\n\nfunction useTable(app: AppType) {\n  // 表格功能\n  // app.use(Filter)\n  // .use(Edit)\n  // .use(Menu)\n  // .use(Export)\n  // .use(Keyboard)\n  // .use(Validator)\n\n  // 可选组件\n  app\n    .use(Icon)\n    .use(Column)\n    // .use(Colgroup)\n    // .use(Grid)\n    // .use(Tooltip)\n    // .use(Toolbar)\n    // .use(Pager)\n    // .use(Form)\n    // .use(FormItem)\n    // .use(FormGather)\n    // .use(Checkbox)\n    // .use(CheckboxGroup)\n    // .use(Radio)\n    // .use(RadioGroup)\n    // .use(RadioButton)\n    // .use(Switch)\n    // .use(Input)\n    // .use(Select)\n    // .use(Optgroup)\n    // .use(Option)\n    // .use(Textarea)\n    // .use(Button)\n    // .use(Modal)\n    // .use(List)\n    // .use(Pulldown)\n\n    // 安装表格\n    .use(Table)\n}\n\nMyLog()\ndayjs.locale('zh-cn') // 设置 dayjs 语言\n\nconst app = createApp(App)\n// 挂载到 Vue 根实例\napp.use(piniaStore)\napp.use(router)\napp.use(Button)\napp.use(NavBar)\napp.use(Tab)\napp.use(Tabs)\napp.use(Lazyload)\napp.use(Toast)\napp.use(Dialog)\napp.use(Swipe)\napp.use(SwipeItem)\napp.use(SwipeCell)\napp.use(PullRefresh)\napp.use(Loading)\napp.use(ConfigProvider)\n\n// 自定义全局指令处理富文本内容\napp.directive('content', (el, binding) => {\n  const imgs = el.querySelectorAll('img')\n\n  // 处理插入图片前面的文字\n  imgs.forEach((item: HTMLImageElement) => {\n    // 表情符号alt=[xx], 不做处理\n    if (!item.alt) {\n      const prevElement = item.previousSibling as HTMLElement\n\n      if (!prevElement) return\n\n      if (!prevElement.tagName) {\n        const span = document.createElement('span')\n        span.style.display = 'inline-block'\n        span.innerHTML = prevElement.textContent as string\n        prevElement.before(span)\n        prevElement.textContent = ''\n      }\n      if (prevElement.tagName === 'SPAN') {\n        prevElement.style.display = 'inline-block'\n      }\n    }\n  })\n})\n\napp.use(useTable).mount('#app')\n"
+        ],
+        "mappings": "AAAA,OAAO;AACP,OAAO,WAAW;AAClB,OAAO;AACP;AAAA,EACE;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,OACK;AACP,OAAO;AACP,SAAyB,iBAAiB;AAC1C,OAAO,SAAS;AAChB,OAAO;AACP,OAAO;AACP,OAAO,YAAY;AACnB,OAAO,gBAAgB;AACvB,OAAO;AACP,SAAS,aAAa;AAEtB;AAAA,EACE;AAAA,EASA;AAAA,EAyBA;AAAA,OACK;AACP,OAAO;AAEP,SAAS,SAASA,MAAc;AAU9B,EAAAA,KACG,IAAI,IAAI,EACR,IAAI,MAAM,EA0BV,IAAI,KAAK;AACd;AAEA,MAAM;AACN,MAAM,OAAO,OAAO;AAEpB,MAAM,MAAM,UAAU,GAAG;AAEzB,IAAI,IAAI,UAAU;AAClB,IAAI,IAAI,MAAM;AACd,IAAI,IAAI,MAAM;AACd,IAAI,IAAI,MAAM;AACd,IAAI,IAAI,GAAG;AACX,IAAI,IAAI,IAAI;AACZ,IAAI,IAAI,QAAQ;AAChB,IAAI,IAAI,KAAK;AACb,IAAI,IAAI,MAAM;AACd,IAAI,IAAI,KAAK;AACb,IAAI,IAAI,SAAS;AACjB,IAAI,IAAI,SAAS;AACjB,IAAI,IAAI,WAAW;AACnB,IAAI,IAAI,OAAO;AACf,IAAI,IAAI,cAAc;AAGtB,IAAI,UAAU,WAAW,CAAC,IAAI,YAAY;AACxC,QAAM,OAAO,GAAG,iBAAiB,KAAK;AAGtC,OAAK,QAAQ,CAAC,SAA2B;AAEvC,QAAI,CAAC,KAAK,KAAK;AACb,YAAM,cAAc,KAAK;AAEzB,UAAI,CAAC;AAAa;AAElB,UAAI,CAAC,YAAY,SAAS;AACxB,cAAM,OAAO,SAAS,cAAc,MAAM;AAC1C,aAAK,MAAM,UAAU;AACrB,aAAK,YAAY,YAAY;AAC7B,oBAAY,OAAO,IAAI;AACvB,oBAAY,cAAc;AAAA,MAC5B;AACA,UAAI,YAAY,YAAY,QAAQ;AAClC,oBAAY,MAAM,UAAU;AAAA,MAC9B;AAAA,IACF;AAAA,EACF,CAAC;AACH,CAAC;AAED,IAAI,IAAI,QAAQ,EAAE,MAAM,MAAM;",
+        "names": [
+          "app"
+        ]
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699765924,
+      "end": 1714699765924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699765924,
+      "end": 1714699765924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699765924,
+      "end": 1714699765924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699765924,
+      "end": 1714699765924,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import \"amfe-flexible\";\nimport dayjs from \"dayjs\";\nimport \"dayjs/locale/zh-cn\";\nimport {\n  Button,\n  ConfigProvider,\n  Dialog,\n  Lazyload,\n  Loading,\n  NavBar,\n  PullRefresh,\n  Swipe,\n  SwipeCell,\n  SwipeItem,\n  Tab,\n  Tabs,\n  Toast\n} from \"vant\";\nimport \"vant/es/toast/style\";\nimport { createApp } from \"vue\";\nimport App from \"./App.vue\";\nimport \"./assets/styles/common.scss\";\nimport \"./basic-type-extensions\";\nimport router from \"./router\";\nimport piniaStore from \"./store\";\nimport \"./style.css\";\nimport { MyLog } from \"./utils/tools\";\nimport {\n  Column,\n  Icon,\n  Table\n} from \"vxe-table\";\nimport \"vxe-table/styles/cssvar.scss\";\nfunction useTable(app2) {\n  app2.use(Icon).use(Column).use(Table);\n}\nMyLog();\ndayjs.locale(\"zh-cn\");\nconst app = createApp(App);\napp.use(piniaStore);\napp.use(router);\napp.use(Button);\napp.use(NavBar);\napp.use(Tab);\napp.use(Tabs);\napp.use(Lazyload);\napp.use(Toast);\napp.use(Dialog);\napp.use(Swipe);\napp.use(SwipeItem);\napp.use(SwipeCell);\napp.use(PullRefresh);\napp.use(Loading);\napp.use(ConfigProvider);\napp.directive(\"content\", (el, binding) => {\n  const imgs = el.querySelectorAll(\"img\");\n  imgs.forEach((item) => {\n    if (!item.alt) {\n      const prevElement = item.previousSibling;\n      if (!prevElement)\n        return;\n      if (!prevElement.tagName) {\n        const span = document.createElement(\"span\");\n        span.style.display = \"inline-block\";\n        span.innerHTML = prevElement.textContent;\n        prevElement.before(span);\n        prevElement.textContent = \"\";\n      }\n      if (prevElement.tagName === \"SPAN\") {\n        prevElement.style.display = \"inline-block\";\n      }\n    }\n  });\n});\napp.use(useTable).mount(\"#app\");\n",
+      "start": 1714699765924,
+      "end": 1714699765924,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport \"amfe-flexible\";\nimport dayjs from \"dayjs\";\nimport \"dayjs/locale/zh-cn\";\nimport {\n  Button,\n  ConfigProvider,\n  Dialog,\n  Lazyload,\n  Loading,\n  NavBar,\n  PullRefresh,\n  Swipe,\n  SwipeCell,\n  SwipeItem,\n  Tab,\n  Tabs,\n  Toast\n} from \"vant\";\nimport \"vant/es/toast/style\";\nimport { createApp } from \"vue\";\nimport App from \"./App.vue\";\nimport \"./assets/styles/common.scss\";\nimport \"./basic-type-extensions\";\nimport router from \"./router\";\nimport piniaStore from \"./store\";\nimport \"./style.css\";\nimport { MyLog } from \"./utils/tools\";\nimport {\n  Column,\n  Icon,\n  Table\n} from \"vxe-table\";\nimport \"vxe-table/styles/cssvar.scss\";\nfunction useTable(app2) {\n  app2.use(Icon).use(Column).use(Table);\n}\nMyLog();\ndayjs.locale(\"zh-cn\");\nconst app = createApp(App);\napp.use(piniaStore);\napp.use(router);\napp.use(Button);\napp.use(NavBar);\napp.use(Tab);\napp.use(Tabs);\napp.use(Lazyload);\napp.use(Toast);\napp.use(Dialog);\napp.use(Swipe);\napp.use(SwipeItem);\napp.use(SwipeCell);\napp.use(PullRefresh);\napp.use(Loading);\napp.use(ConfigProvider);\napp.directive(\"content\", (el, binding) => {\n  const imgs = el.querySelectorAll(\"img\");\n  imgs.forEach((item) => {\n    if (!item.alt) {\n      const prevElement = item.previousSibling;\n      if (!prevElement)\n        return;\n      if (!prevElement.tagName) {\n        const span = document.createElement(\"span\");\n        span.style.display = \"inline-block\";\n        span.innerHTML = prevElement.textContent;\n        prevElement.before(span);\n        prevElement.textContent = \"\";\n      }\n      if (prevElement.tagName === \"SPAN\") {\n        prevElement.style.display = \"inline-block\";\n      }\n    }\n  });\n});\napp.use(useTable).mount(\"#app\");\n",
+      "start": 1714699765924,
+      "end": 1714699765927,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/main.ts\"],\n  \"sourcesContent\": [\"import \\\"amfe-flexible\\\";\\nimport dayjs from \\\"dayjs\\\";\\nimport \\\"dayjs/locale/zh-cn\\\";\\nimport {\\n  Button,\\n  ConfigProvider,\\n  Dialog,\\n  Lazyload,\\n  Loading,\\n  NavBar,\\n  PullRefresh,\\n  Swipe,\\n  SwipeCell,\\n  SwipeItem,\\n  Tab,\\n  Tabs,\\n  Toast\\n} from \\\"vant\\\";\\nimport \\\"vant/es/toast/style\\\";\\nimport { createApp } from \\\"vue\\\";\\nimport App from \\\"./App.vue\\\";\\nimport \\\"./assets/styles/common.scss\\\";\\nimport \\\"./basic-type-extensions\\\";\\nimport router from \\\"./router\\\";\\nimport piniaStore from \\\"./store\\\";\\nimport \\\"./style.css\\\";\\nimport { MyLog } from \\\"./utils/tools\\\";\\nimport {\\n  Column,\\n  Icon,\\n  Table\\n} from \\\"vxe-table\\\";\\nimport \\\"vxe-table/styles/cssvar.scss\\\";\\nfunction useTable(app2) {\\n  app2.use(Icon).use(Column).use(Table);\\n}\\nMyLog();\\ndayjs.locale(\\\"zh-cn\\\");\\nconst app = createApp(App);\\napp.use(piniaStore);\\napp.use(router);\\napp.use(Button);\\napp.use(NavBar);\\napp.use(Tab);\\napp.use(Tabs);\\napp.use(Lazyload);\\napp.use(Toast);\\napp.use(Dialog);\\napp.use(Swipe);\\napp.use(SwipeItem);\\napp.use(SwipeCell);\\napp.use(PullRefresh);\\napp.use(Loading);\\napp.use(ConfigProvider);\\napp.directive(\\\"content\\\", (el, binding) => {\\n  const imgs = el.querySelectorAll(\\\"img\\\");\\n  imgs.forEach((item) => {\\n    if (!item.alt) {\\n      const prevElement = item.previousSibling;\\n      if (!prevElement)\\n        return;\\n      if (!prevElement.tagName) {\\n        const span = document.createElement(\\\"span\\\");\\n        span.style.display = \\\"inline-block\\\";\\n        span.innerHTML = prevElement.textContent;\\n        prevElement.before(span);\\n        prevElement.textContent = \\\"\\\";\\n      }\\n      if (prevElement.tagName === \\\"SPAN\\\") {\\n        prevElement.style.display = \\\"inline-block\\\";\\n      }\\n    }\\n  });\\n});\\napp.use(useTable).mount(\\\"#app\\\");\\n\"],\n  \"mappings\": \";AAAA,OAAO;AACP,OAAO,WAAW;AAClB,OAAO;AACP;AAAA,EACE;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,OACK;AACP,OAAO;AACP,SAAS,iBAAiB;AAC1B,OAAO,SAAS;AAChB,OAAO;AACP,OAAO;AACP,OAAO,YAAY;AACnB,OAAO,gBAAgB;AACvB,OAAO;AACP,SAAS,aAAa;AACtB;AAAA,EACE;AAAA,EACA;AAAA,EACA;AAAA,OACK;AACP,OAAO;AACP,SAAS,SAAS,MAAM;AACtB,OAAK,IAAI,IAAI,EAAE,IAAI,MAAM,EAAE,IAAI,KAAK;AACtC;AACA,MAAM;AACN,MAAM,OAAO,OAAO;AACpB,MAAM,MAAM,UAAU,GAAG;AACzB,IAAI,IAAI,UAAU;AAClB,IAAI,IAAI,MAAM;AACd,IAAI,IAAI,MAAM;AACd,IAAI,IAAI,MAAM;AACd,IAAI,IAAI,GAAG;AACX,IAAI,IAAI,IAAI;AACZ,IAAI,IAAI,QAAQ;AAChB,IAAI,IAAI,KAAK;AACb,IAAI,IAAI,MAAM;AACd,IAAI,IAAI,KAAK;AACb,IAAI,IAAI,SAAS;AACjB,IAAI,IAAI,SAAS;AACjB,IAAI,IAAI,WAAW;AACnB,IAAI,IAAI,OAAO;AACf,IAAI,IAAI,cAAc;AACtB,IAAI,UAAU,WAAW,CAAC,IAAI,YAAY;AACxC,QAAM,OAAO,GAAG,iBAAiB,KAAK;AACtC,OAAK,QAAQ,CAAC,SAAS;AACrB,QAAI,CAAC,KAAK,KAAK;AACb,YAAM,cAAc,KAAK;AACzB,UAAI,CAAC;AACH;AACF,UAAI,CAAC,YAAY,SAAS;AACxB,cAAM,OAAO,SAAS,cAAc,MAAM;AAC1C,aAAK,MAAM,UAAU;AACrB,aAAK,YAAY,YAAY;AAC7B,oBAAY,OAAO,IAAI;AACvB,oBAAY,cAAc;AAAA,MAC5B;AACA,UAAI,YAAY,YAAY,QAAQ;AAClC,oBAAY,MAAM,UAAU;AAAA,MAC9B;AAAA,IACF;AAAA,EACF,CAAC;AACH,CAAC;AACD,IAAI,IAAI,QAAQ,EAAE,MAAM,MAAM;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699765927,
+      "end": 1714699765927,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699765927,
+      "end": 1714699765927,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699765927,
+      "end": 1714699765927,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699765927,
+      "end": 1714699765927,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699765927,
+      "end": 1714699765927,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699765927,
+      "end": 1714699765927,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699765927,
+      "end": 1714699765927,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699765927,
+      "end": 1714699765927,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699765927,
+      "end": 1714699765930,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699765930,
+      "end": 1714699765930,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "result": "\"use strict\";\nimport \"amfe-flexible\";\nimport dayjs from \"dayjs\";\nimport \"dayjs/locale/zh-cn\";\nimport {\n  Button,\n  ConfigProvider,\n  Dialog,\n  Lazyload,\n  Loading,\n  NavBar,\n  PullRefresh,\n  Swipe,\n  SwipeCell,\n  SwipeItem,\n  Tab,\n  Tabs,\n  Toast\n} from \"vant\";\nimport \"vant/es/toast/style\";\nimport { createApp } from \"vue\";\nimport App from \"./App.vue\";\nimport \"./assets/styles/common.scss\";\nimport \"./basic-type-extensions\";\nimport router from \"./router\";\nimport piniaStore from \"./store\";\nimport \"./style.css\";\nimport { MyLog } from \"./utils/tools\";\nimport {\n  Column,\n  Icon,\n  Table\n} from \"vxe-table\";\nimport '/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/es/column/style.css';\nimport '/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/es/icon/style.css';\nimport '/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/es/table/style.css';\n\nimport \"vxe-table/styles/cssvar.scss\";\nfunction useTable(app2) {\n  app2.use(Icon).use(Column).use(Table);\n}\nMyLog();\ndayjs.locale(\"zh-cn\");\nconst app = createApp(App);\napp.use(piniaStore);\napp.use(router);\napp.use(Button);\napp.use(NavBar);\napp.use(Tab);\napp.use(Tabs);\napp.use(Lazyload);\napp.use(Toast);\napp.use(Dialog);\napp.use(Swipe);\napp.use(SwipeItem);\napp.use(SwipeCell);\napp.use(PullRefresh);\napp.use(Loading);\napp.use(ConfigProvider);\napp.directive(\"content\", (el, binding) => {\n  const imgs = el.querySelectorAll(\"img\");\n  imgs.forEach((item) => {\n    if (!item.alt) {\n      const prevElement = item.previousSibling;\n      if (!prevElement)\n        return;\n      if (!prevElement.tagName) {\n        const span = document.createElement(\"span\");\n        span.style.display = \"inline-block\";\n        span.innerHTML = prevElement.textContent;\n        prevElement.before(span);\n        prevElement.textContent = \"\";\n      }\n      if (prevElement.tagName === \"SPAN\") {\n        prevElement.style.display = \"inline-block\";\n      }\n    }\n  });\n});\napp.use(useTable).mount(\"#app\");\n",
+      "start": 1714699765930,
+      "end": 1714699765933,
+      "order": "post",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699765933,
+      "end": 1714699765933,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699765933,
+      "end": 1714699765933,
+      "order": "normal"
+    }
+  ]
+}

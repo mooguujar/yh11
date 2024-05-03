@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/set.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var staticParseInt = require('./staticParseInt')\r\n\r\nvar helperGetHGSKeys = require('./helperGetHGSKeys')\r\n\r\nvar hasOwnProp = require('./hasOwnProp')\r\n\r\nvar sKeyRE = /(.+)?\\[(\\d+)\\]$/\r\n\r\nfunction setDeepProps (obj, key, isEnd, nextKey, value) {\r\n  if (obj[key]) {\r\n    if (isEnd) {\r\n      obj[key] = value\r\n    }\r\n  } else {\r\n    var index\r\n    var rest\r\n    var currMatchs = key ? key.match(sKeyRE) : null\r\n    if (isEnd) {\r\n      rest = value\r\n    } else {\r\n      var nextMatchs = nextKey ? nextKey.match(sKeyRE) : null\r\n      if (nextMatchs && !nextMatchs[1]) {\r\n        // 如果下一个属性为数组类型\r\n        rest = new Array(staticParseInt(nextMatchs[2]) + 1)\r\n      } else {\r\n        rest = {}\r\n      }\r\n    }\r\n    if (currMatchs) {\r\n      if (currMatchs[1]) {\r\n        // 如果为对象中数组\r\n        index = staticParseInt(currMatchs[2])\r\n        if (obj[currMatchs[1]]) {\r\n          if (isEnd) {\r\n            obj[currMatchs[1]][index] = rest\r\n          } else {\r\n            if (obj[currMatchs[1]][index]) {\r\n              rest = obj[currMatchs[1]][index]\r\n            } else {\r\n              obj[currMatchs[1]][index] = rest\r\n            }\r\n          }\r\n        } else {\r\n          obj[currMatchs[1]] = new Array(index + 1)\r\n          obj[currMatchs[1]][index] = rest\r\n        }\r\n      } else {\r\n        // 如果为数组\r\n        obj[currMatchs[2]] = rest\r\n      }\r\n    } else {\r\n      // 如果为对象\r\n      obj[key] = rest\r\n    }\r\n    return rest\r\n  }\r\n  return obj[key]\r\n}\r\n\r\n/**\r\n * 设置对象属性上的值。如果属性不存在则创建它\r\n * @param {Object/Array} obj 对象\r\n * @param {String/Function} property 键、路径\r\n * @param {Object} value 值\r\n */\r\nfunction set (obj, property, value) {\r\n  if (obj) {\r\n    if ((obj[property] || hasOwnProp(obj, property)) && !isPrototypePolluted(property)) {\r\n      obj[property] = value\r\n    } else {\r\n      var rest = obj\r\n      var props = helperGetHGSKeys(property)\r\n      var len = props.length\r\n      for (var index = 0; index < len; index++) {\r\n        if (isPrototypePolluted(props[index])) {\r\n          continue\r\n        }\r\n        var isEnd = index === len - 1\r\n        rest = setDeepProps(rest, props[index], isEnd, isEnd ? null : props[index + 1], value)\r\n      }\r\n    }\r\n  }\r\n  return obj\r\n}\r\n\r\n/**\r\n * Blacklist certain keys to prevent Prototype Pollution\r\n * @param {string} key\r\n */\r\nfunction isPrototypePolluted(key) {\r\n  return key === '__proto__' || key === 'constructor' || key === 'prototype'\r\n}\r\n\r\nmodule.exports = set\r\n",
+      "start": 1714699767653,
+      "end": 1714699767672,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767672,
+      "end": 1714699767672,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767672,
+      "end": 1714699767672,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767672,
+      "end": 1714699767672,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767672,
+      "end": 1714699767672,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767672,
+      "end": 1714699767672,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767672,
+      "end": 1714699767672,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var staticParseInt = require('./staticParseInt')\r\n\r\nvar helperGetHGSKeys = require('./helperGetHGSKeys')\r\n\r\nvar hasOwnProp = require('./hasOwnProp')\r\n\r\nvar sKeyRE = /(.+)?\\[(\\d+)\\]$/\r\n\r\nfunction setDeepProps (obj, key, isEnd, nextKey, value) {\r\n  if (obj[key]) {\r\n    if (isEnd) {\r\n      obj[key] = value\r\n    }\r\n  } else {\r\n    var index\r\n    var rest\r\n    var currMatchs = key ? key.match(sKeyRE) : null\r\n    if (isEnd) {\r\n      rest = value\r\n    } else {\r\n      var nextMatchs = nextKey ? nextKey.match(sKeyRE) : null\r\n      if (nextMatchs && !nextMatchs[1]) {\r\n        // 如果下一个属性为数组类型\r\n        rest = new Array(staticParseInt(nextMatchs[2]) + 1)\r\n      } else {\r\n        rest = {}\r\n      }\r\n    }\r\n    if (currMatchs) {\r\n      if (currMatchs[1]) {\r\n        // 如果为对象中数组\r\n        index = staticParseInt(currMatchs[2])\r\n        if (obj[currMatchs[1]]) {\r\n          if (isEnd) {\r\n            obj[currMatchs[1]][index] = rest\r\n          } else {\r\n            if (obj[currMatchs[1]][index]) {\r\n              rest = obj[currMatchs[1]][index]\r\n            } else {\r\n              obj[currMatchs[1]][index] = rest\r\n            }\r\n          }\r\n        } else {\r\n          obj[currMatchs[1]] = new Array(index + 1)\r\n          obj[currMatchs[1]][index] = rest\r\n        }\r\n      } else {\r\n        // 如果为数组\r\n        obj[currMatchs[2]] = rest\r\n      }\r\n    } else {\r\n      // 如果为对象\r\n      obj[key] = rest\r\n    }\r\n    return rest\r\n  }\r\n  return obj[key]\r\n}\r\n\r\n/**\r\n * 设置对象属性上的值。如果属性不存在则创建它\r\n * @param {Object/Array} obj 对象\r\n * @param {String/Function} property 键、路径\r\n * @param {Object} value 值\r\n */\r\nfunction set (obj, property, value) {\r\n  if (obj) {\r\n    if ((obj[property] || hasOwnProp(obj, property)) && !isPrototypePolluted(property)) {\r\n      obj[property] = value\r\n    } else {\r\n      var rest = obj\r\n      var props = helperGetHGSKeys(property)\r\n      var len = props.length\r\n      for (var index = 0; index < len; index++) {\r\n        if (isPrototypePolluted(props[index])) {\r\n          continue\r\n        }\r\n        var isEnd = index === len - 1\r\n        rest = setDeepProps(rest, props[index], isEnd, isEnd ? null : props[index + 1], value)\r\n      }\r\n    }\r\n  }\r\n  return obj\r\n}\r\n\r\n/**\r\n * Blacklist certain keys to prevent Prototype Pollution\r\n * @param {string} key\r\n */\r\nfunction isPrototypePolluted(key) {\r\n  return key === '__proto__' || key === 'constructor' || key === 'prototype'\r\n}\r\n\r\nmodule.exports = set\r\n",
+      "start": 1714699767672,
+      "end": 1714699767672,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767672,
+      "end": 1714699767672,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767672,
+      "end": 1714699767672,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767672,
+      "end": 1714699767672,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767672,
+      "end": 1714699767672,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767672,
+      "end": 1714699767672,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767672,
+      "end": 1714699767672,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/staticParseInt.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/helperGetHGSKeys.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/hasOwnProp.js?commonjs-proxy\";\n\nvar staticParseInt = require$$0\r\n\r\nvar helperGetHGSKeys = require$$1\r\n\r\nvar hasOwnProp = require$$2\r\n\r\nvar sKeyRE = /(.+)?\\[(\\d+)\\]$/\r\n\r\nfunction setDeepProps (obj, key, isEnd, nextKey, value) {\r\n  if (obj[key]) {\r\n    if (isEnd) {\r\n      obj[key] = value\r\n    }\r\n  } else {\r\n    var index\r\n    var rest\r\n    var currMatchs = key ? key.match(sKeyRE) : null\r\n    if (isEnd) {\r\n      rest = value\r\n    } else {\r\n      var nextMatchs = nextKey ? nextKey.match(sKeyRE) : null\r\n      if (nextMatchs && !nextMatchs[1]) {\r\n        // 如果下一个属性为数组类型\r\n        rest = new Array(staticParseInt(nextMatchs[2]) + 1)\r\n      } else {\r\n        rest = {}\r\n      }\r\n    }\r\n    if (currMatchs) {\r\n      if (currMatchs[1]) {\r\n        // 如果为对象中数组\r\n        index = staticParseInt(currMatchs[2])\r\n        if (obj[currMatchs[1]]) {\r\n          if (isEnd) {\r\n            obj[currMatchs[1]][index] = rest\r\n          } else {\r\n            if (obj[currMatchs[1]][index]) {\r\n              rest = obj[currMatchs[1]][index]\r\n            } else {\r\n              obj[currMatchs[1]][index] = rest\r\n            }\r\n          }\r\n        } else {\r\n          obj[currMatchs[1]] = new Array(index + 1)\r\n          obj[currMatchs[1]][index] = rest\r\n        }\r\n      } else {\r\n        // 如果为数组\r\n        obj[currMatchs[2]] = rest\r\n      }\r\n    } else {\r\n      // 如果为对象\r\n      obj[key] = rest\r\n    }\r\n    return rest\r\n  }\r\n  return obj[key]\r\n}\r\n\r\n/**\r\n * 设置对象属性上的值。如果属性不存在则创建它\r\n * @param {Object/Array} obj 对象\r\n * @param {String/Function} property 键、路径\r\n * @param {Object} value 值\r\n */\r\nfunction set (obj, property, value) {\r\n  if (obj) {\r\n    if ((obj[property] || hasOwnProp(obj, property)) && !isPrototypePolluted(property)) {\r\n      obj[property] = value\r\n    } else {\r\n      var rest = obj\r\n      var props = helperGetHGSKeys(property)\r\n      var len = props.length\r\n      for (var index = 0; index < len; index++) {\r\n        if (isPrototypePolluted(props[index])) {\r\n          continue\r\n        }\r\n        var isEnd = index === len - 1\r\n        rest = setDeepProps(rest, props[index], isEnd, isEnd ? null : props[index + 1], value)\r\n      }\r\n    }\r\n  }\r\n  return obj\r\n}\r\n\r\n/**\r\n * Blacklist certain keys to prevent Prototype Pollution\r\n * @param {string} key\r\n */\r\nfunction isPrototypePolluted(key) {\r\n  return key === '__proto__' || key === 'constructor' || key === 'prototype'\r\n}\r\n\r\nvar set_1 = set\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(set_1);\nexport { set_1 as __moduleExports };",
+      "start": 1714699767672,
+      "end": 1714699768103,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "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"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768103,
+      "end": 1714699768103,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768103,
+      "end": 1714699768103,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768103,
+      "end": 1714699768103,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768103,
+      "end": 1714699768103,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768103,
+      "end": 1714699768103,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768103,
+      "end": 1714699768103,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768103,
+      "end": 1714699768103,
+      "order": "normal"
+    }
+  ]
+}

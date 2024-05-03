@@ -1,0 +1,148 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/switch/index.css",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": ":root,:host{--van-switch-size: 26px;--van-switch-width: calc(1.8em + 4px) ;--van-switch-height: calc(1em + 4px) ;--van-switch-node-size: 1em;--van-switch-node-background: var(--van-white);--van-switch-node-shadow: 0 3px 1px 0 rgba(0, 0, 0, .05);--van-switch-background: rgba(120, 120, 128, .16);--van-switch-on-background: var(--van-primary-color);--van-switch-duration: var(--van-duration-base);--van-switch-disabled-opacity: var(--van-disabled-opacity)}.van-theme-dark{--van-switch-background: rgba(120, 120, 128, .32)}.van-switch{position:relative;display:inline-block;box-sizing:content-box;width:var(--van-switch-width);height:var(--van-switch-height);font-size:var(--van-switch-size);background:var(--van-switch-background);border-radius:var(--van-switch-node-size);cursor:pointer;transition:background-color var(--van-switch-duration)}.van-switch__node{position:absolute;top:2px;left:2px;width:var(--van-switch-node-size);height:var(--van-switch-node-size);font-size:inherit;background:var(--van-switch-node-background);border-radius:100%;box-shadow:var(--van-switch-node-shadow);transition:transform var(--van-switch-duration) cubic-bezier(.3,1.05,.4,1.05)}.van-switch__loading{top:25%;left:25%;width:50%;height:50%;line-height:1}.van-switch--on{background:var(--van-switch-on-background)}.van-switch--on .van-switch__node{transform:translate(calc(var(--van-switch-width) - var(--van-switch-node-size) - 4px))}.van-switch--on .van-switch__loading{color:var(--van-switch-on-background)}.van-switch--disabled{cursor:not-allowed;opacity:var(--van-switch-disabled-opacity)}.van-switch--loading{cursor:default}\n",
+      "start": 1714699771100,
+      "end": 1714699771107,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "result": ":root,:host{--van-switch-size: 0.69333rem;--van-switch-width: calc(1.8em + 0.10667rem) ;--van-switch-height: calc(1em + 0.10667rem) ;--van-switch-node-size: 1em;--van-switch-node-background: var(--van-white);--van-switch-node-shadow: 0 0.08rem 1px 0 rgba(0, 0, 0, .05);--van-switch-background: rgba(120, 120, 128, .16);--van-switch-on-background: var(--van-primary-color);--van-switch-duration: var(--van-duration-base);--van-switch-disabled-opacity: var(--van-disabled-opacity)}.van-theme-dark{--van-switch-background: rgba(120, 120, 128, .32)}.van-switch{position:relative;display:inline-block;box-sizing:content-box;width:var(--van-switch-width);height:var(--van-switch-height);font-size:var(--van-switch-size);background:var(--van-switch-background);border-radius:var(--van-switch-node-size);cursor:pointer;transition:background-color var(--van-switch-duration)}.van-switch__node{position:absolute;top:0.05333rem;left:0.05333rem;width:var(--van-switch-node-size);height:var(--van-switch-node-size);font-size:inherit;background:var(--van-switch-node-background);border-radius:100%;box-shadow:var(--van-switch-node-shadow);transition:transform var(--van-switch-duration) cubic-bezier(.3,1.05,.4,1.05)}.van-switch__loading{top:25%;left:25%;width:50%;height:50%;line-height:1}.van-switch--on{background:var(--van-switch-on-background)}.van-switch--on .van-switch__node{transform:translate(calc(var(--van-switch-width) - var(--van-switch-node-size) - 0.10667rem))}.van-switch--on .van-switch__loading{color:var(--van-switch-on-background)}.van-switch--disabled{cursor:not-allowed;opacity:var(--van-switch-disabled-opacity)}.van-switch--loading{cursor:default}\n",
+      "start": 1714699771107,
+      "end": 1714699771110,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771110,
+      "end": 1714699771110,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771110,
+      "end": 1714699771110,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771110,
+      "end": 1714699771110,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771110,
+      "end": 1714699771110,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771110,
+      "end": 1714699771110,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": ":root,:host{--van-switch-size: 0.69333rem;--van-switch-width: calc(1.8em + 0.10667rem) ;--van-switch-height: calc(1em + 0.10667rem) ;--van-switch-node-size: 1em;--van-switch-node-background: var(--van-white);--van-switch-node-shadow: 0 0.08rem 1px 0 rgba(0, 0, 0, .05);--van-switch-background: rgba(120, 120, 128, .16);--van-switch-on-background: var(--van-primary-color);--van-switch-duration: var(--van-duration-base);--van-switch-disabled-opacity: var(--van-disabled-opacity)}.van-theme-dark{--van-switch-background: rgba(120, 120, 128, .32)}.van-switch{position:relative;display:inline-block;box-sizing:content-box;width:var(--van-switch-width);height:var(--van-switch-height);font-size:var(--van-switch-size);background:var(--van-switch-background);border-radius:var(--van-switch-node-size);cursor:pointer;transition:background-color var(--van-switch-duration)}.van-switch__node{position:absolute;top:0.05333rem;left:0.05333rem;width:var(--van-switch-node-size);height:var(--van-switch-node-size);font-size:inherit;background:var(--van-switch-node-background);border-radius:100%;box-shadow:var(--van-switch-node-shadow);transition:transform var(--van-switch-duration) cubic-bezier(.3,1.05,.4,1.05)}.van-switch__loading{top:25%;left:25%;width:50%;height:50%;line-height:1}.van-switch--on{background:var(--van-switch-on-background)}.van-switch--on .van-switch__node{transform:translate(calc(var(--van-switch-width) - var(--van-switch-node-size) - 0.10667rem))}.van-switch--on .van-switch__loading{color:var(--van-switch-on-background)}.van-switch--disabled{cursor:not-allowed;opacity:var(--van-switch-disabled-opacity)}.van-switch--loading{cursor:default}\n",
+      "start": 1714699771110,
+      "end": 1714699771110,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699771110,
+      "end": 1714699771110,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771110,
+      "end": 1714699771110,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699771110,
+      "end": 1714699771110,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771110,
+      "end": 1714699771110,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771110,
+      "end": 1714699771110,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771110,
+      "end": 1714699771110,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699771110,
+      "end": 1714699771110,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771110,
+      "end": 1714699771110,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771110,
+      "end": 1714699771110,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771110,
+      "end": 1714699771110,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699771110,
+      "end": 1714699771110,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771110,
+      "end": 1714699771110,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771110,
+      "end": 1714699771110,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771110,
+      "end": 1714699771110,
+      "order": "normal"
+    }
+  ]
+}

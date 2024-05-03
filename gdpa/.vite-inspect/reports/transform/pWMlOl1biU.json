@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Auth/FooterView.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\ninterface Props {\n  btnName: string\n}\n\nconst appVersion = import.meta.env.VITE_APP_VERSION\nconst props = withDefaults(defineProps<Props>(), {\n  btnName: ''\n})\nconst emit = defineEmits(['click'])\n\nconst handleBtnClick = () => {\n  emit('click')\n}\n</script>\n\n<template>\n  <div class=\"footer-container flex justify-center items-center flex-col\">\n    <div className=\"buttom-view\">\n      <van-button\n        type=\"primary\"\n        @click=\"handleBtnClick\"\n      >\n        {{ btnName }}\n      </van-button>\n    </div>\n    <div className=\"version-view\">\n      <span className=\"version\">版本号：{{ appVersion }}</span>\n    </div>\n  </div>\n</template>\n\n<style lang=\"scss\" scoped>\n.footer-container {\n  bottom: 0;\n  width: 100%;\n  max-width: 750px;\n  padding: 0 41px;\n  .buttom-view {\n    width: 100%;\n    height: 80px;\n    :deep(.van-button) {\n      width: 100%;\n      height: 100%;\n      background-color: var(--van-button-primary-background);\n      border-radius: 4px;\n      color: #fff;\n      position: relative;\n      opacity: 1;\n      transition: opacity 0.5s ease-in-out;\n    }\n  }\n  .version-view {\n    margin-top: 45px;\n    font-size: 25px;\n    line-height: 35px;\n    color: #9f9e9e;\n  }\n  padding-bottom: 28px;\n}\n</style>\n",
+      "start": 1714699771686,
+      "end": 1714699771694,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771694,
+      "end": 1714699771694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771694,
+      "end": 1714699771694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771694,
+      "end": 1714699771694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771694,
+      "end": 1714699771694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Auth/FooterView.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Auth/FooterView.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Auth/FooterView.vue?vue&type=style&index=0&scoped=7dbd9486&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-7dbd9486\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Auth/FooterView.vue\"]]);\n",
+      "start": 1714699771694,
+      "end": 1714699771896,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771896,
+      "end": 1714699771896,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Auth/FooterView.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Auth/FooterView.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Auth/FooterView.vue?vue&type=style&index=0&scoped=7dbd9486&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-7dbd9486\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Auth/FooterView.vue\"]]);\n",
+      "start": 1714699771896,
+      "end": 1714699771896,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Auth/FooterView.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Auth/FooterView.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Auth/FooterView.vue?vue&type=style&index=0&scoped=7dbd9486&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-7dbd9486\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Auth/FooterView.vue\"]]);\n",
+      "start": 1714699771897,
+      "end": 1714699772040,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Auth/FooterView.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Auth/FooterView.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Auth/FooterView.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Auth/FooterView.vue?vue&type=style&index=0&scoped=7dbd9486&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-7dbd9486\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Auth/FooterView.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,0EAA0E,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699772040,
+      "end": 1714699772040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699772040,
+      "end": 1714699772040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699772040,
+      "end": 1714699772040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699772040,
+      "end": 1714699772040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699772040,
+      "end": 1714699772040,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699772040,
+      "end": 1714699772040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699772040,
+      "end": 1714699772040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699772040,
+      "end": 1714699772040,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699772040,
+      "end": 1714699772041,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Auth/FooterView.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Auth/FooterView.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Auth/FooterView.vue?vue&type=style&index=0&scoped=7dbd9486&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-7dbd9486\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Auth/FooterView.vue\"]]);\n",
+      "start": 1714699772041,
+      "end": 1714699772041,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Auth/FooterView.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Auth/FooterView.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Auth/FooterView.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Auth/FooterView.vue?vue&type=style&index=0&scoped=7dbd9486&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-7dbd9486\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Auth/FooterView.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699772041,
+      "end": 1714699772041,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699772041,
+      "end": 1714699772041,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699772041,
+      "end": 1714699772041,
+      "order": "normal"
+    }
+  ]
+}

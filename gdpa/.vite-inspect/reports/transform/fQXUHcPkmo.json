@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/login_password.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <div class=\"password w-100 bg-white\">\n    <nav-bar\n      :title=\"title\"\n      mode=\"white\"\n    />\n\n    <!-- <div class=\"order-content p-[22px] pt-0 bg-[#fff] flex items-center flex-wrap justify-center\">\n      <van-field v-model=\"pass\" placeholder=\"请输入6位登录密码\" right-icon=\"eye-o\" left-icon=\"eye-o\" />\n      <van-field v-model=\"n_pass\" placeholder=\"新6位登录密码\" right-icon=\"eye-o\" left-icon=\"eye-o\" />\n      <van-field v-model=\"c_pass\" placeholder=\"确认6位登录新密码\" right-icon=\"eye-o\" left-icon=\"eye-o\" />\n      <div class=\"text-[var(--van-button-primary-background)] text-[30px] mb-2\">\n        忘记登录密码？\n      </div>\n      <van-button size=\"large\" color=\"var(--van-button-primary-background)\">确认</van-button>\n    </div> -->\n    <div\n      class=\"order-content p-[22px] bg-[#fff] text-center h-[calc(100vh-100px)] overflow-y-scroll\"\n    >\n      <div\n        v-for=\"(item, index) in fieldList\"\n        :key=\"item.key + index\"\n        class=\"input-content w-[96%]\"\n      >\n        <div class=\"input-content-view\">\n          <div class=\"input-view flex items-center\">\n            <i :class=\"['block', item.icon]\"></i>\n            <input\n              :value=\"item.value\"\n              :type=\"item.type\"\n              :placeholder=\"item.placeholder\"\n              v-model=\"item.value\"\n            />\n            <i\n              v-if=\"item.key.toLowerCase().includes('pass')\"\n              :class=\"item.type === 'password' ? 'eye-close' : 'eye-open'\"\n              @click=\"togglePasswordStatus(index)\"\n            ></i>\n          </div>\n        </div>\n      </div>\n\n      <van-button\n        size=\"large\"\n        color=\"var(--van-button-primary-background)\"\n        v-if=\"isSetPass && !isForgetPass\"\n        @click=\"editPayPass\"\n      >\n        确认\n      </van-button>\n      <!-- <van-button\n        size=\"large\"\n        color=\"var(--van-button-primary-background)\"\n        v-if=\"isSetPass && isForgetPass\"\n        @click=\"resetPayPass\"\n      >\n        确认\n      </van-button> -->\n    </div>\n  </div>\n</template>\n\n<script setup lang=\"ts\">\nimport { userLoginPassUpdateApi } from '@/apis/user'\nimport info from '@/assets/images/common/info.png'\nimport success from '@/assets/images/common/success.png'\nimport { useEntryStore } from '@/store'\nimport { useAuthStore } from '@/store/modules/auth'\nimport mitt from '@/utils/mitt'\nimport { showToast } from 'vant'\nimport { computed, onMounted, reactive, ref } from 'vue'\nimport { useRouter } from 'vue-router'\n\nconst authStore = useAuthStore()\nconst entryStore = useEntryStore()\nconst imgServerUrl = entryStore.imgServerUrl\n\nconst router = useRouter()\n\nconst title = computed(() => {\n  if (isSetPass && !isForgetPass.value) {\n    return '修改登录密码'\n  }\n  if (!isSetPass) {\n    return '设置登录密码'\n  }\n  if (isSetPass && isForgetPass.value) {\n    return '忘记登录密码'\n  }\n  return ''\n})\n\nconst showInfoToast = (title: string) => {\n  return showToast({\n    message: title,\n    icon: info\n  })\n}\nconst showSuceedToast = (title: string) => {\n  return showToast({\n    message: title,\n    icon: success\n  })\n}\n\nconst isForgetPass = ref(false)\nconst isSetPass = authStore.isSetPayPassword\nconst isLoading = ref(false)\nconst forgetPassImg = ref('')\nconst readed = ref(false)\nlet fieldList = reactive(\n  // !isSetPass\n  // ?\n  // [\n  //     {\n  //       key: 'pass',\n  //       placeholder: '请输入6-18位数字字母登录密码',\n  //       typeKey: 'pass',\n  //       icon: 'lock',\n  //       value: '',\n  //       type: 'password',\n  //       require: '请输入6-18位数字字母登录密码',\n  //       formatError: '登录密码仅支持6-18位数字字母格式',\n  //       showKeyboard: false\n  //     },\n  //     {\n  //       key: 'c_pass',\n  //       placeholder: '确认6-18位数字字母的登录新密码',\n  //       typeKey: 'c_pass',\n  //       icon: 'lock',\n  //       value: '',\n  //       type: 'password',\n  //       require: '请输入确认6-18位数字字母登录密码',\n  //       formatError: '登录密码仅支持6-18位数字字母格式',\n  //       showKeyboard: false\n  //     }\n  //   ]\n  // :\n  [\n    {\n      key: 'o_pass',\n      placeholder: '请输入旧密码',\n      typeKey: 'o_pass',\n      icon: 'lock',\n      value: '',\n      type: 'password',\n      require: '请输入旧密码',\n      formatError: '登录密码仅支持6-18位数字字母格式',\n      showKeyboard: false\n    },\n    {\n      key: 'n_pass',\n      placeholder: '请输入新密码',\n      typeKey: 'n_pass',\n      icon: 'lock',\n      value: '',\n      type: 'password',\n      require: '请输入新6-18位数字字母登录密码',\n      formatError: '登录密码仅支持6-18位数字字母格式',\n      showKeyboard: false\n    },\n    {\n      key: 'c_pass',\n      placeholder: '再次输入新密码',\n      typeKey: 'c_pass',\n      icon: 'lock',\n      value: '',\n      type: 'password',\n      require: '请再次输入新6-18位数字字母登录密码',\n      formatError: '登录密码仅支持6-18位数字字母格式',\n      showKeyboard: false\n    }\n  ]\n)\n\nconst handleInput = (key: string, inputValue: string) => {\n  const itemIndex = fieldList.findIndex(item => item.key === key)\n  console.log(inputValue.length)\n  if (itemIndex > -1 && inputValue.length <= 6) {\n    fieldList[itemIndex].value = inputValue\n  }\n}\n\nconst clearInput = (key: string) => {\n  const itemIndex = fieldList.findIndex(item => item.key === key)\n  if (itemIndex > -1) {\n    fieldList[itemIndex].value = ''\n  }\n}\n\nconst forgetPass = () => {\n  if (authStore?.userInfo?.verified_status !== 1) return showInfoToast('请实名认证后继续此操作')\n  fieldList = fieldList.filter(item => item.key !== 'o_pass')\n  isForgetPass.value = true\n}\nconst togglePasswordStatus = (index: number) => {\n  fieldList[index].type = fieldList[index].type === 'password' ? 'text' : 'password'\n}\n\nconst getValue = (key: string) => {\n  const item = fieldList.find(item => item.key === key)\n  return item ? item.value : ''\n}\n\nconst getItem = (key: string) => {\n  const item = fieldList.find(item => item.key === key)\n  return item\n}\n\nconst onlyNumberKey = (evt: { which: any; keyCode: any }) => {\n  // Only ASCII character in that range allowed\n  // console.log(evt, 'evt')\n  let ASCIICode = evt.which ? evt.which : evt.keyCode\n  if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) return false\n  return true\n}\n\nconst regPayPass = /^[a-zA-Z0-9]{6,18}$/\n\nconst editPayPass = async () => {\n  if (isLoading.value) return\n  console.log(getItem('c_pass'), `getItem('c_pass')`)\n  if (!getValue('o_pass')) return showInfoToast(getItem('o_pass')?.require || '')\n  if (!regPayPass.test(getValue('o_pass')))\n    return showInfoToast(getItem('o_pass')?.formatError || '')\n  if (!getValue('n_pass')) return showInfoToast(getItem('n_pass')?.require || '')\n  if (!regPayPass.test(getValue('n_pass')))\n    return showInfoToast(getItem('n_pass')?.formatError || '')\n  if (!getValue('c_pass')) return showInfoToast(getItem('c_pass')?.require || '')\n  if (!regPayPass.test(getValue('c_pass')))\n    return showInfoToast(getItem('c_pass')?.formatError || '')\n  if (getValue('o_pass') === getValue('n_pass')) return showInfoToast('新旧密码不能一致' || '')\n  if (getValue('n_pass') !== getValue('c_pass')) return showInfoToast('两次密码不一致' || '')\n\n  try {\n    isLoading.value = true\n    const res = await userLoginPassUpdateApi({\n      oldpasswd: getValue('o_pass'),\n      newpasswd: getValue('n_pass'),\n      newpasswdck: getValue('c_pass')\n      // mobile: '+8613259583728',\n      // code: '12345'\n    })\n\n    if (res.code === 0) {\n      showSuceedToast('登录密码修改成功')\n      setTimeout(async () => {\n        await authStore.getUserInfo()\n        router.back()\n      }, 1000)\n    }\n  } catch (error) {\n    console.error(error)\n  } finally {\n    isLoading.value = false\n  }\n}\n// const setPayPass = async () => {\n//   if (isLoading.value) return\n//   if (!getValue('pass')) return showInfoToast(getItem('pass')?.require || '')\n//   if (!regPayPass.test(getValue('pass'))) return showInfoToast(getItem('pass')?.formatError || '')\n//   if (!getValue('c_pass')) return showInfoToast(getItem('c_pass')?.require || '')\n//   if (!regPayPass.test(getValue('c_pass')))\n//     return showInfoToast(getItem('c_pass')?.formatError || '')\n//   if (getValue('c_pass') !== getValue('pass')) return showInfoToast('两次密码不一致' || '')\n//   try {\n//     isLoading.value = true\n//     const res = await userPayPassAddApi({\n//       newpasswd: getValue('pass'),\n//       newpasswdck: getValue('c_pass')\n//     })\n\n//     if (res.code === 0) {\n//       showSuceedToast('登录密码设置成功')\n//       setTimeout(async () => {\n//         await authStore.getUserInfo()\n//         router.back()\n//       }, 1000)\n//     }\n//   } catch (error) {\n//     console.error(error)\n//   } finally {\n//     isLoading.value = false\n//   }\n// }\n\n// const afterRead = async (event: any) => {\n//   if (!event.target.files[0]) return\n//   const res = await uploadImg(event.target.files[0])\n//   forgetPassImg.value = res?.img\n//   event.target.value = ''\n// }\n// const uploadImg = async (file: string): Promise<any> => {\n//   try {\n//     const res = await uploadImgApi({\n//       file,\n//       type: 'editreview'\n//     })\n\n//     return res\n//   } catch (e) {\n//     console.log(e)\n//   }\n// }\n\n// const resetPayPass = async () => {\n//   if (isLoading.value) return\n//   if (!getValue('n_pass')) return showInfoToast(getItem('n_pass')?.require || '')\n//   if (!regPayPass.test(getValue('n_pass')))\n//     return showInfoToast(getItem('n_pass')?.formatError || '')\n//   if (!getValue('c_pass')) return showInfoToast(getItem('c_pass')?.require || '')\n//   if (!regPayPass.test(getValue('c_pass')))\n//     return showInfoToast(getItem('c_pass')?.formatError || '')\n//   if (getValue('n_pass') !== getValue('c_pass')) return showInfoToast('两次密码不一致' || '')\n\n//   if (!readed.value) return showInfoToast('请勾选阅读并了解')\n//   try {\n//     isLoading.value = true\n\n//     const res = await userPayPassResetApi({\n//       newpasswd: getValue('n_pass'),\n//       newpasswdck: getValue('c_pass'),\n//       img: forgetPassImg.value\n//     })\n//     console.log(res, res.code, 'res')\n//     if (res.code === 0 || res.code === 134) {\n//       // showSuceedToast('登录密码重设成功')\n//       setTimeout(async () => {\n//         await authStore.getUserInfo()\n//         router.back()\n//       }, 1000)\n//     }\n//   } catch (error) {\n//     console.error(error)\n//   } finally {\n//     isLoading.value = false\n//   }\n// }\n\nonMounted(() => {\n  mitt.emit('number-keyboard-show')\n})\n</script>\n\n<style lang=\"scss\" scoped>\n@import '@/assets/styles/sprite-mine.scss';\n@import '@/assets/styles/sprite-home.scss';\n\n.password {\n  position: relative;\n  flex-direction: column;\n  width: 100%;\n  height: 100%;\n}\n\n.input-content-view {\n  width: 100%;\n  height: 124px;\n  position: relative;\n\n  .error {\n    color: red;\n    font-size: 12px;\n    position: absolute;\n    bottom: 2px;\n    right: 20px;\n    animation: error 0.3s;\n    z-index: 1;\n\n    @keyframes error {\n      0% {\n        opacity: 0;\n        bottom: 20px;\n      }\n\n      100% {\n        opacity: 1;\n        bottom: 0;\n      }\n    }\n  }\n}\n\n.input-view {\n  width: 100%;\n  height: 79px;\n  background-color: #ebf1f6;\n  padding: 0 25px;\n  border-radius: 7px;\n  position: relative;\n  z-index: 2;\n\n  input {\n    padding: 0 20px;\n    border: none;\n    flex: 1;\n    height: 100%;\n    background-color: transparent;\n    font-size: 18px;\n  }\n}\n\n:deep(.van-cell) {\n  width: 95%;\n}\n\n:deep(.van-field__label) {\n  font-size: 28px;\n  color: #13161b;\n  margin-bottom: 13px;\n}\n\n:deep(.van-cell__value) {\n  height: 79px;\n  background: #ebf1f6;\n  display: flex;\n  align-items: center;\n  padding: 0 17px;\n  font-size: 25px;\n}\n\n:deep(.van-field) {\n  height: 79px;\n  background: #ebf1f6;\n  display: flex;\n  align-items: center;\n  padding: 0 17px;\n  font-size: 25px;\n  margin-bottom: 42px;\n}\n\n:deep(.van-cell:after) {\n  display: none;\n}\n\n:deep(.van-button--large) {\n  width: 96%;\n  height: 80px;\n  margin: 0 auto;\n  font-size: 31px;\n}\n\n:deep(.van-field__body) {\n  width: 100%;\n}\n\n:deep(.van-field__right-icon .van-icon) {\n  font-size: 40px !important;\n}\n\n:deep(.van-field__left-icon .van-icon) {\n  font-size: 40px !important;\n}\n</style>\n",
+      "start": 1714699769100,
+      "end": 1714699769260,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769260,
+      "end": 1714699769260,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769260,
+      "end": 1714699769260,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769260,
+      "end": 1714699769260,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769260,
+      "end": 1714699769260,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/login_password.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/login_password.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/login_password.vue?vue&type=style&index=0&scoped=7ab62f23&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-7ab62f23\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/login_password.vue\"]]);\n",
+      "start": 1714699769260,
+      "end": 1714699769534,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769534,
+      "end": 1714699769534,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/login_password.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/login_password.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/login_password.vue?vue&type=style&index=0&scoped=7ab62f23&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-7ab62f23\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/login_password.vue\"]]);\n",
+      "start": 1714699769534,
+      "end": 1714699769534,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/login_password.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/login_password.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/login_password.vue?vue&type=style&index=0&scoped=7ab62f23&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-7ab62f23\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/login_password.vue\"]]);\n",
+      "start": 1714699769534,
+      "end": 1714699769684,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/login_password.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/login_password.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/login_password.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/login_password.vue?vue&type=style&index=0&scoped=7ab62f23&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-7ab62f23\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/login_password.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,yEAAyE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769684,
+      "end": 1714699769684,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769684,
+      "end": 1714699769684,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769684,
+      "end": 1714699769684,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769684,
+      "end": 1714699769684,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769684,
+      "end": 1714699769684,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769684,
+      "end": 1714699769684,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769684,
+      "end": 1714699769684,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769684,
+      "end": 1714699769684,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769684,
+      "end": 1714699769684,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/login_password.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/login_password.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/login_password.vue?vue&type=style&index=0&scoped=7ab62f23&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-7ab62f23\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/login_password.vue\"]]);\n",
+      "start": 1714699769684,
+      "end": 1714699769684,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/login_password.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/login_password.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/login_password.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/login_password.vue?vue&type=style&index=0&scoped=7ab62f23&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-7ab62f23\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/login_password.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769685,
+      "end": 1714699769685,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769685,
+      "end": 1714699769685,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769685,
+      "end": 1714699769685,
+      "order": "normal"
+    }
+  ]
+}

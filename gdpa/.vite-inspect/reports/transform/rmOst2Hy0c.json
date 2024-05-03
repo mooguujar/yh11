@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/buy.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <div class=\"coinBuy flex flex-col\">\n    <!-- <nav-bar\n      title=\"买币\"\n      mode=\"blue\"\n      class=\"nav-bar\"\n    /> -->\n\n    <!--    <van-nav-bar title=\"买币\" left-arrow @click-left=\"onClickLeft\" />-->\n    <div class=\"content flex flex-col\">\n      <div\n        class=\"clearfix\"\n        v-if=\"wideMode\"\n      ></div>\n      <div\n        class=\"clearfix\"\n        v-else-if=\"gd_buy_fixmomey != 1\"\n      >\n        <div\n          class=\"title_buy\"\n          :class=\"active == 0 ? 'active' : ''\"\n          @click=\"toggleBuyCoin()\"\n        >\n          自选买币\n        </div>\n        <span class=\"left shu_f\"></span>\n        <div\n          v-if=\"!onlineCharge\"\n          class=\"title_buy ml-[10px]\"\n          @click=\"toggleBuyCoin(1)\"\n          :class=\"active == 1 ? 'active' : ''\"\n        >\n          快捷买币\n        </div>\n        <div\n          v-else\n          class=\"title_buy ml-[10px]\"\n          @click=\"toggleBuyCoin(2)\"\n          :class=\"[active == 2 ? 'active' : '', redDot ? 'redDot' : '']\"\n        >\n          我的购买\n          <div\n            class=\"redDotNum flex_z\"\n            v-if=\"redDot\"\n          >\n            {{ redDot }}\n          </div>\n        </div>\n        <div\n          class=\"!float-right title_buy username flex_s\"\n          v-if=\"onlineCharge\"\n        >\n          <span class=\"!text-[22px] text-[#000]\">\n            {{\n              authStore?.userInfo?.username?.length > 18\n                ? authStore?.userInfo?.username.slice(0, 18) + '...'\n                : authStore?.userInfo?.username\n            }}\n          </span>\n          <div\n            class=\"copy mx-[10px] w-[30px] !float-right text-[#3a2828]\"\n            @click=\"copy(authStore?.userInfo?.username)\"\n          ></div>\n        </div>\n      </div>\n\n      <wideModeSelfSelect v-if=\"active == 0 && wideMode\"></wideModeSelfSelect>\n      <SelfSelect v-else-if=\"active == 0\"></SelfSelect>\n      <QuickCoins\n        :sellData=\"{}\"\n        v-if=\"active == 1\"\n      ></QuickCoins>\n      <wideMode_Order\n        v-if=\"active == 2 && wideMode\"\n        class=\"onlineCharge_Order ml-[-20px] !bg-[#ebf1f6]\"\n      ></wideMode_Order>\n      <Order\n        v-else-if=\"active == 2\"\n        class=\"onlineCharge_Order ml-[-20px] !bg-[#ebf1f6]\"\n      ></Order>\n    </div>\n  </div>\n</template>\n\n<script setup lang=\"ts\">\nimport verified from '@/assets/images/common/verified.png'\nimport { useAuthStore } from '@/store/modules/auth'\nimport { BuyOrder } from '@/store/types/buySellCoin'\nimport { mergeHrefParams } from '@/utils/tools'\nimport { storeToRefs } from 'pinia'\nimport { showToast } from 'vant'\nimport { computed, onMounted, ref, watch } from 'vue'\nimport clipboard3 from 'vue-clipboard3'\nimport { useRoute, useRouter } from 'vue-router'\nimport Order from '../Order/index.vue'\nimport wideMode_Order from '../Order/wide.vue'\nimport QuickCoins from './components/QuickCoins.vue'\nimport SelfSelect from './components/SelfSelect.vue'\nimport wideModeSelfSelect from './components/wideModeSelfSelect.vue'\nconst search = new URLSearchParams(mergeHrefParams())\nconst hs = search.get('hs') || ''\nconst gd_buy_fixmomey = ref()\ngd_buy_fixmomey.value = search.get('gd_buy_fixmomey') || 0\n\nconst wideMode = hs == 'h'\nconst route = useRoute()\nconst router = useRouter()\nconst active = ref(0)\nconst onClickLeft = () => history.go(-1)\nconst onlineCharge = ref(false)\nconst authStore = useAuthStore()\nconst { processnum } = storeToRefs(authStore)\n\nwatch(route, e => {\n  active.value = (e.query.active && +e.query.active) || 0\n})\n\n// 未处理订单数(过滤掉搬砖卖币)\nconst redDot = computed(() => {\n  const buyOrders =\n    processnum.value?.buy_orders?.filter((item: BuyOrder) => item.mtype !== 30) ?? []\n  return buyOrders.length\n})\n// console.log('redDot', redDot.value)\n// 複製\nconst { toClipboard } = clipboard3()\nconst copy = async (text: any) => {\n  try {\n    await toClipboard(text)\n    // showToast('复制成功');\n    showToast({\n      message: '复制成功',\n      icon: verified,\n      iconSize: '48px'\n    })\n  } catch (error) {\n    // showToast('复制失败!!');\n    showToast({\n      message: '复制失败!!',\n      icon: verified\n    })\n  }\n}\n// 切换买币类型\nconst toggleBuyCoin = (type: number = 0) => {\n  active.value = type\n  onlineCharge.value\n    ? router.replace('/onlineCharge?active=' + type)\n    : router.replace('/index?active=' + type)\n}\nonMounted(() => {\n  const { query, path } = route\n  active.value = query.active ? +query.active : 0\n  onlineCharge.value = path.includes('onlineCharge') ? true : false\n  // console.log('route', route)\n})\n</script>\n\n<style lang=\"scss\" src=\"./buy.scss\" scoped />\n<style scoped lang=\"scss\">\n$spriteHome: '@/assets/images/sprites-home.png';\n$sprite-computed-factor: 0.7;\n$sprite-home-background-size: calc(108px * 7 / 10) calc(730px * 7 / 10);\n\n.copy {\n  background: url($spriteHome) calc(-0px * $sprite-computed-factor)\n    calc(-616px * $sprite-computed-factor) no-repeat;\n  width: calc(35px * $sprite-computed-factor);\n  height: calc(35px * $sprite-computed-factor);\n  background-size: $sprite-home-background-size;\n}\n.title_buy {\n  position: relative;\n}\n.redDotNum {\n  position: absolute;\n  right: -8px;\n  top: 18px;\n  width: 25px;\n  height: 25px;\n  line-height: 25px;\n  font-size: 22px;\n  background: red;\n  color: #fff;\n  border-radius: 50%;\n}\n</style>\n",
+      "start": 1714699769276,
+      "end": 1714699769319,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769319,
+      "end": 1714699769319,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769319,
+      "end": 1714699769319,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769319,
+      "end": 1714699769319,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769319,
+      "end": 1714699769319,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/buy.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/buy.vue?vue&type=script&setup=true&lang.ts\";\nimport \"./buy.scss?vue&type=style&index=0&src=2f1161ed&scoped=2f1161ed&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/buy.vue?vue&type=style&index=1&scoped=2f1161ed&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-2f1161ed\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/buy.vue\"]]);\n",
+      "start": 1714699769319,
+      "end": 1714699769535,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769535,
+      "end": 1714699769535,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/buy.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/buy.vue?vue&type=script&setup=true&lang.ts\";\nimport \"./buy.scss?vue&type=style&index=0&src=2f1161ed&scoped=2f1161ed&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/buy.vue?vue&type=style&index=1&scoped=2f1161ed&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-2f1161ed\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/buy.vue\"]]);\n",
+      "start": 1714699769535,
+      "end": 1714699769535,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/buy.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/buy.vue?vue&type=script&setup=true&lang.ts\";\nimport \"./buy.scss?vue&type=style&index=0&src=2f1161ed&scoped=2f1161ed&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/buy.vue?vue&type=style&index=1&scoped=2f1161ed&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-2f1161ed\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/buy.vue\"]]);\n",
+      "start": 1714699769535,
+      "end": 1714699769743,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/buy.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/buy.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/buy.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"./buy.scss?vue&type=style&index=0&src=2f1161ed&scoped=2f1161ed&lang.scss\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/buy.vue?vue&type=style&index=1&scoped=2f1161ed&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-2f1161ed\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/buy.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,gEAAgE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769743,
+      "end": 1714699769744,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/buy.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/buy.vue?vue&type=script&setup=true&lang.ts\";\nimport \"./buy.scss?vue&type=style&index=0&src=2f1161ed&scoped=2f1161ed&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/buy.vue?vue&type=style&index=1&scoped=2f1161ed&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-2f1161ed\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/buy.vue\"]]);\n",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/buy.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/buy.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/buy.vue?vue&type=script&setup=true&lang.ts\";\nimport \"./buy.scss?vue&type=style&index=0&src=2f1161ed&scoped=2f1161ed&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/buy.vue?vue&type=style&index=1&scoped=2f1161ed&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-2f1161ed\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/buy.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/_baseFor.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import createBaseFor from './_createBaseFor.js';\n\n/**\n * The base implementation of `baseForOwn` which iterates over `object`\n * properties returned by `keysFunc` and invokes `iteratee` for each property.\n * Iteratee functions may exit iteration early by explicitly returning `false`.\n *\n * @private\n * @param {Object} object The object to iterate over.\n * @param {Function} iteratee The function invoked per iteration.\n * @param {Function} keysFunc The function to get the keys of `object`.\n * @returns {Object} Returns `object`.\n */\nvar baseFor = createBaseFor();\n\nexport default baseFor;\n",
+      "start": 1714699768697,
+      "end": 1714699768712,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768712,
+      "end": 1714699768712,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768712,
+      "end": 1714699768712,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768712,
+      "end": 1714699768712,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768712,
+      "end": 1714699768712,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768712,
+      "end": 1714699768712,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768712,
+      "end": 1714699768712,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import createBaseFor from './_createBaseFor.js';\n\n/**\n * The base implementation of `baseForOwn` which iterates over `object`\n * properties returned by `keysFunc` and invokes `iteratee` for each property.\n * Iteratee functions may exit iteration early by explicitly returning `false`.\n *\n * @private\n * @param {Object} object The object to iterate over.\n * @param {Function} iteratee The function invoked per iteration.\n * @param {Function} keysFunc The function to get the keys of `object`.\n * @returns {Object} Returns `object`.\n */\nvar baseFor = createBaseFor();\n\nexport default baseFor;\n",
+      "start": 1714699768712,
+      "end": 1714699768712,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768712,
+      "end": 1714699768712,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768712,
+      "end": 1714699768712,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768713,
+      "end": 1714699768713,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768713,
+      "end": 1714699768713,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768713,
+      "end": 1714699768713,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768713,
+      "end": 1714699768713,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768713,
+      "end": 1714699768713,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768713,
+      "end": 1714699768713,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768713,
+      "end": 1714699768713,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768713,
+      "end": 1714699768713,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768713,
+      "end": 1714699768713,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768713,
+      "end": 1714699768713,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768713,
+      "end": 1714699768713,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768713,
+      "end": 1714699768713,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/index.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { ComponentInternalInstance, type AppContext } from 'vue'\nimport LoadingConstructor from './Loding.vue'\nimport { createVM } from '../core'\nimport { type DialogOptions } from 'vant'\n\ntype IProps = {\n  action?: () => void | Promise<void>\n  cancelAction?: () => void | Promise<void>\n}\n\nexport default function Loading(props: IProps & DialogOptions, appContext?: AppContext | null) {\n  let vm = createVM<IProps & DialogOptions>(LoadingConstructor, props, appContext)\n  // vm!.exposed!.visible.value = true\n  setTimeout(() => {\n    vm!.exposed!.visible.value = false\n  }, 800)\n  return vm\n}\n\nlet NewDialog: ComponentInternalInstance | null = null\nLoading.show = function (props?: (IProps & DialogOptions) | undefined) {\n  const defaultProps = {}\n  const newProps = Object.assign(defaultProps, props)\n  NewDialog = Loading(newProps)\n  return NewDialog\n}\nLoading.hide = function (props?: (IProps & DialogOptions) | undefined) {\n  setTimeout(() => {\n    if (NewDialog && NewDialog.exposed) {\n      NewDialog.exposed.visible.value = false\n      NewDialog.exposed = null\n    }\n  }, 300)\n}\n",
+      "start": 1714699770724,
+      "end": 1714699770724,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699770724,
+      "end": 1714699770724,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import LoadingConstructor from \"./Loding.vue\";\nimport { createVM } from \"../core\";\nexport default function Loading(props, appContext) {\n  let vm = createVM(LoadingConstructor, props, appContext);\n  setTimeout(() => {\n    vm.exposed.visible.value = false;\n  }, 800);\n  return vm;\n}\nlet NewDialog = null;\nLoading.show = function(props) {\n  const defaultProps = {};\n  const newProps = Object.assign(defaultProps, props);\n  NewDialog = Loading(newProps);\n  return NewDialog;\n};\nLoading.hide = function(props) {\n  setTimeout(() => {\n    if (NewDialog && NewDialog.exposed) {\n      NewDialog.exposed.visible.value = false;\n      NewDialog.exposed = null;\n    }\n  }, 300);\n};\n",
+      "start": 1714699770724,
+      "end": 1714699771750,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/index.ts"
+        ],
+        "sourcesContent": [
+          "import { ComponentInternalInstance, type AppContext } from 'vue'\nimport LoadingConstructor from './Loding.vue'\nimport { createVM } from '../core'\nimport { type DialogOptions } from 'vant'\n\ntype IProps = {\n  action?: () => void | Promise<void>\n  cancelAction?: () => void | Promise<void>\n}\n\nexport default function Loading(props: IProps & DialogOptions, appContext?: AppContext | null) {\n  let vm = createVM<IProps & DialogOptions>(LoadingConstructor, props, appContext)\n  // vm!.exposed!.visible.value = true\n  setTimeout(() => {\n    vm!.exposed!.visible.value = false\n  }, 800)\n  return vm\n}\n\nlet NewDialog: ComponentInternalInstance | null = null\nLoading.show = function (props?: (IProps & DialogOptions) | undefined) {\n  const defaultProps = {}\n  const newProps = Object.assign(defaultProps, props)\n  NewDialog = Loading(newProps)\n  return NewDialog\n}\nLoading.hide = function (props?: (IProps & DialogOptions) | undefined) {\n  setTimeout(() => {\n    if (NewDialog && NewDialog.exposed) {\n      NewDialog.exposed.visible.value = false\n      NewDialog.exposed = null\n    }\n  }, 300)\n}\n"
+        ],
+        "mappings": "AACA,OAAO,wBAAwB;AAC/B,SAAS,gBAAgB;AAQzB,wBAAwB,QAAQ,OAA+B,YAAgC;AAC7F,MAAI,KAAK,SAAiC,oBAAoB,OAAO,UAAU;AAE/E,aAAW,MAAM;AACf,OAAI,QAAS,QAAQ,QAAQ;AAAA,EAC/B,GAAG,GAAG;AACN,SAAO;AACT;AAEA,IAAI,YAA8C;AAClD,QAAQ,OAAO,SAAU,OAA8C;AACrE,QAAM,eAAe,CAAC;AACtB,QAAM,WAAW,OAAO,OAAO,cAAc,KAAK;AAClD,cAAY,QAAQ,QAAQ;AAC5B,SAAO;AACT;AACA,QAAQ,OAAO,SAAU,OAA8C;AACrE,aAAW,MAAM;AACf,QAAI,aAAa,UAAU,SAAS;AAClC,gBAAU,QAAQ,QAAQ,QAAQ;AAClC,gBAAU,UAAU;AAAA,IACtB;AAAA,EACF,GAAG,GAAG;AACR;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771750,
+      "end": 1714699771750,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771750,
+      "end": 1714699771750,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771750,
+      "end": 1714699771750,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771750,
+      "end": 1714699771750,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import LoadingConstructor from \"./Loding.vue\";\nimport { createVM } from \"../core\";\nexport default function Loading(props, appContext) {\n  let vm = createVM(LoadingConstructor, props, appContext);\n  setTimeout(() => {\n    vm.exposed.visible.value = false;\n  }, 800);\n  return vm;\n}\nlet NewDialog = null;\nLoading.show = function(props) {\n  const defaultProps = {};\n  const newProps = Object.assign(defaultProps, props);\n  NewDialog = Loading(newProps);\n  return NewDialog;\n};\nLoading.hide = function(props) {\n  setTimeout(() => {\n    if (NewDialog && NewDialog.exposed) {\n      NewDialog.exposed.visible.value = false;\n      NewDialog.exposed = null;\n    }\n  }, 300);\n};\n",
+      "start": 1714699771750,
+      "end": 1714699771750,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport LoadingConstructor from \"./Loding.vue\";\nimport { createVM } from \"../core\";\nexport default function Loading(props, appContext) {\n  let vm = createVM(LoadingConstructor, props, appContext);\n  setTimeout(() => {\n    vm.exposed.visible.value = false;\n  }, 800);\n  return vm;\n}\nlet NewDialog = null;\nLoading.show = function(props) {\n  const defaultProps = {};\n  const newProps = Object.assign(defaultProps, props);\n  NewDialog = Loading(newProps);\n  return NewDialog;\n};\nLoading.hide = function(props) {\n  setTimeout(() => {\n    if (NewDialog && NewDialog.exposed) {\n      NewDialog.exposed.visible.value = false;\n      NewDialog.exposed = null;\n    }\n  }, 300);\n};\n",
+      "start": 1714699771750,
+      "end": 1714699771898,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/index.ts\"],\n  \"sourcesContent\": [\"import LoadingConstructor from \\\"./Loding.vue\\\";\\nimport { createVM } from \\\"../core\\\";\\nexport default function Loading(props, appContext) {\\n  let vm = createVM(LoadingConstructor, props, appContext);\\n  setTimeout(() => {\\n    vm.exposed.visible.value = false;\\n  }, 800);\\n  return vm;\\n}\\nlet NewDialog = null;\\nLoading.show = function(props) {\\n  const defaultProps = {};\\n  const newProps = Object.assign(defaultProps, props);\\n  NewDialog = Loading(newProps);\\n  return NewDialog;\\n};\\nLoading.hide = function(props) {\\n  setTimeout(() => {\\n    if (NewDialog && NewDialog.exposed) {\\n      NewDialog.exposed.visible.value = false;\\n      NewDialog.exposed = null;\\n    }\\n  }, 300);\\n};\\n\"],\n  \"mappings\": \";AAAA,OAAO,wBAAwB;AAC/B,SAAS,gBAAgB;AACzB,wBAAwB,QAAQ,OAAO,YAAY;AACjD,MAAI,KAAK,SAAS,oBAAoB,OAAO,UAAU;AACvD,aAAW,MAAM;AACf,OAAG,QAAQ,QAAQ,QAAQ;AAAA,EAC7B,GAAG,GAAG;AACN,SAAO;AACT;AACA,IAAI,YAAY;AAChB,QAAQ,OAAO,SAAS,OAAO;AAC7B,QAAM,eAAe,CAAC;AACtB,QAAM,WAAW,OAAO,OAAO,cAAc,KAAK;AAClD,cAAY,QAAQ,QAAQ;AAC5B,SAAO;AACT;AACA,QAAQ,OAAO,SAAS,OAAO;AAC7B,aAAW,MAAM;AACf,QAAI,aAAa,UAAU,SAAS;AAClC,gBAAU,QAAQ,QAAQ,QAAQ;AAClC,gBAAU,UAAU;AAAA,IACtB;AAAA,EACF,GAAG,GAAG;AACR;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699771899,
+      "end": 1714699771899,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771899,
+      "end": 1714699771899,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771899,
+      "end": 1714699771899,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771899,
+      "end": 1714699771899,
+      "order": "normal"
+    }
+  ]
+}

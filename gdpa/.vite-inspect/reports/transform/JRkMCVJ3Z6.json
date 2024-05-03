@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isDocument.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var staticDocument = require('./staticDocument')\r\n\r\n/**\r\n  * 判断是否Document对象\r\n  *\r\n  * @param {Object} obj 对象\r\n  * @return {Boolean}\r\n  */\r\nfunction isDocument (obj) {\r\n  return !!(obj && staticDocument && obj.nodeType === 9)\r\n}\r\n\r\nmodule.exports = isDocument\r\n",
+      "start": 1714699767631,
+      "end": 1714699767652,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767652,
+      "end": 1714699767652,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767652,
+      "end": 1714699767652,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767652,
+      "end": 1714699767652,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767652,
+      "end": 1714699767652,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767652,
+      "end": 1714699767652,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767652,
+      "end": 1714699767652,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var staticDocument = require('./staticDocument')\r\n\r\n/**\r\n  * 判断是否Document对象\r\n  *\r\n  * @param {Object} obj 对象\r\n  * @return {Boolean}\r\n  */\r\nfunction isDocument (obj) {\r\n  return !!(obj && staticDocument && obj.nodeType === 9)\r\n}\r\n\r\nmodule.exports = isDocument\r\n",
+      "start": 1714699767652,
+      "end": 1714699767652,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767652,
+      "end": 1714699767652,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767652,
+      "end": 1714699767652,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767652,
+      "end": 1714699767652,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767652,
+      "end": 1714699767652,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767652,
+      "end": 1714699767652,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767652,
+      "end": 1714699767652,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/staticDocument.js?commonjs-proxy\";\n\nvar staticDocument = require$$0\r\n\r\n/**\r\n  * 判断是否Document对象\r\n  *\r\n  * @param {Object} obj 对象\r\n  * @return {Boolean}\r\n  */\r\nfunction isDocument (obj) {\r\n  return !!(obj && staticDocument && obj.nodeType === 9)\r\n}\r\n\r\nvar isDocument_1 = isDocument\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(isDocument_1);\nexport { isDocument_1 as __moduleExports };",
+      "start": 1714699767652,
+      "end": 1714699768098,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;AAAA,IAAI,cAAc,GAAG,UAA2B;AAChD;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,UAAU,EAAE,GAAG,EAAE;AAC1B,EAAE,OAAO,CAAC,EAAE,GAAG,IAAI,cAAc,IAAI,GAAG,CAAC,QAAQ,KAAK,CAAC,CAAC;AACxD,CAAC;AACD;IACA,YAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768098,
+      "end": 1714699768098,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768098,
+      "end": 1714699768098,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768098,
+      "end": 1714699768098,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768098,
+      "end": 1714699768098,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768098,
+      "end": 1714699768098,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768098,
+      "end": 1714699768098,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768098,
+      "end": 1714699768098,
+      "order": "normal"
+    }
+  ]
+}

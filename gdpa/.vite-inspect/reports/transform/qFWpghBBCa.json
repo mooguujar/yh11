@@ -1,0 +1,154 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/utils/verifyId.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "// /**\n//  * 验证身份证号码\n//  * @param { String } code 身份证号码\n//  */\n// function identityIDCard(code: string) {\n//   // 身份证号前两位代表区域\n//   const city = {\n//     11: '北京',\n//     12: '天津',\n//     13: '河北',\n//     14: '山西',\n//     15: '内蒙古',\n//     21: '辽宁',\n//     22: '吉林',\n//     23: '黑龙江 ',\n//     31: '上海',\n//     32: '江苏',\n//     33: '浙江',\n//     34: '安徽',\n//     35: '福建',\n//     36: '江西',\n//     37: '山东',\n//     41: '河南',\n//     42: '湖北 ',\n//     43: '湖南',\n//     44: '广东',\n//     45: '广西',\n//     46: '海南',\n//     50: '重庆',\n//     51: '四川',\n//     52: '贵州',\n//     53: '云南',\n//     54: '西藏 ',\n//     61: '陕西',\n//     62: '甘肃',\n//     63: '青海',\n//     64: '宁夏',\n//     65: '新疆',\n//     71: '台湾',\n//     81: '香港',\n//     82: '澳门',\n//     91: '国外 ',\n//   };\n//   const idCardReg = /^[1-9]\\d{5}(19|20)?\\d{2}(0[1-9]|1[012])(0[1-9]|[12]\\d|3[01])\\d{3}(\\d|X)$/i; // 身份证格式正则表达式\n//   let errorMessage = ''; // 错误提示信息\n//   let isPass = true; // 身份证验证是否通过（true通过、false未通过）\n\n//   // 如果身份证不满足格式正则表达式\n//   if (!code) {\n//     errorMessage = '请输入身份证号码';\n//     isPass = false;\n//   } else if (!code.match(idCardReg)) {\n//     errorMessage = '请输入正确的身份证号码';\n//     isPass = false;\n//   } else if (!city[code.substr(0, 2)]) {\n//     // 区域数组中不包含需验证的身份证前两位\n//     errorMessage = '请输入正确的身份证号码';\n//     isPass = false;\n//   } else if (code.length === 18) {\n//     // 18位身份证需要验证最后一位校验位\n//     code = code.split('');\n//     // ∑(ai×Wi)(mod 11)\n//     // 加权因子\n//     const factor = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2];\n//     // 校验位\n//     const parity = [1, 0, 'X', 9, 8, 7, 6, 5, 4, 3, 2];\n//     let sum = 0;\n//     let ai = 0;\n//     let wi = 0;\n//     for (let i = 0; i < 17; i++) {\n//       ai = parseInt(code[i]);\n//       wi = factor[i];\n//       sum += ai * wi; // 开始计算并相加\n//     }\n//     const last = parity[sum % 11]; // 求余\n//     if (last.toString() !== code[17]) {\n//       errorMessage = '请输入正确的身份证号码';\n//       isPass = false;\n//     }\n//   }\n//   return {\n//     errorMessage,\n//     isPass,\n//   }\n// }\n\n// export default identityIDCard\n\n/**\n * 验证身份证号码\n * @param { String } code 身份证号码\n */\n\nfunction identityIDCard(input: string) {\n  const idCardRegex = /^[1-9]\\d{5}(19|20)?\\d{2}(0[1-9]|1[012])(0[1-9]|[12]\\d|3[01])\\d{3}(\\d|x|X)$/i\n  return {\n    isPass: idCardRegex.test(input),\n    errorMessage: '请输入正确的身份证号码'\n  }\n}\n\nexport default identityIDCard\n",
+      "start": 1714699770964,
+      "end": 1714699770982,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699770983,
+      "end": 1714699770983,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "function identityIDCard(input) {\n  const idCardRegex = /^[1-9]\\d{5}(19|20)?\\d{2}(0[1-9]|1[012])(0[1-9]|[12]\\d|3[01])\\d{3}(\\d|x|X)$/i;\n  return {\n    isPass: idCardRegex.test(input),\n    errorMessage: \"请输入正确的身份证号码\"\n  };\n}\nexport default identityIDCard;\n",
+      "start": 1714699770983,
+      "end": 1714699771839,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/utils/verifyId.ts"
+        ],
+        "sourcesContent": [
+          "// /**\n//  * 验证身份证号码\n//  * @param { String } code 身份证号码\n//  */\n// function identityIDCard(code: string) {\n//   // 身份证号前两位代表区域\n//   const city = {\n//     11: '北京',\n//     12: '天津',\n//     13: '河北',\n//     14: '山西',\n//     15: '内蒙古',\n//     21: '辽宁',\n//     22: '吉林',\n//     23: '黑龙江 ',\n//     31: '上海',\n//     32: '江苏',\n//     33: '浙江',\n//     34: '安徽',\n//     35: '福建',\n//     36: '江西',\n//     37: '山东',\n//     41: '河南',\n//     42: '湖北 ',\n//     43: '湖南',\n//     44: '广东',\n//     45: '广西',\n//     46: '海南',\n//     50: '重庆',\n//     51: '四川',\n//     52: '贵州',\n//     53: '云南',\n//     54: '西藏 ',\n//     61: '陕西',\n//     62: '甘肃',\n//     63: '青海',\n//     64: '宁夏',\n//     65: '新疆',\n//     71: '台湾',\n//     81: '香港',\n//     82: '澳门',\n//     91: '国外 ',\n//   };\n//   const idCardReg = /^[1-9]\\d{5}(19|20)?\\d{2}(0[1-9]|1[012])(0[1-9]|[12]\\d|3[01])\\d{3}(\\d|X)$/i; // 身份证格式正则表达式\n//   let errorMessage = ''; // 错误提示信息\n//   let isPass = true; // 身份证验证是否通过（true通过、false未通过）\n\n//   // 如果身份证不满足格式正则表达式\n//   if (!code) {\n//     errorMessage = '请输入身份证号码';\n//     isPass = false;\n//   } else if (!code.match(idCardReg)) {\n//     errorMessage = '请输入正确的身份证号码';\n//     isPass = false;\n//   } else if (!city[code.substr(0, 2)]) {\n//     // 区域数组中不包含需验证的身份证前两位\n//     errorMessage = '请输入正确的身份证号码';\n//     isPass = false;\n//   } else if (code.length === 18) {\n//     // 18位身份证需要验证最后一位校验位\n//     code = code.split('');\n//     // ∑(ai×Wi)(mod 11)\n//     // 加权因子\n//     const factor = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2];\n//     // 校验位\n//     const parity = [1, 0, 'X', 9, 8, 7, 6, 5, 4, 3, 2];\n//     let sum = 0;\n//     let ai = 0;\n//     let wi = 0;\n//     for (let i = 0; i < 17; i++) {\n//       ai = parseInt(code[i]);\n//       wi = factor[i];\n//       sum += ai * wi; // 开始计算并相加\n//     }\n//     const last = parity[sum % 11]; // 求余\n//     if (last.toString() !== code[17]) {\n//       errorMessage = '请输入正确的身份证号码';\n//       isPass = false;\n//     }\n//   }\n//   return {\n//     errorMessage,\n//     isPass,\n//   }\n// }\n\n// export default identityIDCard\n\n/**\n * 验证身份证号码\n * @param { String } code 身份证号码\n */\n\nfunction identityIDCard(input: string) {\n  const idCardRegex = /^[1-9]\\d{5}(19|20)?\\d{2}(0[1-9]|1[012])(0[1-9]|[12]\\d|3[01])\\d{3}(\\d|x|X)$/i\n  return {\n    isPass: idCardRegex.test(input),\n    errorMessage: '请输入正确的身份证号码'\n  }\n}\n\nexport default identityIDCard\n"
+        ],
+        "mappings": "AA6FA,SAAS,eAAe,OAAe;AACrC,QAAM,cAAc;AACpB,SAAO;AAAA,IACL,QAAQ,YAAY,KAAK,KAAK;AAAA,IAC9B,cAAc;AAAA,EAChB;AACF;AAEA,eAAe;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771839,
+      "end": 1714699771839,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771839,
+      "end": 1714699771839,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771839,
+      "end": 1714699771839,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771839,
+      "end": 1714699771839,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "function identityIDCard(input) {\n  const idCardRegex = /^[1-9]\\d{5}(19|20)?\\d{2}(0[1-9]|1[012])(0[1-9]|[12]\\d|3[01])\\d{3}(\\d|x|X)$/i;\n  return {\n    isPass: idCardRegex.test(input),\n    errorMessage: \"请输入正确的身份证号码\"\n  };\n}\nexport default identityIDCard;\n",
+      "start": 1714699771839,
+      "end": 1714699771839,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nfunction identityIDCard(input) {\n  const idCardRegex = /^[1-9]\\d{5}(19|20)?\\d{2}(0[1-9]|1[012])(0[1-9]|[12]\\d|3[01])\\d{3}(\\d|x|X)$/i;\n  return {\n    isPass: idCardRegex.test(input),\n    errorMessage: \"\\u8BF7\\u8F93\\u5165\\u6B63\\u786E\\u7684\\u8EAB\\u4EFD\\u8BC1\\u53F7\\u7801\"\n  };\n}\nexport default identityIDCard;\n",
+      "start": 1714699771839,
+      "end": 1714699771932,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/utils/verifyId.ts\"],\n  \"sourcesContent\": [\"function identityIDCard(input) {\\n  const idCardRegex = /^[1-9]\\\\d{5}(19|20)?\\\\d{2}(0[1-9]|1[012])(0[1-9]|[12]\\\\d|3[01])\\\\d{3}(\\\\d|x|X)$/i;\\n  return {\\n    isPass: idCardRegex.test(input),\\n    errorMessage: \\\"\\u8BF7\\u8F93\\u5165\\u6B63\\u786E\\u7684\\u8EAB\\u4EFD\\u8BC1\\u53F7\\u7801\\\"\\n  };\\n}\\nexport default identityIDCard;\\n\"],\n  \"mappings\": \";AAAA,SAAS,eAAe,OAAO;AAC7B,QAAM,cAAc;AACpB,SAAO;AAAA,IACL,QAAQ,YAAY,KAAK,KAAK;AAAA,IAC9B,cAAc;AAAA,EAChB;AACF;AACA,eAAe;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771932,
+      "end": 1714699771933,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699771933,
+      "end": 1714699771933,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771933,
+      "end": 1714699771933,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771933,
+      "end": 1714699771933,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771933,
+      "end": 1714699771933,
+      "order": "normal"
+    }
+  ]
+}

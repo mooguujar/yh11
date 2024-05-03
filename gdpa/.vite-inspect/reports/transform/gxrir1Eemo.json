@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/assets/images/common/icon_huo.png?url",
+  "transforms": [
+    {
+      "name": "vite:asset",
+      "result": "export default \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAYCAYAAAD6S912AAABqUlEQVQ4ja1VPS9EQRQ9+8H6aohQbGMrjVJiE40/oFCpJCS+ShVRqIRko6BVYCUKJEoqCbKl2AbdNhpfhYL1lZU9cjf3yeR5b94knGSyM3PPnDl7373vxUgiAqMAsgCmo4iCuAOnHsAUgEsA6f8QTOlvD4AigNa/CvYb8w4Ap1a25NAy4iTL/I15PZMmGTPPRwlOBIgJqiQTJLtIHpBMugo+hAgKZpQjOAsSzJDsNdazFjFBUXm3uh7yC06SvNJ5e4SY4IXkHskvXUuu60zBQw3IvOAgGIRlT6xZg/ck8yFkcZOLcu0JLjncvqXcbQunIoQUyXcHwU0jPaUQzrN0yjiAhpC6LwEo6PzY2B+2dcqJxZWUzoDOm3w1GvTgag67LZ25IXcCWAfw5outhjl8DXF3pE46pb4CuqiR5IffoQQeA8QqJNsi2lLGhe9cVf7yeYDxHIAnSyo83PjWZbklG+Aw4+BOxq7v3IgXWDM2pSfrHQW9dhXU6tQM7hjBFkfBO+Xvh70PF5Qw5yA2qNwVcz/pS+oigGsAffpx+gx5GAn9aI0ByP/sAvgGZRp/wArE06MAAAAASUVORK5CYII=\"",
+      "start": 1714699767417,
+      "end": 1714699767438,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767438,
+      "end": 1714699767438,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767438,
+      "end": 1714699767438,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767438,
+      "end": 1714699767438,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767438,
+      "end": 1714699767438,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767438,
+      "end": 1714699767438,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767438,
+      "end": 1714699767438,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "export default \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAYCAYAAAD6S912AAABqUlEQVQ4ja1VPS9EQRQ9+8H6aohQbGMrjVJiE40/oFCpJCS+ShVRqIRko6BVYCUKJEoqCbKl2AbdNhpfhYL1lZU9cjf3yeR5b94knGSyM3PPnDl7373vxUgiAqMAsgCmo4iCuAOnHsAUgEsA6f8QTOlvD4AigNa/CvYb8w4Ap1a25NAy4iTL/I15PZMmGTPPRwlOBIgJqiQTJLtIHpBMugo+hAgKZpQjOAsSzJDsNdazFjFBUXm3uh7yC06SvNJ5e4SY4IXkHskvXUuu60zBQw3IvOAgGIRlT6xZg/ck8yFkcZOLcu0JLjncvqXcbQunIoQUyXcHwU0jPaUQzrN0yjiAhpC6LwEo6PzY2B+2dcqJxZWUzoDOm3w1GvTgag67LZ25IXcCWAfw5outhjl8DXF3pE46pb4CuqiR5IffoQQeA8QqJNsi2lLGhe9cVf7yeYDxHIAnSyo83PjWZbklG+Aw4+BOxq7v3IgXWDM2pSfrHQW9dhXU6tQM7hjBFkfBO+Xvh70PF5Qw5yA2qNwVcz/pS+oigGsAffpx+gx5GAn9aI0ByP/sAvgGZRp/wArE06MAAAAASUVORK5CYII=\"",
+      "start": 1714699767438,
+      "end": 1714699767438,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767438,
+      "end": 1714699767438,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767438,
+      "end": 1714699767438,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767438,
+      "end": 1714699767438,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767438,
+      "end": 1714699767438,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767438,
+      "end": 1714699767438,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767438,
+      "end": 1714699767438,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767438,
+      "end": 1714699767438,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767438,
+      "end": 1714699767438,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767438,
+      "end": 1714699767438,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767438,
+      "end": 1714699767438,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767438,
+      "end": 1714699767438,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767438,
+      "end": 1714699767438,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767438,
+      "end": 1714699767438,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767438,
+      "end": 1714699767438,
+      "order": "normal"
+    }
+  ]
+}

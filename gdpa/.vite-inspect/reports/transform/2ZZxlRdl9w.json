@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/es/radio/src/button.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { defineComponent, h, computed, inject } from 'vue';\nimport XEUtils from 'xe-utils';\nimport { getFuncText } from '../../tools/utils';\nimport GlobalConfig from '../../v-x-e-table/src/conf';\nimport { useSize } from '../../hooks/size';\nexport default defineComponent({\n    name: 'VxeRadioButton',\n    props: {\n        modelValue: [String, Number, Boolean],\n        label: { type: [String, Number, Boolean], default: null },\n        title: [String, Number],\n        content: [String, Number],\n        disabled: Boolean,\n        strict: { type: Boolean, default: function () { return GlobalConfig.radioButton.strict; } },\n        size: { type: String, default: function () { return GlobalConfig.radioButton.size || GlobalConfig.size; } }\n    },\n    emits: [\n        'update:modelValue',\n        'change'\n    ],\n    setup: function (props, context) {\n        var slots = context.slots, emit = context.emit;\n        var $xeform = inject('$xeform', null);\n        var $xeformiteminfo = inject('$xeformiteminfo', null);\n        var xID = XEUtils.uniqueId();\n        var computeSize = useSize(props);\n        var $xeradiobutton = {\n            xID: xID,\n            props: props,\n            context: context\n        };\n        var radioButtonMethods = {};\n        var $xeradiogroup = inject('$xeradiogroup', null);\n        var computeDisabled = computed(function () {\n            return props.disabled || ($xeradiogroup && $xeradiogroup.props.disabled);\n        });\n        var computeName = computed(function () {\n            return $xeradiogroup ? $xeradiogroup.name : null;\n        });\n        var computeStrict = computed(function () {\n            return $xeradiogroup ? $xeradiogroup.props.strict : props.strict;\n        });\n        var computeChecked = computed(function () {\n            var modelValue = props.modelValue, label = props.label;\n            return $xeradiogroup ? $xeradiogroup.props.modelValue === label : modelValue === label;\n        });\n        radioButtonMethods = {\n            dispatchEvent: function (type, params, evnt) {\n                emit(type, Object.assign({ $radioButton: $xeradiobutton, $event: evnt }, params));\n            }\n        };\n        Object.assign($xeradiobutton, radioButtonMethods);\n        var handleValue = function (label, evnt) {\n            if ($xeradiogroup) {\n                $xeradiogroup.handleChecked({ label: label }, evnt);\n            }\n            else {\n                emit('update:modelValue', label);\n                radioButtonMethods.dispatchEvent('change', { label: label }, evnt);\n                // 自动更新校验状态\n                if ($xeform && $xeformiteminfo) {\n                    $xeform.triggerItemEvent(evnt, $xeformiteminfo.itemConfig.field, label);\n                }\n            }\n        };\n        var changeEvent = function (evnt) {\n            var isDisabled = computeDisabled.value;\n            if (!isDisabled) {\n                handleValue(props.label, evnt);\n            }\n        };\n        var clickEvent = function (evnt) {\n            var isDisabled = computeDisabled.value;\n            var isStrict = computeStrict.value;\n            if (!isDisabled && !isStrict) {\n                if (props.label === ($xeradiogroup ? $xeradiogroup.props.modelValue : props.modelValue)) {\n                    handleValue(null, evnt);\n                }\n            }\n        };\n        var renderVN = function () {\n            var _a;\n            var vSize = computeSize.value;\n            var isDisabled = computeDisabled.value;\n            var name = computeName.value;\n            var checked = computeChecked.value;\n            return h('label', {\n                class: ['vxe-radio', 'vxe-radio-button', (_a = {},\n                        _a[\"size--\".concat(vSize)] = vSize,\n                        _a['is--disabled'] = isDisabled,\n                        _a)],\n                title: props.title\n            }, [\n                h('input', {\n                    class: 'vxe-radio--input',\n                    type: 'radio',\n                    name: name,\n                    checked: checked,\n                    disabled: isDisabled,\n                    onChange: changeEvent,\n                    onClick: clickEvent\n                }),\n                h('span', {\n                    class: 'vxe-radio--label'\n                }, slots.default ? slots.default({}) : getFuncText(props.content))\n            ]);\n        };\n        Object.assign($xeradiobutton, {\n            renderVN: renderVN,\n            dispatchEvent: dispatchEvent\n        });\n        return renderVN;\n    }\n});\n",
+      "start": 1714699767744,
+      "end": 1714699767791,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767791,
+      "end": 1714699767791,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767791,
+      "end": 1714699767791,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767791,
+      "end": 1714699767791,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767791,
+      "end": 1714699767791,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767791,
+      "end": 1714699767791,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767791,
+      "end": 1714699767791,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { defineComponent, h, computed, inject } from 'vue';\nimport XEUtils from 'xe-utils';\nimport { getFuncText } from '../../tools/utils';\nimport GlobalConfig from '../../v-x-e-table/src/conf';\nimport { useSize } from '../../hooks/size';\nexport default defineComponent({\n    name: 'VxeRadioButton',\n    props: {\n        modelValue: [String, Number, Boolean],\n        label: { type: [String, Number, Boolean], default: null },\n        title: [String, Number],\n        content: [String, Number],\n        disabled: Boolean,\n        strict: { type: Boolean, default: function () { return GlobalConfig.radioButton.strict; } },\n        size: { type: String, default: function () { return GlobalConfig.radioButton.size || GlobalConfig.size; } }\n    },\n    emits: [\n        'update:modelValue',\n        'change'\n    ],\n    setup: function (props, context) {\n        var slots = context.slots, emit = context.emit;\n        var $xeform = inject('$xeform', null);\n        var $xeformiteminfo = inject('$xeformiteminfo', null);\n        var xID = XEUtils.uniqueId();\n        var computeSize = useSize(props);\n        var $xeradiobutton = {\n            xID: xID,\n            props: props,\n            context: context\n        };\n        var radioButtonMethods = {};\n        var $xeradiogroup = inject('$xeradiogroup', null);\n        var computeDisabled = computed(function () {\n            return props.disabled || ($xeradiogroup && $xeradiogroup.props.disabled);\n        });\n        var computeName = computed(function () {\n            return $xeradiogroup ? $xeradiogroup.name : null;\n        });\n        var computeStrict = computed(function () {\n            return $xeradiogroup ? $xeradiogroup.props.strict : props.strict;\n        });\n        var computeChecked = computed(function () {\n            var modelValue = props.modelValue, label = props.label;\n            return $xeradiogroup ? $xeradiogroup.props.modelValue === label : modelValue === label;\n        });\n        radioButtonMethods = {\n            dispatchEvent: function (type, params, evnt) {\n                emit(type, Object.assign({ $radioButton: $xeradiobutton, $event: evnt }, params));\n            }\n        };\n        Object.assign($xeradiobutton, radioButtonMethods);\n        var handleValue = function (label, evnt) {\n            if ($xeradiogroup) {\n                $xeradiogroup.handleChecked({ label: label }, evnt);\n            }\n            else {\n                emit('update:modelValue', label);\n                radioButtonMethods.dispatchEvent('change', { label: label }, evnt);\n                // 自动更新校验状态\n                if ($xeform && $xeformiteminfo) {\n                    $xeform.triggerItemEvent(evnt, $xeformiteminfo.itemConfig.field, label);\n                }\n            }\n        };\n        var changeEvent = function (evnt) {\n            var isDisabled = computeDisabled.value;\n            if (!isDisabled) {\n                handleValue(props.label, evnt);\n            }\n        };\n        var clickEvent = function (evnt) {\n            var isDisabled = computeDisabled.value;\n            var isStrict = computeStrict.value;\n            if (!isDisabled && !isStrict) {\n                if (props.label === ($xeradiogroup ? $xeradiogroup.props.modelValue : props.modelValue)) {\n                    handleValue(null, evnt);\n                }\n            }\n        };\n        var renderVN = function () {\n            var _a;\n            var vSize = computeSize.value;\n            var isDisabled = computeDisabled.value;\n            var name = computeName.value;\n            var checked = computeChecked.value;\n            return h('label', {\n                class: ['vxe-radio', 'vxe-radio-button', (_a = {},\n                        _a[\"size--\".concat(vSize)] = vSize,\n                        _a['is--disabled'] = isDisabled,\n                        _a)],\n                title: props.title\n            }, [\n                h('input', {\n                    class: 'vxe-radio--input',\n                    type: 'radio',\n                    name: name,\n                    checked: checked,\n                    disabled: isDisabled,\n                    onChange: changeEvent,\n                    onClick: clickEvent\n                }),\n                h('span', {\n                    class: 'vxe-radio--label'\n                }, slots.default ? slots.default({}) : getFuncText(props.content))\n            ]);\n        };\n        Object.assign($xeradiobutton, {\n            renderVN: renderVN,\n            dispatchEvent: dispatchEvent\n        });\n        return renderVN;\n    }\n});\n",
+      "start": 1714699767791,
+      "end": 1714699767791,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767791,
+      "end": 1714699767791,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767791,
+      "end": 1714699767791,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767791,
+      "end": 1714699767791,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767791,
+      "end": 1714699767791,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767791,
+      "end": 1714699767791,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767791,
+      "end": 1714699767791,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767791,
+      "end": 1714699767791,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767791,
+      "end": 1714699767791,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767791,
+      "end": 1714699767791,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767791,
+      "end": 1714699767791,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767791,
+      "end": 1714699767791,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767791,
+      "end": 1714699767791,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767791,
+      "end": 1714699767791,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767791,
+      "end": 1714699767791,
+      "order": "normal"
+    }
+  ]
+}

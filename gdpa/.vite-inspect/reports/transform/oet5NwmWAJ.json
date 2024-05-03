@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/_lazyReverse.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import LazyWrapper from './_LazyWrapper.js';\n\n/**\n * Reverses the direction of lazy iteration.\n *\n * @private\n * @name reverse\n * @memberOf LazyWrapper\n * @returns {Object} Returns the new reversed `LazyWrapper` object.\n */\nfunction lazyReverse() {\n  if (this.__filtered__) {\n    var result = new LazyWrapper(this);\n    result.__dir__ = -1;\n    result.__filtered__ = true;\n  } else {\n    result = this.clone();\n    result.__dir__ *= -1;\n  }\n  return result;\n}\n\nexport default lazyReverse;\n",
+      "start": 1714699768781,
+      "end": 1714699768846,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768846,
+      "end": 1714699768846,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768846,
+      "end": 1714699768846,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768846,
+      "end": 1714699768846,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768846,
+      "end": 1714699768846,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768846,
+      "end": 1714699768846,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768846,
+      "end": 1714699768846,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import LazyWrapper from './_LazyWrapper.js';\n\n/**\n * Reverses the direction of lazy iteration.\n *\n * @private\n * @name reverse\n * @memberOf LazyWrapper\n * @returns {Object} Returns the new reversed `LazyWrapper` object.\n */\nfunction lazyReverse() {\n  if (this.__filtered__) {\n    var result = new LazyWrapper(this);\n    result.__dir__ = -1;\n    result.__filtered__ = true;\n  } else {\n    result = this.clone();\n    result.__dir__ *= -1;\n  }\n  return result;\n}\n\nexport default lazyReverse;\n",
+      "start": 1714699768846,
+      "end": 1714699768846,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768846,
+      "end": 1714699768846,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768846,
+      "end": 1714699768846,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768846,
+      "end": 1714699768846,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768846,
+      "end": 1714699768846,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768846,
+      "end": 1714699768846,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768846,
+      "end": 1714699768846,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768846,
+      "end": 1714699768846,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768846,
+      "end": 1714699768846,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768846,
+      "end": 1714699768846,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768846,
+      "end": 1714699768846,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768846,
+      "end": 1714699768846,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768846,
+      "end": 1714699768846,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768846,
+      "end": 1714699768846,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768846,
+      "end": 1714699768846,
+      "order": "normal"
+    }
+  ]
+}

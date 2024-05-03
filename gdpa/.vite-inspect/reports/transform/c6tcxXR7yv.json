@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/sticky/Sticky.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { ref, watch, computed, nextTick, reactive, defineComponent } from \"vue\";\nimport { extend, isHidden, unitToPx, numericProp, windowWidth, windowHeight, getScrollTop, getZIndexStyle, makeStringProp, makeNumericProp, createNamespace } from \"../utils/index.mjs\";\nimport { useRect, useEventListener, useScrollParent } from \"@vant/use\";\nimport { useVisibilityChange } from \"../composables/use-visibility-change.mjs\";\nconst [name, bem] = createNamespace(\"sticky\");\nconst stickyProps = {\n  zIndex: numericProp,\n  position: makeStringProp(\"top\"),\n  container: Object,\n  offsetTop: makeNumericProp(0),\n  offsetBottom: makeNumericProp(0)\n};\nvar stdin_default = defineComponent({\n  name,\n  props: stickyProps,\n  emits: [\"scroll\", \"change\"],\n  setup(props, {\n    emit,\n    slots\n  }) {\n    const root = ref();\n    const scrollParent = useScrollParent(root);\n    const state = reactive({\n      fixed: false,\n      width: 0,\n      // root width\n      height: 0,\n      // root height\n      transform: 0\n    });\n    const isReset = ref(false);\n    const offset = computed(() => unitToPx(props.position === \"top\" ? props.offsetTop : props.offsetBottom));\n    const rootStyle = computed(() => {\n      if (isReset.value) {\n        return;\n      }\n      const {\n        fixed,\n        height,\n        width\n      } = state;\n      if (fixed) {\n        return {\n          width: `${width}px`,\n          height: `${height}px`\n        };\n      }\n    });\n    const stickyStyle = computed(() => {\n      if (!state.fixed || isReset.value) {\n        return;\n      }\n      const style = extend(getZIndexStyle(props.zIndex), {\n        width: `${state.width}px`,\n        height: `${state.height}px`,\n        [props.position]: `${offset.value}px`\n      });\n      if (state.transform) {\n        style.transform = `translate3d(0, ${state.transform}px, 0)`;\n      }\n      return style;\n    });\n    const emitScroll = (scrollTop) => emit(\"scroll\", {\n      scrollTop,\n      isFixed: state.fixed\n    });\n    const onScroll = () => {\n      if (!root.value || isHidden(root)) {\n        return;\n      }\n      const {\n        container,\n        position\n      } = props;\n      const rootRect = useRect(root);\n      const scrollTop = getScrollTop(window);\n      state.width = rootRect.width;\n      state.height = rootRect.height;\n      if (position === \"top\") {\n        if (container) {\n          const containerRect = useRect(container);\n          const difference = containerRect.bottom - offset.value - state.height;\n          state.fixed = offset.value > rootRect.top && containerRect.bottom > 0;\n          state.transform = difference < 0 ? difference : 0;\n        } else {\n          state.fixed = offset.value > rootRect.top;\n        }\n      } else {\n        const {\n          clientHeight\n        } = document.documentElement;\n        if (container) {\n          const containerRect = useRect(container);\n          const difference = clientHeight - containerRect.top - offset.value - state.height;\n          state.fixed = clientHeight - offset.value < rootRect.bottom && clientHeight > containerRect.top;\n          state.transform = difference < 0 ? -difference : 0;\n        } else {\n          state.fixed = clientHeight - offset.value < rootRect.bottom;\n        }\n      }\n      emitScroll(scrollTop);\n    };\n    watch(() => state.fixed, (value) => emit(\"change\", value));\n    useEventListener(\"scroll\", onScroll, {\n      target: scrollParent,\n      passive: true\n    });\n    useVisibilityChange(root, onScroll);\n    watch([windowWidth, windowHeight], () => {\n      if (!root.value || isHidden(root) || !state.fixed) {\n        return;\n      }\n      isReset.value = true;\n      nextTick(() => {\n        const rootRect = useRect(root);\n        state.width = rootRect.width;\n        state.height = rootRect.height;\n        isReset.value = false;\n      });\n    });\n    return () => {\n      var _a;\n      return _createVNode(\"div\", {\n        \"ref\": root,\n        \"style\": rootStyle.value\n      }, [_createVNode(\"div\", {\n        \"class\": bem({\n          fixed: state.fixed && !isReset.value\n        }),\n        \"style\": stickyStyle.value\n      }, [(_a = slots.default) == null ? void 0 : _a.call(slots)])]);\n    };\n  }\n});\nexport {\n  stdin_default as default,\n  stickyProps\n};\n",
+      "start": 1714699767502,
+      "end": 1714699767512,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767512,
+      "end": 1714699767512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767512,
+      "end": 1714699767512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767512,
+      "end": 1714699767512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767512,
+      "end": 1714699767512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767512,
+      "end": 1714699767512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767512,
+      "end": 1714699767512,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { ref, watch, computed, nextTick, reactive, defineComponent } from \"vue\";\nimport { extend, isHidden, unitToPx, numericProp, windowWidth, windowHeight, getScrollTop, getZIndexStyle, makeStringProp, makeNumericProp, createNamespace } from \"../utils/index.mjs\";\nimport { useRect, useEventListener, useScrollParent } from \"@vant/use\";\nimport { useVisibilityChange } from \"../composables/use-visibility-change.mjs\";\nconst [name, bem] = createNamespace(\"sticky\");\nconst stickyProps = {\n  zIndex: numericProp,\n  position: makeStringProp(\"top\"),\n  container: Object,\n  offsetTop: makeNumericProp(0),\n  offsetBottom: makeNumericProp(0)\n};\nvar stdin_default = defineComponent({\n  name,\n  props: stickyProps,\n  emits: [\"scroll\", \"change\"],\n  setup(props, {\n    emit,\n    slots\n  }) {\n    const root = ref();\n    const scrollParent = useScrollParent(root);\n    const state = reactive({\n      fixed: false,\n      width: 0,\n      // root width\n      height: 0,\n      // root height\n      transform: 0\n    });\n    const isReset = ref(false);\n    const offset = computed(() => unitToPx(props.position === \"top\" ? props.offsetTop : props.offsetBottom));\n    const rootStyle = computed(() => {\n      if (isReset.value) {\n        return;\n      }\n      const {\n        fixed,\n        height,\n        width\n      } = state;\n      if (fixed) {\n        return {\n          width: `${width}px`,\n          height: `${height}px`\n        };\n      }\n    });\n    const stickyStyle = computed(() => {\n      if (!state.fixed || isReset.value) {\n        return;\n      }\n      const style = extend(getZIndexStyle(props.zIndex), {\n        width: `${state.width}px`,\n        height: `${state.height}px`,\n        [props.position]: `${offset.value}px`\n      });\n      if (state.transform) {\n        style.transform = `translate3d(0, ${state.transform}px, 0)`;\n      }\n      return style;\n    });\n    const emitScroll = (scrollTop) => emit(\"scroll\", {\n      scrollTop,\n      isFixed: state.fixed\n    });\n    const onScroll = () => {\n      if (!root.value || isHidden(root)) {\n        return;\n      }\n      const {\n        container,\n        position\n      } = props;\n      const rootRect = useRect(root);\n      const scrollTop = getScrollTop(window);\n      state.width = rootRect.width;\n      state.height = rootRect.height;\n      if (position === \"top\") {\n        if (container) {\n          const containerRect = useRect(container);\n          const difference = containerRect.bottom - offset.value - state.height;\n          state.fixed = offset.value > rootRect.top && containerRect.bottom > 0;\n          state.transform = difference < 0 ? difference : 0;\n        } else {\n          state.fixed = offset.value > rootRect.top;\n        }\n      } else {\n        const {\n          clientHeight\n        } = document.documentElement;\n        if (container) {\n          const containerRect = useRect(container);\n          const difference = clientHeight - containerRect.top - offset.value - state.height;\n          state.fixed = clientHeight - offset.value < rootRect.bottom && clientHeight > containerRect.top;\n          state.transform = difference < 0 ? -difference : 0;\n        } else {\n          state.fixed = clientHeight - offset.value < rootRect.bottom;\n        }\n      }\n      emitScroll(scrollTop);\n    };\n    watch(() => state.fixed, (value) => emit(\"change\", value));\n    useEventListener(\"scroll\", onScroll, {\n      target: scrollParent,\n      passive: true\n    });\n    useVisibilityChange(root, onScroll);\n    watch([windowWidth, windowHeight], () => {\n      if (!root.value || isHidden(root) || !state.fixed) {\n        return;\n      }\n      isReset.value = true;\n      nextTick(() => {\n        const rootRect = useRect(root);\n        state.width = rootRect.width;\n        state.height = rootRect.height;\n        isReset.value = false;\n      });\n    });\n    return () => {\n      var _a;\n      return _createVNode(\"div\", {\n        \"ref\": root,\n        \"style\": rootStyle.value\n      }, [_createVNode(\"div\", {\n        \"class\": bem({\n          fixed: state.fixed && !isReset.value\n        }),\n        \"style\": stickyStyle.value\n      }, [(_a = slots.default) == null ? void 0 : _a.call(slots)])]);\n    };\n  }\n});\nexport {\n  stdin_default as default,\n  stickyProps\n};\n",
+      "start": 1714699767512,
+      "end": 1714699767512,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767512,
+      "end": 1714699767512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767512,
+      "end": 1714699767512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767512,
+      "end": 1714699767512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767512,
+      "end": 1714699767512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767512,
+      "end": 1714699767512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767512,
+      "end": 1714699767512,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767512,
+      "end": 1714699767512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767512,
+      "end": 1714699767512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767512,
+      "end": 1714699767512,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767512,
+      "end": 1714699767512,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767512,
+      "end": 1714699767512,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767512,
+      "end": 1714699767512,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767512,
+      "end": 1714699767512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767512,
+      "end": 1714699767512,
+      "order": "normal"
+    }
+  ]
+}

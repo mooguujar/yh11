@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/pluck.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var map = require('./map')\r\nvar property = require('./property')\r\n\r\n/**\r\n  * 获取数组对象中某属性值，返回一个数组\r\n  *\r\n  * @param {Array} array 数组\r\n  * @param {String} key 属性值\r\n  * @return {Array}\r\n  */\r\nfunction pluck (obj, key) {\r\n  return map(obj, property(key))\r\n}\r\n\r\nmodule.exports = pluck\r\n",
+      "start": 1714699767568,
+      "end": 1714699767598,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767598,
+      "end": 1714699767598,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767598,
+      "end": 1714699767598,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767598,
+      "end": 1714699767598,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767598,
+      "end": 1714699767598,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767598,
+      "end": 1714699767598,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767598,
+      "end": 1714699767598,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var map = require('./map')\r\nvar property = require('./property')\r\n\r\n/**\r\n  * 获取数组对象中某属性值，返回一个数组\r\n  *\r\n  * @param {Array} array 数组\r\n  * @param {String} key 属性值\r\n  * @return {Array}\r\n  */\r\nfunction pluck (obj, key) {\r\n  return map(obj, property(key))\r\n}\r\n\r\nmodule.exports = pluck\r\n",
+      "start": 1714699767598,
+      "end": 1714699767598,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767598,
+      "end": 1714699767598,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767598,
+      "end": 1714699767598,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767598,
+      "end": 1714699767598,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767598,
+      "end": 1714699767598,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767598,
+      "end": 1714699767598,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767598,
+      "end": 1714699767598,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/map.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/property.js?commonjs-proxy\";\n\nvar map = require$$0\r\nvar property = require$$1\r\n\r\n/**\r\n  * 获取数组对象中某属性值，返回一个数组\r\n  *\r\n  * @param {Array} array 数组\r\n  * @param {String} key 属性值\r\n  * @return {Array}\r\n  */\r\nfunction pluck (obj, key) {\r\n  return map(obj, property(key))\r\n}\r\n\r\nvar pluck_1 = pluck\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(pluck_1);\nexport { pluck_1 as __moduleExports };",
+      "start": 1714699767598,
+      "end": 1714699768208,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;AAAA,IAAI,GAAG,GAAG,UAAgB;AAC1B,IAAI,QAAQ,GAAG,UAAqB;AACpC;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,KAAK,EAAE,GAAG,EAAE,GAAG,EAAE;AAC1B,EAAE,OAAO,GAAG,CAAC,GAAG,EAAE,QAAQ,CAAC,GAAG,CAAC,CAAC;AAChC,CAAC;AACD;IACA,OAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768208,
+      "end": 1714699768208,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768208,
+      "end": 1714699768208,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768208,
+      "end": 1714699768208,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768208,
+      "end": 1714699768208,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768208,
+      "end": 1714699768208,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768208,
+      "end": 1714699768208,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768208,
+      "end": 1714699768208,
+      "order": "normal"
+    }
+  ]
+}

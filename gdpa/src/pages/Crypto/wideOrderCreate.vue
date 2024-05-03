@@ -902,56 +902,12 @@
             <!-- 上传付款凭证 -->
             <!-- (seller && [6].includes(BuyOrderDetail.status) && BuyOrderDetail.buy_img) -->
             <div
-              :class="gd_buy_fixmomey == 1 ? 'O_orderInfo !pb-[0] !pt-[1px]' : ''"
+              :class="gd_buy_fixmomey == 1 ? 'O_orderInfo !py-[20px] !pt-[1px]' : ''"
               v-if="
                 (!seller && [3].includes(BuyOrderDetail.status)) ||
-                (!seller && [6].includes(BuyOrderDetail.status) && BuyOrderDetail.buy_img)
+                (!seller && [6].includes(BuyOrderDetail.status))
               "
             >
-              <p class="text-[25px] my-[26px]">
-                上传付款凭证
-                <van-popover
-                  v-if="!seller && [3].includes(BuyOrderDetail.status)"
-                  v-model:show="showPopover"
-                  placement="top"
-                  className="sell_popover1 !z-[2000] van-popup van-popover van-popover--light "
-                >
-                  必须上传付款凭证才能点击【我已付款】，请务必确保您的转账已经成功，再通知卖家
-                  <template #reference>
-                    <van-icon name="question-o" />
-                  </template>
-                </van-popover>
-              </p>
-              <van-uploader
-                v-if="BuyOrderDetail.buy_img"
-                v-model="buy_img"
-                :deletable="false"
-                :max-count="1"
-                class="O_uploader"
-              />
-              <van-uploader
-                v-else
-                v-model="fileList"
-                @clickUpload="payimg = true"
-                :after-read="afterRead"
-                :max-size="10 * 1000 * 1024"
-                @oversize="onOversize"
-                @delete="deleteUploader"
-                :before-read="beforeRead"
-                :max-count="1"
-                class="O_uploader"
-                ref="IMGuploader"
-              />
-              <div
-                class="toips_uploader right text-[22px] !w-[360px]"
-                v-doubleclick="dblclickHandle"
-                v-threeclick="ThreeclickHandle"
-              >
-                如无法上传图片，请第一时间联系
-                <br />
-                在线客服，否则造成损失自行负责
-              </div>
-
               <!-- 输入框填写付款信息 -->
               <div
                 v-if="
@@ -986,7 +942,7 @@
                         >
                           *
                         </span>
-                        付款人姓名:
+                        付款人姓名
                       </div>
                     </template>
                   </van-field>
@@ -1083,7 +1039,89 @@
                     注：银行名称必须以银行/信用社/支付宝结尾
                   </p> -->
               </div>
+              <p
+                class="text-[25px] mb-[26px]"
+                v-if="
+                  (!seller && [3].includes(BuyOrderDetail.status)) ||
+                  (!seller && [6].includes(BuyOrderDetail.status) && BuyOrderDetail.buy_img)
+                "
+              >
+                上传付款凭证
+                <van-popover
+                  v-model:show="showPopover"
+                  placement="top"
+                  className="sell_popover1 !z-[2000] van-popup van-popover van-popover--light "
+                >
+                  必须上传付款凭证才能点击【我已付款】，请务必确保您的转账已经成功，再通知卖家
+                  <template #reference>
+                    <van-icon name="question-o" />
+                  </template>
+                </van-popover>
+              </p>
+              <van-uploader
+                v-if="BuyOrderDetail.buy_img"
+                v-model="buy_img"
+                :deletable="false"
+                :max-count="1"
+                class="O_uploader"
+              />
+              <van-uploader
+                v-else-if="[3].includes(BuyOrderDetail.status)"
+                v-model="fileList"
+                @clickUpload="payimg = true"
+                :after-read="afterRead"
+                :max-size="10 * 1000 * 1024"
+                @oversize="onOversize"
+                @delete="deleteUploader"
+                :before-read="beforeRead"
+                :max-count="1"
+                class="O_uploader"
+                ref="IMGuploader"
+              />
+              <div
+                v-if="[3].includes(BuyOrderDetail.status)"
+                class="toips_uploader right text-[22px] pr-[15px] !text-right !w-[360px]"
+                v-doubleclick="dblclickHandle"
+                v-threeclick="ThreeclickHandle"
+              >
+                如无法上传图片?请及时联系客服
+                <br />
+                或
+                <span
+                  class="primaryColor"
+                  @click="
+                    dblclickHandle(),
+                      verify_input(pay_cardid, pay_realname_backUp, pay_bankname) &&
+                        BuyerUpdateTransInfo({
+                          buy_order_id: BuyOrderDetail.order_id,
+                          buy_img: (fileList[0] && fileList[0].UploadURL) || '',
+                          // pay_cardid: ['BANK', 'SZRMB'].includes(BuyOrderDetail.coin_protocol)
+                          //   ? pay_cardidUpdate
+                          //     ? pay_cardid
+                          //     : BuyOrderDetail.pay_cardid
+                          //     ? BuyOrderDetail.pay_cardid
+                          //     : pay_cardid
+                          //   : pay_cardid,
+                          pay_realname: pay_realname_backUp,
+                          lockorder: 1
+                          // pay_bankname: pay_bankname
+                        }).then(() => {
+                          ;(payimg = false),
+                            (fileList = []),
+                            getBuyOrderDetail(BuyOrderDetail.order_id)
+                        })
+                  "
+                >
+                  【点击锁单】
+                </span>
+              </div>
             </div>
+            <p
+              class="text-[red] !text-[23px] my-[20px] pl-[10px]"
+              v-if="[3].includes(BuyOrderDetail.status) && !seller"
+            >
+              请务必确保您的转账已经成功，并上传付款凭证！
+            </p>
 
             <!-- 收付款信息 -->
             <div
@@ -1357,9 +1395,9 @@
           class="red_f text-[26px] mb-[20px] pl-[27px]"
           v-if="[3].includes(BuyOrderDetail.status) && !seller"
         >
-          必须上传付款凭证才能点击【我已付款】，请务必确保您的转账已经成功，再通知卖家
-          <br />
-          <br />
+          <!-- 必须上传付款凭证才能点击【我已付款】，请务必确保您的转账已经成功，再通知卖家 -->
+          <!-- <br />
+          <br /> -->
         </p>
         <!-- 交易申诉 -->
         <div
@@ -2393,7 +2431,27 @@ const afterRead = async (event: any) => {
     fileList.value[fileList.value.length - 1].status = 'done'
     fileList.value[fileList.value.length - 1].message = '上传成功'
   }, 500)
-  console.log('fileList.value', fileList.value)
+
+  verify_input(pay_cardid.value, pay_realname_backUp.value, pay_bankname.value) &&
+    BuyerUpdateTransInfo({
+      buy_order_id: BuyOrderDetail.value.order_id,
+      buy_img: (fileList.value[0] && fileList.value[0].UploadURL) || '',
+      // pay_cardid: ['BANK', 'SZRMB'].includes(BuyOrderDetail.coin_protocol)
+      //   ? pay_cardidUpdate
+      //     ? pay_cardid
+      //     : BuyOrderDetail.pay_cardid
+      //     ? BuyOrderDetail.pay_cardid
+      //     : pay_cardid
+      //   : pay_cardid,
+      pay_realname: pay_realname_backUp.value
+      // pay_bankname: pay_bankname
+    }).then(() => {
+      ;(payimg.value = false),
+        (fileList.value = []),
+        getBuyOrderDetail(BuyOrderDetail.value.order_id)
+    })
+
+  // console.log('fileList.value', fileList.value)
 }
 const payimg = ref(false)
 const uploadImg = async (file: string): Promise<any> => {

@@ -299,7 +299,7 @@
         </div>
       </div>
 
-      <div class="bg-white rounded-[22px] py-[20px] mb-[15px]">
+      <div class="bg-white rounded-[22px] py-[20px] mb-[30px]">
         <template
           :key="entry.title"
           v-for="entry in entry_list_other"
@@ -342,7 +342,7 @@
       <div class="!mt-[-5px]">
         <van-button
           v-if="!is_webview"
-          class="w-[100%] !h-[100px]"
+          class="w-[100%] !h-[80px]"
           type="primary"
           @click="logout(), $router.push('/auth/login')"
         >

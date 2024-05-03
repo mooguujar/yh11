@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/clear.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var helperDeleteProperty = require('./helperDeleteProperty')\r\n\r\nvar isPlainObject = require('./isPlainObject')\r\nvar isObject = require('./isObject')\r\nvar isArray = require('./isArray')\r\nvar isNull = require('./isNull')\r\nvar assign = require('./assign')\r\nvar objectEach = require('./objectEach')\r\n\r\n/**\r\n  * 清空对象\r\n  *\r\n  * @param {Object} obj 对象\r\n  * @param {*} defs 默认值,如果不传（清空所有属性）、如果传对象（清空并继承)、如果传值(给所有赋值)\r\n  * @param {Object/Array} assigns 默认值\r\n  * @return {Object}\r\n  */\r\nfunction clear (obj, defs, assigns) {\r\n  if (obj) {\r\n    var len\r\n    var isDefs = arguments.length > 1 && (isNull(defs) || !isObject(defs))\r\n    var extds = isDefs ? assigns : defs\r\n    if (isPlainObject(obj)) {\r\n      objectEach(obj, isDefs ? function (val, key) {\r\n        obj[key] = defs\r\n      } : function (val, key) {\r\n        helperDeleteProperty(obj, key)\r\n      })\r\n      if (extds) {\r\n        assign(obj, extds)\r\n      }\r\n    } else if (isArray(obj)) {\r\n      if (isDefs) {\r\n        len = obj.length\r\n        while (len > 0) {\r\n          len--\r\n          obj[len] = defs\r\n        }\r\n      } else {\r\n        obj.length = 0\r\n      }\r\n      if (extds) {\r\n        obj.push.apply(obj, extds)\r\n      }\r\n    }\r\n  }\r\n  return obj\r\n}\r\n\r\nmodule.exports = clear\r\n",
+      "start": 1714699767612,
+      "end": 1714699767641,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767641,
+      "end": 1714699767641,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767641,
+      "end": 1714699767641,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767641,
+      "end": 1714699767641,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767641,
+      "end": 1714699767641,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767641,
+      "end": 1714699767641,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767641,
+      "end": 1714699767641,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var helperDeleteProperty = require('./helperDeleteProperty')\r\n\r\nvar isPlainObject = require('./isPlainObject')\r\nvar isObject = require('./isObject')\r\nvar isArray = require('./isArray')\r\nvar isNull = require('./isNull')\r\nvar assign = require('./assign')\r\nvar objectEach = require('./objectEach')\r\n\r\n/**\r\n  * 清空对象\r\n  *\r\n  * @param {Object} obj 对象\r\n  * @param {*} defs 默认值,如果不传（清空所有属性）、如果传对象（清空并继承)、如果传值(给所有赋值)\r\n  * @param {Object/Array} assigns 默认值\r\n  * @return {Object}\r\n  */\r\nfunction clear (obj, defs, assigns) {\r\n  if (obj) {\r\n    var len\r\n    var isDefs = arguments.length > 1 && (isNull(defs) || !isObject(defs))\r\n    var extds = isDefs ? assigns : defs\r\n    if (isPlainObject(obj)) {\r\n      objectEach(obj, isDefs ? function (val, key) {\r\n        obj[key] = defs\r\n      } : function (val, key) {\r\n        helperDeleteProperty(obj, key)\r\n      })\r\n      if (extds) {\r\n        assign(obj, extds)\r\n      }\r\n    } else if (isArray(obj)) {\r\n      if (isDefs) {\r\n        len = obj.length\r\n        while (len > 0) {\r\n          len--\r\n          obj[len] = defs\r\n        }\r\n      } else {\r\n        obj.length = 0\r\n      }\r\n      if (extds) {\r\n        obj.push.apply(obj, extds)\r\n      }\r\n    }\r\n  }\r\n  return obj\r\n}\r\n\r\nmodule.exports = clear\r\n",
+      "start": 1714699767641,
+      "end": 1714699767641,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767641,
+      "end": 1714699767641,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767641,
+      "end": 1714699767641,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767641,
+      "end": 1714699767641,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767641,
+      "end": 1714699767641,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767641,
+      "end": 1714699767641,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767641,
+      "end": 1714699767641,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/helperDeleteProperty.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isPlainObject.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isObject.js?commonjs-proxy\";\nimport require$$3 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isArray.js?commonjs-proxy\";\nimport require$$4 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isNull.js?commonjs-proxy\";\nimport require$$5 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/assign.js?commonjs-proxy\";\nimport require$$6 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/objectEach.js?commonjs-proxy\";\n\nvar helperDeleteProperty = require$$0\r\n\r\nvar isPlainObject = require$$1\r\nvar isObject = require$$2\r\nvar isArray = require$$3\r\nvar isNull = require$$4\r\nvar assign = require$$5\r\nvar objectEach = require$$6\r\n\r\n/**\r\n  * 清空对象\r\n  *\r\n  * @param {Object} obj 对象\r\n  * @param {*} defs 默认值,如果不传（清空所有属性）、如果传对象（清空并继承)、如果传值(给所有赋值)\r\n  * @param {Object/Array} assigns 默认值\r\n  * @return {Object}\r\n  */\r\nfunction clear (obj, defs, assigns) {\r\n  if (obj) {\r\n    var len\r\n    var isDefs = arguments.length > 1 && (isNull(defs) || !isObject(defs))\r\n    var extds = isDefs ? assigns : defs\r\n    if (isPlainObject(obj)) {\r\n      objectEach(obj, isDefs ? function (val, key) {\r\n        obj[key] = defs\r\n      } : function (val, key) {\r\n        helperDeleteProperty(obj, key)\r\n      })\r\n      if (extds) {\r\n        assign(obj, extds)\r\n      }\r\n    } else if (isArray(obj)) {\r\n      if (isDefs) {\r\n        len = obj.length\r\n        while (len > 0) {\r\n          len--\r\n          obj[len] = defs\r\n        }\r\n      } else {\r\n        obj.length = 0\r\n      }\r\n      if (extds) {\r\n        obj.push.apply(obj, extds)\r\n      }\r\n    }\r\n  }\r\n  return obj\r\n}\r\n\r\nvar clear_1 = clear\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(clear_1);\nexport { clear_1 as __moduleExports };",
+      "start": 1714699767641,
+      "end": 1714699768219,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;;;;;AAAA,IAAI,oBAAoB,GAAG,UAAiC;AAC5D;AACA,IAAI,aAAa,GAAG,UAA0B;AAC9C,IAAI,QAAQ,GAAG,UAAqB;AACpC,IAAI,OAAO,GAAG,UAAoB;AAClC,IAAI,MAAM,GAAG,UAAmB;AAChC,IAAI,MAAM,GAAG,UAAmB;AAChC,IAAI,UAAU,GAAG,UAAuB;AACxC;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,KAAK,EAAE,GAAG,EAAE,IAAI,EAAE,OAAO,EAAE;AACpC,EAAE,IAAI,GAAG,EAAE;AACX,IAAI,IAAI,GAAG;AACX,IAAI,IAAI,MAAM,GAAG,SAAS,CAAC,MAAM,GAAG,CAAC,KAAK,MAAM,CAAC,IAAI,CAAC,IAAI,CAAC,QAAQ,CAAC,IAAI,CAAC,CAAC;AAC1E,IAAI,IAAI,KAAK,GAAG,MAAM,GAAG,OAAO,GAAG,IAAI;AACvC,IAAI,IAAI,aAAa,CAAC,GAAG,CAAC,EAAE;AAC5B,MAAM,UAAU,CAAC,GAAG,EAAE,MAAM,GAAG,UAAU,GAAG,EAAE,GAAG,EAAE;AACnD,QAAQ,GAAG,CAAC,GAAG,CAAC,GAAG,IAAI;AACvB,OAAO,GAAG,UAAU,GAAG,EAAE,GAAG,EAAE;AAC9B,QAAQ,oBAAoB,CAAC,GAAG,EAAE,GAAG,CAAC;AACtC,OAAO,CAAC;AACR,MAAM,IAAI,KAAK,EAAE;AACjB,QAAQ,MAAM,CAAC,GAAG,EAAE,KAAK,CAAC;AAC1B,OAAO;AACP,KAAK,MAAM,IAAI,OAAO,CAAC,GAAG,CAAC,EAAE;AAC7B,MAAM,IAAI,MAAM,EAAE;AAClB,QAAQ,GAAG,GAAG,GAAG,CAAC,MAAM;AACxB,QAAQ,OAAO,GAAG,GAAG,CAAC,EAAE;AACxB,UAAU,GAAG,EAAE;AACf,UAAU,GAAG,CAAC,GAAG,CAAC,GAAG,IAAI;AACzB,SAAS;AACT,OAAO,MAAM;AACb,QAAQ,GAAG,CAAC,MAAM,GAAG,CAAC;AACtB,OAAO;AACP,MAAM,IAAI,KAAK,EAAE;AACjB,QAAQ,GAAG,CAAC,IAAI,CAAC,KAAK,CAAC,GAAG,EAAE,KAAK,CAAC;AAClC,OAAO;AACP,KAAK;AACL,GAAG;AACH,EAAE,OAAO,GAAG;AACZ,CAAC;AACD;IACA,OAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768219,
+      "end": 1714699768219,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768219,
+      "end": 1714699768219,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768219,
+      "end": 1714699768219,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768219,
+      "end": 1714699768219,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768219,
+      "end": 1714699768219,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768219,
+      "end": 1714699768219,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768219,
+      "end": 1714699768219,
+      "order": "normal"
+    }
+  ]
+}

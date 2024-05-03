@@ -1,0 +1,163 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/index.vue?vue&type=style&index=0&scoped=ef1a6d77&lang.scss",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\n.banner-container {\n  padding: 50px 0 20px 0;\n}\n\n.bg-top {\n  position: relative;\n  width: 100%;\n  height: 368px;\n  background: url('@/assets/images/activity/bg_001.png') no-repeat center / cover;\n  background-size: 100% 100%;\n  .btn-back {\n    width: 80px;\n    height: 80px;\n    position: absolute;\n    top: 20px;\n    left: 20px;\n  }\n  .btn-refresh {\n    width: 80px;\n    height: 80px;\n    position: absolute;\n    top: 20px;\n    right: 20px;\n  }\n}\n.bg-middle {\n  width: 100%;\n  height: 686px;\n  background: url('@/assets/images/activity/bg_02.jpg') no-repeat center / cover;\n  background-size: 100% 100%;\n  margin-top: -2px;\n}\n.bg-bottom {\n  position: relative;\n  width: 100%;\n  height: 300px;\n  background: url('@/assets/images/activity/bg_03.jpg') no-repeat center / cover;\n  background-size: 100% 100%;\n}\n.activity-rule {\n  position: absolute;\n  bottom: 47px;\n  left: 50%;\n  transform: translate3d(-50%, 0, 0);\n  color: #f9e09a;\n  font-size: 25px;\n  font-weight: bold;\n  text-decoration: underline;\n}\n.activity-container {\n  background-color: #a43740;\n  .tab-container {\n    position: relative;\n    z-index: 1;\n    .btn-tab {\n      flex: 0 0 268px;\n      height: 94px;\n      background: no-repeat center / cover;\n      background-size: 100% 100%;\n      &:first-child {\n        margin-right: 29px;\n        background-image: url('@/assets/images/activity/btn_jfkhl02.png');\n        &.active {\n          background-image: url('@/assets/images/activity/btn_jfkhl01.png');\n        }\n      }\n      &:last-child {\n        background-image: url('@/assets/images/activity/btn_phbhl02.png');\n        &.active {\n          background-image: url('@/assets/images/activity/btn_phbhl01.png');\n        }\n      }\n    }\n  }\n}\n",
+      "start": 1714699770629,
+      "end": 1714699770629
+    },
+    {
+      "name": "vite:css",
+      "result": ".banner-container {\n  padding: 0.66667rem 0 0.26667rem 0;\n}\n\n.bg-top {\n  position: relative;\n  width: 100%;\n  height: 4.90667rem;\n  background: url(\"__VITE_ASSET__P82kD41B__\") no-repeat center/cover;\n  background-size: 100% 100%;\n}\n\n.bg-top .btn-back {\n  width: 1.06667rem;\n  height: 1.06667rem;\n  position: absolute;\n  top: 0.26667rem;\n  left: 0.26667rem;\n}\n\n.bg-top .btn-refresh {\n  width: 1.06667rem;\n  height: 1.06667rem;\n  position: absolute;\n  top: 0.26667rem;\n  right: 0.26667rem;\n}\n\n.bg-middle {\n  width: 100%;\n  height: 9.14667rem;\n  background: url(\"__VITE_ASSET__mDJq9sW6__\") no-repeat center/cover;\n  background-size: 100% 100%;\n  margin-top: -0.02667rem;\n}\n\n.bg-bottom {\n  position: relative;\n  width: 100%;\n  height: 4rem;\n  background: url(\"__VITE_ASSET__DuZGUwIj__\") no-repeat center/cover;\n  background-size: 100% 100%;\n}\n\n.activity-rule {\n  position: absolute;\n  bottom: 0.62667rem;\n  left: 50%;\n  transform: translate3d(-50%, 0, 0);\n  color: #f9e09a;\n  font-size: 0.33333rem;\n  font-weight: bold;\n  text-decoration: underline;\n}\n\n.activity-container {\n  background-color: #a43740;\n}\n\n.activity-container .tab-container {\n  position: relative;\n  z-index: 1;\n}\n\n.activity-container .tab-container .btn-tab {\n  flex: 0 0 3.57333rem;\n  height: 1.25333rem;\n  background: no-repeat center/cover;\n  background-size: 100% 100%;\n}\n\n.activity-container .tab-container .btn-tab:first-child {\n  margin-right: 0.38667rem;\n  background-image: url(\"__VITE_ASSET__CSgGqCfW__\");\n}\n\n.activity-container .tab-container .btn-tab:first-child.active {\n  background-image: url(\"__VITE_ASSET__D6kobyko__\");\n}\n\n.activity-container .tab-container .btn-tab:last-child {\n  background-image: url(\"__VITE_ASSET__B9e$Heur__\");\n}\n\n.activity-container .tab-container .btn-tab:last-child.active {\n  background-image: url(\"__VITE_ASSET__DT1iBKmM__\");\n}",
+      "start": 1714699770629,
+      "end": 1714699770641,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699770641,
+      "end": 1714699770641,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699770641,
+      "end": 1714699770641,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699770641,
+      "end": 1714699770641,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".banner-container[data-v-ef1a6d77] {\n  padding: 0.66667rem 0 0.26667rem 0;\n}\n.bg-top[data-v-ef1a6d77] {\n  position: relative;\n  width: 100%;\n  height: 4.90667rem;\n  background: url(\"__VITE_ASSET__P82kD41B__\") no-repeat center/cover;\n  background-size: 100% 100%;\n}\n.bg-top .btn-back[data-v-ef1a6d77] {\n  width: 1.06667rem;\n  height: 1.06667rem;\n  position: absolute;\n  top: 0.26667rem;\n  left: 0.26667rem;\n}\n.bg-top .btn-refresh[data-v-ef1a6d77] {\n  width: 1.06667rem;\n  height: 1.06667rem;\n  position: absolute;\n  top: 0.26667rem;\n  right: 0.26667rem;\n}\n.bg-middle[data-v-ef1a6d77] {\n  width: 100%;\n  height: 9.14667rem;\n  background: url(\"__VITE_ASSET__mDJq9sW6__\") no-repeat center/cover;\n  background-size: 100% 100%;\n  margin-top: -0.02667rem;\n}\n.bg-bottom[data-v-ef1a6d77] {\n  position: relative;\n  width: 100%;\n  height: 4rem;\n  background: url(\"__VITE_ASSET__DuZGUwIj__\") no-repeat center/cover;\n  background-size: 100% 100%;\n}\n.activity-rule[data-v-ef1a6d77] {\n  position: absolute;\n  bottom: 0.62667rem;\n  left: 50%;\n  transform: translate3d(-50%, 0, 0);\n  color: #f9e09a;\n  font-size: 0.33333rem;\n  font-weight: bold;\n  text-decoration: underline;\n}\n.activity-container[data-v-ef1a6d77] {\n  background-color: #a43740;\n}\n.activity-container .tab-container[data-v-ef1a6d77] {\n  position: relative;\n  z-index: 1;\n}\n.activity-container .tab-container .btn-tab[data-v-ef1a6d77] {\n  flex: 0 0 3.57333rem;\n  height: 1.25333rem;\n  background: no-repeat center/cover;\n  background-size: 100% 100%;\n}\n.activity-container .tab-container .btn-tab[data-v-ef1a6d77]:first-child {\n  margin-right: 0.38667rem;\n  background-image: url(\"__VITE_ASSET__CSgGqCfW__\");\n}\n.activity-container .tab-container .btn-tab:first-child.active[data-v-ef1a6d77] {\n  background-image: url(\"__VITE_ASSET__D6kobyko__\");\n}\n.activity-container .tab-container .btn-tab[data-v-ef1a6d77]:last-child {\n  background-image: url(\"__VITE_ASSET__B9e$Heur__\");\n}\n.activity-container .tab-container .btn-tab:last-child.active[data-v-ef1a6d77] {\n  background-image: url(\"__VITE_ASSET__DT1iBKmM__\");\n}",
+      "start": 1714699770641,
+      "end": 1714699770642,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699770642,
+      "end": 1714699770642,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": ".banner-container[data-v-ef1a6d77] {\n  padding: 0.66667rem 0 0.26667rem 0;\n}\n.bg-top[data-v-ef1a6d77] {\n  position: relative;\n  width: 100%;\n  height: 4.90667rem;\n  background: url(\"__VITE_ASSET__P82kD41B__\") no-repeat center/cover;\n  background-size: 100% 100%;\n}\n.bg-top .btn-back[data-v-ef1a6d77] {\n  width: 1.06667rem;\n  height: 1.06667rem;\n  position: absolute;\n  top: 0.26667rem;\n  left: 0.26667rem;\n}\n.bg-top .btn-refresh[data-v-ef1a6d77] {\n  width: 1.06667rem;\n  height: 1.06667rem;\n  position: absolute;\n  top: 0.26667rem;\n  right: 0.26667rem;\n}\n.bg-middle[data-v-ef1a6d77] {\n  width: 100%;\n  height: 9.14667rem;\n  background: url(\"__VITE_ASSET__mDJq9sW6__\") no-repeat center/cover;\n  background-size: 100% 100%;\n  margin-top: -0.02667rem;\n}\n.bg-bottom[data-v-ef1a6d77] {\n  position: relative;\n  width: 100%;\n  height: 4rem;\n  background: url(\"__VITE_ASSET__DuZGUwIj__\") no-repeat center/cover;\n  background-size: 100% 100%;\n}\n.activity-rule[data-v-ef1a6d77] {\n  position: absolute;\n  bottom: 0.62667rem;\n  left: 50%;\n  transform: translate3d(-50%, 0, 0);\n  color: #f9e09a;\n  font-size: 0.33333rem;\n  font-weight: bold;\n  text-decoration: underline;\n}\n.activity-container[data-v-ef1a6d77] {\n  background-color: #a43740;\n}\n.activity-container .tab-container[data-v-ef1a6d77] {\n  position: relative;\n  z-index: 1;\n}\n.activity-container .tab-container .btn-tab[data-v-ef1a6d77] {\n  flex: 0 0 3.57333rem;\n  height: 1.25333rem;\n  background: no-repeat center/cover;\n  background-size: 100% 100%;\n}\n.activity-container .tab-container .btn-tab[data-v-ef1a6d77]:first-child {\n  margin-right: 0.38667rem;\n  background-image: url(\"__VITE_ASSET__CSgGqCfW__\");\n}\n.activity-container .tab-container .btn-tab:first-child.active[data-v-ef1a6d77] {\n  background-image: url(\"__VITE_ASSET__D6kobyko__\");\n}\n.activity-container .tab-container .btn-tab[data-v-ef1a6d77]:last-child {\n  background-image: url(\"__VITE_ASSET__B9e$Heur__\");\n}\n.activity-container .tab-container .btn-tab:last-child.active[data-v-ef1a6d77] {\n  background-image: url(\"__VITE_ASSET__DT1iBKmM__\");\n}",
+      "start": 1714699770642,
+      "end": 1714699770642,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699770642,
+      "end": 1714699770642,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770642,
+      "end": 1714699770642,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699770642,
+      "end": 1714699770642,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770642,
+      "end": 1714699770642,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770642,
+      "end": 1714699770642,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770642,
+      "end": 1714699770642,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770642,
+      "end": 1714699770642,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770642,
+      "end": 1714699770642,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770642,
+      "end": 1714699770642,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770642,
+      "end": 1714699770642,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */",
+      "start": 1714699770642,
+      "end": 1714699770642,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/index.vue?vue&type=style&index=0&scoped=ef1a6d77&lang.scss"
+        ],
+        "sourcesContent": [
+          ""
+        ],
+        "names": [],
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770642,
+      "end": 1714699770642,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770642,
+      "end": 1714699770642,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770642,
+      "end": 1714699770642,
+      "order": "normal"
+    }
+  ]
+}

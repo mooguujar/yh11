@@ -1,0 +1,154 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/apis/article.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { IArticleListType, IMessageDetails, IMessageListData } from '@/store/types/article'\nimport { request } from '@/utils/http'\n\nexport interface ArticleListParams {\n  type?: number\n  bind_key?: string\n  lang?: string\n  page?: number\n  limit?: number\n  show_joint_key?: string\n}\nexport const articleListApi = (params: ArticleListParams) => {\n  const show_joint_key = sessionStorage.getItem('show_joint_key')\n  if (show_joint_key) {\n    params.show_joint_key = show_joint_key\n  } else {\n    params.show_joint_key = ''\n  }\n  return request.post<IArticleListType[]>('/api/Article/List', params)\n}\nexport interface UserMessageListParams {\n  // 支持多个KEY搜索，多个用逗号,隔开\n  // CoinBuyOrder -买单通知\n  // CoinSellOrder -卖单通知\n  // BuyerContact -买家联系\n  // SellerContact -卖家联系\n  // CoinTransferUser 转账收款消息\n  bind_type?: string\n  lang?: string\n  page?: number\n  limit?: number\n  message_type?: number\n  order_id?: string\n  ordertype?: string\n}\nexport const userMessageListApi = (params: UserMessageListParams) => {\n  return request.post<IMessageListData>('/api/UserMessage/Last', params)\n}\nexport interface UserMessageDetailsParams {\n  lang?: string\n  id?: number\n  ids?: string\n}\nexport const userMessageDetailsApi = (params: UserMessageDetailsParams) => {\n  return request.post<IMessageDetails>('/api/UserMessage/Detail', params)\n}\n\nexport interface UserMessageDelParams {\n  ids: string\n}\nexport const userMessageDelApi = (params: UserMessageDelParams) => {\n  return request.post<[]>('/api/UserMessage/userMsgDel', params)\n}\n",
+      "start": 1714699769438,
+      "end": 1714699769489,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769489,
+      "end": 1714699769489,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { request } from \"@/utils/http\";\nexport const articleListApi = (params) => {\n  const show_joint_key = sessionStorage.getItem(\"show_joint_key\");\n  if (show_joint_key) {\n    params.show_joint_key = show_joint_key;\n  } else {\n    params.show_joint_key = \"\";\n  }\n  return request.post(\"/api/Article/List\", params);\n};\nexport const userMessageListApi = (params) => {\n  return request.post(\"/api/UserMessage/Last\", params);\n};\nexport const userMessageDetailsApi = (params) => {\n  return request.post(\"/api/UserMessage/Detail\", params);\n};\nexport const userMessageDelApi = (params) => {\n  return request.post(\"/api/UserMessage/userMsgDel\", params);\n};\n",
+      "start": 1714699769489,
+      "end": 1714699769587,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/apis/article.ts"
+        ],
+        "sourcesContent": [
+          "import { IArticleListType, IMessageDetails, IMessageListData } from '@/store/types/article'\nimport { request } from '@/utils/http'\n\nexport interface ArticleListParams {\n  type?: number\n  bind_key?: string\n  lang?: string\n  page?: number\n  limit?: number\n  show_joint_key?: string\n}\nexport const articleListApi = (params: ArticleListParams) => {\n  const show_joint_key = sessionStorage.getItem('show_joint_key')\n  if (show_joint_key) {\n    params.show_joint_key = show_joint_key\n  } else {\n    params.show_joint_key = ''\n  }\n  return request.post<IArticleListType[]>('/api/Article/List', params)\n}\nexport interface UserMessageListParams {\n  // 支持多个KEY搜索，多个用逗号,隔开\n  // CoinBuyOrder -买单通知\n  // CoinSellOrder -卖单通知\n  // BuyerContact -买家联系\n  // SellerContact -卖家联系\n  // CoinTransferUser 转账收款消息\n  bind_type?: string\n  lang?: string\n  page?: number\n  limit?: number\n  message_type?: number\n  order_id?: string\n  ordertype?: string\n}\nexport const userMessageListApi = (params: UserMessageListParams) => {\n  return request.post<IMessageListData>('/api/UserMessage/Last', params)\n}\nexport interface UserMessageDetailsParams {\n  lang?: string\n  id?: number\n  ids?: string\n}\nexport const userMessageDetailsApi = (params: UserMessageDetailsParams) => {\n  return request.post<IMessageDetails>('/api/UserMessage/Detail', params)\n}\n\nexport interface UserMessageDelParams {\n  ids: string\n}\nexport const userMessageDelApi = (params: UserMessageDelParams) => {\n  return request.post<[]>('/api/UserMessage/userMsgDel', params)\n}\n"
+        ],
+        "mappings": "AACA,SAAS,eAAe;AAUjB,aAAM,iBAAiB,CAAC,WAA8B;AAC3D,QAAM,iBAAiB,eAAe,QAAQ,gBAAgB;AAC9D,MAAI,gBAAgB;AAClB,WAAO,iBAAiB;AAAA,EAC1B,OAAO;AACL,WAAO,iBAAiB;AAAA,EAC1B;AACA,SAAO,QAAQ,KAAyB,qBAAqB,MAAM;AACrE;AAgBO,aAAM,qBAAqB,CAAC,WAAkC;AACnE,SAAO,QAAQ,KAAuB,yBAAyB,MAAM;AACvE;AAMO,aAAM,wBAAwB,CAAC,WAAqC;AACzE,SAAO,QAAQ,KAAsB,2BAA2B,MAAM;AACxE;AAKO,aAAM,oBAAoB,CAAC,WAAiC;AACjE,SAAO,QAAQ,KAAS,+BAA+B,MAAM;AAC/D;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769587,
+      "end": 1714699769587,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769587,
+      "end": 1714699769587,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699769588,
+      "end": 1714699769588,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769588,
+      "end": 1714699769588,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { request } from \"@/utils/http\";\nexport const articleListApi = (params) => {\n  const show_joint_key = sessionStorage.getItem(\"show_joint_key\");\n  if (show_joint_key) {\n    params.show_joint_key = show_joint_key;\n  } else {\n    params.show_joint_key = \"\";\n  }\n  return request.post(\"/api/Article/List\", params);\n};\nexport const userMessageListApi = (params) => {\n  return request.post(\"/api/UserMessage/Last\", params);\n};\nexport const userMessageDetailsApi = (params) => {\n  return request.post(\"/api/UserMessage/Detail\", params);\n};\nexport const userMessageDelApi = (params) => {\n  return request.post(\"/api/UserMessage/userMsgDel\", params);\n};\n",
+      "start": 1714699769588,
+      "end": 1714699769588,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport { request } from \"@/utils/http\";\nexport const articleListApi = (params) => {\n  const show_joint_key = sessionStorage.getItem(\"show_joint_key\");\n  if (show_joint_key) {\n    params.show_joint_key = show_joint_key;\n  } else {\n    params.show_joint_key = \"\";\n  }\n  return request.post(\"/api/Article/List\", params);\n};\nexport const userMessageListApi = (params) => {\n  return request.post(\"/api/UserMessage/Last\", params);\n};\nexport const userMessageDetailsApi = (params) => {\n  return request.post(\"/api/UserMessage/Detail\", params);\n};\nexport const userMessageDelApi = (params) => {\n  return request.post(\"/api/UserMessage/userMsgDel\", params);\n};\n",
+      "start": 1714699769588,
+      "end": 1714699770422,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/apis/article.ts\"],\n  \"sourcesContent\": [\"import { request } from \\\"@/utils/http\\\";\\nexport const articleListApi = (params) => {\\n  const show_joint_key = sessionStorage.getItem(\\\"show_joint_key\\\");\\n  if (show_joint_key) {\\n    params.show_joint_key = show_joint_key;\\n  } else {\\n    params.show_joint_key = \\\"\\\";\\n  }\\n  return request.post(\\\"/api/Article/List\\\", params);\\n};\\nexport const userMessageListApi = (params) => {\\n  return request.post(\\\"/api/UserMessage/Last\\\", params);\\n};\\nexport const userMessageDetailsApi = (params) => {\\n  return request.post(\\\"/api/UserMessage/Detail\\\", params);\\n};\\nexport const userMessageDelApi = (params) => {\\n  return request.post(\\\"/api/UserMessage/userMsgDel\\\", params);\\n};\\n\"],\n  \"mappings\": \";AAAA,SAAS,eAAe;AACjB,aAAM,iBAAiB,CAAC,WAAW;AACxC,QAAM,iBAAiB,eAAe,QAAQ,gBAAgB;AAC9D,MAAI,gBAAgB;AAClB,WAAO,iBAAiB;AAAA,EAC1B,OAAO;AACL,WAAO,iBAAiB;AAAA,EAC1B;AACA,SAAO,QAAQ,KAAK,qBAAqB,MAAM;AACjD;AACO,aAAM,qBAAqB,CAAC,WAAW;AAC5C,SAAO,QAAQ,KAAK,yBAAyB,MAAM;AACrD;AACO,aAAM,wBAAwB,CAAC,WAAW;AAC/C,SAAO,QAAQ,KAAK,2BAA2B,MAAM;AACvD;AACO,aAAM,oBAAoB,CAAC,WAAW;AAC3C,SAAO,QAAQ,KAAK,+BAA+B,MAAM;AAC3D;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770422,
+      "end": 1714699770423,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699770423,
+      "end": 1714699770423,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770423,
+      "end": 1714699770423,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770423,
+      "end": 1714699770423,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770423,
+      "end": 1714699770423,
+      "order": "normal"
+    }
+  ]
+}

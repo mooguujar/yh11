@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/message.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <div class=\"nav-bar\">\n    <nav-bar\n      title=\"消息\"\n      mode=\"white\"\n    >\n      <template #left>\n        <i class=\"arrow-right-gray arrow-back\"></i>\n      </template>\n      <template #right>\n        <div\n          class=\"btn-text\"\n          @click=\"onNavBtnClick\"\n        >\n          {{ navBarRightText }}\n        </div>\n      </template>\n    </nav-bar>\n  </div>\n\n  <div\n    class=\"message-container\"\n    :class=\"{ 'with-controller': showController }\"\n  >\n    <van-pull-refresh\n      v-model=\"isLoading\"\n      success-text=\"刷新成功\"\n      @refresh=\"getUserMessageList('refresh')\"\n      @change=\"onRefreshChange\"\n    >\n      <!-- 下拉提示 -->\n      <template #pulling=\"props\">\n        <van-icon\n          name=\"replay\"\n          size=\"24\"\n          :style=\"{ transform: `rotateZ(${(props.distance / 50) * 360}deg)` }\"\n        />\n      </template>\n\n      <!-- 释放提示 -->\n      <template #loosing=\"props\">\n        <van-icon\n          name=\"replay\"\n          size=\"24\"\n          :style=\"{ transform: `rotateZ(${(props.distance / 50) * 360}deg)` }\"\n        />\n      </template>\n\n      <!-- 加载提示 -->\n      <template #loading>\n        <van-loading size=\"24px\">加载中...</van-loading>\n      </template>\n\n      <van-list\n        v-model:loading=\"listLoading\"\n        :finished=\"finished\"\n        :immediate-check=\"false\"\n        finished-text=\"没有更多了\"\n        @load=\"onLoad\"\n      >\n        <template v-if=\"messageData.length && !isLoading\">\n          <van-swipe-cell\n            v-for=\"(item, index) in messageData\"\n            :key=\"item.id\"\n            :before-close=\"beforeDeleteMessage\"\n          >\n            <div\n              class=\"message-item flex\"\n              :class=\"{ 'message-item-end': index === messageData.length - 1 }\"\n              @click=\"handleClickMessage(item)\"\n            >\n              <i\n                v-if=\"showController\"\n                :class=\"item.checked ? 'radio-checked' : 'item-radio'\"\n              ></i>\n              <!-- <i class=\"message\"></i> -->\n              <img\n                :src=\"iconMessage\"\n                class=\"icon-message\"\n              />\n              <div class=\"item-content\">\n                <div class=\"item-title flex items-center\">\n                  <i\n                    v-if=\"!item.is_read\"\n                    class=\"unread\"\n                  ></i>\n                  <div>{{ item.title }}</div>\n                </div>\n                <div class=\"item-cdesc\">{{ item.cdesc }}</div>\n                <div class=\"item-add_time\">{{ item.add_time }}</div>\n              </div>\n            </div>\n\n            <template #right>\n              <van-button\n                square\n                type=\"danger\"\n                icon=\"delete-o\"\n                @click=\"onDeleteMessage(item.id?.toString() as string)\"\n              />\n            </template>\n          </van-swipe-cell>\n        </template>\n      </van-list>\n\n      <div\n        v-if=\"!messageData.length && !isLoading\"\n        class=\"no-data flex flex-col items-center justify-center\"\n      >\n        <img :src=\"noData\" />\n        <div class=\"text-no-data text-center\">暂无数据</div>\n      </div>\n\n      <!-- <van-loading\n        v-if=\"isLoading\"\n        color=\"#1989fa\"\n        class=\"data-loading flex items-center justify-center\"\n      /> -->\n    </van-pull-refresh>\n  </div>\n\n  <div\n    class=\"btn-controller-container flex items-center justify-center hairline-border\"\n    :class=\"{ 'show-controller': showController }\"\n  >\n    <van-button\n      type=\"primary\"\n      class=\"btn-all-readed\"\n      @click=\"onBtnAllSelect\"\n    >\n      {{ btnAllSelectName }}\n    </van-button>\n    <van-button\n      type=\"primary\"\n      class=\"btn-all-select\"\n      @click=\"onRead\"\n    >\n      已读\n    </van-button>\n    <van-button\n      type=\"primary\"\n      class=\"btn-delete\"\n      @click=\"onDelete\"\n    >\n      删除\n    </van-button>\n  </div>\n\n  <!-- 动作面板 -->\n  <div class=\"confirm-sheet-container\">\n    <van-action-sheet\n      v-model:show=\"showConfirmSheet.value\"\n      :actions=\"actions\"\n      cancel-text=\"取消\"\n      :description=\"description\"\n      close-on-click-action\n      @cancel=\"onCancelConfirmSheet\"\n      :lazy-render=\"false\"\n      class=\"full-w-sheet\"\n    />\n  </div>\n</template>\n\n<script setup lang=\"ts\">\nimport { userMessageDelApi, userMessageDetailsApi, userMessageListApi } from '@/apis/article'\nimport iconMessage from '@/assets/images/common/message-gray.png'\nimport noData from '@/assets/images/common/noData.png'\nimport verified from '@/assets/images/common/verified.png'\nimport { IMessage } from '@/store/types/article'\nimport mitt from '@/utils/mitt'\nimport { showToast } from 'vant'\nimport { Interceptor } from 'vant/es/utils'\nimport { computed, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue'\nimport { useRouter } from 'vue-router'\n\nconst router = useRouter()\n\ntype TMessage = Partial<IMessage>\nconst messageData = ref<TMessage[]>([])\n\n// loading状态\nconst isLoading = ref(false)\n// 底部按钮控制视图\nconst showController = ref(false)\n// 删除按钮禁用状态\nconst isDisabledDelete = ref(true)\n// 删除确认对话框\nconst showConfirmSheet = reactive({ type: 1, value: false })\n// 全选按钮name\nconst btnAllSelectName = ref('全选')\n// 删除目标的ids\nconst _ids = ref('')\n// 当前页数\nconst page = ref(1)\n// 列表内容loading\nconst listLoading = ref(false)\n// 全部内容加载完成\nconst finished = ref(false)\n// 是否正在刷新\nconst isRefreshing = ref(false)\n\nconst onLoad = () => {\n  getUserMessageList('load-more')\n}\n\n// 获取所有ids\nconst getAllMessageIds = (type: string) => {\n  _ids.value = messageData.value.reduce((prev: string, curr: TMessage) => {\n    if (\n      (type === 'checked' && curr.checked) ||\n      (type === 'read' && curr.checked && !curr.is_read)\n    ) {\n      return (prev !== '' ? prev + ',' : '') + (curr.id?.toString() || '')\n    }\n    return prev\n  }, '')\n\n  return _ids.value\n}\n// 删除消息\nconst onDelMessage = async () => {\n  // 由底部删除按钮触发时， 更新所有选中消息的ids\n  if (showConfirmSheet.type === 2) {\n    getAllMessageIds('checked')\n  }\n  const res = await userMessageDelApi({\n    ids: _ids.value\n  })\n\n  if (res) {\n    if (showConfirmSheet.type === 2) {\n      onNavBtnClick()\n    }\n    showToast({\n      message: '删除成功',\n      icon: verified,\n      iconSize: '48px'\n    })\n    messageData.value = messageData.value.filter(item => !_ids.value.includes(item.id!.toString()))\n\n    // 删除完后，重置分页请求\n    if (!messageData.value.length) {\n      page.value = 1\n      getUserMessageList()\n    }\n  }\n}\n\n// 删除确认对话框选项\nconst actions = [{ name: '确认', callback: onDelMessage }]\nconst onCancelConfirmSheet = () => {\n  _ids.value = ''\n}\n\nconst onRefreshChange = ({ status, distance }: { status: string; distance: number }) => {\n  // window.log('下拉信息', status, distance)\n}\n\n// 获取站内通知——消息列表\nconst getUserMessageList = async (type = '') => {\n  try {\n    if (isRefreshing.value) return\n\n    // 刷新重置页数\n    if (type === 'refresh') {\n      page.value = 1\n      isLoading.value = true\n      isRefreshing.value = true\n    } else if (type === 'load-more') {\n      listLoading.value = page.value !== 1 && !!messageData.value.length\n    } else {\n      isLoading.value = true\n    }\n\n    finished.value = false\n\n    const res = await userMessageListApi({ page: page.value, limit: 10 })\n\n    if (!res.count) {\n      messageData.value = []\n      return\n    }\n\n    // messageData.value.forEach(item => (item.checked = 0))\n    const list = res.list.map(item => {\n      item.checked = 0\n      return item\n    })\n\n    if (type === 'refresh') {\n      messageData.value = list\n    } else {\n      messageData.value.push(...list)\n    }\n\n    if (messageData.value.length < res.count) {\n      page.value++\n    }\n    if (messageData.value.length === res.count) {\n      finished.value = true\n    }\n\n    window.log('消息列表', res)\n  } catch (error) {\n    console.error(error)\n  } finally {\n    isLoading.value = false\n    listLoading.value = false\n    isRefreshing.value = false\n  }\n}\n\n// 是否存在未读消息\nconst hasUnread = computed(() => messageData.value.some(item => !item.is_read))\n// navBar右侧文字\nconst navBarRightText = computed(() => {\n  return showController.value ? '完成' : '操作'\n})\n// 是否已全选\nconst isAllChecked = computed(() => messageData.value.every(item => item.checked))\n// 是否有选中\nconst isSomeChecked = computed(() => messageData.value.some(item => item.checked))\n\nconst onNavBtnClick = () => {\n  if (!messageData.value.length) return\n\n  if (!isDisabledDelete.value) {\n    messageData.value.forEach(item => (item.checked = 0))\n    showController.value = false\n  } else {\n    showController.value = !showController.value\n  }\n}\n// 进入消息详情页\nconst handleClickMessage = (item: TMessage) => {\n  if (showController.value) {\n    item.checked = item.checked === 1 ? 0 : 1\n    return\n  }\n  router.push(`/details/message/${item.id}`)\n}\n\nconst description = ref('您确定要删除这些信息吗？')\n// 左滑删除按钮点击\nconst onDeleteMessage = (ids: string) => {\n  description.value = '您要删除此消息吗？'\n  _ids.value = ids\n}\n\n// position 为关闭时点击的位置\nlet confirmSheetTimer: NodeJS.Timer | undefined\nconst beforeDeleteMessage: Interceptor = ({ position }) => {\n  switch (position) {\n    case 'cell':\n      return true\n    case 'outside':\n      return !showConfirmSheet.value\n    case 'right':\n      return new Promise<boolean>(resolve => {\n        showConfirmSheet.type = 1\n        showConfirmSheet.value = true\n\n        const doCheckConfirmSheet = () => {\n          if (showConfirmSheet.value) {\n            confirmSheetTimer && clearTimeout(confirmSheetTimer)\n            confirmSheetTimer = setTimeout(doCheckConfirmSheet, 0)\n          } else {\n            resolve(true)\n          }\n        }\n        doCheckConfirmSheet()\n      })\n  }\n}\n\n// 已读\nconst onRead = async () => {\n  try {\n    if (!hasUnread.value || !isSomeChecked.value) return\n\n    if (!getAllMessageIds('read')) {\n      getUserMessageList()\n      showController.value = false\n      return\n    }\n\n    const res = await userMessageDetailsApi({\n      ids: _ids.value\n    })\n\n    if (res) {\n      showController.value = false\n      // 去除未读标识\n      messageData.value.forEach(item => {\n        if (_ids.value.includes(item.id!.toString())) {\n          item.is_read = 1\n        }\n      })\n    }\n\n    window.log('全部已读', res)\n  } catch (error) {\n    console.error(error)\n  }\n}\n// 全选按钮点击 全选切换\nconst onBtnAllSelect = () => {\n  if (isAllChecked.value) {\n    messageData.value.forEach(item => (item.checked = 0))\n  } else {\n    messageData.value.forEach(item => (item.checked = 1))\n  }\n}\n// 底部删除按钮点击\nconst onDelete = () => {\n  if (isDisabledDelete.value) return\n\n  description.value = '您确定要删除这些信息吗？'\n  showConfirmSheet.type = 2\n  showConfirmSheet.value = true\n}\n\n// 选择状态改变时，更新相应按钮状态\nwatch(\n  messageData,\n  (value, oldValue) => {\n    let checkedNum = 0\n    messageData.value.forEach(item => {\n      if (item.checked) {\n        checkedNum++\n      }\n    })\n    // 删除按钮状态\n    isDisabledDelete.value = !checkedNum\n    // 全选按钮文字切换\n    btnAllSelectName.value = checkedNum === messageData.value.length ? '取消全选' : '全选'\n  },\n  {\n    deep: true\n  }\n)\n\nonMounted(() => {\n  getUserMessageList()\n  mitt.emit('action-sheet-show')\n})\n\nonBeforeUnmount(() => {\n  confirmSheetTimer && clearTimeout(confirmSheetTimer)\n})\n</script>\n\n<style lang=\"scss\" scoped>\n@import '@/assets/styles/sprite-home.scss';\n\n:deep(.van-nav-bar) {\n  .van-nav-bar__right {\n    top: 95px;\n    height: 50px;\n    padding-right: 40px;\n  }\n  .btn-text {\n    font-size: 33px;\n    color: var(--van-button-primary-background);\n  }\n}\n\n.message-container {\n  width: 100%;\n  height: calc(100% - 100px);\n  padding: 50px 0 20px 0;\n  background-color: #fff;\n  &.with-controller {\n    padding-bottom: 174px;\n  }\n  :deep(.van-pull-refresh) {\n    overflow: auto;\n  }\n  .item-radio {\n    flex: 0 0 29px;\n    height: 29px;\n    margin: 23px 20px 0 0;\n    border-radius: 15px;\n    border: solid 3px #868d9a;\n  }\n  .radio-checked {\n    $raido-scale: calc(29 / 35);\n    flex: 0 0 29px;\n    --sprite-home-background-size: calc(108px * 7 / 10 * #{$raido-scale})\n      calc(730px * 7 / 10 * #{$raido-scale});\n    // height: 29px;\n    // margin: calc(29 / 35 * 23px) calc(29 / 35 * 20px) 0 0;\n    background: url($spriteHome) -0 calc(-282px * $sprite-computed-factor * $raido-scale) no-repeat;\n    width: calc(50px * $sprite-computed-factor * $raido-scale);\n    height: calc(50px * $sprite-computed-factor * $raido-scale);\n    background-size: var(--sprite-home-background-size);\n    margin: 23px 20px 0 0;\n    // transform: scale(calc(29 / 35));\n  }\n  .message {\n    background: url($spriteHome) 0px calc(-120px * $sprite-computed-factor) no-repeat,\n      linear-gradient(to bottom, #999, orange);\n    background-blend-mode: soft-light;\n    background-size: var(--sprite-home-background-size);\n    margin: 20px 13px 0 0;\n    flex: 0 0 calc(54px * $sprite-computed-factor);\n  }\n  .icon-message {\n    width: 38px;\n    height: 38px;\n    margin: 20px 13px 0 0;\n  }\n  .message-item {\n    margin-bottom: 40px;\n    padding: 0 32px;\n    &.message-item-end {\n      margin-bottom: 0;\n    }\n    .unread {\n      flex: 0 0 14px;\n      width: 14px;\n      height: 14px;\n      margin-right: 3px;\n      background-color: #ff0020;\n      border-radius: 50%;\n    }\n  }\n  .item-title {\n    font-size: 28px;\n  }\n  .item-cdesc {\n    font-size: 22px;\n    color: #787f8c;\n  }\n  .item-add_time {\n    margin-top: 14px;\n    font-size: 22px;\n    color: #787f8c;\n  }\n\n  .no-data {\n    position: absolute;\n    left: 50%;\n    top: 35%;\n    transform: translate3d(-50%, -50%, 0);\n    img {\n      width: 240px;\n    }\n    .text-no-data {\n      width: 100%;\n      margin-bottom: 22px;\n      font-size: 18px;\n    }\n  }\n\n  .data-loading {\n    position: absolute;\n    top: 35%;\n    left: 50%;\n    transform: translate3d(-50%, -50%, 0);\n  }\n\n  :deep(.van-swipe-cell__wrapper) {\n    .van-button {\n      width: 180px;\n      height: 100%;\n    }\n    .van-button__icon {\n      font-size: 46px;\n    }\n  }\n}\n\n.btn-controller-container {\n  position: fixed;\n  bottom: -100%;\n  width: 100%;\n  max-width: 10rem;\n  height: 174px;\n  background-color: #fff;\n  transition: bottom 0.5s ease-in;\n  will-change: auto;\n  &.show-controller {\n    bottom: 0;\n  }\n  &.hairline-border::after {\n    border-width: 0 !important;\n    // border-top-width: 1px !important;\n  }\n\n  :deep(.van-button) {\n    width: 205px;\n    height: 80px;\n    font-size: 31px;\n    border-radius: 7px;\n    &.btn-all-select {\n      margin: 0 17px 0 17px;\n    }\n    &.van-button--disabled {\n      opacity: 1;\n      background-color: #828282;\n      border-color: #828282;\n    }\n  }\n}\n\n.confirm-sheet-container {\n  :deep(.van-action-sheet) {\n    .van-action-sheet__description {\n      height: 92px;\n      line-height: 92px;\n      padding: 0;\n      font-size: 25px;\n      color: #787f8c;\n      &::after {\n        height: 1px;\n        background-image: linear-gradient(#e1e1e1, #e1e1e1), linear-gradient(#d6dce8, #d6dce8);\n        border: 0;\n        transform: scaleY(1);\n        left: 0;\n        right: 0;\n      }\n    }\n    .van-action-sheet__item {\n      height: 92px;\n      font-size: 31px;\n      font-weight: bold;\n      color: var(--van-button-primary-background);\n    }\n    .van-action-sheet__gap {\n      height: 1px;\n      background: unset;\n      background-image: linear-gradient(#e1e1e1, #e1e1e1), linear-gradient(#d6dce8, #d6dce8);\n    }\n    .van-action-sheet__cancel {\n      height: 138px;\n      font-size: 31px;\n      font-weight: bold;\n      color: #13161b;\n    }\n  }\n}\n</style>\n",
+      "start": 1714699769224,
+      "end": 1714699769294,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769294,
+      "end": 1714699769294,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769294,
+      "end": 1714699769294,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769294,
+      "end": 1714699769294,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769294,
+      "end": 1714699769294,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/message.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/message.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/message.vue?vue&type=style&index=0&scoped=9949fade&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-9949fade\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/message.vue\"]]);\n",
+      "start": 1714699769294,
+      "end": 1714699769534,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769534,
+      "end": 1714699769534,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/message.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/message.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/message.vue?vue&type=style&index=0&scoped=9949fade&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-9949fade\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/message.vue\"]]);\n",
+      "start": 1714699769534,
+      "end": 1714699769534,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/message.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/message.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/message.vue?vue&type=style&index=0&scoped=9949fade&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-9949fade\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/message.vue\"]]);\n",
+      "start": 1714699769534,
+      "end": 1714699769694,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/message.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/message.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/message.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/message.vue?vue&type=style&index=0&scoped=9949fade&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-9949fade\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/message.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,kEAAkE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769694,
+      "end": 1714699769694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769694,
+      "end": 1714699769694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769695,
+      "end": 1714699769695,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769695,
+      "end": 1714699769695,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769695,
+      "end": 1714699769695,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769695,
+      "end": 1714699769695,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769695,
+      "end": 1714699769695,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769695,
+      "end": 1714699769695,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769695,
+      "end": 1714699769695,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/message.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/message.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/message.vue?vue&type=style&index=0&scoped=9949fade&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-9949fade\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/message.vue\"]]);\n",
+      "start": 1714699769695,
+      "end": 1714699769695,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/message.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/message.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/message.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/message.vue?vue&type=style&index=0&scoped=9949fade&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-9949fade\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/message.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769695,
+      "end": 1714699769695,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769695,
+      "end": 1714699769695,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769695,
+      "end": 1714699769695,
+      "order": "normal"
+    }
+  ]
+}

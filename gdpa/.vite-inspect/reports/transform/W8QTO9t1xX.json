@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/submit-bar/SubmitBar.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { ref, defineComponent } from \"vue\";\nimport { truthProp, makeStringProp, makeNumericProp, createNamespace } from \"../utils/index.mjs\";\nimport { Icon } from \"../icon/index.mjs\";\nimport { Button } from \"../button/index.mjs\";\nimport { usePlaceholder } from \"../composables/use-placeholder.mjs\";\nconst [name, bem, t] = createNamespace(\"submit-bar\");\nconst submitBarProps = {\n  tip: String,\n  label: String,\n  price: Number,\n  tipIcon: String,\n  loading: Boolean,\n  currency: makeStringProp(\"\\xA5\"),\n  disabled: Boolean,\n  textAlign: String,\n  buttonText: String,\n  buttonType: makeStringProp(\"danger\"),\n  buttonColor: String,\n  suffixLabel: String,\n  placeholder: Boolean,\n  decimalLength: makeNumericProp(2),\n  safeAreaInsetBottom: truthProp\n};\nvar stdin_default = defineComponent({\n  name,\n  props: submitBarProps,\n  emits: [\"submit\"],\n  setup(props, {\n    emit,\n    slots\n  }) {\n    const root = ref();\n    const renderPlaceholder = usePlaceholder(root, bem);\n    const renderText = () => {\n      const {\n        price,\n        label,\n        currency,\n        textAlign,\n        suffixLabel,\n        decimalLength\n      } = props;\n      if (typeof price === \"number\") {\n        const pricePair = (price / 100).toFixed(+decimalLength).split(\".\");\n        const decimal = decimalLength ? `.${pricePair[1]}` : \"\";\n        return _createVNode(\"div\", {\n          \"class\": bem(\"text\"),\n          \"style\": {\n            textAlign\n          }\n        }, [_createVNode(\"span\", null, [label || t(\"label\")]), _createVNode(\"span\", {\n          \"class\": bem(\"price\")\n        }, [currency, _createVNode(\"span\", {\n          \"class\": bem(\"price-integer\")\n        }, [pricePair[0]]), decimal]), suffixLabel && _createVNode(\"span\", {\n          \"class\": bem(\"suffix-label\")\n        }, [suffixLabel])]);\n      }\n    };\n    const renderTip = () => {\n      var _a;\n      const {\n        tip,\n        tipIcon\n      } = props;\n      if (slots.tip || tip) {\n        return _createVNode(\"div\", {\n          \"class\": bem(\"tip\")\n        }, [tipIcon && _createVNode(Icon, {\n          \"class\": bem(\"tip-icon\"),\n          \"name\": tipIcon\n        }, null), tip && _createVNode(\"span\", {\n          \"class\": bem(\"tip-text\")\n        }, [tip]), (_a = slots.tip) == null ? void 0 : _a.call(slots)]);\n      }\n    };\n    const onClickButton = () => emit(\"submit\");\n    const renderButton = () => {\n      if (slots.button) {\n        return slots.button();\n      }\n      return _createVNode(Button, {\n        \"round\": true,\n        \"type\": props.buttonType,\n        \"text\": props.buttonText,\n        \"class\": bem(\"button\", props.buttonType),\n        \"color\": props.buttonColor,\n        \"loading\": props.loading,\n        \"disabled\": props.disabled,\n        \"onClick\": onClickButton\n      }, null);\n    };\n    const renderSubmitBar = () => {\n      var _a, _b;\n      return _createVNode(\"div\", {\n        \"ref\": root,\n        \"class\": [bem(), {\n          \"van-safe-area-bottom\": props.safeAreaInsetBottom\n        }]\n      }, [(_a = slots.top) == null ? void 0 : _a.call(slots), renderTip(), _createVNode(\"div\", {\n        \"class\": bem(\"bar\")\n      }, [(_b = slots.default) == null ? void 0 : _b.call(slots), renderText(), renderButton()])]);\n    };\n    return () => {\n      if (props.placeholder) {\n        return renderPlaceholder(renderSubmitBar);\n      }\n      return renderSubmitBar();\n    };\n  }\n});\nexport {\n  stdin_default as default,\n  submitBarProps\n};\n",
+      "start": 1714699767503,
+      "end": 1714699767512,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767512,
+      "end": 1714699767512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767512,
+      "end": 1714699767512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767512,
+      "end": 1714699767512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767512,
+      "end": 1714699767512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767513,
+      "end": 1714699767513,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767513,
+      "end": 1714699767513,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { ref, defineComponent } from \"vue\";\nimport { truthProp, makeStringProp, makeNumericProp, createNamespace } from \"../utils/index.mjs\";\nimport { Icon } from \"../icon/index.mjs\";\nimport { Button } from \"../button/index.mjs\";\nimport { usePlaceholder } from \"../composables/use-placeholder.mjs\";\nconst [name, bem, t] = createNamespace(\"submit-bar\");\nconst submitBarProps = {\n  tip: String,\n  label: String,\n  price: Number,\n  tipIcon: String,\n  loading: Boolean,\n  currency: makeStringProp(\"\\xA5\"),\n  disabled: Boolean,\n  textAlign: String,\n  buttonText: String,\n  buttonType: makeStringProp(\"danger\"),\n  buttonColor: String,\n  suffixLabel: String,\n  placeholder: Boolean,\n  decimalLength: makeNumericProp(2),\n  safeAreaInsetBottom: truthProp\n};\nvar stdin_default = defineComponent({\n  name,\n  props: submitBarProps,\n  emits: [\"submit\"],\n  setup(props, {\n    emit,\n    slots\n  }) {\n    const root = ref();\n    const renderPlaceholder = usePlaceholder(root, bem);\n    const renderText = () => {\n      const {\n        price,\n        label,\n        currency,\n        textAlign,\n        suffixLabel,\n        decimalLength\n      } = props;\n      if (typeof price === \"number\") {\n        const pricePair = (price / 100).toFixed(+decimalLength).split(\".\");\n        const decimal = decimalLength ? `.${pricePair[1]}` : \"\";\n        return _createVNode(\"div\", {\n          \"class\": bem(\"text\"),\n          \"style\": {\n            textAlign\n          }\n        }, [_createVNode(\"span\", null, [label || t(\"label\")]), _createVNode(\"span\", {\n          \"class\": bem(\"price\")\n        }, [currency, _createVNode(\"span\", {\n          \"class\": bem(\"price-integer\")\n        }, [pricePair[0]]), decimal]), suffixLabel && _createVNode(\"span\", {\n          \"class\": bem(\"suffix-label\")\n        }, [suffixLabel])]);\n      }\n    };\n    const renderTip = () => {\n      var _a;\n      const {\n        tip,\n        tipIcon\n      } = props;\n      if (slots.tip || tip) {\n        return _createVNode(\"div\", {\n          \"class\": bem(\"tip\")\n        }, [tipIcon && _createVNode(Icon, {\n          \"class\": bem(\"tip-icon\"),\n          \"name\": tipIcon\n        }, null), tip && _createVNode(\"span\", {\n          \"class\": bem(\"tip-text\")\n        }, [tip]), (_a = slots.tip) == null ? void 0 : _a.call(slots)]);\n      }\n    };\n    const onClickButton = () => emit(\"submit\");\n    const renderButton = () => {\n      if (slots.button) {\n        return slots.button();\n      }\n      return _createVNode(Button, {\n        \"round\": true,\n        \"type\": props.buttonType,\n        \"text\": props.buttonText,\n        \"class\": bem(\"button\", props.buttonType),\n        \"color\": props.buttonColor,\n        \"loading\": props.loading,\n        \"disabled\": props.disabled,\n        \"onClick\": onClickButton\n      }, null);\n    };\n    const renderSubmitBar = () => {\n      var _a, _b;\n      return _createVNode(\"div\", {\n        \"ref\": root,\n        \"class\": [bem(), {\n          \"van-safe-area-bottom\": props.safeAreaInsetBottom\n        }]\n      }, [(_a = slots.top) == null ? void 0 : _a.call(slots), renderTip(), _createVNode(\"div\", {\n        \"class\": bem(\"bar\")\n      }, [(_b = slots.default) == null ? void 0 : _b.call(slots), renderText(), renderButton()])]);\n    };\n    return () => {\n      if (props.placeholder) {\n        return renderPlaceholder(renderSubmitBar);\n      }\n      return renderSubmitBar();\n    };\n  }\n});\nexport {\n  stdin_default as default,\n  submitBarProps\n};\n",
+      "start": 1714699767513,
+      "end": 1714699767513,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767513,
+      "end": 1714699767513,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767513,
+      "end": 1714699767513,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767513,
+      "end": 1714699767513,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767513,
+      "end": 1714699767513,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767513,
+      "end": 1714699767513,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767513,
+      "end": 1714699767513,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767513,
+      "end": 1714699767513,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767513,
+      "end": 1714699767513,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767513,
+      "end": 1714699767513,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767513,
+      "end": 1714699767513,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767513,
+      "end": 1714699767513,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767513,
+      "end": 1714699767513,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767513,
+      "end": 1714699767513,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767513,
+      "end": 1714699767513,
+      "order": "normal"
+    }
+  ]
+}

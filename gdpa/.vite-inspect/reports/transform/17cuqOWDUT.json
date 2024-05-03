@@ -1,0 +1,156 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/router/module/details.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "const details = [\n  {\n    path: '/details',\n    name: 'Details',\n    component: () => import(/* webpackChunkName: \"auth\" */ '@/pages/Details/index.vue'),\n    children: [\n      {\n        path: 'funding-details',\n        name: 'FundingDetails',\n        component: () => import(/* webpackChunkName: \"auth\" */ '@/pages/Details/FundingDetails.vue')\n      },\n      {\n        path: 'coin-details/:type',\n        name: 'CoinDetails',\n        component: () => import(/* webpackChunkName: \"auth\" */ '@/pages/Details/CoinDetails.vue')\n      },\n      {\n        path: 'message/:id',\n        name: 'MessageDetail',\n        component: () => import(/* webpackChunkName: \"auth\" */ '@/pages/Details/Message.vue')\n      }\n    ]\n  }\n]\n\nexport default details\n",
+      "start": 1714699767923,
+      "end": 1714699768001,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768001,
+      "end": 1714699768001,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "const details = [\n  {\n    path: \"/details\",\n    name: \"Details\",\n    component: () => import(\n      /* webpackChunkName: \"auth\" */\n      \"@/pages/Details/index.vue\"\n    ),\n    children: [\n      {\n        path: \"funding-details\",\n        name: \"FundingDetails\",\n        component: () => import(\n          /* webpackChunkName: \"auth\" */\n          \"@/pages/Details/FundingDetails.vue\"\n        )\n      },\n      {\n        path: \"coin-details/:type\",\n        name: \"CoinDetails\",\n        component: () => import(\n          /* webpackChunkName: \"auth\" */\n          \"@/pages/Details/CoinDetails.vue\"\n        )\n      },\n      {\n        path: \"message/:id\",\n        name: \"MessageDetail\",\n        component: () => import(\n          /* webpackChunkName: \"auth\" */\n          \"@/pages/Details/Message.vue\"\n        )\n      }\n    ]\n  }\n];\nexport default details;\n",
+      "start": 1714699768001,
+      "end": 1714699769054,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/router/module/details.ts"
+        ],
+        "sourcesContent": [
+          "const details = [\n  {\n    path: '/details',\n    name: 'Details',\n    component: () => import(/* webpackChunkName: \"auth\" */ '@/pages/Details/index.vue'),\n    children: [\n      {\n        path: 'funding-details',\n        name: 'FundingDetails',\n        component: () => import(/* webpackChunkName: \"auth\" */ '@/pages/Details/FundingDetails.vue')\n      },\n      {\n        path: 'coin-details/:type',\n        name: 'CoinDetails',\n        component: () => import(/* webpackChunkName: \"auth\" */ '@/pages/Details/CoinDetails.vue')\n      },\n      {\n        path: 'message/:id',\n        name: 'MessageDetail',\n        component: () => import(/* webpackChunkName: \"auth\" */ '@/pages/Details/Message.vue')\n      }\n    ]\n  }\n]\n\nexport default details\n"
+        ],
+        "mappings": "AAAA,MAAM,UAAU;AAAA,EACd;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MAAM;AAAA;AAAA,MAAsC;AAAA,IAA2B;AAAA,IAClF,UAAU;AAAA,MACR;AAAA,QACE,MAAM;AAAA,QACN,MAAM;AAAA,QACN,WAAW,MAAM;AAAA;AAAA,UAAsC;AAAA,QAAoC;AAAA,MAC7F;AAAA,MACA;AAAA,QACE,MAAM;AAAA,QACN,MAAM;AAAA,QACN,WAAW,MAAM;AAAA;AAAA,UAAsC;AAAA,QAAiC;AAAA,MAC1F;AAAA,MACA;AAAA,QACE,MAAM;AAAA,QACN,MAAM;AAAA,QACN,WAAW,MAAM;AAAA;AAAA,UAAsC;AAAA,QAA6B;AAAA,MACtF;AAAA,IACF;AAAA,EACF;AACF;AAEA,eAAe;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769054,
+      "end": 1714699769054,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769054,
+      "end": 1714699769054,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699769054,
+      "end": 1714699769054,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769054,
+      "end": 1714699769054,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "const details = [\n  {\n    path: \"/details\",\n    name: \"Details\",\n    component: () => import(\n      /* webpackChunkName: \"auth\" */\n      \"@/pages/Details/index.vue\"\n    ),\n    children: [\n      {\n        path: \"funding-details\",\n        name: \"FundingDetails\",\n        component: () => import(\n          /* webpackChunkName: \"auth\" */\n          \"@/pages/Details/FundingDetails.vue\"\n        )\n      },\n      {\n        path: \"coin-details/:type\",\n        name: \"CoinDetails\",\n        component: () => import(\n          /* webpackChunkName: \"auth\" */\n          \"@/pages/Details/CoinDetails.vue\"\n        )\n      },\n      {\n        path: \"message/:id\",\n        name: \"MessageDetail\",\n        component: () => import(\n          /* webpackChunkName: \"auth\" */\n          \"@/pages/Details/Message.vue\"\n        )\n      }\n    ]\n  }\n];\nexport default details;\n",
+      "start": 1714699769054,
+      "end": 1714699769054,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nconst details = [\n  {\n    path: \"/details\",\n    name: \"Details\",\n    component: () => import(\n      /* webpackChunkName: \"auth\" */\n      \"@/pages/Details/index.vue\"\n    ),\n    children: [\n      {\n        path: \"funding-details\",\n        name: \"FundingDetails\",\n        component: () => import(\n          /* webpackChunkName: \"auth\" */\n          \"@/pages/Details/FundingDetails.vue\"\n        )\n      },\n      {\n        path: \"coin-details/:type\",\n        name: \"CoinDetails\",\n        component: () => import(\n          /* webpackChunkName: \"auth\" */\n          \"@/pages/Details/CoinDetails.vue\"\n        )\n      },\n      {\n        path: \"message/:id\",\n        name: \"MessageDetail\",\n        component: () => import(\n          /* webpackChunkName: \"auth\" */\n          \"@/pages/Details/Message.vue\"\n        )\n      }\n    ]\n  }\n];\nexport default details;\n",
+      "start": 1714699769054,
+      "end": 1714699769100,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/router/module/details.ts\"],\n  \"sourcesContent\": [\"const details = [\\n  {\\n    path: \\\"/details\\\",\\n    name: \\\"Details\\\",\\n    component: () => import(\\n      /* webpackChunkName: \\\"auth\\\" */\\n      \\\"@/pages/Details/index.vue\\\"\\n    ),\\n    children: [\\n      {\\n        path: \\\"funding-details\\\",\\n        name: \\\"FundingDetails\\\",\\n        component: () => import(\\n          /* webpackChunkName: \\\"auth\\\" */\\n          \\\"@/pages/Details/FundingDetails.vue\\\"\\n        )\\n      },\\n      {\\n        path: \\\"coin-details/:type\\\",\\n        name: \\\"CoinDetails\\\",\\n        component: () => import(\\n          /* webpackChunkName: \\\"auth\\\" */\\n          \\\"@/pages/Details/CoinDetails.vue\\\"\\n        )\\n      },\\n      {\\n        path: \\\"message/:id\\\",\\n        name: \\\"MessageDetail\\\",\\n        component: () => import(\\n          /* webpackChunkName: \\\"auth\\\" */\\n          \\\"@/pages/Details/Message.vue\\\"\\n        )\\n      }\\n    ]\\n  }\\n];\\nexport default details;\\n\"],\n  \"mappings\": \";AAAA,MAAM,UAAU;AAAA,EACd;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MAAM;AAAA;AAAA,MAEf;AAAA,IACF;AAAA,IACA,UAAU;AAAA,MACR;AAAA,QACE,MAAM;AAAA,QACN,MAAM;AAAA,QACN,WAAW,MAAM;AAAA;AAAA,UAEf;AAAA,QACF;AAAA,MACF;AAAA,MACA;AAAA,QACE,MAAM;AAAA,QACN,MAAM;AAAA,QACN,WAAW,MAAM;AAAA;AAAA,UAEf;AAAA,QACF;AAAA,MACF;AAAA,MACA;AAAA,QACE,MAAM;AAAA,QACN,MAAM;AAAA,QACN,WAAW,MAAM;AAAA;AAAA,UAEf;AAAA,QACF;AAAA,MACF;AAAA,IACF;AAAA,EACF;AACF;AACA,eAAe;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769100,
+      "end": 1714699769100,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769100,
+      "end": 1714699769100,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769100,
+      "end": 1714699769100,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769100,
+      "end": 1714699769100,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769100,
+      "end": 1714699769100,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769100,
+      "end": 1714699769100,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769100,
+      "end": 1714699769100,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769101,
+      "end": 1714699769101,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769101,
+      "end": 1714699769101,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699769101,
+      "end": 1714699769101,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769101,
+      "end": 1714699769101,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "result": "import { __vitePreload } from \"\u0000vite/preload-helper.js\";\"use strict\";\nconst details = [\n  {\n    path: \"/details\",\n    name: \"Details\",\n    component: () => __vitePreload(() => import(\n      /* webpackChunkName: \"auth\" */\n      \"@/pages/Details/index.vue\"\n    ),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url),\n    children: [\n      {\n        path: \"funding-details\",\n        name: \"FundingDetails\",\n        component: () => __vitePreload(() => import(\n          /* webpackChunkName: \"auth\" */\n          \"@/pages/Details/FundingDetails.vue\"\n        ),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url)\n      },\n      {\n        path: \"coin-details/:type\",\n        name: \"CoinDetails\",\n        component: () => __vitePreload(() => import(\n          /* webpackChunkName: \"auth\" */\n          \"@/pages/Details/CoinDetails.vue\"\n        ),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url)\n      },\n      {\n        path: \"message/:id\",\n        name: \"MessageDetail\",\n        component: () => __vitePreload(() => import(\n          /* webpackChunkName: \"auth\" */\n          \"@/pages/Details/Message.vue\"\n        ),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url)\n      }\n    ]\n  }\n];\nexport default details;\n",
+      "start": 1714699769101,
+      "end": 1714699769101,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769101,
+      "end": 1714699769101,
+      "order": "normal"
+    }
+  ]
+}

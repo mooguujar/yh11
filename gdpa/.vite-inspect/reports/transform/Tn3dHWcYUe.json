@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/cloneDeepWith.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import baseClone from './_baseClone.js';\n\n/** Used to compose bitmasks for cloning. */\nvar CLONE_DEEP_FLAG = 1,\n    CLONE_SYMBOLS_FLAG = 4;\n\n/**\n * This method is like `_.cloneWith` except that it recursively clones `value`.\n *\n * @static\n * @memberOf _\n * @since 4.0.0\n * @category Lang\n * @param {*} value The value to recursively clone.\n * @param {Function} [customizer] The function to customize cloning.\n * @returns {*} Returns the deep cloned value.\n * @see _.cloneWith\n * @example\n *\n * function customizer(value) {\n *   if (_.isElement(value)) {\n *     return value.cloneNode(true);\n *   }\n * }\n *\n * var el = _.cloneDeepWith(document.body, customizer);\n *\n * console.log(el === document.body);\n * // => false\n * console.log(el.nodeName);\n * // => 'BODY'\n * console.log(el.childNodes.length);\n * // => 20\n */\nfunction cloneDeepWith(value, customizer) {\n  customizer = typeof customizer == 'function' ? customizer : undefined;\n  return baseClone(value, CLONE_DEEP_FLAG | CLONE_SYMBOLS_FLAG, customizer);\n}\n\nexport default cloneDeepWith;\n",
+      "start": 1714699768310,
+      "end": 1714699768324,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768324,
+      "end": 1714699768324,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768324,
+      "end": 1714699768324,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768324,
+      "end": 1714699768324,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768324,
+      "end": 1714699768324,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768324,
+      "end": 1714699768324,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768324,
+      "end": 1714699768324,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import baseClone from './_baseClone.js';\n\n/** Used to compose bitmasks for cloning. */\nvar CLONE_DEEP_FLAG = 1,\n    CLONE_SYMBOLS_FLAG = 4;\n\n/**\n * This method is like `_.cloneWith` except that it recursively clones `value`.\n *\n * @static\n * @memberOf _\n * @since 4.0.0\n * @category Lang\n * @param {*} value The value to recursively clone.\n * @param {Function} [customizer] The function to customize cloning.\n * @returns {*} Returns the deep cloned value.\n * @see _.cloneWith\n * @example\n *\n * function customizer(value) {\n *   if (_.isElement(value)) {\n *     return value.cloneNode(true);\n *   }\n * }\n *\n * var el = _.cloneDeepWith(document.body, customizer);\n *\n * console.log(el === document.body);\n * // => false\n * console.log(el.nodeName);\n * // => 'BODY'\n * console.log(el.childNodes.length);\n * // => 20\n */\nfunction cloneDeepWith(value, customizer) {\n  customizer = typeof customizer == 'function' ? customizer : undefined;\n  return baseClone(value, CLONE_DEEP_FLAG | CLONE_SYMBOLS_FLAG, customizer);\n}\n\nexport default cloneDeepWith;\n",
+      "start": 1714699768324,
+      "end": 1714699768324,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768324,
+      "end": 1714699768324,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768324,
+      "end": 1714699768324,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768324,
+      "end": 1714699768324,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768324,
+      "end": 1714699768324,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768324,
+      "end": 1714699768324,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768324,
+      "end": 1714699768324,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768324,
+      "end": 1714699768324,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768324,
+      "end": 1714699768324,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768324,
+      "end": 1714699768324,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768324,
+      "end": 1714699768324,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768324,
+      "end": 1714699768324,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768324,
+      "end": 1714699768324,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768324,
+      "end": 1714699768324,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768324,
+      "end": 1714699768324,
+      "order": "normal"
+    }
+  ]
+}

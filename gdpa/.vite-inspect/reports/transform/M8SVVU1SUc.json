@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/bit-matrix.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "/**\n * Helper class to handle QR Code symbol modules\n *\n * @param {Number} size Symbol size\n */\nfunction BitMatrix (size) {\n  if (!size || size < 1) {\n    throw new Error('BitMatrix size must be defined and greater than 0')\n  }\n\n  this.size = size\n  this.data = new Uint8Array(size * size)\n  this.reservedBit = new Uint8Array(size * size)\n}\n\n/**\n * Set bit value at specified location\n * If reserved flag is set, this bit will be ignored during masking process\n *\n * @param {Number}  row\n * @param {Number}  col\n * @param {Boolean} value\n * @param {Boolean} reserved\n */\nBitMatrix.prototype.set = function (row, col, value, reserved) {\n  const index = row * this.size + col\n  this.data[index] = value\n  if (reserved) this.reservedBit[index] = true\n}\n\n/**\n * Returns bit value at specified location\n *\n * @param  {Number}  row\n * @param  {Number}  col\n * @return {Boolean}\n */\nBitMatrix.prototype.get = function (row, col) {\n  return this.data[row * this.size + col]\n}\n\n/**\n * Applies xor operator at specified location\n * (used during masking process)\n *\n * @param {Number}  row\n * @param {Number}  col\n * @param {Boolean} value\n */\nBitMatrix.prototype.xor = function (row, col, value) {\n  this.data[row * this.size + col] ^= value\n}\n\n/**\n * Check if bit at specified location is reserved\n *\n * @param {Number}   row\n * @param {Number}   col\n * @return {Boolean}\n */\nBitMatrix.prototype.isReserved = function (row, col) {\n  return this.reservedBit[row * this.size + col]\n}\n\nmodule.exports = BitMatrix\n",
+      "start": 1714699771036,
+      "end": 1714699771055,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771055,
+      "end": 1714699771055,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771055,
+      "end": 1714699771055,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771055,
+      "end": 1714699771055,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771055,
+      "end": 1714699771055,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771055,
+      "end": 1714699771055,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771055,
+      "end": 1714699771055,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "/**\n * Helper class to handle QR Code symbol modules\n *\n * @param {Number} size Symbol size\n */\nfunction BitMatrix (size) {\n  if (!size || size < 1) {\n    throw new Error('BitMatrix size must be defined and greater than 0')\n  }\n\n  this.size = size\n  this.data = new Uint8Array(size * size)\n  this.reservedBit = new Uint8Array(size * size)\n}\n\n/**\n * Set bit value at specified location\n * If reserved flag is set, this bit will be ignored during masking process\n *\n * @param {Number}  row\n * @param {Number}  col\n * @param {Boolean} value\n * @param {Boolean} reserved\n */\nBitMatrix.prototype.set = function (row, col, value, reserved) {\n  const index = row * this.size + col\n  this.data[index] = value\n  if (reserved) this.reservedBit[index] = true\n}\n\n/**\n * Returns bit value at specified location\n *\n * @param  {Number}  row\n * @param  {Number}  col\n * @return {Boolean}\n */\nBitMatrix.prototype.get = function (row, col) {\n  return this.data[row * this.size + col]\n}\n\n/**\n * Applies xor operator at specified location\n * (used during masking process)\n *\n * @param {Number}  row\n * @param {Number}  col\n * @param {Boolean} value\n */\nBitMatrix.prototype.xor = function (row, col, value) {\n  this.data[row * this.size + col] ^= value\n}\n\n/**\n * Check if bit at specified location is reserved\n *\n * @param {Number}   row\n * @param {Number}   col\n * @return {Boolean}\n */\nBitMatrix.prototype.isReserved = function (row, col) {\n  return this.reservedBit[row * this.size + col]\n}\n\nmodule.exports = BitMatrix\n",
+      "start": 1714699771055,
+      "end": 1714699771055,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699771055,
+      "end": 1714699771055,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771055,
+      "end": 1714699771055,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771055,
+      "end": 1714699771055,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771055,
+      "end": 1714699771055,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771055,
+      "end": 1714699771055,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771055,
+      "end": 1714699771055,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "/**\n * Helper class to handle QR Code symbol modules\n *\n * @param {Number} size Symbol size\n */\nimport * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\n\nfunction BitMatrix (size) {\n  if (!size || size < 1) {\n    throw new Error('BitMatrix size must be defined and greater than 0')\n  }\n\n  this.size = size\n  this.data = new Uint8Array(size * size)\n  this.reservedBit = new Uint8Array(size * size)\n}\n\n/**\n * Set bit value at specified location\n * If reserved flag is set, this bit will be ignored during masking process\n *\n * @param {Number}  row\n * @param {Number}  col\n * @param {Boolean} value\n * @param {Boolean} reserved\n */\nBitMatrix.prototype.set = function (row, col, value, reserved) {\n  const index = row * this.size + col\n  this.data[index] = value\n  if (reserved) this.reservedBit[index] = true\n}\n\n/**\n * Returns bit value at specified location\n *\n * @param  {Number}  row\n * @param  {Number}  col\n * @return {Boolean}\n */\nBitMatrix.prototype.get = function (row, col) {\n  return this.data[row * this.size + col]\n}\n\n/**\n * Applies xor operator at specified location\n * (used during masking process)\n *\n * @param {Number}  row\n * @param {Number}  col\n * @param {Boolean} value\n */\nBitMatrix.prototype.xor = function (row, col, value) {\n  this.data[row * this.size + col] ^= value\n}\n\n/**\n * Check if bit at specified location is reserved\n *\n * @param {Number}   row\n * @param {Number}   col\n * @return {Boolean}\n */\nBitMatrix.prototype.isReserved = function (row, col) {\n  return this.reservedBit[row * this.size + col]\n}\n\nvar bitMatrix = BitMatrix\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(bitMatrix);\nexport { bitMatrix as __moduleExports };",
+      "start": 1714699771055,
+      "end": 1714699771055,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;;;AAKA,SAAS,SAAS,EAAE,IAAI,EAAE;AAC1B,EAAE,IAAI,CAAC,IAAI,IAAI,IAAI,GAAG,CAAC,EAAE;AACzB,IAAI,MAAM,IAAI,KAAK,CAAC,mDAAmD,CAAC;AACxE,GAAG;AACH;AACA,EAAE,IAAI,CAAC,IAAI,GAAG,IAAI;AAClB,EAAE,IAAI,CAAC,IAAI,GAAG,IAAI,UAAU,CAAC,IAAI,GAAG,IAAI,CAAC;AACzC,EAAE,IAAI,CAAC,WAAW,GAAG,IAAI,UAAU,CAAC,IAAI,GAAG,IAAI,CAAC;AAChD,CAAC;AACD;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,CAAC,SAAS,CAAC,GAAG,GAAG,UAAU,GAAG,EAAE,GAAG,EAAE,KAAK,EAAE,QAAQ,EAAE;AAC/D,EAAE,MAAM,KAAK,GAAG,GAAG,GAAG,IAAI,CAAC,IAAI,GAAG,GAAG;AACrC,EAAE,IAAI,CAAC,IAAI,CAAC,KAAK,CAAC,GAAG,KAAK;AAC1B,EAAE,IAAI,QAAQ,EAAE,IAAI,CAAC,WAAW,CAAC,KAAK,CAAC,GAAG,IAAI;AAC9C,CAAC;AACD;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,CAAC,SAAS,CAAC,GAAG,GAAG,UAAU,GAAG,EAAE,GAAG,EAAE;AAC9C,EAAE,OAAO,IAAI,CAAC,IAAI,CAAC,GAAG,GAAG,IAAI,CAAC,IAAI,GAAG,GAAG,CAAC;AACzC,CAAC;AACD;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,CAAC,SAAS,CAAC,GAAG,GAAG,UAAU,GAAG,EAAE,GAAG,EAAE,KAAK,EAAE;AACrD,EAAE,IAAI,CAAC,IAAI,CAAC,GAAG,GAAG,IAAI,CAAC,IAAI,GAAG,GAAG,CAAC,IAAI,KAAK;AAC3C,CAAC;AACD;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,CAAC,SAAS,CAAC,UAAU,GAAG,UAAU,GAAG,EAAE,GAAG,EAAE;AACrD,EAAE,OAAO,IAAI,CAAC,WAAW,CAAC,GAAG,GAAG,IAAI,CAAC,IAAI,GAAG,GAAG,CAAC;AAChD,CAAC;AACD;IACA,SAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771055,
+      "end": 1714699771055,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771055,
+      "end": 1714699771055,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771055,
+      "end": 1714699771055,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699771055,
+      "end": 1714699771055,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771055,
+      "end": 1714699771055,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771055,
+      "end": 1714699771055,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771055,
+      "end": 1714699771055,
+      "order": "normal"
+    }
+  ]
+}

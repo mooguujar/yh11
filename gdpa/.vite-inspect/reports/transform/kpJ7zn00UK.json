@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/assets/images/mine/vip/v0.png?url",
+  "transforms": [
+    {
+      "name": "vite:asset",
+      "result": "export default \"data:image/png;base64,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\"",
+      "start": 1714699767492,
+      "end": 1714699767500,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767500,
+      "end": 1714699767500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767500,
+      "end": 1714699767500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767500,
+      "end": 1714699767500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767500,
+      "end": 1714699767500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767500,
+      "end": 1714699767500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767500,
+      "end": 1714699767500,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "export default \"data:image/png;base64,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\"",
+      "start": 1714699767500,
+      "end": 1714699767500,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767500,
+      "end": 1714699767500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767500,
+      "end": 1714699767500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767500,
+      "end": 1714699767500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767500,
+      "end": 1714699767500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767500,
+      "end": 1714699767500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767500,
+      "end": 1714699767500,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767500,
+      "end": 1714699767500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767500,
+      "end": 1714699767500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767500,
+      "end": 1714699767500,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767500,
+      "end": 1714699767500,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767500,
+      "end": 1714699767500,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767500,
+      "end": 1714699767500,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767500,
+      "end": 1714699767500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767500,
+      "end": 1714699767500,
+      "order": "normal"
+    }
+  ]
+}

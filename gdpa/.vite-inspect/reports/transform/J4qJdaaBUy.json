@@ -1,0 +1,154 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/router/middleware/index.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { useAuthStore } from '@/store'\nimport { useCoinBuySellStore } from '@/store/modules/coinBuySell'\nimport {\n  ProfileCompletionPopupProps,\n  useProfileCompletionPopup\n} from '@/components/CommonPopup/ProfileCompletionPopup'\n\nexport async function CompletionIdCardMiddleware(\n  p?: ProfileCompletionPopupProps\n): Promise<boolean> {\n  const profileCompletionPopup = useProfileCompletionPopup()\n  const authStore = useAuthStore()\n  if (authStore?.userInfo?.verified_status !== 1) {\n    profileCompletionPopup.idcard(p)\n    return false\n  }\n  return true\n}\nexport async function CompletionAdvancedIdCardMiddleware(\n  p?: ProfileCompletionPopupProps\n): Promise<boolean> {\n  const profileCompletionPopup = useProfileCompletionPopup()\n  const authStore = useAuthStore()\n  if (authStore?.userInfo?.advanced_verified != 1) {\n    profileCompletionPopup.AdvancedIdcard(p)\n    return false\n  }\n  return true\n}\n\nexport async function CompletionPaymentMiddleware(): Promise<boolean> {\n  const profileCompletionPopup = useProfileCompletionPopup()\n  const coinBuySellStore = useCoinBuySellStore()\n  await coinBuySellStore.getWithdrawddresslist({})\n  if (!coinBuySellStore?.withdrawddresslist?.length) {\n    profileCompletionPopup.payment()\n    return false\n  }\n  return true\n}\n\nexport async function CompletionPaymentPasswordMiddleware(): Promise<boolean> {\n  const profileCompletionPopup = useProfileCompletionPopup()\n  const authStore = useAuthStore()\n  if (authStore.userInfo.is_set_paypassword === 2) {\n    profileCompletionPopup.paymentPassword()\n    return false\n  }\n  return true\n}\n\nexport async function buy_sell_v(): Promise<boolean> {\n  const profileCompletionPopup = useProfileCompletionPopup()\n  const authStore = useAuthStore()\n  if (authStore?.userInfo?.verified_status !== 1) {\n    profileCompletionPopup.idcard()\n    return false\n  }\n  if (authStore.userInfo.is_set_paypassword === 2) {\n    profileCompletionPopup.paymentPassword()\n    return false\n  }\n  const coinBuySellStore = useCoinBuySellStore()\n  await coinBuySellStore.getWithdrawddresslist({})\n  if (!coinBuySellStore?.withdrawddresslist?.length) {\n    profileCompletionPopup.payment()\n    return false\n  }\n  return true\n}\n",
+      "start": 1714699767249,
+      "end": 1714699767291,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767291,
+      "end": 1714699767291,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { useAuthStore } from \"@/store\";\nimport { useCoinBuySellStore } from \"@/store/modules/coinBuySell\";\nimport {\n  useProfileCompletionPopup\n} from \"@/components/CommonPopup/ProfileCompletionPopup\";\nexport async function CompletionIdCardMiddleware(p) {\n  const profileCompletionPopup = useProfileCompletionPopup();\n  const authStore = useAuthStore();\n  if (authStore?.userInfo?.verified_status !== 1) {\n    profileCompletionPopup.idcard(p);\n    return false;\n  }\n  return true;\n}\nexport async function CompletionAdvancedIdCardMiddleware(p) {\n  const profileCompletionPopup = useProfileCompletionPopup();\n  const authStore = useAuthStore();\n  if (authStore?.userInfo?.advanced_verified != 1) {\n    profileCompletionPopup.AdvancedIdcard(p);\n    return false;\n  }\n  return true;\n}\nexport async function CompletionPaymentMiddleware() {\n  const profileCompletionPopup = useProfileCompletionPopup();\n  const coinBuySellStore = useCoinBuySellStore();\n  await coinBuySellStore.getWithdrawddresslist({});\n  if (!coinBuySellStore?.withdrawddresslist?.length) {\n    profileCompletionPopup.payment();\n    return false;\n  }\n  return true;\n}\nexport async function CompletionPaymentPasswordMiddleware() {\n  const profileCompletionPopup = useProfileCompletionPopup();\n  const authStore = useAuthStore();\n  if (authStore.userInfo.is_set_paypassword === 2) {\n    profileCompletionPopup.paymentPassword();\n    return false;\n  }\n  return true;\n}\nexport async function buy_sell_v() {\n  const profileCompletionPopup = useProfileCompletionPopup();\n  const authStore = useAuthStore();\n  if (authStore?.userInfo?.verified_status !== 1) {\n    profileCompletionPopup.idcard();\n    return false;\n  }\n  if (authStore.userInfo.is_set_paypassword === 2) {\n    profileCompletionPopup.paymentPassword();\n    return false;\n  }\n  const coinBuySellStore = useCoinBuySellStore();\n  await coinBuySellStore.getWithdrawddresslist({});\n  if (!coinBuySellStore?.withdrawddresslist?.length) {\n    profileCompletionPopup.payment();\n    return false;\n  }\n  return true;\n}\n",
+      "start": 1714699767291,
+      "end": 1714699767488,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/router/middleware/index.ts"
+        ],
+        "sourcesContent": [
+          "import { useAuthStore } from '@/store'\nimport { useCoinBuySellStore } from '@/store/modules/coinBuySell'\nimport {\n  ProfileCompletionPopupProps,\n  useProfileCompletionPopup\n} from '@/components/CommonPopup/ProfileCompletionPopup'\n\nexport async function CompletionIdCardMiddleware(\n  p?: ProfileCompletionPopupProps\n): Promise<boolean> {\n  const profileCompletionPopup = useProfileCompletionPopup()\n  const authStore = useAuthStore()\n  if (authStore?.userInfo?.verified_status !== 1) {\n    profileCompletionPopup.idcard(p)\n    return false\n  }\n  return true\n}\nexport async function CompletionAdvancedIdCardMiddleware(\n  p?: ProfileCompletionPopupProps\n): Promise<boolean> {\n  const profileCompletionPopup = useProfileCompletionPopup()\n  const authStore = useAuthStore()\n  if (authStore?.userInfo?.advanced_verified != 1) {\n    profileCompletionPopup.AdvancedIdcard(p)\n    return false\n  }\n  return true\n}\n\nexport async function CompletionPaymentMiddleware(): Promise<boolean> {\n  const profileCompletionPopup = useProfileCompletionPopup()\n  const coinBuySellStore = useCoinBuySellStore()\n  await coinBuySellStore.getWithdrawddresslist({})\n  if (!coinBuySellStore?.withdrawddresslist?.length) {\n    profileCompletionPopup.payment()\n    return false\n  }\n  return true\n}\n\nexport async function CompletionPaymentPasswordMiddleware(): Promise<boolean> {\n  const profileCompletionPopup = useProfileCompletionPopup()\n  const authStore = useAuthStore()\n  if (authStore.userInfo.is_set_paypassword === 2) {\n    profileCompletionPopup.paymentPassword()\n    return false\n  }\n  return true\n}\n\nexport async function buy_sell_v(): Promise<boolean> {\n  const profileCompletionPopup = useProfileCompletionPopup()\n  const authStore = useAuthStore()\n  if (authStore?.userInfo?.verified_status !== 1) {\n    profileCompletionPopup.idcard()\n    return false\n  }\n  if (authStore.userInfo.is_set_paypassword === 2) {\n    profileCompletionPopup.paymentPassword()\n    return false\n  }\n  const coinBuySellStore = useCoinBuySellStore()\n  await coinBuySellStore.getWithdrawddresslist({})\n  if (!coinBuySellStore?.withdrawddresslist?.length) {\n    profileCompletionPopup.payment()\n    return false\n  }\n  return true\n}\n"
+        ],
+        "mappings": "AAAA,SAAS,oBAAoB;AAC7B,SAAS,2BAA2B;AACpC;AAAA,EAEE;AAAA,OACK;AAEP,sBAAsB,2BACpB,GACkB;AAClB,QAAM,yBAAyB,0BAA0B;AACzD,QAAM,YAAY,aAAa;AAC/B,MAAI,WAAW,UAAU,oBAAoB,GAAG;AAC9C,2BAAuB,OAAO,CAAC;AAC/B,WAAO;AAAA,EACT;AACA,SAAO;AACT;AACA,sBAAsB,mCACpB,GACkB;AAClB,QAAM,yBAAyB,0BAA0B;AACzD,QAAM,YAAY,aAAa;AAC/B,MAAI,WAAW,UAAU,qBAAqB,GAAG;AAC/C,2BAAuB,eAAe,CAAC;AACvC,WAAO;AAAA,EACT;AACA,SAAO;AACT;AAEA,sBAAsB,8BAAgD;AACpE,QAAM,yBAAyB,0BAA0B;AACzD,QAAM,mBAAmB,oBAAoB;AAC7C,QAAM,iBAAiB,sBAAsB,CAAC,CAAC;AAC/C,MAAI,CAAC,kBAAkB,oBAAoB,QAAQ;AACjD,2BAAuB,QAAQ;AAC/B,WAAO;AAAA,EACT;AACA,SAAO;AACT;AAEA,sBAAsB,sCAAwD;AAC5E,QAAM,yBAAyB,0BAA0B;AACzD,QAAM,YAAY,aAAa;AAC/B,MAAI,UAAU,SAAS,uBAAuB,GAAG;AAC/C,2BAAuB,gBAAgB;AACvC,WAAO;AAAA,EACT;AACA,SAAO;AACT;AAEA,sBAAsB,aAA+B;AACnD,QAAM,yBAAyB,0BAA0B;AACzD,QAAM,YAAY,aAAa;AAC/B,MAAI,WAAW,UAAU,oBAAoB,GAAG;AAC9C,2BAAuB,OAAO;AAC9B,WAAO;AAAA,EACT;AACA,MAAI,UAAU,SAAS,uBAAuB,GAAG;AAC/C,2BAAuB,gBAAgB;AACvC,WAAO;AAAA,EACT;AACA,QAAM,mBAAmB,oBAAoB;AAC7C,QAAM,iBAAiB,sBAAsB,CAAC,CAAC;AAC/C,MAAI,CAAC,kBAAkB,oBAAoB,QAAQ;AACjD,2BAAuB,QAAQ;AAC/B,WAAO;AAAA,EACT;AACA,SAAO;AACT;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767488,
+      "end": 1714699767488,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767488,
+      "end": 1714699767488,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767488,
+      "end": 1714699767488,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767488,
+      "end": 1714699767488,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { useAuthStore } from \"@/store\";\nimport { useCoinBuySellStore } from \"@/store/modules/coinBuySell\";\nimport {\n  useProfileCompletionPopup\n} from \"@/components/CommonPopup/ProfileCompletionPopup\";\nexport async function CompletionIdCardMiddleware(p) {\n  const profileCompletionPopup = useProfileCompletionPopup();\n  const authStore = useAuthStore();\n  if (authStore?.userInfo?.verified_status !== 1) {\n    profileCompletionPopup.idcard(p);\n    return false;\n  }\n  return true;\n}\nexport async function CompletionAdvancedIdCardMiddleware(p) {\n  const profileCompletionPopup = useProfileCompletionPopup();\n  const authStore = useAuthStore();\n  if (authStore?.userInfo?.advanced_verified != 1) {\n    profileCompletionPopup.AdvancedIdcard(p);\n    return false;\n  }\n  return true;\n}\nexport async function CompletionPaymentMiddleware() {\n  const profileCompletionPopup = useProfileCompletionPopup();\n  const coinBuySellStore = useCoinBuySellStore();\n  await coinBuySellStore.getWithdrawddresslist({});\n  if (!coinBuySellStore?.withdrawddresslist?.length) {\n    profileCompletionPopup.payment();\n    return false;\n  }\n  return true;\n}\nexport async function CompletionPaymentPasswordMiddleware() {\n  const profileCompletionPopup = useProfileCompletionPopup();\n  const authStore = useAuthStore();\n  if (authStore.userInfo.is_set_paypassword === 2) {\n    profileCompletionPopup.paymentPassword();\n    return false;\n  }\n  return true;\n}\nexport async function buy_sell_v() {\n  const profileCompletionPopup = useProfileCompletionPopup();\n  const authStore = useAuthStore();\n  if (authStore?.userInfo?.verified_status !== 1) {\n    profileCompletionPopup.idcard();\n    return false;\n  }\n  if (authStore.userInfo.is_set_paypassword === 2) {\n    profileCompletionPopup.paymentPassword();\n    return false;\n  }\n  const coinBuySellStore = useCoinBuySellStore();\n  await coinBuySellStore.getWithdrawddresslist({});\n  if (!coinBuySellStore?.withdrawddresslist?.length) {\n    profileCompletionPopup.payment();\n    return false;\n  }\n  return true;\n}\n",
+      "start": 1714699767488,
+      "end": 1714699767488,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport { useAuthStore } from \"@/store\";\nimport { useCoinBuySellStore } from \"@/store/modules/coinBuySell\";\nimport {\n  useProfileCompletionPopup\n} from \"@/components/CommonPopup/ProfileCompletionPopup\";\nexport async function CompletionIdCardMiddleware(p) {\n  var _a;\n  const profileCompletionPopup = useProfileCompletionPopup();\n  const authStore = useAuthStore();\n  if (((_a = authStore == null ? void 0 : authStore.userInfo) == null ? void 0 : _a.verified_status) !== 1) {\n    profileCompletionPopup.idcard(p);\n    return false;\n  }\n  return true;\n}\nexport async function CompletionAdvancedIdCardMiddleware(p) {\n  var _a;\n  const profileCompletionPopup = useProfileCompletionPopup();\n  const authStore = useAuthStore();\n  if (((_a = authStore == null ? void 0 : authStore.userInfo) == null ? void 0 : _a.advanced_verified) != 1) {\n    profileCompletionPopup.AdvancedIdcard(p);\n    return false;\n  }\n  return true;\n}\nexport async function CompletionPaymentMiddleware() {\n  var _a;\n  const profileCompletionPopup = useProfileCompletionPopup();\n  const coinBuySellStore = useCoinBuySellStore();\n  await coinBuySellStore.getWithdrawddresslist({});\n  if (!((_a = coinBuySellStore == null ? void 0 : coinBuySellStore.withdrawddresslist) == null ? void 0 : _a.length)) {\n    profileCompletionPopup.payment();\n    return false;\n  }\n  return true;\n}\nexport async function CompletionPaymentPasswordMiddleware() {\n  const profileCompletionPopup = useProfileCompletionPopup();\n  const authStore = useAuthStore();\n  if (authStore.userInfo.is_set_paypassword === 2) {\n    profileCompletionPopup.paymentPassword();\n    return false;\n  }\n  return true;\n}\nexport async function buy_sell_v() {\n  var _a, _b;\n  const profileCompletionPopup = useProfileCompletionPopup();\n  const authStore = useAuthStore();\n  if (((_a = authStore == null ? void 0 : authStore.userInfo) == null ? void 0 : _a.verified_status) !== 1) {\n    profileCompletionPopup.idcard();\n    return false;\n  }\n  if (authStore.userInfo.is_set_paypassword === 2) {\n    profileCompletionPopup.paymentPassword();\n    return false;\n  }\n  const coinBuySellStore = useCoinBuySellStore();\n  await coinBuySellStore.getWithdrawddresslist({});\n  if (!((_b = coinBuySellStore == null ? void 0 : coinBuySellStore.withdrawddresslist) == null ? void 0 : _b.length)) {\n    profileCompletionPopup.payment();\n    return false;\n  }\n  return true;\n}\n",
+      "start": 1714699767488,
+      "end": 1714699767588,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/router/middleware/index.ts\"],\n  \"sourcesContent\": [\"import { useAuthStore } from \\\"@/store\\\";\\nimport { useCoinBuySellStore } from \\\"@/store/modules/coinBuySell\\\";\\nimport {\\n  useProfileCompletionPopup\\n} from \\\"@/components/CommonPopup/ProfileCompletionPopup\\\";\\nexport async function CompletionIdCardMiddleware(p) {\\n  const profileCompletionPopup = useProfileCompletionPopup();\\n  const authStore = useAuthStore();\\n  if (authStore?.userInfo?.verified_status !== 1) {\\n    profileCompletionPopup.idcard(p);\\n    return false;\\n  }\\n  return true;\\n}\\nexport async function CompletionAdvancedIdCardMiddleware(p) {\\n  const profileCompletionPopup = useProfileCompletionPopup();\\n  const authStore = useAuthStore();\\n  if (authStore?.userInfo?.advanced_verified != 1) {\\n    profileCompletionPopup.AdvancedIdcard(p);\\n    return false;\\n  }\\n  return true;\\n}\\nexport async function CompletionPaymentMiddleware() {\\n  const profileCompletionPopup = useProfileCompletionPopup();\\n  const coinBuySellStore = useCoinBuySellStore();\\n  await coinBuySellStore.getWithdrawddresslist({});\\n  if (!coinBuySellStore?.withdrawddresslist?.length) {\\n    profileCompletionPopup.payment();\\n    return false;\\n  }\\n  return true;\\n}\\nexport async function CompletionPaymentPasswordMiddleware() {\\n  const profileCompletionPopup = useProfileCompletionPopup();\\n  const authStore = useAuthStore();\\n  if (authStore.userInfo.is_set_paypassword === 2) {\\n    profileCompletionPopup.paymentPassword();\\n    return false;\\n  }\\n  return true;\\n}\\nexport async function buy_sell_v() {\\n  const profileCompletionPopup = useProfileCompletionPopup();\\n  const authStore = useAuthStore();\\n  if (authStore?.userInfo?.verified_status !== 1) {\\n    profileCompletionPopup.idcard();\\n    return false;\\n  }\\n  if (authStore.userInfo.is_set_paypassword === 2) {\\n    profileCompletionPopup.paymentPassword();\\n    return false;\\n  }\\n  const coinBuySellStore = useCoinBuySellStore();\\n  await coinBuySellStore.getWithdrawddresslist({});\\n  if (!coinBuySellStore?.withdrawddresslist?.length) {\\n    profileCompletionPopup.payment();\\n    return false;\\n  }\\n  return true;\\n}\\n\"],\n  \"mappings\": \";AAAA,SAAS,oBAAoB;AAC7B,SAAS,2BAA2B;AACpC;AAAA,EACE;AAAA,OACK;AACP,sBAAsB,2BAA2B,GAAG;AALpD;AAME,QAAM,yBAAyB,0BAA0B;AACzD,QAAM,YAAY,aAAa;AAC/B,QAAI,4CAAW,aAAX,mBAAqB,qBAAoB,GAAG;AAC9C,2BAAuB,OAAO,CAAC;AAC/B,WAAO;AAAA,EACT;AACA,SAAO;AACT;AACA,sBAAsB,mCAAmC,GAAG;AAd5D;AAeE,QAAM,yBAAyB,0BAA0B;AACzD,QAAM,YAAY,aAAa;AAC/B,QAAI,4CAAW,aAAX,mBAAqB,sBAAqB,GAAG;AAC/C,2BAAuB,eAAe,CAAC;AACvC,WAAO;AAAA,EACT;AACA,SAAO;AACT;AACA,sBAAsB,8BAA8B;AAvBpD;AAwBE,QAAM,yBAAyB,0BAA0B;AACzD,QAAM,mBAAmB,oBAAoB;AAC7C,QAAM,iBAAiB,sBAAsB,CAAC,CAAC;AAC/C,MAAI,GAAC,0DAAkB,uBAAlB,mBAAsC,SAAQ;AACjD,2BAAuB,QAAQ;AAC/B,WAAO;AAAA,EACT;AACA,SAAO;AACT;AACA,sBAAsB,sCAAsC;AAC1D,QAAM,yBAAyB,0BAA0B;AACzD,QAAM,YAAY,aAAa;AAC/B,MAAI,UAAU,SAAS,uBAAuB,GAAG;AAC/C,2BAAuB,gBAAgB;AACvC,WAAO;AAAA,EACT;AACA,SAAO;AACT;AACA,sBAAsB,aAAa;AA1CnC;AA2CE,QAAM,yBAAyB,0BAA0B;AACzD,QAAM,YAAY,aAAa;AAC/B,QAAI,4CAAW,aAAX,mBAAqB,qBAAoB,GAAG;AAC9C,2BAAuB,OAAO;AAC9B,WAAO;AAAA,EACT;AACA,MAAI,UAAU,SAAS,uBAAuB,GAAG;AAC/C,2BAAuB,gBAAgB;AACvC,WAAO;AAAA,EACT;AACA,QAAM,mBAAmB,oBAAoB;AAC7C,QAAM,iBAAiB,sBAAsB,CAAC,CAAC;AAC/C,MAAI,GAAC,0DAAkB,uBAAlB,mBAAsC,SAAQ;AACjD,2BAAuB,QAAQ;AAC/B,WAAO;AAAA,EACT;AACA,SAAO;AACT;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767588,
+      "end": 1714699767588,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767588,
+      "end": 1714699767588,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767588,
+      "end": 1714699767588,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767588,
+      "end": 1714699767588,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767588,
+      "end": 1714699767588,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767588,
+      "end": 1714699767588,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767588,
+      "end": 1714699767588,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767588,
+      "end": 1714699767588,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767588,
+      "end": 1714699767590,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767590,
+      "end": 1714699767590,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767590,
+      "end": 1714699767590,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767590,
+      "end": 1714699767590,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767590,
+      "end": 1714699767590,
+      "order": "normal"
+    }
+  ]
+}

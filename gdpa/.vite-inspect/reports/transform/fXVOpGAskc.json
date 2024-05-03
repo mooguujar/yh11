@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/es/modal/index.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var __assign = (this && this.__assign) || function () {\n    __assign = Object.assign || function(t) {\n        for (var s, i = 1, n = arguments.length; i < n; i++) {\n            s = arguments[i];\n            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))\n                t[p] = s[p];\n        }\n        return t;\n    };\n    return __assign.apply(this, arguments);\n};\nimport XEUtils from 'xe-utils';\nimport VxeModalComponent, { allActivedModals } from './src/modal';\nimport { VXETable } from '../v-x-e-table';\nimport { dynamicApp, dynamicStore, checkDynamic } from '../dynamics';\nfunction openModal(options) {\n    // 使用动态组件渲染动态弹框\n    checkDynamic();\n    return new Promise(function (resolve) {\n        if (options && options.id && allActivedModals.some(function (comp) { return comp.props.id === options.id; })) {\n            resolve('exist');\n        }\n        else {\n            var _onHide_1 = options.onHide;\n            var modalOpts_1 = Object.assign(options, {\n                key: XEUtils.uniqueId(),\n                modelValue: true,\n                onHide: function (params) {\n                    var modalList = dynamicStore.modals;\n                    if (_onHide_1) {\n                        _onHide_1(params);\n                    }\n                    dynamicStore.modals = modalList.filter(function (item) { return item.key !== modalOpts_1.key; });\n                    resolve(params.type);\n                }\n            });\n            dynamicStore.modals.push(modalOpts_1);\n        }\n    });\n}\nfunction getModal(id) {\n    return XEUtils.find(allActivedModals, function ($modal) { return $modal.props.id === id; });\n}\n/**\n * 全局关闭动态的活动窗口（只能用于关闭动态的创建的活动窗口）\n * 如果传 id 则关闭指定的窗口\n * 如果不传则关闭所有窗口\n */\nfunction closeModal(id) {\n    var modals = id ? [getModal(id)] : allActivedModals;\n    var restPromises = [];\n    modals.forEach(function ($modal) {\n        if ($modal) {\n            restPromises.push($modal.close());\n        }\n    });\n    return Promise.all(restPromises);\n}\nfunction handleOpen(defOpts, content, title, options) {\n    var opts;\n    if (XEUtils.isObject(content)) {\n        opts = content;\n    }\n    else {\n        opts = { content: XEUtils.toValueString(content), title: title };\n    }\n    return openModal(__assign(__assign(__assign({}, defOpts), options), opts));\n}\nfunction openAlert(content, title, options) {\n    return handleOpen({\n        type: 'alert',\n        showFooter: true\n    }, content, title, options);\n}\nfunction openConfirm(content, title, options) {\n    return handleOpen({\n        type: 'confirm',\n        status: 'question',\n        showFooter: true\n    }, content, title, options);\n}\nfunction openMessage(content, options) {\n    return handleOpen({\n        type: 'message',\n        mask: false,\n        lockView: false,\n        showHeader: false\n    }, content, '', options);\n}\nvar ModalController = {\n    get: getModal,\n    close: closeModal,\n    open: openModal,\n    alert: openAlert,\n    confirm: openConfirm,\n    message: openMessage\n};\nexport var modal = ModalController;\nexport var VxeModal = Object.assign(VxeModalComponent, {\n    install: function (app) {\n        app.component(VxeModalComponent.name, VxeModalComponent);\n        VXETable.modal = ModalController;\n    }\n});\nexport var Modal = VxeModal;\ndynamicApp.component(VxeModalComponent.name, VxeModalComponent);\nexport default VxeModal;\n",
+      "start": 1714699767131,
+      "end": 1714699767147,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767147,
+      "end": 1714699767147,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767147,
+      "end": 1714699767147,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767147,
+      "end": 1714699767147,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767148,
+      "end": 1714699767148,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767148,
+      "end": 1714699767148,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767148,
+      "end": 1714699767148,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var __assign = (this && this.__assign) || function () {\n    __assign = Object.assign || function(t) {\n        for (var s, i = 1, n = arguments.length; i < n; i++) {\n            s = arguments[i];\n            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))\n                t[p] = s[p];\n        }\n        return t;\n    };\n    return __assign.apply(this, arguments);\n};\nimport XEUtils from 'xe-utils';\nimport VxeModalComponent, { allActivedModals } from './src/modal';\nimport { VXETable } from '../v-x-e-table';\nimport { dynamicApp, dynamicStore, checkDynamic } from '../dynamics';\nfunction openModal(options) {\n    // 使用动态组件渲染动态弹框\n    checkDynamic();\n    return new Promise(function (resolve) {\n        if (options && options.id && allActivedModals.some(function (comp) { return comp.props.id === options.id; })) {\n            resolve('exist');\n        }\n        else {\n            var _onHide_1 = options.onHide;\n            var modalOpts_1 = Object.assign(options, {\n                key: XEUtils.uniqueId(),\n                modelValue: true,\n                onHide: function (params) {\n                    var modalList = dynamicStore.modals;\n                    if (_onHide_1) {\n                        _onHide_1(params);\n                    }\n                    dynamicStore.modals = modalList.filter(function (item) { return item.key !== modalOpts_1.key; });\n                    resolve(params.type);\n                }\n            });\n            dynamicStore.modals.push(modalOpts_1);\n        }\n    });\n}\nfunction getModal(id) {\n    return XEUtils.find(allActivedModals, function ($modal) { return $modal.props.id === id; });\n}\n/**\n * 全局关闭动态的活动窗口（只能用于关闭动态的创建的活动窗口）\n * 如果传 id 则关闭指定的窗口\n * 如果不传则关闭所有窗口\n */\nfunction closeModal(id) {\n    var modals = id ? [getModal(id)] : allActivedModals;\n    var restPromises = [];\n    modals.forEach(function ($modal) {\n        if ($modal) {\n            restPromises.push($modal.close());\n        }\n    });\n    return Promise.all(restPromises);\n}\nfunction handleOpen(defOpts, content, title, options) {\n    var opts;\n    if (XEUtils.isObject(content)) {\n        opts = content;\n    }\n    else {\n        opts = { content: XEUtils.toValueString(content), title: title };\n    }\n    return openModal(__assign(__assign(__assign({}, defOpts), options), opts));\n}\nfunction openAlert(content, title, options) {\n    return handleOpen({\n        type: 'alert',\n        showFooter: true\n    }, content, title, options);\n}\nfunction openConfirm(content, title, options) {\n    return handleOpen({\n        type: 'confirm',\n        status: 'question',\n        showFooter: true\n    }, content, title, options);\n}\nfunction openMessage(content, options) {\n    return handleOpen({\n        type: 'message',\n        mask: false,\n        lockView: false,\n        showHeader: false\n    }, content, '', options);\n}\nvar ModalController = {\n    get: getModal,\n    close: closeModal,\n    open: openModal,\n    alert: openAlert,\n    confirm: openConfirm,\n    message: openMessage\n};\nexport var modal = ModalController;\nexport var VxeModal = Object.assign(VxeModalComponent, {\n    install: function (app) {\n        app.component(VxeModalComponent.name, VxeModalComponent);\n        VXETable.modal = ModalController;\n    }\n});\nexport var Modal = VxeModal;\ndynamicApp.component(VxeModalComponent.name, VxeModalComponent);\nexport default VxeModal;\n",
+      "start": 1714699767148,
+      "end": 1714699767148,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767148,
+      "end": 1714699767148,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767148,
+      "end": 1714699767148,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767148,
+      "end": 1714699767148,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767148,
+      "end": 1714699767148,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767148,
+      "end": 1714699767148,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767148,
+      "end": 1714699767148,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767148,
+      "end": 1714699767148,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767148,
+      "end": 1714699767148,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767148,
+      "end": 1714699767148,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767148,
+      "end": 1714699767148,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767148,
+      "end": 1714699767148,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767148,
+      "end": 1714699767148,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767148,
+      "end": 1714699767148,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767148,
+      "end": 1714699767148,
+      "order": "normal"
+    }
+  ]
+}

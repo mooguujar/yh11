@@ -3,7 +3,9 @@ import viteImagemin from 'vite-plugin-imagemin'
 /**
  * 图片压缩
  */
-export default function configImageminPlugin() {
+export default function configImageminPlugin(exec: boolean) {
+  if (!exec) return
+
   const imageminPlugin = viteImagemin({
     // disable: true,
     filter: asset => {

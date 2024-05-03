@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/tab/TabTitle.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { computed, defineComponent } from \"vue\";\nimport { isDef, truthProp, numericProp, createNamespace } from \"../utils/index.mjs\";\nimport { Badge } from \"../badge/index.mjs\";\nconst [name, bem] = createNamespace(\"tab\");\nconst TabTitle = defineComponent({\n  name,\n  props: {\n    id: String,\n    dot: Boolean,\n    type: String,\n    color: String,\n    title: String,\n    badge: numericProp,\n    shrink: Boolean,\n    isActive: Boolean,\n    disabled: Boolean,\n    controls: String,\n    scrollable: Boolean,\n    activeColor: String,\n    inactiveColor: String,\n    showZeroBadge: truthProp\n  },\n  setup(props, {\n    slots\n  }) {\n    const style = computed(() => {\n      const style2 = {};\n      const {\n        type,\n        color,\n        disabled,\n        isActive,\n        activeColor,\n        inactiveColor\n      } = props;\n      const isCard = type === \"card\";\n      if (color && isCard) {\n        style2.borderColor = color;\n        if (!disabled) {\n          if (isActive) {\n            style2.backgroundColor = color;\n          } else {\n            style2.color = color;\n          }\n        }\n      }\n      const titleColor = isActive ? activeColor : inactiveColor;\n      if (titleColor) {\n        style2.color = titleColor;\n      }\n      return style2;\n    });\n    const renderText = () => {\n      const Text = _createVNode(\"span\", {\n        \"class\": bem(\"text\", {\n          ellipsis: !props.scrollable\n        })\n      }, [slots.title ? slots.title() : props.title]);\n      if (props.dot || isDef(props.badge) && props.badge !== \"\") {\n        return _createVNode(Badge, {\n          \"dot\": props.dot,\n          \"content\": props.badge,\n          \"showZero\": props.showZeroBadge\n        }, {\n          default: () => [Text]\n        });\n      }\n      return Text;\n    };\n    return () => _createVNode(\"div\", {\n      \"id\": props.id,\n      \"role\": \"tab\",\n      \"class\": [bem([props.type, {\n        grow: props.scrollable && !props.shrink,\n        shrink: props.shrink,\n        active: props.isActive,\n        disabled: props.disabled\n      }])],\n      \"style\": style.value,\n      \"tabindex\": props.disabled ? void 0 : props.isActive ? 0 : -1,\n      \"aria-selected\": props.isActive,\n      \"aria-disabled\": props.disabled || void 0,\n      \"aria-controls\": props.controls\n    }, [renderText()]);\n  }\n});\nexport {\n  TabTitle\n};\n",
+      "start": 1714699768012,
+      "end": 1714699768090,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768090,
+      "end": 1714699768090,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768090,
+      "end": 1714699768090,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768090,
+      "end": 1714699768090,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768090,
+      "end": 1714699768090,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768090,
+      "end": 1714699768090,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768090,
+      "end": 1714699768090,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { computed, defineComponent } from \"vue\";\nimport { isDef, truthProp, numericProp, createNamespace } from \"../utils/index.mjs\";\nimport { Badge } from \"../badge/index.mjs\";\nconst [name, bem] = createNamespace(\"tab\");\nconst TabTitle = defineComponent({\n  name,\n  props: {\n    id: String,\n    dot: Boolean,\n    type: String,\n    color: String,\n    title: String,\n    badge: numericProp,\n    shrink: Boolean,\n    isActive: Boolean,\n    disabled: Boolean,\n    controls: String,\n    scrollable: Boolean,\n    activeColor: String,\n    inactiveColor: String,\n    showZeroBadge: truthProp\n  },\n  setup(props, {\n    slots\n  }) {\n    const style = computed(() => {\n      const style2 = {};\n      const {\n        type,\n        color,\n        disabled,\n        isActive,\n        activeColor,\n        inactiveColor\n      } = props;\n      const isCard = type === \"card\";\n      if (color && isCard) {\n        style2.borderColor = color;\n        if (!disabled) {\n          if (isActive) {\n            style2.backgroundColor = color;\n          } else {\n            style2.color = color;\n          }\n        }\n      }\n      const titleColor = isActive ? activeColor : inactiveColor;\n      if (titleColor) {\n        style2.color = titleColor;\n      }\n      return style2;\n    });\n    const renderText = () => {\n      const Text = _createVNode(\"span\", {\n        \"class\": bem(\"text\", {\n          ellipsis: !props.scrollable\n        })\n      }, [slots.title ? slots.title() : props.title]);\n      if (props.dot || isDef(props.badge) && props.badge !== \"\") {\n        return _createVNode(Badge, {\n          \"dot\": props.dot,\n          \"content\": props.badge,\n          \"showZero\": props.showZeroBadge\n        }, {\n          default: () => [Text]\n        });\n      }\n      return Text;\n    };\n    return () => _createVNode(\"div\", {\n      \"id\": props.id,\n      \"role\": \"tab\",\n      \"class\": [bem([props.type, {\n        grow: props.scrollable && !props.shrink,\n        shrink: props.shrink,\n        active: props.isActive,\n        disabled: props.disabled\n      }])],\n      \"style\": style.value,\n      \"tabindex\": props.disabled ? void 0 : props.isActive ? 0 : -1,\n      \"aria-selected\": props.isActive,\n      \"aria-disabled\": props.disabled || void 0,\n      \"aria-controls\": props.controls\n    }, [renderText()]);\n  }\n});\nexport {\n  TabTitle\n};\n",
+      "start": 1714699768090,
+      "end": 1714699768090,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768090,
+      "end": 1714699768090,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768090,
+      "end": 1714699768090,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768090,
+      "end": 1714699768090,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768090,
+      "end": 1714699768090,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768090,
+      "end": 1714699768090,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768090,
+      "end": 1714699768090,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768090,
+      "end": 1714699768090,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768090,
+      "end": 1714699768090,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768090,
+      "end": 1714699768090,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768090,
+      "end": 1714699768090,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768090,
+      "end": 1714699768090,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768090,
+      "end": 1714699768090,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768090,
+      "end": 1714699768090,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768090,
+      "end": 1714699768090,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/browser.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "\nconst canPromise = require('./can-promise')\n\nconst QRCode = require('./core/qrcode')\nconst CanvasRenderer = require('./renderer/canvas')\nconst SvgRenderer = require('./renderer/svg-tag.js')\n\nfunction renderCanvas (renderFunc, canvas, text, opts, cb) {\n  const args = [].slice.call(arguments, 1)\n  const argsNum = args.length\n  const isLastArgCb = typeof args[argsNum - 1] === 'function'\n\n  if (!isLastArgCb && !canPromise()) {\n    throw new Error('Callback required as last argument')\n  }\n\n  if (isLastArgCb) {\n    if (argsNum < 2) {\n      throw new Error('Too few arguments provided')\n    }\n\n    if (argsNum === 2) {\n      cb = text\n      text = canvas\n      canvas = opts = undefined\n    } else if (argsNum === 3) {\n      if (canvas.getContext && typeof cb === 'undefined') {\n        cb = opts\n        opts = undefined\n      } else {\n        cb = opts\n        opts = text\n        text = canvas\n        canvas = undefined\n      }\n    }\n  } else {\n    if (argsNum < 1) {\n      throw new Error('Too few arguments provided')\n    }\n\n    if (argsNum === 1) {\n      text = canvas\n      canvas = opts = undefined\n    } else if (argsNum === 2 && !canvas.getContext) {\n      opts = text\n      text = canvas\n      canvas = undefined\n    }\n\n    return new Promise(function (resolve, reject) {\n      try {\n        const data = QRCode.create(text, opts)\n        resolve(renderFunc(data, canvas, opts))\n      } catch (e) {\n        reject(e)\n      }\n    })\n  }\n\n  try {\n    const data = QRCode.create(text, opts)\n    cb(null, renderFunc(data, canvas, opts))\n  } catch (e) {\n    cb(e)\n  }\n}\n\nexports.create = QRCode.create\nexports.toCanvas = renderCanvas.bind(null, CanvasRenderer.render)\nexports.toDataURL = renderCanvas.bind(null, CanvasRenderer.renderToDataURL)\n\n// only svg for now.\nexports.toString = renderCanvas.bind(null, function (data, _, opts) {\n  return SvgRenderer.render(data, opts)\n})\n",
+      "start": 1714699771008,
+      "end": 1714699771014,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771015,
+      "end": 1714699771015,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771015,
+      "end": 1714699771015,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771015,
+      "end": 1714699771015,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771015,
+      "end": 1714699771015,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771015,
+      "end": 1714699771015,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771015,
+      "end": 1714699771015,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "\nconst canPromise = require('./can-promise')\n\nconst QRCode = require('./core/qrcode')\nconst CanvasRenderer = require('./renderer/canvas')\nconst SvgRenderer = require('./renderer/svg-tag.js')\n\nfunction renderCanvas (renderFunc, canvas, text, opts, cb) {\n  const args = [].slice.call(arguments, 1)\n  const argsNum = args.length\n  const isLastArgCb = typeof args[argsNum - 1] === 'function'\n\n  if (!isLastArgCb && !canPromise()) {\n    throw new Error('Callback required as last argument')\n  }\n\n  if (isLastArgCb) {\n    if (argsNum < 2) {\n      throw new Error('Too few arguments provided')\n    }\n\n    if (argsNum === 2) {\n      cb = text\n      text = canvas\n      canvas = opts = undefined\n    } else if (argsNum === 3) {\n      if (canvas.getContext && typeof cb === 'undefined') {\n        cb = opts\n        opts = undefined\n      } else {\n        cb = opts\n        opts = text\n        text = canvas\n        canvas = undefined\n      }\n    }\n  } else {\n    if (argsNum < 1) {\n      throw new Error('Too few arguments provided')\n    }\n\n    if (argsNum === 1) {\n      text = canvas\n      canvas = opts = undefined\n    } else if (argsNum === 2 && !canvas.getContext) {\n      opts = text\n      text = canvas\n      canvas = undefined\n    }\n\n    return new Promise(function (resolve, reject) {\n      try {\n        const data = QRCode.create(text, opts)\n        resolve(renderFunc(data, canvas, opts))\n      } catch (e) {\n        reject(e)\n      }\n    })\n  }\n\n  try {\n    const data = QRCode.create(text, opts)\n    cb(null, renderFunc(data, canvas, opts))\n  } catch (e) {\n    cb(e)\n  }\n}\n\nexports.create = QRCode.create\nexports.toCanvas = renderCanvas.bind(null, CanvasRenderer.render)\nexports.toDataURL = renderCanvas.bind(null, CanvasRenderer.renderToDataURL)\n\n// only svg for now.\nexports.toString = renderCanvas.bind(null, function (data, _, opts) {\n  return SvgRenderer.render(data, opts)\n})\n",
+      "start": 1714699771015,
+      "end": 1714699771015,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699771015,
+      "end": 1714699771015,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771015,
+      "end": 1714699771015,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771015,
+      "end": 1714699771015,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771015,
+      "end": 1714699771015,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771015,
+      "end": 1714699771015,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771015,
+      "end": 1714699771015,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as browser } from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/browser.js?commonjs-exports\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/can-promise.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/qrcode.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/renderer/canvas.js?commonjs-proxy\";\nimport require$$3 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/renderer/svg-tag.js?commonjs-proxy\";\n\nconst canPromise = require$$0\n\nconst QRCode = require$$1\nconst CanvasRenderer = require$$2\nconst SvgRenderer = require$$3\n\nfunction renderCanvas (renderFunc, canvas, text, opts, cb) {\n  const args = [].slice.call(arguments, 1)\n  const argsNum = args.length\n  const isLastArgCb = typeof args[argsNum - 1] === 'function'\n\n  if (!isLastArgCb && !canPromise()) {\n    throw new Error('Callback required as last argument')\n  }\n\n  if (isLastArgCb) {\n    if (argsNum < 2) {\n      throw new Error('Too few arguments provided')\n    }\n\n    if (argsNum === 2) {\n      cb = text\n      text = canvas\n      canvas = opts = undefined\n    } else if (argsNum === 3) {\n      if (canvas.getContext && typeof cb === 'undefined') {\n        cb = opts\n        opts = undefined\n      } else {\n        cb = opts\n        opts = text\n        text = canvas\n        canvas = undefined\n      }\n    }\n  } else {\n    if (argsNum < 1) {\n      throw new Error('Too few arguments provided')\n    }\n\n    if (argsNum === 1) {\n      text = canvas\n      canvas = opts = undefined\n    } else if (argsNum === 2 && !canvas.getContext) {\n      opts = text\n      text = canvas\n      canvas = undefined\n    }\n\n    return new Promise(function (resolve, reject) {\n      try {\n        const data = QRCode.create(text, opts)\n        resolve(renderFunc(data, canvas, opts))\n      } catch (e) {\n        reject(e)\n      }\n    })\n  }\n\n  try {\n    const data = QRCode.create(text, opts)\n    cb(null, renderFunc(data, canvas, opts))\n  } catch (e) {\n    cb(e)\n  }\n}\n\nvar create = browser.create = QRCode.create\nvar toCanvas = browser.toCanvas = renderCanvas.bind(null, CanvasRenderer.render)\nvar toDataURL = browser.toDataURL = renderCanvas.bind(null, CanvasRenderer.renderToDataURL)\n\n// only svg for now.\nvar toString = browser.toString = renderCanvas.bind(null, function (data, _, opts) {\n  return SvgRenderer.render(data, opts)\n})\n\nexport { browser as __moduleExports, create, toCanvas, toDataURL, toString, browser as default };",
+      "start": 1714699771015,
+      "end": 1714699771127,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "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"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771127,
+      "end": 1714699771127,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771127,
+      "end": 1714699771127,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771127,
+      "end": 1714699771127,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699771127,
+      "end": 1714699771127,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771127,
+      "end": 1714699771127,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771127,
+      "end": 1714699771127,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771127,
+      "end": 1714699771127,
+      "order": "normal"
+    }
+  ]
+}

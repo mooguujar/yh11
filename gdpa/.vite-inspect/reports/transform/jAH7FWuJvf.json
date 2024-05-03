@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/clone.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var objectToString = require('./staticObjectToString')\r\n\r\nvar objectEach = require('./objectEach')\r\nvar arrayEach = require('./arrayEach')\r\n\r\nfunction getCativeCtor (val, args) {\r\n  var Ctor = val.__proto__.constructor\r\n  return args ? new Ctor(args) : new Ctor()\r\n}\r\n\r\nfunction handleValueClone (item, isDeep) {\r\n  return isDeep ? copyValue(item, isDeep) : item\r\n}\r\n\r\nfunction copyValue (val, isDeep) {\r\n  if (val) {\r\n    switch(objectToString.call(val)) {\r\n      case \"[object Object]\": {\r\n        var restObj = Object.create(Object.getPrototypeOf(val))\r\n        objectEach(val, function (item, key) {\r\n          restObj[key] = handleValueClone(item, isDeep)\r\n        })\r\n        return restObj\r\n      }\r\n      case \"[object Date]\":\r\n      case \"[object RegExp]\": {\r\n        return getCativeCtor(val, val.valueOf())\r\n      }\r\n      case \"[object Array]\":\r\n      case \"[object Arguments]\":  {\r\n        var restArr = []\r\n        arrayEach(val, function (item) {\r\n          restArr.push(handleValueClone(item, isDeep))\r\n        })\r\n        return restArr\r\n      }\r\n      case \"[object Set]\": {\r\n        var restSet = getCativeCtor(val)\r\n        restSet.forEach(function (item) {\r\n          restSet.add(handleValueClone(item, isDeep))\r\n        })\r\n        return restSet\r\n      }\r\n      case \"[object Map]\": {\r\n        var restMap = getCativeCtor(val)\r\n        restMap.forEach(function (item, key) {\r\n          restMap.set(key, handleValueClone(item, isDeep))\r\n        })\r\n        return restMap\r\n      }\r\n    }\r\n  }\r\n  return val\r\n}\r\n\r\n/**\r\n  * 浅拷贝/深拷贝\r\n  *\r\n  * @param {Object} obj 对象/数组\r\n  * @param {Boolean} deep 是否深拷贝\r\n  * @return {Object}\r\n  */\r\nfunction clone (obj, deep) {\r\n  if (obj) {\r\n    return copyValue(obj, deep)\r\n  }\r\n  return obj\r\n}\r\n\r\nmodule.exports = clone\r\n",
+      "start": 1714699767609,
+      "end": 1714699767636,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767636,
+      "end": 1714699767636,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767636,
+      "end": 1714699767636,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767636,
+      "end": 1714699767636,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767636,
+      "end": 1714699767636,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767636,
+      "end": 1714699767636,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767636,
+      "end": 1714699767636,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var objectToString = require('./staticObjectToString')\r\n\r\nvar objectEach = require('./objectEach')\r\nvar arrayEach = require('./arrayEach')\r\n\r\nfunction getCativeCtor (val, args) {\r\n  var Ctor = val.__proto__.constructor\r\n  return args ? new Ctor(args) : new Ctor()\r\n}\r\n\r\nfunction handleValueClone (item, isDeep) {\r\n  return isDeep ? copyValue(item, isDeep) : item\r\n}\r\n\r\nfunction copyValue (val, isDeep) {\r\n  if (val) {\r\n    switch(objectToString.call(val)) {\r\n      case \"[object Object]\": {\r\n        var restObj = Object.create(Object.getPrototypeOf(val))\r\n        objectEach(val, function (item, key) {\r\n          restObj[key] = handleValueClone(item, isDeep)\r\n        })\r\n        return restObj\r\n      }\r\n      case \"[object Date]\":\r\n      case \"[object RegExp]\": {\r\n        return getCativeCtor(val, val.valueOf())\r\n      }\r\n      case \"[object Array]\":\r\n      case \"[object Arguments]\":  {\r\n        var restArr = []\r\n        arrayEach(val, function (item) {\r\n          restArr.push(handleValueClone(item, isDeep))\r\n        })\r\n        return restArr\r\n      }\r\n      case \"[object Set]\": {\r\n        var restSet = getCativeCtor(val)\r\n        restSet.forEach(function (item) {\r\n          restSet.add(handleValueClone(item, isDeep))\r\n        })\r\n        return restSet\r\n      }\r\n      case \"[object Map]\": {\r\n        var restMap = getCativeCtor(val)\r\n        restMap.forEach(function (item, key) {\r\n          restMap.set(key, handleValueClone(item, isDeep))\r\n        })\r\n        return restMap\r\n      }\r\n    }\r\n  }\r\n  return val\r\n}\r\n\r\n/**\r\n  * 浅拷贝/深拷贝\r\n  *\r\n  * @param {Object} obj 对象/数组\r\n  * @param {Boolean} deep 是否深拷贝\r\n  * @return {Object}\r\n  */\r\nfunction clone (obj, deep) {\r\n  if (obj) {\r\n    return copyValue(obj, deep)\r\n  }\r\n  return obj\r\n}\r\n\r\nmodule.exports = clone\r\n",
+      "start": 1714699767636,
+      "end": 1714699767636,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767636,
+      "end": 1714699767636,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767636,
+      "end": 1714699767636,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767636,
+      "end": 1714699767636,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767636,
+      "end": 1714699767636,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767636,
+      "end": 1714699767636,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767636,
+      "end": 1714699767636,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/staticObjectToString.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/objectEach.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/arrayEach.js?commonjs-proxy\";\n\nvar objectToString = require$$0\r\n\r\nvar objectEach = require$$1\r\nvar arrayEach = require$$2\r\n\r\nfunction getCativeCtor (val, args) {\r\n  var Ctor = val.__proto__.constructor\r\n  return args ? new Ctor(args) : new Ctor()\r\n}\r\n\r\nfunction handleValueClone (item, isDeep) {\r\n  return isDeep ? copyValue(item, isDeep) : item\r\n}\r\n\r\nfunction copyValue (val, isDeep) {\r\n  if (val) {\r\n    switch(objectToString.call(val)) {\r\n      case \"[object Object]\": {\r\n        var restObj = Object.create(Object.getPrototypeOf(val))\r\n        objectEach(val, function (item, key) {\r\n          restObj[key] = handleValueClone(item, isDeep)\r\n        })\r\n        return restObj\r\n      }\r\n      case \"[object Date]\":\r\n      case \"[object RegExp]\": {\r\n        return getCativeCtor(val, val.valueOf())\r\n      }\r\n      case \"[object Array]\":\r\n      case \"[object Arguments]\":  {\r\n        var restArr = []\r\n        arrayEach(val, function (item) {\r\n          restArr.push(handleValueClone(item, isDeep))\r\n        })\r\n        return restArr\r\n      }\r\n      case \"[object Set]\": {\r\n        var restSet = getCativeCtor(val)\r\n        restSet.forEach(function (item) {\r\n          restSet.add(handleValueClone(item, isDeep))\r\n        })\r\n        return restSet\r\n      }\r\n      case \"[object Map]\": {\r\n        var restMap = getCativeCtor(val)\r\n        restMap.forEach(function (item, key) {\r\n          restMap.set(key, handleValueClone(item, isDeep))\r\n        })\r\n        return restMap\r\n      }\r\n    }\r\n  }\r\n  return val\r\n}\r\n\r\n/**\r\n  * 浅拷贝/深拷贝\r\n  *\r\n  * @param {Object} obj 对象/数组\r\n  * @param {Boolean} deep 是否深拷贝\r\n  * @return {Object}\r\n  */\r\nfunction clone (obj, deep) {\r\n  if (obj) {\r\n    return copyValue(obj, deep)\r\n  }\r\n  return obj\r\n}\r\n\r\nvar clone_1 = clone\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(clone_1);\nexport { clone_1 as __moduleExports };",
+      "start": 1714699767636,
+      "end": 1714699768096,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;AAAA,IAAI,cAAc,GAAG,UAAiC;AACtD;AACA,IAAI,UAAU,GAAG,UAAuB;AACxC,IAAI,SAAS,GAAG,UAAsB;AACtC;AACA,SAAS,aAAa,EAAE,GAAG,EAAE,IAAI,EAAE;AACnC,EAAE,IAAI,IAAI,GAAG,GAAG,CAAC,SAAS,CAAC,WAAW;AACtC,EAAE,OAAO,IAAI,GAAG,IAAI,IAAI,CAAC,IAAI,CAAC,GAAG,IAAI,IAAI,EAAE;AAC3C,CAAC;AACD;AACA,SAAS,gBAAgB,EAAE,IAAI,EAAE,MAAM,EAAE;AACzC,EAAE,OAAO,MAAM,GAAG,SAAS,CAAC,IAAI,EAAE,MAAM,CAAC,GAAG,IAAI;AAChD,CAAC;AACD;AACA,SAAS,SAAS,EAAE,GAAG,EAAE,MAAM,EAAE;AACjC,EAAE,IAAI,GAAG,EAAE;AACX,IAAI,OAAO,cAAc,CAAC,IAAI,CAAC,GAAG,CAAC;AACnC,MAAM,KAAK,iBAAiB,EAAE;AAC9B,QAAQ,IAAI,OAAO,GAAG,MAAM,CAAC,MAAM,CAAC,MAAM,CAAC,cAAc,CAAC,GAAG,CAAC,CAAC;AAC/D,QAAQ,UAAU,CAAC,GAAG,EAAE,UAAU,IAAI,EAAE,GAAG,EAAE;AAC7C,UAAU,OAAO,CAAC,GAAG,CAAC,GAAG,gBAAgB,CAAC,IAAI,EAAE,MAAM,CAAC;AACvD,SAAS,CAAC;AACV,QAAQ,OAAO,OAAO;AACtB,OAAO;AACP,MAAM,KAAK,eAAe,CAAC;AAC3B,MAAM,KAAK,iBAAiB,EAAE;AAC9B,QAAQ,OAAO,aAAa,CAAC,GAAG,EAAE,GAAG,CAAC,OAAO,EAAE,CAAC;AAChD,OAAO;AACP,MAAM,KAAK,gBAAgB,CAAC;AAC5B,MAAM,KAAK,oBAAoB,GAAG;AAClC,QAAQ,IAAI,OAAO,GAAG,EAAE;AACxB,QAAQ,SAAS,CAAC,GAAG,EAAE,UAAU,IAAI,EAAE;AACvC,UAAU,OAAO,CAAC,IAAI,CAAC,gBAAgB,CAAC,IAAI,EAAE,MAAM,CAAC,CAAC;AACtD,SAAS,CAAC;AACV,QAAQ,OAAO,OAAO;AACtB,OAAO;AACP,MAAM,KAAK,cAAc,EAAE;AAC3B,QAAQ,IAAI,OAAO,GAAG,aAAa,CAAC,GAAG,CAAC;AACxC,QAAQ,OAAO,CAAC,OAAO,CAAC,UAAU,IAAI,EAAE;AACxC,UAAU,OAAO,CAAC,GAAG,CAAC,gBAAgB,CAAC,IAAI,EAAE,MAAM,CAAC,CAAC;AACrD,SAAS,CAAC;AACV,QAAQ,OAAO,OAAO;AACtB,OAAO;AACP,MAAM,KAAK,cAAc,EAAE;AAC3B,QAAQ,IAAI,OAAO,GAAG,aAAa,CAAC,GAAG,CAAC;AACxC,QAAQ,OAAO,CAAC,OAAO,CAAC,UAAU,IAAI,EAAE,GAAG,EAAE;AAC7C,UAAU,OAAO,CAAC,GAAG,CAAC,GAAG,EAAE,gBAAgB,CAAC,IAAI,EAAE,MAAM,CAAC,CAAC;AAC1D,SAAS,CAAC;AACV,QAAQ,OAAO,OAAO;AACtB,OAAO;AACP,KAAK;AACL,GAAG;AACH,EAAE,OAAO,GAAG;AACZ,CAAC;AACD;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,KAAK,EAAE,GAAG,EAAE,IAAI,EAAE;AAC3B,EAAE,IAAI,GAAG,EAAE;AACX,IAAI,OAAO,SAAS,CAAC,GAAG,EAAE,IAAI,CAAC;AAC/B,GAAG;AACH,EAAE,OAAO,GAAG;AACZ,CAAC;AACD;IACA,OAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768096,
+      "end": 1714699768096,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768096,
+      "end": 1714699768096,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768096,
+      "end": 1714699768096,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768096,
+      "end": 1714699768096,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768096,
+      "end": 1714699768096,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768096,
+      "end": 1714699768096,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768096,
+      "end": 1714699768096,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/ProfileCompletionPopup.vue?vue&type=style&index=0&scoped=c759b858&lang.scss",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\n.profile-completion-popup {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 33px;\n  margin-bottom: 19px;\n  &__close {\n    position: absolute;\n    right: 30px;\n    top: -90px;\n  }\n  &__cover {\n    &--idcard {\n      padding: 0 220px;\n    }\n    &--payment {\n      padding: 0 160px;\n    }\n    &--payment-password {\n      padding: 0 160px;\n    }\n    > img {\n      width: 100%;\n    }\n  }\n  &__text {\n    font-size: 24px;\n    color: #787f8c;\n    margin-top: 24px;\n    white-space: pre-wrap;\n    text-align: center;\n  }\n}\n",
+      "start": 1714699770686,
+      "end": 1714699770686
+    },
+    {
+      "name": "vite:css",
+      "result": ".profile-completion-popup {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 0.44rem;\n  margin-bottom: 0.25333rem;\n}\n.profile-completion-popup__close {\n  position: absolute;\n  right: 0.4rem;\n  top: -1.2rem;\n}\n.profile-completion-popup__cover--idcard {\n  padding: 0 2.93333rem;\n}\n.profile-completion-popup__cover--payment {\n  padding: 0 2.13333rem;\n}\n.profile-completion-popup__cover--payment-password {\n  padding: 0 2.13333rem;\n}\n.profile-completion-popup__cover > img {\n  width: 100%;\n}\n.profile-completion-popup__text {\n  font-size: 0.32rem;\n  color: #787f8c;\n  margin-top: 0.32rem;\n  white-space: pre-wrap;\n  text-align: center;\n}",
+      "start": 1714699770686,
+      "end": 1714699770688,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699770688,
+      "end": 1714699770688,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699770688,
+      "end": 1714699770688,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699770688,
+      "end": 1714699770688,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".profile-completion-popup[data-v-c759b858] {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 0.44rem;\n  margin-bottom: 0.25333rem;\n}\n.profile-completion-popup__close[data-v-c759b858] {\n  position: absolute;\n  right: 0.4rem;\n  top: -1.2rem;\n}\n.profile-completion-popup__cover--idcard[data-v-c759b858] {\n  padding: 0 2.93333rem;\n}\n.profile-completion-popup__cover--payment[data-v-c759b858] {\n  padding: 0 2.13333rem;\n}\n.profile-completion-popup__cover--payment-password[data-v-c759b858] {\n  padding: 0 2.13333rem;\n}\n.profile-completion-popup__cover > img[data-v-c759b858] {\n  width: 100%;\n}\n.profile-completion-popup__text[data-v-c759b858] {\n  font-size: 0.32rem;\n  color: #787f8c;\n  margin-top: 0.32rem;\n  white-space: pre-wrap;\n  text-align: center;\n}",
+      "start": 1714699770688,
+      "end": 1714699770689,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699770689,
+      "end": 1714699770689,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": ".profile-completion-popup[data-v-c759b858] {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 0.44rem;\n  margin-bottom: 0.25333rem;\n}\n.profile-completion-popup__close[data-v-c759b858] {\n  position: absolute;\n  right: 0.4rem;\n  top: -1.2rem;\n}\n.profile-completion-popup__cover--idcard[data-v-c759b858] {\n  padding: 0 2.93333rem;\n}\n.profile-completion-popup__cover--payment[data-v-c759b858] {\n  padding: 0 2.13333rem;\n}\n.profile-completion-popup__cover--payment-password[data-v-c759b858] {\n  padding: 0 2.13333rem;\n}\n.profile-completion-popup__cover > img[data-v-c759b858] {\n  width: 100%;\n}\n.profile-completion-popup__text[data-v-c759b858] {\n  font-size: 0.32rem;\n  color: #787f8c;\n  margin-top: 0.32rem;\n  white-space: pre-wrap;\n  text-align: center;\n}",
+      "start": 1714699770689,
+      "end": 1714699770689,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699770689,
+      "end": 1714699770689,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770689,
+      "end": 1714699770689,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699770689,
+      "end": 1714699770689,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770689,
+      "end": 1714699770689,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770689,
+      "end": 1714699770689,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770689,
+      "end": 1714699770689,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770689,
+      "end": 1714699770689,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770689,
+      "end": 1714699770689,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770689,
+      "end": 1714699770689,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770689,
+      "end": 1714699770689,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */",
+      "start": 1714699770689,
+      "end": 1714699770689,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/ProfileCompletionPopup.vue?vue&type=style&index=0&scoped=c759b858&lang.scss"
+        ],
+        "sourcesContent": [
+          ""
+        ],
+        "names": [],
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770689,
+      "end": 1714699770689,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770689,
+      "end": 1714699770689,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770689,
+      "end": 1714699770689,
+      "order": "normal"
+    }
+  ]
+}

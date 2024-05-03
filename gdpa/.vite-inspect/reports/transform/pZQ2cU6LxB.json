@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/es/textarea/src/textarea.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { defineComponent, h, ref, computed, nextTick, watch, reactive, inject } from 'vue';\nimport XEUtils from 'xe-utils';\nimport GlobalConfig from '../../v-x-e-table/src/conf';\nimport { getFuncText } from '../../tools/utils';\nimport { useSize } from '../../hooks/size';\nvar autoTxtElem;\nexport default defineComponent({\n    name: 'VxeTextarea',\n    props: {\n        modelValue: [String, Number],\n        className: String,\n        immediate: { type: Boolean, default: true },\n        name: String,\n        readonly: Boolean,\n        disabled: Boolean,\n        placeholder: {\n            type: String,\n            default: function () { return XEUtils.eqNull(GlobalConfig.textarea.placeholder) ? GlobalConfig.i18n('vxe.base.pleaseInput') : GlobalConfig.textarea.placeholder; }\n        },\n        maxlength: [String, Number],\n        rows: { type: [String, Number], default: 2 },\n        cols: { type: [String, Number], default: null },\n        showWordCount: Boolean,\n        countMethod: Function,\n        autosize: [Boolean, Object],\n        form: String,\n        resize: { type: String, default: function () { return GlobalConfig.textarea.resize; } },\n        size: { type: String, default: function () { return GlobalConfig.textarea.size || GlobalConfig.size; } }\n    },\n    emits: [\n        'update:modelValue',\n        'input',\n        'keydown',\n        'keyup',\n        'click',\n        'change',\n        'focus',\n        'blur'\n    ],\n    setup: function (props, context) {\n        var emit = context.emit;\n        var $xeform = inject('$xeform', null);\n        var $xeformiteminfo = inject('$xeformiteminfo', null);\n        var xID = XEUtils.uniqueId();\n        var computeSize = useSize(props);\n        var reactData = reactive({\n            inputValue: props.modelValue\n        });\n        var refElem = ref();\n        var refTextarea = ref();\n        var refMaps = {\n            refElem: refElem,\n            refTextarea: refTextarea\n        };\n        var $xetextarea = {\n            xID: xID,\n            props: props,\n            context: context,\n            reactData: reactData,\n            getRefMaps: function () { return refMaps; }\n        };\n        var textareaMethods = {};\n        var computeInputCount = computed(function () {\n            return XEUtils.getSize(reactData.inputValue);\n        });\n        var computeIsCountError = computed(function () {\n            var inputCount = computeInputCount.value;\n            return props.maxlength && inputCount > XEUtils.toNumber(props.maxlength);\n        });\n        var computeSizeOpts = computed(function () {\n            return Object.assign({ minRows: 1, maxRows: 10 }, GlobalConfig.textarea.autosize, props.autosize);\n        });\n        var updateAutoTxt = function () {\n            var size = props.size, autosize = props.autosize;\n            var inputValue = reactData.inputValue;\n            if (autosize) {\n                if (!autoTxtElem) {\n                    autoTxtElem = document.createElement('div');\n                }\n                if (!autoTxtElem.parentNode) {\n                    document.body.appendChild(autoTxtElem);\n                }\n                var textElem = refTextarea.value;\n                var textStyle = getComputedStyle(textElem);\n                autoTxtElem.className = ['vxe-textarea--autosize', size ? \"size--\".concat(size) : ''].join(' ');\n                autoTxtElem.style.width = \"\".concat(textElem.clientWidth, \"px\");\n                autoTxtElem.style.padding = textStyle.padding;\n                autoTxtElem.innerText = ('' + (inputValue || '　')).replace(/\\n$/, '\\n　');\n            }\n        };\n        var handleResize = function () {\n            if (props.autosize) {\n                nextTick(function () {\n                    var sizeOpts = computeSizeOpts.value;\n                    var minRows = sizeOpts.minRows, maxRows = sizeOpts.maxRows;\n                    var textElem = refTextarea.value;\n                    var sizeHeight = autoTxtElem.clientHeight;\n                    var textStyle = getComputedStyle(textElem);\n                    var lineHeight = XEUtils.toNumber(textStyle.lineHeight);\n                    var paddingTop = XEUtils.toNumber(textStyle.paddingTop);\n                    var paddingBottom = XEUtils.toNumber(textStyle.paddingBottom);\n                    var borderTopWidth = XEUtils.toNumber(textStyle.borderTopWidth);\n                    var borderBottomWidth = XEUtils.toNumber(textStyle.borderBottomWidth);\n                    var intervalHeight = paddingTop + paddingBottom + borderTopWidth + borderBottomWidth;\n                    var rowNum = (sizeHeight - intervalHeight) / lineHeight;\n                    var textRows = rowNum && /[0-9]/.test('' + rowNum) ? rowNum : Math.floor(rowNum) + 1;\n                    var vaildRows = textRows;\n                    if (textRows < minRows) {\n                        vaildRows = minRows;\n                    }\n                    else if (textRows > maxRows) {\n                        vaildRows = maxRows;\n                    }\n                    textElem.style.height = \"\".concat((vaildRows * lineHeight) + intervalHeight, \"px\");\n                });\n            }\n        };\n        var triggerEvent = function (evnt) {\n            var value = reactData.inputValue;\n            $xetextarea.dispatchEvent(evnt.type, { value: value }, evnt);\n        };\n        var emitUpdate = function (value, evnt) {\n            reactData.inputValue = value;\n            emit('update:modelValue', value);\n            if (XEUtils.toValueString(props.modelValue) !== value) {\n                textareaMethods.dispatchEvent('change', { value: value }, evnt);\n                // 自动更新校验状态\n                if ($xeform && $xeformiteminfo) {\n                    $xeform.triggerItemEvent(evnt, $xeformiteminfo.itemConfig.field, value);\n                }\n            }\n        };\n        var inputEvent = function (evnt) {\n            var immediate = props.immediate;\n            var textElem = evnt.target;\n            var value = textElem.value;\n            reactData.inputValue = value;\n            if (immediate) {\n                emitUpdate(value, evnt);\n            }\n            $xetextarea.dispatchEvent('input', { value: value }, evnt);\n            handleResize();\n        };\n        var changeEvent = function (evnt) {\n            var immediate = props.immediate;\n            if (immediate) {\n                triggerEvent(evnt);\n            }\n            else {\n                emitUpdate(reactData.inputValue, evnt);\n            }\n        };\n        var blurEvent = function (evnt) {\n            var immediate = props.immediate;\n            var inputValue = reactData.inputValue;\n            if (!immediate) {\n                emitUpdate(inputValue, evnt);\n            }\n            $xetextarea.dispatchEvent('blur', { value: inputValue }, evnt);\n        };\n        textareaMethods = {\n            dispatchEvent: function (type, params, evnt) {\n                emit(type, Object.assign({ $textarea: $xetextarea, $event: evnt }, params));\n            },\n            focus: function () {\n                var textElem = refTextarea.value;\n                textElem.focus();\n                return nextTick();\n            },\n            blur: function () {\n                var textElem = refTextarea.value;\n                textElem.blur();\n                return nextTick();\n            }\n        };\n        Object.assign($xetextarea, textareaMethods);\n        watch(function () { return props.modelValue; }, function (val) {\n            reactData.inputValue = val;\n            updateAutoTxt();\n        });\n        nextTick(function () {\n            var autosize = props.autosize;\n            if (autosize) {\n                updateAutoTxt();\n                handleResize();\n            }\n        });\n        var renderVN = function () {\n            var _a;\n            var className = props.className, resize = props.resize, placeholder = props.placeholder, disabled = props.disabled, maxlength = props.maxlength, autosize = props.autosize, showWordCount = props.showWordCount, countMethod = props.countMethod, rows = props.rows, cols = props.cols;\n            var inputValue = reactData.inputValue;\n            var vSize = computeSize.value;\n            var isCountError = computeIsCountError.value;\n            var inputCount = computeInputCount.value;\n            return h('div', {\n                ref: refElem,\n                class: ['vxe-textarea', className, (_a = {},\n                        _a[\"size--\".concat(vSize)] = vSize,\n                        _a['is--autosize'] = autosize,\n                        _a['is--count'] = showWordCount,\n                        _a['is--disabled'] = disabled,\n                        _a['def--rows'] = !XEUtils.eqNull(rows),\n                        _a['def--cols'] = !XEUtils.eqNull(cols),\n                        _a)]\n            }, [\n                h('textarea', {\n                    ref: refTextarea,\n                    class: 'vxe-textarea--inner',\n                    value: inputValue,\n                    name: props.name,\n                    placeholder: placeholder ? getFuncText(placeholder) : null,\n                    maxlength: maxlength,\n                    readonly: props.readonly,\n                    disabled: disabled,\n                    rows: rows,\n                    cols: cols,\n                    style: resize ? {\n                        resize: resize\n                    } : null,\n                    onInput: inputEvent,\n                    onChange: changeEvent,\n                    onKeydown: triggerEvent,\n                    onKeyup: triggerEvent,\n                    onClick: triggerEvent,\n                    onFocus: triggerEvent,\n                    onBlur: blurEvent\n                }),\n                showWordCount ? h('span', {\n                    class: ['vxe-textarea--count', {\n                            'is--error': isCountError\n                        }]\n                }, countMethod ? \"\".concat(countMethod({ value: inputValue })) : \"\".concat(inputCount).concat(maxlength ? \"/\".concat(maxlength) : '')) : null\n            ]);\n        };\n        $xetextarea.renderVN = renderVN;\n        return $xetextarea;\n    },\n    render: function () {\n        return this.renderVN();\n    }\n});\n",
+      "start": 1714699767746,
+      "end": 1714699767791,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767792,
+      "end": 1714699767792,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767792,
+      "end": 1714699767792,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767792,
+      "end": 1714699767792,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767792,
+      "end": 1714699767792,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767792,
+      "end": 1714699767792,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767792,
+      "end": 1714699767792,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { defineComponent, h, ref, computed, nextTick, watch, reactive, inject } from 'vue';\nimport XEUtils from 'xe-utils';\nimport GlobalConfig from '../../v-x-e-table/src/conf';\nimport { getFuncText } from '../../tools/utils';\nimport { useSize } from '../../hooks/size';\nvar autoTxtElem;\nexport default defineComponent({\n    name: 'VxeTextarea',\n    props: {\n        modelValue: [String, Number],\n        className: String,\n        immediate: { type: Boolean, default: true },\n        name: String,\n        readonly: Boolean,\n        disabled: Boolean,\n        placeholder: {\n            type: String,\n            default: function () { return XEUtils.eqNull(GlobalConfig.textarea.placeholder) ? GlobalConfig.i18n('vxe.base.pleaseInput') : GlobalConfig.textarea.placeholder; }\n        },\n        maxlength: [String, Number],\n        rows: { type: [String, Number], default: 2 },\n        cols: { type: [String, Number], default: null },\n        showWordCount: Boolean,\n        countMethod: Function,\n        autosize: [Boolean, Object],\n        form: String,\n        resize: { type: String, default: function () { return GlobalConfig.textarea.resize; } },\n        size: { type: String, default: function () { return GlobalConfig.textarea.size || GlobalConfig.size; } }\n    },\n    emits: [\n        'update:modelValue',\n        'input',\n        'keydown',\n        'keyup',\n        'click',\n        'change',\n        'focus',\n        'blur'\n    ],\n    setup: function (props, context) {\n        var emit = context.emit;\n        var $xeform = inject('$xeform', null);\n        var $xeformiteminfo = inject('$xeformiteminfo', null);\n        var xID = XEUtils.uniqueId();\n        var computeSize = useSize(props);\n        var reactData = reactive({\n            inputValue: props.modelValue\n        });\n        var refElem = ref();\n        var refTextarea = ref();\n        var refMaps = {\n            refElem: refElem,\n            refTextarea: refTextarea\n        };\n        var $xetextarea = {\n            xID: xID,\n            props: props,\n            context: context,\n            reactData: reactData,\n            getRefMaps: function () { return refMaps; }\n        };\n        var textareaMethods = {};\n        var computeInputCount = computed(function () {\n            return XEUtils.getSize(reactData.inputValue);\n        });\n        var computeIsCountError = computed(function () {\n            var inputCount = computeInputCount.value;\n            return props.maxlength && inputCount > XEUtils.toNumber(props.maxlength);\n        });\n        var computeSizeOpts = computed(function () {\n            return Object.assign({ minRows: 1, maxRows: 10 }, GlobalConfig.textarea.autosize, props.autosize);\n        });\n        var updateAutoTxt = function () {\n            var size = props.size, autosize = props.autosize;\n            var inputValue = reactData.inputValue;\n            if (autosize) {\n                if (!autoTxtElem) {\n                    autoTxtElem = document.createElement('div');\n                }\n                if (!autoTxtElem.parentNode) {\n                    document.body.appendChild(autoTxtElem);\n                }\n                var textElem = refTextarea.value;\n                var textStyle = getComputedStyle(textElem);\n                autoTxtElem.className = ['vxe-textarea--autosize', size ? \"size--\".concat(size) : ''].join(' ');\n                autoTxtElem.style.width = \"\".concat(textElem.clientWidth, \"px\");\n                autoTxtElem.style.padding = textStyle.padding;\n                autoTxtElem.innerText = ('' + (inputValue || '　')).replace(/\\n$/, '\\n　');\n            }\n        };\n        var handleResize = function () {\n            if (props.autosize) {\n                nextTick(function () {\n                    var sizeOpts = computeSizeOpts.value;\n                    var minRows = sizeOpts.minRows, maxRows = sizeOpts.maxRows;\n                    var textElem = refTextarea.value;\n                    var sizeHeight = autoTxtElem.clientHeight;\n                    var textStyle = getComputedStyle(textElem);\n                    var lineHeight = XEUtils.toNumber(textStyle.lineHeight);\n                    var paddingTop = XEUtils.toNumber(textStyle.paddingTop);\n                    var paddingBottom = XEUtils.toNumber(textStyle.paddingBottom);\n                    var borderTopWidth = XEUtils.toNumber(textStyle.borderTopWidth);\n                    var borderBottomWidth = XEUtils.toNumber(textStyle.borderBottomWidth);\n                    var intervalHeight = paddingTop + paddingBottom + borderTopWidth + borderBottomWidth;\n                    var rowNum = (sizeHeight - intervalHeight) / lineHeight;\n                    var textRows = rowNum && /[0-9]/.test('' + rowNum) ? rowNum : Math.floor(rowNum) + 1;\n                    var vaildRows = textRows;\n                    if (textRows < minRows) {\n                        vaildRows = minRows;\n                    }\n                    else if (textRows > maxRows) {\n                        vaildRows = maxRows;\n                    }\n                    textElem.style.height = \"\".concat((vaildRows * lineHeight) + intervalHeight, \"px\");\n                });\n            }\n        };\n        var triggerEvent = function (evnt) {\n            var value = reactData.inputValue;\n            $xetextarea.dispatchEvent(evnt.type, { value: value }, evnt);\n        };\n        var emitUpdate = function (value, evnt) {\n            reactData.inputValue = value;\n            emit('update:modelValue', value);\n            if (XEUtils.toValueString(props.modelValue) !== value) {\n                textareaMethods.dispatchEvent('change', { value: value }, evnt);\n                // 自动更新校验状态\n                if ($xeform && $xeformiteminfo) {\n                    $xeform.triggerItemEvent(evnt, $xeformiteminfo.itemConfig.field, value);\n                }\n            }\n        };\n        var inputEvent = function (evnt) {\n            var immediate = props.immediate;\n            var textElem = evnt.target;\n            var value = textElem.value;\n            reactData.inputValue = value;\n            if (immediate) {\n                emitUpdate(value, evnt);\n            }\n            $xetextarea.dispatchEvent('input', { value: value }, evnt);\n            handleResize();\n        };\n        var changeEvent = function (evnt) {\n            var immediate = props.immediate;\n            if (immediate) {\n                triggerEvent(evnt);\n            }\n            else {\n                emitUpdate(reactData.inputValue, evnt);\n            }\n        };\n        var blurEvent = function (evnt) {\n            var immediate = props.immediate;\n            var inputValue = reactData.inputValue;\n            if (!immediate) {\n                emitUpdate(inputValue, evnt);\n            }\n            $xetextarea.dispatchEvent('blur', { value: inputValue }, evnt);\n        };\n        textareaMethods = {\n            dispatchEvent: function (type, params, evnt) {\n                emit(type, Object.assign({ $textarea: $xetextarea, $event: evnt }, params));\n            },\n            focus: function () {\n                var textElem = refTextarea.value;\n                textElem.focus();\n                return nextTick();\n            },\n            blur: function () {\n                var textElem = refTextarea.value;\n                textElem.blur();\n                return nextTick();\n            }\n        };\n        Object.assign($xetextarea, textareaMethods);\n        watch(function () { return props.modelValue; }, function (val) {\n            reactData.inputValue = val;\n            updateAutoTxt();\n        });\n        nextTick(function () {\n            var autosize = props.autosize;\n            if (autosize) {\n                updateAutoTxt();\n                handleResize();\n            }\n        });\n        var renderVN = function () {\n            var _a;\n            var className = props.className, resize = props.resize, placeholder = props.placeholder, disabled = props.disabled, maxlength = props.maxlength, autosize = props.autosize, showWordCount = props.showWordCount, countMethod = props.countMethod, rows = props.rows, cols = props.cols;\n            var inputValue = reactData.inputValue;\n            var vSize = computeSize.value;\n            var isCountError = computeIsCountError.value;\n            var inputCount = computeInputCount.value;\n            return h('div', {\n                ref: refElem,\n                class: ['vxe-textarea', className, (_a = {},\n                        _a[\"size--\".concat(vSize)] = vSize,\n                        _a['is--autosize'] = autosize,\n                        _a['is--count'] = showWordCount,\n                        _a['is--disabled'] = disabled,\n                        _a['def--rows'] = !XEUtils.eqNull(rows),\n                        _a['def--cols'] = !XEUtils.eqNull(cols),\n                        _a)]\n            }, [\n                h('textarea', {\n                    ref: refTextarea,\n                    class: 'vxe-textarea--inner',\n                    value: inputValue,\n                    name: props.name,\n                    placeholder: placeholder ? getFuncText(placeholder) : null,\n                    maxlength: maxlength,\n                    readonly: props.readonly,\n                    disabled: disabled,\n                    rows: rows,\n                    cols: cols,\n                    style: resize ? {\n                        resize: resize\n                    } : null,\n                    onInput: inputEvent,\n                    onChange: changeEvent,\n                    onKeydown: triggerEvent,\n                    onKeyup: triggerEvent,\n                    onClick: triggerEvent,\n                    onFocus: triggerEvent,\n                    onBlur: blurEvent\n                }),\n                showWordCount ? h('span', {\n                    class: ['vxe-textarea--count', {\n                            'is--error': isCountError\n                        }]\n                }, countMethod ? \"\".concat(countMethod({ value: inputValue })) : \"\".concat(inputCount).concat(maxlength ? \"/\".concat(maxlength) : '')) : null\n            ]);\n        };\n        $xetextarea.renderVN = renderVN;\n        return $xetextarea;\n    },\n    render: function () {\n        return this.renderVN();\n    }\n});\n",
+      "start": 1714699767792,
+      "end": 1714699767792,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767792,
+      "end": 1714699767792,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767792,
+      "end": 1714699767792,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767792,
+      "end": 1714699767792,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767792,
+      "end": 1714699767792,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767792,
+      "end": 1714699767792,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767792,
+      "end": 1714699767792,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767792,
+      "end": 1714699767792,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767792,
+      "end": 1714699767792,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767792,
+      "end": 1714699767792,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767792,
+      "end": 1714699767792,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767792,
+      "end": 1714699767792,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767792,
+      "end": 1714699767792,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767792,
+      "end": 1714699767792,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767792,
+      "end": 1714699767792,
+      "order": "normal"
+    }
+  ]
+}

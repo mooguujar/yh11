@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/defer.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import baseDelay from './_baseDelay.js';\nimport baseRest from './_baseRest.js';\n\n/**\n * Defers invoking the `func` until the current call stack has cleared. Any\n * additional arguments are provided to `func` when it's invoked.\n *\n * @static\n * @memberOf _\n * @since 0.1.0\n * @category Function\n * @param {Function} func The function to defer.\n * @param {...*} [args] The arguments to invoke `func` with.\n * @returns {number} Returns the timer id.\n * @example\n *\n * _.defer(function(text) {\n *   console.log(text);\n * }, 'deferred');\n * // => Logs 'deferred' after one millisecond.\n */\nvar defer = baseRest(function(func, args) {\n  return baseDelay(func, 1, args);\n});\n\nexport default defer;\n",
+      "start": 1714699768324,
+      "end": 1714699768344,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768344,
+      "end": 1714699768344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768344,
+      "end": 1714699768344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768344,
+      "end": 1714699768344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768344,
+      "end": 1714699768344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768344,
+      "end": 1714699768344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768344,
+      "end": 1714699768344,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import baseDelay from './_baseDelay.js';\nimport baseRest from './_baseRest.js';\n\n/**\n * Defers invoking the `func` until the current call stack has cleared. Any\n * additional arguments are provided to `func` when it's invoked.\n *\n * @static\n * @memberOf _\n * @since 0.1.0\n * @category Function\n * @param {Function} func The function to defer.\n * @param {...*} [args] The arguments to invoke `func` with.\n * @returns {number} Returns the timer id.\n * @example\n *\n * _.defer(function(text) {\n *   console.log(text);\n * }, 'deferred');\n * // => Logs 'deferred' after one millisecond.\n */\nvar defer = baseRest(function(func, args) {\n  return baseDelay(func, 1, args);\n});\n\nexport default defer;\n",
+      "start": 1714699768344,
+      "end": 1714699768344,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768344,
+      "end": 1714699768344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768344,
+      "end": 1714699768344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768344,
+      "end": 1714699768344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768344,
+      "end": 1714699768344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768344,
+      "end": 1714699768344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768344,
+      "end": 1714699768344,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768344,
+      "end": 1714699768344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768344,
+      "end": 1714699768344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768344,
+      "end": 1714699768344,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768344,
+      "end": 1714699768344,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768344,
+      "end": 1714699768344,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768344,
+      "end": 1714699768344,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768344,
+      "end": 1714699768344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768344,
+      "end": 1714699768344,
+      "order": "normal"
+    }
+  ]
+}

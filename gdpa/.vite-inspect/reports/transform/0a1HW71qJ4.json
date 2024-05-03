@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/groupBy.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var isEmpty = require('./isEmpty')\r\nvar isObject = require('./isObject')\r\nvar isFunction = require('./isFunction')\r\nvar property = require('./property')\r\nvar each = require('./each')\r\n\r\nfunction createiterateEmpty (iterate) {\r\n  return function () {\r\n    return isEmpty(iterate)\r\n  }\r\n}\r\n\r\n/**\r\n  * 集合分组,默认使用键值分组,如果有iterate则使用结果进行分组\r\n  *\r\n  * @param {Array} obj 对象\r\n  * @param {Function} iterate 回调/对象属性\r\n  * @param {Object} context 上下文\r\n  * @return {Object}\r\n  */\r\nfunction groupBy (obj, iterate, context) {\r\n  var groupKey\r\n  var result = {}\r\n  if (obj) {\r\n    if (iterate && isObject(iterate)) {\r\n      iterate = createiterateEmpty(iterate)\r\n    } else if (!isFunction(iterate)) {\r\n      iterate = property(iterate)\r\n    }\r\n    each(obj, function (val, key) {\r\n      groupKey = iterate ? iterate.call(context, val, key, obj) : val\r\n      if (result[groupKey]) {\r\n        result[groupKey].push(val)\r\n      } else {\r\n        result[groupKey] = [val]\r\n      }\r\n    })\r\n  }\r\n  return result\r\n}\r\n\r\nmodule.exports = groupBy\r\n",
+      "start": 1714699767654,
+      "end": 1714699767670,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767670,
+      "end": 1714699767670,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767670,
+      "end": 1714699767670,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767670,
+      "end": 1714699767670,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767670,
+      "end": 1714699767670,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767670,
+      "end": 1714699767670,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767670,
+      "end": 1714699767670,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var isEmpty = require('./isEmpty')\r\nvar isObject = require('./isObject')\r\nvar isFunction = require('./isFunction')\r\nvar property = require('./property')\r\nvar each = require('./each')\r\n\r\nfunction createiterateEmpty (iterate) {\r\n  return function () {\r\n    return isEmpty(iterate)\r\n  }\r\n}\r\n\r\n/**\r\n  * 集合分组,默认使用键值分组,如果有iterate则使用结果进行分组\r\n  *\r\n  * @param {Array} obj 对象\r\n  * @param {Function} iterate 回调/对象属性\r\n  * @param {Object} context 上下文\r\n  * @return {Object}\r\n  */\r\nfunction groupBy (obj, iterate, context) {\r\n  var groupKey\r\n  var result = {}\r\n  if (obj) {\r\n    if (iterate && isObject(iterate)) {\r\n      iterate = createiterateEmpty(iterate)\r\n    } else if (!isFunction(iterate)) {\r\n      iterate = property(iterate)\r\n    }\r\n    each(obj, function (val, key) {\r\n      groupKey = iterate ? iterate.call(context, val, key, obj) : val\r\n      if (result[groupKey]) {\r\n        result[groupKey].push(val)\r\n      } else {\r\n        result[groupKey] = [val]\r\n      }\r\n    })\r\n  }\r\n  return result\r\n}\r\n\r\nmodule.exports = groupBy\r\n",
+      "start": 1714699767670,
+      "end": 1714699767670,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767670,
+      "end": 1714699767670,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767670,
+      "end": 1714699767670,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767671,
+      "end": 1714699767671,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767671,
+      "end": 1714699767671,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767671,
+      "end": 1714699767671,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767671,
+      "end": 1714699767671,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isEmpty.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isObject.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isFunction.js?commonjs-proxy\";\nimport require$$3 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/property.js?commonjs-proxy\";\nimport require$$4 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/each.js?commonjs-proxy\";\n\nvar isEmpty = require$$0\r\nvar isObject = require$$1\r\nvar isFunction = require$$2\r\nvar property = require$$3\r\nvar each = require$$4\r\n\r\nfunction createiterateEmpty (iterate) {\r\n  return function () {\r\n    return isEmpty(iterate)\r\n  }\r\n}\r\n\r\n/**\r\n  * 集合分组,默认使用键值分组,如果有iterate则使用结果进行分组\r\n  *\r\n  * @param {Array} obj 对象\r\n  * @param {Function} iterate 回调/对象属性\r\n  * @param {Object} context 上下文\r\n  * @return {Object}\r\n  */\r\nfunction groupBy (obj, iterate, context) {\r\n  var groupKey\r\n  var result = {}\r\n  if (obj) {\r\n    if (iterate && isObject(iterate)) {\r\n      iterate = createiterateEmpty(iterate)\r\n    } else if (!isFunction(iterate)) {\r\n      iterate = property(iterate)\r\n    }\r\n    each(obj, function (val, key) {\r\n      groupKey = iterate ? iterate.call(context, val, key, obj) : val\r\n      if (result[groupKey]) {\r\n        result[groupKey].push(val)\r\n      } else {\r\n        result[groupKey] = [val]\r\n      }\r\n    })\r\n  }\r\n  return result\r\n}\r\n\r\nvar groupBy_1 = groupBy\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(groupBy_1);\nexport { groupBy_1 as __moduleExports };",
+      "start": 1714699767671,
+      "end": 1714699768188,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;;;AAAA,IAAI,OAAO,GAAG,UAAoB;AAClC,IAAI,QAAQ,GAAG,UAAqB;AACpC,IAAI,UAAU,GAAG,UAAuB;AACxC,IAAI,QAAQ,GAAG,UAAqB;AACpC,IAAI,IAAI,GAAG,UAAiB;AAC5B;AACA,SAAS,kBAAkB,EAAE,OAAO,EAAE;AACtC,EAAE,OAAO,YAAY;AACrB,IAAI,OAAO,OAAO,CAAC,OAAO,CAAC;AAC3B,GAAG;AACH,CAAC;AACD;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,OAAO,EAAE,GAAG,EAAE,OAAO,EAAE,OAAO,EAAE;AACzC,EAAE,IAAI,QAAQ;AACd,EAAE,IAAI,MAAM,GAAG,EAAE;AACjB,EAAE,IAAI,GAAG,EAAE;AACX,IAAI,IAAI,OAAO,IAAI,QAAQ,CAAC,OAAO,CAAC,EAAE;AACtC,MAAM,OAAO,GAAG,kBAAkB,CAAC,OAAO,CAAC;AAC3C,KAAK,MAAM,IAAI,CAAC,UAAU,CAAC,OAAO,CAAC,EAAE;AACrC,MAAM,OAAO,GAAG,QAAQ,CAAC,OAAO,CAAC;AACjC,KAAK;AACL,IAAI,IAAI,CAAC,GAAG,EAAE,UAAU,GAAG,EAAE,GAAG,EAAE;AAClC,MAAM,QAAQ,GAAG,OAAO,GAAG,OAAO,CAAC,IAAI,CAAC,OAAO,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,CAAC,GAAG,GAAG;AACrE,MAAM,IAAI,MAAM,CAAC,QAAQ,CAAC,EAAE;AAC5B,QAAQ,MAAM,CAAC,QAAQ,CAAC,CAAC,IAAI,CAAC,GAAG,CAAC;AAClC,OAAO,MAAM;AACb,QAAQ,MAAM,CAAC,QAAQ,CAAC,GAAG,CAAC,GAAG,CAAC;AAChC,OAAO;AACP,KAAK,CAAC;AACN,GAAG;AACH,EAAE,OAAO,MAAM;AACf,CAAC;AACD;IACA,SAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768188,
+      "end": 1714699768188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768188,
+      "end": 1714699768188,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768188,
+      "end": 1714699768188,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768188,
+      "end": 1714699768188,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768188,
+      "end": 1714699768188,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768188,
+      "end": 1714699768188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768188,
+      "end": 1714699768188,
+      "order": "normal"
+    }
+  ]
+}

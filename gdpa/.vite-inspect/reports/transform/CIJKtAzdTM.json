@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/es/loading/src/loading.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { defineComponent, h, computed } from 'vue';\nimport GlobalConfig from '../../v-x-e-table/src/conf';\nexport default defineComponent({\n    name: 'VxeLoading',\n    props: {\n        modelValue: Boolean,\n        icon: String,\n        text: String\n    },\n    setup: function (props, _a) {\n        var slots = _a.slots;\n        var computeLoadingIcon = computed(function () {\n            return props.icon || GlobalConfig.icon.LOADING;\n        });\n        var computeLoadingText = computed(function () {\n            var loadingText = GlobalConfig.loadingText;\n            return props.text || (loadingText === null ? loadingText : GlobalConfig.i18n('vxe.loading.text'));\n        });\n        return function () {\n            var loadingIcon = computeLoadingIcon.value;\n            var loadingText = computeLoadingText.value;\n            return h('div', {\n                class: ['vxe-loading', {\n                        'is--visible': props.modelValue\n                    }]\n            }, slots.default ? [\n                h('div', {\n                    class: 'vxe-loading--warpper'\n                }, slots.default({}))\n            ] : [\n                h('div', {\n                    class: 'vxe-loading--chunk'\n                }, [\n                    loadingIcon ? h('i', {\n                        class: loadingIcon\n                    }) : h('div', {\n                        class: 'vxe-loading--spinner'\n                    }),\n                    loadingText ? h('div', {\n                        class: 'vxe-loading--text'\n                    }, \"\".concat(loadingText)) : null\n                ])\n            ]);\n        };\n    }\n});\n",
+      "start": 1714699768590,
+      "end": 1714699768617,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768617,
+      "end": 1714699768617,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768617,
+      "end": 1714699768617,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768617,
+      "end": 1714699768617,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768617,
+      "end": 1714699768617,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768617,
+      "end": 1714699768617,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768617,
+      "end": 1714699768617,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { defineComponent, h, computed } from 'vue';\nimport GlobalConfig from '../../v-x-e-table/src/conf';\nexport default defineComponent({\n    name: 'VxeLoading',\n    props: {\n        modelValue: Boolean,\n        icon: String,\n        text: String\n    },\n    setup: function (props, _a) {\n        var slots = _a.slots;\n        var computeLoadingIcon = computed(function () {\n            return props.icon || GlobalConfig.icon.LOADING;\n        });\n        var computeLoadingText = computed(function () {\n            var loadingText = GlobalConfig.loadingText;\n            return props.text || (loadingText === null ? loadingText : GlobalConfig.i18n('vxe.loading.text'));\n        });\n        return function () {\n            var loadingIcon = computeLoadingIcon.value;\n            var loadingText = computeLoadingText.value;\n            return h('div', {\n                class: ['vxe-loading', {\n                        'is--visible': props.modelValue\n                    }]\n            }, slots.default ? [\n                h('div', {\n                    class: 'vxe-loading--warpper'\n                }, slots.default({}))\n            ] : [\n                h('div', {\n                    class: 'vxe-loading--chunk'\n                }, [\n                    loadingIcon ? h('i', {\n                        class: loadingIcon\n                    }) : h('div', {\n                        class: 'vxe-loading--spinner'\n                    }),\n                    loadingText ? h('div', {\n                        class: 'vxe-loading--text'\n                    }, \"\".concat(loadingText)) : null\n                ])\n            ]);\n        };\n    }\n});\n",
+      "start": 1714699768617,
+      "end": 1714699768617,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768617,
+      "end": 1714699768617,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768617,
+      "end": 1714699768617,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768617,
+      "end": 1714699768617,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768617,
+      "end": 1714699768617,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768617,
+      "end": 1714699768617,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768617,
+      "end": 1714699768617,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768617,
+      "end": 1714699768617,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768617,
+      "end": 1714699768617,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768617,
+      "end": 1714699768617,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768617,
+      "end": 1714699768617,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768617,
+      "end": 1714699768617,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768617,
+      "end": 1714699768618,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768618,
+      "end": 1714699768618,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768618,
+      "end": 1714699768618,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/es/header/src/util.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var getAllColumns = function (columns, parentColumn) {\n    var result = [];\n    columns.forEach(function (column) {\n        column.parentId = parentColumn ? parentColumn.id : null;\n        if (column.visible) {\n            if (column.children && column.children.length && column.children.some(function (column) { return column.visible; })) {\n                result.push(column);\n                result.push.apply(result, getAllColumns(column.children, column));\n            }\n            else {\n                result.push(column);\n            }\n        }\n    });\n    return result;\n};\nexport var convertToRows = function (originColumns) {\n    var maxLevel = 1;\n    var traverse = function (column, parent) {\n        if (parent) {\n            column.level = parent.level + 1;\n            if (maxLevel < column.level) {\n                maxLevel = column.level;\n            }\n        }\n        if (column.children && column.children.length && column.children.some(function (column) { return column.visible; })) {\n            var colSpan_1 = 0;\n            column.children.forEach(function (subColumn) {\n                if (subColumn.visible) {\n                    traverse(subColumn, column);\n                    colSpan_1 += subColumn.colSpan;\n                }\n            });\n            column.colSpan = colSpan_1;\n        }\n        else {\n            column.colSpan = 1;\n        }\n    };\n    originColumns.forEach(function (column) {\n        column.level = 1;\n        traverse(column);\n    });\n    var rows = [];\n    for (var i = 0; i < maxLevel; i++) {\n        rows.push([]);\n    }\n    var allColumns = getAllColumns(originColumns);\n    allColumns.forEach(function (column) {\n        if (column.children && column.children.length && column.children.some(function (column) { return column.visible; })) {\n            column.rowSpan = 1;\n        }\n        else {\n            column.rowSpan = maxLevel - column.level + 1;\n        }\n        rows[column.level - 1].push(column);\n    });\n    return rows;\n};\n",
+      "start": 1714699768244,
+      "end": 1714699768291,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768291,
+      "end": 1714699768291,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768291,
+      "end": 1714699768291,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768291,
+      "end": 1714699768291,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768291,
+      "end": 1714699768291,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768291,
+      "end": 1714699768291,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768291,
+      "end": 1714699768291,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var getAllColumns = function (columns, parentColumn) {\n    var result = [];\n    columns.forEach(function (column) {\n        column.parentId = parentColumn ? parentColumn.id : null;\n        if (column.visible) {\n            if (column.children && column.children.length && column.children.some(function (column) { return column.visible; })) {\n                result.push(column);\n                result.push.apply(result, getAllColumns(column.children, column));\n            }\n            else {\n                result.push(column);\n            }\n        }\n    });\n    return result;\n};\nexport var convertToRows = function (originColumns) {\n    var maxLevel = 1;\n    var traverse = function (column, parent) {\n        if (parent) {\n            column.level = parent.level + 1;\n            if (maxLevel < column.level) {\n                maxLevel = column.level;\n            }\n        }\n        if (column.children && column.children.length && column.children.some(function (column) { return column.visible; })) {\n            var colSpan_1 = 0;\n            column.children.forEach(function (subColumn) {\n                if (subColumn.visible) {\n                    traverse(subColumn, column);\n                    colSpan_1 += subColumn.colSpan;\n                }\n            });\n            column.colSpan = colSpan_1;\n        }\n        else {\n            column.colSpan = 1;\n        }\n    };\n    originColumns.forEach(function (column) {\n        column.level = 1;\n        traverse(column);\n    });\n    var rows = [];\n    for (var i = 0; i < maxLevel; i++) {\n        rows.push([]);\n    }\n    var allColumns = getAllColumns(originColumns);\n    allColumns.forEach(function (column) {\n        if (column.children && column.children.length && column.children.some(function (column) { return column.visible; })) {\n            column.rowSpan = 1;\n        }\n        else {\n            column.rowSpan = maxLevel - column.level + 1;\n        }\n        rows[column.level - 1].push(column);\n    });\n    return rows;\n};\n",
+      "start": 1714699768291,
+      "end": 1714699768291,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768291,
+      "end": 1714699768291,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768291,
+      "end": 1714699768291,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768291,
+      "end": 1714699768291,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768291,
+      "end": 1714699768291,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768291,
+      "end": 1714699768291,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768291,
+      "end": 1714699768291,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768291,
+      "end": 1714699768292,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768292,
+      "end": 1714699768292,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768292,
+      "end": 1714699768292,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768292,
+      "end": 1714699768292,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768292,
+      "end": 1714699768292,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768292,
+      "end": 1714699768292,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768292,
+      "end": 1714699768292,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768292,
+      "end": 1714699768292,
+      "order": "normal"
+    }
+  ]
+}

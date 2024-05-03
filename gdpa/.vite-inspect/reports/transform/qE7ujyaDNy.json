@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/dom-zindex@1.0.1/node_modules/dom-zindex/es/index.esm.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var storeEl = null;\nvar storeId = 'z-index-manage';\nvar storeMainKey = 'm';\nvar storeSubKey = 's';\nvar storeData = {\n    m: 1000,\n    s: 1000\n};\nfunction getDom() {\n    if (!storeEl) {\n        if (typeof document !== 'undefined') {\n            storeEl = document.getElementById(storeId);\n            if (!storeEl) {\n                storeEl = document.createElement('div');\n                storeEl.id = storeId;\n                storeEl.style.display = 'none';\n                document.body.appendChild(storeEl);\n                setCurrent(storeData.m);\n                setSubCurrent(storeData.s);\n            }\n        }\n    }\n    return storeEl;\n}\nfunction createSetHandle(key) {\n    return function (value) {\n        if (value) {\n            value = Number(value);\n            storeData[key] = value;\n            var doc = getDom();\n            if (doc) {\n                if (doc.dataset) {\n                    doc.dataset[key] = value + '';\n                }\n                else {\n                    doc.setAttribute('data-' + key, value + '');\n                }\n            }\n        }\n        return storeData[key];\n    };\n}\nexport var setCurrent = createSetHandle(storeMainKey);\nfunction createGetHandle(key, nextMethod) {\n    return function getCurrent(currZindex) {\n        var zIndex;\n        var doc = getDom();\n        if (doc) {\n            var domVal = doc.dataset ? doc.dataset[key] : doc.getAttribute('data-' + key);\n            if (domVal) {\n                zIndex = Number(domVal);\n            }\n        }\n        if (!zIndex) {\n            zIndex = storeData[key];\n        }\n        if (currZindex) {\n            if (Number(currZindex) < zIndex) {\n                return nextMethod();\n            }\n            return currZindex;\n        }\n        return zIndex;\n    };\n}\nexport var getCurrent = createGetHandle(storeMainKey, getNext);\nexport function getNext() {\n    return setCurrent(getCurrent() + 1);\n}\nexport var setSubCurrent = createSetHandle(storeSubKey);\nvar _getSubCurrent = createGetHandle(storeSubKey, getSubNext);\nexport function getSubCurrent() {\n    return getCurrent() + _getSubCurrent();\n}\nexport function getSubNext() {\n    setSubCurrent(_getSubCurrent() + 1);\n    return getSubCurrent();\n}\n/**\n * Web common z-index style management\n */\nvar DomZIndex = {\n    setCurrent: setCurrent,\n    getCurrent: getCurrent,\n    getNext: getNext,\n    setSubCurrent: setSubCurrent,\n    getSubCurrent: getSubCurrent,\n    getSubNext: getSubNext\n};\nexport default DomZIndex;\n",
+      "start": 1714699768216,
+      "end": 1714699768256,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768256,
+      "end": 1714699768256,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768256,
+      "end": 1714699768256,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768256,
+      "end": 1714699768256,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768256,
+      "end": 1714699768256,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768256,
+      "end": 1714699768256,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768256,
+      "end": 1714699768256,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var storeEl = null;\nvar storeId = 'z-index-manage';\nvar storeMainKey = 'm';\nvar storeSubKey = 's';\nvar storeData = {\n    m: 1000,\n    s: 1000\n};\nfunction getDom() {\n    if (!storeEl) {\n        if (typeof document !== 'undefined') {\n            storeEl = document.getElementById(storeId);\n            if (!storeEl) {\n                storeEl = document.createElement('div');\n                storeEl.id = storeId;\n                storeEl.style.display = 'none';\n                document.body.appendChild(storeEl);\n                setCurrent(storeData.m);\n                setSubCurrent(storeData.s);\n            }\n        }\n    }\n    return storeEl;\n}\nfunction createSetHandle(key) {\n    return function (value) {\n        if (value) {\n            value = Number(value);\n            storeData[key] = value;\n            var doc = getDom();\n            if (doc) {\n                if (doc.dataset) {\n                    doc.dataset[key] = value + '';\n                }\n                else {\n                    doc.setAttribute('data-' + key, value + '');\n                }\n            }\n        }\n        return storeData[key];\n    };\n}\nexport var setCurrent = createSetHandle(storeMainKey);\nfunction createGetHandle(key, nextMethod) {\n    return function getCurrent(currZindex) {\n        var zIndex;\n        var doc = getDom();\n        if (doc) {\n            var domVal = doc.dataset ? doc.dataset[key] : doc.getAttribute('data-' + key);\n            if (domVal) {\n                zIndex = Number(domVal);\n            }\n        }\n        if (!zIndex) {\n            zIndex = storeData[key];\n        }\n        if (currZindex) {\n            if (Number(currZindex) < zIndex) {\n                return nextMethod();\n            }\n            return currZindex;\n        }\n        return zIndex;\n    };\n}\nexport var getCurrent = createGetHandle(storeMainKey, getNext);\nexport function getNext() {\n    return setCurrent(getCurrent() + 1);\n}\nexport var setSubCurrent = createSetHandle(storeSubKey);\nvar _getSubCurrent = createGetHandle(storeSubKey, getSubNext);\nexport function getSubCurrent() {\n    return getCurrent() + _getSubCurrent();\n}\nexport function getSubNext() {\n    setSubCurrent(_getSubCurrent() + 1);\n    return getSubCurrent();\n}\n/**\n * Web common z-index style management\n */\nvar DomZIndex = {\n    setCurrent: setCurrent,\n    getCurrent: getCurrent,\n    getNext: getNext,\n    setSubCurrent: setSubCurrent,\n    getSubCurrent: getSubCurrent,\n    getSubNext: getSubNext\n};\nexport default DomZIndex;\n",
+      "start": 1714699768256,
+      "end": 1714699768256,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768256,
+      "end": 1714699768256,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768256,
+      "end": 1714699768256,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768256,
+      "end": 1714699768256,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768256,
+      "end": 1714699768256,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768256,
+      "end": 1714699768256,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768256,
+      "end": 1714699768256,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768256,
+      "end": 1714699768256,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768256,
+      "end": 1714699768256,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768256,
+      "end": 1714699768256,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768256,
+      "end": 1714699768256,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768256,
+      "end": 1714699768256,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768256,
+      "end": 1714699768256,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768256,
+      "end": 1714699768256,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768256,
+      "end": 1714699768256,
+      "order": "normal"
+    }
+  ]
+}

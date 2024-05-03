@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/action-sheet/ActionSheet.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { mergeProps as _mergeProps, createVNode as _createVNode } from \"vue\";\nimport { nextTick, defineComponent } from \"vue\";\nimport { pick, extend, truthProp, makeArrayProp, makeStringProp, createNamespace, HAPTICS_FEEDBACK } from \"../utils/index.mjs\";\nimport { Icon } from \"../icon/index.mjs\";\nimport { Popup } from \"../popup/index.mjs\";\nimport { Loading } from \"../loading/index.mjs\";\nimport { popupSharedProps, popupSharedPropKeys } from \"../popup/shared.mjs\";\nconst [name, bem] = createNamespace(\"action-sheet\");\nconst actionSheetProps = extend({}, popupSharedProps, {\n  title: String,\n  round: truthProp,\n  actions: makeArrayProp(),\n  closeIcon: makeStringProp(\"cross\"),\n  closeable: truthProp,\n  cancelText: String,\n  description: String,\n  closeOnPopstate: truthProp,\n  closeOnClickAction: Boolean,\n  safeAreaInsetBottom: truthProp\n});\nconst popupInheritKeys = [...popupSharedPropKeys, \"round\", \"closeOnPopstate\", \"safeAreaInsetBottom\"];\nvar stdin_default = defineComponent({\n  name,\n  props: actionSheetProps,\n  emits: [\"select\", \"cancel\", \"update:show\"],\n  setup(props, {\n    slots,\n    emit\n  }) {\n    const updateShow = (show) => emit(\"update:show\", show);\n    const onCancel = () => {\n      updateShow(false);\n      emit(\"cancel\");\n    };\n    const renderHeader = () => {\n      if (props.title) {\n        return _createVNode(\"div\", {\n          \"class\": bem(\"header\")\n        }, [props.title, props.closeable && _createVNode(Icon, {\n          \"name\": props.closeIcon,\n          \"class\": [bem(\"close\"), HAPTICS_FEEDBACK],\n          \"onClick\": onCancel\n        }, null)]);\n      }\n    };\n    const renderCancel = () => {\n      if (slots.cancel || props.cancelText) {\n        return [_createVNode(\"div\", {\n          \"class\": bem(\"gap\")\n        }, null), _createVNode(\"button\", {\n          \"type\": \"button\",\n          \"class\": bem(\"cancel\"),\n          \"onClick\": onCancel\n        }, [slots.cancel ? slots.cancel() : props.cancelText])];\n      }\n    };\n    const renderActionContent = (action, index) => {\n      if (action.loading) {\n        return _createVNode(Loading, {\n          \"class\": bem(\"loading-icon\")\n        }, null);\n      }\n      if (slots.action) {\n        return slots.action({\n          action,\n          index\n        });\n      }\n      return [_createVNode(\"span\", {\n        \"class\": bem(\"name\")\n      }, [action.name]), action.subname && _createVNode(\"div\", {\n        \"class\": bem(\"subname\")\n      }, [action.subname])];\n    };\n    const renderAction = (action, index) => {\n      const {\n        color,\n        loading,\n        callback,\n        disabled,\n        className\n      } = action;\n      const onClick = () => {\n        if (disabled || loading) {\n          return;\n        }\n        if (callback) {\n          callback(action);\n        }\n        if (props.closeOnClickAction) {\n          updateShow(false);\n        }\n        nextTick(() => emit(\"select\", action, index));\n      };\n      return _createVNode(\"button\", {\n        \"type\": \"button\",\n        \"style\": {\n          color\n        },\n        \"class\": [bem(\"item\", {\n          loading,\n          disabled\n        }), className],\n        \"onClick\": onClick\n      }, [renderActionContent(action, index)]);\n    };\n    const renderDescription = () => {\n      if (props.description || slots.description) {\n        const content = slots.description ? slots.description() : props.description;\n        return _createVNode(\"div\", {\n          \"class\": bem(\"description\")\n        }, [content]);\n      }\n    };\n    return () => _createVNode(Popup, _mergeProps({\n      \"class\": bem(),\n      \"position\": \"bottom\",\n      \"onUpdate:show\": updateShow\n    }, pick(props, popupInheritKeys)), {\n      default: () => {\n        var _a;\n        return [renderHeader(), renderDescription(), _createVNode(\"div\", {\n          \"class\": bem(\"content\")\n        }, [props.actions.map(renderAction), (_a = slots.default) == null ? void 0 : _a.call(slots)]), renderCancel()];\n      }\n    });\n  }\n});\nexport {\n  actionSheetProps,\n  stdin_default as default\n};\n",
+      "start": 1714699767187,
+      "end": 1714699767248,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { mergeProps as _mergeProps, createVNode as _createVNode } from \"vue\";\nimport { nextTick, defineComponent } from \"vue\";\nimport { pick, extend, truthProp, makeArrayProp, makeStringProp, createNamespace, HAPTICS_FEEDBACK } from \"../utils/index.mjs\";\nimport { Icon } from \"../icon/index.mjs\";\nimport { Popup } from \"../popup/index.mjs\";\nimport { Loading } from \"../loading/index.mjs\";\nimport { popupSharedProps, popupSharedPropKeys } from \"../popup/shared.mjs\";\nconst [name, bem] = createNamespace(\"action-sheet\");\nconst actionSheetProps = extend({}, popupSharedProps, {\n  title: String,\n  round: truthProp,\n  actions: makeArrayProp(),\n  closeIcon: makeStringProp(\"cross\"),\n  closeable: truthProp,\n  cancelText: String,\n  description: String,\n  closeOnPopstate: truthProp,\n  closeOnClickAction: Boolean,\n  safeAreaInsetBottom: truthProp\n});\nconst popupInheritKeys = [...popupSharedPropKeys, \"round\", \"closeOnPopstate\", \"safeAreaInsetBottom\"];\nvar stdin_default = defineComponent({\n  name,\n  props: actionSheetProps,\n  emits: [\"select\", \"cancel\", \"update:show\"],\n  setup(props, {\n    slots,\n    emit\n  }) {\n    const updateShow = (show) => emit(\"update:show\", show);\n    const onCancel = () => {\n      updateShow(false);\n      emit(\"cancel\");\n    };\n    const renderHeader = () => {\n      if (props.title) {\n        return _createVNode(\"div\", {\n          \"class\": bem(\"header\")\n        }, [props.title, props.closeable && _createVNode(Icon, {\n          \"name\": props.closeIcon,\n          \"class\": [bem(\"close\"), HAPTICS_FEEDBACK],\n          \"onClick\": onCancel\n        }, null)]);\n      }\n    };\n    const renderCancel = () => {\n      if (slots.cancel || props.cancelText) {\n        return [_createVNode(\"div\", {\n          \"class\": bem(\"gap\")\n        }, null), _createVNode(\"button\", {\n          \"type\": \"button\",\n          \"class\": bem(\"cancel\"),\n          \"onClick\": onCancel\n        }, [slots.cancel ? slots.cancel() : props.cancelText])];\n      }\n    };\n    const renderActionContent = (action, index) => {\n      if (action.loading) {\n        return _createVNode(Loading, {\n          \"class\": bem(\"loading-icon\")\n        }, null);\n      }\n      if (slots.action) {\n        return slots.action({\n          action,\n          index\n        });\n      }\n      return [_createVNode(\"span\", {\n        \"class\": bem(\"name\")\n      }, [action.name]), action.subname && _createVNode(\"div\", {\n        \"class\": bem(\"subname\")\n      }, [action.subname])];\n    };\n    const renderAction = (action, index) => {\n      const {\n        color,\n        loading,\n        callback,\n        disabled,\n        className\n      } = action;\n      const onClick = () => {\n        if (disabled || loading) {\n          return;\n        }\n        if (callback) {\n          callback(action);\n        }\n        if (props.closeOnClickAction) {\n          updateShow(false);\n        }\n        nextTick(() => emit(\"select\", action, index));\n      };\n      return _createVNode(\"button\", {\n        \"type\": \"button\",\n        \"style\": {\n          color\n        },\n        \"class\": [bem(\"item\", {\n          loading,\n          disabled\n        }), className],\n        \"onClick\": onClick\n      }, [renderActionContent(action, index)]);\n    };\n    const renderDescription = () => {\n      if (props.description || slots.description) {\n        const content = slots.description ? slots.description() : props.description;\n        return _createVNode(\"div\", {\n          \"class\": bem(\"description\")\n        }, [content]);\n      }\n    };\n    return () => _createVNode(Popup, _mergeProps({\n      \"class\": bem(),\n      \"position\": \"bottom\",\n      \"onUpdate:show\": updateShow\n    }, pick(props, popupInheritKeys)), {\n      default: () => {\n        var _a;\n        return [renderHeader(), renderDescription(), _createVNode(\"div\", {\n          \"class\": bem(\"content\")\n        }, [props.actions.map(renderAction), (_a = slots.default) == null ? void 0 : _a.call(slots)]), renderCancel()];\n      }\n    });\n  }\n});\nexport {\n  actionSheetProps,\n  stdin_default as default\n};\n",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767248,
+      "end": 1714699767248,
+      "order": "normal"
+    }
+  ]
+}

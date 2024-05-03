@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/es/form/src/util.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { watch } from 'vue';\nimport { VXETable } from '../../v-x-e-table';\nimport XEUtils from 'xe-utils';\nimport { ItemInfo } from './itemInfo';\nimport { isEnableConf } from '../../tools/utils';\nexport function isFormItem(item) {\n    return item instanceof ItemInfo;\n}\nexport function createItem($xeform, _vm) {\n    return isFormItem(_vm) ? _vm : new ItemInfo($xeform, _vm);\n}\nexport function handleFieldOrItem($xeform, fieldOrItem) {\n    if (fieldOrItem) {\n        return XEUtils.isString(fieldOrItem) ? $xeform.getItemByField(fieldOrItem) : fieldOrItem;\n    }\n    return null;\n}\nexport function isHiddenItem($xeform, formItem) {\n    var reactData = $xeform.reactData;\n    var collapseAll = reactData.collapseAll;\n    var folding = formItem.folding, visible = formItem.visible;\n    return visible === false || (folding && collapseAll);\n}\nexport function isActivetem($xeform, formItem) {\n    var visibleMethod = formItem.visibleMethod, itemRender = formItem.itemRender, visible = formItem.visible, field = formItem.field;\n    if (visible === false) {\n        return visible;\n    }\n    var compConf = isEnableConf(itemRender) ? VXETable.renderer.get(itemRender.name) : null;\n    if (!visibleMethod && compConf && compConf.itemVisibleMethod) {\n        visibleMethod = compConf.itemVisibleMethod;\n    }\n    if (!visibleMethod) {\n        return true;\n    }\n    var data = $xeform.props.data;\n    return visibleMethod({ data: data, field: field, property: field, item: formItem, $form: $xeform, $grid: $xeform.xegrid });\n}\nexport function watchItem(props, formItem) {\n    Object.keys(props).forEach(function (name) {\n        watch(function () { return props[name]; }, function (value) {\n            formItem.update(name, value);\n        });\n    });\n}\nexport function assemItem($xeform, el, formItem, formGather) {\n    var reactData = $xeform.reactData;\n    var staticItems = reactData.staticItems;\n    var parentElem = el.parentNode;\n    var parentItem = formGather ? formGather.formItem : null;\n    var parentItems = parentItem ? parentItem.children : staticItems;\n    if (parentElem) {\n        parentItems.splice(XEUtils.arrayIndexOf(parentElem.children, el), 0, formItem);\n        reactData.staticItems = staticItems.slice(0);\n    }\n}\nexport function destroyItem($xeform, formItem) {\n    var reactData = $xeform.reactData;\n    var staticItems = reactData.staticItems;\n    var index = XEUtils.findIndexOf(staticItems, function (item) { return item.id === formItem.id; });\n    if (index > -1) {\n        staticItems.splice(index, 1);\n    }\n    reactData.staticItems = staticItems.slice(0);\n}\n",
+      "start": 1714699768239,
+      "end": 1714699768283,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768283,
+      "end": 1714699768283,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768283,
+      "end": 1714699768283,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768283,
+      "end": 1714699768283,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768283,
+      "end": 1714699768283,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768283,
+      "end": 1714699768283,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768283,
+      "end": 1714699768283,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { watch } from 'vue';\nimport { VXETable } from '../../v-x-e-table';\nimport XEUtils from 'xe-utils';\nimport { ItemInfo } from './itemInfo';\nimport { isEnableConf } from '../../tools/utils';\nexport function isFormItem(item) {\n    return item instanceof ItemInfo;\n}\nexport function createItem($xeform, _vm) {\n    return isFormItem(_vm) ? _vm : new ItemInfo($xeform, _vm);\n}\nexport function handleFieldOrItem($xeform, fieldOrItem) {\n    if (fieldOrItem) {\n        return XEUtils.isString(fieldOrItem) ? $xeform.getItemByField(fieldOrItem) : fieldOrItem;\n    }\n    return null;\n}\nexport function isHiddenItem($xeform, formItem) {\n    var reactData = $xeform.reactData;\n    var collapseAll = reactData.collapseAll;\n    var folding = formItem.folding, visible = formItem.visible;\n    return visible === false || (folding && collapseAll);\n}\nexport function isActivetem($xeform, formItem) {\n    var visibleMethod = formItem.visibleMethod, itemRender = formItem.itemRender, visible = formItem.visible, field = formItem.field;\n    if (visible === false) {\n        return visible;\n    }\n    var compConf = isEnableConf(itemRender) ? VXETable.renderer.get(itemRender.name) : null;\n    if (!visibleMethod && compConf && compConf.itemVisibleMethod) {\n        visibleMethod = compConf.itemVisibleMethod;\n    }\n    if (!visibleMethod) {\n        return true;\n    }\n    var data = $xeform.props.data;\n    return visibleMethod({ data: data, field: field, property: field, item: formItem, $form: $xeform, $grid: $xeform.xegrid });\n}\nexport function watchItem(props, formItem) {\n    Object.keys(props).forEach(function (name) {\n        watch(function () { return props[name]; }, function (value) {\n            formItem.update(name, value);\n        });\n    });\n}\nexport function assemItem($xeform, el, formItem, formGather) {\n    var reactData = $xeform.reactData;\n    var staticItems = reactData.staticItems;\n    var parentElem = el.parentNode;\n    var parentItem = formGather ? formGather.formItem : null;\n    var parentItems = parentItem ? parentItem.children : staticItems;\n    if (parentElem) {\n        parentItems.splice(XEUtils.arrayIndexOf(parentElem.children, el), 0, formItem);\n        reactData.staticItems = staticItems.slice(0);\n    }\n}\nexport function destroyItem($xeform, formItem) {\n    var reactData = $xeform.reactData;\n    var staticItems = reactData.staticItems;\n    var index = XEUtils.findIndexOf(staticItems, function (item) { return item.id === formItem.id; });\n    if (index > -1) {\n        staticItems.splice(index, 1);\n    }\n    reactData.staticItems = staticItems.slice(0);\n}\n",
+      "start": 1714699768283,
+      "end": 1714699768283,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768283,
+      "end": 1714699768283,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768283,
+      "end": 1714699768283,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768283,
+      "end": 1714699768283,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768283,
+      "end": 1714699768283,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768283,
+      "end": 1714699768283,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768283,
+      "end": 1714699768283,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768283,
+      "end": 1714699768284,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768284,
+      "end": 1714699768284,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768284,
+      "end": 1714699768284,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768284,
+      "end": 1714699768284,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768284,
+      "end": 1714699768284,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768284,
+      "end": 1714699768284,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768284,
+      "end": 1714699768284,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768284,
+      "end": 1714699768284,
+      "order": "normal"
+    }
+  ]
+}

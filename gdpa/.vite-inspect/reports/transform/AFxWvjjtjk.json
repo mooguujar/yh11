@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/_setCacheAdd.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "/** Used to stand-in for `undefined` hash values. */\nvar HASH_UNDEFINED = '__lodash_hash_undefined__';\n\n/**\n * Adds `value` to the array cache.\n *\n * @private\n * @name add\n * @memberOf SetCache\n * @alias push\n * @param {*} value The value to cache.\n * @returns {Object} Returns the cache instance.\n */\nfunction setCacheAdd(value) {\n  this.__data__.set(value, HASH_UNDEFINED);\n  return this;\n}\n\nexport default setCacheAdd;\n",
+      "start": 1714699769019,
+      "end": 1714699769038,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769038,
+      "end": 1714699769038,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769038,
+      "end": 1714699769038,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769038,
+      "end": 1714699769038,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769038,
+      "end": 1714699769038,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699769038,
+      "end": 1714699769038,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769038,
+      "end": 1714699769038,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "/** Used to stand-in for `undefined` hash values. */\nvar HASH_UNDEFINED = '__lodash_hash_undefined__';\n\n/**\n * Adds `value` to the array cache.\n *\n * @private\n * @name add\n * @memberOf SetCache\n * @alias push\n * @param {*} value The value to cache.\n * @returns {Object} Returns the cache instance.\n */\nfunction setCacheAdd(value) {\n  this.__data__.set(value, HASH_UNDEFINED);\n  return this;\n}\n\nexport default setCacheAdd;\n",
+      "start": 1714699769038,
+      "end": 1714699769038,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699769038,
+      "end": 1714699769038,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769038,
+      "end": 1714699769038,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769038,
+      "end": 1714699769038,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769038,
+      "end": 1714699769038,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769038,
+      "end": 1714699769038,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769038,
+      "end": 1714699769038,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769038,
+      "end": 1714699769038,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769038,
+      "end": 1714699769038,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769038,
+      "end": 1714699769038,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769038,
+      "end": 1714699769038,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699769038,
+      "end": 1714699769038,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769038,
+      "end": 1714699769038,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769038,
+      "end": 1714699769038,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769038,
+      "end": 1714699769038,
+      "order": "normal"
+    }
+  ]
+}

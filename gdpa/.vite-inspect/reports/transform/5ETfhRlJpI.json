@@ -1,0 +1,165 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { useCssVars as _useCssVars, unref as _unref, defineComponent as _defineComponent } from 'vue'\nimport { openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"preload-resources-container\" }\n\nimport { ref } from 'vue'\nimport spritesHome from '@/assets/images/sprites-home.png'\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'PreloadResources',\n  setup(__props) {\n\n_useCssVars(_ctx => ({\n  \"9535fcaf-spritesHomeUrl\": (spritesHomeUrl.value)\n}))\n\n/**\n * @description 此文件处理预加载资源逻辑，js、css、图片等\n */\nconst spritesHomeUrl = ref(`url(${spritesHome})`)\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1))\n}\n}\n\n})",
+      "start": 1714699769400,
+      "end": 1714699769401
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769401,
+      "end": 1714699769401,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { useCssVars as _useCssVars, defineComponent as _defineComponent } from \"vue\";\nimport { openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"preload-resources-container\" };\nimport { ref } from \"vue\";\nimport spritesHome from \"@/assets/images/sprites-home.png\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"PreloadResources\",\n  setup(__props) {\n    _useCssVars((_ctx) => ({\n      \"9535fcaf-spritesHomeUrl\": spritesHomeUrl.value\n    }));\n    const spritesHomeUrl = ref(`url(${spritesHome})`);\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1);\n    };\n  }\n});\n",
+      "start": 1714699769402,
+      "end": 1714699769538,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { useCssVars as _useCssVars, unref as _unref, defineComponent as _defineComponent } from 'vue'\nimport { openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"preload-resources-container\" }\n\nimport { ref } from 'vue'\nimport spritesHome from '@/assets/images/sprites-home.png'\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'PreloadResources',\n  setup(__props) {\n\n_useCssVars(_ctx => ({\n  \"9535fcaf-spritesHomeUrl\": (spritesHomeUrl.value)\n}))\n\n/**\n * @description 此文件处理预加载资源逻辑，js、css、图片等\n */\nconst spritesHomeUrl = ref(`url(${spritesHome})`)\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1))\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,cAAc,aAA8B,mBAAmB,wBAAwB;AAChG,SAAS,aAAa,YAAY,sBAAsB,2BAA2B;AAEnF,MAAM,aAAa,EAAE,OAAO,8BAA8B;AAE1D,SAAS,WAAW;AACpB,OAAO,iBAAiB;AAGxB,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,MAAM,SAAS;AAEjB,gBAAY,WAAS;AAAA,MACnB,2BAA4B,eAAe;AAAA,IAC7C,EAAE;AAKF,UAAM,iBAAiB,IAAI,OAAO,WAAW,GAAG;AAEhD,WAAO,CAAC,MAAU,WAAgB;AAChC,aAAQ,WAAW,GAAG,oBAAoB,OAAO,UAAU;AAAA,IAC7D;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769538,
+      "end": 1714699769538,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769538,
+      "end": 1714699769538,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699769538,
+      "end": 1714699769538,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769538,
+      "end": 1714699769538,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { useCssVars as _useCssVars, defineComponent as _defineComponent } from \"vue\";\nimport { openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"preload-resources-container\" };\nimport { ref } from \"vue\";\nimport spritesHome from \"@/assets/images/sprites-home.png\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"PreloadResources\",\n  setup(__props) {\n    _useCssVars((_ctx) => ({\n      \"9535fcaf-spritesHomeUrl\": spritesHomeUrl.value\n    }));\n    const spritesHomeUrl = ref(`url(${spritesHome})`);\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1);\n    };\n  }\n});\n",
+      "start": 1714699769538,
+      "end": 1714699769538,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport { useCssVars as _useCssVars, defineComponent as _defineComponent } from \"vue\";\nimport { openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"preload-resources-container\" };\nimport { ref } from \"vue\";\nimport spritesHome from \"@/assets/images/sprites-home.png\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"PreloadResources\",\n  setup(__props) {\n    _useCssVars((_ctx) => ({\n      \"9535fcaf-spritesHomeUrl\": spritesHomeUrl.value\n    }));\n    const spritesHomeUrl = ref(`url(${spritesHome})`);\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1);\n    };\n  }\n});\n",
+      "start": 1714699769538,
+      "end": 1714699770122,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue?vue&type=script&setup=true&lang.ts\"],\n  \"sourcesContent\": [\"import { useCssVars as _useCssVars, defineComponent as _defineComponent } from \\\"vue\\\";\\nimport { openBlock as _openBlock, createElementBlock as _createElementBlock } from \\\"vue\\\";\\nconst _hoisted_1 = { class: \\\"preload-resources-container\\\" };\\nimport { ref } from \\\"vue\\\";\\nimport spritesHome from \\\"@/assets/images/sprites-home.png\\\";\\nexport default /* @__PURE__ */ _defineComponent({\\n  __name: \\\"PreloadResources\\\",\\n  setup(__props) {\\n    _useCssVars((_ctx) => ({\\n      \\\"9535fcaf-spritesHomeUrl\\\": spritesHomeUrl.value\\n    }));\\n    const spritesHomeUrl = ref(`url(${spritesHome})`);\\n    return (_ctx, _cache) => {\\n      return _openBlock(), _createElementBlock(\\\"div\\\", _hoisted_1);\\n    };\\n  }\\n});\\n\"],\n  \"mappings\": \";AAAA,SAAS,cAAc,aAAa,mBAAmB,wBAAwB;AAC/E,SAAS,aAAa,YAAY,sBAAsB,2BAA2B;AACnF,MAAM,aAAa,EAAE,OAAO,8BAA8B;AAC1D,SAAS,WAAW;AACpB,OAAO,iBAAiB;AACxB,eAA+B,iCAAiB;AAAA,EAC9C,QAAQ;AAAA,EACR,MAAM,SAAS;AACb,gBAAY,CAAC,UAAU;AAAA,MACrB,2BAA2B,eAAe;AAAA,IAC5C,EAAE;AACF,UAAM,iBAAiB,IAAI,OAAO,WAAW,GAAG;AAChD,WAAO,CAAC,MAAM,WAAW;AACvB,aAAO,WAAW,GAAG,oBAAoB,OAAO,UAAU;AAAA,IAC5D;AAAA,EACF;AACF,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770122,
+      "end": 1714699770122,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699770122,
+      "end": 1714699770122,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770122,
+      "end": 1714699770122,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770122,
+      "end": 1714699770122,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770122,
+      "end": 1714699770122,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770122,
+      "end": 1714699770122,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770122,
+      "end": 1714699770122,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770122,
+      "end": 1714699770122,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770122,
+      "end": 1714699770123,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport { useCssVars as _useCssVars, defineComponent as _defineComponent } from \"vue\";\nimport { openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"preload-resources-container\" };\nimport { ref } from \"vue\";\nimport spritesHome from \"@/assets/images/sprites-home.png\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"PreloadResources\",\n  setup(__props) {\n    _useCssVars((_ctx) => ({\n      \"9535fcaf-spritesHomeUrl\": spritesHomeUrl.value\n    }));\n    const spritesHomeUrl = ref(`url(${spritesHome})`);\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1);\n    };\n  }\n});\n",
+      "start": 1714699770123,
+      "end": 1714699770124,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport { useCssVars as _useCssVars, defineComponent as _defineComponent } from \"vue\";\nimport { openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"preload-resources-container\" };\nimport { ref } from \"vue\";\nimport spritesHome from \"@/assets/images/sprites-home.png\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"PreloadResources\",\n  setup(__props) {\n    _useCssVars((_ctx) => ({\n      \"9535fcaf-spritesHomeUrl\": spritesHomeUrl.value\n    }));\n    const spritesHomeUrl = ref(`url(${spritesHome})`);\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1);\n    };\n  }\n});\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770124,
+      "end": 1714699770124,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770124,
+      "end": 1714699770124,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770124,
+      "end": 1714699770124,
+      "order": "normal"
+    }
+  ]
+}

@@ -549,7 +549,12 @@
               />
               <span class="payTitle">
                 银行卡支付
-                <span class="ml-[70px] text-[red]">支持 支付宝/网银/微信 转账</span>
+                <span
+                  v-if="[3].includes(BuyOrderDetail.status)"
+                  class="ml-[70px] text-[red]"
+                >
+                  支持 支付宝/网银/微信 转账
+                </span>
               </span>
             </div>
             <div
@@ -838,15 +843,12 @@
         </div>
 
         <!-- 付款人信息 不要了 -->
-
-        <!-- <div
-          v-if="
-            (!onlineCharge &&
+        <!-- (!onlineCharge &&
               !SellOrder &&
               !seller &&
-              [3, 6, 7, 8, 9, 10].includes(BuyOrderDetail.status)) ||
-            (!SellOrder && seller && [6, 7, 8, 9, 10].includes(BuyOrderDetail.status))
-          "
+              [3, 6, 7, 8, 9, 10].includes(BuyOrderDetail.status)) || -->
+        <div
+          v-if="!SellOrder && seller && [6, 7, 8, 9, 10].includes(BuyOrderDetail.status)"
           class="O_orderInfo O_pay clearfix"
         >
           <div class="O_count mt-[10px] pr-[15px]">
@@ -888,7 +890,7 @@
               }}
             </span>
           </div>
-        </div> -->
+        </div>
 
         <!-- 上传付款凭证 -->
         <!-- (seller && [6].includes(BuyOrderDetail.status) && BuyOrderDetail.buy_img) -->
@@ -2521,7 +2523,26 @@ const afterRead = async (event: any) => {
     fileList.value[fileList.value.length - 1].status = 'done'
     fileList.value[fileList.value.length - 1].message = '上传成功'
   }, 500)
-  console.log('fileList.value', fileList.value)
+
+  verify_input(pay_cardid.value, pay_realname_backUp.value, pay_bankname.value) &&
+    BuyerUpdateTransInfo({
+      buy_order_id: BuyOrderDetail.value.order_id,
+      buy_img: (fileList.value[0] && fileList.value[0].UploadURL) || '',
+      // pay_cardid: ['BANK', 'SZRMB'].includes(BuyOrderDetail.coin_protocol)
+      //   ? pay_cardidUpdate
+      //     ? pay_cardid
+      //     : BuyOrderDetail.pay_cardid
+      //     ? BuyOrderDetail.pay_cardid
+      //     : pay_cardid
+      //   : pay_cardid,
+      pay_realname: pay_realname_backUp.value
+      // pay_bankname: pay_bankname
+    }).then(() => {
+      ;(payimg.value = false),
+        (fileList.value = []),
+        getBuyOrderDetail(BuyOrderDetail.value.order_id)
+    })
+  // console.log('fileList.value', fileList.value)
 }
 const payimg = ref(false)
 const uploadImg = async (file: string): Promise<any> => {

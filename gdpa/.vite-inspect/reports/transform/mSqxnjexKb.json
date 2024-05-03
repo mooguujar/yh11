@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/html5-qrcode@2.3.8/node_modules/html5-qrcode/esm/strings.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var Html5QrcodeStrings = (function () {\n    function Html5QrcodeStrings() {\n    }\n    Html5QrcodeStrings.codeParseError = function (exception) {\n        return \"QR code parse error, error = \".concat(exception);\n    };\n    Html5QrcodeStrings.errorGettingUserMedia = function (error) {\n        return \"Error getting userMedia, error = \".concat(error);\n    };\n    Html5QrcodeStrings.onlyDeviceSupportedError = function () {\n        return \"The device doesn't support navigator.mediaDevices , only \"\n            + \"supported cameraIdOrConfig in this case is deviceId parameter \"\n            + \"(string).\";\n    };\n    Html5QrcodeStrings.cameraStreamingNotSupported = function () {\n        return \"Camera streaming not supported by the browser.\";\n    };\n    Html5QrcodeStrings.unableToQuerySupportedDevices = function () {\n        return \"Unable to query supported devices, unknown error.\";\n    };\n    Html5QrcodeStrings.insecureContextCameraQueryError = function () {\n        return \"Camera access is only supported in secure context like https \"\n            + \"or localhost.\";\n    };\n    Html5QrcodeStrings.scannerPaused = function () {\n        return \"Scanner paused\";\n    };\n    return Html5QrcodeStrings;\n}());\nexport { Html5QrcodeStrings };\nvar Html5QrcodeScannerStrings = (function () {\n    function Html5QrcodeScannerStrings() {\n    }\n    Html5QrcodeScannerStrings.scanningStatus = function () {\n        return \"Scanning\";\n    };\n    Html5QrcodeScannerStrings.idleStatus = function () {\n        return \"Idle\";\n    };\n    Html5QrcodeScannerStrings.errorStatus = function () {\n        return \"Error\";\n    };\n    Html5QrcodeScannerStrings.permissionStatus = function () {\n        return \"Permission\";\n    };\n    Html5QrcodeScannerStrings.noCameraFoundErrorStatus = function () {\n        return \"No Cameras\";\n    };\n    Html5QrcodeScannerStrings.lastMatch = function (decodedText) {\n        return \"Last Match: \".concat(decodedText);\n    };\n    Html5QrcodeScannerStrings.codeScannerTitle = function () {\n        return \"Code Scanner\";\n    };\n    Html5QrcodeScannerStrings.cameraPermissionTitle = function () {\n        return \"Request Camera Permissions\";\n    };\n    Html5QrcodeScannerStrings.cameraPermissionRequesting = function () {\n        return \"Requesting camera permissions...\";\n    };\n    Html5QrcodeScannerStrings.noCameraFound = function () {\n        return \"No camera found\";\n    };\n    Html5QrcodeScannerStrings.scanButtonStopScanningText = function () {\n        return \"Stop Scanning\";\n    };\n    Html5QrcodeScannerStrings.scanButtonStartScanningText = function () {\n        return \"Start Scanning\";\n    };\n    Html5QrcodeScannerStrings.torchOnButton = function () {\n        return \"Switch On Torch\";\n    };\n    Html5QrcodeScannerStrings.torchOffButton = function () {\n        return \"Switch Off Torch\";\n    };\n    Html5QrcodeScannerStrings.torchOnFailedMessage = function () {\n        return \"Failed to turn on torch\";\n    };\n    Html5QrcodeScannerStrings.torchOffFailedMessage = function () {\n        return \"Failed to turn off torch\";\n    };\n    Html5QrcodeScannerStrings.scanButtonScanningStarting = function () {\n        return \"Launching Camera...\";\n    };\n    Html5QrcodeScannerStrings.textIfCameraScanSelected = function () {\n        return \"Scan an Image File\";\n    };\n    Html5QrcodeScannerStrings.textIfFileScanSelected = function () {\n        return \"Scan using camera directly\";\n    };\n    Html5QrcodeScannerStrings.selectCamera = function () {\n        return \"Select Camera\";\n    };\n    Html5QrcodeScannerStrings.fileSelectionChooseImage = function () {\n        return \"Choose Image\";\n    };\n    Html5QrcodeScannerStrings.fileSelectionChooseAnother = function () {\n        return \"Choose Another\";\n    };\n    Html5QrcodeScannerStrings.fileSelectionNoImageSelected = function () {\n        return \"No image choosen\";\n    };\n    Html5QrcodeScannerStrings.anonymousCameraPrefix = function () {\n        return \"Anonymous Camera\";\n    };\n    Html5QrcodeScannerStrings.dragAndDropMessage = function () {\n        return \"Or drop an image to scan\";\n    };\n    Html5QrcodeScannerStrings.dragAndDropMessageOnlyImages = function () {\n        return \"Or drop an image to scan (other files not supported)\";\n    };\n    Html5QrcodeScannerStrings.zoom = function () {\n        return \"zoom\";\n    };\n    Html5QrcodeScannerStrings.loadingImage = function () {\n        return \"Loading image...\";\n    };\n    Html5QrcodeScannerStrings.cameraScanAltText = function () {\n        return \"Camera based scan\";\n    };\n    Html5QrcodeScannerStrings.fileScanAltText = function () {\n        return \"Fule based scan\";\n    };\n    return Html5QrcodeScannerStrings;\n}());\nexport { Html5QrcodeScannerStrings };\nvar LibraryInfoStrings = (function () {\n    function LibraryInfoStrings() {\n    }\n    LibraryInfoStrings.poweredBy = function () {\n        return \"Powered by \";\n    };\n    LibraryInfoStrings.reportIssues = function () {\n        return \"Report issues\";\n    };\n    return LibraryInfoStrings;\n}());\nexport { LibraryInfoStrings };\n//# sourceMappingURL=strings.js.map",
+      "start": 1714699771223,
+      "end": 1714699771234,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771234,
+      "end": 1714699771234,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771234,
+      "end": 1714699771234,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771234,
+      "end": 1714699771234,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771234,
+      "end": 1714699771234,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771234,
+      "end": 1714699771234,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771234,
+      "end": 1714699771234,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var Html5QrcodeStrings = (function () {\n    function Html5QrcodeStrings() {\n    }\n    Html5QrcodeStrings.codeParseError = function (exception) {\n        return \"QR code parse error, error = \".concat(exception);\n    };\n    Html5QrcodeStrings.errorGettingUserMedia = function (error) {\n        return \"Error getting userMedia, error = \".concat(error);\n    };\n    Html5QrcodeStrings.onlyDeviceSupportedError = function () {\n        return \"The device doesn't support navigator.mediaDevices , only \"\n            + \"supported cameraIdOrConfig in this case is deviceId parameter \"\n            + \"(string).\";\n    };\n    Html5QrcodeStrings.cameraStreamingNotSupported = function () {\n        return \"Camera streaming not supported by the browser.\";\n    };\n    Html5QrcodeStrings.unableToQuerySupportedDevices = function () {\n        return \"Unable to query supported devices, unknown error.\";\n    };\n    Html5QrcodeStrings.insecureContextCameraQueryError = function () {\n        return \"Camera access is only supported in secure context like https \"\n            + \"or localhost.\";\n    };\n    Html5QrcodeStrings.scannerPaused = function () {\n        return \"Scanner paused\";\n    };\n    return Html5QrcodeStrings;\n}());\nexport { Html5QrcodeStrings };\nvar Html5QrcodeScannerStrings = (function () {\n    function Html5QrcodeScannerStrings() {\n    }\n    Html5QrcodeScannerStrings.scanningStatus = function () {\n        return \"Scanning\";\n    };\n    Html5QrcodeScannerStrings.idleStatus = function () {\n        return \"Idle\";\n    };\n    Html5QrcodeScannerStrings.errorStatus = function () {\n        return \"Error\";\n    };\n    Html5QrcodeScannerStrings.permissionStatus = function () {\n        return \"Permission\";\n    };\n    Html5QrcodeScannerStrings.noCameraFoundErrorStatus = function () {\n        return \"No Cameras\";\n    };\n    Html5QrcodeScannerStrings.lastMatch = function (decodedText) {\n        return \"Last Match: \".concat(decodedText);\n    };\n    Html5QrcodeScannerStrings.codeScannerTitle = function () {\n        return \"Code Scanner\";\n    };\n    Html5QrcodeScannerStrings.cameraPermissionTitle = function () {\n        return \"Request Camera Permissions\";\n    };\n    Html5QrcodeScannerStrings.cameraPermissionRequesting = function () {\n        return \"Requesting camera permissions...\";\n    };\n    Html5QrcodeScannerStrings.noCameraFound = function () {\n        return \"No camera found\";\n    };\n    Html5QrcodeScannerStrings.scanButtonStopScanningText = function () {\n        return \"Stop Scanning\";\n    };\n    Html5QrcodeScannerStrings.scanButtonStartScanningText = function () {\n        return \"Start Scanning\";\n    };\n    Html5QrcodeScannerStrings.torchOnButton = function () {\n        return \"Switch On Torch\";\n    };\n    Html5QrcodeScannerStrings.torchOffButton = function () {\n        return \"Switch Off Torch\";\n    };\n    Html5QrcodeScannerStrings.torchOnFailedMessage = function () {\n        return \"Failed to turn on torch\";\n    };\n    Html5QrcodeScannerStrings.torchOffFailedMessage = function () {\n        return \"Failed to turn off torch\";\n    };\n    Html5QrcodeScannerStrings.scanButtonScanningStarting = function () {\n        return \"Launching Camera...\";\n    };\n    Html5QrcodeScannerStrings.textIfCameraScanSelected = function () {\n        return \"Scan an Image File\";\n    };\n    Html5QrcodeScannerStrings.textIfFileScanSelected = function () {\n        return \"Scan using camera directly\";\n    };\n    Html5QrcodeScannerStrings.selectCamera = function () {\n        return \"Select Camera\";\n    };\n    Html5QrcodeScannerStrings.fileSelectionChooseImage = function () {\n        return \"Choose Image\";\n    };\n    Html5QrcodeScannerStrings.fileSelectionChooseAnother = function () {\n        return \"Choose Another\";\n    };\n    Html5QrcodeScannerStrings.fileSelectionNoImageSelected = function () {\n        return \"No image choosen\";\n    };\n    Html5QrcodeScannerStrings.anonymousCameraPrefix = function () {\n        return \"Anonymous Camera\";\n    };\n    Html5QrcodeScannerStrings.dragAndDropMessage = function () {\n        return \"Or drop an image to scan\";\n    };\n    Html5QrcodeScannerStrings.dragAndDropMessageOnlyImages = function () {\n        return \"Or drop an image to scan (other files not supported)\";\n    };\n    Html5QrcodeScannerStrings.zoom = function () {\n        return \"zoom\";\n    };\n    Html5QrcodeScannerStrings.loadingImage = function () {\n        return \"Loading image...\";\n    };\n    Html5QrcodeScannerStrings.cameraScanAltText = function () {\n        return \"Camera based scan\";\n    };\n    Html5QrcodeScannerStrings.fileScanAltText = function () {\n        return \"Fule based scan\";\n    };\n    return Html5QrcodeScannerStrings;\n}());\nexport { Html5QrcodeScannerStrings };\nvar LibraryInfoStrings = (function () {\n    function LibraryInfoStrings() {\n    }\n    LibraryInfoStrings.poweredBy = function () {\n        return \"Powered by \";\n    };\n    LibraryInfoStrings.reportIssues = function () {\n        return \"Report issues\";\n    };\n    return LibraryInfoStrings;\n}());\nexport { LibraryInfoStrings };\n//# sourceMappingURL=strings.js.map",
+      "start": 1714699771234,
+      "end": 1714699771234,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699771234,
+      "end": 1714699771234,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771234,
+      "end": 1714699771234,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771234,
+      "end": 1714699771234,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771234,
+      "end": 1714699771234,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771234,
+      "end": 1714699771234,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771234,
+      "end": 1714699771234,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699771234,
+      "end": 1714699771234,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771234,
+      "end": 1714699771234,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771234,
+      "end": 1714699771234,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771234,
+      "end": 1714699771234,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699771234,
+      "end": 1714699771234,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771234,
+      "end": 1714699771234,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771234,
+      "end": 1714699771234,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771234,
+      "end": 1714699771234,
+      "order": "normal"
+    }
+  ]
+}

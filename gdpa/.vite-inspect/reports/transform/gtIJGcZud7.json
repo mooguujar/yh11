@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/floating-bubble/FloatingBubble.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { withDirectives as _withDirectives, mergeProps as _mergeProps, vShow as _vShow, createVNode as _createVNode } from \"vue\";\nimport { Teleport, computed, defineComponent, nextTick, onMounted, ref, watch, onActivated, onDeactivated } from \"vue\";\nimport { pick, addUnit, closest, createNamespace, makeNumberProp, makeStringProp, windowWidth, windowHeight } from \"../utils/index.mjs\";\nimport { useRect, useEventListener } from \"@vant/use\";\nimport { useTouch } from \"../composables/use-touch.mjs\";\nimport Icon from \"../icon/index.mjs\";\nconst floatingBubbleProps = {\n  gap: makeNumberProp(24),\n  icon: String,\n  axis: makeStringProp(\"y\"),\n  magnetic: String,\n  offset: {\n    type: Object,\n    default: () => ({\n      x: -1,\n      y: -1\n    })\n  },\n  teleport: {\n    type: [String, Object],\n    default: \"body\"\n  }\n};\nconst [name, bem] = createNamespace(\"floating-bubble\");\nvar stdin_default = defineComponent({\n  name,\n  inheritAttrs: false,\n  props: floatingBubbleProps,\n  emits: [\"click\", \"update:offset\", \"offsetChange\"],\n  setup(props, {\n    slots,\n    emit,\n    attrs\n  }) {\n    const rootRef = ref();\n    const state = ref({\n      x: 0,\n      y: 0,\n      width: 0,\n      height: 0\n    });\n    const boundary = computed(() => ({\n      top: props.gap,\n      right: windowWidth.value - state.value.width - props.gap,\n      bottom: windowHeight.value - state.value.height - props.gap,\n      left: props.gap\n    }));\n    const dragging = ref(false);\n    let initialized = false;\n    const rootStyle = computed(() => {\n      const style = {};\n      const x = addUnit(state.value.x);\n      const y = addUnit(state.value.y);\n      style.transform = `translate3d(${x}, ${y}, 0)`;\n      if (dragging.value || !initialized) {\n        style.transition = \"none\";\n      }\n      return style;\n    });\n    const updateState = () => {\n      if (!show.value)\n        return;\n      const {\n        width,\n        height\n      } = useRect(rootRef.value);\n      const {\n        offset\n      } = props;\n      state.value = {\n        x: offset.x > -1 ? offset.x : windowWidth.value - width - props.gap,\n        y: offset.y > -1 ? offset.y : windowHeight.value - height - props.gap,\n        width,\n        height\n      };\n    };\n    const touch = useTouch();\n    let prevX = 0;\n    let prevY = 0;\n    const onTouchStart = (e) => {\n      touch.start(e);\n      dragging.value = true;\n      prevX = state.value.x;\n      prevY = state.value.y;\n    };\n    const onTouchMove = (e) => {\n      e.preventDefault();\n      touch.move(e);\n      if (props.axis === \"lock\")\n        return;\n      if (!touch.isTap.value) {\n        if (props.axis === \"x\" || props.axis === \"xy\") {\n          let nextX = prevX + touch.deltaX.value;\n          if (nextX < boundary.value.left)\n            nextX = boundary.value.left;\n          if (nextX > boundary.value.right)\n            nextX = boundary.value.right;\n          state.value.x = nextX;\n        }\n        if (props.axis === \"y\" || props.axis === \"xy\") {\n          let nextY = prevY + touch.deltaY.value;\n          if (nextY < boundary.value.top)\n            nextY = boundary.value.top;\n          if (nextY > boundary.value.bottom)\n            nextY = boundary.value.bottom;\n          state.value.y = nextY;\n        }\n        const offset = pick(state.value, [\"x\", \"y\"]);\n        emit(\"update:offset\", offset);\n      }\n    };\n    useEventListener(\"touchmove\", onTouchMove, {\n      target: rootRef\n    });\n    const onTouchEnd = () => {\n      dragging.value = false;\n      nextTick(() => {\n        if (props.magnetic === \"x\") {\n          const nextX = closest([boundary.value.left, boundary.value.right], state.value.x);\n          state.value.x = nextX;\n        }\n        if (props.magnetic === \"y\") {\n          const nextY = closest([boundary.value.top, boundary.value.bottom], state.value.y);\n          state.value.y = nextY;\n        }\n        if (!touch.isTap.value) {\n          const offset = pick(state.value, [\"x\", \"y\"]);\n          emit(\"update:offset\", offset);\n          if (prevX !== offset.x || prevY !== offset.y) {\n            emit(\"offsetChange\", offset);\n          }\n        }\n      });\n    };\n    const onClick = (e) => {\n      if (touch.isTap.value)\n        emit(\"click\", e);\n      else\n        e.stopPropagation();\n    };\n    onMounted(() => {\n      updateState();\n      nextTick(() => {\n        initialized = true;\n      });\n    });\n    watch([windowWidth, windowHeight, () => props.gap, () => props.offset], updateState);\n    const show = ref(true);\n    onActivated(() => {\n      show.value = true;\n    });\n    onDeactivated(() => {\n      if (props.teleport) {\n        show.value = false;\n      }\n    });\n    return () => {\n      const Content = _withDirectives(_createVNode(\"div\", _mergeProps({\n        \"class\": bem(),\n        \"ref\": rootRef,\n        \"onTouchstartPassive\": onTouchStart,\n        \"onTouchend\": onTouchEnd,\n        \"onTouchcancel\": onTouchEnd,\n        \"onClickCapture\": onClick,\n        \"style\": rootStyle.value\n      }, attrs), [slots.default ? slots.default() : _createVNode(Icon, {\n        \"name\": props.icon,\n        \"class\": bem(\"icon\")\n      }, null)]), [[_vShow, show.value]]);\n      return props.teleport ? _createVNode(Teleport, {\n        \"to\": props.teleport\n      }, {\n        default: () => [Content]\n      }) : Content;\n    };\n  }\n});\nexport {\n  stdin_default as default,\n  floatingBubbleProps\n};\n",
+      "start": 1714699767249,
+      "end": 1714699767294,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767294,
+      "end": 1714699767294,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767294,
+      "end": 1714699767294,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767294,
+      "end": 1714699767294,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767294,
+      "end": 1714699767294,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767294,
+      "end": 1714699767294,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767294,
+      "end": 1714699767294,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { withDirectives as _withDirectives, mergeProps as _mergeProps, vShow as _vShow, createVNode as _createVNode } from \"vue\";\nimport { Teleport, computed, defineComponent, nextTick, onMounted, ref, watch, onActivated, onDeactivated } from \"vue\";\nimport { pick, addUnit, closest, createNamespace, makeNumberProp, makeStringProp, windowWidth, windowHeight } from \"../utils/index.mjs\";\nimport { useRect, useEventListener } from \"@vant/use\";\nimport { useTouch } from \"../composables/use-touch.mjs\";\nimport Icon from \"../icon/index.mjs\";\nconst floatingBubbleProps = {\n  gap: makeNumberProp(24),\n  icon: String,\n  axis: makeStringProp(\"y\"),\n  magnetic: String,\n  offset: {\n    type: Object,\n    default: () => ({\n      x: -1,\n      y: -1\n    })\n  },\n  teleport: {\n    type: [String, Object],\n    default: \"body\"\n  }\n};\nconst [name, bem] = createNamespace(\"floating-bubble\");\nvar stdin_default = defineComponent({\n  name,\n  inheritAttrs: false,\n  props: floatingBubbleProps,\n  emits: [\"click\", \"update:offset\", \"offsetChange\"],\n  setup(props, {\n    slots,\n    emit,\n    attrs\n  }) {\n    const rootRef = ref();\n    const state = ref({\n      x: 0,\n      y: 0,\n      width: 0,\n      height: 0\n    });\n    const boundary = computed(() => ({\n      top: props.gap,\n      right: windowWidth.value - state.value.width - props.gap,\n      bottom: windowHeight.value - state.value.height - props.gap,\n      left: props.gap\n    }));\n    const dragging = ref(false);\n    let initialized = false;\n    const rootStyle = computed(() => {\n      const style = {};\n      const x = addUnit(state.value.x);\n      const y = addUnit(state.value.y);\n      style.transform = `translate3d(${x}, ${y}, 0)`;\n      if (dragging.value || !initialized) {\n        style.transition = \"none\";\n      }\n      return style;\n    });\n    const updateState = () => {\n      if (!show.value)\n        return;\n      const {\n        width,\n        height\n      } = useRect(rootRef.value);\n      const {\n        offset\n      } = props;\n      state.value = {\n        x: offset.x > -1 ? offset.x : windowWidth.value - width - props.gap,\n        y: offset.y > -1 ? offset.y : windowHeight.value - height - props.gap,\n        width,\n        height\n      };\n    };\n    const touch = useTouch();\n    let prevX = 0;\n    let prevY = 0;\n    const onTouchStart = (e) => {\n      touch.start(e);\n      dragging.value = true;\n      prevX = state.value.x;\n      prevY = state.value.y;\n    };\n    const onTouchMove = (e) => {\n      e.preventDefault();\n      touch.move(e);\n      if (props.axis === \"lock\")\n        return;\n      if (!touch.isTap.value) {\n        if (props.axis === \"x\" || props.axis === \"xy\") {\n          let nextX = prevX + touch.deltaX.value;\n          if (nextX < boundary.value.left)\n            nextX = boundary.value.left;\n          if (nextX > boundary.value.right)\n            nextX = boundary.value.right;\n          state.value.x = nextX;\n        }\n        if (props.axis === \"y\" || props.axis === \"xy\") {\n          let nextY = prevY + touch.deltaY.value;\n          if (nextY < boundary.value.top)\n            nextY = boundary.value.top;\n          if (nextY > boundary.value.bottom)\n            nextY = boundary.value.bottom;\n          state.value.y = nextY;\n        }\n        const offset = pick(state.value, [\"x\", \"y\"]);\n        emit(\"update:offset\", offset);\n      }\n    };\n    useEventListener(\"touchmove\", onTouchMove, {\n      target: rootRef\n    });\n    const onTouchEnd = () => {\n      dragging.value = false;\n      nextTick(() => {\n        if (props.magnetic === \"x\") {\n          const nextX = closest([boundary.value.left, boundary.value.right], state.value.x);\n          state.value.x = nextX;\n        }\n        if (props.magnetic === \"y\") {\n          const nextY = closest([boundary.value.top, boundary.value.bottom], state.value.y);\n          state.value.y = nextY;\n        }\n        if (!touch.isTap.value) {\n          const offset = pick(state.value, [\"x\", \"y\"]);\n          emit(\"update:offset\", offset);\n          if (prevX !== offset.x || prevY !== offset.y) {\n            emit(\"offsetChange\", offset);\n          }\n        }\n      });\n    };\n    const onClick = (e) => {\n      if (touch.isTap.value)\n        emit(\"click\", e);\n      else\n        e.stopPropagation();\n    };\n    onMounted(() => {\n      updateState();\n      nextTick(() => {\n        initialized = true;\n      });\n    });\n    watch([windowWidth, windowHeight, () => props.gap, () => props.offset], updateState);\n    const show = ref(true);\n    onActivated(() => {\n      show.value = true;\n    });\n    onDeactivated(() => {\n      if (props.teleport) {\n        show.value = false;\n      }\n    });\n    return () => {\n      const Content = _withDirectives(_createVNode(\"div\", _mergeProps({\n        \"class\": bem(),\n        \"ref\": rootRef,\n        \"onTouchstartPassive\": onTouchStart,\n        \"onTouchend\": onTouchEnd,\n        \"onTouchcancel\": onTouchEnd,\n        \"onClickCapture\": onClick,\n        \"style\": rootStyle.value\n      }, attrs), [slots.default ? slots.default() : _createVNode(Icon, {\n        \"name\": props.icon,\n        \"class\": bem(\"icon\")\n      }, null)]), [[_vShow, show.value]]);\n      return props.teleport ? _createVNode(Teleport, {\n        \"to\": props.teleport\n      }, {\n        default: () => [Content]\n      }) : Content;\n    };\n  }\n});\nexport {\n  stdin_default as default,\n  floatingBubbleProps\n};\n",
+      "start": 1714699767294,
+      "end": 1714699767294,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767294,
+      "end": 1714699767294,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767294,
+      "end": 1714699767294,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767294,
+      "end": 1714699767294,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767294,
+      "end": 1714699767294,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767294,
+      "end": 1714699767294,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767294,
+      "end": 1714699767294,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767294,
+      "end": 1714699767294,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767294,
+      "end": 1714699767294,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767294,
+      "end": 1714699767294,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767294,
+      "end": 1714699767294,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767294,
+      "end": 1714699767294,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767294,
+      "end": 1714699767294,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767294,
+      "end": 1714699767294,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767294,
+      "end": 1714699767294,
+      "order": "normal"
+    }
+  ]
+}

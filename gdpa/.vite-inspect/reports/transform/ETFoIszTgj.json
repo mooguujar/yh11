@@ -1,0 +1,163 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TodayActivity.vue?vue&type=style&index=0&score=true&lang.scss",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\n@import '@/assets/styles/sprite-point.scss';\n\n.today-activity-container {\n  width: 100%;\n  padding: 30px 20px;\n  margin-bottom: 20px;\n  background-color: #fff;\n  border-radius: 14px;\n  .container-title {\n    font-size: 28px;\n    text-align: left;\n    margin-bottom: 15px;\n    color: #13161b;\n    span {\n      color: #ffc000;\n    }\n  }\n  .progressbar-container {\n    position: relative;\n    margin-bottom: 15px;\n    .progressbar-grey,\n    .progressbar-yellow {\n      position: absolute;\n      left: 0;\n      top: 44px;\n      height: 20px;\n    }\n    .progressbar-grey {\n      width: calc(100% - 20px);\n    }\n    .progressbar-yellow {\n      width: 0;\n      left: -1px;\n      border-top-left-radius: 20px;\n      border-bottom-left-radius: 20px;\n    }\n    .award-point-wrapper {\n      // position: relative;\n      height: 114px;\n      .award-box {\n        width: 106px;\n        position: relative;\n        z-index: 9;\n      }\n      .award-gray-box {\n        filter: grayscale(100%);\n      }\n      .award-point-value {\n        margin-top: -16px;\n        font-size: 21px;\n        color: #ffc000;\n      }\n    }\n    .point-80 {\n      margin-top: -4px;\n    }\n    .item-point-column {\n      position: absolute;\n      left: 0;\n      transition: all 0.3s ease-in-out;\n      [class*='point-'] {\n        position: relative;\n        z-index: 9;\n      }\n      .light-step {\n        position: absolute;\n        top: -6px;\n        animation: lightRotate 4.3s linear infinite;\n      }\n      .received {\n        position: absolute;\n        top: calc(50% - 8px);\n        transform: translate3d(0, -50%, 0);\n        // left: 6px;\n        z-index: 10;\n      }\n    }\n  }\n  .task-container {\n    .task-tips {\n      font-size: 25px;\n      color: #a1a7b2;\n      text-align: left;\n    }\n  }\n\n  .van-toast {\n    width: 270px;\n    height: 270px;\n    padding: 40px;\n    font-size: 33px;\n    .van-toast__icon {\n      font-size: 110px;\n    }\n    .van-toast__text {\n      margin-top: 15px;\n      line-height: 1.5;\n    }\n  }\n}\n\n@keyframes lightRotate {\n  to {\n    transform: rotate(360deg);\n  }\n}\n",
+      "start": 1714699771916,
+      "end": 1714699771916
+    },
+    {
+      "name": "vite:css",
+      "result": ".light-step {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px -1.16667rem no-repeat;\n  width: 1.49333rem;\n  height: 1.49333rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.award-btn {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px 0px no-repeat;\n  width: 2.62267rem;\n  height: 1.12rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.lucky-star {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem -1.80133rem no-repeat;\n  width: 0.62533rem;\n  height: 0.94267rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.RMB-gold-box {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.66933rem 0px no-repeat;\n  width: 0.84933rem;\n  height: 0.90533rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.point-8 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.66933rem -0.952rem no-repeat;\n  width: 0.82133rem;\n  height: 0.87733rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.RMB-silver-box {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem -0.88667rem no-repeat;\n  width: 0.74667rem;\n  height: 0.868rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.discount {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem 0px no-repeat;\n  width: 0.84933rem;\n  height: 0.84rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.point-80 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.54rem -1.16667rem no-repeat;\n  width: 0.97067rem;\n  height: 0.84rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.point-50 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px -2.70667rem no-repeat;\n  width: 0.96133rem;\n  height: 0.79333rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.point-10 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.97867rem -2.70667rem no-repeat;\n  width: 0.896rem;\n  height: 0.76533rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.point-30 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.008rem -2.70667rem no-repeat;\n  width: 0.924rem;\n  height: 0.76533rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.RMB-4 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px -3.54667rem no-repeat;\n  width: 0.88667rem;\n  height: 0.7rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.point-5 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem -2.79067rem no-repeat;\n  width: 0.84933rem;\n  height: 0.68133rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.RMB-3 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.66933rem -1.876rem no-repeat;\n  width: 0.644rem;\n  height: 0.616rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.point-1 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.92133rem -2.70667rem no-repeat;\n  width: 0.55067rem;\n  height: 0.60667rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.RMB-1 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -0.93333rem -3.54667rem no-repeat;\n  width: 0.60667rem;\n  height: 0.59733rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.point-3 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.58667rem -3.54667rem no-repeat;\n  width: 0.644rem;\n  height: 0.504rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.received {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.54rem -2.05333rem no-repeat;\n  width: 0.73733rem;\n  height: 0.49467rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.today-activity-container {\n  width: 100%;\n  padding: 0.4rem 0.26667rem;\n  margin-bottom: 0.26667rem;\n  background-color: #fff;\n  border-radius: 0.18667rem;\n}\n\n.today-activity-container .container-title {\n  font-size: 0.37333rem;\n  text-align: left;\n  margin-bottom: 0.2rem;\n  color: #13161b;\n}\n\n.today-activity-container .container-title span {\n  color: #ffc000;\n}\n\n.today-activity-container .progressbar-container {\n  position: relative;\n  margin-bottom: 0.2rem;\n}\n\n.today-activity-container .progressbar-container .progressbar-grey,\n.today-activity-container .progressbar-container .progressbar-yellow {\n  position: absolute;\n  left: 0;\n  top: 0.58667rem;\n  height: 0.26667rem;\n}\n\n.today-activity-container .progressbar-container .progressbar-grey {\n  width: calc(100% - 0.26667rem);\n}\n\n.today-activity-container .progressbar-container .progressbar-yellow {\n  width: 0;\n  left: -1px;\n  border-top-left-radius: 0.26667rem;\n  border-bottom-left-radius: 0.26667rem;\n}\n\n.today-activity-container .progressbar-container .award-point-wrapper {\n  height: 1.52rem;\n}\n\n.today-activity-container .progressbar-container .award-point-wrapper .award-box {\n  width: 1.41333rem;\n  position: relative;\n  z-index: 9;\n}\n\n.today-activity-container .progressbar-container .award-point-wrapper .award-gray-box {\n  filter: grayscale(100%);\n}\n\n.today-activity-container .progressbar-container .award-point-wrapper .award-point-value {\n  margin-top: -0.21333rem;\n  font-size: 0.28rem;\n  color: #ffc000;\n}\n\n.today-activity-container .progressbar-container .point-80 {\n  margin-top: -0.05333rem;\n}\n\n.today-activity-container .progressbar-container .item-point-column {\n  position: absolute;\n  left: 0;\n  transition: all 0.3s ease-in-out;\n}\n\n.today-activity-container .progressbar-container .item-point-column [class*=point-] {\n  position: relative;\n  z-index: 9;\n}\n\n.today-activity-container .progressbar-container .item-point-column .light-step {\n  position: absolute;\n  top: -0.08rem;\n  animation: lightRotate 4.3s linear infinite;\n}\n\n.today-activity-container .progressbar-container .item-point-column .received {\n  position: absolute;\n  top: calc(50% - 0.10667rem);\n  transform: translate3d(0, -50%, 0);\n  z-index: 10;\n}\n\n.today-activity-container .task-container .task-tips {\n  font-size: 0.33333rem;\n  color: #a1a7b2;\n  text-align: left;\n}\n\n.today-activity-container .van-toast {\n  width: 3.6rem;\n  height: 3.6rem;\n  padding: 0.53333rem;\n  font-size: 0.44rem;\n}\n\n.today-activity-container .van-toast .van-toast__icon {\n  font-size: 1.46667rem;\n}\n\n.today-activity-container .van-toast .van-toast__text {\n  margin-top: 0.2rem;\n  line-height: 1.5;\n}\n\n@keyframes lightRotate {\n  to {\n    transform: rotate(360deg);\n  }\n}",
+      "start": 1714699771916,
+      "end": 1714699771957,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771957,
+      "end": 1714699771957,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771957,
+      "end": 1714699771957,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771957,
+      "end": 1714699771957,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".light-step {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px -1.16667rem no-repeat;\n  width: 1.49333rem;\n  height: 1.49333rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.award-btn {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px 0px no-repeat;\n  width: 2.62267rem;\n  height: 1.12rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.lucky-star {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem -1.80133rem no-repeat;\n  width: 0.62533rem;\n  height: 0.94267rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.RMB-gold-box {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.66933rem 0px no-repeat;\n  width: 0.84933rem;\n  height: 0.90533rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-8 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.66933rem -0.952rem no-repeat;\n  width: 0.82133rem;\n  height: 0.87733rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.RMB-silver-box {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem -0.88667rem no-repeat;\n  width: 0.74667rem;\n  height: 0.868rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.discount {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem 0px no-repeat;\n  width: 0.84933rem;\n  height: 0.84rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-80 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.54rem -1.16667rem no-repeat;\n  width: 0.97067rem;\n  height: 0.84rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-50 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px -2.70667rem no-repeat;\n  width: 0.96133rem;\n  height: 0.79333rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-10 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.97867rem -2.70667rem no-repeat;\n  width: 0.896rem;\n  height: 0.76533rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-30 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.008rem -2.70667rem no-repeat;\n  width: 0.924rem;\n  height: 0.76533rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.RMB-4 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px -3.54667rem no-repeat;\n  width: 0.88667rem;\n  height: 0.7rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-5 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem -2.79067rem no-repeat;\n  width: 0.84933rem;\n  height: 0.68133rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.RMB-3 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.66933rem -1.876rem no-repeat;\n  width: 0.644rem;\n  height: 0.616rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-1 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.92133rem -2.70667rem no-repeat;\n  width: 0.55067rem;\n  height: 0.60667rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.RMB-1 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -0.93333rem -3.54667rem no-repeat;\n  width: 0.60667rem;\n  height: 0.59733rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-3 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.58667rem -3.54667rem no-repeat;\n  width: 0.644rem;\n  height: 0.504rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.received {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.54rem -2.05333rem no-repeat;\n  width: 0.73733rem;\n  height: 0.49467rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.today-activity-container {\n  width: 100%;\n  padding: 0.4rem 0.26667rem;\n  margin-bottom: 0.26667rem;\n  background-color: #fff;\n  border-radius: 0.18667rem;\n}\n.today-activity-container .container-title {\n  font-size: 0.37333rem;\n  text-align: left;\n  margin-bottom: 0.2rem;\n  color: #13161b;\n}\n.today-activity-container .container-title span {\n  color: #ffc000;\n}\n.today-activity-container .progressbar-container {\n  position: relative;\n  margin-bottom: 0.2rem;\n}\n.today-activity-container .progressbar-container .progressbar-grey,\n.today-activity-container .progressbar-container .progressbar-yellow {\n  position: absolute;\n  left: 0;\n  top: 0.58667rem;\n  height: 0.26667rem;\n}\n.today-activity-container .progressbar-container .progressbar-grey {\n  width: calc(100% - 0.26667rem);\n}\n.today-activity-container .progressbar-container .progressbar-yellow {\n  width: 0;\n  left: -1px;\n  border-top-left-radius: 0.26667rem;\n  border-bottom-left-radius: 0.26667rem;\n}\n.today-activity-container .progressbar-container .award-point-wrapper {\n  height: 1.52rem;\n}\n.today-activity-container .progressbar-container .award-point-wrapper .award-box {\n  width: 1.41333rem;\n  position: relative;\n  z-index: 9;\n}\n.today-activity-container .progressbar-container .award-point-wrapper .award-gray-box {\n  filter: grayscale(100%);\n}\n.today-activity-container .progressbar-container .award-point-wrapper .award-point-value {\n  margin-top: -0.21333rem;\n  font-size: 0.28rem;\n  color: #ffc000;\n}\n.today-activity-container .progressbar-container .point-80 {\n  margin-top: -0.05333rem;\n}\n.today-activity-container .progressbar-container .item-point-column {\n  position: absolute;\n  left: 0;\n  transition: all 0.3s ease-in-out;\n}\n.today-activity-container .progressbar-container .item-point-column [class*=point-] {\n  position: relative;\n  z-index: 9;\n}\n.today-activity-container .progressbar-container .item-point-column .light-step {\n  position: absolute;\n  top: -0.08rem;\n  animation: lightRotate 4.3s linear infinite;\n}\n.today-activity-container .progressbar-container .item-point-column .received {\n  position: absolute;\n  top: calc(50% - 0.10667rem);\n  transform: translate3d(0, -50%, 0);\n  z-index: 10;\n}\n.today-activity-container .task-container .task-tips {\n  font-size: 0.33333rem;\n  color: #a1a7b2;\n  text-align: left;\n}\n.today-activity-container .van-toast {\n  width: 3.6rem;\n  height: 3.6rem;\n  padding: 0.53333rem;\n  font-size: 0.44rem;\n}\n.today-activity-container .van-toast .van-toast__icon {\n  font-size: 1.46667rem;\n}\n.today-activity-container .van-toast .van-toast__text {\n  margin-top: 0.2rem;\n  line-height: 1.5;\n}\n@keyframes lightRotate {\nto {\n    transform: rotate(360deg);\n}\n}",
+      "start": 1714699771957,
+      "end": 1714699771958,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771958,
+      "end": 1714699771958,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": ".light-step {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px -1.16667rem no-repeat;\n  width: 1.49333rem;\n  height: 1.49333rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.award-btn {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px 0px no-repeat;\n  width: 2.62267rem;\n  height: 1.12rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.lucky-star {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem -1.80133rem no-repeat;\n  width: 0.62533rem;\n  height: 0.94267rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.RMB-gold-box {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.66933rem 0px no-repeat;\n  width: 0.84933rem;\n  height: 0.90533rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-8 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.66933rem -0.952rem no-repeat;\n  width: 0.82133rem;\n  height: 0.87733rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.RMB-silver-box {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem -0.88667rem no-repeat;\n  width: 0.74667rem;\n  height: 0.868rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.discount {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem 0px no-repeat;\n  width: 0.84933rem;\n  height: 0.84rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-80 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.54rem -1.16667rem no-repeat;\n  width: 0.97067rem;\n  height: 0.84rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-50 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px -2.70667rem no-repeat;\n  width: 0.96133rem;\n  height: 0.79333rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-10 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.97867rem -2.70667rem no-repeat;\n  width: 0.896rem;\n  height: 0.76533rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-30 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.008rem -2.70667rem no-repeat;\n  width: 0.924rem;\n  height: 0.76533rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.RMB-4 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px -3.54667rem no-repeat;\n  width: 0.88667rem;\n  height: 0.7rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-5 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem -2.79067rem no-repeat;\n  width: 0.84933rem;\n  height: 0.68133rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.RMB-3 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.66933rem -1.876rem no-repeat;\n  width: 0.644rem;\n  height: 0.616rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-1 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.92133rem -2.70667rem no-repeat;\n  width: 0.55067rem;\n  height: 0.60667rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.RMB-1 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -0.93333rem -3.54667rem no-repeat;\n  width: 0.60667rem;\n  height: 0.59733rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-3 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.58667rem -3.54667rem no-repeat;\n  width: 0.644rem;\n  height: 0.504rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.received {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.54rem -2.05333rem no-repeat;\n  width: 0.73733rem;\n  height: 0.49467rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.today-activity-container {\n  width: 100%;\n  padding: 0.4rem 0.26667rem;\n  margin-bottom: 0.26667rem;\n  background-color: #fff;\n  border-radius: 0.18667rem;\n}\n.today-activity-container .container-title {\n  font-size: 0.37333rem;\n  text-align: left;\n  margin-bottom: 0.2rem;\n  color: #13161b;\n}\n.today-activity-container .container-title span {\n  color: #ffc000;\n}\n.today-activity-container .progressbar-container {\n  position: relative;\n  margin-bottom: 0.2rem;\n}\n.today-activity-container .progressbar-container .progressbar-grey,\n.today-activity-container .progressbar-container .progressbar-yellow {\n  position: absolute;\n  left: 0;\n  top: 0.58667rem;\n  height: 0.26667rem;\n}\n.today-activity-container .progressbar-container .progressbar-grey {\n  width: calc(100% - 0.26667rem);\n}\n.today-activity-container .progressbar-container .progressbar-yellow {\n  width: 0;\n  left: -1px;\n  border-top-left-radius: 0.26667rem;\n  border-bottom-left-radius: 0.26667rem;\n}\n.today-activity-container .progressbar-container .award-point-wrapper {\n  height: 1.52rem;\n}\n.today-activity-container .progressbar-container .award-point-wrapper .award-box {\n  width: 1.41333rem;\n  position: relative;\n  z-index: 9;\n}\n.today-activity-container .progressbar-container .award-point-wrapper .award-gray-box {\n  filter: grayscale(100%);\n}\n.today-activity-container .progressbar-container .award-point-wrapper .award-point-value {\n  margin-top: -0.21333rem;\n  font-size: 0.28rem;\n  color: #ffc000;\n}\n.today-activity-container .progressbar-container .point-80 {\n  margin-top: -0.05333rem;\n}\n.today-activity-container .progressbar-container .item-point-column {\n  position: absolute;\n  left: 0;\n  transition: all 0.3s ease-in-out;\n}\n.today-activity-container .progressbar-container .item-point-column [class*=point-] {\n  position: relative;\n  z-index: 9;\n}\n.today-activity-container .progressbar-container .item-point-column .light-step {\n  position: absolute;\n  top: -0.08rem;\n  animation: lightRotate 4.3s linear infinite;\n}\n.today-activity-container .progressbar-container .item-point-column .received {\n  position: absolute;\n  top: calc(50% - 0.10667rem);\n  transform: translate3d(0, -50%, 0);\n  z-index: 10;\n}\n.today-activity-container .task-container .task-tips {\n  font-size: 0.33333rem;\n  color: #a1a7b2;\n  text-align: left;\n}\n.today-activity-container .van-toast {\n  width: 3.6rem;\n  height: 3.6rem;\n  padding: 0.53333rem;\n  font-size: 0.44rem;\n}\n.today-activity-container .van-toast .van-toast__icon {\n  font-size: 1.46667rem;\n}\n.today-activity-container .van-toast .van-toast__text {\n  margin-top: 0.2rem;\n  line-height: 1.5;\n}\n@keyframes lightRotate {\nto {\n    transform: rotate(360deg);\n}\n}",
+      "start": 1714699771958,
+      "end": 1714699771958,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699771958,
+      "end": 1714699771958,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771958,
+      "end": 1714699771958,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699771958,
+      "end": 1714699771958,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771958,
+      "end": 1714699771958,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771958,
+      "end": 1714699771958,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771958,
+      "end": 1714699771958,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699771958,
+      "end": 1714699771958,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771958,
+      "end": 1714699771958,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771958,
+      "end": 1714699771958,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771958,
+      "end": 1714699771958,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */",
+      "start": 1714699771958,
+      "end": 1714699771959,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TodayActivity.vue?vue&type=style&index=0&score=true&lang.scss"
+        ],
+        "sourcesContent": [
+          ""
+        ],
+        "names": [],
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771959,
+      "end": 1714699771959,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771959,
+      "end": 1714699771959,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771959,
+      "end": 1714699771959,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/_baseNth.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import isIndex from './_isIndex.js';\n\n/**\n * The base implementation of `_.nth` which doesn't coerce arguments.\n *\n * @private\n * @param {Array} array The array to query.\n * @param {number} n The index of the element to return.\n * @returns {*} Returns the nth element of `array`.\n */\nfunction baseNth(array, n) {\n  var length = array.length;\n  if (!length) {\n    return;\n  }\n  n += n < 0 ? length : 0;\n  return isIndex(n, length) ? array[n] : undefined;\n}\n\nexport default baseNth;\n",
+      "start": 1714699768730,
+      "end": 1714699768737,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768737,
+      "end": 1714699768737,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768737,
+      "end": 1714699768737,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768737,
+      "end": 1714699768737,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768737,
+      "end": 1714699768737,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768737,
+      "end": 1714699768737,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768737,
+      "end": 1714699768737,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import isIndex from './_isIndex.js';\n\n/**\n * The base implementation of `_.nth` which doesn't coerce arguments.\n *\n * @private\n * @param {Array} array The array to query.\n * @param {number} n The index of the element to return.\n * @returns {*} Returns the nth element of `array`.\n */\nfunction baseNth(array, n) {\n  var length = array.length;\n  if (!length) {\n    return;\n  }\n  n += n < 0 ? length : 0;\n  return isIndex(n, length) ? array[n] : undefined;\n}\n\nexport default baseNth;\n",
+      "start": 1714699768737,
+      "end": 1714699768737,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768737,
+      "end": 1714699768737,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768737,
+      "end": 1714699768737,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768737,
+      "end": 1714699768737,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768737,
+      "end": 1714699768737,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768737,
+      "end": 1714699768737,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768737,
+      "end": 1714699768737,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768737,
+      "end": 1714699768737,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768737,
+      "end": 1714699768737,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768737,
+      "end": 1714699768737,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768737,
+      "end": 1714699768737,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768737,
+      "end": 1714699768737,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768737,
+      "end": 1714699768737,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768737,
+      "end": 1714699768737,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768737,
+      "end": 1714699768737,
+      "order": "normal"
+    }
+  ]
+}

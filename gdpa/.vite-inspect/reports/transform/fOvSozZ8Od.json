@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Slider.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\nimport { useArticleStore } from '@/store/modules/article'\nimport { useAuthStore } from '@/store/modules/auth'\nimport { useCoinBuySellStore } from '@/store/modules/coinBuySell'\nimport { useEntryStore } from '@/store/modules/entry'\nimport { IArticleListType } from '@/store/types/article'\nimport { INormal } from '@/store/types/entry'\nimport { requireImg } from '@/utils/tools'\nimport { storeToRefs } from 'pinia'\nimport { showToast } from 'vant'\nimport { computed, nextTick, onMounted, ref, watch } from 'vue'\nimport { useRouter } from 'vue-router'\nconst coinBuySellStore = useCoinBuySellStore()\nconst { getWithdrawddresslist } = coinBuySellStore\nconst { withdrawddresslist } = storeToRefs(coinBuySellStore)\n\nconst authStore = useAuthStore()\nconst { token } = storeToRefs(authStore)\nconst router = useRouter()\n\nconst entryStore = useEntryStore()\nconst { config } = storeToRefs(entryStore)\n\nconst domain = computed(() => {\n  return (config.value.Web_Set_DefaultInfo?.imgserver_url as INormal).v || ''\n})\n\ninterface CarouselRouteKey {\n  Mod_BuyCoinsGDB: string\n  Mod_Movingbricks: string\n  Mod_PointsActivity: string\n  Mod_UserReg: string\n}\nconst carouselRouteMap = {\n  Mod_BuyCoinsGDB: '/buy_coin',\n  Mod_JumpWebUrl: {\n    WebUrlLink: 'http://baidu.com'\n  },\n  Mod_Movingbricks: '/brick',\n  Mod_PointsActivity: '/point',\n  Mod_UserReg: '/auth/register'\n}\n\nconst articleStore = useArticleStore()\nconst { getArticleListApi } = articleStore\nconst { homeSlider } = storeToRefs(articleStore)\n\nconst isLogin = computed(() => !!token.value)\nconst homeSliderList = ref<IArticleListType[]>([])\n// banner列表变更记录\nconst checkCount = ref(0)\n\nconst handleClick = async (data: any) => {\n  if (data.app_exts) {\n    const appExts = JSON.parse(data.app_exts)\n    const { app_action, H5_action, WebUrlLink, isAppLogin } = appExts\n\n    window.log('当前轮播跳转信息', data, appExts, isAppLogin)\n\n    if (app_action === 'Mod_UserReg' && isLogin) return\n    if (isAppLogin && !isLogin.value) {\n      return showToast({\n        message: '请先登录',\n        icon: requireImg('common/info.png'),\n        iconSize: '48px'\n      })\n    }\n\n    if (H5_action) {\n      router.push(H5_action)\n    } else if (app_action === 'Mod_Movingbricks') {\n      router.push('/bricks/move-brick')\n    } else if (app_action === 'Mod_PointsActivity') {\n      router.push('/point')\n    } else if (carouselRouteMap[app_action as keyof CarouselRouteKey] == 'Mod_BuyCoinsGDB') {\n      // if (await CompletionIdCardMiddleware()) {\n      //   CompletionPaymentMiddleware().then(e => {\n      router.push(carouselRouteMap[app_action as keyof CarouselRouteKey])\n      //   })\n      // }\n    } else {\n      router.push(`/iframe-page/third?url=${WebUrlLink}`)\n    }\n  }\n}\n\nconst onImageError = (e: Event, img: string, index: number) => {\n  // homeSliderList.value[index].mobileimg =\n  ;(e.target as HTMLImageElement).onerror = null\n  homeSliderList.value = []\n\n  nextTick(() => {\n    homeSliderList.value = homeSlider.value\n  })\n}\n\nwatch(\n  homeSlider,\n  (list, oldList) => {\n    if (checkCount.value < 3) {\n      homeSliderList.value = homeSlider.value\n      checkCount.value++\n    }\n  },\n  { deep: true, immediate: true }\n)\n\nonMounted(() => {\n  // getSliderList()\n})\n</script>\n\n<template>\n  <div\n    v-if=\"homeSliderList.length\"\n    class=\"slider-container flex items-center\"\n  >\n    <van-swipe\n      :autoplay=\"4000\"\n      lazy-render\n      indicator-color=\"white\"\n      class=\"swipe-slider\"\n    >\n      <van-swipe-item\n        v-for=\"(item, index) in homeSliderList\"\n        :key=\"item.id\"\n        @click=\"handleClick(item)\"\n      >\n        <van-image\n          :src=\"domain + homeSliderList[index].mobileimg\"\n          @error=\"onImageError($event, domain + item.mobileimg, index)\"\n        />\n      </van-swipe-item>\n    </van-swipe>\n  </div>\n</template>\n\n<style lang=\"scss\" scoped>\n.slider-container {\n  width: 100%;\n  height: 254px;\n\n  :deep(.swipe-slider) {\n    --van-swipe-indicator-size: 12px;\n    width: 100%;\n    height: 100%;\n    border-radius: 14px;\n\n    .van-image {\n      width: 100%;\n      height: 100%;\n    }\n  }\n}\n</style>\n",
+      "start": 1714699770780,
+      "end": 1714699770793,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699770793,
+      "end": 1714699770793,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699770793,
+      "end": 1714699770793,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699770793,
+      "end": 1714699770793,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699770793,
+      "end": 1714699770793,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Slider.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Slider.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Slider.vue?vue&type=style&index=0&scoped=cb0d322d&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-cb0d322d\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Slider.vue\"]]);\n",
+      "start": 1714699770793,
+      "end": 1714699771793,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771793,
+      "end": 1714699771793,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Slider.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Slider.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Slider.vue?vue&type=style&index=0&scoped=cb0d322d&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-cb0d322d\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Slider.vue\"]]);\n",
+      "start": 1714699771793,
+      "end": 1714699771793,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Slider.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Slider.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Slider.vue?vue&type=style&index=0&scoped=cb0d322d&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-cb0d322d\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Slider.vue\"]]);\n",
+      "start": 1714699771793,
+      "end": 1714699771919,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Slider.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Slider.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Slider.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Slider.vue?vue&type=style&index=0&scoped=cb0d322d&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-cb0d322d\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Slider.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,sEAAsE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771919,
+      "end": 1714699771919,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771919,
+      "end": 1714699771919,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771919,
+      "end": 1714699771919,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771919,
+      "end": 1714699771919,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771919,
+      "end": 1714699771919,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699771919,
+      "end": 1714699771919,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771920,
+      "end": 1714699771920,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771920,
+      "end": 1714699771920,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771920,
+      "end": 1714699771920,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Slider.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Slider.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Slider.vue?vue&type=style&index=0&scoped=cb0d322d&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-cb0d322d\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Slider.vue\"]]);\n",
+      "start": 1714699771920,
+      "end": 1714699771920,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Slider.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Slider.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Slider.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Slider.vue?vue&type=style&index=0&scoped=cb0d322d&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-cb0d322d\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Slider.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771920,
+      "end": 1714699771920,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771920,
+      "end": 1714699771921,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771921,
+      "end": 1714699771921,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/iteratee.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import baseClone from './_baseClone.js';\nimport baseIteratee from './_baseIteratee.js';\n\n/** Used to compose bitmasks for cloning. */\nvar CLONE_DEEP_FLAG = 1;\n\n/**\n * Creates a function that invokes `func` with the arguments of the created\n * function. If `func` is a property name, the created function returns the\n * property value for a given element. If `func` is an array or object, the\n * created function returns `true` for elements that contain the equivalent\n * source properties, otherwise it returns `false`.\n *\n * @static\n * @since 4.0.0\n * @memberOf _\n * @category Util\n * @param {*} [func=_.identity] The value to convert to a callback.\n * @returns {Function} Returns the callback.\n * @example\n *\n * var users = [\n *   { 'user': 'barney', 'age': 36, 'active': true },\n *   { 'user': 'fred',   'age': 40, 'active': false }\n * ];\n *\n * // The `_.matches` iteratee shorthand.\n * _.filter(users, _.iteratee({ 'user': 'barney', 'active': true }));\n * // => [{ 'user': 'barney', 'age': 36, 'active': true }]\n *\n * // The `_.matchesProperty` iteratee shorthand.\n * _.filter(users, _.iteratee(['user', 'fred']));\n * // => [{ 'user': 'fred', 'age': 40 }]\n *\n * // The `_.property` iteratee shorthand.\n * _.map(users, _.iteratee('user'));\n * // => ['barney', 'fred']\n *\n * // Create custom iteratee shorthands.\n * _.iteratee = _.wrap(_.iteratee, function(iteratee, func) {\n *   return !_.isRegExp(func) ? iteratee(func) : function(string) {\n *     return func.test(string);\n *   };\n * });\n *\n * _.filter(['abc', 'def'], /ef/);\n * // => ['def']\n */\nfunction iteratee(func) {\n  return baseIteratee(typeof func == 'function' ? func : baseClone(func, CLONE_DEEP_FLAG));\n}\n\nexport default iteratee;\n",
+      "start": 1714699768432,
+      "end": 1714699768450,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768451,
+      "end": 1714699768451,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768451,
+      "end": 1714699768451,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768451,
+      "end": 1714699768451,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768451,
+      "end": 1714699768451,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768451,
+      "end": 1714699768451,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768451,
+      "end": 1714699768451,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import baseClone from './_baseClone.js';\nimport baseIteratee from './_baseIteratee.js';\n\n/** Used to compose bitmasks for cloning. */\nvar CLONE_DEEP_FLAG = 1;\n\n/**\n * Creates a function that invokes `func` with the arguments of the created\n * function. If `func` is a property name, the created function returns the\n * property value for a given element. If `func` is an array or object, the\n * created function returns `true` for elements that contain the equivalent\n * source properties, otherwise it returns `false`.\n *\n * @static\n * @since 4.0.0\n * @memberOf _\n * @category Util\n * @param {*} [func=_.identity] The value to convert to a callback.\n * @returns {Function} Returns the callback.\n * @example\n *\n * var users = [\n *   { 'user': 'barney', 'age': 36, 'active': true },\n *   { 'user': 'fred',   'age': 40, 'active': false }\n * ];\n *\n * // The `_.matches` iteratee shorthand.\n * _.filter(users, _.iteratee({ 'user': 'barney', 'active': true }));\n * // => [{ 'user': 'barney', 'age': 36, 'active': true }]\n *\n * // The `_.matchesProperty` iteratee shorthand.\n * _.filter(users, _.iteratee(['user', 'fred']));\n * // => [{ 'user': 'fred', 'age': 40 }]\n *\n * // The `_.property` iteratee shorthand.\n * _.map(users, _.iteratee('user'));\n * // => ['barney', 'fred']\n *\n * // Create custom iteratee shorthands.\n * _.iteratee = _.wrap(_.iteratee, function(iteratee, func) {\n *   return !_.isRegExp(func) ? iteratee(func) : function(string) {\n *     return func.test(string);\n *   };\n * });\n *\n * _.filter(['abc', 'def'], /ef/);\n * // => ['def']\n */\nfunction iteratee(func) {\n  return baseIteratee(typeof func == 'function' ? func : baseClone(func, CLONE_DEEP_FLAG));\n}\n\nexport default iteratee;\n",
+      "start": 1714699768451,
+      "end": 1714699768451,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768451,
+      "end": 1714699768451,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768451,
+      "end": 1714699768451,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768451,
+      "end": 1714699768451,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768451,
+      "end": 1714699768451,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768451,
+      "end": 1714699768451,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768451,
+      "end": 1714699768451,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768451,
+      "end": 1714699768451,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768451,
+      "end": 1714699768451,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768451,
+      "end": 1714699768451,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768451,
+      "end": 1714699768451,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768451,
+      "end": 1714699768451,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768451,
+      "end": 1714699768451,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768451,
+      "end": 1714699768451,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768451,
+      "end": 1714699768451,
+      "order": "normal"
+    }
+  ]
+}

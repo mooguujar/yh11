@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/helpers/cookies.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import utils from './../utils.js';\nimport platform from '../platform/index.js';\n\nexport default platform.hasStandardBrowserEnv ?\n\n  // Standard browser envs support document.cookie\n  {\n    write(name, value, expires, path, domain, secure) {\n      const cookie = [name + '=' + encodeURIComponent(value)];\n\n      utils.isNumber(expires) && cookie.push('expires=' + new Date(expires).toGMTString());\n\n      utils.isString(path) && cookie.push('path=' + path);\n\n      utils.isString(domain) && cookie.push('domain=' + domain);\n\n      secure === true && cookie.push('secure');\n\n      document.cookie = cookie.join('; ');\n    },\n\n    read(name) {\n      const match = document.cookie.match(new RegExp('(^|;\\\\s*)(' + name + ')=([^;]*)'));\n      return (match ? decodeURIComponent(match[3]) : null);\n    },\n\n    remove(name) {\n      this.write(name, '', Date.now() - 86400000);\n    }\n  }\n\n  :\n\n  // Non-standard browser env (web workers, react-native) lack needed support.\n  {\n    write() {},\n    read() {\n      return null;\n    },\n    remove() {}\n  };\n\n",
+      "start": 1714699770770,
+      "end": 1714699770781,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699770781,
+      "end": 1714699770781,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699770781,
+      "end": 1714699770781,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699770781,
+      "end": 1714699770781,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699770781,
+      "end": 1714699770781,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699770781,
+      "end": 1714699770781,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699770781,
+      "end": 1714699770781,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import utils from './../utils.js';\nimport platform from '../platform/index.js';\n\nexport default platform.hasStandardBrowserEnv ?\n\n  // Standard browser envs support document.cookie\n  {\n    write(name, value, expires, path, domain, secure) {\n      const cookie = [name + '=' + encodeURIComponent(value)];\n\n      utils.isNumber(expires) && cookie.push('expires=' + new Date(expires).toGMTString());\n\n      utils.isString(path) && cookie.push('path=' + path);\n\n      utils.isString(domain) && cookie.push('domain=' + domain);\n\n      secure === true && cookie.push('secure');\n\n      document.cookie = cookie.join('; ');\n    },\n\n    read(name) {\n      const match = document.cookie.match(new RegExp('(^|;\\\\s*)(' + name + ')=([^;]*)'));\n      return (match ? decodeURIComponent(match[3]) : null);\n    },\n\n    remove(name) {\n      this.write(name, '', Date.now() - 86400000);\n    }\n  }\n\n  :\n\n  // Non-standard browser env (web workers, react-native) lack needed support.\n  {\n    write() {},\n    read() {\n      return null;\n    },\n    remove() {}\n  };\n\n",
+      "start": 1714699770781,
+      "end": 1714699770781,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699770781,
+      "end": 1714699770781,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770781,
+      "end": 1714699770781,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699770781,
+      "end": 1714699770781,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770781,
+      "end": 1714699770781,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770781,
+      "end": 1714699770781,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770781,
+      "end": 1714699770781,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770781,
+      "end": 1714699770781,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770781,
+      "end": 1714699770781,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770781,
+      "end": 1714699770781,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770781,
+      "end": 1714699770781,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699770781,
+      "end": 1714699770781,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770781,
+      "end": 1714699770781,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770781,
+      "end": 1714699770781,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770781,
+      "end": 1714699770781,
+      "order": "normal"
+    }
+  ]
+}

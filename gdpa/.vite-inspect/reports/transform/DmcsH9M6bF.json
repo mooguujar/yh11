@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/wrapperChain.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import chain from './chain.js';\n\n/**\n * Creates a `lodash` wrapper instance with explicit method chain sequences enabled.\n *\n * @name chain\n * @memberOf _\n * @since 0.1.0\n * @category Seq\n * @returns {Object} Returns the new `lodash` wrapper instance.\n * @example\n *\n * var users = [\n *   { 'user': 'barney', 'age': 36 },\n *   { 'user': 'fred',   'age': 40 }\n * ];\n *\n * // A sequence without explicit chaining.\n * _(users).head();\n * // => { 'user': 'barney', 'age': 36 }\n *\n * // A sequence with explicit chaining.\n * _(users)\n *   .chain()\n *   .head()\n *   .pick('user')\n *   .value();\n * // => { 'user': 'barney' }\n */\nfunction wrapperChain() {\n  return chain(this);\n}\n\nexport default wrapperChain;\n",
+      "start": 1714699768574,
+      "end": 1714699768601,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768601,
+      "end": 1714699768601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768601,
+      "end": 1714699768601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768601,
+      "end": 1714699768601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768601,
+      "end": 1714699768601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768601,
+      "end": 1714699768601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768601,
+      "end": 1714699768601,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import chain from './chain.js';\n\n/**\n * Creates a `lodash` wrapper instance with explicit method chain sequences enabled.\n *\n * @name chain\n * @memberOf _\n * @since 0.1.0\n * @category Seq\n * @returns {Object} Returns the new `lodash` wrapper instance.\n * @example\n *\n * var users = [\n *   { 'user': 'barney', 'age': 36 },\n *   { 'user': 'fred',   'age': 40 }\n * ];\n *\n * // A sequence without explicit chaining.\n * _(users).head();\n * // => { 'user': 'barney', 'age': 36 }\n *\n * // A sequence with explicit chaining.\n * _(users)\n *   .chain()\n *   .head()\n *   .pick('user')\n *   .value();\n * // => { 'user': 'barney' }\n */\nfunction wrapperChain() {\n  return chain(this);\n}\n\nexport default wrapperChain;\n",
+      "start": 1714699768601,
+      "end": 1714699768601,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768601,
+      "end": 1714699768601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768601,
+      "end": 1714699768601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768601,
+      "end": 1714699768601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768601,
+      "end": 1714699768601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768601,
+      "end": 1714699768601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768601,
+      "end": 1714699768601,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768601,
+      "end": 1714699768601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768601,
+      "end": 1714699768601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768601,
+      "end": 1714699768601,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768601,
+      "end": 1714699768601,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768601,
+      "end": 1714699768601,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768601,
+      "end": 1714699768602,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768602,
+      "end": 1714699768602,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768602,
+      "end": 1714699768602,
+      "order": "normal"
+    }
+  ]
+}

@@ -44,8 +44,8 @@ const menuData = reactive([
     active: false
   },
   {
-    title: '积分',
-    routePath: '/point',
+    title: '活动',
+    routePath: '/activeList',
     icon: 'point',
     active: false
   },

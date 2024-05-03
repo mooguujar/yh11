@@ -1,0 +1,154 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/store/modules/coinBuySell/resHandle.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "interface parm {\n  cmd: string //事件\n  // 推送买币订单状态\n  // push_coin_buy_order_status\n  // 推送卖币订单状态\n  // push_coin_sell_order_status\n  // push_message站内消息\n  // push_coinsellcomment交易申诉更新\n  // push_reminders_buy买方发送给卖方催单\n  // push_reminders_sell卖方发送给买方催单\n  uuid: string //会员uuid\n  send_uuid: string //发起者uuid，如果没有为空或null\n  data: Array<any> //相关资料\n}\n\nimport router from '@/router'\nimport mitt from '@/utils/mitt'\nimport { showDialog, showToast } from 'vant'\nimport { useRoute } from 'vue-router'\nconst resHandle = (data: any) => {\n  // console.log('sockte', data)\n  const cmd = data.cmd\n  switch (cmd) {\n    case 'connected': //连接成功\n      // console.log('连接成功')\n      break\n    case 'user_bad': //非校验成功消息 心跳\n      // console.log('非校验成功消息');\n      break\n    case 'user_ok': //校验成功\n      console.log('校验成功')\n      break\n    case 'push_coin_buy_order_status':\n      console.log('1push_coin_buy_order_status1222') //推送买币订单状态\n      mitt.emit('push_coin_buy_order_status', data)\n      break\n    case 'push_coin_sell_order_status':\n      mitt.emit('push_coin_sell_order_status', data) //推送卖币订单状态\n      console.log('push_coin_sell_order_status000000')\n      break\n    case 'push_message': //站内消息\n      mitt.emit('push_message', data)\n      break\n    case 'push_coinsellcomment': //交易申诉更新\n      mitt.emit('push_coinsellcomment', data)\n      break\n    case 'push_reminders_buy': //买方发送给卖方催单\n      mitt.emit('push_reminders_buy', data)\n      break\n    case 'push_reminders_sell': //卖方发送给买方催单\n      mitt.emit('push_reminders_sell', data)\n      break\n  }\n}\n\nexport default resHandle\n",
+      "start": 1714699769493,
+      "end": 1714699769535,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769535,
+      "end": 1714699769535,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import mitt from \"@/utils/mitt\";\nconst resHandle = (data) => {\n  const cmd = data.cmd;\n  switch (cmd) {\n    case \"connected\":\n      break;\n    case \"user_bad\":\n      break;\n    case \"user_ok\":\n      console.log(\"校验成功\");\n      break;\n    case \"push_coin_buy_order_status\":\n      console.log(\"1push_coin_buy_order_status1222\");\n      mitt.emit(\"push_coin_buy_order_status\", data);\n      break;\n    case \"push_coin_sell_order_status\":\n      mitt.emit(\"push_coin_sell_order_status\", data);\n      console.log(\"push_coin_sell_order_status000000\");\n      break;\n    case \"push_message\":\n      mitt.emit(\"push_message\", data);\n      break;\n    case \"push_coinsellcomment\":\n      mitt.emit(\"push_coinsellcomment\", data);\n      break;\n    case \"push_reminders_buy\":\n      mitt.emit(\"push_reminders_buy\", data);\n      break;\n    case \"push_reminders_sell\":\n      mitt.emit(\"push_reminders_sell\", data);\n      break;\n  }\n};\nexport default resHandle;\n",
+      "start": 1714699769535,
+      "end": 1714699769810,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/store/modules/coinBuySell/resHandle.ts"
+        ],
+        "sourcesContent": [
+          "interface parm {\n  cmd: string //事件\n  // 推送买币订单状态\n  // push_coin_buy_order_status\n  // 推送卖币订单状态\n  // push_coin_sell_order_status\n  // push_message站内消息\n  // push_coinsellcomment交易申诉更新\n  // push_reminders_buy买方发送给卖方催单\n  // push_reminders_sell卖方发送给买方催单\n  uuid: string //会员uuid\n  send_uuid: string //发起者uuid，如果没有为空或null\n  data: Array<any> //相关资料\n}\n\nimport router from '@/router'\nimport mitt from '@/utils/mitt'\nimport { showDialog, showToast } from 'vant'\nimport { useRoute } from 'vue-router'\nconst resHandle = (data: any) => {\n  // console.log('sockte', data)\n  const cmd = data.cmd\n  switch (cmd) {\n    case 'connected': //连接成功\n      // console.log('连接成功')\n      break\n    case 'user_bad': //非校验成功消息 心跳\n      // console.log('非校验成功消息');\n      break\n    case 'user_ok': //校验成功\n      console.log('校验成功')\n      break\n    case 'push_coin_buy_order_status':\n      console.log('1push_coin_buy_order_status1222') //推送买币订单状态\n      mitt.emit('push_coin_buy_order_status', data)\n      break\n    case 'push_coin_sell_order_status':\n      mitt.emit('push_coin_sell_order_status', data) //推送卖币订单状态\n      console.log('push_coin_sell_order_status000000')\n      break\n    case 'push_message': //站内消息\n      mitt.emit('push_message', data)\n      break\n    case 'push_coinsellcomment': //交易申诉更新\n      mitt.emit('push_coinsellcomment', data)\n      break\n    case 'push_reminders_buy': //买方发送给卖方催单\n      mitt.emit('push_reminders_buy', data)\n      break\n    case 'push_reminders_sell': //卖方发送给买方催单\n      mitt.emit('push_reminders_sell', data)\n      break\n  }\n}\n\nexport default resHandle\n"
+        ],
+        "mappings": "AAgBA,OAAO,UAAU;AAGjB,MAAM,YAAY,CAAC,SAAc;AAE/B,QAAM,MAAM,KAAK;AACjB,UAAQ,KAAK;AAAA,IACX,KAAK;AAEH;AAAA,IACF,KAAK;AAEH;AAAA,IACF,KAAK;AACH,cAAQ,IAAI,MAAM;AAClB;AAAA,IACF,KAAK;AACH,cAAQ,IAAI,iCAAiC;AAC7C,WAAK,KAAK,8BAA8B,IAAI;AAC5C;AAAA,IACF,KAAK;AACH,WAAK,KAAK,+BAA+B,IAAI;AAC7C,cAAQ,IAAI,mCAAmC;AAC/C;AAAA,IACF,KAAK;AACH,WAAK,KAAK,gBAAgB,IAAI;AAC9B;AAAA,IACF,KAAK;AACH,WAAK,KAAK,wBAAwB,IAAI;AACtC;AAAA,IACF,KAAK;AACH,WAAK,KAAK,sBAAsB,IAAI;AACpC;AAAA,IACF,KAAK;AACH,WAAK,KAAK,uBAAuB,IAAI;AACrC;AAAA,EACJ;AACF;AAEA,eAAe;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769810,
+      "end": 1714699769810,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769810,
+      "end": 1714699769810,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699769810,
+      "end": 1714699769810,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769810,
+      "end": 1714699769810,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import mitt from \"@/utils/mitt\";\nconst resHandle = (data) => {\n  const cmd = data.cmd;\n  switch (cmd) {\n    case \"connected\":\n      break;\n    case \"user_bad\":\n      break;\n    case \"user_ok\":\n      console.log(\"校验成功\");\n      break;\n    case \"push_coin_buy_order_status\":\n      console.log(\"1push_coin_buy_order_status1222\");\n      mitt.emit(\"push_coin_buy_order_status\", data);\n      break;\n    case \"push_coin_sell_order_status\":\n      mitt.emit(\"push_coin_sell_order_status\", data);\n      console.log(\"push_coin_sell_order_status000000\");\n      break;\n    case \"push_message\":\n      mitt.emit(\"push_message\", data);\n      break;\n    case \"push_coinsellcomment\":\n      mitt.emit(\"push_coinsellcomment\", data);\n      break;\n    case \"push_reminders_buy\":\n      mitt.emit(\"push_reminders_buy\", data);\n      break;\n    case \"push_reminders_sell\":\n      mitt.emit(\"push_reminders_sell\", data);\n      break;\n  }\n};\nexport default resHandle;\n",
+      "start": 1714699769810,
+      "end": 1714699769810,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport mitt from \"@/utils/mitt\";\nconst resHandle = (data) => {\n  const cmd = data.cmd;\n  switch (cmd) {\n    case \"connected\":\n      break;\n    case \"user_bad\":\n      break;\n    case \"user_ok\":\n      console.log(\"\\u6821\\u9A8C\\u6210\\u529F\");\n      break;\n    case \"push_coin_buy_order_status\":\n      console.log(\"1push_coin_buy_order_status1222\");\n      mitt.emit(\"push_coin_buy_order_status\", data);\n      break;\n    case \"push_coin_sell_order_status\":\n      mitt.emit(\"push_coin_sell_order_status\", data);\n      console.log(\"push_coin_sell_order_status000000\");\n      break;\n    case \"push_message\":\n      mitt.emit(\"push_message\", data);\n      break;\n    case \"push_coinsellcomment\":\n      mitt.emit(\"push_coinsellcomment\", data);\n      break;\n    case \"push_reminders_buy\":\n      mitt.emit(\"push_reminders_buy\", data);\n      break;\n    case \"push_reminders_sell\":\n      mitt.emit(\"push_reminders_sell\", data);\n      break;\n  }\n};\nexport default resHandle;\n",
+      "start": 1714699769810,
+      "end": 1714699770684,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/store/modules/coinBuySell/resHandle.ts\"],\n  \"sourcesContent\": [\"import mitt from \\\"@/utils/mitt\\\";\\nconst resHandle = (data) => {\\n  const cmd = data.cmd;\\n  switch (cmd) {\\n    case \\\"connected\\\":\\n      break;\\n    case \\\"user_bad\\\":\\n      break;\\n    case \\\"user_ok\\\":\\n      console.log(\\\"\\u6821\\u9A8C\\u6210\\u529F\\\");\\n      break;\\n    case \\\"push_coin_buy_order_status\\\":\\n      console.log(\\\"1push_coin_buy_order_status1222\\\");\\n      mitt.emit(\\\"push_coin_buy_order_status\\\", data);\\n      break;\\n    case \\\"push_coin_sell_order_status\\\":\\n      mitt.emit(\\\"push_coin_sell_order_status\\\", data);\\n      console.log(\\\"push_coin_sell_order_status000000\\\");\\n      break;\\n    case \\\"push_message\\\":\\n      mitt.emit(\\\"push_message\\\", data);\\n      break;\\n    case \\\"push_coinsellcomment\\\":\\n      mitt.emit(\\\"push_coinsellcomment\\\", data);\\n      break;\\n    case \\\"push_reminders_buy\\\":\\n      mitt.emit(\\\"push_reminders_buy\\\", data);\\n      break;\\n    case \\\"push_reminders_sell\\\":\\n      mitt.emit(\\\"push_reminders_sell\\\", data);\\n      break;\\n  }\\n};\\nexport default resHandle;\\n\"],\n  \"mappings\": \";AAAA,OAAO,UAAU;AACjB,MAAM,YAAY,CAAC,SAAS;AAC1B,QAAM,MAAM,KAAK;AACjB,UAAQ,KAAK;AAAA,IACX,KAAK;AACH;AAAA,IACF,KAAK;AACH;AAAA,IACF,KAAK;AACH,cAAQ,IAAI,0BAAM;AAClB;AAAA,IACF,KAAK;AACH,cAAQ,IAAI,iCAAiC;AAC7C,WAAK,KAAK,8BAA8B,IAAI;AAC5C;AAAA,IACF,KAAK;AACH,WAAK,KAAK,+BAA+B,IAAI;AAC7C,cAAQ,IAAI,mCAAmC;AAC/C;AAAA,IACF,KAAK;AACH,WAAK,KAAK,gBAAgB,IAAI;AAC9B;AAAA,IACF,KAAK;AACH,WAAK,KAAK,wBAAwB,IAAI;AACtC;AAAA,IACF,KAAK;AACH,WAAK,KAAK,sBAAsB,IAAI;AACpC;AAAA,IACF,KAAK;AACH,WAAK,KAAK,uBAAuB,IAAI;AACrC;AAAA,EACJ;AACF;AACA,eAAe;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770684,
+      "end": 1714699770684,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699770684,
+      "end": 1714699770684,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770684,
+      "end": 1714699770684,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770684,
+      "end": 1714699770684,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770684,
+      "end": 1714699770684,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770684,
+      "end": 1714699770684,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770684,
+      "end": 1714699770684,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770684,
+      "end": 1714699770684,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770684,
+      "end": 1714699770685,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699770685,
+      "end": 1714699770685,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770685,
+      "end": 1714699770685,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770685,
+      "end": 1714699770685,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770685,
+      "end": 1714699770685,
+      "order": "normal"
+    }
+  ]
+}

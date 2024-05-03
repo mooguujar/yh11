@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/html5-qrcode@2.3.8/node_modules/html5-qrcode/esm/ui/scanner/camera-zoom-ui.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { BaseUiElementFactory, PublicUiElementIdAndClasses } from \"./base\";\nimport { Html5QrcodeScannerStrings } from \"../../strings\";\nvar CameraZoomUi = (function () {\n    function CameraZoomUi() {\n        this.onChangeCallback = null;\n        this.zoomElementContainer = document.createElement(\"div\");\n        this.rangeInput = BaseUiElementFactory.createElement(\"input\", PublicUiElementIdAndClasses.ZOOM_SLIDER_ID);\n        this.rangeInput.type = \"range\";\n        this.rangeText = document.createElement(\"span\");\n        this.rangeInput.min = \"1\";\n        this.rangeInput.max = \"5\";\n        this.rangeInput.value = \"1\";\n        this.rangeInput.step = \"0.1\";\n    }\n    CameraZoomUi.prototype.render = function (parentElement, renderOnCreate) {\n        this.zoomElementContainer.style.display\n            = renderOnCreate ? \"block\" : \"none\";\n        this.zoomElementContainer.style.padding = \"5px 10px\";\n        this.zoomElementContainer.style.textAlign = \"center\";\n        parentElement.appendChild(this.zoomElementContainer);\n        this.rangeInput.style.display = \"inline-block\";\n        this.rangeInput.style.width = \"50%\";\n        this.rangeInput.style.height = \"5px\";\n        this.rangeInput.style.background = \"#d3d3d3\";\n        this.rangeInput.style.outline = \"none\";\n        this.rangeInput.style.opacity = \"0.7\";\n        var zoomString = Html5QrcodeScannerStrings.zoom();\n        this.rangeText.innerText = \"\".concat(this.rangeInput.value, \"x \").concat(zoomString);\n        this.rangeText.style.marginRight = \"10px\";\n        var $this = this;\n        this.rangeInput.addEventListener(\"input\", function () { return $this.onValueChange(); });\n        this.rangeInput.addEventListener(\"change\", function () { return $this.onValueChange(); });\n        this.zoomElementContainer.appendChild(this.rangeInput);\n        this.zoomElementContainer.appendChild(this.rangeText);\n    };\n    CameraZoomUi.prototype.onValueChange = function () {\n        var zoomString = Html5QrcodeScannerStrings.zoom();\n        this.rangeText.innerText = \"\".concat(this.rangeInput.value, \"x \").concat(zoomString);\n        if (this.onChangeCallback) {\n            this.onChangeCallback(parseFloat(this.rangeInput.value));\n        }\n    };\n    CameraZoomUi.prototype.setValues = function (minValue, maxValue, defaultValue, step) {\n        this.rangeInput.min = minValue.toString();\n        this.rangeInput.max = maxValue.toString();\n        this.rangeInput.step = step.toString();\n        this.rangeInput.value = defaultValue.toString();\n        this.onValueChange();\n    };\n    CameraZoomUi.prototype.show = function () {\n        this.zoomElementContainer.style.display = \"block\";\n    };\n    CameraZoomUi.prototype.hide = function () {\n        this.zoomElementContainer.style.display = \"none\";\n    };\n    CameraZoomUi.prototype.setOnCameraZoomValueChangeCallback = function (onChangeCallback) {\n        this.onChangeCallback = onChangeCallback;\n    };\n    CameraZoomUi.prototype.removeOnCameraZoomValueChangeCallback = function () {\n        this.onChangeCallback = null;\n    };\n    CameraZoomUi.create = function (parentElement, renderOnCreate) {\n        var cameraZoomUi = new CameraZoomUi();\n        cameraZoomUi.render(parentElement, renderOnCreate);\n        return cameraZoomUi;\n    };\n    return CameraZoomUi;\n}());\nexport { CameraZoomUi };\n//# sourceMappingURL=camera-zoom-ui.js.map",
+      "start": 1714699771223,
+      "end": 1714699771244,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771244,
+      "end": 1714699771244,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771244,
+      "end": 1714699771244,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771244,
+      "end": 1714699771244,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771244,
+      "end": 1714699771244,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771244,
+      "end": 1714699771244,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771244,
+      "end": 1714699771244,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { BaseUiElementFactory, PublicUiElementIdAndClasses } from \"./base\";\nimport { Html5QrcodeScannerStrings } from \"../../strings\";\nvar CameraZoomUi = (function () {\n    function CameraZoomUi() {\n        this.onChangeCallback = null;\n        this.zoomElementContainer = document.createElement(\"div\");\n        this.rangeInput = BaseUiElementFactory.createElement(\"input\", PublicUiElementIdAndClasses.ZOOM_SLIDER_ID);\n        this.rangeInput.type = \"range\";\n        this.rangeText = document.createElement(\"span\");\n        this.rangeInput.min = \"1\";\n        this.rangeInput.max = \"5\";\n        this.rangeInput.value = \"1\";\n        this.rangeInput.step = \"0.1\";\n    }\n    CameraZoomUi.prototype.render = function (parentElement, renderOnCreate) {\n        this.zoomElementContainer.style.display\n            = renderOnCreate ? \"block\" : \"none\";\n        this.zoomElementContainer.style.padding = \"5px 10px\";\n        this.zoomElementContainer.style.textAlign = \"center\";\n        parentElement.appendChild(this.zoomElementContainer);\n        this.rangeInput.style.display = \"inline-block\";\n        this.rangeInput.style.width = \"50%\";\n        this.rangeInput.style.height = \"5px\";\n        this.rangeInput.style.background = \"#d3d3d3\";\n        this.rangeInput.style.outline = \"none\";\n        this.rangeInput.style.opacity = \"0.7\";\n        var zoomString = Html5QrcodeScannerStrings.zoom();\n        this.rangeText.innerText = \"\".concat(this.rangeInput.value, \"x \").concat(zoomString);\n        this.rangeText.style.marginRight = \"10px\";\n        var $this = this;\n        this.rangeInput.addEventListener(\"input\", function () { return $this.onValueChange(); });\n        this.rangeInput.addEventListener(\"change\", function () { return $this.onValueChange(); });\n        this.zoomElementContainer.appendChild(this.rangeInput);\n        this.zoomElementContainer.appendChild(this.rangeText);\n    };\n    CameraZoomUi.prototype.onValueChange = function () {\n        var zoomString = Html5QrcodeScannerStrings.zoom();\n        this.rangeText.innerText = \"\".concat(this.rangeInput.value, \"x \").concat(zoomString);\n        if (this.onChangeCallback) {\n            this.onChangeCallback(parseFloat(this.rangeInput.value));\n        }\n    };\n    CameraZoomUi.prototype.setValues = function (minValue, maxValue, defaultValue, step) {\n        this.rangeInput.min = minValue.toString();\n        this.rangeInput.max = maxValue.toString();\n        this.rangeInput.step = step.toString();\n        this.rangeInput.value = defaultValue.toString();\n        this.onValueChange();\n    };\n    CameraZoomUi.prototype.show = function () {\n        this.zoomElementContainer.style.display = \"block\";\n    };\n    CameraZoomUi.prototype.hide = function () {\n        this.zoomElementContainer.style.display = \"none\";\n    };\n    CameraZoomUi.prototype.setOnCameraZoomValueChangeCallback = function (onChangeCallback) {\n        this.onChangeCallback = onChangeCallback;\n    };\n    CameraZoomUi.prototype.removeOnCameraZoomValueChangeCallback = function () {\n        this.onChangeCallback = null;\n    };\n    CameraZoomUi.create = function (parentElement, renderOnCreate) {\n        var cameraZoomUi = new CameraZoomUi();\n        cameraZoomUi.render(parentElement, renderOnCreate);\n        return cameraZoomUi;\n    };\n    return CameraZoomUi;\n}());\nexport { CameraZoomUi };\n//# sourceMappingURL=camera-zoom-ui.js.map",
+      "start": 1714699771244,
+      "end": 1714699771244,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699771244,
+      "end": 1714699771244,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771244,
+      "end": 1714699771244,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771244,
+      "end": 1714699771244,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771244,
+      "end": 1714699771244,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771244,
+      "end": 1714699771244,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771244,
+      "end": 1714699771244,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699771244,
+      "end": 1714699771244,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771244,
+      "end": 1714699771244,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771244,
+      "end": 1714699771244,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771244,
+      "end": 1714699771244,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699771244,
+      "end": 1714699771244,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771244,
+      "end": 1714699771244,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771244,
+      "end": 1714699771244,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771244,
+      "end": 1714699771244,
+      "order": "normal"
+    }
+  ]
+}

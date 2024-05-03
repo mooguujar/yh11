@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/copyWithin.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var isArray = require('./isArray')\r\n\r\n/**\r\n  * 浅复制数组的一部分到同一数组中的另一个位置,数组大小不变\r\n  *\r\n  * @param {Array} array 数组\r\n  * @param {Number} target 从该位置开始替换数据\r\n  * @param {Number} start 从该位置开始读取数据，默认为 0 。如果为负值，表示倒数\r\n  * @param {Number} end 到该位置前停止读取数据，默认等于数组长度。如果为负值，表示倒数\r\n  * @return {Array}\r\n  */\r\nfunction copyWithin (array, target, start, end) {\r\n  if (isArray(array) && array.copyWithin) {\r\n    return array.copyWithin(target, start, end)\r\n  }\r\n  var replaceIndex, replaceArray\r\n  var targetIndex = target >> 0\r\n  var startIndex = start >> 0\r\n  var len = array.length\r\n  var endIndex = arguments.length > 3 ? end >> 0 : len\r\n  if (targetIndex < len) {\r\n    targetIndex = targetIndex >= 0 ? targetIndex : len + targetIndex\r\n    if (targetIndex >= 0) {\r\n      startIndex = startIndex >= 0 ? startIndex : len + startIndex\r\n      endIndex = endIndex >= 0 ? endIndex : len + endIndex\r\n      if (startIndex < endIndex) {\r\n        for (replaceIndex = 0, replaceArray = array.slice(startIndex, endIndex); targetIndex < len; targetIndex++) {\r\n          if (replaceArray.length <= replaceIndex) {\r\n            break\r\n          }\r\n          array[targetIndex] = replaceArray[replaceIndex++]\r\n        }\r\n      }\r\n    }\r\n  }\r\n  return array\r\n}\r\n\r\nmodule.exports = copyWithin\r\n",
+      "start": 1714699767566,
+      "end": 1714699767590,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767590,
+      "end": 1714699767590,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767590,
+      "end": 1714699767590,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767590,
+      "end": 1714699767590,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767590,
+      "end": 1714699767590,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767590,
+      "end": 1714699767590,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767590,
+      "end": 1714699767590,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var isArray = require('./isArray')\r\n\r\n/**\r\n  * 浅复制数组的一部分到同一数组中的另一个位置,数组大小不变\r\n  *\r\n  * @param {Array} array 数组\r\n  * @param {Number} target 从该位置开始替换数据\r\n  * @param {Number} start 从该位置开始读取数据，默认为 0 。如果为负值，表示倒数\r\n  * @param {Number} end 到该位置前停止读取数据，默认等于数组长度。如果为负值，表示倒数\r\n  * @return {Array}\r\n  */\r\nfunction copyWithin (array, target, start, end) {\r\n  if (isArray(array) && array.copyWithin) {\r\n    return array.copyWithin(target, start, end)\r\n  }\r\n  var replaceIndex, replaceArray\r\n  var targetIndex = target >> 0\r\n  var startIndex = start >> 0\r\n  var len = array.length\r\n  var endIndex = arguments.length > 3 ? end >> 0 : len\r\n  if (targetIndex < len) {\r\n    targetIndex = targetIndex >= 0 ? targetIndex : len + targetIndex\r\n    if (targetIndex >= 0) {\r\n      startIndex = startIndex >= 0 ? startIndex : len + startIndex\r\n      endIndex = endIndex >= 0 ? endIndex : len + endIndex\r\n      if (startIndex < endIndex) {\r\n        for (replaceIndex = 0, replaceArray = array.slice(startIndex, endIndex); targetIndex < len; targetIndex++) {\r\n          if (replaceArray.length <= replaceIndex) {\r\n            break\r\n          }\r\n          array[targetIndex] = replaceArray[replaceIndex++]\r\n        }\r\n      }\r\n    }\r\n  }\r\n  return array\r\n}\r\n\r\nmodule.exports = copyWithin\r\n",
+      "start": 1714699767590,
+      "end": 1714699767590,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767590,
+      "end": 1714699767590,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767590,
+      "end": 1714699767590,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767590,
+      "end": 1714699767590,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767590,
+      "end": 1714699767590,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767590,
+      "end": 1714699767590,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767590,
+      "end": 1714699767590,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isArray.js?commonjs-proxy\";\n\nvar isArray = require$$0\r\n\r\n/**\r\n  * 浅复制数组的一部分到同一数组中的另一个位置,数组大小不变\r\n  *\r\n  * @param {Array} array 数组\r\n  * @param {Number} target 从该位置开始替换数据\r\n  * @param {Number} start 从该位置开始读取数据，默认为 0 。如果为负值，表示倒数\r\n  * @param {Number} end 到该位置前停止读取数据，默认等于数组长度。如果为负值，表示倒数\r\n  * @return {Array}\r\n  */\r\nfunction copyWithin (array, target, start, end) {\r\n  if (isArray(array) && array.copyWithin) {\r\n    return array.copyWithin(target, start, end)\r\n  }\r\n  var replaceIndex, replaceArray\r\n  var targetIndex = target >> 0\r\n  var startIndex = start >> 0\r\n  var len = array.length\r\n  var endIndex = arguments.length > 3 ? end >> 0 : len\r\n  if (targetIndex < len) {\r\n    targetIndex = targetIndex >= 0 ? targetIndex : len + targetIndex\r\n    if (targetIndex >= 0) {\r\n      startIndex = startIndex >= 0 ? startIndex : len + startIndex\r\n      endIndex = endIndex >= 0 ? endIndex : len + endIndex\r\n      if (startIndex < endIndex) {\r\n        for (replaceIndex = 0, replaceArray = array.slice(startIndex, endIndex); targetIndex < len; targetIndex++) {\r\n          if (replaceArray.length <= replaceIndex) {\r\n            break\r\n          }\r\n          array[targetIndex] = replaceArray[replaceIndex++]\r\n        }\r\n      }\r\n    }\r\n  }\r\n  return array\r\n}\r\n\r\nvar copyWithin_1 = copyWithin\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(copyWithin_1);\nexport { copyWithin_1 as __moduleExports };",
+      "start": 1714699767590,
+      "end": 1714699768104,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;AAAA,IAAI,OAAO,GAAG,UAAoB;AAClC;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,UAAU,EAAE,KAAK,EAAE,MAAM,EAAE,KAAK,EAAE,GAAG,EAAE;AAChD,EAAE,IAAI,OAAO,CAAC,KAAK,CAAC,IAAI,KAAK,CAAC,UAAU,EAAE;AAC1C,IAAI,OAAO,KAAK,CAAC,UAAU,CAAC,MAAM,EAAE,KAAK,EAAE,GAAG,CAAC;AAC/C,GAAG;AACH,EAAE,IAAI,YAAY,EAAE,YAAY;AAChC,EAAE,IAAI,WAAW,GAAG,MAAM,IAAI,CAAC;AAC/B,EAAE,IAAI,UAAU,GAAG,KAAK,IAAI,CAAC;AAC7B,EAAE,IAAI,GAAG,GAAG,KAAK,CAAC,MAAM;AACxB,EAAE,IAAI,QAAQ,GAAG,SAAS,CAAC,MAAM,GAAG,CAAC,GAAG,GAAG,IAAI,CAAC,GAAG,GAAG;AACtD,EAAE,IAAI,WAAW,GAAG,GAAG,EAAE;AACzB,IAAI,WAAW,GAAG,WAAW,IAAI,CAAC,GAAG,WAAW,GAAG,GAAG,GAAG,WAAW;AACpE,IAAI,IAAI,WAAW,IAAI,CAAC,EAAE;AAC1B,MAAM,UAAU,GAAG,UAAU,IAAI,CAAC,GAAG,UAAU,GAAG,GAAG,GAAG,UAAU;AAClE,MAAM,QAAQ,GAAG,QAAQ,IAAI,CAAC,GAAG,QAAQ,GAAG,GAAG,GAAG,QAAQ;AAC1D,MAAM,IAAI,UAAU,GAAG,QAAQ,EAAE;AACjC,QAAQ,KAAK,YAAY,GAAG,CAAC,EAAE,YAAY,GAAG,KAAK,CAAC,KAAK,CAAC,UAAU,EAAE,QAAQ,CAAC,EAAE,WAAW,GAAG,GAAG,EAAE,WAAW,EAAE,EAAE;AACnH,UAAU,IAAI,YAAY,CAAC,MAAM,IAAI,YAAY,EAAE;AACnD,YAAY,KAAK;AACjB,WAAW;AACX,UAAU,KAAK,CAAC,WAAW,CAAC,GAAG,YAAY,CAAC,YAAY,EAAE,CAAC;AAC3D,SAAS;AACT,OAAO;AACP,KAAK;AACL,GAAG;AACH,EAAE,OAAO,KAAK;AACd,CAAC;AACD;IACA,YAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768104,
+      "end": 1714699768104,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768104,
+      "end": 1714699768104,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768104,
+      "end": 1714699768104,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768104,
+      "end": 1714699768104,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768104,
+      "end": 1714699768104,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768104,
+      "end": 1714699768104,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768105,
+      "end": 1714699768105,
+      "order": "normal"
+    }
+  ]
+}

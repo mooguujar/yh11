@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isEmpty.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "/**\r\n  * 判断是否为空对象\r\n  *\r\n  * @param {Object} obj 对象\r\n  * @return {Boolean}\r\n  */\r\nfunction isEmpty (obj) {\r\n  for (var key in obj) {\r\n    return false\r\n  }\r\n  return true\r\n}\r\n\r\nmodule.exports = isEmpty\r\n",
+      "start": 1714699767629,
+      "end": 1714699767650,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767650,
+      "end": 1714699767650,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767650,
+      "end": 1714699767650,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767650,
+      "end": 1714699767650,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767650,
+      "end": 1714699767650,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767650,
+      "end": 1714699767650,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767650,
+      "end": 1714699767650,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "/**\r\n  * 判断是否为空对象\r\n  *\r\n  * @param {Object} obj 对象\r\n  * @return {Boolean}\r\n  */\r\nfunction isEmpty (obj) {\r\n  for (var key in obj) {\r\n    return false\r\n  }\r\n  return true\r\n}\r\n\r\nmodule.exports = isEmpty\r\n",
+      "start": 1714699767650,
+      "end": 1714699767650,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767650,
+      "end": 1714699767650,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767650,
+      "end": 1714699767650,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767650,
+      "end": 1714699767650,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767650,
+      "end": 1714699767650,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767650,
+      "end": 1714699767650,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767650,
+      "end": 1714699767650,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "/**\r\n  * 判断是否为空对象\r\n  *\r\n  * @param {Object} obj 对象\r\n  * @return {Boolean}\r\n  */\nimport * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\n\nfunction isEmpty (obj) {\r\n  for (var key in obj) {\r\n    return false\r\n  }\r\n  return true\r\n}\r\n\r\nvar isEmpty_1 = isEmpty\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(isEmpty_1);\nexport { isEmpty_1 as __moduleExports };",
+      "start": 1714699767650,
+      "end": 1714699767651,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;;;;AAMA,SAAS,OAAO,EAAE,GAAG,EAAE;AACvB,EAAE,KAAK,IAAI,GAAG,IAAI,GAAG,EAAE;AACvB,IAAI,OAAO,KAAK;AAChB,GAAG;AACH,EAAE,OAAO,IAAI;AACb,CAAC;AACD;IACA,SAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767651,
+      "end": 1714699767651,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767651,
+      "end": 1714699767651,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767651,
+      "end": 1714699767651,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767651,
+      "end": 1714699767651,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767651,
+      "end": 1714699767651,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767651,
+      "end": 1714699767651,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767651,
+      "end": 1714699767651,
+      "order": "normal"
+    }
+  ]
+}

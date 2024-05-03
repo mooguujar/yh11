@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/utils/format.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { inBrowser } from \"./basic.mjs\";\nimport { windowWidth, windowHeight } from \"./dom.mjs\";\nimport { isDef, isNumeric } from \"./basic.mjs\";\nfunction addUnit(value) {\n  if (isDef(value)) {\n    return isNumeric(value) ? `${value}px` : String(value);\n  }\n  return void 0;\n}\nfunction getSizeStyle(originSize) {\n  if (isDef(originSize)) {\n    if (Array.isArray(originSize)) {\n      return {\n        width: addUnit(originSize[0]),\n        height: addUnit(originSize[1])\n      };\n    }\n    const size = addUnit(originSize);\n    return {\n      width: size,\n      height: size\n    };\n  }\n}\nfunction getZIndexStyle(zIndex) {\n  const style = {};\n  if (zIndex !== void 0) {\n    style.zIndex = +zIndex;\n  }\n  return style;\n}\nlet rootFontSize;\nfunction getRootFontSize() {\n  if (!rootFontSize) {\n    const doc = document.documentElement;\n    const fontSize = doc.style.fontSize || window.getComputedStyle(doc).fontSize;\n    rootFontSize = parseFloat(fontSize);\n  }\n  return rootFontSize;\n}\nfunction convertRem(value) {\n  value = value.replace(/rem/g, \"\");\n  return +value * getRootFontSize();\n}\nfunction convertVw(value) {\n  value = value.replace(/vw/g, \"\");\n  return +value * windowWidth.value / 100;\n}\nfunction convertVh(value) {\n  value = value.replace(/vh/g, \"\");\n  return +value * windowHeight.value / 100;\n}\nfunction unitToPx(value) {\n  if (typeof value === \"number\") {\n    return value;\n  }\n  if (inBrowser) {\n    if (value.includes(\"rem\")) {\n      return convertRem(value);\n    }\n    if (value.includes(\"vw\")) {\n      return convertVw(value);\n    }\n    if (value.includes(\"vh\")) {\n      return convertVh(value);\n    }\n  }\n  return parseFloat(value);\n}\nconst camelizeRE = /-(\\w)/g;\nconst camelize = (str) => str.replace(camelizeRE, (_, c) => c.toUpperCase());\nconst kebabCase = (str) => str.replace(/([A-Z])/g, \"-$1\").toLowerCase().replace(/^-/, \"\");\nfunction padZero(num, targetLength = 2) {\n  let str = num + \"\";\n  while (str.length < targetLength) {\n    str = \"0\" + str;\n  }\n  return str;\n}\nconst clamp = (num, min, max) => Math.min(Math.max(num, min), max);\nfunction trimExtraChar(value, char, regExp) {\n  const index = value.indexOf(char);\n  if (index === -1) {\n    return value;\n  }\n  if (char === \"-\" && index !== 0) {\n    return value.slice(0, index);\n  }\n  return value.slice(0, index + 1) + value.slice(index).replace(regExp, \"\");\n}\nfunction formatNumber(value, allowDot = true, allowMinus = true) {\n  if (allowDot) {\n    value = trimExtraChar(value, \".\", /\\./g);\n  } else {\n    value = value.split(\".\")[0];\n  }\n  if (allowMinus) {\n    value = trimExtraChar(value, \"-\", /-/g);\n  } else {\n    value = value.replace(/-/, \"\");\n  }\n  const regExp = allowDot ? /[^-0-9.]/g : /[^-0-9]/g;\n  return value.replace(regExp, \"\");\n}\nfunction addNumber(num1, num2) {\n  const cardinal = 10 ** 10;\n  return Math.round((num1 + num2) * cardinal) / cardinal;\n}\nexport {\n  addNumber,\n  addUnit,\n  camelize,\n  clamp,\n  formatNumber,\n  getSizeStyle,\n  getZIndexStyle,\n  kebabCase,\n  padZero,\n  unitToPx\n};\n",
+      "start": 1714699767791,
+      "end": 1714699767870,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767870,
+      "end": 1714699767870,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767870,
+      "end": 1714699767870,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767870,
+      "end": 1714699767870,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767870,
+      "end": 1714699767870,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767870,
+      "end": 1714699767870,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767870,
+      "end": 1714699767870,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { inBrowser } from \"./basic.mjs\";\nimport { windowWidth, windowHeight } from \"./dom.mjs\";\nimport { isDef, isNumeric } from \"./basic.mjs\";\nfunction addUnit(value) {\n  if (isDef(value)) {\n    return isNumeric(value) ? `${value}px` : String(value);\n  }\n  return void 0;\n}\nfunction getSizeStyle(originSize) {\n  if (isDef(originSize)) {\n    if (Array.isArray(originSize)) {\n      return {\n        width: addUnit(originSize[0]),\n        height: addUnit(originSize[1])\n      };\n    }\n    const size = addUnit(originSize);\n    return {\n      width: size,\n      height: size\n    };\n  }\n}\nfunction getZIndexStyle(zIndex) {\n  const style = {};\n  if (zIndex !== void 0) {\n    style.zIndex = +zIndex;\n  }\n  return style;\n}\nlet rootFontSize;\nfunction getRootFontSize() {\n  if (!rootFontSize) {\n    const doc = document.documentElement;\n    const fontSize = doc.style.fontSize || window.getComputedStyle(doc).fontSize;\n    rootFontSize = parseFloat(fontSize);\n  }\n  return rootFontSize;\n}\nfunction convertRem(value) {\n  value = value.replace(/rem/g, \"\");\n  return +value * getRootFontSize();\n}\nfunction convertVw(value) {\n  value = value.replace(/vw/g, \"\");\n  return +value * windowWidth.value / 100;\n}\nfunction convertVh(value) {\n  value = value.replace(/vh/g, \"\");\n  return +value * windowHeight.value / 100;\n}\nfunction unitToPx(value) {\n  if (typeof value === \"number\") {\n    return value;\n  }\n  if (inBrowser) {\n    if (value.includes(\"rem\")) {\n      return convertRem(value);\n    }\n    if (value.includes(\"vw\")) {\n      return convertVw(value);\n    }\n    if (value.includes(\"vh\")) {\n      return convertVh(value);\n    }\n  }\n  return parseFloat(value);\n}\nconst camelizeRE = /-(\\w)/g;\nconst camelize = (str) => str.replace(camelizeRE, (_, c) => c.toUpperCase());\nconst kebabCase = (str) => str.replace(/([A-Z])/g, \"-$1\").toLowerCase().replace(/^-/, \"\");\nfunction padZero(num, targetLength = 2) {\n  let str = num + \"\";\n  while (str.length < targetLength) {\n    str = \"0\" + str;\n  }\n  return str;\n}\nconst clamp = (num, min, max) => Math.min(Math.max(num, min), max);\nfunction trimExtraChar(value, char, regExp) {\n  const index = value.indexOf(char);\n  if (index === -1) {\n    return value;\n  }\n  if (char === \"-\" && index !== 0) {\n    return value.slice(0, index);\n  }\n  return value.slice(0, index + 1) + value.slice(index).replace(regExp, \"\");\n}\nfunction formatNumber(value, allowDot = true, allowMinus = true) {\n  if (allowDot) {\n    value = trimExtraChar(value, \".\", /\\./g);\n  } else {\n    value = value.split(\".\")[0];\n  }\n  if (allowMinus) {\n    value = trimExtraChar(value, \"-\", /-/g);\n  } else {\n    value = value.replace(/-/, \"\");\n  }\n  const regExp = allowDot ? /[^-0-9.]/g : /[^-0-9]/g;\n  return value.replace(regExp, \"\");\n}\nfunction addNumber(num1, num2) {\n  const cardinal = 10 ** 10;\n  return Math.round((num1 + num2) * cardinal) / cardinal;\n}\nexport {\n  addNumber,\n  addUnit,\n  camelize,\n  clamp,\n  formatNumber,\n  getSizeStyle,\n  getZIndexStyle,\n  kebabCase,\n  padZero,\n  unitToPx\n};\n",
+      "start": 1714699767870,
+      "end": 1714699767870,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767870,
+      "end": 1714699767870,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767870,
+      "end": 1714699767870,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767870,
+      "end": 1714699767870,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767870,
+      "end": 1714699767870,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767870,
+      "end": 1714699767870,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767870,
+      "end": 1714699767870,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767870,
+      "end": 1714699767870,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767870,
+      "end": 1714699767870,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767870,
+      "end": 1714699767870,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767870,
+      "end": 1714699767870,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767870,
+      "end": 1714699767870,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767870,
+      "end": 1714699767870,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767870,
+      "end": 1714699767870,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767870,
+      "end": 1714699767870,
+      "order": "normal"
+    }
+  ]
+}

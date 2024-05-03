@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/axios@1.6.7/node_modules/axios/index.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import axios from './lib/axios.js';\n\n// This module is intended to unwrap Axios default export as named.\n// Keep top-level export same with static properties\n// so that it can keep same with es module or cjs\nconst {\n  Axios,\n  AxiosError,\n  CanceledError,\n  isCancel,\n  CancelToken,\n  VERSION,\n  all,\n  Cancel,\n  isAxiosError,\n  spread,\n  toFormData,\n  AxiosHeaders,\n  HttpStatusCode,\n  formToJSON,\n  getAdapter,\n  mergeConfig\n} = axios;\n\nexport {\n  axios as default,\n  Axios,\n  AxiosError,\n  CanceledError,\n  isCancel,\n  CancelToken,\n  VERSION,\n  all,\n  Cancel,\n  isAxiosError,\n  spread,\n  toFormData,\n  AxiosHeaders,\n  HttpStatusCode,\n  formToJSON,\n  getAdapter,\n  mergeConfig\n}\n",
+      "start": 1714699770724,
+      "end": 1714699770724,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699770724,
+      "end": 1714699770724,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699770724,
+      "end": 1714699770724,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699770724,
+      "end": 1714699770724,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699770724,
+      "end": 1714699770724,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699770724,
+      "end": 1714699770724,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699770724,
+      "end": 1714699770724,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import axios from './lib/axios.js';\n\n// This module is intended to unwrap Axios default export as named.\n// Keep top-level export same with static properties\n// so that it can keep same with es module or cjs\nconst {\n  Axios,\n  AxiosError,\n  CanceledError,\n  isCancel,\n  CancelToken,\n  VERSION,\n  all,\n  Cancel,\n  isAxiosError,\n  spread,\n  toFormData,\n  AxiosHeaders,\n  HttpStatusCode,\n  formToJSON,\n  getAdapter,\n  mergeConfig\n} = axios;\n\nexport {\n  axios as default,\n  Axios,\n  AxiosError,\n  CanceledError,\n  isCancel,\n  CancelToken,\n  VERSION,\n  all,\n  Cancel,\n  isAxiosError,\n  spread,\n  toFormData,\n  AxiosHeaders,\n  HttpStatusCode,\n  formToJSON,\n  getAdapter,\n  mergeConfig\n}\n",
+      "start": 1714699770724,
+      "end": 1714699770724,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699770724,
+      "end": 1714699770724,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770724,
+      "end": 1714699770724,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699770724,
+      "end": 1714699770724,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770725,
+      "end": 1714699770725,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770725,
+      "end": 1714699770725,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770725,
+      "end": 1714699770725,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770725,
+      "end": 1714699770725,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770725,
+      "end": 1714699770725,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770725,
+      "end": 1714699770725,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770725,
+      "end": 1714699770725,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699770725,
+      "end": 1714699770725,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770725,
+      "end": 1714699770725,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770725,
+      "end": 1714699770725,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770725,
+      "end": 1714699770725,
+      "order": "normal"
+    }
+  ]
+}

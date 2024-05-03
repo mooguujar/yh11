@@ -1,0 +1,142 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/es/form/src/form-gather.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { defineComponent, h, onUnmounted, inject, ref, reactive, onMounted, provide, nextTick } from 'vue';\nimport { errLog } from '../../tools/log';\nimport { createItem, watchItem, destroyItem, assemItem } from './util';\nimport { formItemProps } from './form-item';\nexport default defineComponent({\n    name: 'VxeFormGather',\n    props: formItemProps,\n    setup: function (props, _a) {\n        var slots = _a.slots;\n        var refElem = ref();\n        var $xeform = inject('$xeform', {});\n        var formGather = inject('$xeformgather', null);\n        var defaultSlot = slots.default;\n        var formItem = reactive(createItem($xeform, props));\n        var xeformitem = { formItem: formItem };\n        var xeformiteminfo = { itemConfig: formItem };\n        formItem.children = [];\n        provide('$xeformiteminfo', xeformiteminfo);\n        provide('$xeformgather', xeformitem);\n        provide('$xeformitem', null);\n        watchItem(props, formItem);\n        onMounted(function () {\n            assemItem($xeform, refElem.value, formItem, formGather);\n        });\n        onUnmounted(function () {\n            destroyItem($xeform, formItem);\n        });\n        if (process.env.NODE_ENV === 'development') {\n            nextTick(function () {\n                if ($xeform && $xeform.props.customLayout) {\n                    errLog('vxe.error.errConflicts', ['custom-layout', '<form-gather ...>']);\n                }\n            });\n        }\n        var renderVN = function () {\n            return h('div', {\n                ref: refElem\n            }, defaultSlot ? defaultSlot() : []);\n        };\n        var $xeformgather = {\n            renderVN: renderVN\n        };\n        return $xeformgather;\n    },\n    render: function () {\n        return this.renderVN();\n    }\n});\n",
+      "start": 1714699767753,
+      "end": 1714699767807,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767807,
+      "end": 1714699767807,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767807,
+      "end": 1714699767807,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767807,
+      "end": 1714699767807,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767807,
+      "end": 1714699767807,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767807,
+      "end": 1714699767807,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767807,
+      "end": 1714699767807,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { defineComponent, h, onUnmounted, inject, ref, reactive, onMounted, provide, nextTick } from 'vue';\nimport { errLog } from '../../tools/log';\nimport { createItem, watchItem, destroyItem, assemItem } from './util';\nimport { formItemProps } from './form-item';\nexport default defineComponent({\n    name: 'VxeFormGather',\n    props: formItemProps,\n    setup: function (props, _a) {\n        var slots = _a.slots;\n        var refElem = ref();\n        var $xeform = inject('$xeform', {});\n        var formGather = inject('$xeformgather', null);\n        var defaultSlot = slots.default;\n        var formItem = reactive(createItem($xeform, props));\n        var xeformitem = { formItem: formItem };\n        var xeformiteminfo = { itemConfig: formItem };\n        formItem.children = [];\n        provide('$xeformiteminfo', xeformiteminfo);\n        provide('$xeformgather', xeformitem);\n        provide('$xeformitem', null);\n        watchItem(props, formItem);\n        onMounted(function () {\n            assemItem($xeform, refElem.value, formItem, formGather);\n        });\n        onUnmounted(function () {\n            destroyItem($xeform, formItem);\n        });\n        if (process.env.NODE_ENV === 'development') {\n            nextTick(function () {\n                if ($xeform && $xeform.props.customLayout) {\n                    errLog('vxe.error.errConflicts', ['custom-layout', '<form-gather ...>']);\n                }\n            });\n        }\n        var renderVN = function () {\n            return h('div', {\n                ref: refElem\n            }, defaultSlot ? defaultSlot() : []);\n        };\n        var $xeformgather = {\n            renderVN: renderVN\n        };\n        return $xeformgather;\n    },\n    render: function () {\n        return this.renderVN();\n    }\n});\n",
+      "start": 1714699767807,
+      "end": 1714699767807,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767807,
+      "end": 1714699767807,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "result": "import { defineComponent, h, onUnmounted, inject, ref, reactive, onMounted, provide, nextTick } from \"vue\";\nimport { errLog } from \"../../tools/log\";\nimport { createItem, watchItem, destroyItem, assemItem } from \"./util\";\nimport { formItemProps } from \"./form-item\";\nexport default defineComponent({\n  name: \"VxeFormGather\",\n  props: formItemProps,\n  setup: function(props, _a) {\n    var slots = _a.slots;\n    var refElem = ref();\n    var $xeform = inject(\"$xeform\", {});\n    var formGather = inject(\"$xeformgather\", null);\n    var defaultSlot = slots.default;\n    var formItem = reactive(createItem($xeform, props));\n    var xeformitem = { formItem };\n    var xeformiteminfo = { itemConfig: formItem };\n    formItem.children = [];\n    provide(\"$xeformiteminfo\", xeformiteminfo);\n    provide(\"$xeformgather\", xeformitem);\n    provide(\"$xeformitem\", null);\n    watchItem(props, formItem);\n    onMounted(function() {\n      assemItem($xeform, refElem.value, formItem, formGather);\n    });\n    onUnmounted(function() {\n      destroyItem($xeform, formItem);\n    });\n    if (false) {\n      nextTick(function() {\n        if ($xeform && $xeform.props.customLayout) {\n          errLog(\"vxe.error.errConflicts\", [\"custom-layout\", \"<form-gather ...>\"]);\n        }\n      });\n    }\n    var renderVN = function() {\n      return h(\"div\", {\n        ref: refElem\n      }, defaultSlot ? defaultSlot() : []);\n    };\n    var $xeformgather = {\n      renderVN\n    };\n    return $xeformgather;\n  },\n  render: function() {\n    return this.renderVN();\n  }\n});\n",
+      "start": 1714699767807,
+      "end": 1714699768585,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768585,
+      "end": 1714699768585,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768585,
+      "end": 1714699768585,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768585,
+      "end": 1714699768585,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768585,
+      "end": 1714699768585,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768587,
+      "end": 1714699768587,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768587,
+      "end": 1714699768587,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768587,
+      "end": 1714699768587,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768587,
+      "end": 1714699768587,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768587,
+      "end": 1714699768587,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768587,
+      "end": 1714699768587,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768587,
+      "end": 1714699768587,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768587,
+      "end": 1714699768587,
+      "order": "normal"
+    }
+  ]
+}

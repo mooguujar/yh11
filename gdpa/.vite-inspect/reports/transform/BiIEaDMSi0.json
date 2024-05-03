@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/amfe-flexible@2.2.1/node_modules/amfe-flexible/index.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "(function flexible (window, document) {\n  var docEl = document.documentElement\n  var dpr = window.devicePixelRatio || 1\n\n  // adjust body font size\n  function setBodyFontSize () {\n    if (document.body) {\n      document.body.style.fontSize = (12 * dpr) + 'px'\n    }\n    else {\n      document.addEventListener('DOMContentLoaded', setBodyFontSize)\n    }\n  }\n  setBodyFontSize();\n\n  // set 1rem = viewWidth / 10\n  function setRemUnit () {\n    var rem = docEl.clientWidth / 10\n    docEl.style.fontSize = rem + 'px'\n  }\n\n  setRemUnit()\n\n  // reset rem unit on page resize\n  window.addEventListener('resize', setRemUnit)\n  window.addEventListener('pageshow', function (e) {\n    if (e.persisted) {\n      setRemUnit()\n    }\n  })\n\n  // detect 0.5px supports\n  if (dpr >= 2) {\n    var fakeBody = document.createElement('body')\n    var testElement = document.createElement('div')\n    testElement.style.border = '.5px solid transparent'\n    fakeBody.appendChild(testElement)\n    docEl.appendChild(fakeBody)\n    if (testElement.offsetHeight === 1) {\n      docEl.classList.add('hairlines')\n    }\n    docEl.removeChild(fakeBody)\n  }\n}(window, document))\n",
+      "start": 1714699765945,
+      "end": 1714699765948,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699765948,
+      "end": 1714699765948,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699765948,
+      "end": 1714699765948,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699765948,
+      "end": 1714699765948,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699765948,
+      "end": 1714699765948,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699765948,
+      "end": 1714699765948,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699765948,
+      "end": 1714699765948,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "(function flexible (window, document) {\n  var docEl = document.documentElement\n  var dpr = window.devicePixelRatio || 1\n\n  // adjust body font size\n  function setBodyFontSize () {\n    if (document.body) {\n      document.body.style.fontSize = (12 * dpr) + 'px'\n    }\n    else {\n      document.addEventListener('DOMContentLoaded', setBodyFontSize)\n    }\n  }\n  setBodyFontSize();\n\n  // set 1rem = viewWidth / 10\n  function setRemUnit () {\n    var rem = docEl.clientWidth / 10\n    docEl.style.fontSize = rem + 'px'\n  }\n\n  setRemUnit()\n\n  // reset rem unit on page resize\n  window.addEventListener('resize', setRemUnit)\n  window.addEventListener('pageshow', function (e) {\n    if (e.persisted) {\n      setRemUnit()\n    }\n  })\n\n  // detect 0.5px supports\n  if (dpr >= 2) {\n    var fakeBody = document.createElement('body')\n    var testElement = document.createElement('div')\n    testElement.style.border = '.5px solid transparent'\n    fakeBody.appendChild(testElement)\n    docEl.appendChild(fakeBody)\n    if (testElement.offsetHeight === 1) {\n      docEl.classList.add('hairlines')\n    }\n    docEl.removeChild(fakeBody)\n  }\n}(window, document))\n",
+      "start": 1714699765948,
+      "end": 1714699765948,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699765948,
+      "end": 1714699765948,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699765948,
+      "end": 1714699765948,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699765948,
+      "end": 1714699765948,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699765948,
+      "end": 1714699765948,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699765948,
+      "end": 1714699765948,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699765948,
+      "end": 1714699765948,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699765948,
+      "end": 1714699765949,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699765949,
+      "end": 1714699765949,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699765949,
+      "end": 1714699765949,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699765949,
+      "end": 1714699765949,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699765949,
+      "end": 1714699765949,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699765949,
+      "end": 1714699765949,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699765949,
+      "end": 1714699765949,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699765949,
+      "end": 1714699765949,
+      "order": "normal"
+    }
+  ]
+}

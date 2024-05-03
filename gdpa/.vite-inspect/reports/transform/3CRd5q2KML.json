@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/html5-qrcode@2.3.8/node_modules/html5-qrcode/esm/ui/scanner/camera-selection-ui.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { BaseUiElementFactory, PublicUiElementIdAndClasses } from \"./base\";\nimport { Html5QrcodeScannerStrings } from \"../../strings\";\nvar CameraSelectionUi = (function () {\n    function CameraSelectionUi(cameras) {\n        this.selectElement = BaseUiElementFactory\n            .createElement(\"select\", PublicUiElementIdAndClasses.CAMERA_SELECTION_SELECT_ID);\n        this.cameras = cameras;\n        this.options = [];\n    }\n    CameraSelectionUi.prototype.render = function (parentElement) {\n        var cameraSelectionContainer = document.createElement(\"span\");\n        cameraSelectionContainer.style.marginRight = \"10px\";\n        var numCameras = this.cameras.length;\n        if (numCameras === 0) {\n            throw new Error(\"No cameras found\");\n        }\n        if (numCameras === 1) {\n            cameraSelectionContainer.style.display = \"none\";\n        }\n        else {\n            var selectCameraString = Html5QrcodeScannerStrings.selectCamera();\n            cameraSelectionContainer.innerText\n                = \"\".concat(selectCameraString, \" (\").concat(this.cameras.length, \")  \");\n        }\n        var anonymousCameraId = 1;\n        for (var _i = 0, _a = this.cameras; _i < _a.length; _i++) {\n            var camera = _a[_i];\n            var value = camera.id;\n            var name_1 = camera.label == null ? value : camera.label;\n            if (!name_1 || name_1 === \"\") {\n                name_1 = [\n                    Html5QrcodeScannerStrings.anonymousCameraPrefix(),\n                    anonymousCameraId++\n                ].join(\" \");\n            }\n            var option = document.createElement(\"option\");\n            option.value = value;\n            option.innerText = name_1;\n            this.options.push(option);\n            this.selectElement.appendChild(option);\n        }\n        cameraSelectionContainer.appendChild(this.selectElement);\n        parentElement.appendChild(cameraSelectionContainer);\n    };\n    CameraSelectionUi.prototype.disable = function () {\n        this.selectElement.disabled = true;\n    };\n    CameraSelectionUi.prototype.isDisabled = function () {\n        return this.selectElement.disabled === true;\n    };\n    CameraSelectionUi.prototype.enable = function () {\n        this.selectElement.disabled = false;\n    };\n    CameraSelectionUi.prototype.getValue = function () {\n        return this.selectElement.value;\n    };\n    CameraSelectionUi.prototype.hasValue = function (value) {\n        for (var _i = 0, _a = this.options; _i < _a.length; _i++) {\n            var option = _a[_i];\n            if (option.value === value) {\n                return true;\n            }\n        }\n        return false;\n    };\n    CameraSelectionUi.prototype.setValue = function (value) {\n        if (!this.hasValue(value)) {\n            throw new Error(\"\".concat(value, \" is not present in the camera list.\"));\n        }\n        this.selectElement.value = value;\n    };\n    CameraSelectionUi.prototype.hasSingleItem = function () {\n        return this.cameras.length === 1;\n    };\n    CameraSelectionUi.prototype.numCameras = function () {\n        return this.cameras.length;\n    };\n    CameraSelectionUi.create = function (parentElement, cameras) {\n        var cameraSelectUi = new CameraSelectionUi(cameras);\n        cameraSelectUi.render(parentElement);\n        return cameraSelectUi;\n    };\n    return CameraSelectionUi;\n}());\nexport { CameraSelectionUi };\n//# sourceMappingURL=camera-selection-ui.js.map",
+      "start": 1714699771223,
+      "end": 1714699771242,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { BaseUiElementFactory, PublicUiElementIdAndClasses } from \"./base\";\nimport { Html5QrcodeScannerStrings } from \"../../strings\";\nvar CameraSelectionUi = (function () {\n    function CameraSelectionUi(cameras) {\n        this.selectElement = BaseUiElementFactory\n            .createElement(\"select\", PublicUiElementIdAndClasses.CAMERA_SELECTION_SELECT_ID);\n        this.cameras = cameras;\n        this.options = [];\n    }\n    CameraSelectionUi.prototype.render = function (parentElement) {\n        var cameraSelectionContainer = document.createElement(\"span\");\n        cameraSelectionContainer.style.marginRight = \"10px\";\n        var numCameras = this.cameras.length;\n        if (numCameras === 0) {\n            throw new Error(\"No cameras found\");\n        }\n        if (numCameras === 1) {\n            cameraSelectionContainer.style.display = \"none\";\n        }\n        else {\n            var selectCameraString = Html5QrcodeScannerStrings.selectCamera();\n            cameraSelectionContainer.innerText\n                = \"\".concat(selectCameraString, \" (\").concat(this.cameras.length, \")  \");\n        }\n        var anonymousCameraId = 1;\n        for (var _i = 0, _a = this.cameras; _i < _a.length; _i++) {\n            var camera = _a[_i];\n            var value = camera.id;\n            var name_1 = camera.label == null ? value : camera.label;\n            if (!name_1 || name_1 === \"\") {\n                name_1 = [\n                    Html5QrcodeScannerStrings.anonymousCameraPrefix(),\n                    anonymousCameraId++\n                ].join(\" \");\n            }\n            var option = document.createElement(\"option\");\n            option.value = value;\n            option.innerText = name_1;\n            this.options.push(option);\n            this.selectElement.appendChild(option);\n        }\n        cameraSelectionContainer.appendChild(this.selectElement);\n        parentElement.appendChild(cameraSelectionContainer);\n    };\n    CameraSelectionUi.prototype.disable = function () {\n        this.selectElement.disabled = true;\n    };\n    CameraSelectionUi.prototype.isDisabled = function () {\n        return this.selectElement.disabled === true;\n    };\n    CameraSelectionUi.prototype.enable = function () {\n        this.selectElement.disabled = false;\n    };\n    CameraSelectionUi.prototype.getValue = function () {\n        return this.selectElement.value;\n    };\n    CameraSelectionUi.prototype.hasValue = function (value) {\n        for (var _i = 0, _a = this.options; _i < _a.length; _i++) {\n            var option = _a[_i];\n            if (option.value === value) {\n                return true;\n            }\n        }\n        return false;\n    };\n    CameraSelectionUi.prototype.setValue = function (value) {\n        if (!this.hasValue(value)) {\n            throw new Error(\"\".concat(value, \" is not present in the camera list.\"));\n        }\n        this.selectElement.value = value;\n    };\n    CameraSelectionUi.prototype.hasSingleItem = function () {\n        return this.cameras.length === 1;\n    };\n    CameraSelectionUi.prototype.numCameras = function () {\n        return this.cameras.length;\n    };\n    CameraSelectionUi.create = function (parentElement, cameras) {\n        var cameraSelectUi = new CameraSelectionUi(cameras);\n        cameraSelectUi.render(parentElement);\n        return cameraSelectUi;\n    };\n    return CameraSelectionUi;\n}());\nexport { CameraSelectionUi };\n//# sourceMappingURL=camera-selection-ui.js.map",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699771242,
+      "end": 1714699771243,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771243,
+      "end": 1714699771243,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771243,
+      "end": 1714699771243,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771243,
+      "end": 1714699771243,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699771243,
+      "end": 1714699771243,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771243,
+      "end": 1714699771243,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771243,
+      "end": 1714699771243,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771243,
+      "end": 1714699771243,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/error-correction-level.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "exports.L = { bit: 1 }\nexports.M = { bit: 0 }\nexports.Q = { bit: 3 }\nexports.H = { bit: 2 }\n\nfunction fromString (string) {\n  if (typeof string !== 'string') {\n    throw new Error('Param is not a string')\n  }\n\n  const lcStr = string.toLowerCase()\n\n  switch (lcStr) {\n    case 'l':\n    case 'low':\n      return exports.L\n\n    case 'm':\n    case 'medium':\n      return exports.M\n\n    case 'q':\n    case 'quartile':\n      return exports.Q\n\n    case 'h':\n    case 'high':\n      return exports.H\n\n    default:\n      throw new Error('Unknown EC Level: ' + string)\n  }\n}\n\nexports.isValid = function isValid (level) {\n  return level && typeof level.bit !== 'undefined' &&\n    level.bit >= 0 && level.bit < 4\n}\n\nexports.from = function from (value, defaultValue) {\n  if (exports.isValid(value)) {\n    return value\n  }\n\n  try {\n    return fromString(value)\n  } catch (e) {\n    return defaultValue\n  }\n}\n",
+      "start": 1714699771036,
+      "end": 1714699771049,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771049,
+      "end": 1714699771049,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771049,
+      "end": 1714699771049,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771049,
+      "end": 1714699771049,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771049,
+      "end": 1714699771049,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771049,
+      "end": 1714699771049,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771049,
+      "end": 1714699771049,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "exports.L = { bit: 1 }\nexports.M = { bit: 0 }\nexports.Q = { bit: 3 }\nexports.H = { bit: 2 }\n\nfunction fromString (string) {\n  if (typeof string !== 'string') {\n    throw new Error('Param is not a string')\n  }\n\n  const lcStr = string.toLowerCase()\n\n  switch (lcStr) {\n    case 'l':\n    case 'low':\n      return exports.L\n\n    case 'm':\n    case 'medium':\n      return exports.M\n\n    case 'q':\n    case 'quartile':\n      return exports.Q\n\n    case 'h':\n    case 'high':\n      return exports.H\n\n    default:\n      throw new Error('Unknown EC Level: ' + string)\n  }\n}\n\nexports.isValid = function isValid (level) {\n  return level && typeof level.bit !== 'undefined' &&\n    level.bit >= 0 && level.bit < 4\n}\n\nexports.from = function from (value, defaultValue) {\n  if (exports.isValid(value)) {\n    return value\n  }\n\n  try {\n    return fromString(value)\n  } catch (e) {\n    return defaultValue\n  }\n}\n",
+      "start": 1714699771049,
+      "end": 1714699771049,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699771049,
+      "end": 1714699771049,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771049,
+      "end": 1714699771049,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771049,
+      "end": 1714699771049,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771049,
+      "end": 1714699771049,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771049,
+      "end": 1714699771049,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771049,
+      "end": 1714699771049,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as errorCorrectionLevel } from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/error-correction-level.js?commonjs-exports\";\n\n(function (exports) {\n\texports.L = { bit: 1 }\n\texports.M = { bit: 0 }\n\texports.Q = { bit: 3 }\n\texports.H = { bit: 2 }\n\n\tfunction fromString (string) {\n\t  if (typeof string !== 'string') {\n\t    throw new Error('Param is not a string')\n\t  }\n\n\t  const lcStr = string.toLowerCase()\n\n\t  switch (lcStr) {\n\t    case 'l':\n\t    case 'low':\n\t      return exports.L\n\n\t    case 'm':\n\t    case 'medium':\n\t      return exports.M\n\n\t    case 'q':\n\t    case 'quartile':\n\t      return exports.Q\n\n\t    case 'h':\n\t    case 'high':\n\t      return exports.H\n\n\t    default:\n\t      throw new Error('Unknown EC Level: ' + string)\n\t  }\n\t}\n\n\texports.isValid = function isValid (level) {\n\t  return level && typeof level.bit !== 'undefined' &&\n\t    level.bit >= 0 && level.bit < 4\n\t}\n\n\texports.from = function from (value, defaultValue) {\n\t  if (exports.isValid(value)) {\n\t    return value\n\t  }\n\n\t  try {\n\t    return fromString(value)\n\t  } catch (e) {\n\t    return defaultValue\n\t  }\n\t} \n} (errorCorrectionLevel));\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(errorCorrectionLevel);\nexport { errorCorrectionLevel as __moduleExports };",
+      "start": 1714699771049,
+      "end": 1714699771054,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;CAAA,YAAY,EAAE,GAAG,EAAE,CAAC,EAAE;CACtB,YAAY,EAAE,GAAG,EAAE,CAAC,EAAE;CACtB,YAAY,EAAE,GAAG,EAAE,CAAC,EAAE;CACtB,YAAY,EAAE,GAAG,EAAE,CAAC,EAAE;AACtB;CACA,SAAS,UAAU,EAAE,MAAM,EAAE;CAC7B,EAAE,IAAI,OAAO,MAAM,KAAK,QAAQ,EAAE;CAClC,IAAI,MAAM,IAAI,KAAK,CAAC,uBAAuB,CAAC;CAC5C,GAAG;AACH;CACA,EAAE,MAAM,KAAK,GAAG,MAAM,CAAC,WAAW,EAAE;AACpC;CACA,EAAE,QAAQ,KAAK;CACf,IAAI,KAAK,GAAG,CAAC;CACb,IAAI,KAAK,KAAK;CACd,MAAM,OAAO,OAAO,CAAC,CAAC;AACtB;CACA,IAAI,KAAK,GAAG,CAAC;CACb,IAAI,KAAK,QAAQ;CACjB,MAAM,OAAO,OAAO,CAAC,CAAC;AACtB;CACA,IAAI,KAAK,GAAG,CAAC;CACb,IAAI,KAAK,UAAU;CACnB,MAAM,OAAO,OAAO,CAAC,CAAC;AACtB;CACA,IAAI,KAAK,GAAG,CAAC;CACb,IAAI,KAAK,MAAM;CACf,MAAM,OAAO,OAAO,CAAC,CAAC;AACtB;CACA,IAAI;CACJ,MAAM,MAAM,IAAI,KAAK,CAAC,oBAAoB,GAAG,MAAM,CAAC;CACpD,GAAG;CACH,CAAC;AACD;CACA,kBAAkB,SAAS,OAAO,EAAE,KAAK,EAAE;CAC3C,EAAE,OAAO,KAAK,IAAI,OAAO,KAAK,CAAC,GAAG,KAAK,WAAW;CAClD,IAAI,KAAK,CAAC,GAAG,IAAI,CAAC,IAAI,KAAK,CAAC,GAAG,GAAG,CAAC;CACnC,CAAC;AACD;CACA,eAAe,SAAS,IAAI,EAAE,KAAK,EAAE,YAAY,EAAE;CACnD,EAAE,IAAI,OAAO,CAAC,OAAO,CAAC,KAAK,CAAC,EAAE;CAC9B,IAAI,OAAO,KAAK;CAChB,GAAG;AACH;CACA,EAAE,IAAI;CACN,IAAI,OAAO,UAAU,CAAC,KAAK,CAAC;CAC5B,GAAG,CAAC,OAAO,CAAC,EAAE;CACd,IAAI,OAAO,YAAY;CACvB,GAAG;CACH"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771054,
+      "end": 1714699771054,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771054,
+      "end": 1714699771054,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771054,
+      "end": 1714699771054,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699771054,
+      "end": 1714699771054,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771054,
+      "end": 1714699771054,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771054,
+      "end": 1714699771054,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771054,
+      "end": 1714699771054,
+      "order": "normal"
+    }
+  ]
+}

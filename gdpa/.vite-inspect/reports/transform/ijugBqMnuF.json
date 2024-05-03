@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/_lazyClone.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import LazyWrapper from './_LazyWrapper.js';\nimport copyArray from './_copyArray.js';\n\n/**\n * Creates a clone of the lazy wrapper object.\n *\n * @private\n * @name clone\n * @memberOf LazyWrapper\n * @returns {Object} Returns the cloned `LazyWrapper` object.\n */\nfunction lazyClone() {\n  var result = new LazyWrapper(this.__wrapped__);\n  result.__actions__ = copyArray(this.__actions__);\n  result.__dir__ = this.__dir__;\n  result.__filtered__ = this.__filtered__;\n  result.__iteratees__ = copyArray(this.__iteratees__);\n  result.__takeCount__ = this.__takeCount__;\n  result.__views__ = copyArray(this.__views__);\n  return result;\n}\n\nexport default lazyClone;\n",
+      "start": 1714699768779,
+      "end": 1714699768840,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768840,
+      "end": 1714699768840,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768840,
+      "end": 1714699768840,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768840,
+      "end": 1714699768840,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768840,
+      "end": 1714699768840,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768840,
+      "end": 1714699768840,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768840,
+      "end": 1714699768840,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import LazyWrapper from './_LazyWrapper.js';\nimport copyArray from './_copyArray.js';\n\n/**\n * Creates a clone of the lazy wrapper object.\n *\n * @private\n * @name clone\n * @memberOf LazyWrapper\n * @returns {Object} Returns the cloned `LazyWrapper` object.\n */\nfunction lazyClone() {\n  var result = new LazyWrapper(this.__wrapped__);\n  result.__actions__ = copyArray(this.__actions__);\n  result.__dir__ = this.__dir__;\n  result.__filtered__ = this.__filtered__;\n  result.__iteratees__ = copyArray(this.__iteratees__);\n  result.__takeCount__ = this.__takeCount__;\n  result.__views__ = copyArray(this.__views__);\n  return result;\n}\n\nexport default lazyClone;\n",
+      "start": 1714699768840,
+      "end": 1714699768840,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768840,
+      "end": 1714699768840,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768840,
+      "end": 1714699768840,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768840,
+      "end": 1714699768840,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768840,
+      "end": 1714699768840,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768840,
+      "end": 1714699768840,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768840,
+      "end": 1714699768840,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768840,
+      "end": 1714699768840,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768840,
+      "end": 1714699768840,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768840,
+      "end": 1714699768840,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768840,
+      "end": 1714699768840,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768840,
+      "end": 1714699768840,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768840,
+      "end": 1714699768840,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768840,
+      "end": 1714699768840,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768840,
+      "end": 1714699768840,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/scanQR.vue?vue&type=style&index=0&scoped=8f8d2ed1&lang.scss",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\n.container {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  background: #ebf1f6;\n}\n#reader {\n  position: absolute;\n  top: 50%;\n  left: 0;\n  transform: translateY(-50%);\n}\n#qr-input-file {\n  width: 100px;\n  height: 50px;\n  margin: 0;\n  font-size: 0;\n  position: relative;\n  right: -80px;\n  top: 0;\n  opacity: 0;\n}\n#qr-input-file::file-selector-button {\n  background-color: rgba(#000000, 0);\n  border: 1px solid rgba(#000000, 0);\n  border-radius: 3px;\n  cursor: pointer;\n  color: #fff;\n}\n\n#reader {\n  width: 100%;\n}\n.uploaderWrap {\n  text-align: center;\n  position: relative;\n  top: 45%;\n  transform: translateY(-50%);\n  position: relative;\n  #qr-input-file1 {\n    width: 350px;\n    height: 350px;\n    margin: 0;\n    font-size: 0;\n    position: absolute;\n    left: 50%;\n    transform: translateX(-50%);\n    top: 0;\n    opacity: 1;\n    z-index: 100;\n  }\n  #qr-input-file1::file-selector-button {\n    background-color: rgba(#000000, 0);\n    border: 1px solid rgba(#000000, 0);\n    border-radius: 3px;\n    cursor: pointer;\n    color: #fff;\n  }\n}\n:deep(.van-uploader) {\n  margin: 0 auto;\n  width: 350px;\n  height: 350px;\n  display: block;\n\n  .van-uploader__upload {\n    border: #0000006e solid 1px;\n    width: 350px;\n    height: 350px;\n    margin: 0;\n    padding: 2px;\n    .van-uploader__upload-icon {\n      font-size: 100px;\n    }\n  }\n}\n",
+      "start": 1714699769899,
+      "end": 1714699769899
+    },
+    {
+      "name": "vite:css",
+      "result": ".container {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  background: #ebf1f6;\n}\n\n#reader {\n  position: absolute;\n  top: 50%;\n  left: 0;\n  transform: translateY(-50%);\n}\n\n#qr-input-file {\n  width: 1.33333rem;\n  height: 0.66667rem;\n  margin: 0;\n  font-size: 0;\n  position: relative;\n  right: -1.06667rem;\n  top: 0;\n  opacity: 0;\n}\n\n#qr-input-file::file-selector-button {\n  background-color: rgba(0, 0, 0, 0);\n  border: 1px solid rgba(0, 0, 0, 0);\n  border-radius: 0.04rem;\n  cursor: pointer;\n  color: #fff;\n}\n\n#reader {\n  width: 100%;\n}\n\n.uploaderWrap {\n  text-align: center;\n  top: 45%;\n  transform: translateY(-50%);\n  position: relative;\n}\n\n.uploaderWrap #qr-input-file1 {\n  width: 4.66667rem;\n  height: 4.66667rem;\n  margin: 0;\n  font-size: 0;\n  position: absolute;\n  left: 50%;\n  transform: translateX(-50%);\n  top: 0;\n  opacity: 1;\n  z-index: 100;\n}\n\n.uploaderWrap #qr-input-file1::file-selector-button {\n  background-color: rgba(0, 0, 0, 0);\n  border: 1px solid rgba(0, 0, 0, 0);\n  border-radius: 0.04rem;\n  cursor: pointer;\n  color: #fff;\n}\n\n:deep(.van-uploader) {\n  margin: 0 auto;\n  width: 4.66667rem;\n  height: 4.66667rem;\n  display: block;\n}\n\n:deep(.van-uploader) .van-uploader__upload {\n  border: rgba(0, 0, 0, 0.431372549) solid 1px;\n  width: 4.66667rem;\n  height: 4.66667rem;\n  margin: 0;\n  padding: 0.02667rem;\n}\n\n:deep(.van-uploader) .van-uploader__upload .van-uploader__upload-icon {\n  font-size: 1.33333rem;\n}",
+      "start": 1714699769899,
+      "end": 1714699769935,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769935,
+      "end": 1714699769935,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769935,
+      "end": 1714699769935,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769937,
+      "end": 1714699769937,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".container[data-v-8f8d2ed1] {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  background: #ebf1f6;\n}\n#reader[data-v-8f8d2ed1] {\n  position: absolute;\n  top: 50%;\n  left: 0;\n  transform: translateY(-50%);\n}\n#qr-input-file[data-v-8f8d2ed1] {\n  width: 1.33333rem;\n  height: 0.66667rem;\n  margin: 0;\n  font-size: 0;\n  position: relative;\n  right: -1.06667rem;\n  top: 0;\n  opacity: 0;\n}\n#qr-input-file[data-v-8f8d2ed1]::file-selector-button {\n  background-color: rgba(0, 0, 0, 0);\n  border: 1px solid rgba(0, 0, 0, 0);\n  border-radius: 0.04rem;\n  cursor: pointer;\n  color: #fff;\n}\n#reader[data-v-8f8d2ed1] {\n  width: 100%;\n}\n.uploaderWrap[data-v-8f8d2ed1] {\n  text-align: center;\n  top: 45%;\n  transform: translateY(-50%);\n  position: relative;\n}\n.uploaderWrap #qr-input-file1[data-v-8f8d2ed1] {\n  width: 4.66667rem;\n  height: 4.66667rem;\n  margin: 0;\n  font-size: 0;\n  position: absolute;\n  left: 50%;\n  transform: translateX(-50%);\n  top: 0;\n  opacity: 1;\n  z-index: 100;\n}\n.uploaderWrap #qr-input-file1[data-v-8f8d2ed1]::file-selector-button {\n  background-color: rgba(0, 0, 0, 0);\n  border: 1px solid rgba(0, 0, 0, 0);\n  border-radius: 0.04rem;\n  cursor: pointer;\n  color: #fff;\n}\n[data-v-8f8d2ed1] .van-uploader {\n  margin: 0 auto;\n  width: 4.66667rem;\n  height: 4.66667rem;\n  display: block;\n}\n[data-v-8f8d2ed1] .van-uploader .van-uploader__upload {\n  border: rgba(0, 0, 0, 0.431372549) solid 1px;\n  width: 4.66667rem;\n  height: 4.66667rem;\n  margin: 0;\n  padding: 0.02667rem;\n}\n[data-v-8f8d2ed1] .van-uploader .van-uploader__upload .van-uploader__upload-icon {\n  font-size: 1.33333rem;\n}",
+      "start": 1714699769937,
+      "end": 1714699769938,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769938,
+      "end": 1714699769938,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": ".container[data-v-8f8d2ed1] {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  background: #ebf1f6;\n}\n#reader[data-v-8f8d2ed1] {\n  position: absolute;\n  top: 50%;\n  left: 0;\n  transform: translateY(-50%);\n}\n#qr-input-file[data-v-8f8d2ed1] {\n  width: 1.33333rem;\n  height: 0.66667rem;\n  margin: 0;\n  font-size: 0;\n  position: relative;\n  right: -1.06667rem;\n  top: 0;\n  opacity: 0;\n}\n#qr-input-file[data-v-8f8d2ed1]::file-selector-button {\n  background-color: rgba(0, 0, 0, 0);\n  border: 1px solid rgba(0, 0, 0, 0);\n  border-radius: 0.04rem;\n  cursor: pointer;\n  color: #fff;\n}\n#reader[data-v-8f8d2ed1] {\n  width: 100%;\n}\n.uploaderWrap[data-v-8f8d2ed1] {\n  text-align: center;\n  top: 45%;\n  transform: translateY(-50%);\n  position: relative;\n}\n.uploaderWrap #qr-input-file1[data-v-8f8d2ed1] {\n  width: 4.66667rem;\n  height: 4.66667rem;\n  margin: 0;\n  font-size: 0;\n  position: absolute;\n  left: 50%;\n  transform: translateX(-50%);\n  top: 0;\n  opacity: 1;\n  z-index: 100;\n}\n.uploaderWrap #qr-input-file1[data-v-8f8d2ed1]::file-selector-button {\n  background-color: rgba(0, 0, 0, 0);\n  border: 1px solid rgba(0, 0, 0, 0);\n  border-radius: 0.04rem;\n  cursor: pointer;\n  color: #fff;\n}\n[data-v-8f8d2ed1] .van-uploader {\n  margin: 0 auto;\n  width: 4.66667rem;\n  height: 4.66667rem;\n  display: block;\n}\n[data-v-8f8d2ed1] .van-uploader .van-uploader__upload {\n  border: rgba(0, 0, 0, 0.431372549) solid 1px;\n  width: 4.66667rem;\n  height: 4.66667rem;\n  margin: 0;\n  padding: 0.02667rem;\n}\n[data-v-8f8d2ed1] .van-uploader .van-uploader__upload .van-uploader__upload-icon {\n  font-size: 1.33333rem;\n}",
+      "start": 1714699769938,
+      "end": 1714699769938,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699769942,
+      "end": 1714699769942,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769942,
+      "end": 1714699769942,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699769942,
+      "end": 1714699769942,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769942,
+      "end": 1714699769942,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769942,
+      "end": 1714699769942,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769942,
+      "end": 1714699769942,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769942,
+      "end": 1714699769942,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769942,
+      "end": 1714699769942,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769942,
+      "end": 1714699769942,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769942,
+      "end": 1714699769942,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */",
+      "start": 1714699769942,
+      "end": 1714699769942,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/scanQR.vue?vue&type=style&index=0&scoped=8f8d2ed1&lang.scss"
+        ],
+        "sourcesContent": [
+          ""
+        ],
+        "names": [],
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769942,
+      "end": 1714699769943,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769943,
+      "end": 1714699769943,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769943,
+      "end": 1714699769943,
+      "order": "normal"
+    }
+  ]
+}

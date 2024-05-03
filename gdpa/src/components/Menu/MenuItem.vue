@@ -38,10 +38,10 @@
 <script setup lang="ts">
 import { useAuthStore } from '@/store'
 import { BuyOrder, SellOrder } from '@/store/types/buySellCoin'
+import { requireImg } from '@/utils/tools'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { requireImg } from '@/utils/tools'
 
 export interface Props {
   title: string
@@ -61,8 +61,9 @@ const route = useRoute()
 const router = useRouter()
 
 const authStore = useAuthStore()
-const { processnum } = storeToRefs(authStore)
+const { token, processnum } = storeToRefs(authStore)
 
+const isLogin = computed(() => !!token.value)
 const isActive = computed(() => route.path.split('/')[1] === props.routePath.split('/')[1])
 // 未处理订单数(过滤掉搬砖卖币)
 const unHandleOrderCount = computed(() => {
@@ -75,7 +76,12 @@ const unHandleOrderCount = computed(() => {
 })
 
 const to = (routePath: string) => {
-  router.push(routePath)
+  const authRoute = ['/order', '/mine']
+  if (!isLogin.value && authRoute.includes(routePath)) {
+    router.push('/auth/login')
+  } else {
+    router.push(routePath)
+  }
 }
 </script>
 

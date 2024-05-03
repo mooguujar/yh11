@@ -7,6 +7,7 @@ export const useArticleStore = defineStore('article', {
     ({
       // 弹窗公告
       articleList: [],
+      articleList_Activity_Mod: [],
       // 首页公告弹窗是否需要显示
       homeNoticeShowStatus: true,
       homeNoticeShowList: []
@@ -33,7 +34,11 @@ export const useArticleStore = defineStore('article', {
       try {
         const response = await articleListApi(params)
 
-        this.articleList = response
+        if (params?.bind_key == 'Activity_Mod') {
+          this.articleList_Activity_Mod = response
+        } else {
+          this.articleList = response
+        }
 
         return response
       } catch (error) {

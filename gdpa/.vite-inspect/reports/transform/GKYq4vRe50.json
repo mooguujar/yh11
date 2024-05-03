@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/renderer/canvas.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "const Utils = require('./utils')\n\nfunction clearCanvas (ctx, canvas, size) {\n  ctx.clearRect(0, 0, canvas.width, canvas.height)\n\n  if (!canvas.style) canvas.style = {}\n  canvas.height = size\n  canvas.width = size\n  canvas.style.height = size + 'px'\n  canvas.style.width = size + 'px'\n}\n\nfunction getCanvasElement () {\n  try {\n    return document.createElement('canvas')\n  } catch (e) {\n    throw new Error('You need to specify a canvas element')\n  }\n}\n\nexports.render = function render (qrData, canvas, options) {\n  let opts = options\n  let canvasEl = canvas\n\n  if (typeof opts === 'undefined' && (!canvas || !canvas.getContext)) {\n    opts = canvas\n    canvas = undefined\n  }\n\n  if (!canvas) {\n    canvasEl = getCanvasElement()\n  }\n\n  opts = Utils.getOptions(opts)\n  const size = Utils.getImageWidth(qrData.modules.size, opts)\n\n  const ctx = canvasEl.getContext('2d')\n  const image = ctx.createImageData(size, size)\n  Utils.qrToImageData(image.data, qrData, opts)\n\n  clearCanvas(ctx, canvasEl, size)\n  ctx.putImageData(image, 0, 0)\n\n  return canvasEl\n}\n\nexports.renderToDataURL = function renderToDataURL (qrData, canvas, options) {\n  let opts = options\n\n  if (typeof opts === 'undefined' && (!canvas || !canvas.getContext)) {\n    opts = canvas\n    canvas = undefined\n  }\n\n  if (!opts) opts = {}\n\n  const canvasEl = exports.render(qrData, canvas, opts)\n\n  const type = opts.type || 'image/png'\n  const rendererOpts = opts.rendererOpts || {}\n\n  return canvasEl.toDataURL(type, rendererOpts.quality)\n}\n",
+      "start": 1714699771017,
+      "end": 1714699771043,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771043,
+      "end": 1714699771043,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771043,
+      "end": 1714699771043,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771043,
+      "end": 1714699771043,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771043,
+      "end": 1714699771043,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771043,
+      "end": 1714699771043,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771043,
+      "end": 1714699771043,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "const Utils = require('./utils')\n\nfunction clearCanvas (ctx, canvas, size) {\n  ctx.clearRect(0, 0, canvas.width, canvas.height)\n\n  if (!canvas.style) canvas.style = {}\n  canvas.height = size\n  canvas.width = size\n  canvas.style.height = size + 'px'\n  canvas.style.width = size + 'px'\n}\n\nfunction getCanvasElement () {\n  try {\n    return document.createElement('canvas')\n  } catch (e) {\n    throw new Error('You need to specify a canvas element')\n  }\n}\n\nexports.render = function render (qrData, canvas, options) {\n  let opts = options\n  let canvasEl = canvas\n\n  if (typeof opts === 'undefined' && (!canvas || !canvas.getContext)) {\n    opts = canvas\n    canvas = undefined\n  }\n\n  if (!canvas) {\n    canvasEl = getCanvasElement()\n  }\n\n  opts = Utils.getOptions(opts)\n  const size = Utils.getImageWidth(qrData.modules.size, opts)\n\n  const ctx = canvasEl.getContext('2d')\n  const image = ctx.createImageData(size, size)\n  Utils.qrToImageData(image.data, qrData, opts)\n\n  clearCanvas(ctx, canvasEl, size)\n  ctx.putImageData(image, 0, 0)\n\n  return canvasEl\n}\n\nexports.renderToDataURL = function renderToDataURL (qrData, canvas, options) {\n  let opts = options\n\n  if (typeof opts === 'undefined' && (!canvas || !canvas.getContext)) {\n    opts = canvas\n    canvas = undefined\n  }\n\n  if (!opts) opts = {}\n\n  const canvasEl = exports.render(qrData, canvas, opts)\n\n  const type = opts.type || 'image/png'\n  const rendererOpts = opts.rendererOpts || {}\n\n  return canvasEl.toDataURL(type, rendererOpts.quality)\n}\n",
+      "start": 1714699771043,
+      "end": 1714699771043,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699771043,
+      "end": 1714699771043,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771043,
+      "end": 1714699771043,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771043,
+      "end": 1714699771043,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771043,
+      "end": 1714699771043,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771043,
+      "end": 1714699771043,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771043,
+      "end": 1714699771043,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as canvas } from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/renderer/canvas.js?commonjs-exports\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/renderer/utils.js?commonjs-proxy\";\n\n(function (exports) {\n\tconst Utils = require$$0\n\n\tfunction clearCanvas (ctx, canvas, size) {\n\t  ctx.clearRect(0, 0, canvas.width, canvas.height)\n\n\t  if (!canvas.style) canvas.style = {}\n\t  canvas.height = size\n\t  canvas.width = size\n\t  canvas.style.height = size + 'px'\n\t  canvas.style.width = size + 'px'\n\t}\n\n\tfunction getCanvasElement () {\n\t  try {\n\t    return document.createElement('canvas')\n\t  } catch (e) {\n\t    throw new Error('You need to specify a canvas element')\n\t  }\n\t}\n\n\texports.render = function render (qrData, canvas, options) {\n\t  let opts = options\n\t  let canvasEl = canvas\n\n\t  if (typeof opts === 'undefined' && (!canvas || !canvas.getContext)) {\n\t    opts = canvas\n\t    canvas = undefined\n\t  }\n\n\t  if (!canvas) {\n\t    canvasEl = getCanvasElement()\n\t  }\n\n\t  opts = Utils.getOptions(opts)\n\t  const size = Utils.getImageWidth(qrData.modules.size, opts)\n\n\t  const ctx = canvasEl.getContext('2d')\n\t  const image = ctx.createImageData(size, size)\n\t  Utils.qrToImageData(image.data, qrData, opts)\n\n\t  clearCanvas(ctx, canvasEl, size)\n\t  ctx.putImageData(image, 0, 0)\n\n\t  return canvasEl\n\t}\n\n\texports.renderToDataURL = function renderToDataURL (qrData, canvas, options) {\n\t  let opts = options\n\n\t  if (typeof opts === 'undefined' && (!canvas || !canvas.getContext)) {\n\t    opts = canvas\n\t    canvas = undefined\n\t  }\n\n\t  if (!opts) opts = {}\n\n\t  const canvasEl = exports.render(qrData, canvas, opts)\n\n\t  const type = opts.type || 'image/png'\n\t  const rendererOpts = opts.rendererOpts || {}\n\n\t  return canvasEl.toDataURL(type, rendererOpts.quality)\n\t} \n} (canvas));\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(canvas);\nexport { canvas as __moduleExports };",
+      "start": 1714699771043,
+      "end": 1714699771075,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "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"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771075,
+      "end": 1714699771075,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771075,
+      "end": 1714699771075,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771075,
+      "end": 1714699771075,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699771075,
+      "end": 1714699771075,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771075,
+      "end": 1714699771075,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771075,
+      "end": 1714699771075,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771075,
+      "end": 1714699771075,
+      "order": "normal"
+    }
+  ]
+}

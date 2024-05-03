@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/polynomial.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "const GF = require('./galois-field')\n\n/**\n * Multiplies two polynomials inside Galois Field\n *\n * @param  {Uint8Array} p1 Polynomial\n * @param  {Uint8Array} p2 Polynomial\n * @return {Uint8Array}    Product of p1 and p2\n */\nexports.mul = function mul (p1, p2) {\n  const coeff = new Uint8Array(p1.length + p2.length - 1)\n\n  for (let i = 0; i < p1.length; i++) {\n    for (let j = 0; j < p2.length; j++) {\n      coeff[i + j] ^= GF.mul(p1[i], p2[j])\n    }\n  }\n\n  return coeff\n}\n\n/**\n * Calculate the remainder of polynomials division\n *\n * @param  {Uint8Array} divident Polynomial\n * @param  {Uint8Array} divisor  Polynomial\n * @return {Uint8Array}          Remainder\n */\nexports.mod = function mod (divident, divisor) {\n  let result = new Uint8Array(divident)\n\n  while ((result.length - divisor.length) >= 0) {\n    const coeff = result[0]\n\n    for (let i = 0; i < divisor.length; i++) {\n      result[i] ^= GF.mul(divisor[i], coeff)\n    }\n\n    // remove all zeros from buffer head\n    let offset = 0\n    while (offset < result.length && result[offset] === 0) offset++\n    result = result.slice(offset)\n  }\n\n  return result\n}\n\n/**\n * Generate an irreducible generator polynomial of specified degree\n * (used by Reed-Solomon encoder)\n *\n * @param  {Number} degree Degree of the generator polynomial\n * @return {Uint8Array}    Buffer containing polynomial coefficients\n */\nexports.generateECPolynomial = function generateECPolynomial (degree) {\n  let poly = new Uint8Array([1])\n  for (let i = 0; i < degree; i++) {\n    poly = exports.mul(poly, new Uint8Array([1, GF.exp(i)]))\n  }\n\n  return poly\n}\n",
+      "start": 1714699771060,
+      "end": 1714699771085,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771085,
+      "end": 1714699771085,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771085,
+      "end": 1714699771085,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771085,
+      "end": 1714699771085,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771085,
+      "end": 1714699771085,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771085,
+      "end": 1714699771085,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771085,
+      "end": 1714699771085,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "const GF = require('./galois-field')\n\n/**\n * Multiplies two polynomials inside Galois Field\n *\n * @param  {Uint8Array} p1 Polynomial\n * @param  {Uint8Array} p2 Polynomial\n * @return {Uint8Array}    Product of p1 and p2\n */\nexports.mul = function mul (p1, p2) {\n  const coeff = new Uint8Array(p1.length + p2.length - 1)\n\n  for (let i = 0; i < p1.length; i++) {\n    for (let j = 0; j < p2.length; j++) {\n      coeff[i + j] ^= GF.mul(p1[i], p2[j])\n    }\n  }\n\n  return coeff\n}\n\n/**\n * Calculate the remainder of polynomials division\n *\n * @param  {Uint8Array} divident Polynomial\n * @param  {Uint8Array} divisor  Polynomial\n * @return {Uint8Array}          Remainder\n */\nexports.mod = function mod (divident, divisor) {\n  let result = new Uint8Array(divident)\n\n  while ((result.length - divisor.length) >= 0) {\n    const coeff = result[0]\n\n    for (let i = 0; i < divisor.length; i++) {\n      result[i] ^= GF.mul(divisor[i], coeff)\n    }\n\n    // remove all zeros from buffer head\n    let offset = 0\n    while (offset < result.length && result[offset] === 0) offset++\n    result = result.slice(offset)\n  }\n\n  return result\n}\n\n/**\n * Generate an irreducible generator polynomial of specified degree\n * (used by Reed-Solomon encoder)\n *\n * @param  {Number} degree Degree of the generator polynomial\n * @return {Uint8Array}    Buffer containing polynomial coefficients\n */\nexports.generateECPolynomial = function generateECPolynomial (degree) {\n  let poly = new Uint8Array([1])\n  for (let i = 0; i < degree; i++) {\n    poly = exports.mul(poly, new Uint8Array([1, GF.exp(i)]))\n  }\n\n  return poly\n}\n",
+      "start": 1714699771085,
+      "end": 1714699771085,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699771085,
+      "end": 1714699771085,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771085,
+      "end": 1714699771085,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771085,
+      "end": 1714699771085,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771086,
+      "end": 1714699771086,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771086,
+      "end": 1714699771086,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771086,
+      "end": 1714699771086,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as polynomial } from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/polynomial.js?commonjs-exports\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/galois-field.js?commonjs-proxy\";\n\n(function (exports) {\n\tconst GF = require$$0\n\n\t/**\n\t * Multiplies two polynomials inside Galois Field\n\t *\n\t * @param  {Uint8Array} p1 Polynomial\n\t * @param  {Uint8Array} p2 Polynomial\n\t * @return {Uint8Array}    Product of p1 and p2\n\t */\n\texports.mul = function mul (p1, p2) {\n\t  const coeff = new Uint8Array(p1.length + p2.length - 1)\n\n\t  for (let i = 0; i < p1.length; i++) {\n\t    for (let j = 0; j < p2.length; j++) {\n\t      coeff[i + j] ^= GF.mul(p1[i], p2[j])\n\t    }\n\t  }\n\n\t  return coeff\n\t}\n\n\t/**\n\t * Calculate the remainder of polynomials division\n\t *\n\t * @param  {Uint8Array} divident Polynomial\n\t * @param  {Uint8Array} divisor  Polynomial\n\t * @return {Uint8Array}          Remainder\n\t */\n\texports.mod = function mod (divident, divisor) {\n\t  let result = new Uint8Array(divident)\n\n\t  while ((result.length - divisor.length) >= 0) {\n\t    const coeff = result[0]\n\n\t    for (let i = 0; i < divisor.length; i++) {\n\t      result[i] ^= GF.mul(divisor[i], coeff)\n\t    }\n\n\t    // remove all zeros from buffer head\n\t    let offset = 0\n\t    while (offset < result.length && result[offset] === 0) offset++\n\t    result = result.slice(offset)\n\t  }\n\n\t  return result\n\t}\n\n\t/**\n\t * Generate an irreducible generator polynomial of specified degree\n\t * (used by Reed-Solomon encoder)\n\t *\n\t * @param  {Number} degree Degree of the generator polynomial\n\t * @return {Uint8Array}    Buffer containing polynomial coefficients\n\t */\n\texports.generateECPolynomial = function generateECPolynomial (degree) {\n\t  let poly = new Uint8Array([1])\n\t  for (let i = 0; i < degree; i++) {\n\t    poly = exports.mul(poly, new Uint8Array([1, GF.exp(i)]))\n\t  }\n\n\t  return poly\n\t} \n} (polynomial));\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(polynomial);\nexport { polynomial as __moduleExports };",
+      "start": 1714699771086,
+      "end": 1714699771106,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;CAAA,MAAM,EAAE,GAAG,UAAyB;AACpC;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA,cAAc,SAAS,GAAG,EAAE,EAAE,EAAE,EAAE,EAAE;CACpC,EAAE,MAAM,KAAK,GAAG,IAAI,UAAU,CAAC,EAAE,CAAC,MAAM,GAAG,EAAE,CAAC,MAAM,GAAG,CAAC,CAAC;AACzD;CACA,EAAE,KAAK,IAAI,CAAC,GAAG,CAAC,EAAE,CAAC,GAAG,EAAE,CAAC,MAAM,EAAE,CAAC,EAAE,EAAE;CACtC,IAAI,KAAK,IAAI,CAAC,GAAG,CAAC,EAAE,CAAC,GAAG,EAAE,CAAC,MAAM,EAAE,CAAC,EAAE,EAAE;CACxC,MAAM,KAAK,CAAC,CAAC,GAAG,CAAC,CAAC,IAAI,EAAE,CAAC,GAAG,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,EAAE,CAAC,CAAC,CAAC,CAAC;CAC1C,KAAK;CACL,GAAG;AACH;CACA,EAAE,OAAO,KAAK;CACd,CAAC;AACD;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA,cAAc,SAAS,GAAG,EAAE,QAAQ,EAAE,OAAO,EAAE;CAC/C,EAAE,IAAI,MAAM,GAAG,IAAI,UAAU,CAAC,QAAQ,CAAC;AACvC;CACA,EAAE,OAAO,CAAC,MAAM,CAAC,MAAM,GAAG,OAAO,CAAC,MAAM,KAAK,CAAC,EAAE;CAChD,IAAI,MAAM,KAAK,GAAG,MAAM,CAAC,CAAC,CAAC;AAC3B;CACA,IAAI,KAAK,IAAI,CAAC,GAAG,CAAC,EAAE,CAAC,GAAG,OAAO,CAAC,MAAM,EAAE,CAAC,EAAE,EAAE;CAC7C,MAAM,MAAM,CAAC,CAAC,CAAC,IAAI,EAAE,CAAC,GAAG,CAAC,OAAO,CAAC,CAAC,CAAC,EAAE,KAAK,CAAC;CAC5C,KAAK;AACL;CACA;CACA,IAAI,IAAI,MAAM,GAAG,CAAC;CAClB,IAAI,OAAO,MAAM,GAAG,MAAM,CAAC,MAAM,IAAI,MAAM,CAAC,MAAM,CAAC,KAAK,CAAC,EAAE,MAAM,EAAE;CACnE,IAAI,MAAM,GAAG,MAAM,CAAC,KAAK,CAAC,MAAM,CAAC;CACjC,GAAG;AACH;CACA,EAAE,OAAO,MAAM;CACf,CAAC;AACD;CACA;CACA;CACA;CACA;CACA;CACA;CACA;CACA,+BAA+B,SAAS,oBAAoB,EAAE,MAAM,EAAE;CACtE,EAAE,IAAI,IAAI,GAAG,IAAI,UAAU,CAAC,CAAC,CAAC,CAAC,CAAC;CAChC,EAAE,KAAK,IAAI,CAAC,GAAG,CAAC,EAAE,CAAC,GAAG,MAAM,EAAE,CAAC,EAAE,EAAE;CACnC,IAAI,IAAI,GAAG,OAAO,CAAC,GAAG,CAAC,IAAI,EAAE,IAAI,UAAU,CAAC,CAAC,CAAC,EAAE,EAAE,CAAC,GAAG,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;CAC5D,GAAG;AACH;CACA,EAAE,OAAO,IAAI;CACb"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771106,
+      "end": 1714699771106,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771106,
+      "end": 1714699771106,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771106,
+      "end": 1714699771106,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699771106,
+      "end": 1714699771106,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771106,
+      "end": 1714699771106,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771106,
+      "end": 1714699771106,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771106,
+      "end": 1714699771106,
+      "order": "normal"
+    }
+  ]
+}

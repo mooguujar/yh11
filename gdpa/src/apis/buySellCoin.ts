@@ -2,6 +2,7 @@ import {
   IBuyOrderData,
   IBuySellCoin,
   ISellOrderData,
+  ISellOrderLockData,
   resBuyOrderDetail
 } from '@/store/types/buySellCoin'
 import { IHttpOptions, request } from '@/utils/http'
@@ -331,4 +332,11 @@ export const withdrawddressDefault = (params: withdrawddressDefault) => {
       showLoading: true
     }
   })
+}
+
+export interface ISellOrderLockParams {
+  sell_order_id: string
+}
+export const sellOrderLockApi = (params: ISellOrderLockParams) => {
+  return request.post<ISellOrderLockData>('/api/Coin/sellOrderLock', params)
 }

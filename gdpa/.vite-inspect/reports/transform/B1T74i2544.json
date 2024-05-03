@@ -1,0 +1,148 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/tabs/index.css",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": ":root,:host{--van-tab-text-color: var(--van-gray-7);--van-tab-active-text-color: var(--van-text-color);--van-tab-disabled-text-color: var(--van-text-color-3);--van-tab-font-size: var(--van-font-size-md);--van-tab-line-height: var(--van-line-height-md);--van-tabs-default-color: var(--van-primary-color);--van-tabs-line-height: 44px;--van-tabs-card-height: 30px;--van-tabs-nav-background: var(--van-background-2);--van-tabs-bottom-bar-width: 40px;--van-tabs-bottom-bar-height: 3px;--van-tabs-bottom-bar-color: var(--van-primary-color)}.van-tab{position:relative;display:flex;flex:1;align-items:center;justify-content:center;box-sizing:border-box;padding:0 var(--van-padding-base);color:var(--van-tab-text-color);font-size:var(--van-tab-font-size);line-height:var(--van-tab-line-height);cursor:pointer}.van-tab--active{color:var(--van-tab-active-text-color);font-weight:var(--van-font-bold)}.van-tab--disabled{color:var(--van-tab-disabled-text-color);cursor:not-allowed}.van-tab--grow{flex:1 0 auto;padding:0 var(--van-padding-sm)}.van-tab--shrink{flex:none;padding:0 var(--van-padding-xs)}.van-tab--card{color:var(--van-tabs-default-color);border-right:var(--van-border-width) solid var(--van-tabs-default-color)}.van-tab--card:last-child{border-right:none}.van-tab--card.van-tab--active{color:var(--van-white);background-color:var(--van-tabs-default-color)}.van-tab--card--disabled{color:var(--van-tab-disabled-text-color)}.van-tab__text--ellipsis{display:-webkit-box;overflow:hidden;-webkit-line-clamp:1;-webkit-box-orient:vertical}.van-tabs{position:relative}.van-tabs__wrap{overflow:hidden}.van-tabs__wrap--page-top{position:fixed}.van-tabs__wrap--content-bottom{top:auto;bottom:0}.van-tabs__nav{position:relative;display:flex;background:var(--van-tabs-nav-background);-webkit-user-select:none;user-select:none}.van-tabs__nav--complete{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch}.van-tabs__nav--complete::-webkit-scrollbar{display:none}.van-tabs__nav--line{box-sizing:content-box;height:100%;padding-bottom:15px}.van-tabs__nav--line.van-tabs__nav--shrink,.van-tabs__nav--line.van-tabs__nav--complete{padding-right:var(--van-padding-xs);padding-left:var(--van-padding-xs)}.van-tabs__nav--card{box-sizing:border-box;height:var(--van-tabs-card-height);margin:0 var(--van-padding-md);border:var(--van-border-width) solid var(--van-tabs-default-color);border-radius:var(--van-radius-sm)}.van-tabs__nav--card.van-tabs__nav--shrink{display:inline-flex}.van-tabs__line{position:absolute;bottom:15px;left:0;z-index:1;width:var(--van-tabs-bottom-bar-width);height:var(--van-tabs-bottom-bar-height);background:var(--van-tabs-bottom-bar-color);border-radius:var(--van-tabs-bottom-bar-height)}.van-tabs__track{position:relative;display:flex;width:100%;height:100%;will-change:left}.van-tabs__content--animated{overflow:hidden}.van-tabs--line .van-tabs__wrap{height:var(--van-tabs-line-height)}.van-tabs--card>.van-tabs__wrap{height:var(--van-tabs-card-height)}\n",
+      "start": 1714699770855,
+      "end": 1714699770880,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "result": ":root,:host{--van-tab-text-color: var(--van-gray-7);--van-tab-active-text-color: var(--van-text-color);--van-tab-disabled-text-color: var(--van-text-color-3);--van-tab-font-size: var(--van-font-size-md);--van-tab-line-height: var(--van-line-height-md);--van-tabs-default-color: var(--van-primary-color);--van-tabs-line-height: 1.17333rem;--van-tabs-card-height: 0.8rem;--van-tabs-nav-background: var(--van-background-2);--van-tabs-bottom-bar-width: 1.06667rem;--van-tabs-bottom-bar-height: 0.08rem;--van-tabs-bottom-bar-color: var(--van-primary-color)}.van-tab{position:relative;display:flex;flex:1;align-items:center;justify-content:center;box-sizing:border-box;padding:0 var(--van-padding-base);color:var(--van-tab-text-color);font-size:var(--van-tab-font-size);line-height:var(--van-tab-line-height);cursor:pointer}.van-tab--active{color:var(--van-tab-active-text-color);font-weight:var(--van-font-bold)}.van-tab--disabled{color:var(--van-tab-disabled-text-color);cursor:not-allowed}.van-tab--grow{flex:1 0 auto;padding:0 var(--van-padding-sm)}.van-tab--shrink{flex:none;padding:0 var(--van-padding-xs)}.van-tab--card{color:var(--van-tabs-default-color);border-right:var(--van-border-width) solid var(--van-tabs-default-color)}.van-tab--card:last-child{border-right:none}.van-tab--card.van-tab--active{color:var(--van-white);background-color:var(--van-tabs-default-color)}.van-tab--card--disabled{color:var(--van-tab-disabled-text-color)}.van-tab__text--ellipsis{display:-webkit-box;overflow:hidden;-webkit-line-clamp:1;-webkit-box-orient:vertical}.van-tabs{position:relative}.van-tabs__wrap{overflow:hidden}.van-tabs__wrap--page-top{position:fixed}.van-tabs__wrap--content-bottom{top:auto;bottom:0}.van-tabs__nav{position:relative;display:flex;background:var(--van-tabs-nav-background);-webkit-user-select:none;-moz-user-select:none;user-select:none}.van-tabs__nav--complete{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch}.van-tabs__nav--complete::-webkit-scrollbar{display:none}.van-tabs__nav--line{box-sizing:content-box;height:100%;padding-bottom:0.4rem}.van-tabs__nav--line.van-tabs__nav--shrink,.van-tabs__nav--line.van-tabs__nav--complete{padding-right:var(--van-padding-xs);padding-left:var(--van-padding-xs)}.van-tabs__nav--card{box-sizing:border-box;height:var(--van-tabs-card-height);margin:0 var(--van-padding-md);border:var(--van-border-width) solid var(--van-tabs-default-color);border-radius:var(--van-radius-sm)}.van-tabs__nav--card.van-tabs__nav--shrink{display:inline-flex}.van-tabs__line{position:absolute;bottom:0.4rem;left:0;z-index:1;width:var(--van-tabs-bottom-bar-width);height:var(--van-tabs-bottom-bar-height);background:var(--van-tabs-bottom-bar-color);border-radius:var(--van-tabs-bottom-bar-height)}.van-tabs__track{position:relative;display:flex;width:100%;height:100%;will-change:left}.van-tabs__content--animated{overflow:hidden}.van-tabs--line .van-tabs__wrap{height:var(--van-tabs-line-height)}.van-tabs--card>.van-tabs__wrap{height:var(--van-tabs-card-height)}\n",
+      "start": 1714699770880,
+      "end": 1714699770882,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699770882,
+      "end": 1714699770882,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699770882,
+      "end": 1714699770882,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699770882,
+      "end": 1714699770882,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699770882,
+      "end": 1714699770882,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699770882,
+      "end": 1714699770882,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": ":root,:host{--van-tab-text-color: var(--van-gray-7);--van-tab-active-text-color: var(--van-text-color);--van-tab-disabled-text-color: var(--van-text-color-3);--van-tab-font-size: var(--van-font-size-md);--van-tab-line-height: var(--van-line-height-md);--van-tabs-default-color: var(--van-primary-color);--van-tabs-line-height: 1.17333rem;--van-tabs-card-height: 0.8rem;--van-tabs-nav-background: var(--van-background-2);--van-tabs-bottom-bar-width: 1.06667rem;--van-tabs-bottom-bar-height: 0.08rem;--van-tabs-bottom-bar-color: var(--van-primary-color)}.van-tab{position:relative;display:flex;flex:1;align-items:center;justify-content:center;box-sizing:border-box;padding:0 var(--van-padding-base);color:var(--van-tab-text-color);font-size:var(--van-tab-font-size);line-height:var(--van-tab-line-height);cursor:pointer}.van-tab--active{color:var(--van-tab-active-text-color);font-weight:var(--van-font-bold)}.van-tab--disabled{color:var(--van-tab-disabled-text-color);cursor:not-allowed}.van-tab--grow{flex:1 0 auto;padding:0 var(--van-padding-sm)}.van-tab--shrink{flex:none;padding:0 var(--van-padding-xs)}.van-tab--card{color:var(--van-tabs-default-color);border-right:var(--van-border-width) solid var(--van-tabs-default-color)}.van-tab--card:last-child{border-right:none}.van-tab--card.van-tab--active{color:var(--van-white);background-color:var(--van-tabs-default-color)}.van-tab--card--disabled{color:var(--van-tab-disabled-text-color)}.van-tab__text--ellipsis{display:-webkit-box;overflow:hidden;-webkit-line-clamp:1;-webkit-box-orient:vertical}.van-tabs{position:relative}.van-tabs__wrap{overflow:hidden}.van-tabs__wrap--page-top{position:fixed}.van-tabs__wrap--content-bottom{top:auto;bottom:0}.van-tabs__nav{position:relative;display:flex;background:var(--van-tabs-nav-background);-webkit-user-select:none;-moz-user-select:none;user-select:none}.van-tabs__nav--complete{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch}.van-tabs__nav--complete::-webkit-scrollbar{display:none}.van-tabs__nav--line{box-sizing:content-box;height:100%;padding-bottom:0.4rem}.van-tabs__nav--line.van-tabs__nav--shrink,.van-tabs__nav--line.van-tabs__nav--complete{padding-right:var(--van-padding-xs);padding-left:var(--van-padding-xs)}.van-tabs__nav--card{box-sizing:border-box;height:var(--van-tabs-card-height);margin:0 var(--van-padding-md);border:var(--van-border-width) solid var(--van-tabs-default-color);border-radius:var(--van-radius-sm)}.van-tabs__nav--card.van-tabs__nav--shrink{display:inline-flex}.van-tabs__line{position:absolute;bottom:0.4rem;left:0;z-index:1;width:var(--van-tabs-bottom-bar-width);height:var(--van-tabs-bottom-bar-height);background:var(--van-tabs-bottom-bar-color);border-radius:var(--van-tabs-bottom-bar-height)}.van-tabs__track{position:relative;display:flex;width:100%;height:100%;will-change:left}.van-tabs__content--animated{overflow:hidden}.van-tabs--line .van-tabs__wrap{height:var(--van-tabs-line-height)}.van-tabs--card>.van-tabs__wrap{height:var(--van-tabs-card-height)}\n",
+      "start": 1714699770882,
+      "end": 1714699770882,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699770882,
+      "end": 1714699770882,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770882,
+      "end": 1714699770882,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699770882,
+      "end": 1714699770882,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770882,
+      "end": 1714699770882,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770882,
+      "end": 1714699770882,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770882,
+      "end": 1714699770882,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770882,
+      "end": 1714699770882,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770882,
+      "end": 1714699770882,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770882,
+      "end": 1714699770882,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770882,
+      "end": 1714699770882,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699770882,
+      "end": 1714699770882,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770882,
+      "end": 1714699770882,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770882,
+      "end": 1714699770882,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770882,
+      "end": 1714699770882,
+      "order": "normal"
+    }
+  ]
+}

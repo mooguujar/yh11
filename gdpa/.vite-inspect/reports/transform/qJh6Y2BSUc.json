@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/sortedIndexBy.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import baseIteratee from './_baseIteratee.js';\nimport baseSortedIndexBy from './_baseSortedIndexBy.js';\n\n/**\n * This method is like `_.sortedIndex` except that it accepts `iteratee`\n * which is invoked for `value` and each element of `array` to compute their\n * sort ranking. The iteratee is invoked with one argument: (value).\n *\n * @static\n * @memberOf _\n * @since 4.0.0\n * @category Array\n * @param {Array} array The sorted array to inspect.\n * @param {*} value The value to evaluate.\n * @param {Function} [iteratee=_.identity] The iteratee invoked per element.\n * @returns {number} Returns the index at which `value` should be inserted\n *  into `array`.\n * @example\n *\n * var objects = [{ 'x': 4 }, { 'x': 5 }];\n *\n * _.sortedIndexBy(objects, { 'x': 4 }, function(o) { return o.x; });\n * // => 0\n *\n * // The `_.property` iteratee shorthand.\n * _.sortedIndexBy(objects, { 'x': 4 }, 'x');\n * // => 0\n */\nfunction sortedIndexBy(array, value, iteratee) {\n  return baseSortedIndexBy(array, value, baseIteratee(iteratee, 2));\n}\n\nexport default sortedIndexBy;\n",
+      "start": 1714699768493,
+      "end": 1714699768517,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768517,
+      "end": 1714699768517,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768517,
+      "end": 1714699768517,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768517,
+      "end": 1714699768517,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768517,
+      "end": 1714699768517,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768517,
+      "end": 1714699768517,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768517,
+      "end": 1714699768517,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import baseIteratee from './_baseIteratee.js';\nimport baseSortedIndexBy from './_baseSortedIndexBy.js';\n\n/**\n * This method is like `_.sortedIndex` except that it accepts `iteratee`\n * which is invoked for `value` and each element of `array` to compute their\n * sort ranking. The iteratee is invoked with one argument: (value).\n *\n * @static\n * @memberOf _\n * @since 4.0.0\n * @category Array\n * @param {Array} array The sorted array to inspect.\n * @param {*} value The value to evaluate.\n * @param {Function} [iteratee=_.identity] The iteratee invoked per element.\n * @returns {number} Returns the index at which `value` should be inserted\n *  into `array`.\n * @example\n *\n * var objects = [{ 'x': 4 }, { 'x': 5 }];\n *\n * _.sortedIndexBy(objects, { 'x': 4 }, function(o) { return o.x; });\n * // => 0\n *\n * // The `_.property` iteratee shorthand.\n * _.sortedIndexBy(objects, { 'x': 4 }, 'x');\n * // => 0\n */\nfunction sortedIndexBy(array, value, iteratee) {\n  return baseSortedIndexBy(array, value, baseIteratee(iteratee, 2));\n}\n\nexport default sortedIndexBy;\n",
+      "start": 1714699768517,
+      "end": 1714699768517,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768517,
+      "end": 1714699768517,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768517,
+      "end": 1714699768517,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768517,
+      "end": 1714699768517,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768517,
+      "end": 1714699768517,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768517,
+      "end": 1714699768517,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768517,
+      "end": 1714699768517,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768517,
+      "end": 1714699768517,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768517,
+      "end": 1714699768517,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768517,
+      "end": 1714699768517,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768517,
+      "end": 1714699768517,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768517,
+      "end": 1714699768517,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768517,
+      "end": 1714699768517,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768517,
+      "end": 1714699768517,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768517,
+      "end": 1714699768517,
+      "order": "normal"
+    }
+  ]
+}

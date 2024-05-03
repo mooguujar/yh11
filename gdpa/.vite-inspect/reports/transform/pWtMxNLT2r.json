@@ -1,0 +1,163 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue?vue&type=style&index=0&score=true&lang.scss",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\n@import '@/assets/styles/sprite-point.scss';\n\n.total-task-container {\n  width: 100%;\n  padding: 30px 20px;\n  margin-bottom: 20px;\n  background-color: #fff;\n  border-radius: 14px;\n  .container-title {\n    font-size: 28px;\n    text-align: left;\n    margin-bottom: 14px;\n    color: #13161b;\n  }\n}\n",
+      "start": 1714699771924,
+      "end": 1714699771924
+    },
+    {
+      "name": "vite:css",
+      "result": ".light-step {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px -1.16667rem no-repeat;\n  width: 1.49333rem;\n  height: 1.49333rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.award-btn {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px 0px no-repeat;\n  width: 2.62267rem;\n  height: 1.12rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.lucky-star {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem -1.80133rem no-repeat;\n  width: 0.62533rem;\n  height: 0.94267rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.RMB-gold-box {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.66933rem 0px no-repeat;\n  width: 0.84933rem;\n  height: 0.90533rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.point-8 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.66933rem -0.952rem no-repeat;\n  width: 0.82133rem;\n  height: 0.87733rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.RMB-silver-box {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem -0.88667rem no-repeat;\n  width: 0.74667rem;\n  height: 0.868rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.discount {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem 0px no-repeat;\n  width: 0.84933rem;\n  height: 0.84rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.point-80 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.54rem -1.16667rem no-repeat;\n  width: 0.97067rem;\n  height: 0.84rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.point-50 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px -2.70667rem no-repeat;\n  width: 0.96133rem;\n  height: 0.79333rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.point-10 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.97867rem -2.70667rem no-repeat;\n  width: 0.896rem;\n  height: 0.76533rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.point-30 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.008rem -2.70667rem no-repeat;\n  width: 0.924rem;\n  height: 0.76533rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.RMB-4 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px -3.54667rem no-repeat;\n  width: 0.88667rem;\n  height: 0.7rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.point-5 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem -2.79067rem no-repeat;\n  width: 0.84933rem;\n  height: 0.68133rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.RMB-3 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.66933rem -1.876rem no-repeat;\n  width: 0.644rem;\n  height: 0.616rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.point-1 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.92133rem -2.70667rem no-repeat;\n  width: 0.55067rem;\n  height: 0.60667rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.RMB-1 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -0.93333rem -3.54667rem no-repeat;\n  width: 0.60667rem;\n  height: 0.59733rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.point-3 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.58667rem -3.54667rem no-repeat;\n  width: 0.644rem;\n  height: 0.504rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.received {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.54rem -2.05333rem no-repeat;\n  width: 0.73733rem;\n  height: 0.49467rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.total-task-container {\n  width: 100%;\n  padding: 0.4rem 0.26667rem;\n  margin-bottom: 0.26667rem;\n  background-color: #fff;\n  border-radius: 0.18667rem;\n}\n\n.total-task-container .container-title {\n  font-size: 0.37333rem;\n  text-align: left;\n  margin-bottom: 0.18667rem;\n  color: #13161b;\n}",
+      "start": 1714699771924,
+      "end": 1714699772016,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699772017,
+      "end": 1714699772021,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699772022,
+      "end": 1714699772022,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699772022,
+      "end": 1714699772022,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".light-step {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px -1.16667rem no-repeat;\n  width: 1.49333rem;\n  height: 1.49333rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.award-btn {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px 0px no-repeat;\n  width: 2.62267rem;\n  height: 1.12rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.lucky-star {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem -1.80133rem no-repeat;\n  width: 0.62533rem;\n  height: 0.94267rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.RMB-gold-box {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.66933rem 0px no-repeat;\n  width: 0.84933rem;\n  height: 0.90533rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-8 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.66933rem -0.952rem no-repeat;\n  width: 0.82133rem;\n  height: 0.87733rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.RMB-silver-box {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem -0.88667rem no-repeat;\n  width: 0.74667rem;\n  height: 0.868rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.discount {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem 0px no-repeat;\n  width: 0.84933rem;\n  height: 0.84rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-80 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.54rem -1.16667rem no-repeat;\n  width: 0.97067rem;\n  height: 0.84rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-50 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px -2.70667rem no-repeat;\n  width: 0.96133rem;\n  height: 0.79333rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-10 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.97867rem -2.70667rem no-repeat;\n  width: 0.896rem;\n  height: 0.76533rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-30 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.008rem -2.70667rem no-repeat;\n  width: 0.924rem;\n  height: 0.76533rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.RMB-4 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px -3.54667rem no-repeat;\n  width: 0.88667rem;\n  height: 0.7rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-5 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem -2.79067rem no-repeat;\n  width: 0.84933rem;\n  height: 0.68133rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.RMB-3 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.66933rem -1.876rem no-repeat;\n  width: 0.644rem;\n  height: 0.616rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-1 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.92133rem -2.70667rem no-repeat;\n  width: 0.55067rem;\n  height: 0.60667rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.RMB-1 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -0.93333rem -3.54667rem no-repeat;\n  width: 0.60667rem;\n  height: 0.59733rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-3 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.58667rem -3.54667rem no-repeat;\n  width: 0.644rem;\n  height: 0.504rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.received {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.54rem -2.05333rem no-repeat;\n  width: 0.73733rem;\n  height: 0.49467rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.total-task-container {\n  width: 100%;\n  padding: 0.4rem 0.26667rem;\n  margin-bottom: 0.26667rem;\n  background-color: #fff;\n  border-radius: 0.18667rem;\n}\n.total-task-container .container-title {\n  font-size: 0.37333rem;\n  text-align: left;\n  margin-bottom: 0.18667rem;\n  color: #13161b;\n}",
+      "start": 1714699772022,
+      "end": 1714699772025,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699772025,
+      "end": 1714699772025,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": ".light-step {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px -1.16667rem no-repeat;\n  width: 1.49333rem;\n  height: 1.49333rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.award-btn {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px 0px no-repeat;\n  width: 2.62267rem;\n  height: 1.12rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.lucky-star {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem -1.80133rem no-repeat;\n  width: 0.62533rem;\n  height: 0.94267rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.RMB-gold-box {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.66933rem 0px no-repeat;\n  width: 0.84933rem;\n  height: 0.90533rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-8 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.66933rem -0.952rem no-repeat;\n  width: 0.82133rem;\n  height: 0.87733rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.RMB-silver-box {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem -0.88667rem no-repeat;\n  width: 0.74667rem;\n  height: 0.868rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.discount {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem 0px no-repeat;\n  width: 0.84933rem;\n  height: 0.84rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-80 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.54rem -1.16667rem no-repeat;\n  width: 0.97067rem;\n  height: 0.84rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-50 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px -2.70667rem no-repeat;\n  width: 0.96133rem;\n  height: 0.79333rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-10 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.97867rem -2.70667rem no-repeat;\n  width: 0.896rem;\n  height: 0.76533rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-30 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.008rem -2.70667rem no-repeat;\n  width: 0.924rem;\n  height: 0.76533rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.RMB-4 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px -3.54667rem no-repeat;\n  width: 0.88667rem;\n  height: 0.7rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-5 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem -2.79067rem no-repeat;\n  width: 0.84933rem;\n  height: 0.68133rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.RMB-3 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.66933rem -1.876rem no-repeat;\n  width: 0.644rem;\n  height: 0.616rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-1 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.92133rem -2.70667rem no-repeat;\n  width: 0.55067rem;\n  height: 0.60667rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.RMB-1 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -0.93333rem -3.54667rem no-repeat;\n  width: 0.60667rem;\n  height: 0.59733rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-3 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.58667rem -3.54667rem no-repeat;\n  width: 0.644rem;\n  height: 0.504rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.received {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.54rem -2.05333rem no-repeat;\n  width: 0.73733rem;\n  height: 0.49467rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.total-task-container {\n  width: 100%;\n  padding: 0.4rem 0.26667rem;\n  margin-bottom: 0.26667rem;\n  background-color: #fff;\n  border-radius: 0.18667rem;\n}\n.total-task-container .container-title {\n  font-size: 0.37333rem;\n  text-align: left;\n  margin-bottom: 0.18667rem;\n  color: #13161b;\n}",
+      "start": 1714699772025,
+      "end": 1714699772025,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699772025,
+      "end": 1714699772025,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699772025,
+      "end": 1714699772025,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699772025,
+      "end": 1714699772025,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699772025,
+      "end": 1714699772025,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699772025,
+      "end": 1714699772025,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699772025,
+      "end": 1714699772025,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699772025,
+      "end": 1714699772025,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699772025,
+      "end": 1714699772025,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699772025,
+      "end": 1714699772025,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699772025,
+      "end": 1714699772025,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */",
+      "start": 1714699772025,
+      "end": 1714699772026,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue?vue&type=style&index=0&score=true&lang.scss"
+        ],
+        "sourcesContent": [
+          ""
+        ],
+        "names": [],
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699772026,
+      "end": 1714699772026,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699772026,
+      "end": 1714699772026,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699772026,
+      "end": 1714699772026,
+      "order": "normal"
+    }
+  ]
+}

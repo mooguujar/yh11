@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/zipObject.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var values = require('./values')\r\nvar each = require('./each')\r\n\r\n/**\r\n * 根据键数组、值数组对转换为对象\r\n *\r\n * @param {Array} props 键数组\r\n * @param {Number} arr 值数组\r\n * @return {Object}\r\n */\r\nfunction zipObject (props, arr) {\r\n  var result = {}\r\n  arr = arr || []\r\n  each(values(props), function (val, key) {\r\n    result[val] = arr[key]\r\n  })\r\n  return result\r\n}\r\n\r\nmodule.exports = zipObject\r\n",
+      "start": 1714699767568,
+      "end": 1714699767596,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767596,
+      "end": 1714699767596,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767596,
+      "end": 1714699767596,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767596,
+      "end": 1714699767596,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767596,
+      "end": 1714699767596,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767596,
+      "end": 1714699767596,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767596,
+      "end": 1714699767596,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var values = require('./values')\r\nvar each = require('./each')\r\n\r\n/**\r\n * 根据键数组、值数组对转换为对象\r\n *\r\n * @param {Array} props 键数组\r\n * @param {Number} arr 值数组\r\n * @return {Object}\r\n */\r\nfunction zipObject (props, arr) {\r\n  var result = {}\r\n  arr = arr || []\r\n  each(values(props), function (val, key) {\r\n    result[val] = arr[key]\r\n  })\r\n  return result\r\n}\r\n\r\nmodule.exports = zipObject\r\n",
+      "start": 1714699767596,
+      "end": 1714699767596,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767596,
+      "end": 1714699767596,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767596,
+      "end": 1714699767596,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767596,
+      "end": 1714699767596,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767596,
+      "end": 1714699767596,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767596,
+      "end": 1714699767596,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767596,
+      "end": 1714699767596,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/values.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/each.js?commonjs-proxy\";\n\nvar values = require$$0\r\nvar each = require$$1\r\n\r\n/**\r\n * 根据键数组、值数组对转换为对象\r\n *\r\n * @param {Array} props 键数组\r\n * @param {Number} arr 值数组\r\n * @return {Object}\r\n */\r\nfunction zipObject (props, arr) {\r\n  var result = {}\r\n  arr = arr || []\r\n  each(values(props), function (val, key) {\r\n    result[val] = arr[key]\r\n  })\r\n  return result\r\n}\r\n\r\nvar zipObject_1 = zipObject\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(zipObject_1);\nexport { zipObject_1 as __moduleExports };",
+      "start": 1714699767596,
+      "end": 1714699768215,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;AAAA,IAAI,MAAM,GAAG,UAAmB;AAChC,IAAI,IAAI,GAAG,UAAiB;AAC5B;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,SAAS,EAAE,KAAK,EAAE,GAAG,EAAE;AAChC,EAAE,IAAI,MAAM,GAAG,EAAE;AACjB,EAAE,GAAG,GAAG,GAAG,IAAI,EAAE;AACjB,EAAE,IAAI,CAAC,MAAM,CAAC,KAAK,CAAC,EAAE,UAAU,GAAG,EAAE,GAAG,EAAE;AAC1C,IAAI,MAAM,CAAC,GAAG,CAAC,GAAG,GAAG,CAAC,GAAG,CAAC;AAC1B,GAAG,CAAC;AACJ,EAAE,OAAO,MAAM;AACf,CAAC;AACD;IACA,WAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768215,
+      "end": 1714699768215,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768215,
+      "end": 1714699768215,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768215,
+      "end": 1714699768215,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768215,
+      "end": 1714699768215,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768215,
+      "end": 1714699768215,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768215,
+      "end": 1714699768215,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768215,
+      "end": 1714699768215,
+      "order": "normal"
+    }
+  ]
+}

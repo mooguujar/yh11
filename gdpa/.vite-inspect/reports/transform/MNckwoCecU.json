@@ -1,0 +1,163 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/CheckIn.vue?vue&type=style&index=0&score=true&lang.scss",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\n@import '@/assets/styles/sprite-home.scss';\n\n.check-in-container {\n  width: 708px;\n  margin-top: 8px;\n  padding: 16px 22px 17px 22px;\n  background-color: #fff;\n  border-radius: 14px;\n  .tips {\n    font-size: 19px;\n    color: #13161b;\n  }\n  .consequent-days,\n  .tomorrow-get-point {\n    color: #ff6d7f;\n    margin: 0 5px;\n  }\n  .card-container {\n    gap: 30px;\n    margin: 15px 0 18px 0;\n  }\n  .item-card {\n    width: 69px;\n    height: 83px;\n    line-height: 83px;\n    font-size: 25px;\n    color: #e4a41f;\n    border-radius: 7px;\n    text-align: center;\n  }\n  .item-checked-in {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    background-color: #aefe8b;\n    & + .item-date {\n      color: #787f8c;\n    }\n    img {\n      width: 30px;\n      height: 20px;\n    }\n  }\n  .item-today {\n    background-color: #fcf3b2;\n    border: solid 3px #e9a415;\n    & + .item-date {\n      color: #787f8c;\n    }\n  }\n  .item-point {\n    background-color: #fdf2db;\n    & + .item-date {\n      color: #abb1bb;\n    }\n  }\n  .item-expires {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    background-color: #c5c5c5;\n    & + .item-date {\n      color: #787f8c;\n    }\n    img {\n      width: 22px;\n      height: 21px;\n    }\n  }\n  .item-date {\n    margin-top: 4px;\n    font-size: 19px;\n  }\n  .btn-check-in {\n    width: 222px;\n    height: 56px;\n    font-size: 25px;\n    background-color: #ff4565;\n    border-radius: 7px;\n    align-self: center;\n    border: 0;\n    &.checked {\n      background-color: #828282;\n    }\n  }\n\n  .van-toast {\n    width: 270px;\n    height: 270px;\n    padding: 40px;\n    font-size: 33px;\n    .van-toast__icon {\n      font-size: 110px;\n    }\n    .van-toast__text {\n      margin-top: 15px;\n      line-height: 1.5;\n    }\n  }\n}\n",
+      "start": 1714699771912,
+      "end": 1714699771912
+    },
+    {
+      "name": "vite:css",
+      "result": ".mobile {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px 0px no-repeat;\n  width: 0.38267rem;\n  height: 0.59733rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.lock {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.38267rem 0px no-repeat;\n  width: 0.45733rem;\n  height: 0.59733rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.logo {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -0.59733rem no-repeat;\n  width: 0.59733rem;\n  height: 0.52267rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.message {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -1.12rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.tabbar-home-active {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.504rem -1.12rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.tabbar-home {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -1.624rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.tabbar-mine-active {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.504rem -1.624rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.tabbar-order-active {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -2.128rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.tabbar-points-active {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.504rem -2.128rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.radio-checked {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -2.632rem no-repeat;\n  width: 0.46667rem;\n  height: 0.46667rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.verified {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.46667rem -2.632rem no-repeat;\n  width: 0.46667rem;\n  height: 0.46667rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.help {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -3.09867rem no-repeat;\n  width: 0.448rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.tabbar-mine {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.448rem -3.09867rem no-repeat;\n  width: 0.448rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.tabbar-order {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -3.54667rem no-repeat;\n  width: 0.448rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.tabbar-points {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.448rem -3.54667rem no-repeat;\n  width: 0.49467rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.customer-service-dark {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -3.99467rem no-repeat;\n  width: 0.504rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.customer-service {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.504rem -3.99467rem no-repeat;\n  width: 0.504rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.code {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -4.44267rem no-repeat;\n  width: 0.59733rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.search {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -4.89067rem no-repeat;\n  width: 0.42933rem;\n  height: 0.43867rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.transfer {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.42933rem -4.89067rem no-repeat;\n  width: 0.448rem;\n  height: 0.43867rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.banzhuan {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -5.32933rem no-repeat;\n  width: 0.476rem;\n  height: 0.42rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.collectCoin {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.59733rem -0.59733rem no-repeat;\n  width: 0.31733rem;\n  height: 0.41067rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.IDCard {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.476rem -5.32933rem no-repeat;\n  width: 0.52267rem;\n  height: 0.37333rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.wallet {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.59733rem -4.44267rem no-repeat;\n  width: 0.38267rem;\n  height: 0.35467rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.copy {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -5.74933rem no-repeat;\n  width: 0.32667rem;\n  height: 0.32667rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.bulletin {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.32667rem -5.74933rem no-repeat;\n  width: 0.42rem;\n  height: 0.308rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.eye-close {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -6.076rem no-repeat;\n  width: 0.46667rem;\n  height: 0.28933rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.eye-open {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.46667rem -6.076rem no-repeat;\n  width: 0.46667rem;\n  height: 0.28933rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.point-expires {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -6.36533rem no-repeat;\n  width: 0.28933rem;\n  height: 0.27067rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.close-dark {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.74667rem -5.74933rem no-repeat;\n  width: 0.26133rem;\n  height: 0.26133rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.close-white {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.28933rem -6.36533rem no-repeat;\n  width: 0.26133rem;\n  height: 0.26133rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.checked-in {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.55067rem -6.36533rem no-repeat;\n  width: 0.392rem;\n  height: 0.26133rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.arrow-right-gray {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.84rem 0px no-repeat;\n  width: 0.12133rem;\n  height: 0.21467rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.arrow-right {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.84rem -0.21467rem no-repeat;\n  width: 0.12133rem;\n  height: 0.21467rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.buyCoin {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -6.636rem no-repeat;\n  width: 0.392rem;\n  height: 0.17733rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.sellCoin {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.392rem -6.636rem no-repeat;\n  width: 0.40133rem;\n  height: 0.17733rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.check-in-container {\n  width: 9.44rem;\n  margin-top: 0.10667rem;\n  padding: 0.21333rem 0.29333rem 0.22667rem 0.29333rem;\n  background-color: #fff;\n  border-radius: 0.18667rem;\n}\n\n.check-in-container .tips {\n  font-size: 0.25333rem;\n  color: #13161b;\n}\n\n.check-in-container .consequent-days,\n.check-in-container .tomorrow-get-point {\n  color: #ff6d7f;\n  margin: 0 0.06667rem;\n}\n\n.check-in-container .card-container {\n  gap: 0.4rem;\n  margin: 0.2rem 0 0.24rem 0;\n}\n\n.check-in-container .item-card {\n  width: 0.92rem;\n  height: 1.10667rem;\n  line-height: 1.10667rem;\n  font-size: 0.33333rem;\n  color: #e4a41f;\n  border-radius: 0.09333rem;\n  text-align: center;\n}\n\n.check-in-container .item-checked-in {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: #aefe8b;\n}\n\n.check-in-container .item-checked-in + .item-date {\n  color: #787f8c;\n}\n\n.check-in-container .item-checked-in img {\n  width: 0.4rem;\n  height: 0.26667rem;\n}\n\n.check-in-container .item-today {\n  background-color: #fcf3b2;\n  border: solid 0.04rem #e9a415;\n}\n\n.check-in-container .item-today + .item-date {\n  color: #787f8c;\n}\n\n.check-in-container .item-point {\n  background-color: #fdf2db;\n}\n\n.check-in-container .item-point + .item-date {\n  color: #abb1bb;\n}\n\n.check-in-container .item-expires {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: #c5c5c5;\n}\n\n.check-in-container .item-expires + .item-date {\n  color: #787f8c;\n}\n\n.check-in-container .item-expires img {\n  width: 0.29333rem;\n  height: 0.28rem;\n}\n\n.check-in-container .item-date {\n  margin-top: 0.05333rem;\n  font-size: 0.25333rem;\n}\n\n.check-in-container .btn-check-in {\n  width: 2.96rem;\n  height: 0.74667rem;\n  font-size: 0.33333rem;\n  background-color: #ff4565;\n  border-radius: 0.09333rem;\n  align-self: center;\n  border: 0;\n}\n\n.check-in-container .btn-check-in.checked {\n  background-color: #828282;\n}\n\n.check-in-container .van-toast {\n  width: 3.6rem;\n  height: 3.6rem;\n  padding: 0.53333rem;\n  font-size: 0.44rem;\n}\n\n.check-in-container .van-toast .van-toast__icon {\n  font-size: 1.46667rem;\n}\n\n.check-in-container .van-toast .van-toast__text {\n  margin-top: 0.2rem;\n  line-height: 1.5;\n}",
+      "start": 1714699771912,
+      "end": 1714699771957,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771957,
+      "end": 1714699771957,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771957,
+      "end": 1714699771957,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771957,
+      "end": 1714699771957,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".mobile {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px 0px no-repeat;\n  width: 0.38267rem;\n  height: 0.59733rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.lock {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.38267rem 0px no-repeat;\n  width: 0.45733rem;\n  height: 0.59733rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.logo {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -0.59733rem no-repeat;\n  width: 0.59733rem;\n  height: 0.52267rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.message {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -1.12rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-home-active {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.504rem -1.12rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-home {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -1.624rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-mine-active {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.504rem -1.624rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-order-active {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -2.128rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-points-active {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.504rem -2.128rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.radio-checked {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -2.632rem no-repeat;\n  width: 0.46667rem;\n  height: 0.46667rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.verified {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.46667rem -2.632rem no-repeat;\n  width: 0.46667rem;\n  height: 0.46667rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.help {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -3.09867rem no-repeat;\n  width: 0.448rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-mine {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.448rem -3.09867rem no-repeat;\n  width: 0.448rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-order {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -3.54667rem no-repeat;\n  width: 0.448rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-points {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.448rem -3.54667rem no-repeat;\n  width: 0.49467rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.customer-service-dark {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -3.99467rem no-repeat;\n  width: 0.504rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.customer-service {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.504rem -3.99467rem no-repeat;\n  width: 0.504rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.code {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -4.44267rem no-repeat;\n  width: 0.59733rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.search {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -4.89067rem no-repeat;\n  width: 0.42933rem;\n  height: 0.43867rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.transfer {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.42933rem -4.89067rem no-repeat;\n  width: 0.448rem;\n  height: 0.43867rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.banzhuan {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -5.32933rem no-repeat;\n  width: 0.476rem;\n  height: 0.42rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.collectCoin {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.59733rem -0.59733rem no-repeat;\n  width: 0.31733rem;\n  height: 0.41067rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.IDCard {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.476rem -5.32933rem no-repeat;\n  width: 0.52267rem;\n  height: 0.37333rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.wallet {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.59733rem -4.44267rem no-repeat;\n  width: 0.38267rem;\n  height: 0.35467rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.copy {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -5.74933rem no-repeat;\n  width: 0.32667rem;\n  height: 0.32667rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.bulletin {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.32667rem -5.74933rem no-repeat;\n  width: 0.42rem;\n  height: 0.308rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.eye-close {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -6.076rem no-repeat;\n  width: 0.46667rem;\n  height: 0.28933rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.eye-open {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.46667rem -6.076rem no-repeat;\n  width: 0.46667rem;\n  height: 0.28933rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.point-expires {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -6.36533rem no-repeat;\n  width: 0.28933rem;\n  height: 0.27067rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.close-dark {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.74667rem -5.74933rem no-repeat;\n  width: 0.26133rem;\n  height: 0.26133rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.close-white {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.28933rem -6.36533rem no-repeat;\n  width: 0.26133rem;\n  height: 0.26133rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.checked-in {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.55067rem -6.36533rem no-repeat;\n  width: 0.392rem;\n  height: 0.26133rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.arrow-right-gray {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.84rem 0px no-repeat;\n  width: 0.12133rem;\n  height: 0.21467rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.arrow-right {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.84rem -0.21467rem no-repeat;\n  width: 0.12133rem;\n  height: 0.21467rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.buyCoin {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -6.636rem no-repeat;\n  width: 0.392rem;\n  height: 0.17733rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.sellCoin {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.392rem -6.636rem no-repeat;\n  width: 0.40133rem;\n  height: 0.17733rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.check-in-container {\n  width: 9.44rem;\n  margin-top: 0.10667rem;\n  padding: 0.21333rem 0.29333rem 0.22667rem 0.29333rem;\n  background-color: #fff;\n  border-radius: 0.18667rem;\n}\n.check-in-container .tips {\n  font-size: 0.25333rem;\n  color: #13161b;\n}\n.check-in-container .consequent-days,\n.check-in-container .tomorrow-get-point {\n  color: #ff6d7f;\n  margin: 0 0.06667rem;\n}\n.check-in-container .card-container {\n  gap: 0.4rem;\n  margin: 0.2rem 0 0.24rem 0;\n}\n.check-in-container .item-card {\n  width: 0.92rem;\n  height: 1.10667rem;\n  line-height: 1.10667rem;\n  font-size: 0.33333rem;\n  color: #e4a41f;\n  border-radius: 0.09333rem;\n  text-align: center;\n}\n.check-in-container .item-checked-in {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: #aefe8b;\n}\n.check-in-container .item-checked-in + .item-date {\n  color: #787f8c;\n}\n.check-in-container .item-checked-in img {\n  width: 0.4rem;\n  height: 0.26667rem;\n}\n.check-in-container .item-today {\n  background-color: #fcf3b2;\n  border: solid 0.04rem #e9a415;\n}\n.check-in-container .item-today + .item-date {\n  color: #787f8c;\n}\n.check-in-container .item-point {\n  background-color: #fdf2db;\n}\n.check-in-container .item-point + .item-date {\n  color: #abb1bb;\n}\n.check-in-container .item-expires {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: #c5c5c5;\n}\n.check-in-container .item-expires + .item-date {\n  color: #787f8c;\n}\n.check-in-container .item-expires img {\n  width: 0.29333rem;\n  height: 0.28rem;\n}\n.check-in-container .item-date {\n  margin-top: 0.05333rem;\n  font-size: 0.25333rem;\n}\n.check-in-container .btn-check-in {\n  width: 2.96rem;\n  height: 0.74667rem;\n  font-size: 0.33333rem;\n  background-color: #ff4565;\n  border-radius: 0.09333rem;\n  align-self: center;\n  border: 0;\n}\n.check-in-container .btn-check-in.checked {\n  background-color: #828282;\n}\n.check-in-container .van-toast {\n  width: 3.6rem;\n  height: 3.6rem;\n  padding: 0.53333rem;\n  font-size: 0.44rem;\n}\n.check-in-container .van-toast .van-toast__icon {\n  font-size: 1.46667rem;\n}\n.check-in-container .van-toast .van-toast__text {\n  margin-top: 0.2rem;\n  line-height: 1.5;\n}",
+      "start": 1714699771957,
+      "end": 1714699771958,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771958,
+      "end": 1714699771958,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": ".mobile {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px 0px no-repeat;\n  width: 0.38267rem;\n  height: 0.59733rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.lock {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.38267rem 0px no-repeat;\n  width: 0.45733rem;\n  height: 0.59733rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.logo {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -0.59733rem no-repeat;\n  width: 0.59733rem;\n  height: 0.52267rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.message {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -1.12rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-home-active {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.504rem -1.12rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-home {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -1.624rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-mine-active {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.504rem -1.624rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-order-active {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -2.128rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-points-active {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.504rem -2.128rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.radio-checked {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -2.632rem no-repeat;\n  width: 0.46667rem;\n  height: 0.46667rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.verified {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.46667rem -2.632rem no-repeat;\n  width: 0.46667rem;\n  height: 0.46667rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.help {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -3.09867rem no-repeat;\n  width: 0.448rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-mine {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.448rem -3.09867rem no-repeat;\n  width: 0.448rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-order {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -3.54667rem no-repeat;\n  width: 0.448rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-points {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.448rem -3.54667rem no-repeat;\n  width: 0.49467rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.customer-service-dark {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -3.99467rem no-repeat;\n  width: 0.504rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.customer-service {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.504rem -3.99467rem no-repeat;\n  width: 0.504rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.code {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -4.44267rem no-repeat;\n  width: 0.59733rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.search {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -4.89067rem no-repeat;\n  width: 0.42933rem;\n  height: 0.43867rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.transfer {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.42933rem -4.89067rem no-repeat;\n  width: 0.448rem;\n  height: 0.43867rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.banzhuan {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -5.32933rem no-repeat;\n  width: 0.476rem;\n  height: 0.42rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.collectCoin {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.59733rem -0.59733rem no-repeat;\n  width: 0.31733rem;\n  height: 0.41067rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.IDCard {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.476rem -5.32933rem no-repeat;\n  width: 0.52267rem;\n  height: 0.37333rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.wallet {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.59733rem -4.44267rem no-repeat;\n  width: 0.38267rem;\n  height: 0.35467rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.copy {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -5.74933rem no-repeat;\n  width: 0.32667rem;\n  height: 0.32667rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.bulletin {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.32667rem -5.74933rem no-repeat;\n  width: 0.42rem;\n  height: 0.308rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.eye-close {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -6.076rem no-repeat;\n  width: 0.46667rem;\n  height: 0.28933rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.eye-open {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.46667rem -6.076rem no-repeat;\n  width: 0.46667rem;\n  height: 0.28933rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.point-expires {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -6.36533rem no-repeat;\n  width: 0.28933rem;\n  height: 0.27067rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.close-dark {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.74667rem -5.74933rem no-repeat;\n  width: 0.26133rem;\n  height: 0.26133rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.close-white {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.28933rem -6.36533rem no-repeat;\n  width: 0.26133rem;\n  height: 0.26133rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.checked-in {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.55067rem -6.36533rem no-repeat;\n  width: 0.392rem;\n  height: 0.26133rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.arrow-right-gray {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.84rem 0px no-repeat;\n  width: 0.12133rem;\n  height: 0.21467rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.arrow-right {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.84rem -0.21467rem no-repeat;\n  width: 0.12133rem;\n  height: 0.21467rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.buyCoin {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -6.636rem no-repeat;\n  width: 0.392rem;\n  height: 0.17733rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.sellCoin {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.392rem -6.636rem no-repeat;\n  width: 0.40133rem;\n  height: 0.17733rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.check-in-container {\n  width: 9.44rem;\n  margin-top: 0.10667rem;\n  padding: 0.21333rem 0.29333rem 0.22667rem 0.29333rem;\n  background-color: #fff;\n  border-radius: 0.18667rem;\n}\n.check-in-container .tips {\n  font-size: 0.25333rem;\n  color: #13161b;\n}\n.check-in-container .consequent-days,\n.check-in-container .tomorrow-get-point {\n  color: #ff6d7f;\n  margin: 0 0.06667rem;\n}\n.check-in-container .card-container {\n  gap: 0.4rem;\n  margin: 0.2rem 0 0.24rem 0;\n}\n.check-in-container .item-card {\n  width: 0.92rem;\n  height: 1.10667rem;\n  line-height: 1.10667rem;\n  font-size: 0.33333rem;\n  color: #e4a41f;\n  border-radius: 0.09333rem;\n  text-align: center;\n}\n.check-in-container .item-checked-in {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: #aefe8b;\n}\n.check-in-container .item-checked-in + .item-date {\n  color: #787f8c;\n}\n.check-in-container .item-checked-in img {\n  width: 0.4rem;\n  height: 0.26667rem;\n}\n.check-in-container .item-today {\n  background-color: #fcf3b2;\n  border: solid 0.04rem #e9a415;\n}\n.check-in-container .item-today + .item-date {\n  color: #787f8c;\n}\n.check-in-container .item-point {\n  background-color: #fdf2db;\n}\n.check-in-container .item-point + .item-date {\n  color: #abb1bb;\n}\n.check-in-container .item-expires {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: #c5c5c5;\n}\n.check-in-container .item-expires + .item-date {\n  color: #787f8c;\n}\n.check-in-container .item-expires img {\n  width: 0.29333rem;\n  height: 0.28rem;\n}\n.check-in-container .item-date {\n  margin-top: 0.05333rem;\n  font-size: 0.25333rem;\n}\n.check-in-container .btn-check-in {\n  width: 2.96rem;\n  height: 0.74667rem;\n  font-size: 0.33333rem;\n  background-color: #ff4565;\n  border-radius: 0.09333rem;\n  align-self: center;\n  border: 0;\n}\n.check-in-container .btn-check-in.checked {\n  background-color: #828282;\n}\n.check-in-container .van-toast {\n  width: 3.6rem;\n  height: 3.6rem;\n  padding: 0.53333rem;\n  font-size: 0.44rem;\n}\n.check-in-container .van-toast .van-toast__icon {\n  font-size: 1.46667rem;\n}\n.check-in-container .van-toast .van-toast__text {\n  margin-top: 0.2rem;\n  line-height: 1.5;\n}",
+      "start": 1714699771958,
+      "end": 1714699771958,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699771958,
+      "end": 1714699771958,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771958,
+      "end": 1714699771958,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699771958,
+      "end": 1714699771958,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771958,
+      "end": 1714699771958,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771958,
+      "end": 1714699771958,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771958,
+      "end": 1714699771958,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699771958,
+      "end": 1714699771958,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771958,
+      "end": 1714699771958,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771958,
+      "end": 1714699771958,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771958,
+      "end": 1714699771958,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */",
+      "start": 1714699771958,
+      "end": 1714699771959,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/CheckIn.vue?vue&type=style&index=0&score=true&lang.scss"
+        ],
+        "sourcesContent": [
+          ""
+        ],
+        "names": [],
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771959,
+      "end": 1714699771959,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771959,
+      "end": 1714699771959,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771959,
+      "end": 1714699771959,
+      "order": "normal"
+    }
+  ]
+}

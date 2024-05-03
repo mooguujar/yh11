@@ -1,0 +1,152 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/activeList/activeList.scss?vue&type=style&index=0&src=eadb4be2&scoped=eadb4be2&lang.scss",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": ".activeList_navbar {\n  background: url(\"../../assets/images/activity/activeListbg.png\");\n  background-size: cover;\n  :deep(.van-nav-bar__title) {\n    color: #fff;\n  }\n}\n.activeList {\n  background: url(\"../../assets/images/activity/activeListbg.png\");\n  background-size: cover;\n  background-position: 0 calc(env(safe-area-inset-top) - 1.33333rem);\n  padding: 20px;\n  .listCard {\n    margin-bottom: 10px;\n    img {\n      width: 100%;\n      height: 280px;\n    }\n  }\n}\n",
+      "start": 1714699769627,
+      "end": 1714699769627,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "result": ".activeList_navbar {\n  background: url(\"__VITE_ASSET__KaINjOnO__\");\n  background-size: cover;\n}\n.activeList_navbar :deep(.van-nav-bar__title) {\n  color: #fff;\n}\n.activeList {\n  background: url(\"__VITE_ASSET__KaINjOnO__\");\n  background-size: cover;\n  background-position: 0 calc(env(safe-area-inset-top) - 1.33333rem);\n  padding: 0.26667rem;\n}\n.activeList .listCard {\n  margin-bottom: 0.13333rem;\n}\n.activeList .listCard img {\n  width: 100%;\n  height: 3.73333rem;\n}",
+      "start": 1714699769627,
+      "end": 1714699769644,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769646,
+      "end": 1714699769646,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769646,
+      "end": 1714699769647,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769647,
+      "end": 1714699769647,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".activeList_navbar[data-v-eadb4be2] {\n  background: url(\"__VITE_ASSET__KaINjOnO__\");\n  background-size: cover;\n}\n.activeList_navbar[data-v-eadb4be2] .van-nav-bar__title {\n  color: #fff;\n}\n.activeList[data-v-eadb4be2] {\n  background: url(\"__VITE_ASSET__KaINjOnO__\");\n  background-size: cover;\n  background-position: 0 calc(env(safe-area-inset-top) - 1.33333rem);\n  padding: 0.26667rem;\n}\n.activeList .listCard[data-v-eadb4be2] {\n  margin-bottom: 0.13333rem;\n}\n.activeList .listCard img[data-v-eadb4be2] {\n  width: 100%;\n  height: 3.73333rem;\n}",
+      "start": 1714699769647,
+      "end": 1714699769647,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769649,
+      "end": 1714699769649,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": ".activeList_navbar[data-v-eadb4be2] {\n  background: url(\"__VITE_ASSET__KaINjOnO__\");\n  background-size: cover;\n}\n.activeList_navbar[data-v-eadb4be2] .van-nav-bar__title {\n  color: #fff;\n}\n.activeList[data-v-eadb4be2] {\n  background: url(\"__VITE_ASSET__KaINjOnO__\");\n  background-size: cover;\n  background-position: 0 calc(env(safe-area-inset-top) - 1.33333rem);\n  padding: 0.26667rem;\n}\n.activeList .listCard[data-v-eadb4be2] {\n  margin-bottom: 0.13333rem;\n}\n.activeList .listCard img[data-v-eadb4be2] {\n  width: 100%;\n  height: 3.73333rem;\n}",
+      "start": 1714699769649,
+      "end": 1714699769649,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699769649,
+      "end": 1714699769649,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769649,
+      "end": 1714699769649,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699769649,
+      "end": 1714699769649,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769649,
+      "end": 1714699769649,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769649,
+      "end": 1714699769649,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769649,
+      "end": 1714699769649,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769649,
+      "end": 1714699769649,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769649,
+      "end": 1714699769649,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769649,
+      "end": 1714699769649,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769649,
+      "end": 1714699769649,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699769649,
+      "end": 1714699769649,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769649,
+      "end": 1714699769649,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769650,
+      "end": 1714699769650,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769650,
+      "end": 1714699769650,
+      "order": "normal"
+    }
+  ]
+}

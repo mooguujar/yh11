@@ -1,0 +1,142 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/es/v-x-e-table/src/formats.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import XEUtils from 'xe-utils';\nimport { warnLog } from '../../tools/log';\nvar VXEFormatsStore = /** @class */ (function () {\n    function VXEFormatsStore() {\n        this.store = {};\n    }\n    VXEFormatsStore.prototype.mixin = function (options) {\n        var _this = this;\n        XEUtils.each(options, function (item, key) {\n            _this.add(key, item);\n        });\n        return this;\n    };\n    VXEFormatsStore.prototype.has = function (name) {\n        return !!this.get(name);\n    };\n    VXEFormatsStore.prototype.get = function (name) {\n        return this.store[name];\n    };\n    VXEFormatsStore.prototype.add = function (name, render) {\n        var conf = this.store[name];\n        // 兼容\n        if (XEUtils.isFunction(render)) {\n            if (process.env.NODE_ENV === 'development') {\n                warnLog('vxe.error.delProp', ['formats -> callback', 'cellFormatMethod']);\n            }\n            render = {\n                cellFormatMethod: render\n            };\n        }\n        // 检测是否覆盖\n        if (process.env.NODE_ENV === 'development') {\n            var confKeys_1 = XEUtils.keys(conf);\n            XEUtils.each(render, function (item, key) {\n                if (confKeys_1.includes(key)) {\n                    warnLog('vxe.error.coverProp', [name, key]);\n                }\n            });\n        }\n        this.store[name] = conf ? XEUtils.merge(conf, render) : render;\n        return this;\n    };\n    VXEFormatsStore.prototype.delete = function (name) {\n        delete this.store[name];\n    };\n    VXEFormatsStore.prototype.forEach = function (callback) {\n        XEUtils.objectEach(this.store, callback);\n    };\n    return VXEFormatsStore;\n}());\nexport var formats = new VXEFormatsStore();\nif (process.env.NODE_ENV === 'development') {\n    Object.assign(formats, { _name: 'Formats' });\n}\n",
+      "start": 1714699767724,
+      "end": 1714699767739,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767739,
+      "end": 1714699767739,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767739,
+      "end": 1714699767739,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767739,
+      "end": 1714699767739,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767739,
+      "end": 1714699767739,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767739,
+      "end": 1714699767739,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767739,
+      "end": 1714699767739,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import XEUtils from 'xe-utils';\nimport { warnLog } from '../../tools/log';\nvar VXEFormatsStore = /** @class */ (function () {\n    function VXEFormatsStore() {\n        this.store = {};\n    }\n    VXEFormatsStore.prototype.mixin = function (options) {\n        var _this = this;\n        XEUtils.each(options, function (item, key) {\n            _this.add(key, item);\n        });\n        return this;\n    };\n    VXEFormatsStore.prototype.has = function (name) {\n        return !!this.get(name);\n    };\n    VXEFormatsStore.prototype.get = function (name) {\n        return this.store[name];\n    };\n    VXEFormatsStore.prototype.add = function (name, render) {\n        var conf = this.store[name];\n        // 兼容\n        if (XEUtils.isFunction(render)) {\n            if (process.env.NODE_ENV === 'development') {\n                warnLog('vxe.error.delProp', ['formats -> callback', 'cellFormatMethod']);\n            }\n            render = {\n                cellFormatMethod: render\n            };\n        }\n        // 检测是否覆盖\n        if (process.env.NODE_ENV === 'development') {\n            var confKeys_1 = XEUtils.keys(conf);\n            XEUtils.each(render, function (item, key) {\n                if (confKeys_1.includes(key)) {\n                    warnLog('vxe.error.coverProp', [name, key]);\n                }\n            });\n        }\n        this.store[name] = conf ? XEUtils.merge(conf, render) : render;\n        return this;\n    };\n    VXEFormatsStore.prototype.delete = function (name) {\n        delete this.store[name];\n    };\n    VXEFormatsStore.prototype.forEach = function (callback) {\n        XEUtils.objectEach(this.store, callback);\n    };\n    return VXEFormatsStore;\n}());\nexport var formats = new VXEFormatsStore();\nif (process.env.NODE_ENV === 'development') {\n    Object.assign(formats, { _name: 'Formats' });\n}\n",
+      "start": 1714699767739,
+      "end": 1714699767739,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767739,
+      "end": 1714699767739,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "result": "import XEUtils from \"xe-utils\";\nimport { warnLog } from \"../../tools/log\";\nvar VXEFormatsStore = (\n  /** @class */\n  function() {\n    function VXEFormatsStore2() {\n      this.store = {};\n    }\n    VXEFormatsStore2.prototype.mixin = function(options) {\n      var _this = this;\n      XEUtils.each(options, function(item, key) {\n        _this.add(key, item);\n      });\n      return this;\n    };\n    VXEFormatsStore2.prototype.has = function(name) {\n      return !!this.get(name);\n    };\n    VXEFormatsStore2.prototype.get = function(name) {\n      return this.store[name];\n    };\n    VXEFormatsStore2.prototype.add = function(name, render) {\n      var conf = this.store[name];\n      if (XEUtils.isFunction(render)) {\n        if (false) {\n          warnLog(\"vxe.error.delProp\", [\"formats -> callback\", \"cellFormatMethod\"]);\n        }\n        render = {\n          cellFormatMethod: render\n        };\n      }\n      if (false) {\n        var confKeys_1 = XEUtils.keys(conf);\n        XEUtils.each(render, function(item, key) {\n          if (confKeys_1.includes(key)) {\n            warnLog(\"vxe.error.coverProp\", [name, key]);\n          }\n        });\n      }\n      this.store[name] = conf ? XEUtils.merge(conf, render) : render;\n      return this;\n    };\n    VXEFormatsStore2.prototype.delete = function(name) {\n      delete this.store[name];\n    };\n    VXEFormatsStore2.prototype.forEach = function(callback) {\n      XEUtils.objectEach(this.store, callback);\n    };\n    return VXEFormatsStore2;\n  }()\n);\nexport var formats = new VXEFormatsStore();\nif (false) {\n  Object.assign(formats, { _name: \"Formats\" });\n}\n",
+      "start": 1714699767739,
+      "end": 1714699768002,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768002,
+      "end": 1714699768002,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768002,
+      "end": 1714699768002,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768002,
+      "end": 1714699768002,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768002,
+      "end": 1714699768002,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768002,
+      "end": 1714699768002,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768002,
+      "end": 1714699768002,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768002,
+      "end": 1714699768002,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768002,
+      "end": 1714699768002,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768002,
+      "end": 1714699768002,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768002,
+      "end": 1714699768002,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768002,
+      "end": 1714699768002,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768002,
+      "end": 1714699768002,
+      "order": "normal"
+    }
+  ]
+}

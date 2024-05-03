@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/WithdrawCoins.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\nimport { getMoneyWithdrawApi } from '@/apis/user'\nimport info from '@/assets/images/common/info.png'\nimport warning from '@/assets/images/common/warning.png'\nimport { useAppBar } from '@/components/AppBar/useAppBar'\nimport { useAuthStore } from '@/store/modules/auth'\nimport { useCoinBuySellStore } from '@/store/modules/coinBuySell/buySell'\nimport { useCommonStore } from '@/store/modules/common'\nimport { useEntryStore } from '@/store/modules/entry'\nimport { withdrawddresslist as IWithdrawddressList } from '@/store/types/buySellCoin'\nimport { IMoneyWithdraw } from '@/store/types/coin'\nimport mitt from '@/utils/mitt'\nimport { requireImg } from '@/utils/tools'\nimport { storeToRefs } from 'pinia'\nimport { showToast } from 'vant'\nimport { computed, nextTick, onMounted, ref, watch, watchEffect } from 'vue'\nimport { useRouter } from 'vue-router'\nuseAppBar({ mode: 'dark' })\nconst router = useRouter()\nconst coinBuySellStore = useCoinBuySellStore()\nconst { getWithdrawddresslist } = coinBuySellStore\nconst { withdrawddresslist } = storeToRefs(coinBuySellStore)\n\nconst authStore = useAuthStore()\nconst { getUserCoin } = authStore\nconst { coins } = storeToRefs(authStore)\n\nconst commonStore = useCommonStore()\n\nconst EntryStore = useEntryStore()\nconst { config } = storeToRefs(EntryStore)\n\n// 扣款相关条目配置数据\nconst withDrawCoins = ref([\n  { label: '手续费(2%)', value: '0.00' },\n  { label: '实际扣款', value: '0.00' },\n  { label: '最小提现', value: '0.00' },\n  { label: '最大提现', value: '0.00' }\n])\n// 提币数量输入\nconst withDrawCoinsAmount = ref('')\nconst isLoading = ref(true)\n\nconst isConfirmDialog = ref(false)\n// 支付密码输入\nconst pay_pass = ref('')\n// 数字键盘显示\nconst showKeyboard = ref(false)\n// USDT弹层切换显示\nconst showUSDTCardSheet = ref(false)\n\n// ref节点引用\nconst payPass = ref()\nconst numberKeyboard = ref()\n\n// USDT币种协议，地址等信息\nconst withdrawCoinInfo = ref<IWithdrawddressList>({} as IWithdrawddressList)\n\n// 图片资源域名\nconst imgserver_url = computed(() => {\n  // console.log('(imgserver_url',(config.value.Web_Set_DefaultInfo?.imgserver_url as any)?.v);\n  return (config.value.Web_Set_DefaultInfo?.imgserver_url as any)?.v || ''\n})\n// USDT币种信息\nconst coinInfo = computed(() => coins.value?.find(item => item.mtype === 2))\n// usdt卡列表\nconst usdtCardList = computed(() => {\n  const list =\n    withdrawddresslist.value?.filter(\n      item => item.coin_protocol === 'USDT_TRC20' && item.status === 1\n    ) ?? []\n  list.sort((l1, l2) => l1.def_card - l2.def_card)\n\n  return list\n})\n// 最大可提币数量(扣减手续费后)\nconst maxAvailableWithdraw = computed(\n  () => +coinInfo.value!.available_coincash / (1 + +coinInfo.value!.coinset_config!.fee_withdraw)\n)\n\nconst slectMenu = (item: IWithdrawddressList) => {\n  withdrawCoinInfo.value = item\n  showUSDTCardSheet.value = false\n}\n\n// 修正光标位置\nconst updateCursorPos = (onlyUpdateValue = false) => {\n  setTimeout(() => {\n    let amountInputEl = document.querySelector('.amount-input input') as HTMLInputElement\n\n    if (amountInputEl) {\n      amountInputEl.value = withDrawCoinsAmount.value\n\n      if (onlyUpdateValue) {\n        // 释放dom引用\n        amountInputEl = null as any\n        return\n      }\n\n      // 光标开始处\n      amountInputEl.selectionStart = withDrawCoinsAmount.value.length\n      // 光标结束处\n      amountInputEl.selectionEnd = withDrawCoinsAmount.value.length\n      // 释放dom引用\n      amountInputEl = null as any\n    }\n  }, 20)\n}\n\n// 更新USDT提币地址信息\nwatch(withdrawddresslist, (val, oldVal) => {\n  withdrawCoinInfo.value = withdrawddresslist.value?.find(\n    item => item.coin_protocol === 'USDT_TRC20' && item.def_card === 1\n  ) as IWithdrawddressList\n})\n\n// 输入内容修正\nwatch(withDrawCoinsAmount, (val, oldVal) => {\n  // 小数点开头，自动补齐0.\n  if (val === '.' || val.startsWith('00')) {\n    withDrawCoinsAmount.value = '0.'\n    updateCursorPos()\n    return\n  }\n\n  // 00开头变为0\n  if (oldVal && val.startsWith('0')) {\n    withDrawCoinsAmount.value = '0'\n  }\n\n  // 小数位数保留2位\n  const dotIndex = val.indexOf('.')\n  if (~dotIndex) {\n    const str = val.slice(dotIndex + 1, val.length)\n    const replacer = (match: string, p1: string, p2: string) => {\n      if (p1.startsWith('0') && +p1 > 0) {\n        return '0'\n      }\n      return p1 + '.' + p2\n    }\n    const newAmount = val.replace(/^(\\d+)\\.(\\d\\d).*$/, replacer)\n\n    withDrawCoinsAmount.value = newAmount\n    updateCursorPos(true)\n    return\n  }\n\n  // 提币输入超过最大提币数量时，变为最大可提币输入\n  if (+val > +maxAvailableWithdraw.value) {\n    withDrawCoinsAmount.value = maxAvailableWithdraw.value.toTruncFixed(2)\n    updateCursorPos()\n  }\n})\n\n// 更新扣款相关条目数据\nwatchEffect(() => {\n  // 手续费费率\n  const withdrawFeeRate = +coinInfo.value!.coinset_config!.fee_withdraw\n  // 手续费\n  const withdrawFee = (+(withDrawCoinsAmount.value || 0) * withdrawFeeRate).toTruncFixed(2)\n  // 实际扣款\n  const actualDebuction = (+(withDrawCoinsAmount.value ?? 0) * (1 + withdrawFeeRate)).toTruncFixed(\n    2\n  )\n  // 最小提现\n  const minWithdraw = (+coinInfo.value!.coinset_config!.min_withdraw).toTruncFixed(2)\n  // 最大提现\n  const maxWithdraw = (+coinInfo.value!.coinset_config!.max_withdraw).toTruncFixed(2)\n\n  withDrawCoins.value = [\n    {\n      label: `手续费(${withdrawFeeRate * 100}%)`,\n      value: withdrawFee\n    },\n    { label: '实际扣款', value: actualDebuction },\n    { label: '最小提现', value: minWithdraw },\n    { label: '最大提现', value: maxWithdraw }\n  ]\n})\n\n// 最大提币数量\nconst onMaxAmount = () => {\n  withDrawCoinsAmount.value = maxAvailableWithdraw.value.toTruncFixed(2)\n}\n\n// 确定/绑定地址\nconst onSubmit = () => {\n  if (withdrawCoinInfo.value?.coin_address) {\n    // 未输入\n    if (!withDrawCoinsAmount.value) {\n      showToast({\n        message: '请输入提币数量',\n        icon: info,\n        iconSize: '48px'\n      })\n      return\n    }\n\n    // 不满足最小提现\n    if (withDrawCoinsAmount.value < coinInfo.value!.coinset_config!.min_withdraw) {\n      showToast({\n        message: '提现数量小于最小提现',\n        icon: info,\n        iconSize: '48px'\n      })\n      return\n    }\n\n    // 余额不足\n    if (\n      +coinInfo.value!.available_coincash < +withDrawCoins.value[1].value ||\n      !+coinInfo.value!.available_coincash\n    ) {\n      showToast({\n        message: '余额不足',\n        icon: warning,\n        iconSize: '48px'\n      })\n      return\n    }\n\n    isConfirmDialog.value = true\n    showKeyboard.value = true\n\n    nextTick(() => {\n      payPass.value?.focus()\n      payPass.value?.click?.()\n\n      payPass.value.$el.querySelector('input[type=password]').focus()\n    })\n  } else {\n    router.push('/usdt')\n  }\n}\n\n// 数字键盘位置修正\nconst onNumberKeyboardShow = () => {\n  mitt.emit('number-keyboard-show')\n}\n\nconst onFocus = () => {\n  showKeyboard.value = true\n}\n\nconst onCloseAuthConfirm = () => {\n  isConfirmDialog.value = false\n  showKeyboard.value = false\n  pay_pass.value = ''\n}\n\n// 支付确认\nconst onConfirmPayPass = async () => {\n  if (pay_pass.value.length < 6) {\n    showToast({\n      message: '请输入6位支付密码',\n      icon: info,\n      iconSize: '48px'\n    })\n    return\n  }\n\n  try {\n    commonStore.setShowLoading(true)\n    const res = await getMoneyWithdrawApi({\n      money: withDrawCoinsAmount.value,\n      id: withdrawCoinInfo.value!.id,\n      coin_address: withdrawCoinInfo.value!.coin_address,\n      passwd: pay_pass.value\n    })\n\n    if ((res as IMoneyWithdraw).orderID) {\n      mitt.emit('dialog-tips', {\n        title: '提示',\n        content: '您的提现信息提交成功，请等待客服审核。',\n        confirmButtonText: '确定',\n        confirmAction: () => {\n          router.push('/details/coin-details/usdt')\n        }\n      })\n    } else {\n      onCloseAuthConfirm()\n    }\n  } catch (error) {\n    console.error(error)\n  } finally {\n    commonStore.setShowLoading(false)\n  }\n}\n\n// 初始化提币输入框绑定事件\nconst initAmountEvent = () => {\n  nextTick(() => {\n    // 提币输入框禁止输入特定字符\n    const amountInputEl = document.querySelector('.amount-input input') as HTMLInputElement\n    if (amountInputEl) {\n      amountInputEl.onkeydown = e => {\n        if (['-', '+'].includes(e.key)) {\n          return e.preventDefault()\n        }\n      }\n    }\n  })\n}\n\n// 初始化请求数据\nconst getInitData = async () => {\n  try {\n    isLoading.value = true\n    if (!coins.value.length) {\n      getUserCoin({})\n    }\n    getWithdrawddresslist({})\n  } catch (error) {\n    console.error(error)\n  } finally {\n    isLoading.value = false\n    initAmountEvent()\n  }\n}\n\nonMounted(() => {\n  getInitData()\n  mitt.emit('number-keyboard-show')\n  mitt.emit('action-sheet-show')\n})\n</script>\n\n<template>\n  <div class=\"withdraw-coins-container\">\n    <div class=\"blue-bg-container\"></div>\n    <div class=\"main-content-container flex flex-col justify-between items-center\">\n      <div class=\"wallet-container flex flex-col justify-center items-center\">\n        <div class=\"available-text\">可用余额</div>\n        <div>\n          <span class=\"money\">{{ (+(coinInfo?.available_coincash ?? '0')).toTruncFixed(2) }}</span>\n          <span class=\"usdt-text\">USDT</span>\n        </div>\n      </div>\n\n      <template v-if=\"!isLoading\">\n        <template v-if=\"withdrawCoinInfo?.coin_address\">\n          <div class=\"protocols-address-container\">\n            <div class=\"item-row item-title-row flex justify-between items-center\">\n              <div class=\"label\">提现信息</div>\n              <div\n                v-if=\"usdtCardList.length > 1\"\n                class=\"value toggle-select-text\"\n                @click=\"showUSDTCardSheet = true\"\n              >\n                选择\n              </div>\n            </div>\n            <div class=\"item-row flex justify-between items-center\">\n              <div class=\"label\">昵称</div>\n              <div class=\"value\">{{ withdrawCoinInfo?.account_bank_realname }}</div>\n            </div>\n            <div class=\"item-row flex justify-between items-center\">\n              <div class=\"label\">协议</div>\n              <div class=\"value\">{{ withdrawCoinInfo?.coin_protocol ?? 'USDT_TRC20' }}</div>\n            </div>\n            <div class=\"item-row flex justify-between items-center\">\n              <div class=\"label\">提现地址</div>\n              <div class=\"value\">{{ withdrawCoinInfo?.coin_address ?? '--' }}</div>\n            </div>\n          </div>\n\n          <div class=\"withdraw-coins-info-container\">\n            <div class=\"withdraw-coins-amount-text\">提币数量</div>\n            <div class=\"input-container flex justify-between items-center\">\n              <!-- 允许输入数字，调起带符号的纯数字键盘 -->\n              <van-field\n                v-model=\"withDrawCoinsAmount\"\n                type=\"number\"\n                placeholder=\"请输入提币数量\"\n                class=\"amount-input\"\n              />\n              <div class=\"coin-unit\">USDT</div>\n              <div\n                class=\"max-amount\"\n                @click=\"onMaxAmount\"\n              >\n                最大\n              </div>\n            </div>\n            <div\n              v-for=\"(item, index) in withDrawCoins\"\n              :key=\"index\"\n              class=\"row-item flex justify-between items-center\"\n            >\n              <div class=\"label\">{{ item.label }}</div>\n              <div class=\"value\">\n                {{ item.value }}\n                <span>USDT</span>\n              </div>\n            </div>\n          </div>\n        </template>\n\n        <div\n          v-else\n          class=\"bind-address-tips\"\n        >\n          请先绑定提币地址\n        </div>\n      </template>\n\n      <div class=\"withdraw-coins-tips\">需要注意提币地址的最低充值金额，否则提现不会到账</div>\n      <div\n        class=\"btn-submit text-center\"\n        @click=\"onSubmit\"\n      >\n        {{ withdrawCoinInfo?.coin_address ? '确定' : '绑定地址' }}\n      </div>\n    </div>\n\n    <van-dialog\n      v-model:show=\"isConfirmDialog\"\n      title=\"身份验证\"\n      theme=\"round-button\"\n      className=\"dialog-auth\"\n    >\n      <i\n        class=\"icon-close close-dark block\"\n        @click=\"onCloseAuthConfirm\"\n      ></i>\n      <div>\n        <van-field\n          v-model=\"pay_pass\"\n          ref=\"payPass\"\n          placeholder=\"请输入支付密码\"\n          type=\"number\"\n          :maxlength=\"6\"\n          clickable\n          @touchstart.stop=\"onFocus\"\n          @focus=\"onFocus\"\n        />\n      </div>\n\n      <template #footer>\n        <div\n          class=\"btn-confirm flex items-center justify-center\"\n          @click=\"onConfirmPayPass\"\n        >\n          提交\n        </div>\n      </template>\n    </van-dialog>\n\n    <!-- USDT选择弹层 -->\n    <van-action-sheet\n      v-model:show=\"showUSDTCardSheet\"\n      description=\"USDT提现地址\"\n      class=\"!w-[750px] usdt-sheet full-w-sheet\"\n      :lazy-render=\"false\"\n    >\n      <div\n        class=\"item-card flex justify-between items-center\"\n        v-for=\"(item, index) in usdtCardList\"\n        @click=\"slectMenu(item)\"\n        :key=\"item.id\"\n      >\n        <van-image\n          lazy-load\n          class=\"usdt-icon\"\n          :src=\"requireImg('common/usdt-icon.png')\"\n        />\n        <div class=\"pt-[5px] ml-[23px] mr-[auto]\">\n          <p class=\"text-[28px] text-[#343434]\">\n            {{ item.coin_protocol }}\n          </p>\n          <p class=\"text-[28px] text-[#979595]\">{{ item.account_bank_realname }}</p>\n        </div>\n        <van-image\n          v-if=\"item.id == withdrawCoinInfo.id\"\n          class=\"toggle-container mr-[15px]\"\n          :src=\"requireImg('common/success.png')\"\n        />\n        <van-image\n          v-else\n          class=\"toggle-container mr-[15px]\"\n          :src=\"requireImg('common/hui.png')\"\n        />\n      </div>\n    </van-action-sheet>\n  </div>\n</template>\n\n<style lang=\"scss\" scoped>\n@import '@/assets/styles/sprite-home.scss';\n\n.withdraw-coins-container {\n  width: 100%;\n  height: 100%;\n  background-color: #ebf1f6;\n  .blue-bg-container {\n    width: 100%;\n    height: 145px;\n    background-color: var(--van-button-primary-background);\n  }\n  .main-content-container {\n    width: 100%;\n    height: calc(100% - 145px);\n    padding: 0 21px 40px 21px;\n  }\n  .wallet-container {\n    width: 100%;\n    height: 278px;\n    margin-top: -132px;\n    border-radius: 14px;\n    background-color: #fff;\n    .available-text {\n      margin-bottom: 20px;\n      font-size: 26px;\n      color: #787f8c;\n    }\n    .money {\n      font-size: 49px;\n      font-weight: bold;\n      color: #13161b;\n    }\n    .usdt-text {\n      margin-left: 17px;\n      font-size: 49px;\n      color: #868d9a;\n    }\n  }\n\n  .protocols-address-container {\n    width: 100%;\n    margin: 21px 0;\n    padding: 0 21px;\n    background-color: #fff;\n    font-size: 25px;\n    border-radius: 14px;\n    .item-row {\n      width: 100%;\n      height: 70px;\n    }\n    .item-title-row {\n      .label {\n        color: #13161b;\n        font-size: 28px;\n      }\n      .toggle-select-text {\n        color: #2aaef2;\n      }\n    }\n    .label {\n      color: #787f8c;\n    }\n    .value {\n      color: #13161b;\n    }\n  }\n\n  .withdraw-coins-info-container {\n    width: 100%;\n    height: auto;\n    background-color: #fff;\n    border-radius: 14px;\n    .withdraw-coins-amount-text {\n      margin: 27px 0 20px 0;\n      padding-left: 20px;\n      font-size: 28px;\n      color: #13161b;\n    }\n    .row-item {\n      padding: 0 21px;\n    }\n    .input-container {\n      margin: 0 21px 20px 21px;\n      padding: 0 18px;\n      background-image: linear-gradient(#ebf1f6, #ebf1f6);\n      font-size: 25px;\n      border-radius: 7px;\n      .amount-input {\n        flex: 1;\n        padding-left: 0;\n        background-color: #ebf1f6;\n      }\n      .coin-unit {\n        margin: 0 28px;\n        color: #868d9a;\n      }\n      .max-amount {\n        color: var(--van-button-primary-background);\n      }\n    }\n    .row-item {\n      width: 100%;\n      height: 70px;\n      font-size: 25px;\n      .label {\n        color: #787f8c;\n      }\n      .value {\n        color: #13161b;\n        span {\n          margin-left: 2px;\n        }\n      }\n    }\n  }\n\n  .bind-address-tips {\n    flex: 1;\n    margin-top: 70px;\n    font-size: 25px;\n    color: #666;\n  }\n\n  .withdraw-coins-tips {\n    margin: auto 0 21px 0;\n    font-size: 25px;\n    color: #ff0000;\n  }\n  .btn-submit {\n    width: 669px;\n    height: 80px;\n    line-height: 80px;\n    font-size: 31px;\n    background-color: var(--van-button-primary-background);\n    color: #fff;\n    border-radius: 7px;\n  }\n\n  :deep(.dialog-auth) {\n    width: 708px;\n    height: auto;\n    padding: 40px;\n    .van-dialog__header {\n      padding: 0;\n      font-size: 29px;\n      color: #13161b;\n    }\n    .van-dialog__content {\n      margin: 33px 0 35px 0;\n      font-size: 25px;\n      color: #787f8c;\n      text-align: justify;\n      .van-field {\n        background-color: #ebf1f6;\n      }\n    }\n    .van-dialog__footer {\n      padding: 0;\n    }\n    .van-dialog__confirm,\n    .btn-confirm {\n      width: 100%;\n      height: 80px;\n      font-size: 31px;\n      background: var(--van-button-primary-background);\n      color: #fff;\n      border: 0;\n      border-radius: 8px;\n    }\n    .icon-close {\n      position: absolute;\n      right: 40px;\n      top: 24px;\n    }\n    img {\n      width: 100%;\n      margin-top: 20px;\n    }\n  }\n\n  :deep(.usdt-sheet) {\n    // padding-bottom: 15px;\n    .van-action-sheet__description {\n      padding: 30px 18px;\n      font-size: 33px;\n      font-weight: bold;\n      color: #343434;\n      &::after {\n        left: 18px;\n        right: 18px;\n        border-color: #d9d8d8;\n      }\n    }\n    .van-action-sheet__content {\n      padding: 0 18px;\n    }\n    .item-card {\n      margin: 0 13px 0 27px;\n      height: 90px;\n      border-bottom: rgba($color: #efeeee, $alpha: 0.5) 1px solid;\n      &:last-child {\n        border-bottom: 0;\n      }\n    }\n    .toggle-container {\n      width: 39px;\n      height: 39px;\n    }\n    .usdt-icon {\n      width: 53px;\n      height: 53px;\n      border-radius: 50%;\n      overflow: hidden;\n    }\n  }\n\n  .van-number-keyboard {\n    .icon-delete-container {\n      width: 100%;\n      height: 100%;\n    }\n  }\n}\n</style>\n",
+      "start": 1714699769257,
+      "end": 1714699769307,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769307,
+      "end": 1714699769307,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769307,
+      "end": 1714699769307,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769307,
+      "end": 1714699769307,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769307,
+      "end": 1714699769307,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/WithdrawCoins.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/WithdrawCoins.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/WithdrawCoins.vue?vue&type=style&index=0&scoped=89dbcde0&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-89dbcde0\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/WithdrawCoins.vue\"]]);\n",
+      "start": 1714699769307,
+      "end": 1714699769537,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769537,
+      "end": 1714699769537,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/WithdrawCoins.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/WithdrawCoins.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/WithdrawCoins.vue?vue&type=style&index=0&scoped=89dbcde0&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-89dbcde0\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/WithdrawCoins.vue\"]]);\n",
+      "start": 1714699769537,
+      "end": 1714699769537,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/WithdrawCoins.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/WithdrawCoins.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/WithdrawCoins.vue?vue&type=style&index=0&scoped=89dbcde0&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-89dbcde0\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/WithdrawCoins.vue\"]]);\n",
+      "start": 1714699769537,
+      "end": 1714699769943,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/WithdrawCoins.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/WithdrawCoins.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/WithdrawCoins.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/WithdrawCoins.vue?vue&type=style&index=0&scoped=89dbcde0&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-89dbcde0\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/WithdrawCoins.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,0EAA0E,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769943,
+      "end": 1714699769943,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769943,
+      "end": 1714699769943,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769943,
+      "end": 1714699769943,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769943,
+      "end": 1714699769943,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769943,
+      "end": 1714699769943,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769943,
+      "end": 1714699769943,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769943,
+      "end": 1714699769943,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769943,
+      "end": 1714699769943,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769943,
+      "end": 1714699769943,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/WithdrawCoins.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/WithdrawCoins.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/WithdrawCoins.vue?vue&type=style&index=0&scoped=89dbcde0&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-89dbcde0\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/WithdrawCoins.vue\"]]);\n",
+      "start": 1714699769943,
+      "end": 1714699769943,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/WithdrawCoins.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/WithdrawCoins.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/WithdrawCoins.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/WithdrawCoins.vue?vue&type=style&index=0&scoped=89dbcde0&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-89dbcde0\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/WithdrawCoins.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769943,
+      "end": 1714699769943,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769943,
+      "end": 1714699769943,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769943,
+      "end": 1714699769943,
+      "order": "normal"
+    }
+  ]
+}

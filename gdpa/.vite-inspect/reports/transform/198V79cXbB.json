@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/CheckIn.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\nimport { userDoTaskApi } from '@/apis/taskActivity'\nimport error from '@/assets/images/common/error.png'\nimport info from '@/assets/images/common/info.png'\nimport success from '@/assets/images/common/success.png'\nimport router from '@/router'\nimport { useAuthStore } from '@/store/modules/auth'\nimport { useTaskActivityStore } from '@/store/modules/taskActivity'\nimport { ISignInRecord } from '@/store/types/taskActivity'\nimport mitt from '@/utils/mitt'\nimport { InWEB } from '@/utils/tools'\nimport dayjs from 'dayjs'\nimport { storeToRefs } from 'pinia'\nimport { showToast } from 'vant'\nimport { computed, onMounted, ref, watchEffect } from 'vue'\n\nconst taskActivityStore = useTaskActivityStore()\nconst point = ref(0)\nconst { signInData } = storeToRefs(taskActivityStore)\nconst authStore = useAuthStore()\nconst { token } = storeToRefs(authStore)\nconst { verified_status } = authStore.userInfo ?? {}\nconst cardList = ref<ISignInRecord[]>([])\nconst btnCheckInName = ref(signInData.value.todayisok ? '今日已签到' : '点击签到')\n\nconst onCheckIn = async () => {\n  if (signInData.value.todayisok) {\n    return showToast({\n      message: '今日已签到',\n      icon: info,\n      iconSize: '48px',\n      teleport: '.check-in-container'\n    })\n  }\n  const isLogin = computed(() => !!token.value)\n\n  if (InWEB()) {\n    if (!isLogin.value) {\n      return router.push('/auth/login')\n    }\n  }\n  if (!verified_status) {\n    return showToast({\n      message: '用户还未实名认证',\n      icon: error,\n      teleport: '.check-in-container'\n    })\n  }\n\n  try {\n    const res = await userDoTaskApi({\n      idd: signInData.value.task_idd\n    })\n\n    window.log('签到状态', res)\n\n    // 签到成功后更新状态\n    if (res.money) {\n      // 更新顶部积分数值\n      mitt.emit('updateCoins', true)\n      mitt.emit('updateTodayActivity', true)\n\n      getSignInData(true)\n\n      showToast({\n        message: `签到成功，+${res.money}积分`,\n        icon: success,\n        teleport: '.check-in-container'\n      })\n      btnCheckInName.value = '今日已签到'\n    }\n  } catch (error) {\n    console.error(error)\n  }\n}\n\nconst getSignInData = async (isReq: boolean = false) => {\n  window.log('每日签到积分列表', signInData.value)\n\n  // 签到缓存数据是否异常，若异常则需重新请求接口数据\n  const listError = signInData.value.list?.[3]?.date !== dayjs().format('YYYY-MM-DD')\n  if (signInData.value.list && !listError && !isReq) return\n\n  await taskActivityStore.getSignInListApi()\n\n  window.log('每日签到积分列表2', signInData.value)\n}\n\nconst cardClassName = (item: ISignInRecord) => {\n  let className\n  const isSame = dayjs().isSame(dayjs(item.date), 'day')\n  const isAfter = dayjs().isAfter(dayjs(item.date), 'day')\n\n  if (isSame) {\n    className = item.hisokflag ? 'item-checked-in' : 'item-today'\n  } else if (isAfter) {\n    className = item.hisokflag ? 'item-checked-in' : 'item-expires'\n  } else {\n    className = 'item-point'\n  }\n  return className\n}\n\nwatchEffect(() => {\n  const list = signInData.value.list\n  cardList.value = list\n})\n\nonMounted(() => {\n  getSignInData()\n})\n</script>\n\n<template>\n  <div class=\"check-in-container flex flex-col items-start justify-start\">\n    <div class=\"tips\">\n      已连续签到\n      <span class=\"consequent-days\">{{ signInData.out_num?.day }}</span>\n      天，明天签到\n      <span class=\"tomorrow-get-point\">+{{ signInData.out_num?.money }}</span>\n      积分\n    </div>\n    <div class=\"card-container flex items-center justify-start\">\n      <div\n        v-for=\"item in cardList\"\n        :key=\"item.date\"\n        class=\"flex flex-col items-center justify-start\"\n      >\n        <div\n          class=\"item-card\"\n          :class=\"cardClassName(item)\"\n        >\n          <i\n            v-if=\"cardClassName(item) === 'item-checked-in'\"\n            class=\"checked-in\"\n          ></i>\n          <i\n            v-else-if=\"cardClassName(item) === 'item-expires'\"\n            class=\"point-expires\"\n          ></i>\n          <div v-else>+{{ item.money }}</div>\n        </div>\n        <div class=\"item-date\">{{ item.datetxt }}</div>\n      </div>\n    </div>\n    <van-button\n      type=\"primary\"\n      :class=\"`btn-check-in${signInData.todayisok ? ' checked' : ''}`\"\n      @click=\"onCheckIn\"\n    >\n      {{ btnCheckInName }}\n    </van-button>\n  </div>\n</template>\n\n<style lang=\"scss\" score>\n@import '@/assets/styles/sprite-home.scss';\n\n.check-in-container {\n  width: 708px;\n  margin-top: 8px;\n  padding: 16px 22px 17px 22px;\n  background-color: #fff;\n  border-radius: 14px;\n  .tips {\n    font-size: 19px;\n    color: #13161b;\n  }\n  .consequent-days,\n  .tomorrow-get-point {\n    color: #ff6d7f;\n    margin: 0 5px;\n  }\n  .card-container {\n    gap: 30px;\n    margin: 15px 0 18px 0;\n  }\n  .item-card {\n    width: 69px;\n    height: 83px;\n    line-height: 83px;\n    font-size: 25px;\n    color: #e4a41f;\n    border-radius: 7px;\n    text-align: center;\n  }\n  .item-checked-in {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    background-color: #aefe8b;\n    & + .item-date {\n      color: #787f8c;\n    }\n    img {\n      width: 30px;\n      height: 20px;\n    }\n  }\n  .item-today {\n    background-color: #fcf3b2;\n    border: solid 3px #e9a415;\n    & + .item-date {\n      color: #787f8c;\n    }\n  }\n  .item-point {\n    background-color: #fdf2db;\n    & + .item-date {\n      color: #abb1bb;\n    }\n  }\n  .item-expires {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    background-color: #c5c5c5;\n    & + .item-date {\n      color: #787f8c;\n    }\n    img {\n      width: 22px;\n      height: 21px;\n    }\n  }\n  .item-date {\n    margin-top: 4px;\n    font-size: 19px;\n  }\n  .btn-check-in {\n    width: 222px;\n    height: 56px;\n    font-size: 25px;\n    background-color: #ff4565;\n    border-radius: 7px;\n    align-self: center;\n    border: 0;\n    &.checked {\n      background-color: #828282;\n    }\n  }\n\n  .van-toast {\n    width: 270px;\n    height: 270px;\n    padding: 40px;\n    font-size: 33px;\n    .van-toast__icon {\n      font-size: 110px;\n    }\n    .van-toast__text {\n      margin-top: 15px;\n      line-height: 1.5;\n    }\n  }\n}\n</style>\n",
+      "start": 1714699770786,
+      "end": 1714699770797,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699770797,
+      "end": 1714699770797,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699770797,
+      "end": 1714699770797,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699770797,
+      "end": 1714699770797,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699770797,
+      "end": 1714699770797,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/CheckIn.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/CheckIn.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/CheckIn.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/CheckIn.vue\"]]);\n",
+      "start": 1714699770797,
+      "end": 1714699771793,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771793,
+      "end": 1714699771793,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/CheckIn.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/CheckIn.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/CheckIn.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/CheckIn.vue\"]]);\n",
+      "start": 1714699771793,
+      "end": 1714699771793,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/CheckIn.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/CheckIn.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/CheckIn.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/CheckIn.vue\"]]);\n",
+      "start": 1714699771793,
+      "end": 1714699771898,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/CheckIn.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/CheckIn.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/CheckIn.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/CheckIn.vue?vue&type=style&index=0&score=true&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/CheckIn.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,UAAU,wEAAwE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/CheckIn.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/CheckIn.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/CheckIn.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/CheckIn.vue\"]]);\n",
+      "start": 1714699771899,
+      "end": 1714699771899,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/CheckIn.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/CheckIn.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/CheckIn.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/CheckIn.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/CheckIn.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771899,
+      "end": 1714699771899,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771899,
+      "end": 1714699771899,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771899,
+      "end": 1714699771899,
+      "order": "normal"
+    }
+  ]
+}

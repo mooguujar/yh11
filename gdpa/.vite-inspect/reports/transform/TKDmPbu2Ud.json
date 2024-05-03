@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/helperGetHGSKeys.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "function helperGetHGSKeys (property) {\r\n  // 以最快的方式判断数组，可忽略准确性\r\n  return property ? (property.splice && property.join ? property : ('' + property).replace(/(\\[\\d+\\])\\.?/g,'$1.').replace(/\\.$/, '').split('.')) : []\r\n}\r\n\r\nmodule.exports = helperGetHGSKeys\r\n",
+      "start": 1714699768040,
+      "end": 1714699768098,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768098,
+      "end": 1714699768098,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768098,
+      "end": 1714699768098,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768098,
+      "end": 1714699768098,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768098,
+      "end": 1714699768098,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768098,
+      "end": 1714699768098,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768098,
+      "end": 1714699768098,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "function helperGetHGSKeys (property) {\r\n  // 以最快的方式判断数组，可忽略准确性\r\n  return property ? (property.splice && property.join ? property : ('' + property).replace(/(\\[\\d+\\])\\.?/g,'$1.').replace(/\\.$/, '').split('.')) : []\r\n}\r\n\r\nmodule.exports = helperGetHGSKeys\r\n",
+      "start": 1714699768098,
+      "end": 1714699768098,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768098,
+      "end": 1714699768098,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768098,
+      "end": 1714699768098,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768098,
+      "end": 1714699768098,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768098,
+      "end": 1714699768098,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768098,
+      "end": 1714699768098,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768098,
+      "end": 1714699768098,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\n\nfunction helperGetHGSKeys (property) {\r\n  // 以最快的方式判断数组，可忽略准确性\r\n  return property ? (property.splice && property.join ? property : ('' + property).replace(/(\\[\\d+\\])\\.?/g,'$1.').replace(/\\.$/, '').split('.')) : []\r\n}\r\n\r\nvar helperGetHGSKeys_1 = helperGetHGSKeys\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(helperGetHGSKeys_1);\nexport { helperGetHGSKeys_1 as __moduleExports };",
+      "start": 1714699768098,
+      "end": 1714699768098,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;AAAA,SAAS,gBAAgB,EAAE,QAAQ,EAAE;AACrC;AACA,EAAE,OAAO,QAAQ,IAAI,QAAQ,CAAC,MAAM,IAAI,QAAQ,CAAC,IAAI,GAAG,QAAQ,GAAG,CAAC,EAAE,GAAG,QAAQ,EAAE,OAAO,CAAC,eAAe,CAAC,KAAK,CAAC,CAAC,OAAO,CAAC,KAAK,EAAE,EAAE,CAAC,CAAC,KAAK,CAAC,GAAG,CAAC,IAAI,EAAE;AACrJ,CAAC;AACD;IACA,kBAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768098,
+      "end": 1714699768098,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768098,
+      "end": 1714699768098,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768098,
+      "end": 1714699768098,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768098,
+      "end": 1714699768098,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768098,
+      "end": 1714699768098,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768098,
+      "end": 1714699768098,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768098,
+      "end": 1714699768098,
+      "order": "normal"
+    }
+  ]
+}

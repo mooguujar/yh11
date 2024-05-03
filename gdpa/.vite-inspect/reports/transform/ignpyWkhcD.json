@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/html5-qrcode@2.3.8/node_modules/html5-qrcode/esm/zxing-html5-qrcode-decoder.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import * as ZXing from \"../third_party/zxing-js.umd\";\nimport { QrcodeResultFormat, Html5QrcodeSupportedFormats } from \"./core\";\nvar ZXingHtml5QrcodeDecoder = (function () {\n    function ZXingHtml5QrcodeDecoder(requestedFormats, verbose, logger) {\n        this.formatMap = new Map([\n            [Html5QrcodeSupportedFormats.QR_CODE, ZXing.BarcodeFormat.QR_CODE],\n            [Html5QrcodeSupportedFormats.AZTEC, ZXing.BarcodeFormat.AZTEC],\n            [Html5QrcodeSupportedFormats.CODABAR, ZXing.BarcodeFormat.CODABAR],\n            [Html5QrcodeSupportedFormats.CODE_39, ZXing.BarcodeFormat.CODE_39],\n            [Html5QrcodeSupportedFormats.CODE_93, ZXing.BarcodeFormat.CODE_93],\n            [\n                Html5QrcodeSupportedFormats.CODE_128,\n                ZXing.BarcodeFormat.CODE_128\n            ],\n            [\n                Html5QrcodeSupportedFormats.DATA_MATRIX,\n                ZXing.BarcodeFormat.DATA_MATRIX\n            ],\n            [\n                Html5QrcodeSupportedFormats.MAXICODE,\n                ZXing.BarcodeFormat.MAXICODE\n            ],\n            [Html5QrcodeSupportedFormats.ITF, ZXing.BarcodeFormat.ITF],\n            [Html5QrcodeSupportedFormats.EAN_13, ZXing.BarcodeFormat.EAN_13],\n            [Html5QrcodeSupportedFormats.EAN_8, ZXing.BarcodeFormat.EAN_8],\n            [Html5QrcodeSupportedFormats.PDF_417, ZXing.BarcodeFormat.PDF_417],\n            [Html5QrcodeSupportedFormats.RSS_14, ZXing.BarcodeFormat.RSS_14],\n            [\n                Html5QrcodeSupportedFormats.RSS_EXPANDED,\n                ZXing.BarcodeFormat.RSS_EXPANDED\n            ],\n            [Html5QrcodeSupportedFormats.UPC_A, ZXing.BarcodeFormat.UPC_A],\n            [Html5QrcodeSupportedFormats.UPC_E, ZXing.BarcodeFormat.UPC_E],\n            [\n                Html5QrcodeSupportedFormats.UPC_EAN_EXTENSION,\n                ZXing.BarcodeFormat.UPC_EAN_EXTENSION\n            ]\n        ]);\n        this.reverseFormatMap = this.createReverseFormatMap();\n        if (!ZXing) {\n            throw \"Use html5qrcode.min.js without edit, ZXing not found.\";\n        }\n        this.verbose = verbose;\n        this.logger = logger;\n        var formats = this.createZXingFormats(requestedFormats);\n        var hints = new Map();\n        hints.set(ZXing.DecodeHintType.POSSIBLE_FORMATS, formats);\n        hints.set(ZXing.DecodeHintType.TRY_HARDER, false);\n        this.hints = hints;\n    }\n    ZXingHtml5QrcodeDecoder.prototype.decodeAsync = function (canvas) {\n        var _this = this;\n        return new Promise(function (resolve, reject) {\n            try {\n                resolve(_this.decode(canvas));\n            }\n            catch (error) {\n                reject(error);\n            }\n        });\n    };\n    ZXingHtml5QrcodeDecoder.prototype.decode = function (canvas) {\n        var zxingDecoder = new ZXing.MultiFormatReader(this.verbose, this.hints);\n        var luminanceSource = new ZXing.HTMLCanvasElementLuminanceSource(canvas);\n        var binaryBitmap = new ZXing.BinaryBitmap(new ZXing.HybridBinarizer(luminanceSource));\n        var result = zxingDecoder.decode(binaryBitmap);\n        return {\n            text: result.text,\n            format: QrcodeResultFormat.create(this.toHtml5QrcodeSupportedFormats(result.format)),\n            debugData: this.createDebugData()\n        };\n    };\n    ZXingHtml5QrcodeDecoder.prototype.createReverseFormatMap = function () {\n        var result = new Map();\n        this.formatMap.forEach(function (value, key, _) {\n            result.set(value, key);\n        });\n        return result;\n    };\n    ZXingHtml5QrcodeDecoder.prototype.toHtml5QrcodeSupportedFormats = function (zxingFormat) {\n        if (!this.reverseFormatMap.has(zxingFormat)) {\n            throw \"reverseFormatMap doesn't have \".concat(zxingFormat);\n        }\n        return this.reverseFormatMap.get(zxingFormat);\n    };\n    ZXingHtml5QrcodeDecoder.prototype.createZXingFormats = function (requestedFormats) {\n        var zxingFormats = [];\n        for (var _i = 0, requestedFormats_1 = requestedFormats; _i < requestedFormats_1.length; _i++) {\n            var requestedFormat = requestedFormats_1[_i];\n            if (this.formatMap.has(requestedFormat)) {\n                zxingFormats.push(this.formatMap.get(requestedFormat));\n            }\n            else {\n                this.logger.logError(\"\".concat(requestedFormat, \" is not supported by\")\n                    + \"ZXingHtml5QrcodeShim\");\n            }\n        }\n        return zxingFormats;\n    };\n    ZXingHtml5QrcodeDecoder.prototype.createDebugData = function () {\n        return { decoderName: \"zxing-js\" };\n    };\n    return ZXingHtml5QrcodeDecoder;\n}());\nexport { ZXingHtml5QrcodeDecoder };\n//# sourceMappingURL=zxing-html5-qrcode-decoder.js.map",
+      "start": 1714699771258,
+      "end": 1714699771276,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771276,
+      "end": 1714699771276,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771276,
+      "end": 1714699771276,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771276,
+      "end": 1714699771276,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771276,
+      "end": 1714699771276,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771276,
+      "end": 1714699771276,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771276,
+      "end": 1714699771276,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import * as ZXing from \"../third_party/zxing-js.umd\";\nimport { QrcodeResultFormat, Html5QrcodeSupportedFormats } from \"./core\";\nvar ZXingHtml5QrcodeDecoder = (function () {\n    function ZXingHtml5QrcodeDecoder(requestedFormats, verbose, logger) {\n        this.formatMap = new Map([\n            [Html5QrcodeSupportedFormats.QR_CODE, ZXing.BarcodeFormat.QR_CODE],\n            [Html5QrcodeSupportedFormats.AZTEC, ZXing.BarcodeFormat.AZTEC],\n            [Html5QrcodeSupportedFormats.CODABAR, ZXing.BarcodeFormat.CODABAR],\n            [Html5QrcodeSupportedFormats.CODE_39, ZXing.BarcodeFormat.CODE_39],\n            [Html5QrcodeSupportedFormats.CODE_93, ZXing.BarcodeFormat.CODE_93],\n            [\n                Html5QrcodeSupportedFormats.CODE_128,\n                ZXing.BarcodeFormat.CODE_128\n            ],\n            [\n                Html5QrcodeSupportedFormats.DATA_MATRIX,\n                ZXing.BarcodeFormat.DATA_MATRIX\n            ],\n            [\n                Html5QrcodeSupportedFormats.MAXICODE,\n                ZXing.BarcodeFormat.MAXICODE\n            ],\n            [Html5QrcodeSupportedFormats.ITF, ZXing.BarcodeFormat.ITF],\n            [Html5QrcodeSupportedFormats.EAN_13, ZXing.BarcodeFormat.EAN_13],\n            [Html5QrcodeSupportedFormats.EAN_8, ZXing.BarcodeFormat.EAN_8],\n            [Html5QrcodeSupportedFormats.PDF_417, ZXing.BarcodeFormat.PDF_417],\n            [Html5QrcodeSupportedFormats.RSS_14, ZXing.BarcodeFormat.RSS_14],\n            [\n                Html5QrcodeSupportedFormats.RSS_EXPANDED,\n                ZXing.BarcodeFormat.RSS_EXPANDED\n            ],\n            [Html5QrcodeSupportedFormats.UPC_A, ZXing.BarcodeFormat.UPC_A],\n            [Html5QrcodeSupportedFormats.UPC_E, ZXing.BarcodeFormat.UPC_E],\n            [\n                Html5QrcodeSupportedFormats.UPC_EAN_EXTENSION,\n                ZXing.BarcodeFormat.UPC_EAN_EXTENSION\n            ]\n        ]);\n        this.reverseFormatMap = this.createReverseFormatMap();\n        if (!ZXing) {\n            throw \"Use html5qrcode.min.js without edit, ZXing not found.\";\n        }\n        this.verbose = verbose;\n        this.logger = logger;\n        var formats = this.createZXingFormats(requestedFormats);\n        var hints = new Map();\n        hints.set(ZXing.DecodeHintType.POSSIBLE_FORMATS, formats);\n        hints.set(ZXing.DecodeHintType.TRY_HARDER, false);\n        this.hints = hints;\n    }\n    ZXingHtml5QrcodeDecoder.prototype.decodeAsync = function (canvas) {\n        var _this = this;\n        return new Promise(function (resolve, reject) {\n            try {\n                resolve(_this.decode(canvas));\n            }\n            catch (error) {\n                reject(error);\n            }\n        });\n    };\n    ZXingHtml5QrcodeDecoder.prototype.decode = function (canvas) {\n        var zxingDecoder = new ZXing.MultiFormatReader(this.verbose, this.hints);\n        var luminanceSource = new ZXing.HTMLCanvasElementLuminanceSource(canvas);\n        var binaryBitmap = new ZXing.BinaryBitmap(new ZXing.HybridBinarizer(luminanceSource));\n        var result = zxingDecoder.decode(binaryBitmap);\n        return {\n            text: result.text,\n            format: QrcodeResultFormat.create(this.toHtml5QrcodeSupportedFormats(result.format)),\n            debugData: this.createDebugData()\n        };\n    };\n    ZXingHtml5QrcodeDecoder.prototype.createReverseFormatMap = function () {\n        var result = new Map();\n        this.formatMap.forEach(function (value, key, _) {\n            result.set(value, key);\n        });\n        return result;\n    };\n    ZXingHtml5QrcodeDecoder.prototype.toHtml5QrcodeSupportedFormats = function (zxingFormat) {\n        if (!this.reverseFormatMap.has(zxingFormat)) {\n            throw \"reverseFormatMap doesn't have \".concat(zxingFormat);\n        }\n        return this.reverseFormatMap.get(zxingFormat);\n    };\n    ZXingHtml5QrcodeDecoder.prototype.createZXingFormats = function (requestedFormats) {\n        var zxingFormats = [];\n        for (var _i = 0, requestedFormats_1 = requestedFormats; _i < requestedFormats_1.length; _i++) {\n            var requestedFormat = requestedFormats_1[_i];\n            if (this.formatMap.has(requestedFormat)) {\n                zxingFormats.push(this.formatMap.get(requestedFormat));\n            }\n            else {\n                this.logger.logError(\"\".concat(requestedFormat, \" is not supported by\")\n                    + \"ZXingHtml5QrcodeShim\");\n            }\n        }\n        return zxingFormats;\n    };\n    ZXingHtml5QrcodeDecoder.prototype.createDebugData = function () {\n        return { decoderName: \"zxing-js\" };\n    };\n    return ZXingHtml5QrcodeDecoder;\n}());\nexport { ZXingHtml5QrcodeDecoder };\n//# sourceMappingURL=zxing-html5-qrcode-decoder.js.map",
+      "start": 1714699771276,
+      "end": 1714699771276,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699771276,
+      "end": 1714699771276,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771276,
+      "end": 1714699771276,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771276,
+      "end": 1714699771276,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771276,
+      "end": 1714699771276,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771276,
+      "end": 1714699771276,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771276,
+      "end": 1714699771276,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699771276,
+      "end": 1714699771276,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771276,
+      "end": 1714699771276,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771276,
+      "end": 1714699771277,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771277,
+      "end": 1714699771277,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699771277,
+      "end": 1714699771277,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771277,
+      "end": 1714699771277,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771277,
+      "end": 1714699771277,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771277,
+      "end": 1714699771277,
+      "order": "normal"
+    }
+  ]
+}

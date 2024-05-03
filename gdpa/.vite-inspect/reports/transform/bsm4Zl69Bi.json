@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/trim.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var trimRight = require('./trimRight')\r\nvar trimLeft = require('./trimLeft')\r\n\r\n/**\r\n  * 去除字符串左右两边的空格\r\n  *\r\n  * @param {String} str 字符串\r\n  * @return {String}\r\n  */\r\nfunction trim (str) {\r\n  return str && str.trim ? str.trim() : trimRight(trimLeft(str))\r\n}\r\n\r\nmodule.exports = trim\r\n",
+      "start": 1714699767706,
+      "end": 1714699767718,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767718,
+      "end": 1714699767718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767718,
+      "end": 1714699767718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767718,
+      "end": 1714699767718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767718,
+      "end": 1714699767718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767718,
+      "end": 1714699767718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767718,
+      "end": 1714699767718,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var trimRight = require('./trimRight')\r\nvar trimLeft = require('./trimLeft')\r\n\r\n/**\r\n  * 去除字符串左右两边的空格\r\n  *\r\n  * @param {String} str 字符串\r\n  * @return {String}\r\n  */\r\nfunction trim (str) {\r\n  return str && str.trim ? str.trim() : trimRight(trimLeft(str))\r\n}\r\n\r\nmodule.exports = trim\r\n",
+      "start": 1714699767718,
+      "end": 1714699767718,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767718,
+      "end": 1714699767718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767718,
+      "end": 1714699767718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767718,
+      "end": 1714699767718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767718,
+      "end": 1714699767718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767718,
+      "end": 1714699767718,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767718,
+      "end": 1714699767718,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/trimRight.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/trimLeft.js?commonjs-proxy\";\n\nvar trimRight = require$$0\r\nvar trimLeft = require$$1\r\n\r\n/**\r\n  * 去除字符串左右两边的空格\r\n  *\r\n  * @param {String} str 字符串\r\n  * @return {String}\r\n  */\r\nfunction trim (str) {\r\n  return str && str.trim ? str.trim() : trimRight(trimLeft(str))\r\n}\r\n\r\nvar trim_1 = trim\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(trim_1);\nexport { trim_1 as __moduleExports };",
+      "start": 1714699767718,
+      "end": 1714699768218,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;AAAA,IAAI,SAAS,GAAG,UAAsB;AACtC,IAAI,QAAQ,GAAG,UAAqB;AACpC;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,IAAI,EAAE,GAAG,EAAE;AACpB,EAAE,OAAO,GAAG,IAAI,GAAG,CAAC,IAAI,GAAG,GAAG,CAAC,IAAI,EAAE,GAAG,SAAS,CAAC,QAAQ,CAAC,GAAG,CAAC,CAAC;AAChE,CAAC;AACD;IACA,MAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768218,
+      "end": 1714699768218,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768218,
+      "end": 1714699768218,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768218,
+      "end": 1714699768218,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768218,
+      "end": 1714699768218,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768218,
+      "end": 1714699768218,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768218,
+      "end": 1714699768218,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768218,
+      "end": 1714699768218,
+      "order": "normal"
+    }
+  ]
+}

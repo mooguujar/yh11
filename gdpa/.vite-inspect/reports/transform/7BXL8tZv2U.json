@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/getDateDiff.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var helperGetDateTime = require('./helperGetDateTime')\r\nvar helperNewDate = require('./helperNewDate')\r\n\r\nvar toStringDate = require('./toStringDate')\r\n\r\nvar isValidDate = require('./isValidDate')\r\n\r\nvar dateDiffRules = [\r\n  ['yyyy', 31536000000],\r\n  ['MM', 2592000000],\r\n  ['dd', 86400000],\r\n  ['HH', 3600000],\r\n  ['mm', 60000],\r\n  ['ss', 1000],\r\n  ['S', 0]\r\n]\r\n\r\n/**\r\n  * 返回两个日期之间差距,如果结束日期小于开始日期done为fasle\r\n  *\r\n  * @param {Date} startDate 开始日期\r\n  * @param {Date} endDate 结束日期或当期日期\r\n  * @return {Object}\r\n  */\r\nfunction getDateDiff (startDate, endDate) {\r\n  var startTime, endTime, item, diffTime, len, index\r\n  var result = { done: false, time: 0 }\r\n  startDate = toStringDate(startDate)\r\n  endDate = endDate ? toStringDate(endDate) : helperNewDate()\r\n  if (isValidDate(startDate) && isValidDate(endDate)) {\r\n    startTime = helperGetDateTime(startDate)\r\n    endTime = helperGetDateTime(endDate)\r\n    if (startTime < endTime) {\r\n      diffTime = result.time = endTime - startTime\r\n      result.done = true\r\n      for (index = 0, len = dateDiffRules.length; index < len; index++) {\r\n        item = dateDiffRules[index]\r\n        if (diffTime >= item[1]) {\r\n          if (index === len - 1) {\r\n            result[item[0]] = diffTime || 0\r\n          } else {\r\n            result[item[0]] = Math.floor(diffTime / item[1])\r\n            diffTime -= result[item[0]] * item[1]\r\n          }\r\n        } else {\r\n          result[item[0]] = 0\r\n        }\r\n      }\r\n    }\r\n  }\r\n  return result\r\n}\r\n\r\nmodule.exports = getDateDiff\r\n",
+      "start": 1714699767704,
+      "end": 1714699767716,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767716,
+      "end": 1714699767716,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767716,
+      "end": 1714699767716,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767716,
+      "end": 1714699767716,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767716,
+      "end": 1714699767716,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767716,
+      "end": 1714699767716,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767716,
+      "end": 1714699767716,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var helperGetDateTime = require('./helperGetDateTime')\r\nvar helperNewDate = require('./helperNewDate')\r\n\r\nvar toStringDate = require('./toStringDate')\r\n\r\nvar isValidDate = require('./isValidDate')\r\n\r\nvar dateDiffRules = [\r\n  ['yyyy', 31536000000],\r\n  ['MM', 2592000000],\r\n  ['dd', 86400000],\r\n  ['HH', 3600000],\r\n  ['mm', 60000],\r\n  ['ss', 1000],\r\n  ['S', 0]\r\n]\r\n\r\n/**\r\n  * 返回两个日期之间差距,如果结束日期小于开始日期done为fasle\r\n  *\r\n  * @param {Date} startDate 开始日期\r\n  * @param {Date} endDate 结束日期或当期日期\r\n  * @return {Object}\r\n  */\r\nfunction getDateDiff (startDate, endDate) {\r\n  var startTime, endTime, item, diffTime, len, index\r\n  var result = { done: false, time: 0 }\r\n  startDate = toStringDate(startDate)\r\n  endDate = endDate ? toStringDate(endDate) : helperNewDate()\r\n  if (isValidDate(startDate) && isValidDate(endDate)) {\r\n    startTime = helperGetDateTime(startDate)\r\n    endTime = helperGetDateTime(endDate)\r\n    if (startTime < endTime) {\r\n      diffTime = result.time = endTime - startTime\r\n      result.done = true\r\n      for (index = 0, len = dateDiffRules.length; index < len; index++) {\r\n        item = dateDiffRules[index]\r\n        if (diffTime >= item[1]) {\r\n          if (index === len - 1) {\r\n            result[item[0]] = diffTime || 0\r\n          } else {\r\n            result[item[0]] = Math.floor(diffTime / item[1])\r\n            diffTime -= result[item[0]] * item[1]\r\n          }\r\n        } else {\r\n          result[item[0]] = 0\r\n        }\r\n      }\r\n    }\r\n  }\r\n  return result\r\n}\r\n\r\nmodule.exports = getDateDiff\r\n",
+      "start": 1714699767716,
+      "end": 1714699767716,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767716,
+      "end": 1714699767716,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767716,
+      "end": 1714699767716,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767716,
+      "end": 1714699767716,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767716,
+      "end": 1714699767716,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767716,
+      "end": 1714699767716,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767716,
+      "end": 1714699767716,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/helperGetDateTime.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/helperNewDate.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/toStringDate.js?commonjs-proxy\";\nimport require$$3 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isValidDate.js?commonjs-proxy\";\n\nvar helperGetDateTime = require$$0\r\nvar helperNewDate = require$$1\r\n\r\nvar toStringDate = require$$2\r\n\r\nvar isValidDate = require$$3\r\n\r\nvar dateDiffRules = [\r\n  ['yyyy', 31536000000],\r\n  ['MM', 2592000000],\r\n  ['dd', 86400000],\r\n  ['HH', 3600000],\r\n  ['mm', 60000],\r\n  ['ss', 1000],\r\n  ['S', 0]\r\n]\r\n\r\n/**\r\n  * 返回两个日期之间差距,如果结束日期小于开始日期done为fasle\r\n  *\r\n  * @param {Date} startDate 开始日期\r\n  * @param {Date} endDate 结束日期或当期日期\r\n  * @return {Object}\r\n  */\r\nfunction getDateDiff (startDate, endDate) {\r\n  var startTime, endTime, item, diffTime, len, index\r\n  var result = { done: false, time: 0 }\r\n  startDate = toStringDate(startDate)\r\n  endDate = endDate ? toStringDate(endDate) : helperNewDate()\r\n  if (isValidDate(startDate) && isValidDate(endDate)) {\r\n    startTime = helperGetDateTime(startDate)\r\n    endTime = helperGetDateTime(endDate)\r\n    if (startTime < endTime) {\r\n      diffTime = result.time = endTime - startTime\r\n      result.done = true\r\n      for (index = 0, len = dateDiffRules.length; index < len; index++) {\r\n        item = dateDiffRules[index]\r\n        if (diffTime >= item[1]) {\r\n          if (index === len - 1) {\r\n            result[item[0]] = diffTime || 0\r\n          } else {\r\n            result[item[0]] = Math.floor(diffTime / item[1])\r\n            diffTime -= result[item[0]] * item[1]\r\n          }\r\n        } else {\r\n          result[item[0]] = 0\r\n        }\r\n      }\r\n    }\r\n  }\r\n  return result\r\n}\r\n\r\nvar getDateDiff_1 = getDateDiff\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(getDateDiff_1);\nexport { getDateDiff_1 as __moduleExports };",
+      "start": 1714699767716,
+      "end": 1714699768236,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;;AAAA,IAAI,iBAAiB,GAAG,UAA8B;AACtD,IAAI,aAAa,GAAG,UAA0B;AAC9C;AACA,IAAI,YAAY,GAAG,UAAyB;AAC5C;AACA,IAAI,WAAW,GAAG,UAAwB;AAC1C;AACA,IAAI,aAAa,GAAG;AACpB,EAAE,CAAC,MAAM,EAAE,WAAW,CAAC;AACvB,EAAE,CAAC,IAAI,EAAE,UAAU,CAAC;AACpB,EAAE,CAAC,IAAI,EAAE,QAAQ,CAAC;AAClB,EAAE,CAAC,IAAI,EAAE,OAAO,CAAC;AACjB,EAAE,CAAC,IAAI,EAAE,KAAK,CAAC;AACf,EAAE,CAAC,IAAI,EAAE,IAAI,CAAC;AACd,EAAE,CAAC,GAAG,EAAE,CAAC,CAAC;AACV,CAAC;AACD;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,WAAW,EAAE,SAAS,EAAE,OAAO,EAAE;AAC1C,EAAE,IAAI,SAAS,EAAE,OAAO,EAAE,IAAI,EAAE,QAAQ,EAAE,GAAG,EAAE,KAAK;AACpD,EAAE,IAAI,MAAM,GAAG,EAAE,IAAI,EAAE,KAAK,EAAE,IAAI,EAAE,CAAC,EAAE;AACvC,EAAE,SAAS,GAAG,YAAY,CAAC,SAAS,CAAC;AACrC,EAAE,OAAO,GAAG,OAAO,GAAG,YAAY,CAAC,OAAO,CAAC,GAAG,aAAa,EAAE;AAC7D,EAAE,IAAI,WAAW,CAAC,SAAS,CAAC,IAAI,WAAW,CAAC,OAAO,CAAC,EAAE;AACtD,IAAI,SAAS,GAAG,iBAAiB,CAAC,SAAS,CAAC;AAC5C,IAAI,OAAO,GAAG,iBAAiB,CAAC,OAAO,CAAC;AACxC,IAAI,IAAI,SAAS,GAAG,OAAO,EAAE;AAC7B,MAAM,QAAQ,GAAG,MAAM,CAAC,IAAI,GAAG,OAAO,GAAG,SAAS;AAClD,MAAM,MAAM,CAAC,IAAI,GAAG,IAAI;AACxB,MAAM,KAAK,KAAK,GAAG,CAAC,EAAE,GAAG,GAAG,aAAa,CAAC,MAAM,EAAE,KAAK,GAAG,GAAG,EAAE,KAAK,EAAE,EAAE;AACxE,QAAQ,IAAI,GAAG,aAAa,CAAC,KAAK,CAAC;AACnC,QAAQ,IAAI,QAAQ,IAAI,IAAI,CAAC,CAAC,CAAC,EAAE;AACjC,UAAU,IAAI,KAAK,KAAK,GAAG,GAAG,CAAC,EAAE;AACjC,YAAY,MAAM,CAAC,IAAI,CAAC,CAAC,CAAC,CAAC,GAAG,QAAQ,IAAI,CAAC;AAC3C,WAAW,MAAM;AACjB,YAAY,MAAM,CAAC,IAAI,CAAC,CAAC,CAAC,CAAC,GAAG,IAAI,CAAC,KAAK,CAAC,QAAQ,GAAG,IAAI,CAAC,CAAC,CAAC,CAAC;AAC5D,YAAY,QAAQ,IAAI,MAAM,CAAC,IAAI,CAAC,CAAC,CAAC,CAAC,GAAG,IAAI,CAAC,CAAC,CAAC;AACjD,WAAW;AACX,SAAS,MAAM;AACf,UAAU,MAAM,CAAC,IAAI,CAAC,CAAC,CAAC,CAAC,GAAG,CAAC;AAC7B,SAAS;AACT,OAAO;AACP,KAAK;AACL,GAAG;AACH,EAAE,OAAO,MAAM;AACf,CAAC;AACD;IACA,aAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768236,
+      "end": 1714699768236,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768236,
+      "end": 1714699768236,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768236,
+      "end": 1714699768236,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768236,
+      "end": 1714699768236,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768236,
+      "end": 1714699768236,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768236,
+      "end": 1714699768236,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768236,
+      "end": 1714699768236,
+      "order": "normal"
+    }
+  ]
+}

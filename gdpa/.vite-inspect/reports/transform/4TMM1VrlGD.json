@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/es/select/src/optgroup.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { defineComponent, h, onUnmounted, provide, inject, ref, onMounted } from 'vue';\nimport { createOption, watchOption, destroyOption, assemOption } from './util';\nexport default defineComponent({\n    name: 'VxeOptgroup',\n    props: {\n        label: { type: [String, Number, Boolean], default: '' },\n        visible: { type: Boolean, default: null },\n        className: [String, Function],\n        disabled: Boolean\n    },\n    setup: function (props, _a) {\n        var slots = _a.slots;\n        var elem = ref();\n        var $xeselect = inject('$xeselect', {});\n        var option = createOption($xeselect, props);\n        var xeoption = { option: option };\n        option.options = [];\n        provide('xeoptgroup', xeoption);\n        watchOption(props, option);\n        onMounted(function () {\n            assemOption($xeselect, elem.value, option);\n        });\n        onUnmounted(function () {\n            destroyOption($xeselect, option);\n        });\n        return function () {\n            return h('div', {\n                ref: elem\n            }, slots.default ? slots.default() : []);\n        };\n    }\n});\n",
+      "start": 1714699767774,
+      "end": 1714699767844,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767844,
+      "end": 1714699767844,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767844,
+      "end": 1714699767844,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767844,
+      "end": 1714699767844,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767844,
+      "end": 1714699767844,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767844,
+      "end": 1714699767844,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767844,
+      "end": 1714699767844,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { defineComponent, h, onUnmounted, provide, inject, ref, onMounted } from 'vue';\nimport { createOption, watchOption, destroyOption, assemOption } from './util';\nexport default defineComponent({\n    name: 'VxeOptgroup',\n    props: {\n        label: { type: [String, Number, Boolean], default: '' },\n        visible: { type: Boolean, default: null },\n        className: [String, Function],\n        disabled: Boolean\n    },\n    setup: function (props, _a) {\n        var slots = _a.slots;\n        var elem = ref();\n        var $xeselect = inject('$xeselect', {});\n        var option = createOption($xeselect, props);\n        var xeoption = { option: option };\n        option.options = [];\n        provide('xeoptgroup', xeoption);\n        watchOption(props, option);\n        onMounted(function () {\n            assemOption($xeselect, elem.value, option);\n        });\n        onUnmounted(function () {\n            destroyOption($xeselect, option);\n        });\n        return function () {\n            return h('div', {\n                ref: elem\n            }, slots.default ? slots.default() : []);\n        };\n    }\n});\n",
+      "start": 1714699767844,
+      "end": 1714699767844,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767844,
+      "end": 1714699767844,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767844,
+      "end": 1714699767844,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767844,
+      "end": 1714699767844,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767844,
+      "end": 1714699767844,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767844,
+      "end": 1714699767844,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767844,
+      "end": 1714699767844,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767844,
+      "end": 1714699767844,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767844,
+      "end": 1714699767844,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767844,
+      "end": 1714699767844,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767844,
+      "end": 1714699767844,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767844,
+      "end": 1714699767844,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767844,
+      "end": 1714699767844,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767844,
+      "end": 1714699767844,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767844,
+      "end": 1714699767844,
+      "order": "normal"
+    }
+  ]
+}

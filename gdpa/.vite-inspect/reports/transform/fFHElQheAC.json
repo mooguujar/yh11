@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/mapTree.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var helperCreateTreeFunc = require('./helperCreateTreeFunc')\r\n\r\nvar map = require('./map')\r\n\r\nfunction mapTreeItem (parent, obj, iterate, context, path, node, parseChildren, opts) {\r\n  var paths, nodes, rest\r\n  var mapChildren = opts.mapChildren || parseChildren\r\n  return map(obj, function (item, index) {\r\n    paths = path.concat(['' + index])\r\n    nodes = node.concat([item])\r\n    rest = iterate.call(context, item, index, obj, paths, parent, nodes)\r\n    if (rest && item && parseChildren && item[parseChildren]) {\r\n      rest[mapChildren] = mapTreeItem(item, item[parseChildren], iterate, context, paths, nodes, parseChildren, opts)\r\n    }\r\n    return rest\r\n  })\r\n}\r\n\r\n/**\r\n  * 从树结构中指定方法后的返回值组成的新数组\r\n  *\r\n  * @param {Object} obj 对象/数组\r\n  * @param {Function} iterate(item, index, items, path, parent, nodes) 回调\r\n  * @param {Object} options {children: 'children'}\r\n  * @param {Object} context 上下文\r\n  * @return {Object/Array}\r\n  */\r\nvar mapTree = helperCreateTreeFunc(mapTreeItem)\r\n\r\nmodule.exports = mapTree\r\n",
+      "start": 1714699767581,
+      "end": 1714699767604,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767604,
+      "end": 1714699767604,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767604,
+      "end": 1714699767604,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767604,
+      "end": 1714699767604,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767604,
+      "end": 1714699767604,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767604,
+      "end": 1714699767604,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767604,
+      "end": 1714699767604,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var helperCreateTreeFunc = require('./helperCreateTreeFunc')\r\n\r\nvar map = require('./map')\r\n\r\nfunction mapTreeItem (parent, obj, iterate, context, path, node, parseChildren, opts) {\r\n  var paths, nodes, rest\r\n  var mapChildren = opts.mapChildren || parseChildren\r\n  return map(obj, function (item, index) {\r\n    paths = path.concat(['' + index])\r\n    nodes = node.concat([item])\r\n    rest = iterate.call(context, item, index, obj, paths, parent, nodes)\r\n    if (rest && item && parseChildren && item[parseChildren]) {\r\n      rest[mapChildren] = mapTreeItem(item, item[parseChildren], iterate, context, paths, nodes, parseChildren, opts)\r\n    }\r\n    return rest\r\n  })\r\n}\r\n\r\n/**\r\n  * 从树结构中指定方法后的返回值组成的新数组\r\n  *\r\n  * @param {Object} obj 对象/数组\r\n  * @param {Function} iterate(item, index, items, path, parent, nodes) 回调\r\n  * @param {Object} options {children: 'children'}\r\n  * @param {Object} context 上下文\r\n  * @return {Object/Array}\r\n  */\r\nvar mapTree = helperCreateTreeFunc(mapTreeItem)\r\n\r\nmodule.exports = mapTree\r\n",
+      "start": 1714699767604,
+      "end": 1714699767604,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767604,
+      "end": 1714699767604,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767604,
+      "end": 1714699767604,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767604,
+      "end": 1714699767604,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767604,
+      "end": 1714699767604,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767604,
+      "end": 1714699767604,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767604,
+      "end": 1714699767604,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/helperCreateTreeFunc.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/map.js?commonjs-proxy\";\n\nvar helperCreateTreeFunc = require$$0\r\n\r\nvar map = require$$1\r\n\r\nfunction mapTreeItem (parent, obj, iterate, context, path, node, parseChildren, opts) {\r\n  var paths, nodes, rest\r\n  var mapChildren = opts.mapChildren || parseChildren\r\n  return map(obj, function (item, index) {\r\n    paths = path.concat(['' + index])\r\n    nodes = node.concat([item])\r\n    rest = iterate.call(context, item, index, obj, paths, parent, nodes)\r\n    if (rest && item && parseChildren && item[parseChildren]) {\r\n      rest[mapChildren] = mapTreeItem(item, item[parseChildren], iterate, context, paths, nodes, parseChildren, opts)\r\n    }\r\n    return rest\r\n  })\r\n}\r\n\r\n/**\r\n  * 从树结构中指定方法后的返回值组成的新数组\r\n  *\r\n  * @param {Object} obj 对象/数组\r\n  * @param {Function} iterate(item, index, items, path, parent, nodes) 回调\r\n  * @param {Object} options {children: 'children'}\r\n  * @param {Object} context 上下文\r\n  * @return {Object/Array}\r\n  */\r\nvar mapTree = helperCreateTreeFunc(mapTreeItem)\r\n\r\nvar mapTree_1 = mapTree\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(mapTree_1);\nexport { mapTree_1 as __moduleExports };",
+      "start": 1714699767604,
+      "end": 1714699768208,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;AAAA,IAAI,oBAAoB,GAAG,UAAiC;AAC5D;AACA,IAAI,GAAG,GAAG,UAAgB;AAC1B;AACA,SAAS,WAAW,EAAE,MAAM,EAAE,GAAG,EAAE,OAAO,EAAE,OAAO,EAAE,IAAI,EAAE,IAAI,EAAE,aAAa,EAAE,IAAI,EAAE;AACtF,EAAE,IAAI,KAAK,EAAE,KAAK,EAAE,IAAI;AACxB,EAAE,IAAI,WAAW,GAAG,IAAI,CAAC,WAAW,IAAI,aAAa;AACrD,EAAE,OAAO,GAAG,CAAC,GAAG,EAAE,UAAU,IAAI,EAAE,KAAK,EAAE;AACzC,IAAI,KAAK,GAAG,IAAI,CAAC,MAAM,CAAC,CAAC,EAAE,GAAG,KAAK,CAAC,CAAC;AACrC,IAAI,KAAK,GAAG,IAAI,CAAC,MAAM,CAAC,CAAC,IAAI,CAAC,CAAC;AAC/B,IAAI,IAAI,GAAG,OAAO,CAAC,IAAI,CAAC,OAAO,EAAE,IAAI,EAAE,KAAK,EAAE,GAAG,EAAE,KAAK,EAAE,MAAM,EAAE,KAAK,CAAC;AACxE,IAAI,IAAI,IAAI,IAAI,IAAI,IAAI,aAAa,IAAI,IAAI,CAAC,aAAa,CAAC,EAAE;AAC9D,MAAM,IAAI,CAAC,WAAW,CAAC,GAAG,WAAW,CAAC,IAAI,EAAE,IAAI,CAAC,aAAa,CAAC,EAAE,OAAO,EAAE,OAAO,EAAE,KAAK,EAAE,KAAK,EAAE,aAAa,EAAE,IAAI,CAAC;AACrH,KAAK;AACL,IAAI,OAAO,IAAI;AACf,GAAG,CAAC;AACJ,CAAC;AACD;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,IAAI,OAAO,GAAG,oBAAoB,CAAC,WAAW,CAAC;AAC/C;IACA,SAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768208,
+      "end": 1714699768208,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768208,
+      "end": 1714699768208,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768208,
+      "end": 1714699768208,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768208,
+      "end": 1714699768208,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768208,
+      "end": 1714699768208,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768208,
+      "end": 1714699768208,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768208,
+      "end": 1714699768208,
+      "order": "normal"
+    }
+  ]
+}

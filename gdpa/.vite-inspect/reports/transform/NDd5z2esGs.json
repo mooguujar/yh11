@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/es/table/src/props.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import GlobalConfig from '../../v-x-e-table/src/conf';\nexport default {\n    /** 基本属性 */\n    id: String,\n    // 数据\n    data: Array,\n    // 表格的高度\n    height: [Number, String],\n    // 表格的最小高度\n    minHeight: { type: [Number, String], default: function () { return GlobalConfig.table.minHeight; } },\n    // 表格的最大高度\n    maxHeight: [Number, String],\n    // 已废弃，被 column-config.resizable 替换\n    resizable: { type: Boolean, default: function () { return GlobalConfig.table.resizable; } },\n    // 是否带有斑马纹\n    stripe: { type: Boolean, default: function () { return GlobalConfig.table.stripe; } },\n    // 是否带有边框\n    border: { type: [Boolean, String], default: function () { return GlobalConfig.table.border; } },\n    // 是否圆角边框\n    round: { type: Boolean, default: function () { return GlobalConfig.table.round; } },\n    // 表格的尺寸\n    size: { type: String, default: function () { return GlobalConfig.table.size || GlobalConfig.size; } },\n    // 列的宽度是否自撑开（可能会被废弃的参数，不要使用）\n    fit: { type: Boolean, default: function () { return GlobalConfig.table.fit; } },\n    // 表格是否加载中\n    loading: Boolean,\n    // 所有的列对其方式\n    align: { type: String, default: function () { return GlobalConfig.table.align; } },\n    // 所有的表头列的对齐方式\n    headerAlign: { type: String, default: function () { return GlobalConfig.table.headerAlign; } },\n    // 所有的表尾列的对齐方式\n    footerAlign: { type: String, default: function () { return GlobalConfig.table.footerAlign; } },\n    // 是否显示表头\n    showHeader: { type: Boolean, default: function () { return GlobalConfig.table.showHeader; } },\n    // （即将废弃）是否要高亮当前选中行\n    highlightCurrentRow: { type: Boolean, default: function () { return GlobalConfig.table.highlightCurrentRow; } },\n    // （即将废弃）鼠标移到行是否要高亮显示\n    highlightHoverRow: { type: Boolean, default: function () { return GlobalConfig.table.highlightHoverRow; } },\n    // （即将废弃）是否要高亮当前选中列\n    highlightCurrentColumn: { type: Boolean, default: function () { return GlobalConfig.table.highlightCurrentColumn; } },\n    // （即将废弃）鼠标移到列是否要高亮显示\n    highlightHoverColumn: { type: Boolean, default: function () { return GlobalConfig.table.highlightHoverColumn; } },\n    // （即将废弃）激活单元格编辑时是否高亮显示\n    highlightCell: Boolean,\n    // 是否显示表尾合计\n    showFooter: Boolean,\n    // 表尾合计的计算方法\n    footerMethod: Function,\n    // 给行附加 className\n    rowClassName: [String, Function],\n    // 给单元格附加 className\n    cellClassName: [String, Function],\n    // 给表头的行附加 className\n    headerRowClassName: [String, Function],\n    // 给表头的单元格附加 className\n    headerCellClassName: [String, Function],\n    // 给表尾的行附加 className\n    footerRowClassName: [String, Function],\n    // 给表尾的单元格附加 className\n    footerCellClassName: [String, Function],\n    // 给单元格附加样式\n    cellStyle: [Object, Function],\n    // 给表头单元格附加样式\n    headerCellStyle: [Object, Function],\n    // 给表尾单元格附加样式\n    footerCellStyle: [Object, Function],\n    // 给行附加样式\n    rowStyle: [Object, Function],\n    // 给表头行附加样式\n    headerRowStyle: [Object, Function],\n    // 给表尾行附加样式\n    footerRowStyle: [Object, Function],\n    // 合并指定单元格\n    mergeCells: Array,\n    // 合并指定的表尾\n    mergeFooterItems: Array,\n    // 自定义合并行或列的方法\n    spanMethod: Function,\n    // 表尾合并行或列\n    footerSpanMethod: Function,\n    // 设置所有内容过长时显示为省略号\n    showOverflow: { type: [Boolean, String], default: function () { return GlobalConfig.table.showOverflow; } },\n    // 设置表头所有内容过长时显示为省略号\n    showHeaderOverflow: { type: [Boolean, String], default: function () { return GlobalConfig.table.showHeaderOverflow; } },\n    // 设置表尾所有内容过长时显示为省略号\n    showFooterOverflow: { type: [Boolean, String], default: function () { return GlobalConfig.table.showFooterOverflow; } },\n    /** 高级属性 */\n    // （即将废弃）columnKey 已废弃，被 column-config.useKey 替换\n    columnKey: Boolean,\n    // （即将废弃）rowKey 已废弃，被 row-config.useKey 替换\n    rowKey: Boolean,\n    // （即将废弃）rowId 已废弃，被 row-config.keyField 替换\n    rowId: { type: String, default: function () { return GlobalConfig.table.rowId; } },\n    zIndex: Number,\n    emptyText: { type: String, default: function () { return GlobalConfig.table.emptyText; } },\n    keepSource: { type: Boolean, default: function () { return GlobalConfig.table.keepSource; } },\n    // 是否自动监听父容器变化去更新响应式表格宽高\n    autoResize: { type: Boolean, default: function () { return GlobalConfig.table.autoResize; } },\n    // 是否自动根据状态属性去更新响应式表格宽高\n    syncResize: [Boolean, String, Number],\n    // 响应式布局配置项\n    resizeConfig: Object,\n    // 列配置信息\n    columnConfig: Object,\n    // 行配置信息\n    rowConfig: Object,\n    // 列调整配置项\n    resizableConfig: Object,\n    // 序号配置项\n    seqConfig: Object,\n    // 排序配置项\n    sortConfig: Object,\n    // 筛选配置项\n    filterConfig: Object,\n    // 单选框配置\n    radioConfig: Object,\n    // 复选框配置项\n    checkboxConfig: Object,\n    // tooltip 配置项\n    tooltipConfig: Object,\n    // 导出配置项\n    exportConfig: Object,\n    // 导入配置项\n    importConfig: Object,\n    // 打印配置项\n    printConfig: Object,\n    // 展开行配置项\n    expandConfig: Object,\n    // 树形结构配置项\n    treeConfig: Object,\n    // 快捷菜单配置项\n    menuConfig: Object,\n    // 鼠标配置项\n    mouseConfig: Object,\n    // 区域配置项\n    areaConfig: Object,\n    // 按键配置项\n    keyboardConfig: Object,\n    // 复制粘/贴配置项\n    clipConfig: Object,\n    // 查找/替换配置项\n    fnrConfig: Object,\n    // 编辑配置项\n    editConfig: Object,\n    // 校验配置项\n    validConfig: Object,\n    // 校验规则配置项\n    editRules: Object,\n    // 加载中配置项\n    loadingConfig: Object,\n    // 空内容渲染配置项\n    emptyRender: Object,\n    // 自定义列配置项\n    customConfig: Object,\n    // 横向虚拟滚动配置项\n    scrollX: Object,\n    // 纵向虚拟滚动配置项\n    scrollY: Object,\n    // （即将废弃）优化相关\n    animat: { type: Boolean, default: function () { return GlobalConfig.table.animat; } },\n    // （可能会被废弃的参数，不要使用）\n    delayHover: { type: Number, default: function () { return GlobalConfig.table.delayHover; } },\n    // 额外的参数\n    params: Object\n};\n",
+      "start": 1714699768743,
+      "end": 1714699768755,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768755,
+      "end": 1714699768755,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768755,
+      "end": 1714699768755,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768755,
+      "end": 1714699768755,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768755,
+      "end": 1714699768755,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768755,
+      "end": 1714699768755,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768755,
+      "end": 1714699768755,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import GlobalConfig from '../../v-x-e-table/src/conf';\nexport default {\n    /** 基本属性 */\n    id: String,\n    // 数据\n    data: Array,\n    // 表格的高度\n    height: [Number, String],\n    // 表格的最小高度\n    minHeight: { type: [Number, String], default: function () { return GlobalConfig.table.minHeight; } },\n    // 表格的最大高度\n    maxHeight: [Number, String],\n    // 已废弃，被 column-config.resizable 替换\n    resizable: { type: Boolean, default: function () { return GlobalConfig.table.resizable; } },\n    // 是否带有斑马纹\n    stripe: { type: Boolean, default: function () { return GlobalConfig.table.stripe; } },\n    // 是否带有边框\n    border: { type: [Boolean, String], default: function () { return GlobalConfig.table.border; } },\n    // 是否圆角边框\n    round: { type: Boolean, default: function () { return GlobalConfig.table.round; } },\n    // 表格的尺寸\n    size: { type: String, default: function () { return GlobalConfig.table.size || GlobalConfig.size; } },\n    // 列的宽度是否自撑开（可能会被废弃的参数，不要使用）\n    fit: { type: Boolean, default: function () { return GlobalConfig.table.fit; } },\n    // 表格是否加载中\n    loading: Boolean,\n    // 所有的列对其方式\n    align: { type: String, default: function () { return GlobalConfig.table.align; } },\n    // 所有的表头列的对齐方式\n    headerAlign: { type: String, default: function () { return GlobalConfig.table.headerAlign; } },\n    // 所有的表尾列的对齐方式\n    footerAlign: { type: String, default: function () { return GlobalConfig.table.footerAlign; } },\n    // 是否显示表头\n    showHeader: { type: Boolean, default: function () { return GlobalConfig.table.showHeader; } },\n    // （即将废弃）是否要高亮当前选中行\n    highlightCurrentRow: { type: Boolean, default: function () { return GlobalConfig.table.highlightCurrentRow; } },\n    // （即将废弃）鼠标移到行是否要高亮显示\n    highlightHoverRow: { type: Boolean, default: function () { return GlobalConfig.table.highlightHoverRow; } },\n    // （即将废弃）是否要高亮当前选中列\n    highlightCurrentColumn: { type: Boolean, default: function () { return GlobalConfig.table.highlightCurrentColumn; } },\n    // （即将废弃）鼠标移到列是否要高亮显示\n    highlightHoverColumn: { type: Boolean, default: function () { return GlobalConfig.table.highlightHoverColumn; } },\n    // （即将废弃）激活单元格编辑时是否高亮显示\n    highlightCell: Boolean,\n    // 是否显示表尾合计\n    showFooter: Boolean,\n    // 表尾合计的计算方法\n    footerMethod: Function,\n    // 给行附加 className\n    rowClassName: [String, Function],\n    // 给单元格附加 className\n    cellClassName: [String, Function],\n    // 给表头的行附加 className\n    headerRowClassName: [String, Function],\n    // 给表头的单元格附加 className\n    headerCellClassName: [String, Function],\n    // 给表尾的行附加 className\n    footerRowClassName: [String, Function],\n    // 给表尾的单元格附加 className\n    footerCellClassName: [String, Function],\n    // 给单元格附加样式\n    cellStyle: [Object, Function],\n    // 给表头单元格附加样式\n    headerCellStyle: [Object, Function],\n    // 给表尾单元格附加样式\n    footerCellStyle: [Object, Function],\n    // 给行附加样式\n    rowStyle: [Object, Function],\n    // 给表头行附加样式\n    headerRowStyle: [Object, Function],\n    // 给表尾行附加样式\n    footerRowStyle: [Object, Function],\n    // 合并指定单元格\n    mergeCells: Array,\n    // 合并指定的表尾\n    mergeFooterItems: Array,\n    // 自定义合并行或列的方法\n    spanMethod: Function,\n    // 表尾合并行或列\n    footerSpanMethod: Function,\n    // 设置所有内容过长时显示为省略号\n    showOverflow: { type: [Boolean, String], default: function () { return GlobalConfig.table.showOverflow; } },\n    // 设置表头所有内容过长时显示为省略号\n    showHeaderOverflow: { type: [Boolean, String], default: function () { return GlobalConfig.table.showHeaderOverflow; } },\n    // 设置表尾所有内容过长时显示为省略号\n    showFooterOverflow: { type: [Boolean, String], default: function () { return GlobalConfig.table.showFooterOverflow; } },\n    /** 高级属性 */\n    // （即将废弃）columnKey 已废弃，被 column-config.useKey 替换\n    columnKey: Boolean,\n    // （即将废弃）rowKey 已废弃，被 row-config.useKey 替换\n    rowKey: Boolean,\n    // （即将废弃）rowId 已废弃，被 row-config.keyField 替换\n    rowId: { type: String, default: function () { return GlobalConfig.table.rowId; } },\n    zIndex: Number,\n    emptyText: { type: String, default: function () { return GlobalConfig.table.emptyText; } },\n    keepSource: { type: Boolean, default: function () { return GlobalConfig.table.keepSource; } },\n    // 是否自动监听父容器变化去更新响应式表格宽高\n    autoResize: { type: Boolean, default: function () { return GlobalConfig.table.autoResize; } },\n    // 是否自动根据状态属性去更新响应式表格宽高\n    syncResize: [Boolean, String, Number],\n    // 响应式布局配置项\n    resizeConfig: Object,\n    // 列配置信息\n    columnConfig: Object,\n    // 行配置信息\n    rowConfig: Object,\n    // 列调整配置项\n    resizableConfig: Object,\n    // 序号配置项\n    seqConfig: Object,\n    // 排序配置项\n    sortConfig: Object,\n    // 筛选配置项\n    filterConfig: Object,\n    // 单选框配置\n    radioConfig: Object,\n    // 复选框配置项\n    checkboxConfig: Object,\n    // tooltip 配置项\n    tooltipConfig: Object,\n    // 导出配置项\n    exportConfig: Object,\n    // 导入配置项\n    importConfig: Object,\n    // 打印配置项\n    printConfig: Object,\n    // 展开行配置项\n    expandConfig: Object,\n    // 树形结构配置项\n    treeConfig: Object,\n    // 快捷菜单配置项\n    menuConfig: Object,\n    // 鼠标配置项\n    mouseConfig: Object,\n    // 区域配置项\n    areaConfig: Object,\n    // 按键配置项\n    keyboardConfig: Object,\n    // 复制粘/贴配置项\n    clipConfig: Object,\n    // 查找/替换配置项\n    fnrConfig: Object,\n    // 编辑配置项\n    editConfig: Object,\n    // 校验配置项\n    validConfig: Object,\n    // 校验规则配置项\n    editRules: Object,\n    // 加载中配置项\n    loadingConfig: Object,\n    // 空内容渲染配置项\n    emptyRender: Object,\n    // 自定义列配置项\n    customConfig: Object,\n    // 横向虚拟滚动配置项\n    scrollX: Object,\n    // 纵向虚拟滚动配置项\n    scrollY: Object,\n    // （即将废弃）优化相关\n    animat: { type: Boolean, default: function () { return GlobalConfig.table.animat; } },\n    // （可能会被废弃的参数，不要使用）\n    delayHover: { type: Number, default: function () { return GlobalConfig.table.delayHover; } },\n    // 额外的参数\n    params: Object\n};\n",
+      "start": 1714699768755,
+      "end": 1714699768755,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768755,
+      "end": 1714699768755,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768755,
+      "end": 1714699768755,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768755,
+      "end": 1714699768755,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768755,
+      "end": 1714699768756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768756,
+      "end": 1714699768756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768756,
+      "end": 1714699768756,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768756,
+      "end": 1714699768756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768756,
+      "end": 1714699768756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768756,
+      "end": 1714699768756,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768756,
+      "end": 1714699768756,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768756,
+      "end": 1714699768756,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768756,
+      "end": 1714699768756,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768756,
+      "end": 1714699768756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768756,
+      "end": 1714699768756,
+      "order": "normal"
+    }
+  ]
+}

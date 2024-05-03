@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/switch/Switch.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { defineComponent } from \"vue\";\nimport { addUnit, numericProp, unknownProp, createNamespace } from \"../utils/index.mjs\";\nimport { useCustomFieldValue } from \"@vant/use\";\nimport { Loading } from \"../loading/index.mjs\";\nconst [name, bem] = createNamespace(\"switch\");\nconst switchProps = {\n  size: numericProp,\n  loading: Boolean,\n  disabled: Boolean,\n  modelValue: unknownProp,\n  activeColor: String,\n  inactiveColor: String,\n  activeValue: {\n    type: unknownProp,\n    default: true\n  },\n  inactiveValue: {\n    type: unknownProp,\n    default: false\n  }\n};\nvar stdin_default = defineComponent({\n  name,\n  props: switchProps,\n  emits: [\"change\", \"update:modelValue\"],\n  setup(props, {\n    emit,\n    slots\n  }) {\n    const isChecked = () => props.modelValue === props.activeValue;\n    const onClick = () => {\n      if (!props.disabled && !props.loading) {\n        const newValue = isChecked() ? props.inactiveValue : props.activeValue;\n        emit(\"update:modelValue\", newValue);\n        emit(\"change\", newValue);\n      }\n    };\n    const renderLoading = () => {\n      if (props.loading) {\n        const color = isChecked() ? props.activeColor : props.inactiveColor;\n        return _createVNode(Loading, {\n          \"class\": bem(\"loading\"),\n          \"color\": color\n        }, null);\n      }\n      if (slots.node) {\n        return slots.node();\n      }\n    };\n    useCustomFieldValue(() => props.modelValue);\n    return () => {\n      var _a;\n      const {\n        size,\n        loading,\n        disabled,\n        activeColor,\n        inactiveColor\n      } = props;\n      const checked = isChecked();\n      const style = {\n        fontSize: addUnit(size),\n        backgroundColor: checked ? activeColor : inactiveColor\n      };\n      return _createVNode(\"div\", {\n        \"role\": \"switch\",\n        \"class\": bem({\n          on: checked,\n          loading,\n          disabled\n        }),\n        \"style\": style,\n        \"tabindex\": disabled ? void 0 : 0,\n        \"aria-checked\": checked,\n        \"onClick\": onClick\n      }, [_createVNode(\"div\", {\n        \"class\": bem(\"node\")\n      }, [renderLoading()]), (_a = slots.background) == null ? void 0 : _a.call(slots)]);\n    };\n  }\n});\nexport {\n  stdin_default as default,\n  switchProps\n};\n",
+      "start": 1714699767505,
+      "end": 1714699767515,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767515,
+      "end": 1714699767515,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767515,
+      "end": 1714699767515,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767515,
+      "end": 1714699767515,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767515,
+      "end": 1714699767515,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767515,
+      "end": 1714699767515,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767515,
+      "end": 1714699767515,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { defineComponent } from \"vue\";\nimport { addUnit, numericProp, unknownProp, createNamespace } from \"../utils/index.mjs\";\nimport { useCustomFieldValue } from \"@vant/use\";\nimport { Loading } from \"../loading/index.mjs\";\nconst [name, bem] = createNamespace(\"switch\");\nconst switchProps = {\n  size: numericProp,\n  loading: Boolean,\n  disabled: Boolean,\n  modelValue: unknownProp,\n  activeColor: String,\n  inactiveColor: String,\n  activeValue: {\n    type: unknownProp,\n    default: true\n  },\n  inactiveValue: {\n    type: unknownProp,\n    default: false\n  }\n};\nvar stdin_default = defineComponent({\n  name,\n  props: switchProps,\n  emits: [\"change\", \"update:modelValue\"],\n  setup(props, {\n    emit,\n    slots\n  }) {\n    const isChecked = () => props.modelValue === props.activeValue;\n    const onClick = () => {\n      if (!props.disabled && !props.loading) {\n        const newValue = isChecked() ? props.inactiveValue : props.activeValue;\n        emit(\"update:modelValue\", newValue);\n        emit(\"change\", newValue);\n      }\n    };\n    const renderLoading = () => {\n      if (props.loading) {\n        const color = isChecked() ? props.activeColor : props.inactiveColor;\n        return _createVNode(Loading, {\n          \"class\": bem(\"loading\"),\n          \"color\": color\n        }, null);\n      }\n      if (slots.node) {\n        return slots.node();\n      }\n    };\n    useCustomFieldValue(() => props.modelValue);\n    return () => {\n      var _a;\n      const {\n        size,\n        loading,\n        disabled,\n        activeColor,\n        inactiveColor\n      } = props;\n      const checked = isChecked();\n      const style = {\n        fontSize: addUnit(size),\n        backgroundColor: checked ? activeColor : inactiveColor\n      };\n      return _createVNode(\"div\", {\n        \"role\": \"switch\",\n        \"class\": bem({\n          on: checked,\n          loading,\n          disabled\n        }),\n        \"style\": style,\n        \"tabindex\": disabled ? void 0 : 0,\n        \"aria-checked\": checked,\n        \"onClick\": onClick\n      }, [_createVNode(\"div\", {\n        \"class\": bem(\"node\")\n      }, [renderLoading()]), (_a = slots.background) == null ? void 0 : _a.call(slots)]);\n    };\n  }\n});\nexport {\n  stdin_default as default,\n  switchProps\n};\n",
+      "start": 1714699767515,
+      "end": 1714699767515,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767515,
+      "end": 1714699767515,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767515,
+      "end": 1714699767515,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767515,
+      "end": 1714699767515,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767515,
+      "end": 1714699767515,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767515,
+      "end": 1714699767515,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767515,
+      "end": 1714699767515,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767515,
+      "end": 1714699767515,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767515,
+      "end": 1714699767515,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767515,
+      "end": 1714699767515,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767515,
+      "end": 1714699767515,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767515,
+      "end": 1714699767515,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767515,
+      "end": 1714699767515,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767515,
+      "end": 1714699767515,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767515,
+      "end": 1714699767515,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/store/modules/entry/index.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { getConfig } from '@/apis/entry'\nimport piniaStore from '@/store/index'\nimport FingerprintJS from '@fingerprintjs/fingerprintjs'\nimport { defineStore } from 'pinia'\nimport { EntryState, INormal } from '../../types/entry'\n\nexport const useEntryStore = defineStore('entry', {\n  state: () =>\n    ({\n      config: {\n        SYS_SET_DATETIME_CONFIG: {},\n        SYS_SET_LANG_APICONFIG: {},\n        WEB_SET_HomeExt: {},\n        WEB_SET_coinset_config: {},\n        WEB_Set_App_Version: {},\n        Web_BuySell_Coin_Times: {},\n        Web_Set_DefaultInfo: {},\n        Web_Set_JFpoint: {},\n        Web_Set_SysMoney_Config: {},\n        Web_Set_WebMoney_savewithdraw: {},\n        Web_Set_WebReg: {},\n        Web_Transfer_BuySell_Coin_Fee: {}\n      },\n      fingerprint: ''\n    } as EntryState),\n  getters: {\n    imgServerUrl: state => {\n      return (state.config.Web_Set_DefaultInfo?.imgserver_url as INormal)?.v || ''\n    },\n    QBuy_Config: state => {\n      return (state.config.Web_BuySell_Coin_Times.QBuy_Config as any)?.config || ''\n    }\n  },\n  actions: {\n    // toggleTheme(dark: boolean) {\n    //   if (dark) {\n    //     this.theme = 'dark'\n    //     document.documentElement.classList.add('dark')\n    //   } else {\n    //     this.theme = 'light'\n    //     document.documentElement.classList.remove('dark')\n    //   }\n    // },\n    updateEntryState(partial: Partial<EntryState>) {\n      this.$patch(partial)\n    },\n    async getConfigApi(params: any) {\n      try {\n        const response = await getConfig(params)\n        this.config = response\n        return response\n      } catch (error) {\n        console.log(error)\n        throw error\n      }\n    },\n    async getFingerprint() {\n      try {\n        const fp = await FingerprintJS.load()\n        const result = await fp.get()\n\n        this.fingerprint = result.visitorId\n\n        return {\n          visitorId: result.visitorId\n        }\n      } catch (error) {\n        console.log(error)\n        throw error\n      }\n    }\n  },\n  persist: true\n})\n\nexport function useEntryOutsideStore() {\n  return useEntryStore(piniaStore)\n}\n",
+      "start": 1714699767177,
+      "end": 1714699767247,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767247,
+      "end": 1714699767247,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { getConfig } from \"@/apis/entry\";\nimport piniaStore from \"@/store/index\";\nimport FingerprintJS from \"@fingerprintjs/fingerprintjs\";\nimport { defineStore } from \"pinia\";\nexport const useEntryStore = defineStore(\"entry\", {\n  state: () => ({\n    config: {\n      SYS_SET_DATETIME_CONFIG: {},\n      SYS_SET_LANG_APICONFIG: {},\n      WEB_SET_HomeExt: {},\n      WEB_SET_coinset_config: {},\n      WEB_Set_App_Version: {},\n      Web_BuySell_Coin_Times: {},\n      Web_Set_DefaultInfo: {},\n      Web_Set_JFpoint: {},\n      Web_Set_SysMoney_Config: {},\n      Web_Set_WebMoney_savewithdraw: {},\n      Web_Set_WebReg: {},\n      Web_Transfer_BuySell_Coin_Fee: {}\n    },\n    fingerprint: \"\"\n  }),\n  getters: {\n    imgServerUrl: (state) => {\n      return state.config.Web_Set_DefaultInfo?.imgserver_url?.v || \"\";\n    },\n    QBuy_Config: (state) => {\n      return state.config.Web_BuySell_Coin_Times.QBuy_Config?.config || \"\";\n    }\n  },\n  actions: {\n    // toggleTheme(dark: boolean) {\n    //   if (dark) {\n    //     this.theme = 'dark'\n    //     document.documentElement.classList.add('dark')\n    //   } else {\n    //     this.theme = 'light'\n    //     document.documentElement.classList.remove('dark')\n    //   }\n    // },\n    updateEntryState(partial) {\n      this.$patch(partial);\n    },\n    async getConfigApi(params) {\n      try {\n        const response = await getConfig(params);\n        this.config = response;\n        return response;\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    },\n    async getFingerprint() {\n      try {\n        const fp = await FingerprintJS.load();\n        const result = await fp.get();\n        this.fingerprint = result.visitorId;\n        return {\n          visitorId: result.visitorId\n        };\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    }\n  },\n  persist: true\n});\nexport function useEntryOutsideStore() {\n  return useEntryStore(piniaStore);\n}\n",
+      "start": 1714699767247,
+      "end": 1714699767406,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/store/modules/entry/index.ts"
+        ],
+        "sourcesContent": [
+          "import { getConfig } from '@/apis/entry'\nimport piniaStore from '@/store/index'\nimport FingerprintJS from '@fingerprintjs/fingerprintjs'\nimport { defineStore } from 'pinia'\nimport { EntryState, INormal } from '../../types/entry'\n\nexport const useEntryStore = defineStore('entry', {\n  state: () =>\n    ({\n      config: {\n        SYS_SET_DATETIME_CONFIG: {},\n        SYS_SET_LANG_APICONFIG: {},\n        WEB_SET_HomeExt: {},\n        WEB_SET_coinset_config: {},\n        WEB_Set_App_Version: {},\n        Web_BuySell_Coin_Times: {},\n        Web_Set_DefaultInfo: {},\n        Web_Set_JFpoint: {},\n        Web_Set_SysMoney_Config: {},\n        Web_Set_WebMoney_savewithdraw: {},\n        Web_Set_WebReg: {},\n        Web_Transfer_BuySell_Coin_Fee: {}\n      },\n      fingerprint: ''\n    } as EntryState),\n  getters: {\n    imgServerUrl: state => {\n      return (state.config.Web_Set_DefaultInfo?.imgserver_url as INormal)?.v || ''\n    },\n    QBuy_Config: state => {\n      return (state.config.Web_BuySell_Coin_Times.QBuy_Config as any)?.config || ''\n    }\n  },\n  actions: {\n    // toggleTheme(dark: boolean) {\n    //   if (dark) {\n    //     this.theme = 'dark'\n    //     document.documentElement.classList.add('dark')\n    //   } else {\n    //     this.theme = 'light'\n    //     document.documentElement.classList.remove('dark')\n    //   }\n    // },\n    updateEntryState(partial: Partial<EntryState>) {\n      this.$patch(partial)\n    },\n    async getConfigApi(params: any) {\n      try {\n        const response = await getConfig(params)\n        this.config = response\n        return response\n      } catch (error) {\n        console.log(error)\n        throw error\n      }\n    },\n    async getFingerprint() {\n      try {\n        const fp = await FingerprintJS.load()\n        const result = await fp.get()\n\n        this.fingerprint = result.visitorId\n\n        return {\n          visitorId: result.visitorId\n        }\n      } catch (error) {\n        console.log(error)\n        throw error\n      }\n    }\n  },\n  persist: true\n})\n\nexport function useEntryOutsideStore() {\n  return useEntryStore(piniaStore)\n}\n"
+        ],
+        "mappings": "AAAA,SAAS,iBAAiB;AAC1B,OAAO,gBAAgB;AACvB,OAAO,mBAAmB;AAC1B,SAAS,mBAAmB;AAGrB,aAAM,gBAAgB,YAAY,SAAS;AAAA,EAChD,OAAO,OACJ;AAAA,IACC,QAAQ;AAAA,MACN,yBAAyB,CAAC;AAAA,MAC1B,wBAAwB,CAAC;AAAA,MACzB,iBAAiB,CAAC;AAAA,MAClB,wBAAwB,CAAC;AAAA,MACzB,qBAAqB,CAAC;AAAA,MACtB,wBAAwB,CAAC;AAAA,MACzB,qBAAqB,CAAC;AAAA,MACtB,iBAAiB,CAAC;AAAA,MAClB,yBAAyB,CAAC;AAAA,MAC1B,+BAA+B,CAAC;AAAA,MAChC,gBAAgB,CAAC;AAAA,MACjB,+BAA+B,CAAC;AAAA,IAClC;AAAA,IACA,aAAa;AAAA,EACf;AAAA,EACF,SAAS;AAAA,IACP,cAAc,WAAS;AACrB,aAAQ,MAAM,OAAO,qBAAqB,eAA2B,KAAK;AAAA,IAC5E;AAAA,IACA,aAAa,WAAS;AACpB,aAAQ,MAAM,OAAO,uBAAuB,aAAqB,UAAU;AAAA,IAC7E;AAAA,EACF;AAAA,EACA,SAAS;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IAUP,iBAAiB,SAA8B;AAC7C,WAAK,OAAO,OAAO;AAAA,IACrB;AAAA,IACA,MAAM,aAAa,QAAa;AAC9B,UAAI;AACF,cAAM,WAAW,MAAM,UAAU,MAAM;AACvC,aAAK,SAAS;AACd,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,IAAI,KAAK;AACjB,cAAM;AAAA,MACR;AAAA,IACF;AAAA,IACA,MAAM,iBAAiB;AACrB,UAAI;AACF,cAAM,KAAK,MAAM,cAAc,KAAK;AACpC,cAAM,SAAS,MAAM,GAAG,IAAI;AAE5B,aAAK,cAAc,OAAO;AAE1B,eAAO;AAAA,UACL,WAAW,OAAO;AAAA,QACpB;AAAA,MACF,SAAS,OAAO;AACd,gBAAQ,IAAI,KAAK;AACjB,cAAM;AAAA,MACR;AAAA,IACF;AAAA,EACF;AAAA,EACA,SAAS;AACX,CAAC;AAEM,gBAAS,uBAAuB;AACrC,SAAO,cAAc,UAAU;AACjC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767406,
+      "end": 1714699767406,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767406,
+      "end": 1714699767406,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767406,
+      "end": 1714699767406,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767406,
+      "end": 1714699767406,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { getConfig } from \"@/apis/entry\";\nimport piniaStore from \"@/store/index\";\nimport FingerprintJS from \"@fingerprintjs/fingerprintjs\";\nimport { defineStore } from \"pinia\";\nexport const useEntryStore = defineStore(\"entry\", {\n  state: () => ({\n    config: {\n      SYS_SET_DATETIME_CONFIG: {},\n      SYS_SET_LANG_APICONFIG: {},\n      WEB_SET_HomeExt: {},\n      WEB_SET_coinset_config: {},\n      WEB_Set_App_Version: {},\n      Web_BuySell_Coin_Times: {},\n      Web_Set_DefaultInfo: {},\n      Web_Set_JFpoint: {},\n      Web_Set_SysMoney_Config: {},\n      Web_Set_WebMoney_savewithdraw: {},\n      Web_Set_WebReg: {},\n      Web_Transfer_BuySell_Coin_Fee: {}\n    },\n    fingerprint: \"\"\n  }),\n  getters: {\n    imgServerUrl: (state) => {\n      return state.config.Web_Set_DefaultInfo?.imgserver_url?.v || \"\";\n    },\n    QBuy_Config: (state) => {\n      return state.config.Web_BuySell_Coin_Times.QBuy_Config?.config || \"\";\n    }\n  },\n  actions: {\n    // toggleTheme(dark: boolean) {\n    //   if (dark) {\n    //     this.theme = 'dark'\n    //     document.documentElement.classList.add('dark')\n    //   } else {\n    //     this.theme = 'light'\n    //     document.documentElement.classList.remove('dark')\n    //   }\n    // },\n    updateEntryState(partial) {\n      this.$patch(partial);\n    },\n    async getConfigApi(params) {\n      try {\n        const response = await getConfig(params);\n        this.config = response;\n        return response;\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    },\n    async getFingerprint() {\n      try {\n        const fp = await FingerprintJS.load();\n        const result = await fp.get();\n        this.fingerprint = result.visitorId;\n        return {\n          visitorId: result.visitorId\n        };\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    }\n  },\n  persist: true\n});\nexport function useEntryOutsideStore() {\n  return useEntryStore(piniaStore);\n}\n",
+      "start": 1714699767406,
+      "end": 1714699767406,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport { getConfig } from \"@/apis/entry\";\nimport piniaStore from \"@/store/index\";\nimport FingerprintJS from \"@fingerprintjs/fingerprintjs\";\nimport { defineStore } from \"pinia\";\nexport const useEntryStore = defineStore(\"entry\", {\n  state: () => ({\n    config: {\n      SYS_SET_DATETIME_CONFIG: {},\n      SYS_SET_LANG_APICONFIG: {},\n      WEB_SET_HomeExt: {},\n      WEB_SET_coinset_config: {},\n      WEB_Set_App_Version: {},\n      Web_BuySell_Coin_Times: {},\n      Web_Set_DefaultInfo: {},\n      Web_Set_JFpoint: {},\n      Web_Set_SysMoney_Config: {},\n      Web_Set_WebMoney_savewithdraw: {},\n      Web_Set_WebReg: {},\n      Web_Transfer_BuySell_Coin_Fee: {}\n    },\n    fingerprint: \"\"\n  }),\n  getters: {\n    imgServerUrl: (state) => {\n      var _a, _b;\n      return ((_b = (_a = state.config.Web_Set_DefaultInfo) == null ? void 0 : _a.imgserver_url) == null ? void 0 : _b.v) || \"\";\n    },\n    QBuy_Config: (state) => {\n      var _a;\n      return ((_a = state.config.Web_BuySell_Coin_Times.QBuy_Config) == null ? void 0 : _a.config) || \"\";\n    }\n  },\n  actions: {\n    // toggleTheme(dark: boolean) {\n    //   if (dark) {\n    //     this.theme = 'dark'\n    //     document.documentElement.classList.add('dark')\n    //   } else {\n    //     this.theme = 'light'\n    //     document.documentElement.classList.remove('dark')\n    //   }\n    // },\n    updateEntryState(partial) {\n      this.$patch(partial);\n    },\n    async getConfigApi(params) {\n      try {\n        const response = await getConfig(params);\n        this.config = response;\n        return response;\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    },\n    async getFingerprint() {\n      try {\n        const fp = await FingerprintJS.load();\n        const result = await fp.get();\n        this.fingerprint = result.visitorId;\n        return {\n          visitorId: result.visitorId\n        };\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    }\n  },\n  persist: true\n});\nexport function useEntryOutsideStore() {\n  return useEntryStore(piniaStore);\n}\n",
+      "start": 1714699767406,
+      "end": 1714699767593,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/store/modules/entry/index.ts\"],\n  \"sourcesContent\": [\"import { getConfig } from \\\"@/apis/entry\\\";\\nimport piniaStore from \\\"@/store/index\\\";\\nimport FingerprintJS from \\\"@fingerprintjs/fingerprintjs\\\";\\nimport { defineStore } from \\\"pinia\\\";\\nexport const useEntryStore = defineStore(\\\"entry\\\", {\\n  state: () => ({\\n    config: {\\n      SYS_SET_DATETIME_CONFIG: {},\\n      SYS_SET_LANG_APICONFIG: {},\\n      WEB_SET_HomeExt: {},\\n      WEB_SET_coinset_config: {},\\n      WEB_Set_App_Version: {},\\n      Web_BuySell_Coin_Times: {},\\n      Web_Set_DefaultInfo: {},\\n      Web_Set_JFpoint: {},\\n      Web_Set_SysMoney_Config: {},\\n      Web_Set_WebMoney_savewithdraw: {},\\n      Web_Set_WebReg: {},\\n      Web_Transfer_BuySell_Coin_Fee: {}\\n    },\\n    fingerprint: \\\"\\\"\\n  }),\\n  getters: {\\n    imgServerUrl: (state) => {\\n      return state.config.Web_Set_DefaultInfo?.imgserver_url?.v || \\\"\\\";\\n    },\\n    QBuy_Config: (state) => {\\n      return state.config.Web_BuySell_Coin_Times.QBuy_Config?.config || \\\"\\\";\\n    }\\n  },\\n  actions: {\\n    // toggleTheme(dark: boolean) {\\n    //   if (dark) {\\n    //     this.theme = 'dark'\\n    //     document.documentElement.classList.add('dark')\\n    //   } else {\\n    //     this.theme = 'light'\\n    //     document.documentElement.classList.remove('dark')\\n    //   }\\n    // },\\n    updateEntryState(partial) {\\n      this.$patch(partial);\\n    },\\n    async getConfigApi(params) {\\n      try {\\n        const response = await getConfig(params);\\n        this.config = response;\\n        return response;\\n      } catch (error) {\\n        console.log(error);\\n        throw error;\\n      }\\n    },\\n    async getFingerprint() {\\n      try {\\n        const fp = await FingerprintJS.load();\\n        const result = await fp.get();\\n        this.fingerprint = result.visitorId;\\n        return {\\n          visitorId: result.visitorId\\n        };\\n      } catch (error) {\\n        console.log(error);\\n        throw error;\\n      }\\n    }\\n  },\\n  persist: true\\n});\\nexport function useEntryOutsideStore() {\\n  return useEntryStore(piniaStore);\\n}\\n\"],\n  \"mappings\": \";AAAA,SAAS,iBAAiB;AAC1B,OAAO,gBAAgB;AACvB,OAAO,mBAAmB;AAC1B,SAAS,mBAAmB;AACrB,aAAM,gBAAgB,YAAY,SAAS;AAAA,EAChD,OAAO,OAAO;AAAA,IACZ,QAAQ;AAAA,MACN,yBAAyB,CAAC;AAAA,MAC1B,wBAAwB,CAAC;AAAA,MACzB,iBAAiB,CAAC;AAAA,MAClB,wBAAwB,CAAC;AAAA,MACzB,qBAAqB,CAAC;AAAA,MACtB,wBAAwB,CAAC;AAAA,MACzB,qBAAqB,CAAC;AAAA,MACtB,iBAAiB,CAAC;AAAA,MAClB,yBAAyB,CAAC;AAAA,MAC1B,+BAA+B,CAAC;AAAA,MAChC,gBAAgB,CAAC;AAAA,MACjB,+BAA+B,CAAC;AAAA,IAClC;AAAA,IACA,aAAa;AAAA,EACf;AAAA,EACA,SAAS;AAAA,IACP,cAAc,CAAC,UAAU;AAvB7B;AAwBM,eAAO,iBAAM,OAAO,wBAAb,mBAAkC,kBAAlC,mBAAiD,MAAK;AAAA,IAC/D;AAAA,IACA,aAAa,CAAC,UAAU;AA1B5B;AA2BM,eAAO,WAAM,OAAO,uBAAuB,gBAApC,mBAAiD,WAAU;AAAA,IACpE;AAAA,EACF;AAAA,EACA,SAAS;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,IAUP,iBAAiB,SAAS;AACxB,WAAK,OAAO,OAAO;AAAA,IACrB;AAAA,IACA,MAAM,aAAa,QAAQ;AACzB,UAAI;AACF,cAAM,WAAW,MAAM,UAAU,MAAM;AACvC,aAAK,SAAS;AACd,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,IAAI,KAAK;AACjB,cAAM;AAAA,MACR;AAAA,IACF;AAAA,IACA,MAAM,iBAAiB;AACrB,UAAI;AACF,cAAM,KAAK,MAAM,cAAc,KAAK;AACpC,cAAM,SAAS,MAAM,GAAG,IAAI;AAC5B,aAAK,cAAc,OAAO;AAC1B,eAAO;AAAA,UACL,WAAW,OAAO;AAAA,QACpB;AAAA,MACF,SAAS,OAAO;AACd,gBAAQ,IAAI,KAAK;AACjB,cAAM;AAAA,MACR;AAAA,IACF;AAAA,EACF;AAAA,EACA,SAAS;AACX,CAAC;AACM,gBAAS,uBAAuB;AACrC,SAAO,cAAc,UAAU;AACjC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767593,
+      "end": 1714699767593,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767593,
+      "end": 1714699767593,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767593,
+      "end": 1714699767593,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767593,
+      "end": 1714699767593,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767593,
+      "end": 1714699767593,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767593,
+      "end": 1714699767593,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767593,
+      "end": 1714699767593,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767593,
+      "end": 1714699767593,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767593,
+      "end": 1714699767594,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767594,
+      "end": 1714699767594,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767594,
+      "end": 1714699767594,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767594,
+      "end": 1714699767595,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767595,
+      "end": 1714699767595,
+      "order": "normal"
+    }
+  ]
+}

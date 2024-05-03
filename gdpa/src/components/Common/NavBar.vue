@@ -63,6 +63,10 @@
               class="arrow-right-gray arrow-back"
             ></i>
             <i
+              v-if="['pointMode'].includes(mode)"
+              class="arrow-right arrow-back"
+            ></i>
+            <i
               v-if="['blue'].includes(mode) && !gd_buyfix_count1age"
               class="arrow-right arrow-back"
             ></i>

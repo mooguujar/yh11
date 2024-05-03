@@ -129,7 +129,7 @@ defineExpose({
         </van-button>
         <van-button
           color="#777777"
-          v-if="dialogType === 'confirm'"
+          v-if="dialogType === 'confirm' && !$attrs.hideCancelButton"
           type="primary"
           block
           @click="onCancel"

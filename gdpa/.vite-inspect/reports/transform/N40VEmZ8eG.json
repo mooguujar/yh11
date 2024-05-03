@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Details/CoinDetails.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <div class=\"nav-bar-container\">\n    <nav-bar\n      :title=\"title\"\n      mode=\"blue\"\n    />\n  </div>\n\n  <div class=\"coin-details-container\">\n    <div class=\"top-container flex flex-col items-center justify-center\">\n      <div class=\"balance-text\">余额</div>\n      <div class=\"balance-content\">\n        <span class=\"amount\">{{ balance.toTruncFixed(2) }}</span>\n        <span>{{ coin.unit }}</span>\n      </div>\n    </div>\n\n    <div class=\"coin-details-list-container\">\n      <pull-refresh\n        :loading=\"isLoading\"\n        @refresh=\"getCoinDetailsData('refresh')\"\n      >\n        <van-list\n          v-model:loading=\"listLoading\"\n          :finished=\"finished\"\n          :immediate-check=\"false\"\n          finished-text=\"没有更多了\"\n          @load=\"onLoad\"\n          class=\"details-list\"\n        >\n          <user-money-details\n            v-show=\"!isLoading\"\n            :data=\"coinDetailsData\"\n          />\n        </van-list>\n      </pull-refresh>\n    </div>\n  </div>\n</template>\n\n<script setup lang=\"ts\">\nimport { getMoneyDetailsApi } from '@/apis/user'\nimport { useAppBar } from '@/components/AppBar/useAppBar'\nimport { useUserStore } from '@/store/modules/user'\nimport { IMoneyDetailsItem } from '@/store/types/coin'\nimport { onMounted, reactive, ref } from 'vue'\nimport { useRoute } from 'vue-router'\n\nuseAppBar({ mode: 'dark' })\n\n// 币种类型映射表\nconst coinMap = {\n  point: {\n    title: '积分',\n    mtype: '20',\n    unit: '积分'\n  },\n  kgb: {\n    title: '矿工币',\n    mtype: '30',\n    unit: 'CNY'\n  },\n  usdt: {\n    title: 'USDT',\n    mtype: '2',\n    unit: 'USDT'\n  }\n} as Record<string, any>\n\nconst route = useRoute()\nconst coin = reactive(coinMap[route.params.type as string])\nconst title = ref(coin.title + '明细')\n\nconst balance = ref(0)\ntype TIMoneyDetailsItem = Partial<IMoneyDetailsItem>\nconst coinDetailsData = ref<TIMoneyDetailsItem[]>([])\n\n// 当前页数\nconst page = ref(1)\n// loading状态\nconst isLoading = ref(false)\n// 列表内容loading\nconst listLoading = ref(false)\n// 全部内容加载完成\nconst finished = ref(false)\n// 是否正在刷新\nconst isRefreshing = ref(false)\n\nconst userStore = useUserStore()\nconst { getAllMType } = userStore\n\nconst onLoad = () => {\n  getCoinDetailsData('load-more')\n}\n\nconst getCoinDetailsData = async (type = '') => {\n  try {\n    if (isLoading.value || isRefreshing.value) return\n\n    if (type === 'refresh') {\n      page.value = 1\n      isLoading.value = true\n      isRefreshing.value = true\n    } else if (type === 'load-more') {\n      listLoading.value = page.value !== 1 && !!coinDetailsData.value.length\n    } else {\n      isLoading.value = true\n    }\n\n    finished.value = false\n\n    const res = await getMoneyDetailsApi({\n      mtype: coin.mtype,\n      page: page.value\n    })\n\n    if (page.value === 1) {\n      balance.value = +(res.data[0]?.money_cash ?? '0')\n    }\n\n    if (!res.count) {\n      coinDetailsData.value = []\n      return\n    }\n\n    const list = res.data ?? []\n\n    if (type === 'refresh') {\n      coinDetailsData.value = list\n    } else {\n      coinDetailsData.value.push(...list)\n    }\n\n    if (coinDetailsData.value.length < res.count) {\n      page.value++\n    }\n    if (coinDetailsData.value.length === res.count) {\n      finished.value = true\n    }\n\n    window.log('积分明细', res)\n  } catch (error) {\n    console.error(error)\n  } finally {\n    isLoading.value = false\n    listLoading.value = false\n    isRefreshing.value = false\n  }\n}\n\nonMounted(() => {\n  // 获取所有mtype\n  // getAllMType({})\n  getCoinDetailsData()\n})\n</script>\n\n<style lang=\"scss\" scoped>\n@import '@/assets/styles/sprite-home.scss';\n\n.nav-bar-container {\n  // width: 100%;\n  // height: 90px;\n}\n.coin-details-container {\n  width: 100%;\n  height: calc(100% - 120px);\n  .top-container {\n    height: 150px;\n    padding: 0 0 28px 0;\n    background-color: var(--van-button-primary-background);\n    .balance-text {\n      flex: 1;\n      color: #94c3ff;\n      font-size: 33px;\n    }\n    .balance-content {\n      flex: 1;\n      color: #fff;\n      font-size: 49px;\n      .amount {\n        margin-right: 17px;\n        font-weight: bold;\n      }\n    }\n  }\n\n  .coin-details-list-container {\n    width: 100%;\n    height: calc(100% - 150px);\n    :deep(.van-pull-refresh) {\n      overflow: auto;\n      scroll-behavior: smooth;\n    }\n    :deep(.details-list) {\n      .user-money-details-container {\n        height: auto;\n        overflow: unset;\n      }\n    }\n  }\n}\n</style>\n",
+      "start": 1714699769274,
+      "end": 1714699769317,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769317,
+      "end": 1714699769317,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769317,
+      "end": 1714699769317,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769317,
+      "end": 1714699769317,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769317,
+      "end": 1714699769317,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Details/CoinDetails.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Details/CoinDetails.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Details/CoinDetails.vue?vue&type=style&index=0&scoped=432bab34&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-432bab34\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Details/CoinDetails.vue\"]]);\n",
+      "start": 1714699769317,
+      "end": 1714699769537,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769537,
+      "end": 1714699769537,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Details/CoinDetails.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Details/CoinDetails.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Details/CoinDetails.vue?vue&type=style&index=0&scoped=432bab34&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-432bab34\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Details/CoinDetails.vue\"]]);\n",
+      "start": 1714699769537,
+      "end": 1714699769537,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Details/CoinDetails.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Details/CoinDetails.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Details/CoinDetails.vue?vue&type=style&index=0&scoped=432bab34&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-432bab34\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Details/CoinDetails.vue\"]]);\n",
+      "start": 1714699769537,
+      "end": 1714699769894,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Details/CoinDetails.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Details/CoinDetails.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Details/CoinDetails.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Details/CoinDetails.vue?vue&type=style&index=0&scoped=432bab34&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-432bab34\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Details/CoinDetails.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,yEAAyE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769894,
+      "end": 1714699769894,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769895,
+      "end": 1714699769895,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769895,
+      "end": 1714699769895,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769895,
+      "end": 1714699769895,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769895,
+      "end": 1714699769895,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769895,
+      "end": 1714699769895,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769895,
+      "end": 1714699769895,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769895,
+      "end": 1714699769895,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769897,
+      "end": 1714699769897,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Details/CoinDetails.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Details/CoinDetails.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Details/CoinDetails.vue?vue&type=style&index=0&scoped=432bab34&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-432bab34\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Details/CoinDetails.vue\"]]);\n",
+      "start": 1714699769898,
+      "end": 1714699769898,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Details/CoinDetails.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Details/CoinDetails.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Details/CoinDetails.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Details/CoinDetails.vue?vue&type=style&index=0&scoped=432bab34&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-432bab34\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Details/CoinDetails.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769898,
+      "end": 1714699769898,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769898,
+      "end": 1714699769898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769898,
+      "end": 1714699769898,
+      "order": "normal"
+    }
+  ]
+}

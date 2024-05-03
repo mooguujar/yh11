@@ -1,0 +1,156 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/router/module/home.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "// import App from '@/pages/Home/index.vue'\n\nconst home = [\n  {\n    path: '/',\n    name: 'App',\n    // component: App,\n    children: [\n      {\n        path: '/index',\n        name: 'Home',\n        component: () => import(/* webpackChunkName: \"home\" */ '@/pages/Home/index.vue')\n      },\n      {\n        path: '/sell-coin',\n        name: 'SellCoin',\n        component: () => import(/* webpackChunkName: \"home\" */ '@/pages/Crypto/sell.vue')\n      },\n      {\n        path: '/order',\n        name: 'Order',\n        component: () => import(/* webpackChunkName: \"order\" */ '@/pages/Order/index.vue'),\n        meta: {}\n      },\n      {\n        path: '/activeList',\n        name: 'activeList',\n        component: () => import(/* webpackChunkName: \"point\" */ '@/pages/activeList/index.vue')\n      },\n      {\n        path: '/point',\n        name: 'Point',\n        component: () => import(/* webpackChunkName: \"point\" */ '@/pages/Point/index.vue')\n      },\n      {\n        path: '/mine',\n        name: 'Mine',\n        component: () => import(/* webpackChunkName: \"mine\" */ '@/pages/Mine/index.vue'),\n        meta: {\n          // requiresAuth: true, // 是否需要登录权限\n        }\n      },\n      {\n        path: '/scanQR',\n        name: 'scanQR',\n        component: () => import(/* webpackChunkName: \"home\" */ '@/pages/Other/scanQR.vue'),\n        meta: {\n          // requiresAuth: true, // 是否需要登录权限\n        }\n      }\n    ]\n  }\n]\n\nexport default home\n",
+      "start": 1714699767924,
+      "end": 1714699768001,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768001,
+      "end": 1714699768001,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "const home = [\n  {\n    path: \"/\",\n    name: \"App\",\n    // component: App,\n    children: [\n      {\n        path: \"/index\",\n        name: \"Home\",\n        component: () => import(\n          /* webpackChunkName: \"home\" */\n          \"@/pages/Home/index.vue\"\n        )\n      },\n      {\n        path: \"/sell-coin\",\n        name: \"SellCoin\",\n        component: () => import(\n          /* webpackChunkName: \"home\" */\n          \"@/pages/Crypto/sell.vue\"\n        )\n      },\n      {\n        path: \"/order\",\n        name: \"Order\",\n        component: () => import(\n          /* webpackChunkName: \"order\" */\n          \"@/pages/Order/index.vue\"\n        ),\n        meta: {}\n      },\n      {\n        path: \"/activeList\",\n        name: \"activeList\",\n        component: () => import(\n          /* webpackChunkName: \"point\" */\n          \"@/pages/activeList/index.vue\"\n        )\n      },\n      {\n        path: \"/point\",\n        name: \"Point\",\n        component: () => import(\n          /* webpackChunkName: \"point\" */\n          \"@/pages/Point/index.vue\"\n        )\n      },\n      {\n        path: \"/mine\",\n        name: \"Mine\",\n        component: () => import(\n          /* webpackChunkName: \"mine\" */\n          \"@/pages/Mine/index.vue\"\n        ),\n        meta: {\n          // requiresAuth: true, // 是否需要登录权限\n        }\n      },\n      {\n        path: \"/scanQR\",\n        name: \"scanQR\",\n        component: () => import(\n          /* webpackChunkName: \"home\" */\n          \"@/pages/Other/scanQR.vue\"\n        ),\n        meta: {\n          // requiresAuth: true, // 是否需要登录权限\n        }\n      }\n    ]\n  }\n];\nexport default home;\n",
+      "start": 1714699768001,
+      "end": 1714699769054,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/router/module/home.ts"
+        ],
+        "sourcesContent": [
+          "// import App from '@/pages/Home/index.vue'\n\nconst home = [\n  {\n    path: '/',\n    name: 'App',\n    // component: App,\n    children: [\n      {\n        path: '/index',\n        name: 'Home',\n        component: () => import(/* webpackChunkName: \"home\" */ '@/pages/Home/index.vue')\n      },\n      {\n        path: '/sell-coin',\n        name: 'SellCoin',\n        component: () => import(/* webpackChunkName: \"home\" */ '@/pages/Crypto/sell.vue')\n      },\n      {\n        path: '/order',\n        name: 'Order',\n        component: () => import(/* webpackChunkName: \"order\" */ '@/pages/Order/index.vue'),\n        meta: {}\n      },\n      {\n        path: '/activeList',\n        name: 'activeList',\n        component: () => import(/* webpackChunkName: \"point\" */ '@/pages/activeList/index.vue')\n      },\n      {\n        path: '/point',\n        name: 'Point',\n        component: () => import(/* webpackChunkName: \"point\" */ '@/pages/Point/index.vue')\n      },\n      {\n        path: '/mine',\n        name: 'Mine',\n        component: () => import(/* webpackChunkName: \"mine\" */ '@/pages/Mine/index.vue'),\n        meta: {\n          // requiresAuth: true, // 是否需要登录权限\n        }\n      },\n      {\n        path: '/scanQR',\n        name: 'scanQR',\n        component: () => import(/* webpackChunkName: \"home\" */ '@/pages/Other/scanQR.vue'),\n        meta: {\n          // requiresAuth: true, // 是否需要登录权限\n        }\n      }\n    ]\n  }\n]\n\nexport default home\n"
+        ],
+        "mappings": "AAEA,MAAM,OAAO;AAAA,EACX;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA;AAAA,IAEN,UAAU;AAAA,MACR;AAAA,QACE,MAAM;AAAA,QACN,MAAM;AAAA,QACN,WAAW,MAAM;AAAA;AAAA,UAAsC;AAAA,QAAwB;AAAA,MACjF;AAAA,MACA;AAAA,QACE,MAAM;AAAA,QACN,MAAM;AAAA,QACN,WAAW,MAAM;AAAA;AAAA,UAAsC;AAAA,QAAyB;AAAA,MAClF;AAAA,MACA;AAAA,QACE,MAAM;AAAA,QACN,MAAM;AAAA,QACN,WAAW,MAAM;AAAA;AAAA,UAAuC;AAAA,QAAyB;AAAA,QACjF,MAAM,CAAC;AAAA,MACT;AAAA,MACA;AAAA,QACE,MAAM;AAAA,QACN,MAAM;AAAA,QACN,WAAW,MAAM;AAAA;AAAA,UAAuC;AAAA,QAA8B;AAAA,MACxF;AAAA,MACA;AAAA,QACE,MAAM;AAAA,QACN,MAAM;AAAA,QACN,WAAW,MAAM;AAAA;AAAA,UAAuC;AAAA,QAAyB;AAAA,MACnF;AAAA,MACA;AAAA,QACE,MAAM;AAAA,QACN,MAAM;AAAA,QACN,WAAW,MAAM;AAAA;AAAA,UAAsC;AAAA,QAAwB;AAAA,QAC/E,MAAM;AAAA;AAAA,QAEN;AAAA,MACF;AAAA,MACA;AAAA,QACE,MAAM;AAAA,QACN,MAAM;AAAA,QACN,WAAW,MAAM;AAAA;AAAA,UAAsC;AAAA,QAA0B;AAAA,QACjF,MAAM;AAAA;AAAA,QAEN;AAAA,MACF;AAAA,IACF;AAAA,EACF;AACF;AAEA,eAAe;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769054,
+      "end": 1714699769054,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769054,
+      "end": 1714699769054,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699769054,
+      "end": 1714699769054,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769054,
+      "end": 1714699769054,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "const home = [\n  {\n    path: \"/\",\n    name: \"App\",\n    // component: App,\n    children: [\n      {\n        path: \"/index\",\n        name: \"Home\",\n        component: () => import(\n          /* webpackChunkName: \"home\" */\n          \"@/pages/Home/index.vue\"\n        )\n      },\n      {\n        path: \"/sell-coin\",\n        name: \"SellCoin\",\n        component: () => import(\n          /* webpackChunkName: \"home\" */\n          \"@/pages/Crypto/sell.vue\"\n        )\n      },\n      {\n        path: \"/order\",\n        name: \"Order\",\n        component: () => import(\n          /* webpackChunkName: \"order\" */\n          \"@/pages/Order/index.vue\"\n        ),\n        meta: {}\n      },\n      {\n        path: \"/activeList\",\n        name: \"activeList\",\n        component: () => import(\n          /* webpackChunkName: \"point\" */\n          \"@/pages/activeList/index.vue\"\n        )\n      },\n      {\n        path: \"/point\",\n        name: \"Point\",\n        component: () => import(\n          /* webpackChunkName: \"point\" */\n          \"@/pages/Point/index.vue\"\n        )\n      },\n      {\n        path: \"/mine\",\n        name: \"Mine\",\n        component: () => import(\n          /* webpackChunkName: \"mine\" */\n          \"@/pages/Mine/index.vue\"\n        ),\n        meta: {\n          // requiresAuth: true, // 是否需要登录权限\n        }\n      },\n      {\n        path: \"/scanQR\",\n        name: \"scanQR\",\n        component: () => import(\n          /* webpackChunkName: \"home\" */\n          \"@/pages/Other/scanQR.vue\"\n        ),\n        meta: {\n          // requiresAuth: true, // 是否需要登录权限\n        }\n      }\n    ]\n  }\n];\nexport default home;\n",
+      "start": 1714699769054,
+      "end": 1714699769054,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nconst home = [\n  {\n    path: \"/\",\n    name: \"App\",\n    // component: App,\n    children: [\n      {\n        path: \"/index\",\n        name: \"Home\",\n        component: () => import(\n          /* webpackChunkName: \"home\" */\n          \"@/pages/Home/index.vue\"\n        )\n      },\n      {\n        path: \"/sell-coin\",\n        name: \"SellCoin\",\n        component: () => import(\n          /* webpackChunkName: \"home\" */\n          \"@/pages/Crypto/sell.vue\"\n        )\n      },\n      {\n        path: \"/order\",\n        name: \"Order\",\n        component: () => import(\n          /* webpackChunkName: \"order\" */\n          \"@/pages/Order/index.vue\"\n        ),\n        meta: {}\n      },\n      {\n        path: \"/activeList\",\n        name: \"activeList\",\n        component: () => import(\n          /* webpackChunkName: \"point\" */\n          \"@/pages/activeList/index.vue\"\n        )\n      },\n      {\n        path: \"/point\",\n        name: \"Point\",\n        component: () => import(\n          /* webpackChunkName: \"point\" */\n          \"@/pages/Point/index.vue\"\n        )\n      },\n      {\n        path: \"/mine\",\n        name: \"Mine\",\n        component: () => import(\n          /* webpackChunkName: \"mine\" */\n          \"@/pages/Mine/index.vue\"\n        ),\n        meta: {\n          // requiresAuth: true, // 是否需要登录权限\n        }\n      },\n      {\n        path: \"/scanQR\",\n        name: \"scanQR\",\n        component: () => import(\n          /* webpackChunkName: \"home\" */\n          \"@/pages/Other/scanQR.vue\"\n        ),\n        meta: {\n          // requiresAuth: true, // 是否需要登录权限\n        }\n      }\n    ]\n  }\n];\nexport default home;\n",
+      "start": 1714699769054,
+      "end": 1714699769094,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/router/module/home.ts\"],\n  \"sourcesContent\": [\"const home = [\\n  {\\n    path: \\\"/\\\",\\n    name: \\\"App\\\",\\n    // component: App,\\n    children: [\\n      {\\n        path: \\\"/index\\\",\\n        name: \\\"Home\\\",\\n        component: () => import(\\n          /* webpackChunkName: \\\"home\\\" */\\n          \\\"@/pages/Home/index.vue\\\"\\n        )\\n      },\\n      {\\n        path: \\\"/sell-coin\\\",\\n        name: \\\"SellCoin\\\",\\n        component: () => import(\\n          /* webpackChunkName: \\\"home\\\" */\\n          \\\"@/pages/Crypto/sell.vue\\\"\\n        )\\n      },\\n      {\\n        path: \\\"/order\\\",\\n        name: \\\"Order\\\",\\n        component: () => import(\\n          /* webpackChunkName: \\\"order\\\" */\\n          \\\"@/pages/Order/index.vue\\\"\\n        ),\\n        meta: {}\\n      },\\n      {\\n        path: \\\"/activeList\\\",\\n        name: \\\"activeList\\\",\\n        component: () => import(\\n          /* webpackChunkName: \\\"point\\\" */\\n          \\\"@/pages/activeList/index.vue\\\"\\n        )\\n      },\\n      {\\n        path: \\\"/point\\\",\\n        name: \\\"Point\\\",\\n        component: () => import(\\n          /* webpackChunkName: \\\"point\\\" */\\n          \\\"@/pages/Point/index.vue\\\"\\n        )\\n      },\\n      {\\n        path: \\\"/mine\\\",\\n        name: \\\"Mine\\\",\\n        component: () => import(\\n          /* webpackChunkName: \\\"mine\\\" */\\n          \\\"@/pages/Mine/index.vue\\\"\\n        ),\\n        meta: {\\n          // requiresAuth: true, // \\u662F\\u5426\\u9700\\u8981\\u767B\\u5F55\\u6743\\u9650\\n        }\\n      },\\n      {\\n        path: \\\"/scanQR\\\",\\n        name: \\\"scanQR\\\",\\n        component: () => import(\\n          /* webpackChunkName: \\\"home\\\" */\\n          \\\"@/pages/Other/scanQR.vue\\\"\\n        ),\\n        meta: {\\n          // requiresAuth: true, // \\u662F\\u5426\\u9700\\u8981\\u767B\\u5F55\\u6743\\u9650\\n        }\\n      }\\n    ]\\n  }\\n];\\nexport default home;\\n\"],\n  \"mappings\": \";AAAA,MAAM,OAAO;AAAA,EACX;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA;AAAA,IAEN,UAAU;AAAA,MACR;AAAA,QACE,MAAM;AAAA,QACN,MAAM;AAAA,QACN,WAAW,MAAM;AAAA;AAAA,UAEf;AAAA,QACF;AAAA,MACF;AAAA,MACA;AAAA,QACE,MAAM;AAAA,QACN,MAAM;AAAA,QACN,WAAW,MAAM;AAAA;AAAA,UAEf;AAAA,QACF;AAAA,MACF;AAAA,MACA;AAAA,QACE,MAAM;AAAA,QACN,MAAM;AAAA,QACN,WAAW,MAAM;AAAA;AAAA,UAEf;AAAA,QACF;AAAA,QACA,MAAM,CAAC;AAAA,MACT;AAAA,MACA;AAAA,QACE,MAAM;AAAA,QACN,MAAM;AAAA,QACN,WAAW,MAAM;AAAA;AAAA,UAEf;AAAA,QACF;AAAA,MACF;AAAA,MACA;AAAA,QACE,MAAM;AAAA,QACN,MAAM;AAAA,QACN,WAAW,MAAM;AAAA;AAAA,UAEf;AAAA,QACF;AAAA,MACF;AAAA,MACA;AAAA,QACE,MAAM;AAAA,QACN,MAAM;AAAA,QACN,WAAW,MAAM;AAAA;AAAA,UAEf;AAAA,QACF;AAAA,QACA,MAAM;AAAA;AAAA,QAEN;AAAA,MACF;AAAA,MACA;AAAA,QACE,MAAM;AAAA,QACN,MAAM;AAAA,QACN,WAAW,MAAM;AAAA;AAAA,UAEf;AAAA,QACF;AAAA,QACA,MAAM;AAAA;AAAA,QAEN;AAAA,MACF;AAAA,IACF;AAAA,EACF;AACF;AACA,eAAe;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769094,
+      "end": 1714699769094,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769094,
+      "end": 1714699769094,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769094,
+      "end": 1714699769094,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769094,
+      "end": 1714699769094,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769094,
+      "end": 1714699769094,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769094,
+      "end": 1714699769094,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769094,
+      "end": 1714699769094,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769094,
+      "end": 1714699769094,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769094,
+      "end": 1714699769095,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699769095,
+      "end": 1714699769095,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769095,
+      "end": 1714699769095,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "result": "import { __vitePreload } from \"\u0000vite/preload-helper.js\";\"use strict\";\nconst home = [\n  {\n    path: \"/\",\n    name: \"App\",\n    // component: App,\n    children: [\n      {\n        path: \"/index\",\n        name: \"Home\",\n        component: () => __vitePreload(() => import(\n          /* webpackChunkName: \"home\" */\n          \"@/pages/Home/index.vue\"\n        ),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url)\n      },\n      {\n        path: \"/sell-coin\",\n        name: \"SellCoin\",\n        component: () => __vitePreload(() => import(\n          /* webpackChunkName: \"home\" */\n          \"@/pages/Crypto/sell.vue\"\n        ),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url)\n      },\n      {\n        path: \"/order\",\n        name: \"Order\",\n        component: () => __vitePreload(() => import(\n          /* webpackChunkName: \"order\" */\n          \"@/pages/Order/index.vue\"\n        ),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url),\n        meta: {}\n      },\n      {\n        path: \"/activeList\",\n        name: \"activeList\",\n        component: () => __vitePreload(() => import(\n          /* webpackChunkName: \"point\" */\n          \"@/pages/activeList/index.vue\"\n        ),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url)\n      },\n      {\n        path: \"/point\",\n        name: \"Point\",\n        component: () => __vitePreload(() => import(\n          /* webpackChunkName: \"point\" */\n          \"@/pages/Point/index.vue\"\n        ),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url)\n      },\n      {\n        path: \"/mine\",\n        name: \"Mine\",\n        component: () => __vitePreload(() => import(\n          /* webpackChunkName: \"mine\" */\n          \"@/pages/Mine/index.vue\"\n        ),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url),\n        meta: {\n          // requiresAuth: true, // 是否需要登录权限\n        }\n      },\n      {\n        path: \"/scanQR\",\n        name: \"scanQR\",\n        component: () => __vitePreload(() => import(\n          /* webpackChunkName: \"home\" */\n          \"@/pages/Other/scanQR.vue\"\n        ),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url),\n        meta: {\n          // requiresAuth: true, // 是否需要登录权限\n        }\n      }\n    ]\n  }\n];\nexport default home;\n",
+      "start": 1714699769095,
+      "end": 1714699769095,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769095,
+      "end": 1714699769095,
+      "order": "normal"
+    }
+  ]
+}

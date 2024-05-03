@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/toFixed.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var round = require('./round')\r\nvar toValueString = require('./toValueString')\r\n\r\nvar helperStringRepeat = require('./helperStringRepeat')\r\nvar helperNumberOffsetPoint = require('./helperNumberOffsetPoint')\r\n\r\n/**\r\n  * 将数值四舍五入并格式化为固定小数位的字符串\r\n  *\r\n * @param {string|number} num 数值\r\n * @param {number} digits 小数保留位数\r\n  * @return {String}\r\n  */\r\nfunction toFixed (num, digits) {\r\n  digits = digits >> 0\r\n  var str = toValueString(round(num, digits))\r\n  var nums = str.split('.')\r\n  var intStr = nums[0]\r\n  var floatStr = nums[1] || ''\r\n  var digitOffsetIndex = digits - floatStr.length\r\n  if (digits) {\r\n    if (digitOffsetIndex > 0) {\r\n      return intStr + '.' + floatStr + helperStringRepeat('0', digitOffsetIndex)\r\n    }\r\n    return intStr + helperNumberOffsetPoint(floatStr, Math.abs(digitOffsetIndex))\r\n  }\r\n  return intStr\r\n}\r\n\r\nmodule.exports = toFixed\r\n",
+      "start": 1714699767665,
+      "end": 1714699767694,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767694,
+      "end": 1714699767694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767694,
+      "end": 1714699767694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767694,
+      "end": 1714699767694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767694,
+      "end": 1714699767694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767694,
+      "end": 1714699767694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767694,
+      "end": 1714699767694,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var round = require('./round')\r\nvar toValueString = require('./toValueString')\r\n\r\nvar helperStringRepeat = require('./helperStringRepeat')\r\nvar helperNumberOffsetPoint = require('./helperNumberOffsetPoint')\r\n\r\n/**\r\n  * 将数值四舍五入并格式化为固定小数位的字符串\r\n  *\r\n * @param {string|number} num 数值\r\n * @param {number} digits 小数保留位数\r\n  * @return {String}\r\n  */\r\nfunction toFixed (num, digits) {\r\n  digits = digits >> 0\r\n  var str = toValueString(round(num, digits))\r\n  var nums = str.split('.')\r\n  var intStr = nums[0]\r\n  var floatStr = nums[1] || ''\r\n  var digitOffsetIndex = digits - floatStr.length\r\n  if (digits) {\r\n    if (digitOffsetIndex > 0) {\r\n      return intStr + '.' + floatStr + helperStringRepeat('0', digitOffsetIndex)\r\n    }\r\n    return intStr + helperNumberOffsetPoint(floatStr, Math.abs(digitOffsetIndex))\r\n  }\r\n  return intStr\r\n}\r\n\r\nmodule.exports = toFixed\r\n",
+      "start": 1714699767694,
+      "end": 1714699767694,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767694,
+      "end": 1714699767694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767694,
+      "end": 1714699767694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767694,
+      "end": 1714699767694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767694,
+      "end": 1714699767694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767694,
+      "end": 1714699767694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767694,
+      "end": 1714699767694,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/round.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/toValueString.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/helperStringRepeat.js?commonjs-proxy\";\nimport require$$3 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/helperNumberOffsetPoint.js?commonjs-proxy\";\n\nvar round = require$$0\r\nvar toValueString = require$$1\r\n\r\nvar helperStringRepeat = require$$2\r\nvar helperNumberOffsetPoint = require$$3\r\n\r\n/**\r\n  * 将数值四舍五入并格式化为固定小数位的字符串\r\n  *\r\n * @param {string|number} num 数值\r\n * @param {number} digits 小数保留位数\r\n  * @return {String}\r\n  */\r\nfunction toFixed (num, digits) {\r\n  digits = digits >> 0\r\n  var str = toValueString(round(num, digits))\r\n  var nums = str.split('.')\r\n  var intStr = nums[0]\r\n  var floatStr = nums[1] || ''\r\n  var digitOffsetIndex = digits - floatStr.length\r\n  if (digits) {\r\n    if (digitOffsetIndex > 0) {\r\n      return intStr + '.' + floatStr + helperStringRepeat('0', digitOffsetIndex)\r\n    }\r\n    return intStr + helperNumberOffsetPoint(floatStr, Math.abs(digitOffsetIndex))\r\n  }\r\n  return intStr\r\n}\r\n\r\nvar toFixed_1 = toFixed\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(toFixed_1);\nexport { toFixed_1 as __moduleExports };",
+      "start": 1714699767694,
+      "end": 1714699768241,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;;AAAA,IAAI,KAAK,GAAG,UAAkB;AAC9B,IAAI,aAAa,GAAG,UAA0B;AAC9C;AACA,IAAI,kBAAkB,GAAG,UAA+B;AACxD,IAAI,uBAAuB,GAAG,UAAoC;AAClE;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,OAAO,EAAE,GAAG,EAAE,MAAM,EAAE;AAC/B,EAAE,MAAM,GAAG,MAAM,IAAI,CAAC;AACtB,EAAE,IAAI,GAAG,GAAG,aAAa,CAAC,KAAK,CAAC,GAAG,EAAE,MAAM,CAAC,CAAC;AAC7C,EAAE,IAAI,IAAI,GAAG,GAAG,CAAC,KAAK,CAAC,GAAG,CAAC;AAC3B,EAAE,IAAI,MAAM,GAAG,IAAI,CAAC,CAAC,CAAC;AACtB,EAAE,IAAI,QAAQ,GAAG,IAAI,CAAC,CAAC,CAAC,IAAI,EAAE;AAC9B,EAAE,IAAI,gBAAgB,GAAG,MAAM,GAAG,QAAQ,CAAC,MAAM;AACjD,EAAE,IAAI,MAAM,EAAE;AACd,IAAI,IAAI,gBAAgB,GAAG,CAAC,EAAE;AAC9B,MAAM,OAAO,MAAM,GAAG,GAAG,GAAG,QAAQ,GAAG,kBAAkB,CAAC,GAAG,EAAE,gBAAgB,CAAC;AAChF,KAAK;AACL,IAAI,OAAO,MAAM,GAAG,uBAAuB,CAAC,QAAQ,EAAE,IAAI,CAAC,GAAG,CAAC,gBAAgB,CAAC,CAAC;AACjF,GAAG;AACH,EAAE,OAAO,MAAM;AACf,CAAC;AACD;IACA,SAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768241,
+      "end": 1714699768241,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768241,
+      "end": 1714699768241,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768241,
+      "end": 1714699768241,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768241,
+      "end": 1714699768241,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768241,
+      "end": 1714699768241,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768241,
+      "end": 1714699768241,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768241,
+      "end": 1714699768241,
+      "order": "normal"
+    }
+  ]
+}

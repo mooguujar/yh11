@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <div class=\"rmb w-100 bg-white\">\n    <nav-bar\n      title=\"收付款方式\"\n      mode=\"blue\"\n      :hideLeft=\"false\"\n      gopath=\"/mine\"\n    />\n    <div class=\"blue-bg w-full h-[30px] bg-[var(--van-button-primary-background)]\"></div>\n    <div\n      class=\"order-content py-[30px] px-[20px] bg-[#fff] mt-[-30px] rounded-t-[15px] h-[calc(100%-50px)] safe-area-inset-bottom overflow-y-scroll\"\n    >\n      <img\n        :src=\"addPaymentBtn\"\n        alt=\"\"\n        class=\"w-full h-[100px] mb-[40px]\"\n        @click=\"showPopup\"\n      />\n      <div\n        class=\"w-full h-[220px] mb-[20px] relative\"\n        v-for=\"payment in payment_list\"\n        :key=\"payment.title\"\n        @click=\"payment.to\"\n      >\n        <img\n          :src=\"payment.bg\"\n          alt=\"\"\n          class=\"absolute w-full h-full\"\n        />\n        <img\n          :src=\"payment.image\"\n          alt=\"\"\n          class=\"absolute w-[140px] h-[140px] left-[20px] top-[40px]\"\n        />\n        <div class=\"title absolute text-white text-[30px] left-[180px] top-[35px] font-bold\">\n          {{ payment?.coin_protocol === 'BANK' ? payment?.account_bankname : payment?.title }}\n        </div>\n        <div class=\"name absolute text-white text-[30px] left-[180px] top-[80px] font-normal\">\n          {{ payment?.account_bank_realname }}\n        </div>\n        <div class=\"address absolute text-[#eee] text-[24px] left-[180px] top-[145px] font-normal\">\n          {{ payment?.coin_address }}\n        </div>\n        <div\n          :class=\"`status absolute ${payment.status?.color} text-[24px] right-[20px] top-[35px] font-bold`\"\n        >\n          {{ payment.status?.text }}\n          &nbsp; ({{ payment.amount }})\n        </div>\n        <!-- <van-icon name=\"delete-o\" color=\"white\" size=\"20\" /> -->\n      </div>\n      <van-popup\n        v-model:show=\"show\"\n        position=\"bottom\"\n        :style=\"{\n          height: 'auto',\n          width: '100%',\n          margin: '0 auto',\n          left: 0,\n          right: 0,\n          position: 'absolute'\n        }\"\n      >\n        <div\n          class=\"popup-title text-black text-[40px] flex items-center justify-center h-[100px] font-bold tracking-widest\"\n        >\n          添加收付款方式\n        </div>\n        <div class=\"h-[1px] w-full bg-[#eee]\"></div>\n        <div class=\"overflow-y-scroll h-[520px]\">\n          <div\n            class=\"mx-auto w-[600px]\"\n            v-for=\"payment in payment_options\"\n            :key=\"payment.title\"\n            @click=\"payment.pop_up_to\"\n          >\n            <div class=\"h-[100px] relative flex items-center justify-between\">\n              <div class=\"flex items-center\">\n                <div class=\"flex justify-center mr-[15px] w-[120px]\">\n                  <div\n                    v-if=\"payment.icon.sprite\"\n                    :class=\"`${payment.icon.sprite}`\"\n                  ></div>\n                  <img\n                    v-else\n                    :src=\"payment.icon.src\"\n                    alt=\"\"\n                    class=\"w-[60px] block\"\n                  />\n                </div>\n                <div class=\"title text-black text-[30px]\">\n                  {{ payment?.title }}\n                </div>\n              </div>\n              <div\n                :class=\"`status ${payment.status?.color} text-[24px] right-[20px] top-[35px] font-bold`\"\n              >\n                {{ payment.status?.list_text }}\n              </div>\n            </div>\n            <div class=\"h-[1px] w-full bg-[#f7f7f7]\"></div>\n          </div>\n        </div>\n      </van-popup>\n      <!-- <van-dialog v-model:show=\"dialogContent.show\" :title=\"dialogContent.title\" theme=\"round-button\"\n        :className=\"['dialog-deal']\" :confirmButtonText=\"dialogContent.confirmButtonText\" @confirm=\"onConfirm\">\n        <i class=\"icon-close block close-dark\" @click=\"onClose\"></i>\n        <div class=\"flex flex-col items-center justify-between\">\n          <img :src=\"dialogContent.img\" :class=\"!authStore?.userInfo.verified_status ? 'verifi-id' : 'add-card'\" />\n          <div class=\"content text-center\">{{ dialogContent.content }}</div>\n        </div>\n      </van-dialog> -->\n    </div>\n  </div>\n</template>\n\n<script setup lang=\"ts\">\nimport { useAuthStore } from '@/store'\nimport { useCoinBuySellStore } from '@/store/modules/coinBuySell'\n// import { showToast } from 'vant'\nimport mitt from '@/utils/mitt'\nimport { onMounted, ref } from 'vue'\nimport { useRouter } from 'vue-router'\n// import info from '@/assets/images/common/info.png'\n// import success from '@/assets/images/common/success.png'\nimport addPaymentBtn from '@/assets/images/mine/add-payment-btn.png'\nimport zfb from '@/assets/images/mine/alipay_bg.png'\nimport yhk from '@/assets/images/mine/bank_bg.png'\nimport szrmb from '@/assets/images/mine/szrmb_bg.png'\nimport usdt from '@/assets/images/mine/usdt_bg.png'\nimport wx from '@/assets/images/mine/wx_bg.png'\n\nimport zfb_icon from '@/assets/images/mine/alipay.png'\nimport usdt_icon from '@/assets/images/mine/bb.png'\nimport szrmb_icon from '@/assets/images/mine/sz.png'\nimport wx_icon from '@/assets/images/mine/wx.png'\nimport yhk_icon from '@/assets/images/mine/yhk-icon.png'\n\n// import icon_alipay from '@/assets/images/mine/icon_alipay.png'\n// import icon_wx from '@/assets/images/mine/icon_wx.png'\n// import icon_bank from '@/assets/images/mine/icon_bank.png'\nimport icon_usdt from '@/assets/images/mine/icon_usdt.png'\nimport { useAppBar } from '@/components/AppBar/useAppBar'\n\nuseAppBar({ mode: 'dark' })\n\nconst router = useRouter()\nconst authStore = useAuthStore()\n// const entryStore = useEntryStore()\n\n// const bind_bank = ref({})\n// const bind_wechat = ref({})\n// const bind_alipay = ref({})\n// const bind_usdt = ref({})\n// const bind_rmb = ref({})\n\nconst bankCardStatusText = (bank: any) => {\n  //   status   DEFAULT '1' COMMENT '1启用  2禁用   -1审核中 ',\n  if (bank?.status === 1) {\n    return {\n      text: '已绑定',\n      list_text: '',\n      color: 'text-[#fff]'\n    }\n  }\n\n  if (!bank?.status) {\n    return {\n      text: '未绑定',\n      list_text: '未绑定',\n      color: 'text-[#f98434]'\n    }\n  }\n\n  if (bank?.status === 2) {\n    return {\n      text: '已禁用',\n      list_text: '',\n      color: 'text-[#d5515c]'\n    }\n  }\n\n  if (bank?.status === -1) {\n    return {\n      text: '审核中',\n      list_text: '',\n      color: 'text-[#f0c388]'\n    }\n  }\n}\n\nconst payment_images: any = {\n  ALIPAY: zfb_icon,\n  WXPAY: wx_icon,\n  BANK: yhk_icon,\n  SZRMB: szrmb_icon,\n  USDT_TRC20: usdt_icon\n}\n\nconst payment_bgs: any = {\n  ALIPAY: zfb,\n  WXPAY: wx,\n  BANK: yhk,\n  SZRMB: szrmb,\n  USDT_TRC20: usdt\n}\n\nconst payment_ban_bgs: any = {\n  ALIPAY: zfb,\n  WXPAY: wx,\n  BANK: yhk,\n  SZRMB: szrmb,\n  USDT_TRC20: usdt\n}\n\nconst payment_tos: any = {\n  ALIPAY: () => router.push('/payment_list?way=alipay'),\n  WXPAY: () => router.push('/payment_list?way=wxpay'),\n  BANK: () => router.push('/payment_list?way=bank'),\n  SZRMB: () => router.push('/payment_list?way=szrmb'),\n  USDT_TRC20: () => router.push('/payment_list?way=usdt')\n}\n\nconst payment_icons: any = {\n  ALIPAY: {\n    sprite: 'ali-pay'\n  },\n  WXPAY: {\n    sprite: 'wechat-pay-03'\n  },\n  BANK: {\n    sprite: 'bank-card'\n  },\n  SZRMB: {\n    sprite: 'szrmb'\n  },\n  USDT_TRC20: {\n    src: icon_usdt\n  }\n}\n\nconst coin = useCoinBuySellStore()\n\nconst getPayment = (protocol: string) => {\n  console.log(coin?.withdrawddresslist, 'coin?.withdrawddresslist')\n  if (\n    coin?.withdrawddresslist.filter(address => address.coin_protocol.includes(protocol)).length > 0\n  ) {\n    return coin?.withdrawddresslist.filter(address => address.coin_protocol.includes(protocol))[0]\n  } else {\n    console.log(2)\n    return {}\n  }\n}\n\nconst payment_options: any = ref([])\nconst payment_list: any = ref([])\nconst getPayments = () => {\n  // console.log(coin?.withdrawddresslist, 'coin?.withdrawddresslist')\n  payment_list.value = payment_options.value\n    .map(option => {\n      let bank = coin?.withdrawddresslist.find(\n        coin => coin.coin_protocol === option.coin_protocol && coin?.def_card === 1\n      )\n      if (!bank) {\n        bank = coin?.withdrawddresslist.find(\n          coin => coin.coin_protocol === option.coin_protocol && coin?.def_card === 2\n        )\n      }\n      const amount = coin?.withdrawddresslist.filter(\n        coin => coin.coin_protocol === option.coin_protocol\n      ).length\n      if (bank) {\n        return {\n          ...bank,\n          title: option.title,\n          bg:\n            bank?.status === 2\n              ? payment_ban_bgs[bank.coin_protocol]\n              : payment_bgs[bank.coin_protocol],\n          status: bankCardStatusText(bank),\n          to: payment_tos[bank.coin_protocol],\n          icon: payment_icons[bank.coin_protocol],\n          image: payment_images[bank.coin_protocol],\n          amount\n        }\n      } else {\n        return null\n      }\n    })\n    .filter(item => !!item)\n}\n\nconst show = ref(false)\n\nconst showPopup = () => {\n  show.value = true\n}\n\nconst img = ref('')\n\nconst { getWithdrawddresslist } = coin\n\nonMounted(async () => {\n  await authStore.getUserInfo()\n  getPayments()\n\n  getWithdrawddresslist({}).then(() => {\n    payment_options.value = [\n      {\n        coin_protocol: 'BANK',\n        title: '银行卡',\n        status: bankCardStatusText(getPayment('BANK')),\n        to: payment_tos['BANK'],\n        pop_up_to: () => {\n          const amount = coin?.withdrawddresslist.filter(\n            coin => coin.coin_protocol === 'BANK'\n          ).length\n          if (amount > 0) {\n            router.push('payment_list?way=bank')\n          } else {\n            router.push('/bank_card')\n          }\n        },\n        icon: payment_icons['BANK']\n      },\n      {\n        coin_protocol: 'WXPAY',\n        title: '微信',\n        status: bankCardStatusText(getPayment('WXPAY')),\n        to: payment_tos['WXPAY'],\n        pop_up_to: () => {\n          const amount = coin?.withdrawddresslist.filter(\n            coin => coin.coin_protocol === 'WXPAY'\n          ).length\n          if (amount > 0) {\n            router.push('payment_list?way=wxpay')\n          } else {\n            router.push('/wechat')\n          }\n        },\n        icon: payment_icons['WXPAY']\n      },\n      {\n        coin_protocol: 'ALIPAY',\n        title: '支付宝',\n        status: bankCardStatusText(getPayment('ALIPAY')),\n        to: payment_tos['ALIPAY'],\n        pop_up_to: () => {\n          const amount = coin?.withdrawddresslist.filter(\n            coin => coin.coin_protocol === 'ALIPAY'\n          ).length\n          if (amount > 0) {\n            router.push('payment_list?way=alipay')\n          } else {\n            router.push('/alipay')\n          }\n        },\n        icon: payment_icons['ALIPAY']\n      },\n      {\n        coin_protocol: 'SZRMB',\n        title: '数字人民币',\n        status: bankCardStatusText(getPayment('SZRMB')),\n        to: payment_tos['SZRMB'],\n        pop_up_to: () => {\n          const amount = coin?.withdrawddresslist.filter(\n            coin => coin.coin_protocol === 'SZRMB'\n          ).length\n          if (amount > 0) {\n            router.push('payment_list?way=szrmb')\n          } else {\n            router.push('/rmb')\n          }\n        },\n        icon: payment_icons['SZRMB']\n      },\n      {\n        coin_protocol: 'USDT_TRC20',\n        title: 'USDT',\n        status: bankCardStatusText(getPayment('USDT_TRC20')),\n        to: payment_tos['USDT_TRC20'],\n        pop_up_to: () => {\n          const amount = coin?.withdrawddresslist.filter(\n            coin => coin.coin_protocol === 'USDT_TRC20'\n          ).length\n          if (amount > 0) {\n            router.push('payment_list?way=usdt')\n          } else {\n            router.push('/usdt')\n          }\n        },\n        icon: payment_icons['USDT_TRC20']\n      }\n    ]\n    getPayments()\n  })\n  mitt.emit('number-keyboard-show')\n})\n</script>\n\n<style lang=\"scss\" scoped>\n@import '@/assets/styles/sprite-mine.scss';\n@import '@/assets/styles/sprite-home.scss';\n@import '@/assets/styles/sprite-002.scss';\n\n.rmb {\n  position: relative;\n  flex-direction: column;\n  width: 100%;\n  height: 100%;\n}\n\n:deep(.van-field__label) {\n  font-size: 28px;\n  color: #13161b;\n  margin-bottom: 8px;\n}\n\n:deep(.van-cell__value) {\n  height: 69px;\n  background: #ebf1f6;\n  display: flex;\n  align-items: center;\n  padding: 0 12px;\n  font-size: 25px;\n  margin-bottom: 12px;\n}\n\n:deep(.van-cell) {\n  padding-bottom: 0;\n  padding-top: 0;\n}\n\n:deep(.van-cell:after) {\n  display: none;\n}\n\n:deep(.van-button--large) {\n  width: 92%;\n  height: 80px;\n  margin: 0 auto;\n  font-size: 31px;\n}\n\n:deep(.van-field__body) {\n  width: 100%;\n}\n\n:deep(.van-field__control:disabled) {\n  color: #000;\n  -webkit-text-fill-color: #000;\n}\n\n:deep(.dialog-bulletin) {\n  width: 708px;\n  height: auto;\n  padding: 20px 30px 30px 30px;\n  border-radius: 10px;\n\n  .van-dialog__header {\n    padding: 0;\n    font-size: 29px;\n    color: #13161b;\n    font-weight: normal;\n  }\n\n  .van-dialog__content {\n    margin: 33px 0 35px 0;\n    font-size: 25px;\n    color: #787f8c;\n    text-align: justify;\n  }\n\n  .van-dialog__footer {\n    padding: 0;\n  }\n\n  .van-dialog__confirm {\n    width: 100%;\n    height: 80px;\n    font-size: 31px;\n    background: var(--van-button-primary-background);\n    border-radius: 8px;\n    border-width: 0;\n  }\n\n  .icon-close {\n    position: absolute;\n    right: 40px;\n    top: 35px;\n  }\n\n  img {\n    width: 100%;\n    margin-top: 20px;\n  }\n\n  .van-cell {\n    padding: 0;\n  }\n}\n\n:deep(.van-popup) {\n  border-top-left-radius: 15px;\n  border-top-right-radius: 15px;\n  padding: 0px 20px 15px;\n}\n\n:deep(.van-overlay) {\n  position: absolute;\n  z-index: 20000;\n}\n\n:deep(.dialog-deal) {\n  width: 708px;\n  height: auto;\n  padding: 40px;\n\n  .van-dialog__header {\n    padding: 0;\n    font-size: 29px;\n    color: #13161b;\n  }\n\n  .van-dialog__content {\n    margin: 33px 0 35px 0;\n    font-size: 25px;\n    color: #787f8c;\n    text-align: justify;\n  }\n\n  .van-dialog__footer {\n    padding: 0;\n  }\n\n  .van-dialog__confirm,\n  .btn-confirm {\n    width: 100%;\n    height: 80px;\n    font-size: 31px;\n    background: var(--van-button-primary-background);\n    color: #fff;\n    border: 0;\n    border-radius: 8px;\n  }\n\n  .dialog-radio-controler {\n    margin-top: 20px;\n\n    .radio {\n      margin-right: 10px;\n    }\n\n    .radio-uncheck {\n      width: 35px;\n      height: 35px;\n      border: 1px solid #868d9a;\n      border-radius: 50%;\n    }\n\n    .radio-text {\n      font-size: 25px;\n      color: #13161b;\n    }\n  }\n\n  .icon-close {\n    position: absolute;\n    right: 40px;\n    top: 24px;\n  }\n\n  img {\n    width: 100%;\n\n    &.verifi-id {\n      width: 260px;\n    }\n\n    &.add-card {\n      width: 295px;\n    }\n  }\n\n  .content {\n    width: 380px;\n    margin-top: 24px;\n  }\n}\n\n.safe-area-inset-bottom {\n  padding-bottom: calc(150px + env(safe-area-inset-bottom));\n}\n</style>\n\n<style lang=\"css\">\n:root {\n  --van-field-placeholder-text-color: #787f8c;\n}\n</style>\n",
+      "start": 1714699769100,
+      "end": 1714699769234,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769234,
+      "end": 1714699769234,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769234,
+      "end": 1714699769234,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769234,
+      "end": 1714699769234,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769234,
+      "end": 1714699769234,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue?vue&type=style&index=0&scoped=82e4ab60&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue?vue&type=style&index=1&lang.css\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-82e4ab60\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue\"]]);\n",
+      "start": 1714699769234,
+      "end": 1714699769529,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769529,
+      "end": 1714699769529,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue?vue&type=style&index=0&scoped=82e4ab60&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue?vue&type=style&index=1&lang.css\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-82e4ab60\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue\"]]);\n",
+      "start": 1714699769529,
+      "end": 1714699769529,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue?vue&type=style&index=0&scoped=82e4ab60&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue?vue&type=style&index=1&lang.css\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-82e4ab60\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue\"]]);\n",
+      "start": 1714699769529,
+      "end": 1714699769609,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue?vue&type=style&index=0&scoped=82e4ab60&lang.scss\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue?vue&type=style&index=1&lang.css\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-82e4ab60\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,mEAAmE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769609,
+      "end": 1714699769609,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769609,
+      "end": 1714699769609,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769609,
+      "end": 1714699769609,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769609,
+      "end": 1714699769609,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769609,
+      "end": 1714699769609,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769609,
+      "end": 1714699769609,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769609,
+      "end": 1714699769609,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769609,
+      "end": 1714699769609,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769609,
+      "end": 1714699769609,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue?vue&type=style&index=0&scoped=82e4ab60&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue?vue&type=style&index=1&lang.css\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-82e4ab60\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue\"]]);\n",
+      "start": 1714699769609,
+      "end": 1714699769610,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue?vue&type=style&index=0&scoped=82e4ab60&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue?vue&type=style&index=1&lang.css\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-82e4ab60\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/payments.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769610,
+      "end": 1714699769610,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769610,
+      "end": 1714699769610,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769610,
+      "end": 1714699769610,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/assets/themes/img-icon.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "const isEnv = process.env.NODE_ENV === 'dev'\n\nexport const def = {\n  'sprite-001': isEnv\n    ? 'url(\"/src/assets/images/sprite-s001.png\")'\n    : 'url(\"/assets/sprite-s001.png\")'\n}\n\nexport const ofupay = {\n  'sprite-001': isEnv\n    ? 'url(\"/src/assets/images/merchant/ofupay/ofupay-sprite-001.png\")'\n    : 'url(\"/assets/ofupay-sprite-001.png\")'\n}\n\nexport default {\n  def,\n  ofupay\n}\n",
+      "start": 1714699769441,
+      "end": 1714699769492,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769492,
+      "end": 1714699769492,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "const isEnv = process.env.NODE_ENV === \"dev\";\nexport const def = {\n  \"sprite-001\": isEnv ? 'url(\"/src/assets/images/sprite-s001.png\")' : 'url(\"/assets/sprite-s001.png\")'\n};\nexport const ofupay = {\n  \"sprite-001\": isEnv ? 'url(\"/src/assets/images/merchant/ofupay/ofupay-sprite-001.png\")' : 'url(\"/assets/ofupay-sprite-001.png\")'\n};\nexport default {\n  def,\n  ofupay\n};\n",
+      "start": 1714699769492,
+      "end": 1714699769607,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/assets/themes/img-icon.ts"
+        ],
+        "sourcesContent": [
+          "const isEnv = process.env.NODE_ENV === 'dev'\n\nexport const def = {\n  'sprite-001': isEnv\n    ? 'url(\"/src/assets/images/sprite-s001.png\")'\n    : 'url(\"/assets/sprite-s001.png\")'\n}\n\nexport const ofupay = {\n  'sprite-001': isEnv\n    ? 'url(\"/src/assets/images/merchant/ofupay/ofupay-sprite-001.png\")'\n    : 'url(\"/assets/ofupay-sprite-001.png\")'\n}\n\nexport default {\n  def,\n  ofupay\n}\n"
+        ],
+        "mappings": "AAAA,MAAM,QAAQ,QAAQ,IAAI,aAAa;AAEhC,aAAM,MAAM;AAAA,EACjB,cAAc,QACV,8CACA;AACN;AAEO,aAAM,SAAS;AAAA,EACpB,cAAc,QACV,oEACA;AACN;AAEA,eAAe;AAAA,EACb;AAAA,EACA;AACF;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769607,
+      "end": 1714699769607,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769607,
+      "end": 1714699769607,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699769607,
+      "end": 1714699769607,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769607,
+      "end": 1714699769607,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "const isEnv = process.env.NODE_ENV === \"dev\";\nexport const def = {\n  \"sprite-001\": isEnv ? 'url(\"/src/assets/images/sprite-s001.png\")' : 'url(\"/assets/sprite-s001.png\")'\n};\nexport const ofupay = {\n  \"sprite-001\": isEnv ? 'url(\"/src/assets/images/merchant/ofupay/ofupay-sprite-001.png\")' : 'url(\"/assets/ofupay-sprite-001.png\")'\n};\nexport default {\n  def,\n  ofupay\n};\n",
+      "start": 1714699769607,
+      "end": 1714699769607,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nconst isEnv = process.env.NODE_ENV === \"dev\";\nexport const def = {\n  \"sprite-001\": isEnv ? 'url(\"/src/assets/images/sprite-s001.png\")' : 'url(\"/assets/sprite-s001.png\")'\n};\nexport const ofupay = {\n  \"sprite-001\": isEnv ? 'url(\"/src/assets/images/merchant/ofupay/ofupay-sprite-001.png\")' : 'url(\"/assets/ofupay-sprite-001.png\")'\n};\nexport default {\n  def,\n  ofupay\n};\n",
+      "start": 1714699769607,
+      "end": 1714699770628,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/assets/themes/img-icon.ts\"],\n  \"sourcesContent\": [\"const isEnv = process.env.NODE_ENV === \\\"dev\\\";\\nexport const def = {\\n  \\\"sprite-001\\\": isEnv ? 'url(\\\"/src/assets/images/sprite-s001.png\\\")' : 'url(\\\"/assets/sprite-s001.png\\\")'\\n};\\nexport const ofupay = {\\n  \\\"sprite-001\\\": isEnv ? 'url(\\\"/src/assets/images/merchant/ofupay/ofupay-sprite-001.png\\\")' : 'url(\\\"/assets/ofupay-sprite-001.png\\\")'\\n};\\nexport default {\\n  def,\\n  ofupay\\n};\\n\"],\n  \"mappings\": \";AAAA,MAAM,QAAQ,QAAQ,IAAI,aAAa;AAChC,aAAM,MAAM;AAAA,EACjB,cAAc,QAAQ,8CAA8C;AACtE;AACO,aAAM,SAAS;AAAA,EACpB,cAAc,QAAQ,oEAAoE;AAC5F;AACA,eAAe;AAAA,EACb;AAAA,EACA;AACF;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "result": "\"use strict\";\nconst isEnv = false;\nexport const def = {\n  \"sprite-001\": isEnv ? 'url(\"/src/assets/images/sprite-s001.png\")' : 'url(\"/assets/sprite-s001.png\")'\n};\nexport const ofupay = {\n  \"sprite-001\": isEnv ? 'url(\"/src/assets/images/merchant/ofupay/ofupay-sprite-001.png\")' : 'url(\"/assets/ofupay-sprite-001.png\")'\n};\nexport default {\n  def,\n  ofupay\n};\n",
+      "start": 1714699770628,
+      "end": 1714699770749,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699770749,
+      "end": 1714699770749,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770749,
+      "end": 1714699770749,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770749,
+      "end": 1714699770749,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770749,
+      "end": 1714699770749,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770749,
+      "end": 1714699770749,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770750,
+      "end": 1714699770750,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770750,
+      "end": 1714699770750,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770750,
+      "end": 1714699770750,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699770750,
+      "end": 1714699770750,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770750,
+      "end": 1714699770750,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770750,
+      "end": 1714699770750,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770750,
+      "end": 1714699770750,
+      "order": "normal"
+    }
+  ]
+}

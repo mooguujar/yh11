@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/unescape.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var staticEscapeMap = require('./staticEscapeMap')\r\n\r\nvar helperFormatEscaper = require('./helperFormatEscaper')\r\n\r\nvar each = require('./each')\r\n\r\nvar unescapeMap = {}\r\neach(staticEscapeMap, function (item, key) {\r\n  unescapeMap[staticEscapeMap[key]] = key\r\n})\r\n\r\n/**\r\n  * 反转escape\r\n  *\r\n  * @param {String} str 字符串\r\n  * @return {String}\r\n  */\r\nvar unescape = helperFormatEscaper(unescapeMap)\r\n\r\nmodule.exports = unescape\r\n",
+      "start": 1714699767709,
+      "end": 1714699767719,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767719,
+      "end": 1714699767719,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767719,
+      "end": 1714699767719,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767719,
+      "end": 1714699767719,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767719,
+      "end": 1714699767719,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767719,
+      "end": 1714699767719,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767719,
+      "end": 1714699767719,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var staticEscapeMap = require('./staticEscapeMap')\r\n\r\nvar helperFormatEscaper = require('./helperFormatEscaper')\r\n\r\nvar each = require('./each')\r\n\r\nvar unescapeMap = {}\r\neach(staticEscapeMap, function (item, key) {\r\n  unescapeMap[staticEscapeMap[key]] = key\r\n})\r\n\r\n/**\r\n  * 反转escape\r\n  *\r\n  * @param {String} str 字符串\r\n  * @return {String}\r\n  */\r\nvar unescape = helperFormatEscaper(unescapeMap)\r\n\r\nmodule.exports = unescape\r\n",
+      "start": 1714699767719,
+      "end": 1714699767719,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767719,
+      "end": 1714699767719,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767719,
+      "end": 1714699767719,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767719,
+      "end": 1714699767719,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767719,
+      "end": 1714699767719,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767719,
+      "end": 1714699767719,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767719,
+      "end": 1714699767719,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/staticEscapeMap.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/helperFormatEscaper.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/each.js?commonjs-proxy\";\n\nvar staticEscapeMap = require$$0\r\n\r\nvar helperFormatEscaper = require$$1\r\n\r\nvar each = require$$2\r\n\r\nvar unescapeMap = {}\r\neach(staticEscapeMap, function (item, key) {\r\n  unescapeMap[staticEscapeMap[key]] = key\r\n})\r\n\r\n/**\r\n  * 反转escape\r\n  *\r\n  * @param {String} str 字符串\r\n  * @return {String}\r\n  */\r\nvar unescape = helperFormatEscaper(unescapeMap)\r\n\r\nvar _unescape = unescape\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(_unescape);\nexport { _unescape as __moduleExports };",
+      "start": 1714699767719,
+      "end": 1714699768238,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;AAAA,IAAI,eAAe,GAAG,UAA4B;AAClD;AACA,IAAI,mBAAmB,GAAG,UAAgC;AAC1D;AACA,IAAI,IAAI,GAAG,UAAiB;AAC5B;AACA,IAAI,WAAW,GAAG,EAAE;AACpB,IAAI,CAAC,eAAe,EAAE,UAAU,IAAI,EAAE,GAAG,EAAE;AAC3C,EAAE,WAAW,CAAC,eAAe,CAAC,GAAG,CAAC,CAAC,GAAG,GAAG;AACzC,CAAC,CAAC;AACF;AACA;AACA;AACA;AACA;AACA;AACA;AACA,IAAI,QAAQ,GAAG,mBAAmB,CAAC,WAAW,CAAC;AAC/C;IACA,SAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768238,
+      "end": 1714699768238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768238,
+      "end": 1714699768238,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768238,
+      "end": 1714699768238,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768238,
+      "end": 1714699768238,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768238,
+      "end": 1714699768238,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768238,
+      "end": 1714699768238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768238,
+      "end": 1714699768238,
+      "order": "normal"
+    }
+  ]
+}

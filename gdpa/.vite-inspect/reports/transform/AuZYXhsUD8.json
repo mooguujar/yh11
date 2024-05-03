@@ -1,0 +1,154 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/utils/mitt.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import Mitt, { Emitter } from 'mitt'\n\n// 定义类型别名，因全局使用并且需要自定义事件名称，所以使用索引签名定义内容\ntype Events = {\n  [propName: string]: any\n}\n// 提供泛型参数让 emitter 能自动推断参数类型\nconst mitt: Emitter<Events> = Mitt<Events>()\nexport default mitt\n",
+      "start": 1714699767963,
+      "end": 1714699768024,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768024,
+      "end": 1714699768024,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import Mitt from \"mitt\";\nconst mitt = Mitt();\nexport default mitt;\n",
+      "start": 1714699768024,
+      "end": 1714699769057,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/utils/mitt.ts"
+        ],
+        "sourcesContent": [
+          "import Mitt, { Emitter } from 'mitt'\n\n// 定义类型别名，因全局使用并且需要自定义事件名称，所以使用索引签名定义内容\ntype Events = {\n  [propName: string]: any\n}\n// 提供泛型参数让 emitter 能自动推断参数类型\nconst mitt: Emitter<Events> = Mitt<Events>()\nexport default mitt\n"
+        ],
+        "mappings": "AAAA,OAAO,UAAuB;AAO9B,MAAM,OAAwB,KAAa;AAC3C,eAAe;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769057,
+      "end": 1714699769057,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769057,
+      "end": 1714699769057,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699769057,
+      "end": 1714699769057,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769057,
+      "end": 1714699769057,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import Mitt from \"mitt\";\nconst mitt = Mitt();\nexport default mitt;\n",
+      "start": 1714699769057,
+      "end": 1714699769057,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport Mitt from \"mitt\";\nconst mitt = Mitt();\nexport default mitt;\n",
+      "start": 1714699769058,
+      "end": 1714699769397,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/utils/mitt.ts\"],\n  \"sourcesContent\": [\"import Mitt from \\\"mitt\\\";\\nconst mitt = Mitt();\\nexport default mitt;\\n\"],\n  \"mappings\": \";AAAA,OAAO,UAAU;AACjB,MAAM,OAAO,KAAK;AAClB,eAAe;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769397,
+      "end": 1714699769398,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699769398,
+      "end": 1714699769398,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769398,
+      "end": 1714699769398,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769398,
+      "end": 1714699769398,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769398,
+      "end": 1714699769398,
+      "order": "normal"
+    }
+  ]
+}

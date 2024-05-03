@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/Recharge.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\nimport verified from '@/assets/images/common/verified.png'\nimport { useCommonStore } from '@/store/modules/common'\nimport { useUserStore } from '@/store/modules/user'\nimport { storeToRefs } from 'pinia'\nimport QRCode from 'qrcode'\nimport { showToast } from 'vant'\nimport { computed, nextTick, onMounted, onUnmounted, reactive, ref, watch } from 'vue'\nimport clipboard3 from 'vue-clipboard3'\nimport { useRoute } from 'vue-router'\n\nconst route = useRoute()\nconst userStore = useUserStore()\nconst { getUserWalletAddressApi } = userStore\nconst { userWallet } = storeToRefs(userStore)\n\nconst commonStore = useCommonStore()\n\n// 币种协议映射表\nconst coinInfoMap = {\n  USDT_TRC20: {\n    coin_name: 'USDT',\n    coin_protocol: 'USDT_TRC20',\n    coin_wallet_api: 'TRX_SYS'\n  },\n  USDT_ERC20: {\n    coin_name: 'USDT',\n    coin_protocol: 'USDT_ERC20',\n    coin_wallet_api: 'UDUNCLOUD'\n  }\n} as Record<string, any>\nconst isWebView = sessionStorage.getItem('isWebview') === '1'\n\n// 当前协议\nconst coinProtocol = ref('USDT_TRC20')\n// 充币二维码base64地址\nconst qrcodeUrl = ref('')\nconst btnSaveCodeText = ref(isWebView ? '请截图保存二维码' : '保存二维码')\n// 确认弹窗\nconst dialog = reactive({\n  show: false,\n  data: {\n    title: '提示',\n    content: '请等待1-3分钟各个区块节点确认后，充值金额才会入账，如有疑问请联系客服。',\n    confirmButtonText: '确定'\n  }\n})\n\n// 充币信息\nconst rechargeInfo = computed(() =>\n  userWallet.value?.find(item => item.coin_protocol === coinProtocol.value)\n)\n\n// 根据usdt地址生成充币二维码\nwatch(\n  rechargeInfo,\n  (walletInfo, oldWalletInfo) => {\n    generateQR(walletInfo?.coin_address ?? '未知错误')\n  },\n  { deep: true }\n)\n\nconst onClose = () => {\n  dialog.show = false\n}\n\nlet getUserWalletTimer: NodeJS.Timeout | null\nconst getRechargeInfo = async () => {\n  try {\n    const params = {\n      mtype: 2,\n      ...coinInfoMap[coinProtocol.value]\n    }\n\n    commonStore.setShowLoading(true)\n    // 先请求数据，若没有，则创建充币地址，之后再请求\n    await getUserWalletAddressApi({\n      create: 0,\n      ...params\n    })\n\n    if (!userWallet.value.length) {\n      // 避免接口限流、限频，延迟请求\n      getUserWalletTimer = setTimeout(async () => {\n        await getUserWalletAddressApi({\n          create: 1,\n          ...params\n        })\n        getUserWalletAddressApi({\n          create: 0,\n          ...params\n        })\n      }, 1000)\n    }\n  } catch (error) {\n    console.error(error)\n  } finally {\n    commonStore.setShowLoading(false)\n  }\n}\n\n// 切换币种协议\nconst onChangeCoinProtocol = (protocol: string) => {\n  coinProtocol.value = protocol\n\n  getRechargeInfo()\n}\n\n// 生成充币二维码\nconst generateQR = async (text: string) => {\n  try {\n    const base64Url = await QRCode.toDataURL(text, { width: 225 })\n    qrcodeUrl.value = base64Url\n  } catch (err) {\n    console.error(err)\n  }\n}\n\nconst { toClipboard } = clipboard3()\nconst onCopy = async (text: any) => {\n  try {\n    await toClipboard(text)\n    showToast({\n      message: '钱包地址已复制到剪切板',\n      icon: verified,\n      iconSize: '48px'\n    })\n  } catch (error) {\n    showToast({\n      message: '复制失败!!',\n      icon: verified,\n      iconSize: '48px'\n    })\n  }\n}\n\n// 放大二维码\nconst previewImage = (imgUrl: string) => {\n  const image = new Image()\n  image.src = imgUrl\n  image.onload = () => {\n    // 创建弹出层\n    const previewContainer = document.createElement('div')\n    previewContainer.style.position = 'fixed'\n    previewContainer.style.top = '0'\n    previewContainer.style.bottom = '0'\n    previewContainer.style.left = '0'\n    previewContainer.style.right = '0'\n    previewContainer.style.backgroundColor = 'rgba(0,0,0,0.8)'\n    previewContainer.style.display = 'flex'\n    previewContainer.style.justifyContent = 'center'\n    previewContainer.style.alignItems = 'center'\n    document.body.appendChild(previewContainer)\n    // 在弹出层中添加图片\n    const previewImage = document.createElement('img')\n    previewImage.src = imgUrl\n    previewImage.style.maxWidth = '400px'\n    previewImage.style.maxHeight = '400px'\n    previewImage.style.width = '60%'\n    previewContainer.appendChild(previewImage)\n    // 点击弹出层，关闭预览\n    previewContainer.addEventListener('click', () => {\n      document.body.removeChild(previewContainer)\n    })\n  }\n}\n\n// 下载充币二维码图片\nconst downloadRechargeQrCode = async (e: Event) => {\n  const isWebView = sessionStorage.getItem('isWebview') === '1'\n\n  if (isWebView) {\n    previewImage(qrcodeUrl.value)\n  } else {\n    const link = document.createElement('a')\n    link.href = qrcodeUrl.value\n    link.download = `${coinProtocol.value}.png`\n    link.click()\n\n    nextTick(() => {\n      showToast({\n        message: '保存成功',\n        icon: verified,\n        iconSize: '48px'\n      })\n    })\n  }\n}\n\nonMounted(() => {\n  generateQR(rechargeInfo.value?.coin_address ?? '未知错误')\n  getRechargeInfo()\n})\nonUnmounted(() => {\n  getUserWalletTimer && clearTimeout(getUserWalletTimer)\n  getUserWalletTimer = null\n})\n</script>\n\n<template>\n  <div class=\"recharge-container flex flex-col justify-between\">\n    <div class=\"coin-type-toggle-container flex justify-center text-center\">\n      <div\n        class=\"btn-usdt-trc20\"\n        @click=\"onChangeCoinProtocol('USDT_TRC20')\"\n      >\n        USDT_TRC20\n      </div>\n    </div>\n    <div class=\"usdt-recharge-qrcode-container flex flex-col justify-between items-center\">\n      <img\n        :src=\"qrcodeUrl\"\n        class=\"qr-code\"\n      />\n      <div class=\"recharge-text\">USDT充币二维码</div>\n    </div>\n    <div\n      class=\"btn-save text-center\"\n      @click=\"downloadRechargeQrCode\"\n    >\n      {{ btnSaveCodeText }}\n    </div>\n\n    <div class=\"recharge-address-container flex flex-col justify-between\">\n      <div class=\"address-text\">地址</div>\n      <div class=\"address-content flex justify-between items-center\">\n        <div>{{ rechargeInfo?.coin_address }}</div>\n        <i\n          class=\"copy\"\n          @click=\"onCopy(rechargeInfo?.coin_address)\"\n        ></i>\n      </div>\n    </div>\n\n    <div class=\"recharge-tips-container text-center\">\n      <div>最少充值数量：1USDT</div>\n      <div>扫描或者复制地址完成充值,</div>\n      <div>仅发送Tether(USDT_TRC20)到该地址。</div>\n      <div>发送其他加密货币可能会造成永久损失。</div>\n    </div>\n\n    <div\n      class=\"btn-ok text-center\"\n      @click=\"dialog.show = true\"\n    >\n      完成充值\n    </div>\n\n    <van-dialog\n      v-model:show=\"dialog.show\"\n      :title=\"dialog.data.title\"\n      theme=\"round-button\"\n      className=\"dialog-recharge-tips\"\n      :confirmButtonText=\"dialog.data.confirmButtonText\"\n    >\n      <i\n        class=\"icon-close block close-dark\"\n        @click=\"onClose\"\n      ></i>\n      <div>\n        <div class=\"content\">{{ dialog.data.content }}</div>\n      </div>\n\n      <template #footer>\n        <div\n          class=\"btn-confirm flex items-center justify-center\"\n          @click=\"onClose\"\n        >\n          {{ dialog.data.confirmButtonText }}\n        </div>\n      </template>\n    </van-dialog>\n  </div>\n</template>\n\n<style lang=\"scss\" scoped>\n@import '@/assets/styles/sprite-home.scss';\n\n.recharge-container {\n  width: 100%;\n  height: 100%;\n  padding: 34px 40px 97px 40px;\n  background-color: #fff;\n  .coin-type-toggle-container {\n    font-size: 28px;\n    color: #fff;\n  }\n  .btn-usdt-trc20 {\n    width: 243px;\n    height: 84px;\n    line-height: 84px;\n    background-image: linear-gradient(\n      var(--van-button-primary-background),\n      var(--van-button-primary-background)\n    );\n    border-radius: 14px;\n  }\n  .usdt-recharge-qrcode-container {\n    margin: 26px 0 34px 0;\n    .qr-code {\n      width: 338px;\n      height: 338px;\n      margin-bottom: 4px;\n    }\n    .recharge-text {\n      font-size: 25px;\n      color: #666;\n    }\n  }\n  .btn-save {\n    width: 275px;\n    height: 80px;\n    margin: 0 auto;\n    line-height: 80px;\n    background-color: var(--van-button-primary-background);\n    font-size: 31px;\n    border-radius: 7px;\n    color: #fff;\n  }\n\n  .recharge-address-container {\n    margin: 40px 0 25px 0;\n    .address-text {\n      margin-bottom: 10px;\n      font-size: 28px;\n      color: #13161b;\n    }\n    .address-content {\n      width: 100%;\n      height: 84px;\n      padding: 0 13px;\n      line-height: 84px;\n      font-size: 25px;\n      color: #333;\n      background-image: linear-gradient(#ebf1f6, #ebf1f6);\n      border-radius: 7px;\n    }\n  }\n\n  .recharge-tips-container {\n    margin-bottom: 10px;\n    font-size: 30px;\n    color: #666;\n  }\n\n  .btn-ok {\n    width: 100%;\n    height: 80px;\n    line-height: 80px;\n    font-size: 31px;\n    color: #fff;\n    background-color: var(--van-button-primary-background);\n    border-radius: 7px;\n  }\n\n  :deep(.dialog-recharge-tips) {\n    width: 708px;\n    height: auto;\n    padding: 40px;\n    .van-dialog__header {\n      padding: 0;\n      font-size: 29px;\n      font-weight: unset;\n      color: #13161b;\n    }\n    .van-dialog__content {\n      margin: 33px 0 35px 0;\n      font-size: 25px;\n      color: #787f8c;\n      text-align: center;\n    }\n    .title {\n      margin-bottom: 20px;\n    }\n    .content {\n      color: #999;\n    }\n    .van-dialog__footer {\n      padding: 0;\n    }\n    .van-dialog__confirm,\n    .btn-confirm {\n      width: 100%;\n      height: 80px;\n      font-size: 31px;\n      background: var(--van-button-primary-background);\n      color: #fff;\n      border: 0;\n      border-radius: 8px;\n    }\n    .icon-close {\n      position: absolute;\n      right: 40px;\n      top: 24px;\n    }\n  }\n}\n</style>\n",
+      "start": 1714699769253,
+      "end": 1714699769305,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769305,
+      "end": 1714699769305,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769305,
+      "end": 1714699769305,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769305,
+      "end": 1714699769305,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769305,
+      "end": 1714699769305,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/Recharge.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/Recharge.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/Recharge.vue?vue&type=style&index=0&scoped=27ac4185&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-27ac4185\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/Recharge.vue\"]]);\n",
+      "start": 1714699769305,
+      "end": 1714699769537,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769537,
+      "end": 1714699769537,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/Recharge.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/Recharge.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/Recharge.vue?vue&type=style&index=0&scoped=27ac4185&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-27ac4185\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/Recharge.vue\"]]);\n",
+      "start": 1714699769537,
+      "end": 1714699769537,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/Recharge.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/Recharge.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/Recharge.vue?vue&type=style&index=0&scoped=27ac4185&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-27ac4185\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/Recharge.vue\"]]);\n",
+      "start": 1714699769537,
+      "end": 1714699769743,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/Recharge.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/Recharge.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/Recharge.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/Recharge.vue?vue&type=style&index=0&scoped=27ac4185&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-27ac4185\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/Recharge.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,qEAAqE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/Recharge.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/Recharge.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/Recharge.vue?vue&type=style&index=0&scoped=27ac4185&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-27ac4185\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/Recharge.vue\"]]);\n",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/Recharge.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/Recharge.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/Recharge.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/Recharge.vue?vue&type=style&index=0&scoped=27ac4185&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-27ac4185\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/Recharge.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "normal"
+    }
+  ]
+}

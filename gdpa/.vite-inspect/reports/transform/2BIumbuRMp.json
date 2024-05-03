@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/picker/PickerToolbar.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { defineComponent } from \"vue\";\nimport { bem, t } from \"./utils.mjs\";\nimport { createNamespace, HAPTICS_FEEDBACK } from \"../utils/index.mjs\";\nconst [name] = createNamespace(\"picker-toolbar\");\nconst pickerToolbarProps = {\n  title: String,\n  cancelButtonText: String,\n  confirmButtonText: String\n};\nconst pickerToolbarSlots = [\"cancel\", \"confirm\", \"title\", \"toolbar\"];\nconst pickerToolbarPropKeys = Object.keys(pickerToolbarProps);\nvar stdin_default = defineComponent({\n  name,\n  props: pickerToolbarProps,\n  emits: [\"confirm\", \"cancel\"],\n  setup(props, {\n    emit,\n    slots\n  }) {\n    const renderTitle = () => {\n      if (slots.title) {\n        return slots.title();\n      }\n      if (props.title) {\n        return _createVNode(\"div\", {\n          \"class\": [bem(\"title\"), \"van-ellipsis\"]\n        }, [props.title]);\n      }\n    };\n    const onCancel = () => emit(\"cancel\");\n    const onConfirm = () => emit(\"confirm\");\n    const renderCancel = () => {\n      var _a;\n      const text = (_a = props.cancelButtonText) != null ? _a : t(\"cancel\");\n      if (!slots.cancel && !text) {\n        return;\n      }\n      return _createVNode(\"button\", {\n        \"type\": \"button\",\n        \"class\": [bem(\"cancel\"), HAPTICS_FEEDBACK],\n        \"onClick\": onCancel\n      }, [slots.cancel ? slots.cancel() : text]);\n    };\n    const renderConfirm = () => {\n      var _a;\n      const text = (_a = props.confirmButtonText) != null ? _a : t(\"confirm\");\n      if (!slots.confirm && !text) {\n        return;\n      }\n      return _createVNode(\"button\", {\n        \"type\": \"button\",\n        \"class\": [bem(\"confirm\"), HAPTICS_FEEDBACK],\n        \"onClick\": onConfirm\n      }, [slots.confirm ? slots.confirm() : text]);\n    };\n    return () => _createVNode(\"div\", {\n      \"class\": bem(\"toolbar\")\n    }, [slots.toolbar ? slots.toolbar() : [renderCancel(), renderTitle(), renderConfirm()]]);\n  }\n});\nexport {\n  stdin_default as default,\n  pickerToolbarPropKeys,\n  pickerToolbarProps,\n  pickerToolbarSlots\n};\n",
+      "start": 1714699767874,
+      "end": 1714699767923,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767923,
+      "end": 1714699767923,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767923,
+      "end": 1714699767923,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767923,
+      "end": 1714699767923,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767923,
+      "end": 1714699767923,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767923,
+      "end": 1714699767923,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767923,
+      "end": 1714699767923,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { defineComponent } from \"vue\";\nimport { bem, t } from \"./utils.mjs\";\nimport { createNamespace, HAPTICS_FEEDBACK } from \"../utils/index.mjs\";\nconst [name] = createNamespace(\"picker-toolbar\");\nconst pickerToolbarProps = {\n  title: String,\n  cancelButtonText: String,\n  confirmButtonText: String\n};\nconst pickerToolbarSlots = [\"cancel\", \"confirm\", \"title\", \"toolbar\"];\nconst pickerToolbarPropKeys = Object.keys(pickerToolbarProps);\nvar stdin_default = defineComponent({\n  name,\n  props: pickerToolbarProps,\n  emits: [\"confirm\", \"cancel\"],\n  setup(props, {\n    emit,\n    slots\n  }) {\n    const renderTitle = () => {\n      if (slots.title) {\n        return slots.title();\n      }\n      if (props.title) {\n        return _createVNode(\"div\", {\n          \"class\": [bem(\"title\"), \"van-ellipsis\"]\n        }, [props.title]);\n      }\n    };\n    const onCancel = () => emit(\"cancel\");\n    const onConfirm = () => emit(\"confirm\");\n    const renderCancel = () => {\n      var _a;\n      const text = (_a = props.cancelButtonText) != null ? _a : t(\"cancel\");\n      if (!slots.cancel && !text) {\n        return;\n      }\n      return _createVNode(\"button\", {\n        \"type\": \"button\",\n        \"class\": [bem(\"cancel\"), HAPTICS_FEEDBACK],\n        \"onClick\": onCancel\n      }, [slots.cancel ? slots.cancel() : text]);\n    };\n    const renderConfirm = () => {\n      var _a;\n      const text = (_a = props.confirmButtonText) != null ? _a : t(\"confirm\");\n      if (!slots.confirm && !text) {\n        return;\n      }\n      return _createVNode(\"button\", {\n        \"type\": \"button\",\n        \"class\": [bem(\"confirm\"), HAPTICS_FEEDBACK],\n        \"onClick\": onConfirm\n      }, [slots.confirm ? slots.confirm() : text]);\n    };\n    return () => _createVNode(\"div\", {\n      \"class\": bem(\"toolbar\")\n    }, [slots.toolbar ? slots.toolbar() : [renderCancel(), renderTitle(), renderConfirm()]]);\n  }\n});\nexport {\n  stdin_default as default,\n  pickerToolbarPropKeys,\n  pickerToolbarProps,\n  pickerToolbarSlots\n};\n",
+      "start": 1714699767923,
+      "end": 1714699767923,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767923,
+      "end": 1714699767923,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767923,
+      "end": 1714699767923,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767923,
+      "end": 1714699767923,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767923,
+      "end": 1714699767923,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767923,
+      "end": 1714699767923,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767923,
+      "end": 1714699767923,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767923,
+      "end": 1714699767923,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767923,
+      "end": 1714699767923,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767923,
+      "end": 1714699767923,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767923,
+      "end": 1714699767923,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767923,
+      "end": 1714699767923,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767923,
+      "end": 1714699767923,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767923,
+      "end": 1714699767924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767924,
+      "end": 1714699767924,
+      "order": "normal"
+    }
+  ]
+}

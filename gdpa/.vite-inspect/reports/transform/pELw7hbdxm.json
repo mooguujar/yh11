@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/address-list/AddressList.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { defineComponent } from \"vue\";\nimport { truthProp, numericProp, makeArrayProp, createNamespace, makeStringProp } from \"../utils/index.mjs\";\nimport { Button } from \"../button/index.mjs\";\nimport { RadioGroup } from \"../radio-group/index.mjs\";\nimport AddressListItem from \"./AddressListItem.mjs\";\nconst [name, bem, t] = createNamespace(\"address-list\");\nconst addressListProps = {\n  list: makeArrayProp(),\n  modelValue: numericProp,\n  switchable: truthProp,\n  disabledText: String,\n  disabledList: makeArrayProp(),\n  showAddButton: truthProp,\n  addButtonText: String,\n  defaultTagText: String,\n  rightIcon: makeStringProp(\"edit\")\n};\nvar stdin_default = defineComponent({\n  name,\n  props: addressListProps,\n  emits: [\"add\", \"edit\", \"select\", \"clickItem\", \"editDisabled\", \"selectDisabled\", \"update:modelValue\"],\n  setup(props, {\n    slots,\n    emit\n  }) {\n    const renderItem = (item, index, disabled) => {\n      const onEdit = () => emit(disabled ? \"editDisabled\" : \"edit\", item, index);\n      const onClick = () => emit(\"clickItem\", item, index);\n      const onSelect = () => {\n        emit(disabled ? \"selectDisabled\" : \"select\", item, index);\n        if (!disabled) {\n          emit(\"update:modelValue\", item.id);\n        }\n      };\n      return _createVNode(AddressListItem, {\n        \"key\": item.id,\n        \"address\": item,\n        \"disabled\": disabled,\n        \"switchable\": props.switchable,\n        \"defaultTagText\": props.defaultTagText,\n        \"rightIcon\": props.rightIcon,\n        \"onEdit\": onEdit,\n        \"onClick\": onClick,\n        \"onSelect\": onSelect\n      }, {\n        bottom: slots[\"item-bottom\"],\n        tag: slots.tag\n      });\n    };\n    const renderList = (list, disabled) => {\n      if (list) {\n        return list.map((item, index) => renderItem(item, index, disabled));\n      }\n    };\n    const renderBottom = () => props.showAddButton ? _createVNode(\"div\", {\n      \"class\": [bem(\"bottom\"), \"van-safe-area-bottom\"]\n    }, [_createVNode(Button, {\n      \"round\": true,\n      \"block\": true,\n      \"type\": \"primary\",\n      \"text\": props.addButtonText || t(\"add\"),\n      \"class\": bem(\"add\"),\n      \"onClick\": () => emit(\"add\")\n    }, null)]) : void 0;\n    return () => {\n      var _a, _b;\n      const List = renderList(props.list);\n      const DisabledList = renderList(props.disabledList, true);\n      const DisabledText = props.disabledText && _createVNode(\"div\", {\n        \"class\": bem(\"disabled-text\")\n      }, [props.disabledText]);\n      return _createVNode(\"div\", {\n        \"class\": bem()\n      }, [(_a = slots.top) == null ? void 0 : _a.call(slots), _createVNode(RadioGroup, {\n        \"modelValue\": props.modelValue\n      }, {\n        default: () => [List]\n      }), DisabledText, DisabledList, (_b = slots.default) == null ? void 0 : _b.call(slots), renderBottom()]);\n    };\n  }\n});\nexport {\n  addressListProps,\n  stdin_default as default\n};\n",
+      "start": 1714699767147,
+      "end": 1714699767188,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { defineComponent } from \"vue\";\nimport { truthProp, numericProp, makeArrayProp, createNamespace, makeStringProp } from \"../utils/index.mjs\";\nimport { Button } from \"../button/index.mjs\";\nimport { RadioGroup } from \"../radio-group/index.mjs\";\nimport AddressListItem from \"./AddressListItem.mjs\";\nconst [name, bem, t] = createNamespace(\"address-list\");\nconst addressListProps = {\n  list: makeArrayProp(),\n  modelValue: numericProp,\n  switchable: truthProp,\n  disabledText: String,\n  disabledList: makeArrayProp(),\n  showAddButton: truthProp,\n  addButtonText: String,\n  defaultTagText: String,\n  rightIcon: makeStringProp(\"edit\")\n};\nvar stdin_default = defineComponent({\n  name,\n  props: addressListProps,\n  emits: [\"add\", \"edit\", \"select\", \"clickItem\", \"editDisabled\", \"selectDisabled\", \"update:modelValue\"],\n  setup(props, {\n    slots,\n    emit\n  }) {\n    const renderItem = (item, index, disabled) => {\n      const onEdit = () => emit(disabled ? \"editDisabled\" : \"edit\", item, index);\n      const onClick = () => emit(\"clickItem\", item, index);\n      const onSelect = () => {\n        emit(disabled ? \"selectDisabled\" : \"select\", item, index);\n        if (!disabled) {\n          emit(\"update:modelValue\", item.id);\n        }\n      };\n      return _createVNode(AddressListItem, {\n        \"key\": item.id,\n        \"address\": item,\n        \"disabled\": disabled,\n        \"switchable\": props.switchable,\n        \"defaultTagText\": props.defaultTagText,\n        \"rightIcon\": props.rightIcon,\n        \"onEdit\": onEdit,\n        \"onClick\": onClick,\n        \"onSelect\": onSelect\n      }, {\n        bottom: slots[\"item-bottom\"],\n        tag: slots.tag\n      });\n    };\n    const renderList = (list, disabled) => {\n      if (list) {\n        return list.map((item, index) => renderItem(item, index, disabled));\n      }\n    };\n    const renderBottom = () => props.showAddButton ? _createVNode(\"div\", {\n      \"class\": [bem(\"bottom\"), \"van-safe-area-bottom\"]\n    }, [_createVNode(Button, {\n      \"round\": true,\n      \"block\": true,\n      \"type\": \"primary\",\n      \"text\": props.addButtonText || t(\"add\"),\n      \"class\": bem(\"add\"),\n      \"onClick\": () => emit(\"add\")\n    }, null)]) : void 0;\n    return () => {\n      var _a, _b;\n      const List = renderList(props.list);\n      const DisabledList = renderList(props.disabledList, true);\n      const DisabledText = props.disabledText && _createVNode(\"div\", {\n        \"class\": bem(\"disabled-text\")\n      }, [props.disabledText]);\n      return _createVNode(\"div\", {\n        \"class\": bem()\n      }, [(_a = slots.top) == null ? void 0 : _a.call(slots), _createVNode(RadioGroup, {\n        \"modelValue\": props.modelValue\n      }, {\n        default: () => [List]\n      }), DisabledText, DisabledList, (_b = slots.default) == null ? void 0 : _b.call(slots), renderBottom()]);\n    };\n  }\n});\nexport {\n  addressListProps,\n  stdin_default as default\n};\n",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    }
+  ]
+}

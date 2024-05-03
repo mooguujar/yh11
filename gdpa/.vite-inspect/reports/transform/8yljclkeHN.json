@@ -1,0 +1,154 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/apis/taskActivity.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { IApiError } from '@/store/types/global'\nimport {\n  IAllTaskData,\n  IAwardData,\n  IGameInfoData,\n  IGameRankData,\n  IGameRecordData,\n  IGameReqData,\n  IGameResultData,\n  IGameTaskInfoData,\n  IPlayGameData,\n  IPlayTurntableData,\n  IRewardRecordListData,\n  ISignInData,\n  IUserActionData,\n  IUserDoTask\n} from '@/store/types/taskActivity'\nimport { request } from '@/utils/http'\n\nexport interface giveawaysend {\n  toaddress: string\n  num_type: number\n  num: number\n}\n// 赠送好友卡接口\nexport const giveawaysend = (params: giveawaysend) => {\n  return request.post<{ code: string; errmsg: string }>('/api/game/giveawaysend', params, {\n    options: {\n      auth: true\n      // showLoading: true\n    }\n  })\n}\nexport interface giveawayresave {\n  id: string\n}\n// 接收好友赠送的卡接口\nexport const giveawayresave = (params: giveawayresave) => {\n  return request.post<{ money: string }>('/api/game/giveawayresave', params, {\n    options: {\n      auth: true\n      // showLoading: true\n    }\n  })\n}\nexport interface gamemerapplist {\n  week: number\n}\nexport const gamemerapplist = (params: gamemerapplist) => {\n  return request.post<IGameResultData>('/api/game/gamemerapplist', params, {\n    options: {\n      auth: true\n      // showLoading: true\n    }\n  })\n}\nexport interface sendrecive_history {\n  type: number\n  page: number\n}\nexport const sendrecive_history = (params: sendrecive_history) => {\n  return request.post<IGameResultData>('/api/game/sendrecive_history', params, {\n    options: {\n      auth: true\n      // showLoading: true\n    }\n  })\n}\n\nexport interface IUserDoTaskParams {\n  idd: string\n  levelid?: string\n}\nexport const signInListApi = () => {\n  return request.post<ISignInData>('/api/Taskactivity/signinlist')\n}\nexport const userDoTaskApi = (params: IUserDoTaskParams) => {\n  return request.post<IUserDoTask>('/api/Taskactivity/userDoTask', params)\n}\nexport const turntableAwardsApi = () => {\n  return request.post<IAwardData>('/api/Turntable/Awards')\n}\nexport const gameRecordApi = () => {\n  return request.post<IGameRecordData>('/api/Turntable/Gamerecord')\n}\nexport interface IPlayTurntableParams {\n  config_id: number\n}\nexport const playTurntableApi = (params: IPlayTurntableParams) => {\n  return request.post<IPlayTurntableData>('/api/Turntable/Play', params)\n}\nexport interface IRewardRecordListParams {\n  page?: number\n  size?: number\n  taskid?: string\n  order?: string\n}\nexport const rewardRecordListApi = (params: IRewardRecordListParams) => {\n  return request.post<IRewardRecordListData>('/api/Taskactivity/rewardrecordlist', params)\n}\nexport const userActionListApi = () => {\n  return request.post<IUserActionData>('/api/Taskactivity/useractionlist')\n}\nexport const allTaskBandsListApi = () => {\n  return request.post<IAllTaskData[]>('/api/Taskactivity/alltaskbandslist')\n}\n\n// 集卡活动\nexport interface IGameInfoDataParams {\n  week?: number | string\n}\nexport const gameInfoDataApi = (params: IGameInfoDataParams) => {\n  return request.post<IGameInfoData>('/api/game/gameinfodata', params)\n}\nexport interface IPlayGameParams {\n  config_id: number\n}\nexport const playGameApi = (params: IPlayGameParams) => {\n  return request.post<IPlayGameData[] | IApiError>('/api/game/playgame', params)\n}\nexport const gameTaskInfoApi = () => {\n  return request.post<IGameTaskInfoData>('/api/game/gametaskinfo')\n}\nexport interface IGameReqParams {\n  muuid: string\n}\nexport const gameReqApi = (params: IGameReqParams) => {\n  return request.post<IGameReqData>('/api/game/gamereq', params)\n}\nexport interface IGameResultParams {\n  week?: number\n  // 1翻卡游戏 2奖励记录 3翻卡次数记录\n  type?: number\n}\nexport const gameresult = (params: IGameResultParams) => {\n  return request.post<IGameResultData>('/api/game/gameresult', params, {\n    options: {\n      auth: true\n      // showLoading: true\n    }\n  })\n}\nexport interface IGameRankParams {\n  week?: number\n}\nexport const gameRankApi = (params: IGameRankParams) => {\n  return request.post<IGameRankData[]>('/api/game/gamerank', params)\n}\nexport interface ICoinBuySellReqParams {\n  type: number | string\n}\nexport const coinBuySellReqApi = (params: ICoinBuySellReqParams) => {\n  return request.post<any>('/api/game/coinbuysellreq', params)\n}\n",
+      "start": 1714699769491,
+      "end": 1714699769534,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769534,
+      "end": 1714699769534,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { request } from \"@/utils/http\";\nexport const giveawaysend = (params) => {\n  return request.post(\"/api/game/giveawaysend\", params, {\n    options: {\n      auth: true\n      // showLoading: true\n    }\n  });\n};\nexport const giveawayresave = (params) => {\n  return request.post(\"/api/game/giveawayresave\", params, {\n    options: {\n      auth: true\n      // showLoading: true\n    }\n  });\n};\nexport const gamemerapplist = (params) => {\n  return request.post(\"/api/game/gamemerapplist\", params, {\n    options: {\n      auth: true\n      // showLoading: true\n    }\n  });\n};\nexport const sendrecive_history = (params) => {\n  return request.post(\"/api/game/sendrecive_history\", params, {\n    options: {\n      auth: true\n      // showLoading: true\n    }\n  });\n};\nexport const signInListApi = () => {\n  return request.post(\"/api/Taskactivity/signinlist\");\n};\nexport const userDoTaskApi = (params) => {\n  return request.post(\"/api/Taskactivity/userDoTask\", params);\n};\nexport const turntableAwardsApi = () => {\n  return request.post(\"/api/Turntable/Awards\");\n};\nexport const gameRecordApi = () => {\n  return request.post(\"/api/Turntable/Gamerecord\");\n};\nexport const playTurntableApi = (params) => {\n  return request.post(\"/api/Turntable/Play\", params);\n};\nexport const rewardRecordListApi = (params) => {\n  return request.post(\"/api/Taskactivity/rewardrecordlist\", params);\n};\nexport const userActionListApi = () => {\n  return request.post(\"/api/Taskactivity/useractionlist\");\n};\nexport const allTaskBandsListApi = () => {\n  return request.post(\"/api/Taskactivity/alltaskbandslist\");\n};\nexport const gameInfoDataApi = (params) => {\n  return request.post(\"/api/game/gameinfodata\", params);\n};\nexport const playGameApi = (params) => {\n  return request.post(\"/api/game/playgame\", params);\n};\nexport const gameTaskInfoApi = () => {\n  return request.post(\"/api/game/gametaskinfo\");\n};\nexport const gameReqApi = (params) => {\n  return request.post(\"/api/game/gamereq\", params);\n};\nexport const gameresult = (params) => {\n  return request.post(\"/api/game/gameresult\", params, {\n    options: {\n      auth: true\n      // showLoading: true\n    }\n  });\n};\nexport const gameRankApi = (params) => {\n  return request.post(\"/api/game/gamerank\", params);\n};\nexport const coinBuySellReqApi = (params) => {\n  return request.post(\"/api/game/coinbuysellreq\", params);\n};\n",
+      "start": 1714699769534,
+      "end": 1714699769694,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/apis/taskActivity.ts"
+        ],
+        "sourcesContent": [
+          "import { IApiError } from '@/store/types/global'\nimport {\n  IAllTaskData,\n  IAwardData,\n  IGameInfoData,\n  IGameRankData,\n  IGameRecordData,\n  IGameReqData,\n  IGameResultData,\n  IGameTaskInfoData,\n  IPlayGameData,\n  IPlayTurntableData,\n  IRewardRecordListData,\n  ISignInData,\n  IUserActionData,\n  IUserDoTask\n} from '@/store/types/taskActivity'\nimport { request } from '@/utils/http'\n\nexport interface giveawaysend {\n  toaddress: string\n  num_type: number\n  num: number\n}\n// 赠送好友卡接口\nexport const giveawaysend = (params: giveawaysend) => {\n  return request.post<{ code: string; errmsg: string }>('/api/game/giveawaysend', params, {\n    options: {\n      auth: true\n      // showLoading: true\n    }\n  })\n}\nexport interface giveawayresave {\n  id: string\n}\n// 接收好友赠送的卡接口\nexport const giveawayresave = (params: giveawayresave) => {\n  return request.post<{ money: string }>('/api/game/giveawayresave', params, {\n    options: {\n      auth: true\n      // showLoading: true\n    }\n  })\n}\nexport interface gamemerapplist {\n  week: number\n}\nexport const gamemerapplist = (params: gamemerapplist) => {\n  return request.post<IGameResultData>('/api/game/gamemerapplist', params, {\n    options: {\n      auth: true\n      // showLoading: true\n    }\n  })\n}\nexport interface sendrecive_history {\n  type: number\n  page: number\n}\nexport const sendrecive_history = (params: sendrecive_history) => {\n  return request.post<IGameResultData>('/api/game/sendrecive_history', params, {\n    options: {\n      auth: true\n      // showLoading: true\n    }\n  })\n}\n\nexport interface IUserDoTaskParams {\n  idd: string\n  levelid?: string\n}\nexport const signInListApi = () => {\n  return request.post<ISignInData>('/api/Taskactivity/signinlist')\n}\nexport const userDoTaskApi = (params: IUserDoTaskParams) => {\n  return request.post<IUserDoTask>('/api/Taskactivity/userDoTask', params)\n}\nexport const turntableAwardsApi = () => {\n  return request.post<IAwardData>('/api/Turntable/Awards')\n}\nexport const gameRecordApi = () => {\n  return request.post<IGameRecordData>('/api/Turntable/Gamerecord')\n}\nexport interface IPlayTurntableParams {\n  config_id: number\n}\nexport const playTurntableApi = (params: IPlayTurntableParams) => {\n  return request.post<IPlayTurntableData>('/api/Turntable/Play', params)\n}\nexport interface IRewardRecordListParams {\n  page?: number\n  size?: number\n  taskid?: string\n  order?: string\n}\nexport const rewardRecordListApi = (params: IRewardRecordListParams) => {\n  return request.post<IRewardRecordListData>('/api/Taskactivity/rewardrecordlist', params)\n}\nexport const userActionListApi = () => {\n  return request.post<IUserActionData>('/api/Taskactivity/useractionlist')\n}\nexport const allTaskBandsListApi = () => {\n  return request.post<IAllTaskData[]>('/api/Taskactivity/alltaskbandslist')\n}\n\n// 集卡活动\nexport interface IGameInfoDataParams {\n  week?: number | string\n}\nexport const gameInfoDataApi = (params: IGameInfoDataParams) => {\n  return request.post<IGameInfoData>('/api/game/gameinfodata', params)\n}\nexport interface IPlayGameParams {\n  config_id: number\n}\nexport const playGameApi = (params: IPlayGameParams) => {\n  return request.post<IPlayGameData[] | IApiError>('/api/game/playgame', params)\n}\nexport const gameTaskInfoApi = () => {\n  return request.post<IGameTaskInfoData>('/api/game/gametaskinfo')\n}\nexport interface IGameReqParams {\n  muuid: string\n}\nexport const gameReqApi = (params: IGameReqParams) => {\n  return request.post<IGameReqData>('/api/game/gamereq', params)\n}\nexport interface IGameResultParams {\n  week?: number\n  // 1翻卡游戏 2奖励记录 3翻卡次数记录\n  type?: number\n}\nexport const gameresult = (params: IGameResultParams) => {\n  return request.post<IGameResultData>('/api/game/gameresult', params, {\n    options: {\n      auth: true\n      // showLoading: true\n    }\n  })\n}\nexport interface IGameRankParams {\n  week?: number\n}\nexport const gameRankApi = (params: IGameRankParams) => {\n  return request.post<IGameRankData[]>('/api/game/gamerank', params)\n}\nexport interface ICoinBuySellReqParams {\n  type: number | string\n}\nexport const coinBuySellReqApi = (params: ICoinBuySellReqParams) => {\n  return request.post<any>('/api/game/coinbuysellreq', params)\n}\n"
+        ],
+        "mappings": "AAiBA,SAAS,eAAe;AAQjB,aAAM,eAAe,CAAC,WAAyB;AACpD,SAAO,QAAQ,KAAuC,0BAA0B,QAAQ;AAAA,IACtF,SAAS;AAAA,MACP,MAAM;AAAA;AAAA,IAER;AAAA,EACF,CAAC;AACH;AAKO,aAAM,iBAAiB,CAAC,WAA2B;AACxD,SAAO,QAAQ,KAAwB,4BAA4B,QAAQ;AAAA,IACzE,SAAS;AAAA,MACP,MAAM;AAAA;AAAA,IAER;AAAA,EACF,CAAC;AACH;AAIO,aAAM,iBAAiB,CAAC,WAA2B;AACxD,SAAO,QAAQ,KAAsB,4BAA4B,QAAQ;AAAA,IACvE,SAAS;AAAA,MACP,MAAM;AAAA;AAAA,IAER;AAAA,EACF,CAAC;AACH;AAKO,aAAM,qBAAqB,CAAC,WAA+B;AAChE,SAAO,QAAQ,KAAsB,gCAAgC,QAAQ;AAAA,IAC3E,SAAS;AAAA,MACP,MAAM;AAAA;AAAA,IAER;AAAA,EACF,CAAC;AACH;AAMO,aAAM,gBAAgB,MAAM;AACjC,SAAO,QAAQ,KAAkB,8BAA8B;AACjE;AACO,aAAM,gBAAgB,CAAC,WAA8B;AAC1D,SAAO,QAAQ,KAAkB,gCAAgC,MAAM;AACzE;AACO,aAAM,qBAAqB,MAAM;AACtC,SAAO,QAAQ,KAAiB,uBAAuB;AACzD;AACO,aAAM,gBAAgB,MAAM;AACjC,SAAO,QAAQ,KAAsB,2BAA2B;AAClE;AAIO,aAAM,mBAAmB,CAAC,WAAiC;AAChE,SAAO,QAAQ,KAAyB,uBAAuB,MAAM;AACvE;AAOO,aAAM,sBAAsB,CAAC,WAAoC;AACtE,SAAO,QAAQ,KAA4B,sCAAsC,MAAM;AACzF;AACO,aAAM,oBAAoB,MAAM;AACrC,SAAO,QAAQ,KAAsB,kCAAkC;AACzE;AACO,aAAM,sBAAsB,MAAM;AACvC,SAAO,QAAQ,KAAqB,oCAAoC;AAC1E;AAMO,aAAM,kBAAkB,CAAC,WAAgC;AAC9D,SAAO,QAAQ,KAAoB,0BAA0B,MAAM;AACrE;AAIO,aAAM,cAAc,CAAC,WAA4B;AACtD,SAAO,QAAQ,KAAkC,sBAAsB,MAAM;AAC/E;AACO,aAAM,kBAAkB,MAAM;AACnC,SAAO,QAAQ,KAAwB,wBAAwB;AACjE;AAIO,aAAM,aAAa,CAAC,WAA2B;AACpD,SAAO,QAAQ,KAAmB,qBAAqB,MAAM;AAC/D;AAMO,aAAM,aAAa,CAAC,WAA8B;AACvD,SAAO,QAAQ,KAAsB,wBAAwB,QAAQ;AAAA,IACnE,SAAS;AAAA,MACP,MAAM;AAAA;AAAA,IAER;AAAA,EACF,CAAC;AACH;AAIO,aAAM,cAAc,CAAC,WAA4B;AACtD,SAAO,QAAQ,KAAsB,sBAAsB,MAAM;AACnE;AAIO,aAAM,oBAAoB,CAAC,WAAkC;AAClE,SAAO,QAAQ,KAAU,4BAA4B,MAAM;AAC7D;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769694,
+      "end": 1714699769694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769694,
+      "end": 1714699769694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699769694,
+      "end": 1714699769695,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769695,
+      "end": 1714699769695,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { request } from \"@/utils/http\";\nexport const giveawaysend = (params) => {\n  return request.post(\"/api/game/giveawaysend\", params, {\n    options: {\n      auth: true\n      // showLoading: true\n    }\n  });\n};\nexport const giveawayresave = (params) => {\n  return request.post(\"/api/game/giveawayresave\", params, {\n    options: {\n      auth: true\n      // showLoading: true\n    }\n  });\n};\nexport const gamemerapplist = (params) => {\n  return request.post(\"/api/game/gamemerapplist\", params, {\n    options: {\n      auth: true\n      // showLoading: true\n    }\n  });\n};\nexport const sendrecive_history = (params) => {\n  return request.post(\"/api/game/sendrecive_history\", params, {\n    options: {\n      auth: true\n      // showLoading: true\n    }\n  });\n};\nexport const signInListApi = () => {\n  return request.post(\"/api/Taskactivity/signinlist\");\n};\nexport const userDoTaskApi = (params) => {\n  return request.post(\"/api/Taskactivity/userDoTask\", params);\n};\nexport const turntableAwardsApi = () => {\n  return request.post(\"/api/Turntable/Awards\");\n};\nexport const gameRecordApi = () => {\n  return request.post(\"/api/Turntable/Gamerecord\");\n};\nexport const playTurntableApi = (params) => {\n  return request.post(\"/api/Turntable/Play\", params);\n};\nexport const rewardRecordListApi = (params) => {\n  return request.post(\"/api/Taskactivity/rewardrecordlist\", params);\n};\nexport const userActionListApi = () => {\n  return request.post(\"/api/Taskactivity/useractionlist\");\n};\nexport const allTaskBandsListApi = () => {\n  return request.post(\"/api/Taskactivity/alltaskbandslist\");\n};\nexport const gameInfoDataApi = (params) => {\n  return request.post(\"/api/game/gameinfodata\", params);\n};\nexport const playGameApi = (params) => {\n  return request.post(\"/api/game/playgame\", params);\n};\nexport const gameTaskInfoApi = () => {\n  return request.post(\"/api/game/gametaskinfo\");\n};\nexport const gameReqApi = (params) => {\n  return request.post(\"/api/game/gamereq\", params);\n};\nexport const gameresult = (params) => {\n  return request.post(\"/api/game/gameresult\", params, {\n    options: {\n      auth: true\n      // showLoading: true\n    }\n  });\n};\nexport const gameRankApi = (params) => {\n  return request.post(\"/api/game/gamerank\", params);\n};\nexport const coinBuySellReqApi = (params) => {\n  return request.post(\"/api/game/coinbuysellreq\", params);\n};\n",
+      "start": 1714699769695,
+      "end": 1714699769695,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport { request } from \"@/utils/http\";\nexport const giveawaysend = (params) => {\n  return request.post(\"/api/game/giveawaysend\", params, {\n    options: {\n      auth: true\n      // showLoading: true\n    }\n  });\n};\nexport const giveawayresave = (params) => {\n  return request.post(\"/api/game/giveawayresave\", params, {\n    options: {\n      auth: true\n      // showLoading: true\n    }\n  });\n};\nexport const gamemerapplist = (params) => {\n  return request.post(\"/api/game/gamemerapplist\", params, {\n    options: {\n      auth: true\n      // showLoading: true\n    }\n  });\n};\nexport const sendrecive_history = (params) => {\n  return request.post(\"/api/game/sendrecive_history\", params, {\n    options: {\n      auth: true\n      // showLoading: true\n    }\n  });\n};\nexport const signInListApi = () => {\n  return request.post(\"/api/Taskactivity/signinlist\");\n};\nexport const userDoTaskApi = (params) => {\n  return request.post(\"/api/Taskactivity/userDoTask\", params);\n};\nexport const turntableAwardsApi = () => {\n  return request.post(\"/api/Turntable/Awards\");\n};\nexport const gameRecordApi = () => {\n  return request.post(\"/api/Turntable/Gamerecord\");\n};\nexport const playTurntableApi = (params) => {\n  return request.post(\"/api/Turntable/Play\", params);\n};\nexport const rewardRecordListApi = (params) => {\n  return request.post(\"/api/Taskactivity/rewardrecordlist\", params);\n};\nexport const userActionListApi = () => {\n  return request.post(\"/api/Taskactivity/useractionlist\");\n};\nexport const allTaskBandsListApi = () => {\n  return request.post(\"/api/Taskactivity/alltaskbandslist\");\n};\nexport const gameInfoDataApi = (params) => {\n  return request.post(\"/api/game/gameinfodata\", params);\n};\nexport const playGameApi = (params) => {\n  return request.post(\"/api/game/playgame\", params);\n};\nexport const gameTaskInfoApi = () => {\n  return request.post(\"/api/game/gametaskinfo\");\n};\nexport const gameReqApi = (params) => {\n  return request.post(\"/api/game/gamereq\", params);\n};\nexport const gameresult = (params) => {\n  return request.post(\"/api/game/gameresult\", params, {\n    options: {\n      auth: true\n      // showLoading: true\n    }\n  });\n};\nexport const gameRankApi = (params) => {\n  return request.post(\"/api/game/gamerank\", params);\n};\nexport const coinBuySellReqApi = (params) => {\n  return request.post(\"/api/game/coinbuysellreq\", params);\n};\n",
+      "start": 1714699769695,
+      "end": 1714699770675,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/apis/taskActivity.ts\"],\n  \"sourcesContent\": [\"import { request } from \\\"@/utils/http\\\";\\nexport const giveawaysend = (params) => {\\n  return request.post(\\\"/api/game/giveawaysend\\\", params, {\\n    options: {\\n      auth: true\\n      // showLoading: true\\n    }\\n  });\\n};\\nexport const giveawayresave = (params) => {\\n  return request.post(\\\"/api/game/giveawayresave\\\", params, {\\n    options: {\\n      auth: true\\n      // showLoading: true\\n    }\\n  });\\n};\\nexport const gamemerapplist = (params) => {\\n  return request.post(\\\"/api/game/gamemerapplist\\\", params, {\\n    options: {\\n      auth: true\\n      // showLoading: true\\n    }\\n  });\\n};\\nexport const sendrecive_history = (params) => {\\n  return request.post(\\\"/api/game/sendrecive_history\\\", params, {\\n    options: {\\n      auth: true\\n      // showLoading: true\\n    }\\n  });\\n};\\nexport const signInListApi = () => {\\n  return request.post(\\\"/api/Taskactivity/signinlist\\\");\\n};\\nexport const userDoTaskApi = (params) => {\\n  return request.post(\\\"/api/Taskactivity/userDoTask\\\", params);\\n};\\nexport const turntableAwardsApi = () => {\\n  return request.post(\\\"/api/Turntable/Awards\\\");\\n};\\nexport const gameRecordApi = () => {\\n  return request.post(\\\"/api/Turntable/Gamerecord\\\");\\n};\\nexport const playTurntableApi = (params) => {\\n  return request.post(\\\"/api/Turntable/Play\\\", params);\\n};\\nexport const rewardRecordListApi = (params) => {\\n  return request.post(\\\"/api/Taskactivity/rewardrecordlist\\\", params);\\n};\\nexport const userActionListApi = () => {\\n  return request.post(\\\"/api/Taskactivity/useractionlist\\\");\\n};\\nexport const allTaskBandsListApi = () => {\\n  return request.post(\\\"/api/Taskactivity/alltaskbandslist\\\");\\n};\\nexport const gameInfoDataApi = (params) => {\\n  return request.post(\\\"/api/game/gameinfodata\\\", params);\\n};\\nexport const playGameApi = (params) => {\\n  return request.post(\\\"/api/game/playgame\\\", params);\\n};\\nexport const gameTaskInfoApi = () => {\\n  return request.post(\\\"/api/game/gametaskinfo\\\");\\n};\\nexport const gameReqApi = (params) => {\\n  return request.post(\\\"/api/game/gamereq\\\", params);\\n};\\nexport const gameresult = (params) => {\\n  return request.post(\\\"/api/game/gameresult\\\", params, {\\n    options: {\\n      auth: true\\n      // showLoading: true\\n    }\\n  });\\n};\\nexport const gameRankApi = (params) => {\\n  return request.post(\\\"/api/game/gamerank\\\", params);\\n};\\nexport const coinBuySellReqApi = (params) => {\\n  return request.post(\\\"/api/game/coinbuysellreq\\\", params);\\n};\\n\"],\n  \"mappings\": \";AAAA,SAAS,eAAe;AACjB,aAAM,eAAe,CAAC,WAAW;AACtC,SAAO,QAAQ,KAAK,0BAA0B,QAAQ;AAAA,IACpD,SAAS;AAAA,MACP,MAAM;AAAA;AAAA,IAER;AAAA,EACF,CAAC;AACH;AACO,aAAM,iBAAiB,CAAC,WAAW;AACxC,SAAO,QAAQ,KAAK,4BAA4B,QAAQ;AAAA,IACtD,SAAS;AAAA,MACP,MAAM;AAAA;AAAA,IAER;AAAA,EACF,CAAC;AACH;AACO,aAAM,iBAAiB,CAAC,WAAW;AACxC,SAAO,QAAQ,KAAK,4BAA4B,QAAQ;AAAA,IACtD,SAAS;AAAA,MACP,MAAM;AAAA;AAAA,IAER;AAAA,EACF,CAAC;AACH;AACO,aAAM,qBAAqB,CAAC,WAAW;AAC5C,SAAO,QAAQ,KAAK,gCAAgC,QAAQ;AAAA,IAC1D,SAAS;AAAA,MACP,MAAM;AAAA;AAAA,IAER;AAAA,EACF,CAAC;AACH;AACO,aAAM,gBAAgB,MAAM;AACjC,SAAO,QAAQ,KAAK,8BAA8B;AACpD;AACO,aAAM,gBAAgB,CAAC,WAAW;AACvC,SAAO,QAAQ,KAAK,gCAAgC,MAAM;AAC5D;AACO,aAAM,qBAAqB,MAAM;AACtC,SAAO,QAAQ,KAAK,uBAAuB;AAC7C;AACO,aAAM,gBAAgB,MAAM;AACjC,SAAO,QAAQ,KAAK,2BAA2B;AACjD;AACO,aAAM,mBAAmB,CAAC,WAAW;AAC1C,SAAO,QAAQ,KAAK,uBAAuB,MAAM;AACnD;AACO,aAAM,sBAAsB,CAAC,WAAW;AAC7C,SAAO,QAAQ,KAAK,sCAAsC,MAAM;AAClE;AACO,aAAM,oBAAoB,MAAM;AACrC,SAAO,QAAQ,KAAK,kCAAkC;AACxD;AACO,aAAM,sBAAsB,MAAM;AACvC,SAAO,QAAQ,KAAK,oCAAoC;AAC1D;AACO,aAAM,kBAAkB,CAAC,WAAW;AACzC,SAAO,QAAQ,KAAK,0BAA0B,MAAM;AACtD;AACO,aAAM,cAAc,CAAC,WAAW;AACrC,SAAO,QAAQ,KAAK,sBAAsB,MAAM;AAClD;AACO,aAAM,kBAAkB,MAAM;AACnC,SAAO,QAAQ,KAAK,wBAAwB;AAC9C;AACO,aAAM,aAAa,CAAC,WAAW;AACpC,SAAO,QAAQ,KAAK,qBAAqB,MAAM;AACjD;AACO,aAAM,aAAa,CAAC,WAAW;AACpC,SAAO,QAAQ,KAAK,wBAAwB,QAAQ;AAAA,IAClD,SAAS;AAAA,MACP,MAAM;AAAA;AAAA,IAER;AAAA,EACF,CAAC;AACH;AACO,aAAM,cAAc,CAAC,WAAW;AACrC,SAAO,QAAQ,KAAK,sBAAsB,MAAM;AAClD;AACO,aAAM,oBAAoB,CAAC,WAAW;AAC3C,SAAO,QAAQ,KAAK,4BAA4B,MAAM;AACxD;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770675,
+      "end": 1714699770675,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699770675,
+      "end": 1714699770675,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770675,
+      "end": 1714699770675,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770675,
+      "end": 1714699770675,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770675,
+      "end": 1714699770675,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770675,
+      "end": 1714699770675,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770675,
+      "end": 1714699770675,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770675,
+      "end": 1714699770675,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770675,
+      "end": 1714699770675,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699770675,
+      "end": 1714699770675,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770675,
+      "end": 1714699770675,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770675,
+      "end": 1714699770675,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770675,
+      "end": 1714699770675,
+      "order": "normal"
+    }
+  ]
+}

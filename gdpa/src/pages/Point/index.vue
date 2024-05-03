@@ -88,8 +88,7 @@ onUnmounted(() => {
 <template>
   <div class="point-container flex flex-col justify-between">
     <nav-bar
-      mode="transparent"
-      hide-left
+      mode="pointMode"
       class="point-nav-bar"
     >
       <template #title>
@@ -124,7 +123,7 @@ onUnmounted(() => {
           </div>
         </div>
         <CheckIn />
-        <AdBanner />
+        <!-- <AdBanner /> -->
         <LuckyDraw @update-coins="getUserCoinData" />
         <TodayActivity @update-coins="getUserCoinData" />
         <TotalTask />

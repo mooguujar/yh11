@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/contact-list/ContactList.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { defineComponent } from \"vue\";\nimport { createNamespace, unknownProp } from \"../utils/index.mjs\";\nimport { Tag } from \"../tag/index.mjs\";\nimport { Icon } from \"../icon/index.mjs\";\nimport { Cell } from \"../cell/index.mjs\";\nimport { Radio } from \"../radio/index.mjs\";\nimport { Button } from \"../button/index.mjs\";\nimport { RadioGroup } from \"../radio-group/index.mjs\";\nconst [name, bem, t] = createNamespace(\"contact-list\");\nconst contactListProps = {\n  list: Array,\n  addText: String,\n  modelValue: unknownProp,\n  defaultTagText: String\n};\nvar stdin_default = defineComponent({\n  name,\n  props: contactListProps,\n  emits: [\"add\", \"edit\", \"select\", \"update:modelValue\"],\n  setup(props, {\n    emit\n  }) {\n    const renderItem = (item, index) => {\n      const onClick = () => {\n        emit(\"update:modelValue\", item.id);\n        emit(\"select\", item, index);\n      };\n      const renderRightIcon = () => _createVNode(Radio, {\n        \"class\": bem(\"radio\"),\n        \"name\": item.id,\n        \"iconSize\": 18\n      }, null);\n      const renderEditIcon = () => _createVNode(Icon, {\n        \"name\": \"edit\",\n        \"class\": bem(\"edit\"),\n        \"onClick\": (event) => {\n          event.stopPropagation();\n          emit(\"edit\", item, index);\n        }\n      }, null);\n      const renderContent = () => {\n        const nodes = [`${item.name}\\uFF0C${item.tel}`];\n        if (item.isDefault && props.defaultTagText) {\n          nodes.push(_createVNode(Tag, {\n            \"type\": \"primary\",\n            \"round\": true,\n            \"class\": bem(\"item-tag\")\n          }, {\n            default: () => [props.defaultTagText]\n          }));\n        }\n        return nodes;\n      };\n      return _createVNode(Cell, {\n        \"key\": item.id,\n        \"isLink\": true,\n        \"center\": true,\n        \"class\": bem(\"item\"),\n        \"titleClass\": bem(\"item-title\"),\n        \"onClick\": onClick\n      }, {\n        icon: renderEditIcon,\n        title: renderContent,\n        \"right-icon\": renderRightIcon\n      });\n    };\n    return () => _createVNode(\"div\", {\n      \"class\": bem()\n    }, [_createVNode(RadioGroup, {\n      \"modelValue\": props.modelValue,\n      \"class\": bem(\"group\")\n    }, {\n      default: () => [props.list && props.list.map(renderItem)]\n    }), _createVNode(\"div\", {\n      \"class\": [bem(\"bottom\"), \"van-safe-area-bottom\"]\n    }, [_createVNode(Button, {\n      \"round\": true,\n      \"block\": true,\n      \"type\": \"primary\",\n      \"class\": bem(\"add\"),\n      \"text\": props.addText || t(\"addContact\"),\n      \"onClick\": () => emit(\"add\")\n    }, null)])]);\n  }\n});\nexport {\n  contactListProps,\n  stdin_default as default\n};\n",
+      "start": 1714699767211,
+      "end": 1714699767285,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767285,
+      "end": 1714699767285,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767285,
+      "end": 1714699767285,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767285,
+      "end": 1714699767285,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767285,
+      "end": 1714699767285,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767285,
+      "end": 1714699767285,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767285,
+      "end": 1714699767285,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { defineComponent } from \"vue\";\nimport { createNamespace, unknownProp } from \"../utils/index.mjs\";\nimport { Tag } from \"../tag/index.mjs\";\nimport { Icon } from \"../icon/index.mjs\";\nimport { Cell } from \"../cell/index.mjs\";\nimport { Radio } from \"../radio/index.mjs\";\nimport { Button } from \"../button/index.mjs\";\nimport { RadioGroup } from \"../radio-group/index.mjs\";\nconst [name, bem, t] = createNamespace(\"contact-list\");\nconst contactListProps = {\n  list: Array,\n  addText: String,\n  modelValue: unknownProp,\n  defaultTagText: String\n};\nvar stdin_default = defineComponent({\n  name,\n  props: contactListProps,\n  emits: [\"add\", \"edit\", \"select\", \"update:modelValue\"],\n  setup(props, {\n    emit\n  }) {\n    const renderItem = (item, index) => {\n      const onClick = () => {\n        emit(\"update:modelValue\", item.id);\n        emit(\"select\", item, index);\n      };\n      const renderRightIcon = () => _createVNode(Radio, {\n        \"class\": bem(\"radio\"),\n        \"name\": item.id,\n        \"iconSize\": 18\n      }, null);\n      const renderEditIcon = () => _createVNode(Icon, {\n        \"name\": \"edit\",\n        \"class\": bem(\"edit\"),\n        \"onClick\": (event) => {\n          event.stopPropagation();\n          emit(\"edit\", item, index);\n        }\n      }, null);\n      const renderContent = () => {\n        const nodes = [`${item.name}\\uFF0C${item.tel}`];\n        if (item.isDefault && props.defaultTagText) {\n          nodes.push(_createVNode(Tag, {\n            \"type\": \"primary\",\n            \"round\": true,\n            \"class\": bem(\"item-tag\")\n          }, {\n            default: () => [props.defaultTagText]\n          }));\n        }\n        return nodes;\n      };\n      return _createVNode(Cell, {\n        \"key\": item.id,\n        \"isLink\": true,\n        \"center\": true,\n        \"class\": bem(\"item\"),\n        \"titleClass\": bem(\"item-title\"),\n        \"onClick\": onClick\n      }, {\n        icon: renderEditIcon,\n        title: renderContent,\n        \"right-icon\": renderRightIcon\n      });\n    };\n    return () => _createVNode(\"div\", {\n      \"class\": bem()\n    }, [_createVNode(RadioGroup, {\n      \"modelValue\": props.modelValue,\n      \"class\": bem(\"group\")\n    }, {\n      default: () => [props.list && props.list.map(renderItem)]\n    }), _createVNode(\"div\", {\n      \"class\": [bem(\"bottom\"), \"van-safe-area-bottom\"]\n    }, [_createVNode(Button, {\n      \"round\": true,\n      \"block\": true,\n      \"type\": \"primary\",\n      \"class\": bem(\"add\"),\n      \"text\": props.addText || t(\"addContact\"),\n      \"onClick\": () => emit(\"add\")\n    }, null)])]);\n  }\n});\nexport {\n  contactListProps,\n  stdin_default as default\n};\n",
+      "start": 1714699767285,
+      "end": 1714699767285,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767285,
+      "end": 1714699767285,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767285,
+      "end": 1714699767285,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767285,
+      "end": 1714699767285,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767285,
+      "end": 1714699767285,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767285,
+      "end": 1714699767285,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767285,
+      "end": 1714699767285,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767285,
+      "end": 1714699767285,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767285,
+      "end": 1714699767285,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767285,
+      "end": 1714699767285,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767285,
+      "end": 1714699767285,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767285,
+      "end": 1714699767285,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767285,
+      "end": 1714699767285,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767285,
+      "end": 1714699767285,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767285,
+      "end": 1714699767285,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <div class=\"country bg-[#fff] h-[100vh] z-[20000]\">\n    <!-- <form action=\"/\"> -->\n    <van-search\n      v-model=\"value\"\n      show-action\n      placeholder=\"请输入搜索关键词\"\n      @update:model-value=\"onSearch\"\n      @search=\"onSearch\"\n    >\n      <template #action>\n        <div @click=\"oncancel\">取消</div>\n      </template>\n    </van-search>\n    <!-- </form> -->\n    <div class=\"px-[20px]\">\n      <p class=\"h-[70px] text-[29px] mb-[10px] flex_s text-[#666666] border_p\">国家/地区</p>\n    </div>\n    <ul>\n      <li\n        class=\"flex_s w-[100%] h-[80px] text-[29px] px-[20px]\"\n        v-for=\"item in list\"\n        :key=\"item.id\"\n        @click=\"gopath(item)\"\n      >\n        <img\n          class=\"h-[65%] mr-[13px]\"\n          :src=\"requireImg('common/' + item.country_code + '.png')\"\n          alt=\"\"\n        />\n        <span>{{ item.country_name }}</span>\n        <span class=\"absolute right-[20px]\">{{ item.phone_code }}</span>\n      </li>\n    </ul>\n  </div>\n</template>\n<script lang=\"ts\">\nimport { defineComponent } from 'vue'\nconst fromPath = ref('/auth/login')\nexport default defineComponent({\n  beforeRouteEnter(to, from, next) {\n    // next() 可以通过内部的回调函数访问实例\n    fromPath.value = from.path\n    // console.log('fromPath.value', fromPath.value)\n    next(e => {\n      // window.console.log(e) // 当前的this\n    })\n  }\n})\n</script>\n\n<script setup lang=\"ts\">\nimport { requireImg } from '@/utils/tools'\nimport { storeToRefs } from 'pinia'\nimport { ToastOptions, showToast } from 'vant'\nimport { computed, reactive, ref, watch } from 'vue'\nimport { useRoute, useRouter } from 'vue-router'\nimport { ResCountryCode, ResCountryCodeObj, wallet_type } from '@/apis/auth'\nconst router = useRouter()\nconst route = useRouter()\n// console.log('route', route)\n\nconst value = ref('')\nconst list = ref([] as ResCountryCodeObj[])\nconst list2 = ref([] as ResCountryCodeObj[])\nlet t: any = null\nconst onSearch = (val: string) => {\n  clearTimeout(t)\n  t = setTimeout(() => {\n    if (!!!val) {\n      list.value = list2.value\n    } else {\n      list.value = list2.value.filter(e => {\n        // console.log('e', e.country_name)\n        return (\n          e.country_name.includes(val.toUpperCase()) ||\n          e.country_name.includes(val.toLowerCase()) ||\n          e.country_name.toLowerCase().includes(val.toLowerCase()) ||\n          e.country_name.toUpperCase().includes(val.toUpperCase()) ||\n          e.country_name.includes(val) ||\n          e.phone_code.includes(val.toLowerCase())\n        )\n      })\n    }\n  }, 500)\n}\nconst oncancel = () => {\n  // showToast('取消')\n  router.replace(fromPath.value)\n}\nconst gopath = (item: { country_code: string; phone_code: string | number }) => {\n  let path =\n    fromPath.value + '?country_code=' + item.country_code + '&phone_code=' + +item.phone_code\n  // console.log(path)\n  router.replace(path)\n}\n\nwallet_type({}).then(data => {\n  // console.log('data', data)\n  if (!!!data.country_coin.length) return showToast('数据异常')\n  list.value = data.country_coin\n  list2.value = data.country_coin\n})\n</script>\n<style scoped lang=\"scss\">\n.border_p {\n  border-bottom: 1px #c2c2c2 solid;\n}\n</style>\n<style lang=\"scss\">\n.dialog-bind-pay-way {\n  padding-bottom: 32px;\n  .dialog-title {\n    height: 50px;\n  }\n  .dialog-content {\n    height: 120px;\n    text-align: center;\n  }\n}\n</style>\n",
+      "start": 1714699769408,
+      "end": 1714699769456,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769456,
+      "end": 1714699769456,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769456,
+      "end": 1714699769456,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769456,
+      "end": 1714699769456,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769456,
+      "end": 1714699769456,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue?vue&type=style&index=0&scoped=d3f1b2ba&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue?vue&type=style&index=1&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-d3f1b2ba\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue\"]]);\n",
+      "start": 1714699769456,
+      "end": 1714699769599,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769599,
+      "end": 1714699769599,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue?vue&type=style&index=0&scoped=d3f1b2ba&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue?vue&type=style&index=1&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-d3f1b2ba\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue\"]]);\n",
+      "start": 1714699769599,
+      "end": 1714699769599,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue?vue&type=style&index=0&scoped=d3f1b2ba&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue?vue&type=style&index=1&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-d3f1b2ba\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue\"]]);\n",
+      "start": 1714699769599,
+      "end": 1714699770446,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue?vue&type=style&index=0&scoped=d3f1b2ba&lang.scss\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue?vue&type=style&index=1&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-d3f1b2ba\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,kEAAkE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770446,
+      "end": 1714699770446,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699770446,
+      "end": 1714699770446,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770446,
+      "end": 1714699770446,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770446,
+      "end": 1714699770446,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770446,
+      "end": 1714699770446,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770446,
+      "end": 1714699770446,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770446,
+      "end": 1714699770446,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770446,
+      "end": 1714699770446,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770446,
+      "end": 1714699770446,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue?vue&type=style&index=0&scoped=d3f1b2ba&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue?vue&type=style&index=1&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-d3f1b2ba\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue\"]]);\n",
+      "start": 1714699770446,
+      "end": 1714699770446,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue?vue&type=style&index=0&scoped=d3f1b2ba&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue?vue&type=style&index=1&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-d3f1b2ba\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Country.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770446,
+      "end": 1714699770446,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770446,
+      "end": 1714699770446,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770446,
+      "end": 1714699770446,
+      "order": "normal"
+    }
+  ]
+}

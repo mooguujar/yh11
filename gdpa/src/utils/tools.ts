@@ -63,7 +63,7 @@ export const delay = (time: number = 2000) => {
 // const PRIVATE_KEY = import.meta.env.VITE_APP_PRIVATE_KEY ?? ''
 
 // 传入post|get请求的参数,根据请求的类型,返回一个相应的默认参数
-export const defaultParams = (type: string, data: Record<string, any>) => {
+export const defaultParams = (type: string, config: Record<string, any>) => {
   // window.log('环境信息', import.meta.env, process.env)
   const lang = 'cn'
   // const platform = 'Android'
@@ -90,12 +90,14 @@ export const defaultParams = (type: string, data: Record<string, any>) => {
   }
   const sign = objToUrl(newData, true)
 
+  // window.log('签名前字符串', sign, config.url)
+
   newData.sign = md5(sign).toString()
   delete newData.key
 
-  if (type === 'get') return objToUrl(Object.assign(newData, data))
+  if (type === 'get') return objToUrl(Object.assign(newData, config.params))
 
-  return Object.assign(newData, data)
+  return Object.assign(newData, config.data)
 }
 // 传入一个字符串判断是否是一个json字符串
 export const isJsonString = (str: string) => {
@@ -259,7 +261,9 @@ export function filterList(fullPath?: string) {
     'point',
     'bricks',
     'collect-cards',
-    'ranking-list'
+    'ranking-list',
+    'vip',
+    'activeList'
   ]
   const hash = window.location.hash
   return whiteList.some(item => {

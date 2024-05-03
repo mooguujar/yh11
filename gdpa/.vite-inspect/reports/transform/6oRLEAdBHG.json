@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/giftCard.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <nav-bar\n    class=\"nav-bar z-[1001]\"\n    title=\"赠送福卡\"\n    mode=\"cardActivity\"\n    right-text=\"记录\"\n    @click-right=\"$router.push('/cardRecord')\"\n  >\n    <template #right>\n      <van-icon\n        name=\"notes-o\"\n        size=\"26\"\n        @click=\"$router.push('/cardRecord')\"\n      />\n    </template>\n  </nav-bar>\n\n  <div class=\"heng\"></div>\n  <div class=\"giftCard-container activity_container\">\n    <div class=\"giftCard_wrap clearfix\">\n      <p class=\"title py-[10px]\">选择赠送卡:</p>\n\n      <div class=\"giftCard flex_sz\">\n        <div\n          class=\"g_cardBox\"\n          :class=\"num_type == 1 ? 'active' : ''\"\n          @click=\"gongNum > 0 && (num_type = 1)\"\n        >\n          <van-image\n            :class=\"gongNum == 0 ? 'grayscale' : ''\"\n            class=\"cR_listImg\"\n            :src=\"requireImg('activity/gong.png')\"\n          />\n          <p\n            class=\"g_tips\"\n            :class=\"gongNum == 0 ? 'gray_f' : ''\"\n          >\n            数量:\n            {{ gongNum || 0 }}\n          </p>\n        </div>\n        <div\n          class=\"g_cardBox\"\n          @click=\"xiNum > 0 && (num_type = 2)\"\n          :class=\"num_type == 2 ? 'active' : ''\"\n        >\n          <van-image\n            :class=\"xiNum == 0 ? 'grayscale' : ''\"\n            class=\"cR_listImg\"\n            :src=\"requireImg('activity/xi.png')\"\n          />\n          <p\n            class=\"g_tips\"\n            :class=\"xiNum == 0 ? 'gray_f' : ''\"\n          >\n            数量:\n            {{ xiNum || 0 }}\n          </p>\n        </div>\n        <div\n          class=\"g_cardBox\"\n          @click=\"faNum > 0 && (num_type = 3)\"\n          :class=\"num_type == 3 ? 'active' : ''\"\n        >\n          <van-image\n            :class=\"faNum == 0 ? 'grayscale' : ''\"\n            class=\"cR_listImg\"\n            :src=\"requireImg('activity/fa.png')\"\n          />\n          <p\n            class=\"g_tips\"\n            :class=\"faNum == 0 ? 'gray_f' : ''\"\n          >\n            数量:\n            {{ faNum || 0 }}\n          </p>\n        </div>\n        <div\n          class=\"g_cardBox\"\n          @click=\"caiNum > 0 && (num_type = 4)\"\n          :class=\"num_type == 4 ? 'active' : ''\"\n        >\n          <van-image\n            :class=\"caiNum == 0 ? 'grayscale' : ''\"\n            class=\"cR_listImg\"\n            :src=\"requireImg('activity/cai.png')\"\n          />\n          <p\n            class=\"g_tips\"\n            :class=\"caiNum == 0 ? 'gray_f' : ''\"\n          >\n            数量:\n            {{ caiNum || 0 }}\n          </p>\n        </div>\n      </div>\n\n      <div class=\"re_address\">\n        <p class=\"re_text\">\n          <span>接收人钱包地址：</span>\n          <span class=\"right text-[#a4a5a7]\">同一个好友一周只能赠送{{ giftcardnum }}张卡</span>\n        </p>\n        <van-field\n          v-model=\"value1\"\n          placeholder=\"请输入对方钱包地址\"\n        >\n          <template #right-icon>\n            <span @click=\"posttext\">粘贴</span>\n          </template>\n        </van-field>\n        <p class=\"re_text my-[20px]\">\n          <span class=\"left text-[#a4a5a7]\">钱包地址示例：6debf55e3016abc</span>\n        </p>\n      </div>\n    </div>\n    <div\n      class=\"button_gc\"\n      @click=\"goGiveawaysend\"\n    >\n      <van-button type=\"primary\"></van-button>\n    </div>\n  </div>\n</template>\n<script setup lang=\"ts\">\nimport success from '@/assets/images/common/success.png'\nimport { requireImg, secondsToYYDMS } from '@/utils/tools'\nimport { gameInfoDataApi, giveawaysend } from '@/apis/taskActivity'\nimport { onMounted, ref } from 'vue'\nimport { IGameInfoData, typeCarinfos } from '@/store/types/taskActivity'\nimport { showToast } from 'vant'\nimport router from '@/router'\nimport { useRoute } from 'vue-router'\nimport { useAppBar } from '@/components/AppBar/useAppBar'\nuseAppBar({ mode: 'dark' })\nconst route = useRoute()\nconst { query } = route\nconst { toaddress, cfg_giveaway_giftcardnum } = query\n\nconst giftcardnum = ref((cfg_giveaway_giftcardnum as string) || 0)\nconst value1 = ref((toaddress as string) || '')\nconst onClickRight = () => {\n  console.log('clickRight')\n}\nconst posttext = () => {\n  navigator.clipboard\n    .readText()\n    .then(clipboardContent => {\n      console.log(clipboardContent)\n      value1.value = clipboardContent\n    })\n    .catch(error => {\n      showToast('读取剪贴板内容失败')\n      console.log('读取剪贴板内容失败', error)\n    })\n}\nconst carinfos = ref<typeCarinfos>({})\nconst num_type = ref(0)\nconst gongNum = ref(0)\nconst xiNum = ref(0)\nconst faNum = ref(0)\nconst caiNum = ref(0)\n\nonMounted(() => {})\nconst getCardList = async () => {\n  const res: IGameInfoData = await gameInfoDataApi({})\n  if (!!!res.carinfos) return console.log('数据异常')\n  carinfos.value = res.carinfos\n  num_type.value =\n    Object.values(carinfos.value).filter((e: any, i, arr) => {\n      return e.num > 0\n    })[0].key || 0\n\n  Object.values(carinfos.value).forEach((e: any, i, arr) => {\n    if (e.name == '恭') gongNum.value = e.num\n    if (e.name == '喜') xiNum.value = e.num\n    if (e.name == '发') faNum.value = e.num\n    if (e.name == '财') caiNum.value = e.num\n  })\n}\ngetCardList()\nconst goGiveawaysend = async () => {\n  if (!num_type.value) {\n    showToast({ message: '请选择卡片' })\n  }\n  let parm = {\n    toaddress: value1.value,\n    num_type: num_type.value,\n    num: 1\n  }\n  giveawaysend(parm).then(res => {\n    if (res.code || res.errmsg) return console.log('数据异常')\n    getCardList()\n    // showToast({ message: '成功！', icon: success })\n    let data = {\n      date: secondsToYYDMS(),\n      ...parm\n    }\n    // console.log('data', secondsToYYDMS(), data)\n    router.replace('/giftResult?data=' + JSON.stringify(data))\n  })\n}\n</script>\n\n<style lang=\"scss\" scoped>\n.giftCard-container {\n  height: 100%;\n  font-size: 30px;\n  padding: 20px;\n  .giftCard_wrap {\n    margin-bottom: 20px;\n    padding: 15px 20px 20px;\n    background-color: #ffffff;\n    border-radius: 14px;\n    .title {\n      font-size: 28px;\n      font-weight: normal;\n      font-stretch: normal;\n      line-height: 28px;\n      letter-spacing: 0px;\n      color: #494b4f;\n      margin-bottom: 15px;\n    }\n    .giftCard {\n      margin-bottom: 60px;\n      .g_cardBox {\n        width: 156px;\n        height: 195px;\n        font-size: 24px;\n        background-color: #fdf8d2;\n        border-radius: 14px;\n        border: solid 2px #f7d6c2;\n        cursor: pointer;\n        .cR_listImg {\n          width: 86px;\n          height: 123px;\n          margin: 15px auto;\n          display: block;\n        }\n        .g_tips {\n          font-size: 24px;\n          font-weight: normal;\n          font-stretch: normal;\n          line-height: 28px;\n          letter-spacing: 0px;\n          color: #c78054;\n          text-align: center;\n        }\n        &.active {\n          border: solid 2px #eb114f;\n        }\n      }\n    }\n  }\n  .re_address {\n    .re_text {\n      font-size: 25px;\n      font-weight: normal;\n      font-stretch: normal;\n      line-height: 28px;\n      letter-spacing: 0px;\n      color: #494b4f;\n      margin-bottom: 20px;\n    }\n    :deep(.van-cell) {\n      height: 61px;\n      border-radius: 7px;\n      border: solid 1px #787f8c;\n      padding: 0 15px;\n      .van-field__body {\n        height: 100%;\n      }\n    }\n  }\n  .button_gc {\n    width: 100%;\n    margin-top: 50px;\n    .van-button {\n      width: 407px;\n      height: 69px;\n      margin: 0 auto;\n      display: block;\n      background: url('../../../assets/images/activity/send.png');\n      background-size: cover;\n      border: unset;\n    }\n  }\n}\n</style>\n",
+      "start": 1714699769442,
+      "end": 1714699769508,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769508,
+      "end": 1714699769508,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769508,
+      "end": 1714699769508,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769508,
+      "end": 1714699769508,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769508,
+      "end": 1714699769508,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/giftCard.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/giftCard.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/giftCard.vue?vue&type=style&index=0&scoped=6e428853&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-6e428853\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/giftCard.vue\"]]);\n",
+      "start": 1714699769508,
+      "end": 1714699769607,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769607,
+      "end": 1714699769607,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/giftCard.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/giftCard.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/giftCard.vue?vue&type=style&index=0&scoped=6e428853&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-6e428853\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/giftCard.vue\"]]);\n",
+      "start": 1714699769607,
+      "end": 1714699769607,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/giftCard.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/giftCard.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/giftCard.vue?vue&type=style&index=0&scoped=6e428853&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-6e428853\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/giftCard.vue\"]]);\n",
+      "start": 1714699769607,
+      "end": 1714699770598,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/giftCard.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/giftCard.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/giftCard.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/giftCard.vue?vue&type=style&index=0&scoped=6e428853&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-6e428853\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/giftCard.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,gFAAgF,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770598,
+      "end": 1714699770598,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699770598,
+      "end": 1714699770598,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770598,
+      "end": 1714699770598,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770598,
+      "end": 1714699770598,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770598,
+      "end": 1714699770598,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770598,
+      "end": 1714699770598,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770598,
+      "end": 1714699770598,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770598,
+      "end": 1714699770598,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770598,
+      "end": 1714699770598,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/giftCard.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/giftCard.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/giftCard.vue?vue&type=style&index=0&scoped=6e428853&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-6e428853\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/giftCard.vue\"]]);\n",
+      "start": 1714699770598,
+      "end": 1714699770598,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/giftCard.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/giftCard.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/giftCard.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/giftCard.vue?vue&type=style&index=0&scoped=6e428853&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-6e428853\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/giftCard.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770598,
+      "end": 1714699770598,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770598,
+      "end": 1714699770598,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770598,
+      "end": 1714699770598,
+      "order": "normal"
+    }
+  ]
+}

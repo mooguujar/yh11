@@ -1,0 +1,14 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "pnpm: release:version",
+      "type": "process",
+      "command": "pnpm",
+      "args": ["release:version"],
+      "problemMatcher": [],
+      "group": "build",
+      "detail": "运行 pnpm 脚本: release:version"
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/sample.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import arraySample from './_arraySample.js';\nimport baseSample from './_baseSample.js';\nimport isArray from './isArray.js';\n\n/**\n * Gets a random element from `collection`.\n *\n * @static\n * @memberOf _\n * @since 2.0.0\n * @category Collection\n * @param {Array|Object} collection The collection to sample.\n * @returns {*} Returns the random element.\n * @example\n *\n * _.sample([1, 2, 3, 4]);\n * // => 2\n */\nfunction sample(collection) {\n  var func = isArray(collection) ? arraySample : baseSample;\n  return func(collection);\n}\n\nexport default sample;\n",
+      "start": 1714699768484,
+      "end": 1714699768503,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768503,
+      "end": 1714699768503,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768503,
+      "end": 1714699768503,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768503,
+      "end": 1714699768503,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768503,
+      "end": 1714699768503,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768503,
+      "end": 1714699768503,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768503,
+      "end": 1714699768503,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import arraySample from './_arraySample.js';\nimport baseSample from './_baseSample.js';\nimport isArray from './isArray.js';\n\n/**\n * Gets a random element from `collection`.\n *\n * @static\n * @memberOf _\n * @since 2.0.0\n * @category Collection\n * @param {Array|Object} collection The collection to sample.\n * @returns {*} Returns the random element.\n * @example\n *\n * _.sample([1, 2, 3, 4]);\n * // => 2\n */\nfunction sample(collection) {\n  var func = isArray(collection) ? arraySample : baseSample;\n  return func(collection);\n}\n\nexport default sample;\n",
+      "start": 1714699768503,
+      "end": 1714699768503,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768503,
+      "end": 1714699768503,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768503,
+      "end": 1714699768503,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768503,
+      "end": 1714699768503,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768503,
+      "end": 1714699768503,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768503,
+      "end": 1714699768503,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768503,
+      "end": 1714699768503,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768503,
+      "end": 1714699768503,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768503,
+      "end": 1714699768503,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768503,
+      "end": 1714699768503,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768503,
+      "end": 1714699768503,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768503,
+      "end": 1714699768503,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768503,
+      "end": 1714699768503,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768503,
+      "end": 1714699768503,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768503,
+      "end": 1714699768503,
+      "order": "normal"
+    }
+  ]
+}

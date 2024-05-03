@@ -4,6 +4,7 @@ import info from '@/assets/images/common/info.png'
 import success from '@/assets/images/common/success.png'
 import warning from '@/assets/images/common/warning.png'
 import { useArticleStore } from '@/store/modules/article'
+import { useAuthStore } from '@/store/modules/auth'
 import { useCommonStore } from '@/store/modules/common'
 import { useUserStore } from '@/store/modules/user'
 import mitt from '@/utils/mitt'
@@ -17,6 +18,9 @@ import { VxeColumnPropTypes, VxeTableInstance } from 'vxe-table'
 const search = new URLSearchParams(mergeHrefParams())
 
 const router = useRouter()
+
+const authStore = useAuthStore()
+const { token } = storeToRefs(authStore)
 
 const userStore = useUserStore()
 const { vipAward } = storeToRefs(userStore)
@@ -37,6 +41,7 @@ const currVipRightsIndex = ref(0)
 // vip弹窗内容
 const vipAwardContent = ref('')
 
+const isLogin = computed(() => !!token.value)
 // 弹窗表格数据
 const tableData = computed(() => {
   const _data = []
@@ -314,7 +319,7 @@ onMounted(() => {
       title="会员权益"
       mode="blue"
       :hideLeft="false"
-      gopath="/mine"
+      :gopath="isLogin ? '/mine' : '/'"
     />
     <div
       v-if="!search.get('appinweb')"
@@ -326,16 +331,16 @@ onMounted(() => {
     >
       <div
         :class="[
-          'card-vip' + vipAward.vip,
+          'card-vip' + (vipAward.vip ?? 0),
           'flex flex-col justify-between pt-[40px] pl-[32px] pr-[27px] pb-[17px]'
         ]"
       >
         <div class="text-[21px]">当前等级</div>
-        <div class="text-[65px] font-bold skew-x-[-12deg]">VIP{{ vipAward.vip }}</div>
+        <div class="text-[65px] font-bold skew-x-[-12deg]">VIP{{ vipAward.vip ?? 0 }}</div>
         <div class="flex justify-between items-center">
-          <div :class="['bg-vip' + vipAward.vip, 'flex justify-end items-center pr-[8px]']">
+          <div :class="['bg-vip' + (vipAward.vip ?? 0), 'flex justify-end items-center pr-[8px]']">
             <div class="text-[17px] text-[#fff] font-bold w-[21px] text-center">
-              {{ vipAward.vip }}
+              {{ vipAward.vip ?? 0 }}
             </div>
           </div>
           <div class="flex flex-col justify-between items-center mx-[10px]">

@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/ProfileCompletionPopup.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\nimport { ref } from 'vue'\nimport { useRouter } from 'vue-router'\nconst visible = ref(false)\n\nconst props = defineProps({\n  title: {\n    type: String\n  },\n  allowDIY: {\n    type: Boolean\n  },\n  confirmButtonText: {\n    type: String\n  },\n  onVanish: {\n    type: Function\n  },\n  action: {\n    type: Function\n  },\n  image: {\n    type: String\n  },\n  content: {\n    type: String\n  },\n  type: {\n    type: String\n  }\n})\n\nconst onConfirm = () => {\n  props.action && props.action()\n  visible.value = false\n}\n\nconst onClosed = () => {\n  props.onVanish && props.onVanish()\n}\n\ndefineExpose({\n  visible\n})\n</script>\n\n<template>\n  <van-dialog\n    v-model:show=\"visible\"\n    theme=\"round-button\"\n    :confirmButtonText=\"confirmButtonText\"\n    @closed=\"onClosed\"\n  >\n    <template #title>\n      <h5 class=\"van-dialog__title\">{{ title }}</h5>\n    </template>\n    <div class=\"profile-completion-popup\">\n      <i\n        class=\"profile-completion-popup__close close-dark\"\n        @click=\"visible = false\"\n      ></i>\n      <div\n        class=\"profile-completion-popup__cover\"\n        :class=\"[`profile-completion-popup__cover--${type}`]\"\n      >\n        <img :src=\"image\" />\n      </div>\n      <div\n        v-if=\"allowDIY\"\n        class=\"profile-completion-popup__text\"\n      >\n        <!-- {{ content }} -->\n        <p class=\"text-[#000]\">\n          {{ content?.split('[')[0] }}\n          <span class=\"text-[#006af8]\">\n            {{ content?.split('[')[1] ? '[' + content?.split('[')[1] : '' }}\n          </span>\n        </p>\n        <p>完成高级实名认证买卖币不受限制</p>\n      </div>\n      <div\n        v-else\n        class=\"profile-completion-popup__text\"\n      >\n        {{ content }}\n      </div>\n    </div>\n    <template #footer>\n      <div class=\"van-action-bar van-safe-area-bottom van-dialog__footer\">\n        <van-button\n          type=\"primary\"\n          block\n          @click=\"onConfirm\"\n        >\n          {{ confirmButtonText }}\n        </van-button>\n      </div>\n    </template>\n  </van-dialog>\n</template>\n\n<style scoped lang=\"scss\">\n.profile-completion-popup {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 33px;\n  margin-bottom: 19px;\n  &__close {\n    position: absolute;\n    right: 30px;\n    top: -90px;\n  }\n  &__cover {\n    &--idcard {\n      padding: 0 220px;\n    }\n    &--payment {\n      padding: 0 160px;\n    }\n    &--payment-password {\n      padding: 0 160px;\n    }\n    > img {\n      width: 100%;\n    }\n  }\n  &__text {\n    font-size: 24px;\n    color: #787f8c;\n    margin-top: 24px;\n    white-space: pre-wrap;\n    text-align: center;\n  }\n}\n</style>\n",
+      "start": 1714699769518,
+      "end": 1714699769535,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769535,
+      "end": 1714699769535,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769535,
+      "end": 1714699769535,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769535,
+      "end": 1714699769535,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769535,
+      "end": 1714699769535,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/ProfileCompletionPopup.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/ProfileCompletionPopup.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/ProfileCompletionPopup.vue?vue&type=style&index=0&scoped=c759b858&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-c759b858\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/ProfileCompletionPopup.vue\"]]);\n",
+      "start": 1714699769535,
+      "end": 1714699769810,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769810,
+      "end": 1714699769810,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/ProfileCompletionPopup.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/ProfileCompletionPopup.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/ProfileCompletionPopup.vue?vue&type=style&index=0&scoped=c759b858&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-c759b858\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/ProfileCompletionPopup.vue\"]]);\n",
+      "start": 1714699769810,
+      "end": 1714699769810,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/ProfileCompletionPopup.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/ProfileCompletionPopup.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/ProfileCompletionPopup.vue?vue&type=style&index=0&scoped=c759b858&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-c759b858\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/ProfileCompletionPopup.vue\"]]);\n",
+      "start": 1714699769810,
+      "end": 1714699770686,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/ProfileCompletionPopup.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/ProfileCompletionPopup.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/ProfileCompletionPopup.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/ProfileCompletionPopup.vue?vue&type=style&index=0&scoped=c759b858&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-c759b858\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/ProfileCompletionPopup.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,oHAAoH,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770686,
+      "end": 1714699770686,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699770686,
+      "end": 1714699770686,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770686,
+      "end": 1714699770686,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770686,
+      "end": 1714699770686,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770686,
+      "end": 1714699770686,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770686,
+      "end": 1714699770686,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770686,
+      "end": 1714699770686,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770686,
+      "end": 1714699770686,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770686,
+      "end": 1714699770686,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/ProfileCompletionPopup.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/ProfileCompletionPopup.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/ProfileCompletionPopup.vue?vue&type=style&index=0&scoped=c759b858&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-c759b858\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/ProfileCompletionPopup.vue\"]]);\n",
+      "start": 1714699770686,
+      "end": 1714699770686,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/ProfileCompletionPopup.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/ProfileCompletionPopup.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/ProfileCompletionPopup.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/ProfileCompletionPopup.vue?vue&type=style&index=0&scoped=c759b858&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-c759b858\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/ProfileCompletionPopup/ProfileCompletionPopup.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770686,
+      "end": 1714699770686,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770686,
+      "end": 1714699770686,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770686,
+      "end": 1714699770686,
+      "order": "normal"
+    }
+  ]
+}

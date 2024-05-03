@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/overlay/Overlay.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { withDirectives as _withDirectives, createVNode as _createVNode, vShow as _vShow } from \"vue\";\nimport { ref, Transition, defineComponent } from \"vue\";\nimport { isDef, extend, truthProp, numericProp, unknownProp, preventDefault, createNamespace, getZIndexStyle } from \"../utils/index.mjs\";\nimport { useEventListener } from \"@vant/use\";\nimport { useLazyRender } from \"../composables/use-lazy-render.mjs\";\nconst [name, bem] = createNamespace(\"overlay\");\nconst overlayProps = {\n  show: Boolean,\n  zIndex: numericProp,\n  duration: numericProp,\n  className: unknownProp,\n  lockScroll: truthProp,\n  lazyRender: truthProp,\n  customStyle: Object\n};\nvar stdin_default = defineComponent({\n  name,\n  props: overlayProps,\n  setup(props, {\n    slots\n  }) {\n    const root = ref();\n    const lazyRender = useLazyRender(() => props.show || !props.lazyRender);\n    const onTouchMove = (event) => {\n      if (props.lockScroll) {\n        preventDefault(event, true);\n      }\n    };\n    const renderOverlay = lazyRender(() => {\n      var _a;\n      const style = extend(getZIndexStyle(props.zIndex), props.customStyle);\n      if (isDef(props.duration)) {\n        style.animationDuration = `${props.duration}s`;\n      }\n      return _withDirectives(_createVNode(\"div\", {\n        \"ref\": root,\n        \"style\": style,\n        \"class\": [bem(), props.className]\n      }, [(_a = slots.default) == null ? void 0 : _a.call(slots)]), [[_vShow, props.show]]);\n    });\n    useEventListener(\"touchmove\", onTouchMove, {\n      target: root\n    });\n    return () => _createVNode(Transition, {\n      \"name\": \"van-fade\",\n      \"appear\": true\n    }, {\n      default: renderOverlay\n    });\n  }\n});\nexport {\n  stdin_default as default,\n  overlayProps\n};\n",
+      "start": 1714699767294,
+      "end": 1714699767315,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { withDirectives as _withDirectives, createVNode as _createVNode, vShow as _vShow } from \"vue\";\nimport { ref, Transition, defineComponent } from \"vue\";\nimport { isDef, extend, truthProp, numericProp, unknownProp, preventDefault, createNamespace, getZIndexStyle } from \"../utils/index.mjs\";\nimport { useEventListener } from \"@vant/use\";\nimport { useLazyRender } from \"../composables/use-lazy-render.mjs\";\nconst [name, bem] = createNamespace(\"overlay\");\nconst overlayProps = {\n  show: Boolean,\n  zIndex: numericProp,\n  duration: numericProp,\n  className: unknownProp,\n  lockScroll: truthProp,\n  lazyRender: truthProp,\n  customStyle: Object\n};\nvar stdin_default = defineComponent({\n  name,\n  props: overlayProps,\n  setup(props, {\n    slots\n  }) {\n    const root = ref();\n    const lazyRender = useLazyRender(() => props.show || !props.lazyRender);\n    const onTouchMove = (event) => {\n      if (props.lockScroll) {\n        preventDefault(event, true);\n      }\n    };\n    const renderOverlay = lazyRender(() => {\n      var _a;\n      const style = extend(getZIndexStyle(props.zIndex), props.customStyle);\n      if (isDef(props.duration)) {\n        style.animationDuration = `${props.duration}s`;\n      }\n      return _withDirectives(_createVNode(\"div\", {\n        \"ref\": root,\n        \"style\": style,\n        \"class\": [bem(), props.className]\n      }, [(_a = slots.default) == null ? void 0 : _a.call(slots)]), [[_vShow, props.show]]);\n    });\n    useEventListener(\"touchmove\", onTouchMove, {\n      target: root\n    });\n    return () => _createVNode(Transition, {\n      \"name\": \"van-fade\",\n      \"appear\": true\n    }, {\n      default: renderOverlay\n    });\n  }\n});\nexport {\n  stdin_default as default,\n  overlayProps\n};\n",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    }
+  ]
+}

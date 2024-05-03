@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/utils.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "let toSJISFunction\nconst CODEWORDS_COUNT = [\n  0, // Not used\n  26, 44, 70, 100, 134, 172, 196, 242, 292, 346,\n  404, 466, 532, 581, 655, 733, 815, 901, 991, 1085,\n  1156, 1258, 1364, 1474, 1588, 1706, 1828, 1921, 2051, 2185,\n  2323, 2465, 2611, 2761, 2876, 3034, 3196, 3362, 3532, 3706\n]\n\n/**\n * Returns the QR Code size for the specified version\n *\n * @param  {Number} version QR Code version\n * @return {Number}         size of QR code\n */\nexports.getSymbolSize = function getSymbolSize (version) {\n  if (!version) throw new Error('\"version\" cannot be null or undefined')\n  if (version < 1 || version > 40) throw new Error('\"version\" should be in range from 1 to 40')\n  return version * 4 + 17\n}\n\n/**\n * Returns the total number of codewords used to store data and EC information.\n *\n * @param  {Number} version QR Code version\n * @return {Number}         Data length in bits\n */\nexports.getSymbolTotalCodewords = function getSymbolTotalCodewords (version) {\n  return CODEWORDS_COUNT[version]\n}\n\n/**\n * Encode data with Bose-Chaudhuri-Hocquenghem\n *\n * @param  {Number} data Value to encode\n * @return {Number}      Encoded value\n */\nexports.getBCHDigit = function (data) {\n  let digit = 0\n\n  while (data !== 0) {\n    digit++\n    data >>>= 1\n  }\n\n  return digit\n}\n\nexports.setToSJISFunction = function setToSJISFunction (f) {\n  if (typeof f !== 'function') {\n    throw new Error('\"toSJISFunc\" is not a valid function.')\n  }\n\n  toSJISFunction = f\n}\n\nexports.isKanjiModeEnabled = function () {\n  return typeof toSJISFunction !== 'undefined'\n}\n\nexports.toSJIS = function toSJIS (kanji) {\n  return toSJISFunction(kanji)\n}\n",
+      "start": 1714699771036,
+      "end": 1714699771048,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771048,
+      "end": 1714699771048,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771048,
+      "end": 1714699771048,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771048,
+      "end": 1714699771048,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771048,
+      "end": 1714699771048,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771048,
+      "end": 1714699771048,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771048,
+      "end": 1714699771048,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "let toSJISFunction\nconst CODEWORDS_COUNT = [\n  0, // Not used\n  26, 44, 70, 100, 134, 172, 196, 242, 292, 346,\n  404, 466, 532, 581, 655, 733, 815, 901, 991, 1085,\n  1156, 1258, 1364, 1474, 1588, 1706, 1828, 1921, 2051, 2185,\n  2323, 2465, 2611, 2761, 2876, 3034, 3196, 3362, 3532, 3706\n]\n\n/**\n * Returns the QR Code size for the specified version\n *\n * @param  {Number} version QR Code version\n * @return {Number}         size of QR code\n */\nexports.getSymbolSize = function getSymbolSize (version) {\n  if (!version) throw new Error('\"version\" cannot be null or undefined')\n  if (version < 1 || version > 40) throw new Error('\"version\" should be in range from 1 to 40')\n  return version * 4 + 17\n}\n\n/**\n * Returns the total number of codewords used to store data and EC information.\n *\n * @param  {Number} version QR Code version\n * @return {Number}         Data length in bits\n */\nexports.getSymbolTotalCodewords = function getSymbolTotalCodewords (version) {\n  return CODEWORDS_COUNT[version]\n}\n\n/**\n * Encode data with Bose-Chaudhuri-Hocquenghem\n *\n * @param  {Number} data Value to encode\n * @return {Number}      Encoded value\n */\nexports.getBCHDigit = function (data) {\n  let digit = 0\n\n  while (data !== 0) {\n    digit++\n    data >>>= 1\n  }\n\n  return digit\n}\n\nexports.setToSJISFunction = function setToSJISFunction (f) {\n  if (typeof f !== 'function') {\n    throw new Error('\"toSJISFunc\" is not a valid function.')\n  }\n\n  toSJISFunction = f\n}\n\nexports.isKanjiModeEnabled = function () {\n  return typeof toSJISFunction !== 'undefined'\n}\n\nexports.toSJIS = function toSJIS (kanji) {\n  return toSJISFunction(kanji)\n}\n",
+      "start": 1714699771048,
+      "end": 1714699771048,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699771048,
+      "end": 1714699771048,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771048,
+      "end": 1714699771048,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771048,
+      "end": 1714699771048,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771048,
+      "end": 1714699771048,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771048,
+      "end": 1714699771048,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771048,
+      "end": 1714699771048,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as utils } from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/utils.js?commonjs-exports\";\n\nlet toSJISFunction\nconst CODEWORDS_COUNT = [\n  0, // Not used\n  26, 44, 70, 100, 134, 172, 196, 242, 292, 346,\n  404, 466, 532, 581, 655, 733, 815, 901, 991, 1085,\n  1156, 1258, 1364, 1474, 1588, 1706, 1828, 1921, 2051, 2185,\n  2323, 2465, 2611, 2761, 2876, 3034, 3196, 3362, 3532, 3706\n]\n\n/**\n * Returns the QR Code size for the specified version\n *\n * @param  {Number} version QR Code version\n * @return {Number}         size of QR code\n */\nvar getSymbolSize = utils.getSymbolSize = function getSymbolSize (version) {\n  if (!version) throw new Error('\"version\" cannot be null or undefined')\n  if (version < 1 || version > 40) throw new Error('\"version\" should be in range from 1 to 40')\n  return version * 4 + 17\n}\n\n/**\n * Returns the total number of codewords used to store data and EC information.\n *\n * @param  {Number} version QR Code version\n * @return {Number}         Data length in bits\n */\nvar getSymbolTotalCodewords = utils.getSymbolTotalCodewords = function getSymbolTotalCodewords (version) {\n  return CODEWORDS_COUNT[version]\n}\n\n/**\n * Encode data with Bose-Chaudhuri-Hocquenghem\n *\n * @param  {Number} data Value to encode\n * @return {Number}      Encoded value\n */\nvar getBCHDigit = utils.getBCHDigit = function (data) {\n  let digit = 0\n\n  while (data !== 0) {\n    digit++\n    data >>>= 1\n  }\n\n  return digit\n}\n\nvar setToSJISFunction = utils.setToSJISFunction = function setToSJISFunction (f) {\n  if (typeof f !== 'function') {\n    throw new Error('\"toSJISFunc\" is not a valid function.')\n  }\n\n  toSJISFunction = f\n}\n\nvar isKanjiModeEnabled = utils.isKanjiModeEnabled = function () {\n  return typeof toSJISFunction !== 'undefined'\n}\n\nvar toSJIS = utils.toSJIS = function toSJIS (kanji) {\n  return toSJISFunction(kanji)\n}\n\nexport { utils as __moduleExports, getSymbolSize, getSymbolTotalCodewords, getBCHDigit, setToSJISFunction, isKanjiModeEnabled, toSJIS, utils as default };",
+      "start": 1714699771048,
+      "end": 1714699771049,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;AAAA,IAAI,cAAc;AAClB,MAAM,eAAe,GAAG;AACxB,EAAE,CAAC;AACH,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG;AAC/C,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,IAAI;AACnD,EAAE,IAAI,EAAE,IAAI,EAAE,IAAI,EAAE,IAAI,EAAE,IAAI,EAAE,IAAI,EAAE,IAAI,EAAE,IAAI,EAAE,IAAI,EAAE,IAAI;AAC5D,EAAE,IAAI,EAAE,IAAI,EAAE,IAAI,EAAE,IAAI,EAAE,IAAI,EAAE,IAAI,EAAE,IAAI,EAAE,IAAI,EAAE,IAAI,EAAE,IAAI;AAC5D,CAAC;AACD;AACA;AACA;AACA;AACA;AACA;AACA;AACA,uCAAqB,GAAG,SAAS,aAAa,EAAE,OAAO,EAAE;AACzD,EAAE,IAAI,CAAC,OAAO,EAAE,MAAM,IAAI,KAAK,CAAC,uCAAuC,CAAC;AACxE,EAAE,IAAI,OAAO,GAAG,CAAC,IAAI,OAAO,GAAG,EAAE,EAAE,MAAM,IAAI,KAAK,CAAC,2CAA2C,CAAC;AAC/F,EAAE,OAAO,OAAO,GAAG,CAAC,GAAG,EAAE;AACzB,CAAC;AACD;AACA;AACA;AACA;AACA;AACA;AACA;AACA,2DAA+B,GAAG,SAAS,uBAAuB,EAAE,OAAO,EAAE;AAC7E,EAAE,OAAO,eAAe,CAAC,OAAO,CAAC;AACjC,CAAC;AACD;AACA;AACA;AACA;AACA;AACA;AACA;AACA,mCAAmB,GAAG,UAAU,IAAI,EAAE;AACtC,EAAE,IAAI,KAAK,GAAG,CAAC;AACf;AACA,EAAE,OAAO,IAAI,KAAK,CAAC,EAAE;AACrB,IAAI,KAAK,EAAE;AACX,IAAI,IAAI,MAAM,CAAC;AACf,GAAG;AACH;AACA,EAAE,OAAO,KAAK;AACd,CAAC;AACD;AACA,+CAAyB,GAAG,SAAS,iBAAiB,EAAE,CAAC,EAAE;AAC3D,EAAE,IAAI,OAAO,CAAC,KAAK,UAAU,EAAE;AAC/B,IAAI,MAAM,IAAI,KAAK,CAAC,uCAAuC,CAAC;AAC5D,GAAG;AACH;AACA,EAAE,cAAc,GAAG,CAAC;AACpB,CAAC;AACD;AACA,iDAA0B,GAAG,YAAY;AACzC,EAAE,OAAO,OAAO,cAAc,KAAK,WAAW;AAC9C,CAAC;AACD;AACA,yBAAc,GAAG,SAAS,MAAM,EAAE,KAAK,EAAE;AACzC,EAAE,OAAO,cAAc,CAAC,KAAK,CAAC;AAC9B"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771049,
+      "end": 1714699771049,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771049,
+      "end": 1714699771049,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771049,
+      "end": 1714699771049,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699771049,
+      "end": 1714699771049,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771049,
+      "end": 1714699771049,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771049,
+      "end": 1714699771049,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771049,
+      "end": 1714699771049,
+      "order": "normal"
+    }
+  ]
+}

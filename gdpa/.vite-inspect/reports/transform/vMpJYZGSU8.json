@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/uniqueId.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "/**\r\n  * 获取一个全局唯一标识\r\n  *\r\n  * @param {String} prefix 前缀\r\n  * @return {Number}\r\n  */\r\nvar __uniqueId = 0\r\nfunction uniqueId (prefix) {\r\n  return [prefix, ++__uniqueId].join('')\r\n}\r\n\r\nmodule.exports = uniqueId\r\n",
+      "start": 1714699767647,
+      "end": 1714699767663,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767663,
+      "end": 1714699767663,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767663,
+      "end": 1714699767663,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767663,
+      "end": 1714699767663,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767663,
+      "end": 1714699767663,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767663,
+      "end": 1714699767663,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767663,
+      "end": 1714699767663,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "/**\r\n  * 获取一个全局唯一标识\r\n  *\r\n  * @param {String} prefix 前缀\r\n  * @return {Number}\r\n  */\r\nvar __uniqueId = 0\r\nfunction uniqueId (prefix) {\r\n  return [prefix, ++__uniqueId].join('')\r\n}\r\n\r\nmodule.exports = uniqueId\r\n",
+      "start": 1714699767663,
+      "end": 1714699767663,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767663,
+      "end": 1714699767663,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767663,
+      "end": 1714699767663,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767663,
+      "end": 1714699767663,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767663,
+      "end": 1714699767663,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767663,
+      "end": 1714699767663,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767663,
+      "end": 1714699767663,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "/**\r\n  * 获取一个全局唯一标识\r\n  *\r\n  * @param {String} prefix 前缀\r\n  * @return {Number}\r\n  */\nimport * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\n\nvar __uniqueId = 0\r\nfunction uniqueId (prefix) {\r\n  return [prefix, ++__uniqueId].join('')\r\n}\r\n\r\nvar uniqueId_1 = uniqueId\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(uniqueId_1);\nexport { uniqueId_1 as __moduleExports };",
+      "start": 1714699767663,
+      "end": 1714699767663,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;;;;AAMA,IAAI,UAAU,GAAG,CAAC;AAClB,SAAS,QAAQ,EAAE,MAAM,EAAE;AAC3B,EAAE,OAAO,CAAC,MAAM,EAAE,EAAE,UAAU,CAAC,CAAC,IAAI,CAAC,EAAE,CAAC;AACxC,CAAC;AACD;IACA,UAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767663,
+      "end": 1714699767663,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767663,
+      "end": 1714699767663,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767663,
+      "end": 1714699767663,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767663,
+      "end": 1714699767663,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767663,
+      "end": 1714699767663,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767663,
+      "end": 1714699767663,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767663,
+      "end": 1714699767663,
+      "order": "normal"
+    }
+  ]
+}

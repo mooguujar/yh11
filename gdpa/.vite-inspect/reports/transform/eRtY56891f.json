@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/every.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import arrayEvery from './_arrayEvery.js';\nimport baseEvery from './_baseEvery.js';\nimport baseIteratee from './_baseIteratee.js';\nimport isArray from './isArray.js';\nimport isIterateeCall from './_isIterateeCall.js';\n\n/**\n * Checks if `predicate` returns truthy for **all** elements of `collection`.\n * Iteration is stopped once `predicate` returns falsey. The predicate is\n * invoked with three arguments: (value, index|key, collection).\n *\n * **Note:** This method returns `true` for\n * [empty collections](https://en.wikipedia.org/wiki/Empty_set) because\n * [everything is true](https://en.wikipedia.org/wiki/Vacuous_truth) of\n * elements of empty collections.\n *\n * @static\n * @memberOf _\n * @since 0.1.0\n * @category Collection\n * @param {Array|Object} collection The collection to iterate over.\n * @param {Function} [predicate=_.identity] The function invoked per iteration.\n * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.\n * @returns {boolean} Returns `true` if all elements pass the predicate check,\n *  else `false`.\n * @example\n *\n * _.every([true, 1, null, 'yes'], Boolean);\n * // => false\n *\n * var users = [\n *   { 'user': 'barney', 'age': 36, 'active': false },\n *   { 'user': 'fred',   'age': 40, 'active': false }\n * ];\n *\n * // The `_.matches` iteratee shorthand.\n * _.every(users, { 'user': 'barney', 'active': false });\n * // => false\n *\n * // The `_.matchesProperty` iteratee shorthand.\n * _.every(users, ['active', false]);\n * // => true\n *\n * // The `_.property` iteratee shorthand.\n * _.every(users, 'active');\n * // => false\n */\nfunction every(collection, predicate, guard) {\n  var func = isArray(collection) ? arrayEvery : baseEvery;\n  if (guard && isIterateeCall(collection, predicate, guard)) {\n    predicate = undefined;\n  }\n  return func(collection, baseIteratee(predicate, 3));\n}\n\nexport default every;\n",
+      "start": 1714699768343,
+      "end": 1714699768354,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768354,
+      "end": 1714699768354,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768354,
+      "end": 1714699768354,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768354,
+      "end": 1714699768354,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768354,
+      "end": 1714699768354,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768354,
+      "end": 1714699768354,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768354,
+      "end": 1714699768354,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import arrayEvery from './_arrayEvery.js';\nimport baseEvery from './_baseEvery.js';\nimport baseIteratee from './_baseIteratee.js';\nimport isArray from './isArray.js';\nimport isIterateeCall from './_isIterateeCall.js';\n\n/**\n * Checks if `predicate` returns truthy for **all** elements of `collection`.\n * Iteration is stopped once `predicate` returns falsey. The predicate is\n * invoked with three arguments: (value, index|key, collection).\n *\n * **Note:** This method returns `true` for\n * [empty collections](https://en.wikipedia.org/wiki/Empty_set) because\n * [everything is true](https://en.wikipedia.org/wiki/Vacuous_truth) of\n * elements of empty collections.\n *\n * @static\n * @memberOf _\n * @since 0.1.0\n * @category Collection\n * @param {Array|Object} collection The collection to iterate over.\n * @param {Function} [predicate=_.identity] The function invoked per iteration.\n * @param- {Object} [guard] Enables use as an iteratee for methods like `_.map`.\n * @returns {boolean} Returns `true` if all elements pass the predicate check,\n *  else `false`.\n * @example\n *\n * _.every([true, 1, null, 'yes'], Boolean);\n * // => false\n *\n * var users = [\n *   { 'user': 'barney', 'age': 36, 'active': false },\n *   { 'user': 'fred',   'age': 40, 'active': false }\n * ];\n *\n * // The `_.matches` iteratee shorthand.\n * _.every(users, { 'user': 'barney', 'active': false });\n * // => false\n *\n * // The `_.matchesProperty` iteratee shorthand.\n * _.every(users, ['active', false]);\n * // => true\n *\n * // The `_.property` iteratee shorthand.\n * _.every(users, 'active');\n * // => false\n */\nfunction every(collection, predicate, guard) {\n  var func = isArray(collection) ? arrayEvery : baseEvery;\n  if (guard && isIterateeCall(collection, predicate, guard)) {\n    predicate = undefined;\n  }\n  return func(collection, baseIteratee(predicate, 3));\n}\n\nexport default every;\n",
+      "start": 1714699768354,
+      "end": 1714699768354,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768354,
+      "end": 1714699768354,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768354,
+      "end": 1714699768354,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768354,
+      "end": 1714699768354,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768354,
+      "end": 1714699768354,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768354,
+      "end": 1714699768354,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768354,
+      "end": 1714699768354,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768354,
+      "end": 1714699768355,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768355,
+      "end": 1714699768355,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768355,
+      "end": 1714699768355,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768355,
+      "end": 1714699768355,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768355,
+      "end": 1714699768355,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768355,
+      "end": 1714699768355,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768355,
+      "end": 1714699768355,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768355,
+      "end": 1714699768355,
+      "order": "normal"
+    }
+  ]
+}

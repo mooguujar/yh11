@@ -183,3 +183,8 @@ export interface ISellOrderData {
   count: number
   list: ISellOrder[]
 }
+
+export interface ISellOrderLockData {
+  sell_order_id: string
+  suo_deltime: string
+}

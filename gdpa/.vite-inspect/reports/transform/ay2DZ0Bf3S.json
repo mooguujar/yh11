@@ -1,0 +1,154 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/assets/themes/border.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "export const def = {\n  'border-date-choose-1': '#176cf4'\n}\n\nexport const ofupay = {\n  'border-date-choose-1': '#1e2d7e'\n}\n\nexport default {\n  def,\n  ofupay\n}\n",
+      "start": 1714699769441,
+      "end": 1714699769492,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769492,
+      "end": 1714699769492,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "export const def = {\n  \"border-date-choose-1\": \"#176cf4\"\n};\nexport const ofupay = {\n  \"border-date-choose-1\": \"#1e2d7e\"\n};\nexport default {\n  def,\n  ofupay\n};\n",
+      "start": 1714699769492,
+      "end": 1714699769608,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/assets/themes/border.ts"
+        ],
+        "sourcesContent": [
+          "export const def = {\n  'border-date-choose-1': '#176cf4'\n}\n\nexport const ofupay = {\n  'border-date-choose-1': '#1e2d7e'\n}\n\nexport default {\n  def,\n  ofupay\n}\n"
+        ],
+        "mappings": "AAAO,aAAM,MAAM;AAAA,EACjB,wBAAwB;AAC1B;AAEO,aAAM,SAAS;AAAA,EACpB,wBAAwB;AAC1B;AAEA,eAAe;AAAA,EACb;AAAA,EACA;AACF;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769608,
+      "end": 1714699769608,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769608,
+      "end": 1714699769608,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699769608,
+      "end": 1714699769608,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769608,
+      "end": 1714699769608,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "export const def = {\n  \"border-date-choose-1\": \"#176cf4\"\n};\nexport const ofupay = {\n  \"border-date-choose-1\": \"#1e2d7e\"\n};\nexport default {\n  def,\n  ofupay\n};\n",
+      "start": 1714699769608,
+      "end": 1714699769608,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nexport const def = {\n  \"border-date-choose-1\": \"#176cf4\"\n};\nexport const ofupay = {\n  \"border-date-choose-1\": \"#1e2d7e\"\n};\nexport default {\n  def,\n  ofupay\n};\n",
+      "start": 1714699769608,
+      "end": 1714699770642,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/assets/themes/border.ts\"],\n  \"sourcesContent\": [\"export const def = {\\n  \\\"border-date-choose-1\\\": \\\"#176cf4\\\"\\n};\\nexport const ofupay = {\\n  \\\"border-date-choose-1\\\": \\\"#1e2d7e\\\"\\n};\\nexport default {\\n  def,\\n  ofupay\\n};\\n\"],\n  \"mappings\": \";AAAO,aAAM,MAAM;AAAA,EACjB,wBAAwB;AAC1B;AACO,aAAM,SAAS;AAAA,EACpB,wBAAwB;AAC1B;AACA,eAAe;AAAA,EACb;AAAA,EACA;AACF;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770642,
+      "end": 1714699770642,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699770642,
+      "end": 1714699770642,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770642,
+      "end": 1714699770642,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770642,
+      "end": 1714699770642,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770642,
+      "end": 1714699770642,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770642,
+      "end": 1714699770642,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770642,
+      "end": 1714699770642,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770642,
+      "end": 1714699770642,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770642,
+      "end": 1714699770643,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699770643,
+      "end": 1714699770643,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770643,
+      "end": 1714699770643,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770643,
+      "end": 1714699770643,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770643,
+      "end": 1714699770643,
+      "order": "normal"
+    }
+  ]
+}

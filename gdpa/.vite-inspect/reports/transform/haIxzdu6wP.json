@@ -1,0 +1,142 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/es/export/src/util.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import XEUtils from 'xe-utils';\nimport GlobalConfig from '../../v-x-e-table/src/conf';\nimport { VXETable } from '../../v-x-e-table';\nimport { browse } from '../../tools/dom';\nimport { parseFile } from '../../tools/utils';\nimport { errLog, getLog } from '../../tools/log';\n// 导入\nvar fileForm;\nvar fileInput;\n// 打印\nvar printFrame;\n// 默认导出或打印的 HTML 样式\nvar defaultHtmlStyle = 'body{margin:0;padding: 0 1px;color:#333333;font-size:14px;font-family:\"Microsoft YaHei\",微软雅黑,\"MicrosoftJhengHei\",华文细黑,STHeiti,MingLiu}body *{-webkit-box-sizing:border-box;box-sizing:border-box}.vxe-table{border-collapse:collapse;text-align:left;border-spacing:0}.vxe-table:not(.is--print){table-layout:fixed}.vxe-table,.vxe-table th,.vxe-table td,.vxe-table td{border-color:#D0D0D0;border-style:solid;border-width:0}.vxe-table.is--print{width:100%}.border--default,.border--full,.border--outer{border-top-width:1px}.border--default,.border--full,.border--outer{border-left-width:1px}.border--outer,.border--default th,.border--default td,.border--full th,.border--full td,.border--outer th,.border--inner th,.border--inner td{border-bottom-width:1px}.border--default,.border--outer,.border--full th,.border--full td{border-right-width:1px}.border--default th,.border--full th,.border--outer th{background-color:#f8f8f9}.vxe-table td>div,.vxe-table th>div{padding:.5em .4em}.col--center{text-align:center}.col--right{text-align:right}.vxe-table:not(.is--print) .col--ellipsis>div{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;word-break:break-all}.vxe-table--tree-node{text-align:left}.vxe-table--tree-node-wrapper{position:relative}.vxe-table--tree-icon-wrapper{position:absolute;top:50%;width:1em;height:1em;text-align:center;-webkit-transform:translateY(-50%);transform:translateY(-50%);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer}.vxe-table--tree-unfold-icon,.vxe-table--tree-fold-icon{position:absolute;width:0;height:0;border-style:solid;border-width:.5em;border-right-color:transparent;border-bottom-color:transparent}.vxe-table--tree-unfold-icon{left:.3em;top:0;border-left-color:#939599;border-top-color:transparent}.vxe-table--tree-fold-icon{left:0;top:.3em;border-left-color:transparent;border-top-color:#939599}.vxe-table--tree-cell{display:block;padding-left:1.5em}.vxe-table input[type=\"checkbox\"]{margin:0}.vxe-table input[type=\"checkbox\"],.vxe-table input[type=\"radio\"],.vxe-table input[type=\"checkbox\"]+span,.vxe-table input[type=\"radio\"]+span{vertical-align:middle;padding-left:0.4em}';\nexport function createFrame() {\n    var frame = document.createElement('iframe');\n    frame.className = 'vxe-table--print-frame';\n    return frame;\n}\nexport function getExportBlobByContent(content, options) {\n    return new Blob([content], { type: \"text/\".concat(options.type, \";charset=utf-8;\") });\n}\nexport function createHtmlPage(opts, content) {\n    var style = opts.style;\n    return [\n        '<!DOCTYPE html><html>',\n        '<head>',\n        '<meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui\">',\n        \"<title>\".concat(opts.sheetName, \"</title>\"),\n        \"<style>\".concat(defaultHtmlStyle, \"</style>\"),\n        style ? \"<style>\".concat(style, \"</style>\") : '',\n        '</head>',\n        \"<body>\".concat(content, \"</body>\"),\n        '</html>'\n    ].join('');\n}\n/**\n * 读取本地文件\n * @param {*} options 参数\n */\nexport var readLocalFile = function (options) {\n    var opts = Object.assign({}, options);\n    if (!fileForm) {\n        fileForm = document.createElement('form');\n        fileInput = document.createElement('input');\n        fileForm.className = 'vxe-table--file-form';\n        fileInput.name = 'file';\n        fileInput.type = 'file';\n        fileForm.appendChild(fileInput);\n        document.body.appendChild(fileForm);\n    }\n    return new Promise(function (resolve, reject) {\n        var types = opts.types || [];\n        var isAllType = !types.length || types.some(function (type) { return type === '*'; });\n        fileInput.multiple = !!opts.multiple;\n        fileInput.accept = isAllType ? '' : \".\".concat(types.join(', .'));\n        fileInput.onchange = function (evnt) {\n            var files = evnt.target.files;\n            var file = files[0];\n            var errType = '';\n            // 校验类型\n            if (!isAllType) {\n                for (var fIndex = 0; fIndex < files.length; fIndex++) {\n                    var type = parseFile(files[fIndex]).type;\n                    if (!XEUtils.includes(types, type)) {\n                        errType = type;\n                        break;\n                    }\n                }\n            }\n            if (!errType) {\n                resolve({ status: true, files: files, file: file });\n            }\n            else {\n                if (opts.message !== false) {\n                    // 检测弹窗模块\n                    if (process.env.NODE_ENV === 'development') {\n                        if (!VXETable.modal) {\n                            errLog('vxe.error.reqModule', ['Modal']);\n                        }\n                    }\n                    VXETable.modal.message({ content: GlobalConfig.i18n('vxe.error.notType', [errType]), status: 'error' });\n                }\n                var params = { status: false, files: files, file: file };\n                reject(params);\n            }\n        };\n        fileForm.reset();\n        fileInput.click();\n    });\n};\nfunction removePrintFrame() {\n    if (printFrame) {\n        if (printFrame.parentNode) {\n            try {\n                printFrame.contentDocument.write('');\n            }\n            catch (e) { }\n            printFrame.parentNode.removeChild(printFrame);\n        }\n        printFrame = null;\n    }\n}\nfunction appendPrintFrame() {\n    if (!printFrame.parentNode) {\n        document.body.appendChild(printFrame);\n    }\n}\nfunction afterPrintEvent() {\n    requestAnimationFrame(removePrintFrame);\n}\nexport function handlePrint($xetable, opts, content) {\n    if (content === void 0) { content = ''; }\n    var beforePrintMethod = opts.beforePrintMethod;\n    if (beforePrintMethod) {\n        content = beforePrintMethod({ content: content, options: opts, $table: $xetable }) || '';\n    }\n    content = createHtmlPage(opts, content);\n    var blob = getExportBlobByContent(content, opts);\n    if (browse.msie) {\n        removePrintFrame();\n        printFrame = createFrame();\n        appendPrintFrame();\n        printFrame.contentDocument.write(content);\n        printFrame.contentDocument.execCommand('print');\n    }\n    else {\n        if (!printFrame) {\n            printFrame = createFrame();\n            printFrame.onload = function (evnt) {\n                if (evnt.target.src) {\n                    evnt.target.contentWindow.onafterprint = afterPrintEvent;\n                    evnt.target.contentWindow.print();\n                }\n            };\n        }\n        appendPrintFrame();\n        printFrame.src = URL.createObjectURL(blob);\n    }\n}\n/**\n * 保存文件到本地\n * @param {*} options 参数\n */\nexport var saveLocalFile = function (options) {\n    var filename = options.filename, type = options.type, content = options.content;\n    var name = \"\".concat(filename, \".\").concat(type);\n    if (window.Blob) {\n        var blob = content instanceof Blob ? content : getExportBlobByContent(XEUtils.toValueString(content), options);\n        if (navigator.msSaveBlob) {\n            navigator.msSaveBlob(blob, name);\n        }\n        else {\n            var url_1 = URL.createObjectURL(blob);\n            var linkElem_1 = document.createElement('a');\n            linkElem_1.target = '_blank';\n            linkElem_1.download = name;\n            linkElem_1.href = url_1;\n            document.body.appendChild(linkElem_1);\n            linkElem_1.click();\n            requestAnimationFrame(function () {\n                if (linkElem_1.parentNode) {\n                    linkElem_1.parentNode.removeChild(linkElem_1);\n                }\n                URL.revokeObjectURL(url_1);\n            });\n        }\n        return Promise.resolve();\n    }\n    return Promise.reject(new Error(getLog('vxe.error.notExp')));\n};\n",
+      "start": 1714699767734,
+      "end": 1714699767752,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767752,
+      "end": 1714699767752,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767752,
+      "end": 1714699767752,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767752,
+      "end": 1714699767752,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767752,
+      "end": 1714699767752,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767752,
+      "end": 1714699767752,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767752,
+      "end": 1714699767752,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import XEUtils from 'xe-utils';\nimport GlobalConfig from '../../v-x-e-table/src/conf';\nimport { VXETable } from '../../v-x-e-table';\nimport { browse } from '../../tools/dom';\nimport { parseFile } from '../../tools/utils';\nimport { errLog, getLog } from '../../tools/log';\n// 导入\nvar fileForm;\nvar fileInput;\n// 打印\nvar printFrame;\n// 默认导出或打印的 HTML 样式\nvar defaultHtmlStyle = 'body{margin:0;padding: 0 1px;color:#333333;font-size:14px;font-family:\"Microsoft YaHei\",微软雅黑,\"MicrosoftJhengHei\",华文细黑,STHeiti,MingLiu}body *{-webkit-box-sizing:border-box;box-sizing:border-box}.vxe-table{border-collapse:collapse;text-align:left;border-spacing:0}.vxe-table:not(.is--print){table-layout:fixed}.vxe-table,.vxe-table th,.vxe-table td,.vxe-table td{border-color:#D0D0D0;border-style:solid;border-width:0}.vxe-table.is--print{width:100%}.border--default,.border--full,.border--outer{border-top-width:1px}.border--default,.border--full,.border--outer{border-left-width:1px}.border--outer,.border--default th,.border--default td,.border--full th,.border--full td,.border--outer th,.border--inner th,.border--inner td{border-bottom-width:1px}.border--default,.border--outer,.border--full th,.border--full td{border-right-width:1px}.border--default th,.border--full th,.border--outer th{background-color:#f8f8f9}.vxe-table td>div,.vxe-table th>div{padding:.5em .4em}.col--center{text-align:center}.col--right{text-align:right}.vxe-table:not(.is--print) .col--ellipsis>div{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;word-break:break-all}.vxe-table--tree-node{text-align:left}.vxe-table--tree-node-wrapper{position:relative}.vxe-table--tree-icon-wrapper{position:absolute;top:50%;width:1em;height:1em;text-align:center;-webkit-transform:translateY(-50%);transform:translateY(-50%);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer}.vxe-table--tree-unfold-icon,.vxe-table--tree-fold-icon{position:absolute;width:0;height:0;border-style:solid;border-width:.5em;border-right-color:transparent;border-bottom-color:transparent}.vxe-table--tree-unfold-icon{left:.3em;top:0;border-left-color:#939599;border-top-color:transparent}.vxe-table--tree-fold-icon{left:0;top:.3em;border-left-color:transparent;border-top-color:#939599}.vxe-table--tree-cell{display:block;padding-left:1.5em}.vxe-table input[type=\"checkbox\"]{margin:0}.vxe-table input[type=\"checkbox\"],.vxe-table input[type=\"radio\"],.vxe-table input[type=\"checkbox\"]+span,.vxe-table input[type=\"radio\"]+span{vertical-align:middle;padding-left:0.4em}';\nexport function createFrame() {\n    var frame = document.createElement('iframe');\n    frame.className = 'vxe-table--print-frame';\n    return frame;\n}\nexport function getExportBlobByContent(content, options) {\n    return new Blob([content], { type: \"text/\".concat(options.type, \";charset=utf-8;\") });\n}\nexport function createHtmlPage(opts, content) {\n    var style = opts.style;\n    return [\n        '<!DOCTYPE html><html>',\n        '<head>',\n        '<meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui\">',\n        \"<title>\".concat(opts.sheetName, \"</title>\"),\n        \"<style>\".concat(defaultHtmlStyle, \"</style>\"),\n        style ? \"<style>\".concat(style, \"</style>\") : '',\n        '</head>',\n        \"<body>\".concat(content, \"</body>\"),\n        '</html>'\n    ].join('');\n}\n/**\n * 读取本地文件\n * @param {*} options 参数\n */\nexport var readLocalFile = function (options) {\n    var opts = Object.assign({}, options);\n    if (!fileForm) {\n        fileForm = document.createElement('form');\n        fileInput = document.createElement('input');\n        fileForm.className = 'vxe-table--file-form';\n        fileInput.name = 'file';\n        fileInput.type = 'file';\n        fileForm.appendChild(fileInput);\n        document.body.appendChild(fileForm);\n    }\n    return new Promise(function (resolve, reject) {\n        var types = opts.types || [];\n        var isAllType = !types.length || types.some(function (type) { return type === '*'; });\n        fileInput.multiple = !!opts.multiple;\n        fileInput.accept = isAllType ? '' : \".\".concat(types.join(', .'));\n        fileInput.onchange = function (evnt) {\n            var files = evnt.target.files;\n            var file = files[0];\n            var errType = '';\n            // 校验类型\n            if (!isAllType) {\n                for (var fIndex = 0; fIndex < files.length; fIndex++) {\n                    var type = parseFile(files[fIndex]).type;\n                    if (!XEUtils.includes(types, type)) {\n                        errType = type;\n                        break;\n                    }\n                }\n            }\n            if (!errType) {\n                resolve({ status: true, files: files, file: file });\n            }\n            else {\n                if (opts.message !== false) {\n                    // 检测弹窗模块\n                    if (process.env.NODE_ENV === 'development') {\n                        if (!VXETable.modal) {\n                            errLog('vxe.error.reqModule', ['Modal']);\n                        }\n                    }\n                    VXETable.modal.message({ content: GlobalConfig.i18n('vxe.error.notType', [errType]), status: 'error' });\n                }\n                var params = { status: false, files: files, file: file };\n                reject(params);\n            }\n        };\n        fileForm.reset();\n        fileInput.click();\n    });\n};\nfunction removePrintFrame() {\n    if (printFrame) {\n        if (printFrame.parentNode) {\n            try {\n                printFrame.contentDocument.write('');\n            }\n            catch (e) { }\n            printFrame.parentNode.removeChild(printFrame);\n        }\n        printFrame = null;\n    }\n}\nfunction appendPrintFrame() {\n    if (!printFrame.parentNode) {\n        document.body.appendChild(printFrame);\n    }\n}\nfunction afterPrintEvent() {\n    requestAnimationFrame(removePrintFrame);\n}\nexport function handlePrint($xetable, opts, content) {\n    if (content === void 0) { content = ''; }\n    var beforePrintMethod = opts.beforePrintMethod;\n    if (beforePrintMethod) {\n        content = beforePrintMethod({ content: content, options: opts, $table: $xetable }) || '';\n    }\n    content = createHtmlPage(opts, content);\n    var blob = getExportBlobByContent(content, opts);\n    if (browse.msie) {\n        removePrintFrame();\n        printFrame = createFrame();\n        appendPrintFrame();\n        printFrame.contentDocument.write(content);\n        printFrame.contentDocument.execCommand('print');\n    }\n    else {\n        if (!printFrame) {\n            printFrame = createFrame();\n            printFrame.onload = function (evnt) {\n                if (evnt.target.src) {\n                    evnt.target.contentWindow.onafterprint = afterPrintEvent;\n                    evnt.target.contentWindow.print();\n                }\n            };\n        }\n        appendPrintFrame();\n        printFrame.src = URL.createObjectURL(blob);\n    }\n}\n/**\n * 保存文件到本地\n * @param {*} options 参数\n */\nexport var saveLocalFile = function (options) {\n    var filename = options.filename, type = options.type, content = options.content;\n    var name = \"\".concat(filename, \".\").concat(type);\n    if (window.Blob) {\n        var blob = content instanceof Blob ? content : getExportBlobByContent(XEUtils.toValueString(content), options);\n        if (navigator.msSaveBlob) {\n            navigator.msSaveBlob(blob, name);\n        }\n        else {\n            var url_1 = URL.createObjectURL(blob);\n            var linkElem_1 = document.createElement('a');\n            linkElem_1.target = '_blank';\n            linkElem_1.download = name;\n            linkElem_1.href = url_1;\n            document.body.appendChild(linkElem_1);\n            linkElem_1.click();\n            requestAnimationFrame(function () {\n                if (linkElem_1.parentNode) {\n                    linkElem_1.parentNode.removeChild(linkElem_1);\n                }\n                URL.revokeObjectURL(url_1);\n            });\n        }\n        return Promise.resolve();\n    }\n    return Promise.reject(new Error(getLog('vxe.error.notExp')));\n};\n",
+      "start": 1714699767752,
+      "end": 1714699767752,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767752,
+      "end": 1714699767752,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "result": "import XEUtils from \"xe-utils\";\nimport GlobalConfig from \"../../v-x-e-table/src/conf\";\nimport { VXETable } from \"../../v-x-e-table\";\nimport { browse } from \"../../tools/dom\";\nimport { parseFile } from \"../../tools/utils\";\nimport { errLog, getLog } from \"../../tools/log\";\nvar fileForm;\nvar fileInput;\nvar printFrame;\nvar defaultHtmlStyle = 'body{margin:0;padding: 0 1px;color:#333333;font-size:14px;font-family:\"Microsoft YaHei\",微软雅黑,\"MicrosoftJhengHei\",华文细黑,STHeiti,MingLiu}body *{-webkit-box-sizing:border-box;box-sizing:border-box}.vxe-table{border-collapse:collapse;text-align:left;border-spacing:0}.vxe-table:not(.is--print){table-layout:fixed}.vxe-table,.vxe-table th,.vxe-table td,.vxe-table td{border-color:#D0D0D0;border-style:solid;border-width:0}.vxe-table.is--print{width:100%}.border--default,.border--full,.border--outer{border-top-width:1px}.border--default,.border--full,.border--outer{border-left-width:1px}.border--outer,.border--default th,.border--default td,.border--full th,.border--full td,.border--outer th,.border--inner th,.border--inner td{border-bottom-width:1px}.border--default,.border--outer,.border--full th,.border--full td{border-right-width:1px}.border--default th,.border--full th,.border--outer th{background-color:#f8f8f9}.vxe-table td>div,.vxe-table th>div{padding:.5em .4em}.col--center{text-align:center}.col--right{text-align:right}.vxe-table:not(.is--print) .col--ellipsis>div{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;word-break:break-all}.vxe-table--tree-node{text-align:left}.vxe-table--tree-node-wrapper{position:relative}.vxe-table--tree-icon-wrapper{position:absolute;top:50%;width:1em;height:1em;text-align:center;-webkit-transform:translateY(-50%);transform:translateY(-50%);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer}.vxe-table--tree-unfold-icon,.vxe-table--tree-fold-icon{position:absolute;width:0;height:0;border-style:solid;border-width:.5em;border-right-color:transparent;border-bottom-color:transparent}.vxe-table--tree-unfold-icon{left:.3em;top:0;border-left-color:#939599;border-top-color:transparent}.vxe-table--tree-fold-icon{left:0;top:.3em;border-left-color:transparent;border-top-color:#939599}.vxe-table--tree-cell{display:block;padding-left:1.5em}.vxe-table input[type=\"checkbox\"]{margin:0}.vxe-table input[type=\"checkbox\"],.vxe-table input[type=\"radio\"],.vxe-table input[type=\"checkbox\"]+span,.vxe-table input[type=\"radio\"]+span{vertical-align:middle;padding-left:0.4em}';\nexport function createFrame() {\n  var frame = document.createElement(\"iframe\");\n  frame.className = \"vxe-table--print-frame\";\n  return frame;\n}\nexport function getExportBlobByContent(content, options) {\n  return new Blob([content], { type: \"text/\".concat(options.type, \";charset=utf-8;\") });\n}\nexport function createHtmlPage(opts, content) {\n  var style = opts.style;\n  return [\n    \"<!DOCTYPE html><html>\",\n    \"<head>\",\n    '<meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui\">',\n    \"<title>\".concat(opts.sheetName, \"</title>\"),\n    \"<style>\".concat(defaultHtmlStyle, \"</style>\"),\n    style ? \"<style>\".concat(style, \"</style>\") : \"\",\n    \"</head>\",\n    \"<body>\".concat(content, \"</body>\"),\n    \"</html>\"\n  ].join(\"\");\n}\nexport var readLocalFile = function(options) {\n  var opts = Object.assign({}, options);\n  if (!fileForm) {\n    fileForm = document.createElement(\"form\");\n    fileInput = document.createElement(\"input\");\n    fileForm.className = \"vxe-table--file-form\";\n    fileInput.name = \"file\";\n    fileInput.type = \"file\";\n    fileForm.appendChild(fileInput);\n    document.body.appendChild(fileForm);\n  }\n  return new Promise(function(resolve, reject) {\n    var types = opts.types || [];\n    var isAllType = !types.length || types.some(function(type) {\n      return type === \"*\";\n    });\n    fileInput.multiple = !!opts.multiple;\n    fileInput.accept = isAllType ? \"\" : \".\".concat(types.join(\", .\"));\n    fileInput.onchange = function(evnt) {\n      var files = evnt.target.files;\n      var file = files[0];\n      var errType = \"\";\n      if (!isAllType) {\n        for (var fIndex = 0; fIndex < files.length; fIndex++) {\n          var type = parseFile(files[fIndex]).type;\n          if (!XEUtils.includes(types, type)) {\n            errType = type;\n            break;\n          }\n        }\n      }\n      if (!errType) {\n        resolve({ status: true, files, file });\n      } else {\n        if (opts.message !== false) {\n          if (false) {\n            if (!VXETable.modal) {\n              errLog(\"vxe.error.reqModule\", [\"Modal\"]);\n            }\n          }\n          VXETable.modal.message({ content: GlobalConfig.i18n(\"vxe.error.notType\", [errType]), status: \"error\" });\n        }\n        var params = { status: false, files, file };\n        reject(params);\n      }\n    };\n    fileForm.reset();\n    fileInput.click();\n  });\n};\nfunction removePrintFrame() {\n  if (printFrame) {\n    if (printFrame.parentNode) {\n      try {\n        printFrame.contentDocument.write(\"\");\n      } catch (e) {\n      }\n      printFrame.parentNode.removeChild(printFrame);\n    }\n    printFrame = null;\n  }\n}\nfunction appendPrintFrame() {\n  if (!printFrame.parentNode) {\n    document.body.appendChild(printFrame);\n  }\n}\nfunction afterPrintEvent() {\n  requestAnimationFrame(removePrintFrame);\n}\nexport function handlePrint($xetable, opts, content) {\n  if (content === void 0) {\n    content = \"\";\n  }\n  var beforePrintMethod = opts.beforePrintMethod;\n  if (beforePrintMethod) {\n    content = beforePrintMethod({ content, options: opts, $table: $xetable }) || \"\";\n  }\n  content = createHtmlPage(opts, content);\n  var blob = getExportBlobByContent(content, opts);\n  if (browse.msie) {\n    removePrintFrame();\n    printFrame = createFrame();\n    appendPrintFrame();\n    printFrame.contentDocument.write(content);\n    printFrame.contentDocument.execCommand(\"print\");\n  } else {\n    if (!printFrame) {\n      printFrame = createFrame();\n      printFrame.onload = function(evnt) {\n        if (evnt.target.src) {\n          evnt.target.contentWindow.onafterprint = afterPrintEvent;\n          evnt.target.contentWindow.print();\n        }\n      };\n    }\n    appendPrintFrame();\n    printFrame.src = URL.createObjectURL(blob);\n  }\n}\nexport var saveLocalFile = function(options) {\n  var filename = options.filename, type = options.type, content = options.content;\n  var name = \"\".concat(filename, \".\").concat(type);\n  if (window.Blob) {\n    var blob = content instanceof Blob ? content : getExportBlobByContent(XEUtils.toValueString(content), options);\n    if (navigator.msSaveBlob) {\n      navigator.msSaveBlob(blob, name);\n    } else {\n      var url_1 = URL.createObjectURL(blob);\n      var linkElem_1 = document.createElement(\"a\");\n      linkElem_1.target = \"_blank\";\n      linkElem_1.download = name;\n      linkElem_1.href = url_1;\n      document.body.appendChild(linkElem_1);\n      linkElem_1.click();\n      requestAnimationFrame(function() {\n        if (linkElem_1.parentNode) {\n          linkElem_1.parentNode.removeChild(linkElem_1);\n        }\n        URL.revokeObjectURL(url_1);\n      });\n    }\n    return Promise.resolve();\n  }\n  return Promise.reject(new Error(getLog(\"vxe.error.notExp\")));\n};\n",
+      "start": 1714699767752,
+      "end": 1714699768039,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768039,
+      "end": 1714699768039,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768039,
+      "end": 1714699768039,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768039,
+      "end": 1714699768039,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768039,
+      "end": 1714699768039,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768039,
+      "end": 1714699768040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768040,
+      "end": 1714699768040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768040,
+      "end": 1714699768040,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768040,
+      "end": 1714699768040,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768040,
+      "end": 1714699768040,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768040,
+      "end": 1714699768040,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768040,
+      "end": 1714699768040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768040,
+      "end": 1714699768040,
+      "order": "normal"
+    }
+  ]
+}

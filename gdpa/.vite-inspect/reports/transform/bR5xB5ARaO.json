@@ -1,0 +1,142 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/swipe-item/SwipeItem.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { computed, nextTick, reactive, onMounted, defineComponent } from \"vue\";\nimport { createNamespace } from \"../utils/index.mjs\";\nimport { SWIPE_KEY } from \"../swipe/Swipe.mjs\";\nimport { useParent } from \"@vant/use\";\nimport { useExpose } from \"../composables/use-expose.mjs\";\nconst [name, bem] = createNamespace(\"swipe-item\");\nvar stdin_default = defineComponent({\n  name,\n  setup(props, {\n    slots\n  }) {\n    let rendered;\n    const state = reactive({\n      offset: 0,\n      inited: false,\n      mounted: false\n    });\n    const {\n      parent,\n      index\n    } = useParent(SWIPE_KEY);\n    if (!parent) {\n      if (process.env.NODE_ENV !== \"production\") {\n        console.error(\"[Vant] <SwipeItem> must be a child component of <Swipe>.\");\n      }\n      return;\n    }\n    const style = computed(() => {\n      const style2 = {};\n      const {\n        vertical\n      } = parent.props;\n      if (parent.size.value) {\n        style2[vertical ? \"height\" : \"width\"] = `${parent.size.value}px`;\n      }\n      if (state.offset) {\n        style2.transform = `translate${vertical ? \"Y\" : \"X\"}(${state.offset}px)`;\n      }\n      return style2;\n    });\n    const shouldRender = computed(() => {\n      const {\n        loop,\n        lazyRender\n      } = parent.props;\n      if (!lazyRender || rendered) {\n        return true;\n      }\n      if (!state.mounted) {\n        return false;\n      }\n      const active = parent.activeIndicator.value;\n      const maxActive = parent.count.value - 1;\n      const prevActive = active === 0 && loop ? maxActive : active - 1;\n      const nextActive = active === maxActive && loop ? 0 : active + 1;\n      rendered = index.value === active || index.value === prevActive || index.value === nextActive;\n      return rendered;\n    });\n    const setOffset = (offset) => {\n      state.offset = offset;\n    };\n    onMounted(() => {\n      nextTick(() => {\n        state.mounted = true;\n      });\n    });\n    useExpose({\n      setOffset\n    });\n    return () => {\n      var _a;\n      return _createVNode(\"div\", {\n        \"class\": bem(),\n        \"style\": style.value\n      }, [shouldRender.value ? (_a = slots.default) == null ? void 0 : _a.call(slots) : null]);\n    };\n  }\n});\nexport {\n  stdin_default as default\n};\n",
+      "start": 1714699767506,
+      "end": 1714699767516,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767517,
+      "end": 1714699767517,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767517,
+      "end": 1714699767517,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767517,
+      "end": 1714699767517,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767517,
+      "end": 1714699767517,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767517,
+      "end": 1714699767517,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767517,
+      "end": 1714699767517,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { computed, nextTick, reactive, onMounted, defineComponent } from \"vue\";\nimport { createNamespace } from \"../utils/index.mjs\";\nimport { SWIPE_KEY } from \"../swipe/Swipe.mjs\";\nimport { useParent } from \"@vant/use\";\nimport { useExpose } from \"../composables/use-expose.mjs\";\nconst [name, bem] = createNamespace(\"swipe-item\");\nvar stdin_default = defineComponent({\n  name,\n  setup(props, {\n    slots\n  }) {\n    let rendered;\n    const state = reactive({\n      offset: 0,\n      inited: false,\n      mounted: false\n    });\n    const {\n      parent,\n      index\n    } = useParent(SWIPE_KEY);\n    if (!parent) {\n      if (process.env.NODE_ENV !== \"production\") {\n        console.error(\"[Vant] <SwipeItem> must be a child component of <Swipe>.\");\n      }\n      return;\n    }\n    const style = computed(() => {\n      const style2 = {};\n      const {\n        vertical\n      } = parent.props;\n      if (parent.size.value) {\n        style2[vertical ? \"height\" : \"width\"] = `${parent.size.value}px`;\n      }\n      if (state.offset) {\n        style2.transform = `translate${vertical ? \"Y\" : \"X\"}(${state.offset}px)`;\n      }\n      return style2;\n    });\n    const shouldRender = computed(() => {\n      const {\n        loop,\n        lazyRender\n      } = parent.props;\n      if (!lazyRender || rendered) {\n        return true;\n      }\n      if (!state.mounted) {\n        return false;\n      }\n      const active = parent.activeIndicator.value;\n      const maxActive = parent.count.value - 1;\n      const prevActive = active === 0 && loop ? maxActive : active - 1;\n      const nextActive = active === maxActive && loop ? 0 : active + 1;\n      rendered = index.value === active || index.value === prevActive || index.value === nextActive;\n      return rendered;\n    });\n    const setOffset = (offset) => {\n      state.offset = offset;\n    };\n    onMounted(() => {\n      nextTick(() => {\n        state.mounted = true;\n      });\n    });\n    useExpose({\n      setOffset\n    });\n    return () => {\n      var _a;\n      return _createVNode(\"div\", {\n        \"class\": bem(),\n        \"style\": style.value\n      }, [shouldRender.value ? (_a = slots.default) == null ? void 0 : _a.call(slots) : null]);\n    };\n  }\n});\nexport {\n  stdin_default as default\n};\n",
+      "start": 1714699767517,
+      "end": 1714699767517,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767517,
+      "end": 1714699767517,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { computed, nextTick, reactive, onMounted, defineComponent } from \"vue\";\nimport { createNamespace } from \"../utils/index.mjs\";\nimport { SWIPE_KEY } from \"../swipe/Swipe.mjs\";\nimport { useParent } from \"@vant/use\";\nimport { useExpose } from \"../composables/use-expose.mjs\";\nconst [name, bem] = createNamespace(\"swipe-item\");\nvar stdin_default = defineComponent({\n  name,\n  setup(props, {\n    slots\n  }) {\n    let rendered;\n    const state = reactive({\n      offset: 0,\n      inited: false,\n      mounted: false\n    });\n    const {\n      parent,\n      index\n    } = useParent(SWIPE_KEY);\n    if (!parent) {\n      if (true) {\n        console.error(\"[Vant] <SwipeItem> must be a child component of <Swipe>.\");\n      }\n      return;\n    }\n    const style = computed(() => {\n      const style2 = {};\n      const {\n        vertical\n      } = parent.props;\n      if (parent.size.value) {\n        style2[vertical ? \"height\" : \"width\"] = `${parent.size.value}px`;\n      }\n      if (state.offset) {\n        style2.transform = `translate${vertical ? \"Y\" : \"X\"}(${state.offset}px)`;\n      }\n      return style2;\n    });\n    const shouldRender = computed(() => {\n      const {\n        loop,\n        lazyRender\n      } = parent.props;\n      if (!lazyRender || rendered) {\n        return true;\n      }\n      if (!state.mounted) {\n        return false;\n      }\n      const active = parent.activeIndicator.value;\n      const maxActive = parent.count.value - 1;\n      const prevActive = active === 0 && loop ? maxActive : active - 1;\n      const nextActive = active === maxActive && loop ? 0 : active + 1;\n      rendered = index.value === active || index.value === prevActive || index.value === nextActive;\n      return rendered;\n    });\n    const setOffset = (offset) => {\n      state.offset = offset;\n    };\n    onMounted(() => {\n      nextTick(() => {\n        state.mounted = true;\n      });\n    });\n    useExpose({\n      setOffset\n    });\n    return () => {\n      var _a;\n      return _createVNode(\"div\", {\n        \"class\": bem(),\n        \"style\": style.value\n      }, [shouldRender.value ? (_a = slots.default) == null ? void 0 : _a.call(slots) : null]);\n    };\n  }\n});\nexport {\n  stdin_default as default\n};\n",
+      "start": 1714699767517,
+      "end": 1714699767611,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767611,
+      "end": 1714699767611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767611,
+      "end": 1714699767611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767611,
+      "end": 1714699767611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767611,
+      "end": 1714699767611,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767611,
+      "end": 1714699767611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767612,
+      "end": 1714699767612,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767612,
+      "end": 1714699767612,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767612,
+      "end": 1714699767612,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767612,
+      "end": 1714699767612,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767612,
+      "end": 1714699767612,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767612,
+      "end": 1714699767612,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767612,
+      "end": 1714699767612,
+      "order": "normal"
+    }
+  ]
+}

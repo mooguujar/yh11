@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/_customDefaultsMerge.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import baseMerge from './_baseMerge.js';\nimport isObject from './isObject.js';\n\n/**\n * Used by `_.defaultsDeep` to customize its `_.merge` use to merge source\n * objects into destination objects that are passed thru.\n *\n * @private\n * @param {*} objValue The destination value.\n * @param {*} srcValue The source value.\n * @param {string} key The key of the property to merge.\n * @param {Object} object The parent object of `objValue`.\n * @param {Object} source The parent object of `srcValue`.\n * @param {Object} [stack] Tracks traversed source values and their merged\n *  counterparts.\n * @returns {*} Returns the value to assign.\n */\nfunction customDefaultsMerge(objValue, srcValue, key, object, source, stack) {\n  if (isObject(objValue) && isObject(srcValue)) {\n    // Recursively merge objects and arrays (susceptible to call stack limits).\n    stack.set(srcValue, objValue);\n    baseMerge(objValue, srcValue, undefined, customDefaultsMerge, stack);\n    stack['delete'](srcValue);\n  }\n  return objValue;\n}\n\nexport default customDefaultsMerge;\n",
+      "start": 1714699768645,
+      "end": 1714699768694,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768694,
+      "end": 1714699768694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768694,
+      "end": 1714699768694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768694,
+      "end": 1714699768694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768694,
+      "end": 1714699768694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768694,
+      "end": 1714699768694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768694,
+      "end": 1714699768694,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import baseMerge from './_baseMerge.js';\nimport isObject from './isObject.js';\n\n/**\n * Used by `_.defaultsDeep` to customize its `_.merge` use to merge source\n * objects into destination objects that are passed thru.\n *\n * @private\n * @param {*} objValue The destination value.\n * @param {*} srcValue The source value.\n * @param {string} key The key of the property to merge.\n * @param {Object} object The parent object of `objValue`.\n * @param {Object} source The parent object of `srcValue`.\n * @param {Object} [stack] Tracks traversed source values and their merged\n *  counterparts.\n * @returns {*} Returns the value to assign.\n */\nfunction customDefaultsMerge(objValue, srcValue, key, object, source, stack) {\n  if (isObject(objValue) && isObject(srcValue)) {\n    // Recursively merge objects and arrays (susceptible to call stack limits).\n    stack.set(srcValue, objValue);\n    baseMerge(objValue, srcValue, undefined, customDefaultsMerge, stack);\n    stack['delete'](srcValue);\n  }\n  return objValue;\n}\n\nexport default customDefaultsMerge;\n",
+      "start": 1714699768694,
+      "end": 1714699768694,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768694,
+      "end": 1714699768694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768694,
+      "end": 1714699768694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768694,
+      "end": 1714699768694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768694,
+      "end": 1714699768694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768694,
+      "end": 1714699768694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768694,
+      "end": 1714699768694,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768694,
+      "end": 1714699768694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768694,
+      "end": 1714699768694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768694,
+      "end": 1714699768694,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768694,
+      "end": 1714699768694,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768694,
+      "end": 1714699768694,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768694,
+      "end": 1714699768694,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768694,
+      "end": 1714699768694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768694,
+      "end": 1714699768694,
+      "order": "normal"
+    }
+  ]
+}

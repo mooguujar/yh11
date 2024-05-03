@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/reduce.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var keys = require('./keys')\r\n\r\n/**\r\n  * 接收一个函数作为累加器，数组中的每个值（从左到右）开始合并，最终为一个值。\r\n  *\r\n  * @param {Array} array 数组\r\n  * @param {Function} callback 方法\r\n  * @param {Object} initialValue 初始值\r\n  * @return {Number}\r\n  */\r\nfunction reduce (array, callback, initialValue) {\r\n  if (array) {\r\n    var len, reduceMethod\r\n    var index = 0\r\n    var context = null\r\n    var previous = initialValue\r\n    var isInitialVal = arguments.length > 2\r\n    var keyList = keys(array)\r\n    if (array.length && array.reduce) {\r\n      reduceMethod = function () {\r\n        return callback.apply(context, arguments)\r\n      }\r\n      if (isInitialVal) {\r\n        return array.reduce(reduceMethod, previous)\r\n      }\r\n      return array.reduce(reduceMethod)\r\n    }\r\n    if (isInitialVal) {\r\n      index = 1\r\n      previous = array[keyList[0]]\r\n    }\r\n    for (len = keyList.length; index < len; index++) {\r\n      previous = callback.call(context, previous, array[keyList[index]], index, array)\r\n    }\r\n    return previous\r\n  }\r\n}\r\n\r\nmodule.exports = reduce\r\n",
+      "start": 1714699767565,
+      "end": 1714699767587,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767587,
+      "end": 1714699767587,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767587,
+      "end": 1714699767588,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767588,
+      "end": 1714699767588,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767588,
+      "end": 1714699767588,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767588,
+      "end": 1714699767588,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767588,
+      "end": 1714699767588,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var keys = require('./keys')\r\n\r\n/**\r\n  * 接收一个函数作为累加器，数组中的每个值（从左到右）开始合并，最终为一个值。\r\n  *\r\n  * @param {Array} array 数组\r\n  * @param {Function} callback 方法\r\n  * @param {Object} initialValue 初始值\r\n  * @return {Number}\r\n  */\r\nfunction reduce (array, callback, initialValue) {\r\n  if (array) {\r\n    var len, reduceMethod\r\n    var index = 0\r\n    var context = null\r\n    var previous = initialValue\r\n    var isInitialVal = arguments.length > 2\r\n    var keyList = keys(array)\r\n    if (array.length && array.reduce) {\r\n      reduceMethod = function () {\r\n        return callback.apply(context, arguments)\r\n      }\r\n      if (isInitialVal) {\r\n        return array.reduce(reduceMethod, previous)\r\n      }\r\n      return array.reduce(reduceMethod)\r\n    }\r\n    if (isInitialVal) {\r\n      index = 1\r\n      previous = array[keyList[0]]\r\n    }\r\n    for (len = keyList.length; index < len; index++) {\r\n      previous = callback.call(context, previous, array[keyList[index]], index, array)\r\n    }\r\n    return previous\r\n  }\r\n}\r\n\r\nmodule.exports = reduce\r\n",
+      "start": 1714699767588,
+      "end": 1714699767588,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767588,
+      "end": 1714699767588,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767588,
+      "end": 1714699767588,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767588,
+      "end": 1714699767588,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767588,
+      "end": 1714699767588,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767588,
+      "end": 1714699767588,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767588,
+      "end": 1714699767588,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/keys.js?commonjs-proxy\";\n\nvar keys = require$$0\r\n\r\n/**\r\n  * 接收一个函数作为累加器，数组中的每个值（从左到右）开始合并，最终为一个值。\r\n  *\r\n  * @param {Array} array 数组\r\n  * @param {Function} callback 方法\r\n  * @param {Object} initialValue 初始值\r\n  * @return {Number}\r\n  */\r\nfunction reduce (array, callback, initialValue) {\r\n  if (array) {\r\n    var len, reduceMethod\r\n    var index = 0\r\n    var context = null\r\n    var previous = initialValue\r\n    var isInitialVal = arguments.length > 2\r\n    var keyList = keys(array)\r\n    if (array.length && array.reduce) {\r\n      reduceMethod = function () {\r\n        return callback.apply(context, arguments)\r\n      }\r\n      if (isInitialVal) {\r\n        return array.reduce(reduceMethod, previous)\r\n      }\r\n      return array.reduce(reduceMethod)\r\n    }\r\n    if (isInitialVal) {\r\n      index = 1\r\n      previous = array[keyList[0]]\r\n    }\r\n    for (len = keyList.length; index < len; index++) {\r\n      previous = callback.call(context, previous, array[keyList[index]], index, array)\r\n    }\r\n    return previous\r\n  }\r\n}\r\n\r\nvar reduce_1 = reduce\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(reduce_1);\nexport { reduce_1 as __moduleExports };",
+      "start": 1714699767588,
+      "end": 1714699768215,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;AAAA,IAAI,IAAI,GAAG,UAAiB;AAC5B;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,MAAM,EAAE,KAAK,EAAE,QAAQ,EAAE,YAAY,EAAE;AAChD,EAAE,IAAI,KAAK,EAAE;AACb,IAAI,IAAI,GAAG,EAAE,YAAY;AACzB,IAAI,IAAI,KAAK,GAAG,CAAC;AACjB,IAAI,IAAI,OAAO,GAAG,IAAI;AACtB,IAAI,IAAI,QAAQ,GAAG,YAAY;AAC/B,IAAI,IAAI,YAAY,GAAG,SAAS,CAAC,MAAM,GAAG,CAAC;AAC3C,IAAI,IAAI,OAAO,GAAG,IAAI,CAAC,KAAK,CAAC;AAC7B,IAAI,IAAI,KAAK,CAAC,MAAM,IAAI,KAAK,CAAC,MAAM,EAAE;AACtC,MAAM,YAAY,GAAG,YAAY;AACjC,QAAQ,OAAO,QAAQ,CAAC,KAAK,CAAC,OAAO,EAAE,SAAS,CAAC;AACjD,OAAO;AACP,MAAM,IAAI,YAAY,EAAE;AACxB,QAAQ,OAAO,KAAK,CAAC,MAAM,CAAC,YAAY,EAAE,QAAQ,CAAC;AACnD,OAAO;AACP,MAAM,OAAO,KAAK,CAAC,MAAM,CAAC,YAAY,CAAC;AACvC,KAAK;AACL,IAAI,IAAI,YAAY,EAAE;AACtB,MAAM,KAAK,GAAG,CAAC;AACf,MAAM,QAAQ,GAAG,KAAK,CAAC,OAAO,CAAC,CAAC,CAAC,CAAC;AAClC,KAAK;AACL,IAAI,KAAK,GAAG,GAAG,OAAO,CAAC,MAAM,EAAE,KAAK,GAAG,GAAG,EAAE,KAAK,EAAE,EAAE;AACrD,MAAM,QAAQ,GAAG,QAAQ,CAAC,IAAI,CAAC,OAAO,EAAE,QAAQ,EAAE,KAAK,CAAC,OAAO,CAAC,KAAK,CAAC,CAAC,EAAE,KAAK,EAAE,KAAK,CAAC;AACtF,KAAK;AACL,IAAI,OAAO,QAAQ;AACnB,GAAG;AACH,CAAC;AACD;IACA,QAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768215,
+      "end": 1714699768215,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768215,
+      "end": 1714699768215,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768215,
+      "end": 1714699768215,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768215,
+      "end": 1714699768215,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768215,
+      "end": 1714699768215,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768215,
+      "end": 1714699768215,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768215,
+      "end": 1714699768215,
+      "order": "normal"
+    }
+  ]
+}

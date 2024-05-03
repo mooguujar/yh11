@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/es/tools/event.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import XEUtils from 'xe-utils';\nimport { browse } from './dom';\nexport var EVENT_KEYS = {\n    F2: 'F2',\n    ESCAPE: 'Escape',\n    ENTER: 'Enter',\n    TAB: 'Tab',\n    DELETE: 'Delete',\n    BACKSPACE: 'Backspace',\n    SPACEBAR: ' ',\n    CONTEXT_MENU: 'ContextMenu',\n    ARROW_UP: 'ArrowUp',\n    ARROW_DOWN: 'ArrowDown',\n    ARROW_LEFT: 'ArrowLeft',\n    ARROW_RIGHT: 'ArrowRight',\n    PAGE_UP: 'PageUp',\n    PAGE_DOWN: 'PageDown'\n};\nvar convertEventKeys = {\n    ' ': 'Spacebar',\n    Apps: EVENT_KEYS.CONTEXT_MENU,\n    Del: EVENT_KEYS.DELETE,\n    Up: EVENT_KEYS.ARROW_UP,\n    Down: EVENT_KEYS.ARROW_DOWN,\n    Left: EVENT_KEYS.ARROW_LEFT,\n    Right: EVENT_KEYS.ARROW_RIGHT\n};\n// 监听全局事件\nvar wheelName = browse.firefox ? 'DOMMouseScroll' : 'mousewheel';\nvar eventStore = [];\nexport var hasEventKey = function (evnt, targetKey) {\n    var key = evnt.key;\n    targetKey = targetKey.toLowerCase();\n    return key ? (targetKey === key.toLowerCase() || !!(convertEventKeys[key] && convertEventKeys[key].toLowerCase() === targetKey)) : false;\n};\nfunction triggerEvent(evnt) {\n    var isWheel = evnt.type === wheelName;\n    eventStore.forEach(function (_a) {\n        var type = _a.type, cb = _a.cb;\n        // 如果被取消冒泡，不再执行\n        if (!evnt.cancelBubble) {\n            if (type === evnt.type || (isWheel && type === 'mousewheel')) {\n                cb(evnt);\n            }\n        }\n    });\n}\nexport var GlobalEvent = {\n    on: function (comp, type, cb) {\n        eventStore.push({ comp: comp, type: type, cb: cb });\n    },\n    off: function (comp, type) {\n        XEUtils.remove(eventStore, function (item) { return item.comp === comp && item.type === type; });\n    },\n    trigger: triggerEvent,\n    eqKeypad: function (evnt, keyVal) {\n        var key = evnt.key;\n        if (keyVal.toLowerCase() === key.toLowerCase()) {\n            return true;\n        }\n        return false;\n    }\n};\nif (browse.isDoc) {\n    if (!browse.msie) {\n        document.addEventListener('copy', triggerEvent, false);\n        document.addEventListener('cut', triggerEvent, false);\n        document.addEventListener('paste', triggerEvent, false);\n    }\n    document.addEventListener('keydown', triggerEvent, false);\n    document.addEventListener('contextmenu', triggerEvent, false);\n    window.addEventListener('mousedown', triggerEvent, false);\n    window.addEventListener('blur', triggerEvent, false);\n    window.addEventListener('resize', triggerEvent, false);\n    window.addEventListener(wheelName, XEUtils.throttle(triggerEvent, 100, { leading: true, trailing: false }), { passive: true, capture: false });\n}\n",
+      "start": 1714699768228,
+      "end": 1714699768276,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768276,
+      "end": 1714699768276,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768276,
+      "end": 1714699768276,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768276,
+      "end": 1714699768276,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768276,
+      "end": 1714699768276,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768276,
+      "end": 1714699768276,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768276,
+      "end": 1714699768276,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import XEUtils from 'xe-utils';\nimport { browse } from './dom';\nexport var EVENT_KEYS = {\n    F2: 'F2',\n    ESCAPE: 'Escape',\n    ENTER: 'Enter',\n    TAB: 'Tab',\n    DELETE: 'Delete',\n    BACKSPACE: 'Backspace',\n    SPACEBAR: ' ',\n    CONTEXT_MENU: 'ContextMenu',\n    ARROW_UP: 'ArrowUp',\n    ARROW_DOWN: 'ArrowDown',\n    ARROW_LEFT: 'ArrowLeft',\n    ARROW_RIGHT: 'ArrowRight',\n    PAGE_UP: 'PageUp',\n    PAGE_DOWN: 'PageDown'\n};\nvar convertEventKeys = {\n    ' ': 'Spacebar',\n    Apps: EVENT_KEYS.CONTEXT_MENU,\n    Del: EVENT_KEYS.DELETE,\n    Up: EVENT_KEYS.ARROW_UP,\n    Down: EVENT_KEYS.ARROW_DOWN,\n    Left: EVENT_KEYS.ARROW_LEFT,\n    Right: EVENT_KEYS.ARROW_RIGHT\n};\n// 监听全局事件\nvar wheelName = browse.firefox ? 'DOMMouseScroll' : 'mousewheel';\nvar eventStore = [];\nexport var hasEventKey = function (evnt, targetKey) {\n    var key = evnt.key;\n    targetKey = targetKey.toLowerCase();\n    return key ? (targetKey === key.toLowerCase() || !!(convertEventKeys[key] && convertEventKeys[key].toLowerCase() === targetKey)) : false;\n};\nfunction triggerEvent(evnt) {\n    var isWheel = evnt.type === wheelName;\n    eventStore.forEach(function (_a) {\n        var type = _a.type, cb = _a.cb;\n        // 如果被取消冒泡，不再执行\n        if (!evnt.cancelBubble) {\n            if (type === evnt.type || (isWheel && type === 'mousewheel')) {\n                cb(evnt);\n            }\n        }\n    });\n}\nexport var GlobalEvent = {\n    on: function (comp, type, cb) {\n        eventStore.push({ comp: comp, type: type, cb: cb });\n    },\n    off: function (comp, type) {\n        XEUtils.remove(eventStore, function (item) { return item.comp === comp && item.type === type; });\n    },\n    trigger: triggerEvent,\n    eqKeypad: function (evnt, keyVal) {\n        var key = evnt.key;\n        if (keyVal.toLowerCase() === key.toLowerCase()) {\n            return true;\n        }\n        return false;\n    }\n};\nif (browse.isDoc) {\n    if (!browse.msie) {\n        document.addEventListener('copy', triggerEvent, false);\n        document.addEventListener('cut', triggerEvent, false);\n        document.addEventListener('paste', triggerEvent, false);\n    }\n    document.addEventListener('keydown', triggerEvent, false);\n    document.addEventListener('contextmenu', triggerEvent, false);\n    window.addEventListener('mousedown', triggerEvent, false);\n    window.addEventListener('blur', triggerEvent, false);\n    window.addEventListener('resize', triggerEvent, false);\n    window.addEventListener(wheelName, XEUtils.throttle(triggerEvent, 100, { leading: true, trailing: false }), { passive: true, capture: false });\n}\n",
+      "start": 1714699768276,
+      "end": 1714699768276,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768276,
+      "end": 1714699768276,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768276,
+      "end": 1714699768276,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768276,
+      "end": 1714699768276,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768276,
+      "end": 1714699768276,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768276,
+      "end": 1714699768276,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768276,
+      "end": 1714699768276,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768276,
+      "end": 1714699768276,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768276,
+      "end": 1714699768276,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768276,
+      "end": 1714699768276,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768276,
+      "end": 1714699768276,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768276,
+      "end": 1714699768276,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768276,
+      "end": 1714699768276,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768276,
+      "end": 1714699768276,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768276,
+      "end": 1714699768276,
+      "order": "normal"
+    }
+  ]
+}

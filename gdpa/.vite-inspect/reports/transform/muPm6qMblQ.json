@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\nimport { checkImgApi } from '@/apis/auth'\nimport FooterView from '@/components/Auth/FooterView.vue'\nimport { useAuthStore } from '@/store/modules/auth'\nimport { useEntryStore } from '@/store/modules/entry'\nimport { IInfo } from '@/store/types/auth'\nimport { IIsOpenRecaptcha } from '@/store/types/entry'\nimport { requireImg } from '@/utils/tools'\nimport { storeToRefs } from 'pinia'\nimport { showFailToast } from 'vant'\nimport { computed, onMounted, onUnmounted, reactive, ref, toRefs, watch } from 'vue'\nimport { useRoute, useRouter } from 'vue-router'\nimport { ChangeValue, StateProps, inputChange } from './tools'\n\nconst country_code = ref('CN')\nconst phone_code = ref('+86')\n\nconst route = useRoute()\nconst query = route.query\nif (!!query) {\n  country_code.value = (query.country_code as string) || 'CN'\n  phone_code.value = '+' + ((query.phone_code as string) || '86')\n}\n\nconst authStore = useAuthStore()\nconst { userInfo, Websocket } = storeToRefs(authStore)\nconst { mobile: _mobile = '', pass = '' } = userInfo as IInfo | Record<string, any>\nconst mobile = reactive({\n  value: _mobile,\n  error: '',\n  // type: 'number',\n  type: 'text',\n  pattern: '^[a-zA-Z0-9]{6,20}$'\n})\n\nconst password = reactive({\n  value: pass,\n  error: '',\n  type: 'password',\n  pattern: '[?!a-zA-Z0-9.]{6,16}$'\n})\nconst code = reactive({\n  value: '',\n  error: '',\n  type: 'text',\n  pattern: '^[0-9]{4}$'\n})\n\nconst mobileOnChange = (data: ChangeValue) => {\n  const regCN = /^1[3456789]\\d{9,10}$/\n  const regTW = /^9[0-9]{8,9}$/\n  const regAccount = /^[a-zA-Z0-9]{6,20}$/\n  const isValue = data.find(item => item.key === 'value')\n\n  // if (isValue && !regCN.test(isValue.value) && !regTW.test(isValue.value)) {\n  if (isValue && !regAccount.test(isValue.value)) {\n    // data.push({\n    //   key: 'error',\n    //   value: '请输入6~20位字母或数字'\n    //   // value: '手机号码格式不正确',\n    // })\n  } else {\n    data.push({\n      key: 'error',\n      value: ''\n    })\n  }\n\n  inputChange(mobile as StateProps)(data)\n}\nconst passwordOnChange = (data: ChangeValue) => {\n  const reg = /^[a-zA-Z0-9!@#$%^&*()_+{}\\[\\]:;<>,.?~-]{6,18}$/\n  const isValue: any = data.find(item => item.key === 'value')\n  const reg1 = new RegExp(/(.*[a-zA-Z]+.*[0-9]+)|(.*[0-9]+.*[a-zA-Z]+)/g)\n\n  if (isValue) {\n    if (!reg.test(isValue.value)) {\n      // console.log('密码格式不正确')\n      data.push({\n        key: 'error',\n        value: '密码格式不正确'\n      })\n    } else {\n      console.log('密码通过')\n      data.push({\n        key: 'error',\n        value: ''\n      })\n    }\n  }\n\n  inputChange(password as StateProps)(data)\n}\nconst codeOnChange = (data: ChangeValue) => {\n  const reg = new RegExp(/^[0-9]{4}$/)\n  const isValue = data.find(item => item.key === 'value')\n\n  if (isValue && !reg.test(isValue.value)) {\n    data.push({\n      key: 'error',\n      value: '验证码格式不正确'\n    })\n  } else {\n    data.push({\n      key: 'error',\n      value: ''\n    })\n  }\n\n  inputChange(code as StateProps)(data)\n}\n\nconst entryStore = useEntryStore()\nconst { config, fingerprint } = storeToRefs(entryStore)\n// const { Web_Set_WebReg } = config as IConfigData | Record<string, any>\n// 是否显示验证码表单\nconst isOpenRecaptcha = computed(() => {\n  return (config.value.Web_Set_WebReg?.is_open_recaptcha as IIsOpenRecaptcha)?.v\n    ? (config.value.Web_Set_WebReg?.is_open_recaptcha as IIsOpenRecaptcha)\n    : {\n        v: '0',\n        n: '',\n        id: ''\n      }\n})\n\nconst inputFormList = ref([\n  {\n    key: 'mobile',\n    placeholder: '手机账号',\n    typeKey: 'mobile',\n    icon: 'mobile',\n    onChange: (e: Event) =>\n      mobileOnChange([{ key: 'value', value: (e.target as HTMLInputElement).value }]),\n    ...toRefs(mobile)\n  },\n  {\n    key: 'password',\n    placeholder: '请输入登录密码',\n    typeKey: 'psw',\n    icon: 'lock',\n    onChange: (e: Event) =>\n      passwordOnChange([{ key: 'value', value: (e.target as HTMLInputElement).value }]),\n    ...toRefs(password)\n  },\n  {\n    key: 'code',\n    placeholder: '图形验证码',\n    typeKey: 'code',\n    onChange: (e: Event) =>\n      codeOnChange([{ key: 'value', value: (e.target as HTMLInputElement).value }]),\n    icon: 'code',\n    ...toRefs(code)\n  }\n])\n\nconst togglePasswordStatus = (index: number) => {\n  inputFormList.value[index].type =\n    inputFormList.value[index].type === 'password' ? 'text' : 'password'\n}\n\nconst { getFingerprint } = entryStore\ngetFingerprint()\nif (!!!localStorage.getItem('fingerprint')) localStorage.setItem('fingerprint', fingerprint.value)\n\nconst { getLoginApi } = authStore\nconst router = useRouter()\n\nconst loginAccount = computed(() => {\n  const regCN = /^1[3456789]\\d{9,10}$/\n  const regTW = /^9[0-9]{8,9}$/\n  const regLikeMobile = /^\\d{6,20}$/\n\n  const _mobile = mobile.value.includes(phone_code.value)\n    ? mobile.value\n    : phone_code.value + mobile.value\n  const _account = mobile.value\n\n  // if (regCN.test(mobile.value) || regTW.test(mobile.value)) {\n  if (regLikeMobile.test(mobile.value)) {\n    return {\n      mobile: _mobile\n    }\n  }\n  return {\n    account: _account\n  }\n})\n\nconst onLogin = async () => {\n  // if (!mobile.value) return showFailToast('请输入手机号码')\n  if (!mobile.value) return showFailToast('账号不能为空')\n  if (!password.value) return showFailToast('请输入密码')\n  if (mobile.error) return showFailToast(mobile.error)\n  if (password.error) return showFailToast(password.error)\n  const search = new URLSearchParams(window.location.search)\n  const vtoken = search.get('vtoken') || ''\n  const deviceid = search.get('deviceid') || ''\n\n  const params = {\n    mobile: loginAccount.value.mobile,\n    username: loginAccount.value.account,\n    pass: password.value,\n    deviceid: localStorage.getItem('fingerprint') || fingerprint.value,\n    imgid: fingerprint.value,\n    imgtype: 'login',\n    web_login_url: !vtoken && !deviceid ? window.location.origin : null,\n    imgcode: code.value\n  }\n\n  try {\n    await getLoginApi(params).then(data => {\n      // console.log('data', data)\n      if (!!!data || !!!data.token) return getCheckImg()\n      // console.log('11122', data.token)\n      // Websocket.value.send(data.token)\n      Websocket.value.start(data.token)\n      Websocket.value.reconnect()\n      let gopath = sessionStorage.getItem('gopath')\n      // console.log('gopath', gopath)\n      if (!!gopath) {\n        sessionStorage.setItem('gopath', '')\n        return router.push(gopath)\n      }\n      router.push('/')\n    })\n  } catch (error) {\n    console.error(error)\n  }\n}\n\nconst captchaImg = ref('')\n// 获取图形验证码\nconst getCheckImg = async () => {\n  try {\n    const res = await checkImgApi({\n      imgid: fingerprint.value,\n      imgtype: 'login'\n    })\n    const url = window.URL.createObjectURL(new Blob([res], { type: 'image/png' }))\n\n    captchaImg.value = url\n  } catch (error) {\n    console.error(error)\n  }\n}\n\nconst gopath = () => {\n  router.push('/auth/forgetPasw')\n}\n// 回车登录\nconst onEnterUp = (e: KeyboardEvent) => {\n  if (['Enter', 'NumpadEnter'].includes(e.code)) {\n    onLogin()\n  }\n}\nwatch(isOpenRecaptcha, e => {\n  if (isOpenRecaptcha.value.v === '1') {\n    getCheckImg()\n  }\n})\nonMounted(() => {\n  window.addEventListener('keyup', onEnterUp)\n\n  if (isOpenRecaptcha.value.v === '1') {\n    getCheckImg()\n  }\n})\nonUnmounted(() => {\n  window.removeEventListener('keyup', onEnterUp)\n})\n</script>\n\n<template>\n  <div class=\"login-container mb-[70px]\">\n    <div class=\"content-view\">\n      <div\n        v-for=\"(item, index) in inputFormList\"\n        v-show=\"(index === 2 && isOpenRecaptcha.v === '1') || index !== 2\"\n        :key=\"item.key\"\n        class=\"input-content relative z-[1]\"\n      >\n        <div class=\"input-content-view\">\n          <div class=\"input-view flex items-center\">\n            <i :class=\"['block', item.icon]\"></i>\n            <span\n              v-if=\"item.key == 'mobile'\"\n              @click=\"$router.replace('/country')\"\n              class=\"text-[24px] flex_s mx-[13px]\"\n            >\n              <img\n                class=\"w-[40px] mr-[15px]\"\n                :src=\"requireImg('common/' + country_code + '.png')\"\n                alt=\"\"\n              />\n              {{ phone_code }}\n              <van-icon\n                class=\"ml-[15px]\"\n                size=\"15px\"\n                name=\"arrow-down\"\n              />\n              <span class=\"text-[#ccc] pl-[15px]\">|</span>\n            </span>\n            <input\n              class=\"!text-[29px] w-[260px]\"\n              :type=\"item.type\"\n              :placeholder=\"item.placeholder\"\n              :pattern=\"item.pattern\"\n              @change=\"item.onChange\"\n            />\n            <i\n              v-if=\"item.key.toLowerCase().includes('password')\"\n              :class=\"item.type === 'password' ? 'eye-close' : 'eye-open'\"\n              @click=\"togglePasswordStatus(index)\"\n            ></i>\n            <img\n              v-if=\"captchaImg && index === 2\"\n              :src=\"captchaImg\"\n              @click=\"getCheckImg\"\n            />\n          </div>\n          <!-- <div className=\"error !text-[24px]\">{{ item.error }}</div> -->\n        </div>\n      </div>\n      <div\n        class=\"text-[#ccc] text-[28px] mt-[-15px] text-right mr-[3px] relative z-[100] bg-[#fff]\"\n      >\n        <span\n          class=\"px-[20px]\"\n          @touchstart=\"gopath\"\n        >\n          忘记密码\n        </span>\n      </div>\n    </div>\n  </div>\n\n  <!-- 广告位 -->\n  <AdBanner slider />\n\n  <footer-view\n    btn-name=\"登录\"\n    @click=\"onLogin\"\n  ></footer-view>\n</template>\n\n<style lang=\"scss\" scoped>\n@import '@/assets/styles/sprite-home.scss';\n.login-container {\n  width: 100%;\n  flex: 1;\n  margin-top: 31px;\n  .content-view {\n    width: 100%;\n    padding: 0 41px;\n    .input-content-view {\n      width: 100%;\n      height: 124px;\n      position: relative;\n      .error {\n        color: red;\n        font-size: 12px;\n        position: absolute;\n        bottom: 2px;\n        right: 20px;\n        animation: error 0.3s;\n        z-index: 1;\n        @keyframes error {\n          0% {\n            opacity: 0;\n            bottom: 20px;\n          }\n          100% {\n            opacity: 1;\n            bottom: 0;\n          }\n        }\n      }\n    }\n    .input-view {\n      width: 100%;\n      height: 79px;\n      background-color: #ebf1f6;\n      padding: 0 25px;\n      border-radius: 7px;\n      position: relative;\n      z-index: 2;\n      input {\n        padding: 0 10px;\n        border: none;\n        flex: 1;\n        height: 100%;\n        background-color: transparent;\n        font-size: 18px;\n      }\n    }\n  }\n}\n</style>\n<style>\n.van-toast {\n  width: 160px;\n  height: 160px;\n}\n</style>\n",
+      "start": 1714699769408,
+      "end": 1714699769461,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769461,
+      "end": 1714699769461,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769461,
+      "end": 1714699769461,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769461,
+      "end": 1714699769461,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769461,
+      "end": 1714699769461,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue?vue&type=style&index=0&scoped=52a59ab5&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue?vue&type=style&index=1&lang.css\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-52a59ab5\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue\"]]);\n",
+      "start": 1714699769461,
+      "end": 1714699769587,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769587,
+      "end": 1714699769587,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue?vue&type=style&index=0&scoped=52a59ab5&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue?vue&type=style&index=1&lang.css\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-52a59ab5\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue\"]]);\n",
+      "start": 1714699769587,
+      "end": 1714699769588,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue?vue&type=style&index=0&scoped=52a59ab5&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue?vue&type=style&index=1&lang.css\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-52a59ab5\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue\"]]);\n",
+      "start": 1714699769588,
+      "end": 1714699770422,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue?vue&type=style&index=0&scoped=52a59ab5&lang.scss\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue?vue&type=style&index=1&lang.css\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-52a59ab5\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,gEAAgE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770422,
+      "end": 1714699770423,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue?vue&type=style&index=0&scoped=52a59ab5&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue?vue&type=style&index=1&lang.css\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-52a59ab5\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue\"]]);\n",
+      "start": 1714699770423,
+      "end": 1714699770423,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue?vue&type=style&index=0&scoped=52a59ab5&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue?vue&type=style&index=1&lang.css\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-52a59ab5\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/Login.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770423,
+      "end": 1714699770423,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770423,
+      "end": 1714699770423,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770423,
+      "end": 1714699770423,
+      "order": "normal"
+    }
+  ]
+}

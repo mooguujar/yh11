@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/scanQR.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <nav-bar\n    title=\"扫码\"\n    class=\"z-[1002]\"\n  >\n    <template #right>\n      <input\n        type=\"file\"\n        id=\"qr-input-file\"\n        placeholder=\"\"\n        accept=\"image/*\"\n      />\n\n      <!-- <van-uploader\n        id=\"qr-input-file\"\n        v-model=\"fileList\"\n        :after-read=\"afterRead\"\n      /> -->\n      <div class=\"flex_s h-[100%]\">\n        <span class=\"text-[#fff] text-[30px] mt-[12px]\">相册</span>\n      </div>\n    </template>\n  </nav-bar>\n  <div class=\"container\">\n    <div id=\"reader\"></div>\n    <div\n      class=\"uploaderWrap\"\n      v-if=\"UncameraId\"\n    >\n      <van-uploader @click=\"clickUploader\" />\n      <p class=\"textUP text-[40px] text-[var(--van-button-primary-background)] mt-[20px]\">\n        上传识别官方二维码\n      </p>\n      <p class=\"textUP text-[20px] text-[var(--van-button-primary-background)] mt-[10px]\">\n        请将二维码完整放入框内\n      </p>\n      <input\n        type=\"file\"\n        id=\"qr-input-file1\"\n        placeholder=\"\"\n        accept=\"image/*\"\n      />\n    </div>\n  </div>\n  <!-- <button @click=\"getCameras\">扫码</button> -->\n  <!-- <span>{{ result }}</span> -->\n</template>\n\n<script setup lang=\"ts\">\nimport { onMounted, ref, onUnmounted } from 'vue'\nimport { Html5Qrcode } from 'html5-qrcode'\nimport { showToast } from 'vant'\nimport { useRouter } from 'vue-router'\n\nconst cameraId = ref('')\nconst UncameraId = ref(true)\nconst devicesInfo = ref<any>('')\nconst html5QrCode = ref()\n// const html5QrCodeFile = ref()\nconst result = ref('')\nconst router = useRouter()\n\nonMounted(() => {\n  getCameras()\n  getCodeFile()\n})\n\nonUnmounted(() => {\n  stop()\n})\nconst fileList = ref<any[]>([])\n\nconst clickUploader = (e: any) => {\n  // console.log('111')\n}\n\nconst getCodeFile = () => {\n  const html5QrCodeFile = new Html5Qrcode('reader')\n  // File based scanning\n  const fileinput: any = document.getElementById('qr-input-file')\n  const fileinput1: any = document.getElementById('qr-input-file1')\n  fileinput.addEventListener('change', (e: { target: { files: string | any[] } }) => {\n    CodeFileHandle(e, html5QrCodeFile)\n  })\n  fileinput1.addEventListener('change', (e: { target: { files: string | any[] } }) => {\n    CodeFileHandle(e, html5QrCodeFile)\n  })\n}\nconst CodeFileHandle = (e: any, html5QrCodeFile: any) => {\n  if (e.target.files.length == 0) {\n    return\n  }\n  const imageFile = e.target.files[0]\n  // console.log('imageFile', imageFile)\n  // 处理图片\n  html5QrCodeFile\n    .scanFile(imageFile, true)\n    .then((decodedText: string) => {\n      // 成功\n      console.log(decodedText)\n      if (decodedText.includes('gdpay://')) {\n        const path = decodedText.replace('gdpay://', '')\n        // console.log('path', path)\n        router.push(path)\n      } else {\n        showToast('请上传可识别官方二维码 ')\n      }\n    })\n    .catch((err: any) => {\n      // 错误\n      showToast('请上传可识别官方二维码 ')\n      console.log(`错误: ${err}`)\n    })\n}\nconst getCameras = () => {\n  Html5Qrcode.getCameras()\n    .then((devices: string | any[]) => {\n      UncameraId.value = false\n      console.log('摄像头信息', devices, devices.length)\n      if (devices && devices.length) {\n        // 如果有2个摄像头，1为前置的\n        if (devices.length > 1) {\n          cameraId.value = devices[devices.length - 1].id\n        } else {\n          cameraId.value = devices[0].id\n        }\n        devicesInfo.value = devices\n        // start开始扫描\n        start()\n      }\n    })\n    .catch((err: any) => {\n      UncameraId.value = true\n      // handle err\n      console.log('获取设备信息失败', err) // 获取设备信息失败\n      showToast('暂无获取到相机，请查看是否允许应用相机权限')\n    })\n}\nconst start = () => {\n  html5QrCode.value = new Html5Qrcode('reader')\n  console.log('html5QrCode', html5QrCode.value)\n\n  html5QrCode.value\n    .start(\n      cameraId.value, // 摄像头\n      {\n        fps: 5, // 设置每秒多少帧\n        aspectRatio: 1.777778,\n        qrbox: { width: 250, height: 250 } // 设置取景范围\n        // scannable, rest shaded.\n      },\n      (decodedText: string, decodedResult: any) => {\n        console.log('扫描的结果', decodedText, decodedResult)\n        // showToast('扫描的结果===' + decodedText + decodedResult)\n        result.value = decodedText\n        if (decodedText.includes('gdpay://')) {\n          const path = decodedText.replace('gdpay://', '')\n          console.log('path', path)\n          router.push(path)\n          // stop()\n        } else {\n          showToast('请扫码可识别官方二维码 ')\n        }\n      },\n      (errorMessage: any) => {\n        // parse error, ideally ignore it. For example:\n        // console.log(`QR Code no longer in front of camera.`);\n        // showToast('暂无扫描结果')\n        console.log('暂无扫描结果')\n      }\n    )\n    .catch((err: any) => {\n      // Start failed, handle it. For example,\n      console.log(`无法扫描: ${err}`)\n      showToast('无法扫描')\n    })\n    .then((e: any) => {\n      console.log('开始扫瞄', e)\n    })\n}\nconst stop = () => {\n  html5QrCode.value &&\n    html5QrCode.value\n      .stop()\n      .then((ignore: any) => {\n        // QR Code scanning is stopped.\n        console.log('扫描停止', ignore)\n        // showToast('QR Code scanning stopped.')\n      })\n      .catch((err: any) => {\n        // Stop failed, handle it.\n        console.log('无法停止扫描', err)\n        // showToast('Unable to stop scanning.')\n      })\n}\n</script>\n\n<style lang=\"scss\" scoped>\n.container {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  background: #ebf1f6;\n}\n#reader {\n  position: absolute;\n  top: 50%;\n  left: 0;\n  transform: translateY(-50%);\n}\n#qr-input-file {\n  width: 100px;\n  height: 50px;\n  margin: 0;\n  font-size: 0;\n  position: relative;\n  right: -80px;\n  top: 0;\n  opacity: 0;\n}\n#qr-input-file::file-selector-button {\n  background-color: rgba(#000000, 0);\n  border: 1px solid rgba(#000000, 0);\n  border-radius: 3px;\n  cursor: pointer;\n  color: #fff;\n}\n\n#reader {\n  width: 100%;\n}\n.uploaderWrap {\n  text-align: center;\n  position: relative;\n  top: 45%;\n  transform: translateY(-50%);\n  position: relative;\n  #qr-input-file1 {\n    width: 350px;\n    height: 350px;\n    margin: 0;\n    font-size: 0;\n    position: absolute;\n    left: 50%;\n    transform: translateX(-50%);\n    top: 0;\n    opacity: 1;\n    z-index: 100;\n  }\n  #qr-input-file1::file-selector-button {\n    background-color: rgba(#000000, 0);\n    border: 1px solid rgba(#000000, 0);\n    border-radius: 3px;\n    cursor: pointer;\n    color: #fff;\n  }\n}\n:deep(.van-uploader) {\n  margin: 0 auto;\n  width: 350px;\n  height: 350px;\n  display: block;\n\n  .van-uploader__upload {\n    border: #0000006e solid 1px;\n    width: 350px;\n    height: 350px;\n    margin: 0;\n    padding: 2px;\n    .van-uploader__upload-icon {\n      font-size: 100px;\n    }\n  }\n}\n</style>\n",
+      "start": 1714699769098,
+      "end": 1714699769218,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769218,
+      "end": 1714699769218,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769218,
+      "end": 1714699769218,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769218,
+      "end": 1714699769218,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769218,
+      "end": 1714699769218,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/scanQR.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/scanQR.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/scanQR.vue?vue&type=style&index=0&scoped=8f8d2ed1&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-8f8d2ed1\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/scanQR.vue\"]]);\n",
+      "start": 1714699769218,
+      "end": 1714699769529,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769529,
+      "end": 1714699769529,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/scanQR.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/scanQR.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/scanQR.vue?vue&type=style&index=0&scoped=8f8d2ed1&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-8f8d2ed1\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/scanQR.vue\"]]);\n",
+      "start": 1714699769529,
+      "end": 1714699769529,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/scanQR.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/scanQR.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/scanQR.vue?vue&type=style&index=0&scoped=8f8d2ed1&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-8f8d2ed1\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/scanQR.vue\"]]);\n",
+      "start": 1714699769529,
+      "end": 1714699769894,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/scanQR.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/scanQR.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/scanQR.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/scanQR.vue?vue&type=style&index=0&scoped=8f8d2ed1&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-8f8d2ed1\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/scanQR.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,kEAAkE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769894,
+      "end": 1714699769894,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769895,
+      "end": 1714699769895,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769895,
+      "end": 1714699769895,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769895,
+      "end": 1714699769895,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769895,
+      "end": 1714699769895,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769895,
+      "end": 1714699769895,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769895,
+      "end": 1714699769895,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769895,
+      "end": 1714699769895,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769897,
+      "end": 1714699769897,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/scanQR.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/scanQR.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/scanQR.vue?vue&type=style&index=0&scoped=8f8d2ed1&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-8f8d2ed1\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/scanQR.vue\"]]);\n",
+      "start": 1714699769898,
+      "end": 1714699769898,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/scanQR.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/scanQR.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/scanQR.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/scanQR.vue?vue&type=style&index=0&scoped=8f8d2ed1&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-8f8d2ed1\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Other/scanQR.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769898,
+      "end": 1714699769898,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769898,
+      "end": 1714699769898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769898,
+      "end": 1714699769898,
+      "order": "normal"
+    }
+  ]
+}

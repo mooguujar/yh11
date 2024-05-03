@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Point/index.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\nimport { useAppBar } from '@/components/AppBar/useAppBar'\nimport CheckIn from '@/components/Point/CheckIn.vue'\nimport LuckyDraw from '@/components/Point/LuckyDraw.vue'\nimport TodayActivity from '@/components/Point/TodayActivity.vue'\nimport TotalTask from '@/components/Point/TotalTask.vue'\nimport { useAuthStore, useEntryStore } from '@/store'\nimport { useTaskActivityStore } from '@/store/modules/taskActivity'\nimport { INormal } from '@/store/types/entry'\nimport mitt from '@/utils/mitt'\nimport dayjs from 'dayjs'\nimport { storeToRefs } from 'pinia'\nimport { computed, onMounted, onUnmounted, ref } from 'vue'\nimport { useRouter } from 'vue-router'\n\nconst pay_name = sessionStorage.getItem('pay_name')\n\nuseAppBar({ mode: 'dark' })\nconst authStore = useAuthStore()\nconst router = useRouter()\nconst point = ref(0)\nconst showDialog = ref(false)\n\nconst openDialog = () => {\n  showDialog.value = true\n}\nconst closeDialog = () => {\n  showDialog.value = false\n}\nconst goPointDetails = () => {\n  router.push(authStore.isLogin ? '/details/coin-details/point' : '/auth/login')\n}\n\nconst taskActivityStore = useTaskActivityStore()\nconst { getRewardRecordListApi, getUserActionListApi } = taskActivityStore\n\nconst getRewardRecordList = async () => {\n  try {\n    const res = await getRewardRecordListApi({})\n\n    if (res) {\n      window.log('已完成任务列表', res)\n    }\n  } catch (error) {\n    console.error(error)\n  }\n}\n\nconst { getUserCoin } = authStore\nconst { coins, getUserMoneyByMType } = storeToRefs(authStore)\n\nconst entryStore = useEntryStore()\nconst { config } = storeToRefs(entryStore)\n\n// 积分清零时间\nconst pointClearTime = computed(\n  () =>\n    (config.value?.Web_Set_JFpoint?.Points_Cleared_Times as INormal)?.v ??\n    `${dayjs().year()}-12-30 00:00:10`\n)\n\nconst getUserCoinData = async (isReq: boolean = false) => {\n  try {\n    window.log('用户积分信息', coins.value, isReq)\n\n    if (coins.value.length && !isReq) {\n      return\n    }\n\n    const res = await getUserCoin({})\n    window.log('用户积分信息2', res)\n  } catch (error) {\n    console.error(error)\n  }\n}\n\nonMounted(() => {\n  getUserCoinData()\n  mitt.on('updateCoins', getUserCoinData)\n\n  // getRewardRecordList()\n})\nonUnmounted(() => {\n  mitt.off('updateCoins', getUserCoinData)\n})\n</script>\n\n<template>\n  <div class=\"point-container flex flex-col justify-between\">\n    <nav-bar\n      mode=\"pointMode\"\n      class=\"point-nav-bar\"\n    >\n      <template #title>\n        <div class=\"nav-bar-title\">\n          <div>会员积分</div>\n          <i\n            class=\"help\"\n            @click=\"openDialog\"\n          ></i>\n        </div>\n      </template>\n    </nav-bar>\n\n    <div class=\"flex-1 flex overflow-hidden\">\n      <div class=\"flex-1 overflow-x-hidden overflow-y-auto\">\n        <div class=\"point-info-container flex items-center justify-between\">\n          <div class=\"flex flex-col\">\n            <div class=\"point-show flex items-center\">\n              <div>积分</div>\n              <div class=\"point-value\">\n                {{ authStore.isLogin ? getUserMoneyByMType(20)?.coincash : '未登录' }}\n              </div>\n            </div>\n            <div class=\"point-clear-deadline\">积分清零时间：{{ pointClearTime }}</div>\n          </div>\n          <div\n            class=\"flex items-center\"\n            @click=\"goPointDetails\"\n          >\n            <div class=\"text-point-details\">积分明细</div>\n            <i class=\"arrow-right\"></i>\n          </div>\n        </div>\n        <CheckIn />\n        <!-- <AdBanner /> -->\n        <LuckyDraw @update-coins=\"getUserCoinData\" />\n        <TodayActivity @update-coins=\"getUserCoinData\" />\n        <TotalTask />\n      </div>\n    </div>\n\n    <van-dialog\n      v-model:show=\"showDialog\"\n      theme=\"round-button\"\n      class=\"point-dialog\"\n    >\n      <i\n        class=\"close-white block icon-pos\"\n        @click=\"closeDialog\"\n      ></i>\n      <div class=\"title\">提示</div>\n      <div class=\"content\">\n        <p class=\"text-bold\">消耗积分进行抽奖，有机会赢取大奖！</p>\n        <p>以下途径可以获得积分：</p>\n        <p class=\"get-point-way\">1. 每日签到可获得积分，连续多日签到将获得更多积分；</p>\n        <p class=\"get-point-way\">2. 完成每日任务获得每日活跃度，活跃度足够时可领取积分；</p>\n        <p class=\"get-point-way\">3. 完成累计任务，可直接获得积分；</p>\n        <p class=\"get-point-way\">\n          4. 在游戏平台使用{{ pay_name }}上分/下分，将按金额比例获得积分。\n        </p>\n        <p class=\"text-bold notice-tips\">\n          注意：积分将定期清零，请留意本页面上方的“积分清零时间”。\n        </p>\n      </div>\n    </van-dialog>\n  </div>\n</template>\n\n<style lang=\"scss\" score>\n@import '@/assets/styles/sprite-home.scss';\n\n.point-container {\n  width: 100%;\n  height: 100%;\n  padding: 0 21px;\n  background: url('@/assets/images/common/bg.webp') center / cover no-repeat;\n  overflow: auto;\n  .point-nav-bar {\n    height: unset;\n    flex: 0 0 100px;\n  }\n  .nav-bar-title {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: #fff;\n    .help {\n      margin-left: 10px;\n      transform: scale(0.9);\n    }\n  }\n  .point-title-container {\n    width: 100%;\n    height: 90px;\n    color: #fff;\n    font-size: 32px;\n    margin-bottom: 20px;\n    .help {\n      margin-left: 10px;\n      transform: scale(0.9);\n    }\n  }\n  .point-info-container {\n    width: 100%;\n    height: 65px;\n    color: #fff;\n    .point-show {\n      width: 100%;\n      font-size: 28px;\n      .point-value {\n        margin-left: 13px;\n        font-size: 38px;\n      }\n    }\n    .point-clear-deadline {\n      font-size: 17px;\n    }\n    .text-point-details {\n      margin-right: 16px;\n      font-size: 28px;\n    }\n  }\n  .point-modal {\n    .modal-container {\n      background-color: #ffdbe3;\n      padding-bottom: 35px;\n      .close-btn-node {\n        top: 28px;\n      }\n      .modal-content {\n        align-items: center;\n      }\n      .btn-view {\n        width: 313px;\n        height: 80px;\n        margin-top: 35px;\n        .button {\n          background-color: #ff4565;\n          border-radius: 7px;\n        }\n      }\n    }\n  }\n\n  .point-dialog {\n    width: 100%;\n    max-width: 686px;\n    height: auto;\n    padding: unset;\n    background-color: #f5e8eb;\n    .icon-pos {\n      position: absolute;\n      right: 40px;\n      top: 32px;\n    }\n    .title {\n      width: 100%;\n      height: 83px;\n      line-height: 83px;\n      padding-left: 42px;\n      font-size: 29px;\n      color: #fff;\n      background-color: #fb3a67;\n      text-align: left;\n    }\n    .content {\n      width: 100%;\n      padding: 40px 32px 58px 32px;\n      font-size: 26px;\n      color: #13161b;\n      text-align: justify;\n      .text-bold {\n        font-size: 28px;\n        font-weight: bold;\n      }\n      .get-point-way {\n        margin-top: 30px;\n      }\n      .notice-tips {\n        margin-top: 50px;\n      }\n      img {\n        width: 100%;\n        margin-top: 20px;\n      }\n    }\n\n    .van-dialog__footer {\n      padding: 35px 0;\n      justify-content: center;\n      background-color: #ffdbe3;\n    }\n    .van-dialog__confirm {\n      flex: 0 0 313px;\n      height: 80px;\n      background: #ff4565;\n      font-size: 31px;\n      border-radius: 7px;\n    }\n  }\n\n  .app-ad-banner-container {\n    margin-top: 30px;\n    margin-bottom: 0;\n    padding: 0;\n  }\n}\n</style>\n",
+      "start": 1714699769098,
+      "end": 1714699769232,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769232,
+      "end": 1714699769232,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769232,
+      "end": 1714699769232,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769232,
+      "end": 1714699769232,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769232,
+      "end": 1714699769232,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Point/index.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Point/index.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Point/index.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Point/index.vue\"]]);\n",
+      "start": 1714699769232,
+      "end": 1714699769524,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769524,
+      "end": 1714699769524,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Point/index.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Point/index.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Point/index.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Point/index.vue\"]]);\n",
+      "start": 1714699769524,
+      "end": 1714699769524,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Point/index.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Point/index.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Point/index.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Point/index.vue\"]]);\n",
+      "start": 1714699769526,
+      "end": 1714699769608,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Point/index.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Point/index.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Point/index.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Point/index.vue?vue&type=style&index=0&score=true&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Point/index.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,UAAU,iEAAiE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769608,
+      "end": 1714699769608,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769608,
+      "end": 1714699769608,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769608,
+      "end": 1714699769608,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769608,
+      "end": 1714699769608,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769608,
+      "end": 1714699769608,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769608,
+      "end": 1714699769608,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769608,
+      "end": 1714699769608,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769608,
+      "end": 1714699769608,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769608,
+      "end": 1714699769609,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Point/index.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Point/index.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Point/index.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Point/index.vue\"]]);\n",
+      "start": 1714699769609,
+      "end": 1714699769609,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Point/index.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Point/index.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Point/index.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Point/index.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Point/index.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769609,
+      "end": 1714699769609,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769609,
+      "end": 1714699769609,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769609,
+      "end": 1714699769609,
+      "order": "normal"
+    }
+  ]
+}

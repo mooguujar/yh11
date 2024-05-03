@@ -265,12 +265,12 @@ active.value = query.active ? +query.active : 0
 watch(
   () => router.currentRoute.value,
   async route => {
-    await appLogApi({
-      platform: 'H5',
-      filepath: 'src/pages/Other/onlineCharge.vue',
-      runningFunction: 'watch----() => router.currentRoute.value',
-      url: window.location.href
-    })
+    // await appLogApi({
+    //   platform: 'H5',
+    //   filepath: 'src/pages/Other/onlineCharge.vue',
+    //   runningFunction: 'watch----() => router.currentRoute.value',
+    //   url: window.location.href
+    // })
     const { query, path, fullPath } = route
     active.value = query.active ? +query.active : 0
 
@@ -283,12 +283,12 @@ watch(
 )
 
 onMounted(async () => {
-  await appLogApi({
-    platform: 'H5',
-    filepath: 'src/pages/Other/onlineCharge.vue',
-    runningFunction: 'onMounted',
-    url: window.location.href
-  })
+  // await appLogApi({
+  //   platform: 'H5',
+  //   filepath: 'src/pages/Other/onlineCharge.vue',
+  //   runningFunction: 'onMounted',
+  //   url: window.location.href
+  // })
   if (wideMode) {
     document.body.classList.add('wideMode')
   }

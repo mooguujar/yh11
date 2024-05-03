@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/GlobalDialog.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <div class=\"global-dialog-container\">\n    <van-toast\n      v-model:show=\"toast.show\"\n      className=\"toast-global-info order_toast\"\n    >\n      <template #message>\n        <div class=\"title\">{{ toast.data.title }}</div>\n        <div class=\"content\">{{ toast.data.content }}</div>\n      </template>\n    </van-toast>\n\n    <van-dialog\n      v-model:show=\"dialog.show\"\n      theme=\"round-button\"\n      className=\"dialog-global-info\"\n      @confirm=\"onClose\"\n    >\n      <i\n        class=\"icon-close block close-dark\"\n        @click=\"onClose\"\n      ></i>\n      <div>\n        <div class=\"title\">{{ dialog.data.title }}</div>\n        <div class=\"content\">{{ dialog.data.content }}</div>\n      </div>\n\n      <template #footer>\n        <div\n          class=\"btn-confirm flex items-center justify-center\"\n          @click=\"dialog.data.confirmAction\"\n        >\n          {{ dialog.data.confirmButtonText }}\n        </div>\n      </template>\n    </van-dialog>\n  </div>\n</template>\n\n<script setup lang=\"ts\">\nimport { useAuthStore } from '@/store/modules/auth'\nimport { IGlobalNotification } from '@/store/types/global'\nimport mitt from '@/utils/mitt'\nimport { mergeHrefParams } from '@/utils/tools'\nimport { storeToRefs } from 'pinia'\nimport { onMounted, onUnmounted, reactive, watch } from 'vue'\nimport { useRouter } from 'vue-router'\n\nconst search = new URLSearchParams(mergeHrefParams())\nconst hs = search.get('hs') || ''\nconst wideMode = hs === 'h'\nconst targetRoute = wideMode ? 'wideOrderCreate' : 'orderCreate'\n\nconst router = useRouter()\nconst authStore = useAuthStore()\nconst { processnum, userInfo } = storeToRefs(authStore)\nconst toast = reactive({\n  show: false,\n  data: {\n    title: '通知',\n    content: '你的订单B169336014711189179已经放行'\n  }\n})\nconst dialog = reactive({\n  show: false,\n  data: {\n    title: '订单编号B15134102',\n    content: '买方发来了交易提醒，请尽快操作',\n    confirmButtonText: '去处理',\n    confirmAction: () => {}\n  }\n})\n\nconst onClose = () => {\n  dialog.show = false\n}\n\nwatch(\n  () => router.currentRoute.value,\n  route => {\n    // 需弹窗提醒待处理订单的路由页面列表\n    const processOrderDialogShowRoutes = ['SellCoin', 'Point', 'Mine']\n    if (processOrderDialogShowRoutes.includes(route.name as string)) {\n      // 未完成交易订单弹窗提醒\n      if (processnum.value?.total) {\n        setTimeout(() => {\n          mitt.emit('global-notification', { type: 'ProcessOrder', value: processnum.value })\n        })\n      }\n    }\n  },\n  { immediate: true }\n)\n\nonMounted(() => {\n  mitt.on('push_coin_buy_order_status', async (data: any) => {\n    console.log('推送买币订单状态 ', data)\n    if (data.data.status && userInfo.value.uuid) {\n      await authStore.getUserInfo()\n    }\n\n    if (userInfo.value.uuid != data.send_uuid) {\n      toast.data.content = data.data.msg\n      toast.show = true\n    }\n\n    mitt.emit('update_buy_f', data)\n  })\n\n  mitt.on('push_coin_sell_order_status', async (data: any) => {\n    console.log('推送卖币订单状态 ', data)\n    if (data.data.status && userInfo.value.uuid) {\n      await authStore.getUserInfo()\n    }\n\n    if (userInfo.value.uuid != data.send_uuid) {\n      toast.data.content = data.data.msg\n      toast.show = true\n    }\n\n    mitt.emit('update_sell_f', data)\n  })\n\n  mitt.on('push_reminders_buy', (data: any) => {\n    const hash = window.location.hash\n    console.log('买方发送给卖方催单 data', data)\n    dialog.data = {\n      title: '订单编号' + data.data.order_id,\n      content: '买方发送交易提醒，请尽快操作',\n      confirmButtonText: '去处理',\n      confirmAction: () => {\n        !hash.includes('orderCreate') &&\n          router.push(`/${targetRoute}?order_id=` + data.data.order_id)\n        onClose()\n      }\n    }\n    dialog.show = true\n  })\n\n  mitt.on('push_reminders_sell', (data: any) => {\n    const hash = window.location.hash\n    console.log('卖方发送给买方催单 data', data)\n\n    dialog.data = {\n      title: '订单编号' + data.data.order_id,\n      content: '卖方发送交易提醒，请尽快操作',\n      confirmButtonText: '去处理',\n      confirmAction: () => {\n        !hash.includes('orderCreate') &&\n          router.push(`/${targetRoute}?order_id=` + data.data.order_id)\n        onClose()\n      }\n    }\n    dialog.show = true\n  })\n\n  mitt.on('push_message', (data: any) => {\n    console.log('站内消息 data', data)\n\n    dialog.data = {\n      title: '',\n      content: '站内消息更新了',\n      confirmButtonText: '去查看',\n      confirmAction: () => {\n        router.push('/message')\n        onClose()\n      }\n    }\n    dialog.show = true\n  })\n\n  mitt.on('push_coinsellcomment', (data: any) => {\n    console.log('交易申诉更新 data', data)\n    mitt.emit('update_appeal_f', data)\n    dialog.data = {\n      title: '订单编号' + data.data.coin_buy_order_id,\n      content: '交易申诉更新，请尽快操作',\n      confirmButtonText: '去处理',\n      confirmAction: () => {\n        router.push(`/${targetRoute}?order_id=` + data.data.coin_buy_order_id)\n        onClose()\n      }\n    }\n    dialog.show = true\n  })\n\n  // 交易中的订单提醒， 首页，积分，我的页面需弹窗提醒\n  mitt.on('global-notification', (data: IGlobalNotification) => {\n    if (data.type === 'ProcessOrder') {\n      dialog.data = {\n        title: '',\n        content: '您有待处理的交易订单，请尽快处理',\n        confirmButtonText: '去处理',\n        confirmAction: () => {\n          const orderId = data.value.buy\n            ? data.value.buy_orders[0].order_id\n            : data.value.sell_orders[0].order_id\n\n          router.push(`/${targetRoute}?order_id=${orderId}${!data.value.buy ? '&sell=true' : ''}`)\n          onClose()\n        }\n      }\n      dialog.show = true\n    }\n  })\n\n  // 弹窗提醒tips\n  mitt.on('dialog-tips', data => {\n    dialog.data = {\n      ...data,\n      confirmAction: () => {\n        data.confirmAction()\n        onClose()\n      }\n    }\n    dialog.show = true\n  })\n})\nonUnmounted(() => {\n  //\n})\n</script>\n\n<style lang=\"scss\" scoped>\n@import '@/assets/styles/sprite-home.scss';\n\n.global-dialog-container {\n  :deep(.toast-global-info) {\n    width: 85%;\n    padding: 10px 18px 28px 18px;\n    background-color: #eef3f7;\n    color: #3c4246;\n    border-radius: 14px;\n    .title {\n      margin-bottom: 10px;\n      font-size: 29px;\n      text-align: center;\n    }\n    .content {\n      font-size: 25px;\n    }\n  }\n  :deep(.dialog-global-info) {\n    width: 708px;\n    height: auto;\n    padding: 40px;\n    .van-dialog__header {\n      padding: 0;\n      font-size: 29px;\n      color: #13161b;\n    }\n    .van-dialog__content {\n      margin: 33px 0 35px 0;\n      font-size: 25px;\n      color: #787f8c;\n      text-align: center;\n    }\n    .title {\n      margin-bottom: 20px;\n    }\n    .content {\n      color: #13161b;\n    }\n    .van-dialog__footer {\n      padding: 0;\n    }\n    .van-dialog__confirm,\n    .btn-confirm {\n      width: 100%;\n      height: 80px;\n      font-size: 31px;\n      background: var(--van-button-primary-background);\n      color: #fff;\n      border: 0;\n      border-radius: 8px;\n    }\n    .icon-close {\n      position: absolute;\n      right: 40px;\n      top: 24px;\n    }\n  }\n}\n</style>\n",
+      "start": 1714699768091,
+      "end": 1714699768194,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768194,
+      "end": 1714699768194,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768194,
+      "end": 1714699768194,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768194,
+      "end": 1714699768194,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768194,
+      "end": 1714699768194,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/GlobalDialog.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/GlobalDialog.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/GlobalDialog.vue?vue&type=style&index=0&scoped=2a78d0e4&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-2a78d0e4\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/GlobalDialog.vue\"]]);\n",
+      "start": 1714699768194,
+      "end": 1714699769058,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769058,
+      "end": 1714699769058,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/GlobalDialog.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/GlobalDialog.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/GlobalDialog.vue?vue&type=style&index=0&scoped=2a78d0e4&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-2a78d0e4\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/GlobalDialog.vue\"]]);\n",
+      "start": 1714699769058,
+      "end": 1714699769058,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/GlobalDialog.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/GlobalDialog.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/GlobalDialog.vue?vue&type=style&index=0&scoped=2a78d0e4&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-2a78d0e4\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/GlobalDialog.vue\"]]);\n",
+      "start": 1714699769059,
+      "end": 1714699769405,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/GlobalDialog.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/GlobalDialog.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/GlobalDialog.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/GlobalDialog.vue?vue&type=style&index=0&scoped=2a78d0e4&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-2a78d0e4\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/GlobalDialog.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,8EAA8E,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769405,
+      "end": 1714699769405,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769405,
+      "end": 1714699769405,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769405,
+      "end": 1714699769405,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769405,
+      "end": 1714699769405,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769405,
+      "end": 1714699769405,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769405,
+      "end": 1714699769405,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769405,
+      "end": 1714699769405,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769405,
+      "end": 1714699769405,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769405,
+      "end": 1714699769405,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/GlobalDialog.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/GlobalDialog.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/GlobalDialog.vue?vue&type=style&index=0&scoped=2a78d0e4&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-2a78d0e4\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/GlobalDialog.vue\"]]);\n",
+      "start": 1714699769405,
+      "end": 1714699769407,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/GlobalDialog.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/GlobalDialog.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/GlobalDialog.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/GlobalDialog.vue?vue&type=style&index=0&scoped=2a78d0e4&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-2a78d0e4\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/GlobalDialog.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769407,
+      "end": 1714699769407,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769407,
+      "end": 1714699769408,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769408,
+      "end": 1714699769408,
+      "order": "normal"
+    }
+  ]
+}

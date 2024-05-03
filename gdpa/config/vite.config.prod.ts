@@ -9,6 +9,7 @@ const lifecycle = process.env.npm_lifecycle_event
 const env = loadEnv(process.env.NODE_ENV, process.cwd())
 
 console.log('最终执行npm命令', lifecycle)
+console.log('命令参数', process.argv)
 // console.log('环境变量', process.env)
 console.log('当前NODE_ENV', process.env.NODE_ENV)
 console.log('生产环境信息', env)
@@ -19,7 +20,7 @@ export default mergeConfig(
     // 插件的具体配置请查看对应的文件
     plugins: [
       configCompressPlugin('gzip'),
-      configImageminPlugin(),
+      configImageminPlugin(lifecycle !== 'build:pre-release:dev'),
       configVisualizerPlugin(lifecycle === 'report'),
       Inspect({
         build: env.VITE_APP_ENV === 'pre-release',

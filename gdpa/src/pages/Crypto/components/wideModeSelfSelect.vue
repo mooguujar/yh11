@@ -109,7 +109,7 @@
                     {{
                       unFixedAmount != 1
                         ? oderParm.money
-                          ? oderParm.money
+                          ? (+oderParm.money).toTruncFixed(2)
                           : (+item.remaining_num).toTruncFixed(2)
                         : (+item.remaining_num).toTruncFixed(2)
                     }}

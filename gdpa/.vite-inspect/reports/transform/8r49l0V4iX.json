@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/noop.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "/**\r\n * 一个空的方法，始终返回 undefined，可用于初始化值\r\n */\r\nfunction noop () {}\r\n\r\nmodule.exports = noop\r\n",
+      "start": 1714699767715,
+      "end": 1714699767723,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767723,
+      "end": 1714699767723,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767723,
+      "end": 1714699767723,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767723,
+      "end": 1714699767723,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767723,
+      "end": 1714699767723,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767723,
+      "end": 1714699767723,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767723,
+      "end": 1714699767723,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "/**\r\n * 一个空的方法，始终返回 undefined，可用于初始化值\r\n */\r\nfunction noop () {}\r\n\r\nmodule.exports = noop\r\n",
+      "start": 1714699767723,
+      "end": 1714699767723,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767723,
+      "end": 1714699767723,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767723,
+      "end": 1714699767723,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767723,
+      "end": 1714699767723,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767723,
+      "end": 1714699767723,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767724,
+      "end": 1714699767724,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767724,
+      "end": 1714699767724,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "/**\r\n * 一个空的方法，始终返回 undefined，可用于初始化值\r\n */\nimport * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\n\nfunction noop () {}\r\n\r\nvar noop_1 = noop\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(noop_1);\nexport { noop_1 as __moduleExports };",
+      "start": 1714699767724,
+      "end": 1714699767724,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;AAGA,SAAS,IAAI,IAAI,EAAE;AACnB;IACA,MAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767724,
+      "end": 1714699767724,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767724,
+      "end": 1714699767724,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767724,
+      "end": 1714699767724,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767724,
+      "end": 1714699767724,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767724,
+      "end": 1714699767724,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767724,
+      "end": 1714699767724,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767724,
+      "end": 1714699767724,
+      "order": "normal"
+    }
+  ]
+}

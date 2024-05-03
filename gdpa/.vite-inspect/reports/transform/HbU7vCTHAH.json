@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/cardRecord.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <nav-bar\n    class=\"nav-bar\"\n    title=\"记录\"\n    mode=\"cardActivity\"\n  />\n  <div class=\"heng\"></div>\n  <div class=\"activity_cardRecord activity_container\">\n    <van-tabs\n      @change=\"tabChange\"\n      v-model:active=\"active\"\n      shrink\n    >\n      <van-tab\n        v-for=\"item in tabList\"\n        :title=\"item.title\"\n        :name=\"item.code\"\n        :key=\"item.title\"\n      >\n        <van-pull-refresh\n          v-model=\"refreshing\"\n          @refresh=\"onRefresh\"\n        >\n          <van-list\n            v-model:loading=\"loading\"\n            :finished=\"finished\"\n            finished-text=\"没有更多了\"\n            @load=\"getSendrecive_history\"\n          >\n            <div\n              class=\"dataList\"\n              v-for=\"item in dataList\"\n              :key=\"item.title\"\n            >\n              <p class=\"clearfix leading-[76px]\">\n                赠送卡\n                <van-image\n                  class=\"cR_listImg\"\n                  lazy-load\n                  :src=\"requireImg('activity/' + cardPic(item.num_type) + '.png')\"\n                />\n              </p>\n              <p>\n                状态\n                <span\n                  class=\"right\"\n                  :class=\"item.status != 1 ? 'red_f' : ''\"\n                >\n                  {{ item.status == 1 ? '已接收' : '待接收' }}\n                </span>\n              </p>\n              <p>\n                {{ active == 'send' ? '接收人' : '赠送人' }}昵称\n                <span class=\"right\">{{ item.nickname }}</span>\n              </p>\n              <p>\n                {{ active == 'send' ? '接收人' : '赠送人' }}地址\n                <span class=\"right\">{{ item.uuid }}</span>\n              </p>\n              <p>\n                赠送时间\n                <span class=\"right\">{{ item.add_time }}</span>\n              </p>\n              <p>\n                接收时间\n                <span class=\"right\">{{ item.status == 1 ? item.update_time : '-' }}</span>\n              </p>\n            </div>\n          </van-list>\n        </van-pull-refresh>\n      </van-tab>\n    </van-tabs>\n  </div>\n</template>\n<script setup lang=\"ts\">\nimport { sendrecive_history } from '@/apis/taskActivity'\nimport { requireImg } from '@/utils/tools'\nimport { showToast } from 'vant'\nimport { onMounted, ref } from 'vue'\nimport { useRoute } from 'vue-router'\nimport { useAppBar } from '@/components/AppBar/useAppBar'\nuseAppBar({ mode: 'dark' })\nconst route = useRoute()\nconst { query } = route\nconst { tabStatus } = query\n\nconst active = ref((tabStatus as string) || 'send')\n\nconst tabList = [\n  { title: '赠送记录', code: 'send' },\n  { title: '接收记录', code: 'receive' }\n]\n// const sendList = ref([{}])\n// const receiveList = ref([{}])\nconst dataList = ref<any>([])\nconst parm = ref({\n  page: 1,\n  type: 1\n})\nconst getSendrecive_history = () => {\n  if (refreshing.value) {\n    parm.value.page = 1\n    dataList.value = []\n    // console.log('加载', refreshing.value, list.value.length)\n    refreshing.value = false\n  }\n  sendrecive_history(parm.value).then((data: any) => {\n    let count = (data as any).count\n    if (!!!count && count !== 0) return showToast('数据异常!!')\n    if (data.code || data.errmsg) return console.log('数据异常')\n    if (!count) {\n      loading.value = false\n      finished.value = true\n      return\n    }\n    // dataList.value = data.data\n    dataList.value.push(...data.list)\n    loading.value = false\n    parm.value.page++\n    if (dataList.value.length >= count) {\n      finished.value = true\n    }\n  })\n}\nconst loading = ref(false)\nconst finished = ref(false)\nconst refreshing = ref(false)\nconst onRefresh = () => {\n  // 清空列表数据\n  finished.value = false\n  // 重新加载数据\n  // 将 loading 设置为 true，表示处于加载状态\n  loading.value = true\n  // showToast('刷新成功')\n  getSendrecive_history()\n}\nonRefresh()\n\nconst tabChange = (code: string) => {\n  console.log('code', code)\n  if (code == 'send') {\n    parm.value.type = 1\n    // dataList.value = sendList.value\n  } else {\n    parm.value.type = 2\n    // dataList.value = receiveList.value\n  }\n  refreshing.value = true\n  loading.value = true\n  onRefresh()\n}\nconst cardPic = (card: number) => {\n  // console.log('card', card)\n  let pic = ''\n  switch (card) {\n    case 1:\n      pic = 'gong'\n      break\n    case 2:\n      pic = 'xi'\n      break\n    case 3:\n      pic = 'fa'\n      break\n    case 4:\n      pic = 'cai'\n      break\n    case 5:\n      pic = 'gongxifacai'\n      break\n    case 6:\n      pic = 'xxcy'\n      break\n    case 7:\n      pic = 'btn_phb02'\n      break\n    case 0:\n      pic = ''\n      break\n    default:\n      pic = ''\n      break\n  }\n  return pic\n}\nonMounted(() => {})\n</script>\n\n<style lang=\"scss\" scoped>\n.activity_cardRecord {\n  padding: 20px;\n  font-size: 28px;\n  height: calc(100vh - 100px);\n  :deep(.van-tabs__content) {\n    .van-tab__panel {\n      height: calc(100vh - 190px);\n      padding-bottom: 60px;\n    }\n  }\n  .dataList {\n    margin-bottom: 10px;\n    color: #787f8c;\n    background-color: #ffffff;\n    border-radius: 14px;\n    padding: 0 20px;\n    p {\n      border-bottom: 1px #787f8c42 solid;\n      padding: 17px 0;\n      display: block;\n      .cR_listImg {\n        display: block;\n        float: right;\n        width: 53px;\n        height: 76px;\n      }\n    }\n    p:nth-last-child(1) {\n      border: none;\n    }\n  }\n}\n</style>\n",
+      "start": 1714699769442,
+      "end": 1714699769511,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769511,
+      "end": 1714699769511,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769511,
+      "end": 1714699769511,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769511,
+      "end": 1714699769511,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769511,
+      "end": 1714699769511,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/cardRecord.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/cardRecord.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/cardRecord.vue?vue&type=style&index=0&scoped=74146ce6&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-74146ce6\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/cardRecord.vue\"]]);\n",
+      "start": 1714699769511,
+      "end": 1714699769607,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769607,
+      "end": 1714699769607,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/cardRecord.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/cardRecord.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/cardRecord.vue?vue&type=style&index=0&scoped=74146ce6&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-74146ce6\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/cardRecord.vue\"]]);\n",
+      "start": 1714699769607,
+      "end": 1714699769607,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/cardRecord.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/cardRecord.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/cardRecord.vue?vue&type=style&index=0&scoped=74146ce6&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-74146ce6\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/cardRecord.vue\"]]);\n",
+      "start": 1714699769607,
+      "end": 1714699770628,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/cardRecord.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/cardRecord.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/cardRecord.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/cardRecord.vue?vue&type=style&index=0&scoped=74146ce6&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-74146ce6\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/cardRecord.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,kFAAkF,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770628,
+      "end": 1714699770628,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699770628,
+      "end": 1714699770628,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770628,
+      "end": 1714699770628,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770628,
+      "end": 1714699770628,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770628,
+      "end": 1714699770628,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770628,
+      "end": 1714699770628,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770628,
+      "end": 1714699770628,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770628,
+      "end": 1714699770628,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770628,
+      "end": 1714699770628,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/cardRecord.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/cardRecord.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/cardRecord.vue?vue&type=style&index=0&scoped=74146ce6&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-74146ce6\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/cardRecord.vue\"]]);\n",
+      "start": 1714699770628,
+      "end": 1714699770628,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/cardRecord.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/cardRecord.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/cardRecord.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/cardRecord.vue?vue&type=style&index=0&scoped=74146ce6&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-74146ce6\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/Subpages/cardRecord.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770629,
+      "end": 1714699770629,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770629,
+      "end": 1714699770629,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770629,
+      "end": 1714699770629,
+      "order": "normal"
+    }
+  ]
+}

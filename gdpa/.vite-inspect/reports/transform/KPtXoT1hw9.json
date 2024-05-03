@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/regex.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "const numeric = '[0-9]+'\nconst alphanumeric = '[A-Z $%*+\\\\-./:]+'\nlet kanji = '(?:[u3000-u303F]|[u3040-u309F]|[u30A0-u30FF]|' +\n  '[uFF00-uFFEF]|[u4E00-u9FAF]|[u2605-u2606]|[u2190-u2195]|u203B|' +\n  '[u2010u2015u2018u2019u2025u2026u201Cu201Du2225u2260]|' +\n  '[u0391-u0451]|[u00A7u00A8u00B1u00B4u00D7u00F7])+'\nkanji = kanji.replace(/u/g, '\\\\u')\n\nconst byte = '(?:(?![A-Z0-9 $%*+\\\\-./:]|' + kanji + ')(?:.|[\\r\\n]))+'\n\nexports.KANJI = new RegExp(kanji, 'g')\nexports.BYTE_KANJI = new RegExp('[^A-Z0-9 $%*+\\\\-./:]+', 'g')\nexports.BYTE = new RegExp(byte, 'g')\nexports.NUMERIC = new RegExp(numeric, 'g')\nexports.ALPHANUMERIC = new RegExp(alphanumeric, 'g')\n\nconst TEST_KANJI = new RegExp('^' + kanji + '$')\nconst TEST_NUMERIC = new RegExp('^' + numeric + '$')\nconst TEST_ALPHANUMERIC = new RegExp('^[A-Z0-9 $%*+\\\\-./:]+$')\n\nexports.testKanji = function testKanji (str) {\n  return TEST_KANJI.test(str)\n}\n\nexports.testNumeric = function testNumeric (str) {\n  return TEST_NUMERIC.test(str)\n}\n\nexports.testAlphanumeric = function testAlphanumeric (str) {\n  return TEST_ALPHANUMERIC.test(str)\n}\n",
+      "start": 1714699771062,
+      "end": 1714699771087,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771087,
+      "end": 1714699771087,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771087,
+      "end": 1714699771087,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771087,
+      "end": 1714699771087,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771087,
+      "end": 1714699771087,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771087,
+      "end": 1714699771087,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771087,
+      "end": 1714699771087,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "const numeric = '[0-9]+'\nconst alphanumeric = '[A-Z $%*+\\\\-./:]+'\nlet kanji = '(?:[u3000-u303F]|[u3040-u309F]|[u30A0-u30FF]|' +\n  '[uFF00-uFFEF]|[u4E00-u9FAF]|[u2605-u2606]|[u2190-u2195]|u203B|' +\n  '[u2010u2015u2018u2019u2025u2026u201Cu201Du2225u2260]|' +\n  '[u0391-u0451]|[u00A7u00A8u00B1u00B4u00D7u00F7])+'\nkanji = kanji.replace(/u/g, '\\\\u')\n\nconst byte = '(?:(?![A-Z0-9 $%*+\\\\-./:]|' + kanji + ')(?:.|[\\r\\n]))+'\n\nexports.KANJI = new RegExp(kanji, 'g')\nexports.BYTE_KANJI = new RegExp('[^A-Z0-9 $%*+\\\\-./:]+', 'g')\nexports.BYTE = new RegExp(byte, 'g')\nexports.NUMERIC = new RegExp(numeric, 'g')\nexports.ALPHANUMERIC = new RegExp(alphanumeric, 'g')\n\nconst TEST_KANJI = new RegExp('^' + kanji + '$')\nconst TEST_NUMERIC = new RegExp('^' + numeric + '$')\nconst TEST_ALPHANUMERIC = new RegExp('^[A-Z0-9 $%*+\\\\-./:]+$')\n\nexports.testKanji = function testKanji (str) {\n  return TEST_KANJI.test(str)\n}\n\nexports.testNumeric = function testNumeric (str) {\n  return TEST_NUMERIC.test(str)\n}\n\nexports.testAlphanumeric = function testAlphanumeric (str) {\n  return TEST_ALPHANUMERIC.test(str)\n}\n",
+      "start": 1714699771087,
+      "end": 1714699771087,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699771087,
+      "end": 1714699771087,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771087,
+      "end": 1714699771087,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771087,
+      "end": 1714699771087,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771087,
+      "end": 1714699771087,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771087,
+      "end": 1714699771087,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771087,
+      "end": 1714699771087,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as regex } from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/regex.js?commonjs-exports\";\n\nconst numeric = '[0-9]+'\nconst alphanumeric = '[A-Z $%*+\\\\-./:]+'\nlet kanji = '(?:[u3000-u303F]|[u3040-u309F]|[u30A0-u30FF]|' +\n  '[uFF00-uFFEF]|[u4E00-u9FAF]|[u2605-u2606]|[u2190-u2195]|u203B|' +\n  '[u2010u2015u2018u2019u2025u2026u201Cu201Du2225u2260]|' +\n  '[u0391-u0451]|[u00A7u00A8u00B1u00B4u00D7u00F7])+'\nkanji = kanji.replace(/u/g, '\\\\u')\n\nconst byte = '(?:(?![A-Z0-9 $%*+\\\\-./:]|' + kanji + ')(?:.|[\\r\\n]))+'\n\nvar KANJI = regex.KANJI = new RegExp(kanji, 'g')\nvar BYTE_KANJI = regex.BYTE_KANJI = new RegExp('[^A-Z0-9 $%*+\\\\-./:]+', 'g')\nvar BYTE = regex.BYTE = new RegExp(byte, 'g')\nvar NUMERIC = regex.NUMERIC = new RegExp(numeric, 'g')\nvar ALPHANUMERIC = regex.ALPHANUMERIC = new RegExp(alphanumeric, 'g')\n\nconst TEST_KANJI = new RegExp('^' + kanji + '$')\nconst TEST_NUMERIC = new RegExp('^' + numeric + '$')\nconst TEST_ALPHANUMERIC = new RegExp('^[A-Z0-9 $%*+\\\\-./:]+$')\n\nvar testKanji = regex.testKanji = function testKanji (str) {\n  return TEST_KANJI.test(str)\n}\n\nvar testNumeric = regex.testNumeric = function testNumeric (str) {\n  return TEST_NUMERIC.test(str)\n}\n\nvar testAlphanumeric = regex.testAlphanumeric = function testAlphanumeric (str) {\n  return TEST_ALPHANUMERIC.test(str)\n}\n\nexport { regex as __moduleExports, KANJI, BYTE_KANJI, BYTE, NUMERIC, ALPHANUMERIC, testKanji, testNumeric, testAlphanumeric, regex as default };",
+      "start": 1714699771087,
+      "end": 1714699771088,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;AAAA,MAAM,OAAO,GAAG,QAAQ;AACxB,MAAM,YAAY,GAAG,mBAAmB;AACxC,IAAI,KAAK,GAAG,+CAA+C;AAC3D,EAAE,gEAAgE;AAClE,EAAE,uDAAuD;AACzD,EAAE,kDAAkD;AACpD,KAAK,GAAG,KAAK,CAAC,OAAO,CAAC,IAAI,EAAE,KAAK,CAAC;AAClC;AACA,MAAM,IAAI,GAAG,4BAA4B,GAAG,KAAK,GAAG,iBAAiB;AACrE;AACA,uBAAa,GAAG,IAAI,MAAM,CAAC,KAAK,EAAE,GAAG,CAAC;AACtC,iCAAkB,GAAG,IAAI,MAAM,CAAC,uBAAuB,EAAE,GAAG,CAAC;AAC7D,qBAAY,GAAG,IAAI,MAAM,CAAC,IAAI,EAAE,GAAG,CAAC;AACpC,2BAAe,GAAG,IAAI,MAAM,CAAC,OAAO,EAAE,GAAG,CAAC;AAC1C,qCAAoB,GAAG,IAAI,MAAM,CAAC,YAAY,EAAE,GAAG,CAAC;AACpD;AACA,MAAM,UAAU,GAAG,IAAI,MAAM,CAAC,GAAG,GAAG,KAAK,GAAG,GAAG,CAAC;AAChD,MAAM,YAAY,GAAG,IAAI,MAAM,CAAC,GAAG,GAAG,OAAO,GAAG,GAAG,CAAC;AACpD,MAAM,iBAAiB,GAAG,IAAI,MAAM,CAAC,wBAAwB,CAAC;AAC9D;AACA,+BAAiB,GAAG,SAAS,SAAS,EAAE,GAAG,EAAE;AAC7C,EAAE,OAAO,UAAU,CAAC,IAAI,CAAC,GAAG,CAAC;AAC7B,CAAC;AACD;AACA,mCAAmB,GAAG,SAAS,WAAW,EAAE,GAAG,EAAE;AACjD,EAAE,OAAO,YAAY,CAAC,IAAI,CAAC,GAAG,CAAC;AAC/B,CAAC;AACD;AACA,6CAAwB,GAAG,SAAS,gBAAgB,EAAE,GAAG,EAAE;AAC3D,EAAE,OAAO,iBAAiB,CAAC,IAAI,CAAC,GAAG,CAAC;AACpC"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    }
+  ]
+}

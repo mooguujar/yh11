@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/union.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var uniq = require('./uniq')\r\nvar toArray = require('./toArray')\r\n\r\n/**\r\n  * 将多个数的值返回唯一的并集数组\r\n  *\r\n  * @param {...Array} 数组\r\n  * @return {Array}\r\n  */\r\nfunction union () {\r\n  var args = arguments\r\n  var result = []\r\n  var index = 0\r\n  var len = args.length\r\n  for (; index < len; index++) {\r\n    result = result.concat(toArray(args[index]))\r\n  }\r\n  return uniq(result)\r\n}\r\n\r\nmodule.exports = union\r\n",
+      "start": 1714699767526,
+      "end": 1714699767572,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767572,
+      "end": 1714699767572,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767572,
+      "end": 1714699767572,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767572,
+      "end": 1714699767572,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767572,
+      "end": 1714699767572,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767572,
+      "end": 1714699767572,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767572,
+      "end": 1714699767572,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var uniq = require('./uniq')\r\nvar toArray = require('./toArray')\r\n\r\n/**\r\n  * 将多个数的值返回唯一的并集数组\r\n  *\r\n  * @param {...Array} 数组\r\n  * @return {Array}\r\n  */\r\nfunction union () {\r\n  var args = arguments\r\n  var result = []\r\n  var index = 0\r\n  var len = args.length\r\n  for (; index < len; index++) {\r\n    result = result.concat(toArray(args[index]))\r\n  }\r\n  return uniq(result)\r\n}\r\n\r\nmodule.exports = union\r\n",
+      "start": 1714699767572,
+      "end": 1714699767572,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767572,
+      "end": 1714699767572,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767572,
+      "end": 1714699767572,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767572,
+      "end": 1714699767572,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767572,
+      "end": 1714699767572,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767572,
+      "end": 1714699767572,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767572,
+      "end": 1714699767572,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/uniq.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/toArray.js?commonjs-proxy\";\n\nvar uniq = require$$0\r\nvar toArray = require$$1\r\n\r\n/**\r\n  * 将多个数的值返回唯一的并集数组\r\n  *\r\n  * @param {...Array} 数组\r\n  * @return {Array}\r\n  */\r\nfunction union () {\r\n  var args = arguments\r\n  var result = []\r\n  var index = 0\r\n  var len = args.length\r\n  for (; index < len; index++) {\r\n    result = result.concat(toArray(args[index]))\r\n  }\r\n  return uniq(result)\r\n}\r\n\r\nvar union_1 = union\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(union_1);\nexport { union_1 as __moduleExports };",
+      "start": 1714699767572,
+      "end": 1714699768214,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;AAAA,IAAI,IAAI,GAAG,UAAiB;AAC5B,IAAI,OAAO,GAAG,UAAoB;AAClC;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,KAAK,IAAI;AAClB,EAAE,IAAI,IAAI,GAAG,SAAS;AACtB,EAAE,IAAI,MAAM,GAAG,EAAE;AACjB,EAAE,IAAI,KAAK,GAAG,CAAC;AACf,EAAE,IAAI,GAAG,GAAG,IAAI,CAAC,MAAM;AACvB,EAAE,OAAO,KAAK,GAAG,GAAG,EAAE,KAAK,EAAE,EAAE;AAC/B,IAAI,MAAM,GAAG,MAAM,CAAC,MAAM,CAAC,OAAO,CAAC,IAAI,CAAC,KAAK,CAAC,CAAC,CAAC;AAChD,GAAG;AACH,EAAE,OAAO,IAAI,CAAC,MAAM,CAAC;AACrB,CAAC;AACD;IACA,OAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768214,
+      "end": 1714699768214,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768214,
+      "end": 1714699768214,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768214,
+      "end": 1714699768214,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768214,
+      "end": 1714699768214,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768214,
+      "end": 1714699768214,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768214,
+      "end": 1714699768214,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768214,
+      "end": 1714699768214,
+      "order": "normal"
+    }
+  ]
+}

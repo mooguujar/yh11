@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/_setWrapToString.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import getWrapDetails from './_getWrapDetails.js';\nimport insertWrapDetails from './_insertWrapDetails.js';\nimport setToString from './_setToString.js';\nimport updateWrapDetails from './_updateWrapDetails.js';\n\n/**\n * Sets the `toString` method of `wrapper` to mimic the source of `reference`\n * with wrapper details in a comment at the top of the source body.\n *\n * @private\n * @param {Function} wrapper The function to modify.\n * @param {Function} reference The reference function.\n * @param {number} bitmask The bitmask flags. See `createWrap` for more details.\n * @returns {Function} Returns `wrapper`.\n */\nfunction setWrapToString(wrapper, reference, bitmask) {\n  var source = (reference + '');\n  return setToString(wrapper, insertWrapDetails(source, updateWrapDetails(getWrapDetails(source), bitmask)));\n}\n\nexport default setWrapToString;\n",
+      "start": 1714699768789,
+      "end": 1714699768876,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768876,
+      "end": 1714699768876,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768876,
+      "end": 1714699768876,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768876,
+      "end": 1714699768876,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768876,
+      "end": 1714699768876,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768876,
+      "end": 1714699768876,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768876,
+      "end": 1714699768876,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import getWrapDetails from './_getWrapDetails.js';\nimport insertWrapDetails from './_insertWrapDetails.js';\nimport setToString from './_setToString.js';\nimport updateWrapDetails from './_updateWrapDetails.js';\n\n/**\n * Sets the `toString` method of `wrapper` to mimic the source of `reference`\n * with wrapper details in a comment at the top of the source body.\n *\n * @private\n * @param {Function} wrapper The function to modify.\n * @param {Function} reference The reference function.\n * @param {number} bitmask The bitmask flags. See `createWrap` for more details.\n * @returns {Function} Returns `wrapper`.\n */\nfunction setWrapToString(wrapper, reference, bitmask) {\n  var source = (reference + '');\n  return setToString(wrapper, insertWrapDetails(source, updateWrapDetails(getWrapDetails(source), bitmask)));\n}\n\nexport default setWrapToString;\n",
+      "start": 1714699768876,
+      "end": 1714699768876,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768876,
+      "end": 1714699768876,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768876,
+      "end": 1714699768876,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768876,
+      "end": 1714699768876,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768876,
+      "end": 1714699768876,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768876,
+      "end": 1714699768876,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768876,
+      "end": 1714699768876,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768876,
+      "end": 1714699768876,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768876,
+      "end": 1714699768876,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768876,
+      "end": 1714699768876,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768876,
+      "end": 1714699768876,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768876,
+      "end": 1714699768876,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768876,
+      "end": 1714699768876,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768876,
+      "end": 1714699768876,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768876,
+      "end": 1714699768876,
+      "order": "normal"
+    }
+  ]
+}

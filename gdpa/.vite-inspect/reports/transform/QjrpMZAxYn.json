@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/remove.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var helperDeleteProperty = require('./helperDeleteProperty')\r\n\r\nvar isFunction = require('./isFunction')\r\nvar isArray = require('./isArray')\r\nvar each = require('./each')\r\nvar arrayEach = require('./arrayEach')\r\nvar lastEach = require('./lastEach')\r\nvar clear = require('./clear')\r\nvar eqNull = require('./eqNull')\r\n\r\nfunction pluckProperty (name) {\r\n  return function (obj, key) {\r\n    return key === name\r\n  }\r\n}\r\n\r\n/**\r\n  * 移除对象属性\r\n  *\r\n  * @param {Object/Array} obj 对象/数组\r\n  * @param {Function/String} iterate 方法或属性\r\n  * @param {Object} context 上下文\r\n  * @return {Object/Array}\r\n  */\r\nfunction remove (obj, iterate, context) {\r\n  if (obj) {\r\n    if (!eqNull(iterate)) {\r\n      var removeKeys = []\r\n      var rest = []\r\n      if (!isFunction(iterate)) {\r\n        iterate = pluckProperty(iterate)\r\n      }\r\n      each(obj, function (item, index, rest) {\r\n        if (iterate.call(context, item, index, rest)) {\r\n          removeKeys.push(index)\r\n        }\r\n      })\r\n      if (isArray(obj)) {\r\n        lastEach(removeKeys, function (item, key) {\r\n          rest.push(obj[item])\r\n          obj.splice(item, 1)\r\n        })\r\n      } else {\r\n        rest = {}\r\n        arrayEach(removeKeys, function (key) {\r\n          rest[key] = obj[key]\r\n          helperDeleteProperty(obj, key)\r\n        })\r\n      }\r\n      return rest\r\n    }\r\n    return clear(obj)\r\n  }\r\n  return obj\r\n}\r\n\r\nmodule.exports = remove\r\n",
+      "start": 1714699767611,
+      "end": 1714699767639,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767639,
+      "end": 1714699767639,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767639,
+      "end": 1714699767639,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767639,
+      "end": 1714699767639,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767639,
+      "end": 1714699767639,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767639,
+      "end": 1714699767639,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767639,
+      "end": 1714699767639,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var helperDeleteProperty = require('./helperDeleteProperty')\r\n\r\nvar isFunction = require('./isFunction')\r\nvar isArray = require('./isArray')\r\nvar each = require('./each')\r\nvar arrayEach = require('./arrayEach')\r\nvar lastEach = require('./lastEach')\r\nvar clear = require('./clear')\r\nvar eqNull = require('./eqNull')\r\n\r\nfunction pluckProperty (name) {\r\n  return function (obj, key) {\r\n    return key === name\r\n  }\r\n}\r\n\r\n/**\r\n  * 移除对象属性\r\n  *\r\n  * @param {Object/Array} obj 对象/数组\r\n  * @param {Function/String} iterate 方法或属性\r\n  * @param {Object} context 上下文\r\n  * @return {Object/Array}\r\n  */\r\nfunction remove (obj, iterate, context) {\r\n  if (obj) {\r\n    if (!eqNull(iterate)) {\r\n      var removeKeys = []\r\n      var rest = []\r\n      if (!isFunction(iterate)) {\r\n        iterate = pluckProperty(iterate)\r\n      }\r\n      each(obj, function (item, index, rest) {\r\n        if (iterate.call(context, item, index, rest)) {\r\n          removeKeys.push(index)\r\n        }\r\n      })\r\n      if (isArray(obj)) {\r\n        lastEach(removeKeys, function (item, key) {\r\n          rest.push(obj[item])\r\n          obj.splice(item, 1)\r\n        })\r\n      } else {\r\n        rest = {}\r\n        arrayEach(removeKeys, function (key) {\r\n          rest[key] = obj[key]\r\n          helperDeleteProperty(obj, key)\r\n        })\r\n      }\r\n      return rest\r\n    }\r\n    return clear(obj)\r\n  }\r\n  return obj\r\n}\r\n\r\nmodule.exports = remove\r\n",
+      "start": 1714699767639,
+      "end": 1714699767639,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767639,
+      "end": 1714699767639,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767639,
+      "end": 1714699767639,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767640,
+      "end": 1714699767640,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767640,
+      "end": 1714699767640,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767640,
+      "end": 1714699767640,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767640,
+      "end": 1714699767640,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/helperDeleteProperty.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isFunction.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isArray.js?commonjs-proxy\";\nimport require$$3 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/each.js?commonjs-proxy\";\nimport require$$4 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/arrayEach.js?commonjs-proxy\";\nimport require$$5 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/lastEach.js?commonjs-proxy\";\nimport require$$6 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/clear.js?commonjs-proxy\";\nimport require$$7 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/eqNull.js?commonjs-proxy\";\n\nvar helperDeleteProperty = require$$0\r\n\r\nvar isFunction = require$$1\r\nvar isArray = require$$2\r\nvar each = require$$3\r\nvar arrayEach = require$$4\r\nvar lastEach = require$$5\r\nvar clear = require$$6\r\nvar eqNull = require$$7\r\n\r\nfunction pluckProperty (name) {\r\n  return function (obj, key) {\r\n    return key === name\r\n  }\r\n}\r\n\r\n/**\r\n  * 移除对象属性\r\n  *\r\n  * @param {Object/Array} obj 对象/数组\r\n  * @param {Function/String} iterate 方法或属性\r\n  * @param {Object} context 上下文\r\n  * @return {Object/Array}\r\n  */\r\nfunction remove (obj, iterate, context) {\r\n  if (obj) {\r\n    if (!eqNull(iterate)) {\r\n      var removeKeys = []\r\n      var rest = []\r\n      if (!isFunction(iterate)) {\r\n        iterate = pluckProperty(iterate)\r\n      }\r\n      each(obj, function (item, index, rest) {\r\n        if (iterate.call(context, item, index, rest)) {\r\n          removeKeys.push(index)\r\n        }\r\n      })\r\n      if (isArray(obj)) {\r\n        lastEach(removeKeys, function (item, key) {\r\n          rest.push(obj[item])\r\n          obj.splice(item, 1)\r\n        })\r\n      } else {\r\n        rest = {}\r\n        arrayEach(removeKeys, function (key) {\r\n          rest[key] = obj[key]\r\n          helperDeleteProperty(obj, key)\r\n        })\r\n      }\r\n      return rest\r\n    }\r\n    return clear(obj)\r\n  }\r\n  return obj\r\n}\r\n\r\nvar remove_1 = remove\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(remove_1);\nexport { remove_1 as __moduleExports };",
+      "start": 1714699767640,
+      "end": 1714699768233,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;;;;;;AAAA,IAAI,oBAAoB,GAAG,UAAiC;AAC5D;AACA,IAAI,UAAU,GAAG,UAAuB;AACxC,IAAI,OAAO,GAAG,UAAoB;AAClC,IAAI,IAAI,GAAG,UAAiB;AAC5B,IAAI,SAAS,GAAG,UAAsB;AACtC,IAAI,QAAQ,GAAG,UAAqB;AACpC,IAAI,KAAK,GAAG,UAAkB;AAC9B,IAAI,MAAM,GAAG,UAAmB;AAChC;AACA,SAAS,aAAa,EAAE,IAAI,EAAE;AAC9B,EAAE,OAAO,UAAU,GAAG,EAAE,GAAG,EAAE;AAC7B,IAAI,OAAO,GAAG,KAAK,IAAI;AACvB,GAAG;AACH,CAAC;AACD;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,MAAM,EAAE,GAAG,EAAE,OAAO,EAAE,OAAO,EAAE;AACxC,EAAE,IAAI,GAAG,EAAE;AACX,IAAI,IAAI,CAAC,MAAM,CAAC,OAAO,CAAC,EAAE;AAC1B,MAAM,IAAI,UAAU,GAAG,EAAE;AACzB,MAAM,IAAI,IAAI,GAAG,EAAE;AACnB,MAAM,IAAI,CAAC,UAAU,CAAC,OAAO,CAAC,EAAE;AAChC,QAAQ,OAAO,GAAG,aAAa,CAAC,OAAO,CAAC;AACxC,OAAO;AACP,MAAM,IAAI,CAAC,GAAG,EAAE,UAAU,IAAI,EAAE,KAAK,EAAE,IAAI,EAAE;AAC7C,QAAQ,IAAI,OAAO,CAAC,IAAI,CAAC,OAAO,EAAE,IAAI,EAAE,KAAK,EAAE,IAAI,CAAC,EAAE;AACtD,UAAU,UAAU,CAAC,IAAI,CAAC,KAAK,CAAC;AAChC,SAAS;AACT,OAAO,CAAC;AACR,MAAM,IAAI,OAAO,CAAC,GAAG,CAAC,EAAE;AACxB,QAAQ,QAAQ,CAAC,UAAU,EAAE,UAAU,IAAI,EAAE,GAAG,EAAE;AAClD,UAAU,IAAI,CAAC,IAAI,CAAC,GAAG,CAAC,IAAI,CAAC,CAAC;AAC9B,UAAU,GAAG,CAAC,MAAM,CAAC,IAAI,EAAE,CAAC,CAAC;AAC7B,SAAS,CAAC;AACV,OAAO,MAAM;AACb,QAAQ,IAAI,GAAG,EAAE;AACjB,QAAQ,SAAS,CAAC,UAAU,EAAE,UAAU,GAAG,EAAE;AAC7C,UAAU,IAAI,CAAC,GAAG,CAAC,GAAG,GAAG,CAAC,GAAG,CAAC;AAC9B,UAAU,oBAAoB,CAAC,GAAG,EAAE,GAAG,CAAC;AACxC,SAAS,CAAC;AACV,OAAO;AACP,MAAM,OAAO,IAAI;AACjB,KAAK;AACL,IAAI,OAAO,KAAK,CAAC,GAAG,CAAC;AACrB,GAAG;AACH,EAAE,OAAO,GAAG;AACZ,CAAC;AACD;IACA,QAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768233,
+      "end": 1714699768233,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768233,
+      "end": 1714699768233,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768233,
+      "end": 1714699768233,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768233,
+      "end": 1714699768233,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768233,
+      "end": 1714699768233,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768233,
+      "end": 1714699768233,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768233,
+      "end": 1714699768233,
+      "order": "normal"
+    }
+  ]
+}

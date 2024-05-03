@@ -1,0 +1,156 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/apis/common.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { request } from '@/utils/http'\n\nexport const uploadImgApi = (params: any) => {\n  return request.post('/api/User/uploadimg', params, {\n    headers: {\n      'Content-Type': 'multipart/form-data'\n    },\n    timeout: 30000 // 超时时间为30秒\n  })\n}\n\nexport interface IAppLogParams {\n  platform: string\n  filepath?: string\n  url?: string\n  runningFunction?: string\n}\nexport const appLogApi = async (params: IAppLogParams) => {\n  if (import.meta.env.VITE_APP_ENV === 'prod') return\n  // return Promise.resolve(123)\n  return request.post<any>('/api/user/appLog', params)\n}\n",
+      "start": 1714699770805,
+      "end": 1714699770806,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699770806,
+      "end": 1714699770806,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { request } from \"@/utils/http\";\nexport const uploadImgApi = (params) => {\n  return request.post(\"/api/User/uploadimg\", params, {\n    headers: {\n      \"Content-Type\": \"multipart/form-data\"\n    },\n    timeout: 3e4\n    // 超时时间为30秒\n  });\n};\nexport const appLogApi = async (params) => {\n  if (import.meta.env.VITE_APP_ENV === \"prod\")\n    return;\n  return request.post(\"/api/user/appLog\", params);\n};\n",
+      "start": 1714699770806,
+      "end": 1714699771796,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/apis/common.ts"
+        ],
+        "sourcesContent": [
+          "import { request } from '@/utils/http'\n\nexport const uploadImgApi = (params: any) => {\n  return request.post('/api/User/uploadimg', params, {\n    headers: {\n      'Content-Type': 'multipart/form-data'\n    },\n    timeout: 30000 // 超时时间为30秒\n  })\n}\n\nexport interface IAppLogParams {\n  platform: string\n  filepath?: string\n  url?: string\n  runningFunction?: string\n}\nexport const appLogApi = async (params: IAppLogParams) => {\n  if (import.meta.env.VITE_APP_ENV === 'prod') return\n  // return Promise.resolve(123)\n  return request.post<any>('/api/user/appLog', params)\n}\n"
+        ],
+        "mappings": "AAAA,SAAS,eAAe;AAEjB,aAAM,eAAe,CAAC,WAAgB;AAC3C,SAAO,QAAQ,KAAK,uBAAuB,QAAQ;AAAA,IACjD,SAAS;AAAA,MACP,gBAAgB;AAAA,IAClB;AAAA,IACA,SAAS;AAAA;AAAA,EACX,CAAC;AACH;AAQO,aAAM,YAAY,OAAO,WAA0B;AACxD,MAAI,YAAY,IAAI,iBAAiB;AAAQ;AAE7C,SAAO,QAAQ,KAAU,oBAAoB,MAAM;AACrD;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771796,
+      "end": 1714699771796,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771796,
+      "end": 1714699771796,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771796,
+      "end": 1714699771796,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771796,
+      "end": 1714699771796,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { request } from \"@/utils/http\";\nexport const uploadImgApi = (params) => {\n  return request.post(\"/api/User/uploadimg\", params, {\n    headers: {\n      \"Content-Type\": \"multipart/form-data\"\n    },\n    timeout: 3e4\n    // 超时时间为30秒\n  });\n};\nexport const appLogApi = async (params) => {\n  if (import.meta.env.VITE_APP_ENV === \"prod\")\n    return;\n  return request.post(\"/api/user/appLog\", params);\n};\n",
+      "start": 1714699771796,
+      "end": 1714699771796,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport { request } from \"@/utils/http\";\nexport const uploadImgApi = (params) => {\n  return request.post(\"/api/User/uploadimg\", params, {\n    headers: {\n      \"Content-Type\": \"multipart/form-data\"\n    },\n    timeout: 3e4\n    // 超时时间为30秒\n  });\n};\nexport const appLogApi = async (params) => {\n  if (import.meta.env.VITE_APP_ENV === \"prod\")\n    return;\n  return request.post(\"/api/user/appLog\", params);\n};\n",
+      "start": 1714699771796,
+      "end": 1714699771919,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/apis/common.ts\"],\n  \"sourcesContent\": [\"import { request } from \\\"@/utils/http\\\";\\nexport const uploadImgApi = (params) => {\\n  return request.post(\\\"/api/User/uploadimg\\\", params, {\\n    headers: {\\n      \\\"Content-Type\\\": \\\"multipart/form-data\\\"\\n    },\\n    timeout: 3e4\\n    // \\u8D85\\u65F6\\u65F6\\u95F4\\u4E3A30\\u79D2\\n  });\\n};\\nexport const appLogApi = async (params) => {\\n  if (import.meta.env.VITE_APP_ENV === \\\"prod\\\")\\n    return;\\n  return request.post(\\\"/api/user/appLog\\\", params);\\n};\\n\"],\n  \"mappings\": \";AAAA,SAAS,eAAe;AACjB,aAAM,eAAe,CAAC,WAAW;AACtC,SAAO,QAAQ,KAAK,uBAAuB,QAAQ;AAAA,IACjD,SAAS;AAAA,MACP,gBAAgB;AAAA,IAClB;AAAA,IACA,SAAS;AAAA;AAAA,EAEX,CAAC;AACH;AACO,aAAM,YAAY,OAAO,WAAW;AACzC,MAAI,YAAY,IAAI,iBAAiB;AACnC;AACF,SAAO,QAAQ,KAAK,oBAAoB,MAAM;AAChD;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "result": "\"use strict\";\nimport { request } from \"@/utils/http\";\nexport const uploadImgApi = (params) => {\n  return request.post(\"/api/User/uploadimg\", params, {\n    headers: {\n      \"Content-Type\": \"multipart/form-data\"\n    },\n    timeout: 3e4\n    // 超时时间为30秒\n  });\n};\nexport const appLogApi = async (params) => {\n  if (false)\n    return;\n  return request.post(\"/api/user/appLog\", params);\n};\n",
+      "start": 1714699771919,
+      "end": 1714699772167,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699772167,
+      "end": 1714699772167,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699772167,
+      "end": 1714699772167,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699772167,
+      "end": 1714699772167,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699772167,
+      "end": 1714699772167,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699772167,
+      "end": 1714699772167,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699772167,
+      "end": 1714699772167,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699772167,
+      "end": 1714699772167,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699772167,
+      "end": 1714699772168,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699772168,
+      "end": 1714699772168,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699772168,
+      "end": 1714699772168,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699772168,
+      "end": 1714699772168,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699772168,
+      "end": 1714699772168,
+      "order": "normal"
+    }
+  ]
+}

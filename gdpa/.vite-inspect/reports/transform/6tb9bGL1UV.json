@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/format-info.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "const Utils = require('./utils')\n\nconst G15 = (1 << 10) | (1 << 8) | (1 << 5) | (1 << 4) | (1 << 2) | (1 << 1) | (1 << 0)\nconst G15_MASK = (1 << 14) | (1 << 12) | (1 << 10) | (1 << 4) | (1 << 1)\nconst G15_BCH = Utils.getBCHDigit(G15)\n\n/**\n * Returns format information with relative error correction bits\n *\n * The format information is a 15-bit sequence containing 5 data bits,\n * with 10 error correction bits calculated using the (15, 5) BCH code.\n *\n * @param  {Number} errorCorrectionLevel Error correction level\n * @param  {Number} mask                 Mask pattern\n * @return {Number}                      Encoded format information bits\n */\nexports.getEncodedBits = function getEncodedBits (errorCorrectionLevel, mask) {\n  const data = ((errorCorrectionLevel.bit << 3) | mask)\n  let d = data << 10\n\n  while (Utils.getBCHDigit(d) - G15_BCH >= 0) {\n    d ^= (G15 << (Utils.getBCHDigit(d) - G15_BCH))\n  }\n\n  // xor final data with mask pattern in order to ensure that\n  // no combination of Error Correction Level and data mask pattern\n  // will result in an all-zero data string\n  return ((data << 10) | d) ^ G15_MASK\n}\n",
+      "start": 1714699771036,
+      "end": 1714699771060,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771060,
+      "end": 1714699771060,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771060,
+      "end": 1714699771060,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771060,
+      "end": 1714699771060,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771060,
+      "end": 1714699771060,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771060,
+      "end": 1714699771060,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771060,
+      "end": 1714699771060,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "const Utils = require('./utils')\n\nconst G15 = (1 << 10) | (1 << 8) | (1 << 5) | (1 << 4) | (1 << 2) | (1 << 1) | (1 << 0)\nconst G15_MASK = (1 << 14) | (1 << 12) | (1 << 10) | (1 << 4) | (1 << 1)\nconst G15_BCH = Utils.getBCHDigit(G15)\n\n/**\n * Returns format information with relative error correction bits\n *\n * The format information is a 15-bit sequence containing 5 data bits,\n * with 10 error correction bits calculated using the (15, 5) BCH code.\n *\n * @param  {Number} errorCorrectionLevel Error correction level\n * @param  {Number} mask                 Mask pattern\n * @return {Number}                      Encoded format information bits\n */\nexports.getEncodedBits = function getEncodedBits (errorCorrectionLevel, mask) {\n  const data = ((errorCorrectionLevel.bit << 3) | mask)\n  let d = data << 10\n\n  while (Utils.getBCHDigit(d) - G15_BCH >= 0) {\n    d ^= (G15 << (Utils.getBCHDigit(d) - G15_BCH))\n  }\n\n  // xor final data with mask pattern in order to ensure that\n  // no combination of Error Correction Level and data mask pattern\n  // will result in an all-zero data string\n  return ((data << 10) | d) ^ G15_MASK\n}\n",
+      "start": 1714699771060,
+      "end": 1714699771060,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699771060,
+      "end": 1714699771060,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771060,
+      "end": 1714699771060,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771060,
+      "end": 1714699771060,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771060,
+      "end": 1714699771060,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771060,
+      "end": 1714699771060,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771060,
+      "end": 1714699771060,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as formatInfo } from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/format-info.js?commonjs-exports\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/utils.js?commonjs-proxy\";\n\nconst Utils = require$$0\n\nconst G15 = (1 << 10) | (1 << 8) | (1 << 5) | (1 << 4) | (1 << 2) | (1 << 1) | (1 << 0)\nconst G15_MASK = (1 << 14) | (1 << 12) | (1 << 10) | (1 << 4) | (1 << 1)\nconst G15_BCH = Utils.getBCHDigit(G15)\n\n/**\n * Returns format information with relative error correction bits\n *\n * The format information is a 15-bit sequence containing 5 data bits,\n * with 10 error correction bits calculated using the (15, 5) BCH code.\n *\n * @param  {Number} errorCorrectionLevel Error correction level\n * @param  {Number} mask                 Mask pattern\n * @return {Number}                      Encoded format information bits\n */\nvar getEncodedBits = formatInfo.getEncodedBits = function getEncodedBits (errorCorrectionLevel, mask) {\n  const data = ((errorCorrectionLevel.bit << 3) | mask)\n  let d = data << 10\n\n  while (Utils.getBCHDigit(d) - G15_BCH >= 0) {\n    d ^= (G15 << (Utils.getBCHDigit(d) - G15_BCH))\n  }\n\n  // xor final data with mask pattern in order to ensure that\n  // no combination of Error Correction Level and data mask pattern\n  // will result in an all-zero data string\n  return ((data << 10) | d) ^ G15_MASK\n}\n\nexport { formatInfo as __moduleExports, getEncodedBits, formatInfo as default };",
+      "start": 1714699771060,
+      "end": 1714699771072,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;AAAA,MAAM,KAAK,GAAG,UAAkB;AAChC;AACA,MAAM,GAAG,GAAG,CAAC,CAAC,IAAI,EAAE,KAAK,CAAC,IAAI,CAAC,CAAC,IAAI,CAAC,IAAI,CAAC,CAAC,IAAI,CAAC,IAAI,CAAC,CAAC,IAAI,CAAC,IAAI,CAAC,CAAC,IAAI,CAAC,IAAI,CAAC,CAAC,IAAI,CAAC,IAAI,CAAC,CAAC;AACvF,MAAM,QAAQ,GAAG,CAAC,CAAC,IAAI,EAAE,KAAK,CAAC,IAAI,EAAE,CAAC,IAAI,CAAC,IAAI,EAAE,CAAC,IAAI,CAAC,IAAI,CAAC,CAAC,IAAI,CAAC,IAAI,CAAC,CAAC;AACxE,MAAM,OAAO,GAAG,KAAK,CAAC,WAAW,CAAC,GAAG,CAAC;AACtC;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,8CAAsB,GAAG,SAAS,cAAc,EAAE,oBAAoB,EAAE,IAAI,EAAE;AAC9E,EAAE,MAAM,IAAI,IAAI,CAAC,oBAAoB,CAAC,GAAG,IAAI,CAAC,IAAI,IAAI,CAAC;AACvD,EAAE,IAAI,CAAC,GAAG,IAAI,IAAI,EAAE;AACpB;AACA,EAAE,OAAO,KAAK,CAAC,WAAW,CAAC,CAAC,CAAC,GAAG,OAAO,IAAI,CAAC,EAAE;AAC9C,IAAI,CAAC,KAAK,GAAG,KAAK,KAAK,CAAC,WAAW,CAAC,CAAC,CAAC,GAAG,OAAO,CAAC,CAAC;AAClD,GAAG;AACH;AACA;AACA;AACA;AACA,EAAE,OAAO,CAAC,CAAC,IAAI,IAAI,EAAE,IAAI,CAAC,IAAI,QAAQ;AACtC"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771072,
+      "end": 1714699771072,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771072,
+      "end": 1714699771072,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771072,
+      "end": 1714699771072,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699771072,
+      "end": 1714699771072,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771073,
+      "end": 1714699771073,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771073,
+      "end": 1714699771073,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771073,
+      "end": 1714699771073,
+      "order": "normal"
+    }
+  ]
+}

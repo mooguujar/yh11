@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/_nodeUtil.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import freeGlobal from './_freeGlobal.js';\n\n/** Detect free variable `exports`. */\nvar freeExports = typeof exports == 'object' && exports && !exports.nodeType && exports;\n\n/** Detect free variable `module`. */\nvar freeModule = freeExports && typeof module == 'object' && module && !module.nodeType && module;\n\n/** Detect the popular CommonJS extension `module.exports`. */\nvar moduleExports = freeModule && freeModule.exports === freeExports;\n\n/** Detect free variable `process` from Node.js. */\nvar freeProcess = moduleExports && freeGlobal.process;\n\n/** Used to access faster Node.js helpers. */\nvar nodeUtil = (function() {\n  try {\n    // Use `util.types` for Node.js 10+.\n    var types = freeModule && freeModule.require && freeModule.require('util').types;\n\n    if (types) {\n      return types;\n    }\n\n    // Legacy `process.binding('util')` for Node.js < 10.\n    return freeProcess && freeProcess.binding && freeProcess.binding('util');\n  } catch (e) {}\n}());\n\nexport default nodeUtil;\n",
+      "start": 1714699768710,
+      "end": 1714699768725,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768725,
+      "end": 1714699768725,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768725,
+      "end": 1714699768725,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768725,
+      "end": 1714699768725,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768725,
+      "end": 1714699768725,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768725,
+      "end": 1714699768725,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768725,
+      "end": 1714699768725,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import freeGlobal from './_freeGlobal.js';\n\n/** Detect free variable `exports`. */\nvar freeExports = typeof exports == 'object' && exports && !exports.nodeType && exports;\n\n/** Detect free variable `module`. */\nvar freeModule = freeExports && typeof module == 'object' && module && !module.nodeType && module;\n\n/** Detect the popular CommonJS extension `module.exports`. */\nvar moduleExports = freeModule && freeModule.exports === freeExports;\n\n/** Detect free variable `process` from Node.js. */\nvar freeProcess = moduleExports && freeGlobal.process;\n\n/** Used to access faster Node.js helpers. */\nvar nodeUtil = (function() {\n  try {\n    // Use `util.types` for Node.js 10+.\n    var types = freeModule && freeModule.require && freeModule.require('util').types;\n\n    if (types) {\n      return types;\n    }\n\n    // Legacy `process.binding('util')` for Node.js < 10.\n    return freeProcess && freeProcess.binding && freeProcess.binding('util');\n  } catch (e) {}\n}());\n\nexport default nodeUtil;\n",
+      "start": 1714699768725,
+      "end": 1714699768725,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768725,
+      "end": 1714699768725,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768725,
+      "end": 1714699768725,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768725,
+      "end": 1714699768725,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768725,
+      "end": 1714699768725,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768725,
+      "end": 1714699768725,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768725,
+      "end": 1714699768725,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768725,
+      "end": 1714699768725,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768725,
+      "end": 1714699768725,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768725,
+      "end": 1714699768725,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768725,
+      "end": 1714699768725,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768725,
+      "end": 1714699768725,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768725,
+      "end": 1714699768725,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768725,
+      "end": 1714699768725,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768725,
+      "end": 1714699768725,
+      "order": "normal"
+    }
+  ]
+}

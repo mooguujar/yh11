@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/NavBar.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <div\n    class=\"nav-bar\"\n    :class=\"[`nav-bar--${mode}`, wideMode ? 'nav-bar-wideMode' : '',{ 'nav-bar-message': ['Message', 'MessageDetail'].includes(route.name as string) }]\"\n  >\n    <van-nav-bar\n      :title=\"title\"\n      safe-area-inset-top\n      @click-left=\"onBack\"\n      @click-right=\"clickRight\"\n      v-bind=\"$attrs\"\n    >\n      <template\n        v-if=\"$slots.title\"\n        #title\n      >\n        <slot name=\"title\" />\n      </template>\n      <template\n        #left\n        v-if=\"!hideLeft\"\n      >\n        <slot name=\"left\">\n          <template v-if=\"mode === 'icons'\">\n            <div\n              class=\"top-icon-bg\"\n              :class=\"onlineCharge ? 'onlineCharge' : ''\"\n            >\n              <i\n                v-if=\"gd_buy_fixmomey == 1 && active == 2\"\n                @click=\"router.back()\"\n                class=\"arrow-right arrow-back\"\n              ></i>\n              <i\n                class=\"customer-service-02\"\n                @click.stop=\"changeRoute('/iframe-page/third?url=customer-service')\"\n              ></i>\n              <span\n                @click.stop=\"changeRoute('/iframe-page/third?url=customer-service')\"\n                class=\"customerText text-[#fff]\"\n                v-if=\"wideMode\"\n              >\n                客服\n              </span>\n              <i\n                v-if=\"!onlineCharge\"\n                class=\"message-02 relative\"\n                @click.stop=\"changeRoute('/message')\"\n              >\n                <div\n                  v-if=\"unReadCount\"\n                  class=\"unread-sign\"\n                >\n                  {{ unReadCount }}\n                </div>\n              </i>\n            </div>\n          </template>\n\n          <template v-else>\n            <i\n              v-if=\"['white', 'transparent'].includes(mode)\"\n              class=\"arrow-right-gray arrow-back\"\n            ></i>\n            <i\n              v-if=\"['pointMode'].includes(mode)\"\n              class=\"arrow-right arrow-back\"\n            ></i>\n            <i\n              v-if=\"['blue'].includes(mode) && !gd_buyfix_count1age\"\n              class=\"arrow-right arrow-back\"\n            ></i>\n            <van-icon\n              v-if=\"['cardActivity'].includes(mode)\"\n              name=\"arrow-left\"\n            />\n          </template>\n        </slot>\n      </template>\n      <template #right>\n        <slot name=\"right\">{{ rightText }}</slot>\n      </template>\n    </van-nav-bar>\n  </div>\n</template>\n\n<script setup lang=\"ts\">\nimport topIconBgImg from '@/assets/images/common/icon_bg.png'\nimport topIconBgImg2 from '@/assets/images/common/icon_bg2.png'\nimport { useEntryStore } from '@/store/modules/entry'\nimport { useUserStore } from '@/store/modules/user'\nimport { IWebUrlLink } from '@/store/types/entry'\nimport { mergeHrefParams } from '@/utils/tools'\nimport { storeToRefs } from 'pinia'\nimport { computed, ref, watch } from 'vue'\nimport { useRoute, useRouter } from 'vue-router'\ninterface Props {\n  title?: string\n  mode?: 'blue' | 'white' | 'transparent' | 'icons' | 'cardActivity'\n  hideLeft?: boolean\n  gopath?: string\n  repath?: string\n  rightText?: string\n  clickRight?: ((...args: any[]) => any) | undefined\n}\n\nconst props = withDefaults(defineProps<Props>(), {\n  clickRight: undefined,\n  rightText: '',\n  title: '',\n  mode: 'blue',\n  hideLeft: false,\n  gopath: ''\n})\n\nconst route = useRoute()\nconst router = useRouter()\n\nconst gd_buyfix_count1age = ref(sessionStorage.getItem('gd_buyfix_count1age'))\n\nconst userStore = useUserStore()\nconst { userMessage } = storeToRefs(userStore)\n\nconst entryStore = useEntryStore()\nconst { config } = storeToRefs(entryStore)\n\nconst adModWebUrlLink = computed<IWebUrlLink>(\n  () => (config.value.Web_Set_DefaultInfo?.AD_Mod_WebUrlLink ?? {}) as IWebUrlLink\n)\n// 站内信未读数量\nconst unReadCount = computed(() => userMessage.value.un_read ?? 0)\n\nconst topIconBg = ref(\n  `url(${adModWebUrlLink.value.theme_activities_show ? topIconBgImg2 : topIconBgImg})`\n)\n\nconst onBack = () => {\n  if (props.mode === 'icons') return\n  if (props.gopath) {\n    router.push(props.gopath)\n  } else if (props.repath) {\n    router.replace(props.repath)\n  } else {\n    router.back()\n  }\n}\nconst changeRoute = (path: string) => {\n  router.push(path)\n}\nconst onlineCharge = ref(0)\nconst amountScope = ref() //直接查看 金额范围的数据\n\nconst search = new URLSearchParams(mergeHrefParams())\nconst hs = search.get('hs') || ''\nconst wideMode = hs == 'h'\nconst gd_buy_fixmomey = ref()\nconst active = ref()\n\namountScope.value = search.get('amountScope') || ''\nconst operation_verification = sessionStorage.getItem('operation_verification')\nonlineCharge.value = !!operation_verification || amountScope.value ? 1 : 0\n\ngd_buy_fixmomey.value = search.get('gd_buy_fixmomey') || 0\n\nconst { query, path, fullPath } = route\nactive.value = query.active ? +query.active : 0\nwatch(\n  () => router.currentRoute.value,\n  route => {\n    const { query, path, fullPath } = route\n    active.value = query.active ? +query.active : 0\n    // if (route.name === 'onlineCharge' && wideMode) {\n    //   setTimeout(() => {\n    //     useAppBar({ mode: 'dark', right: '0' })\n    //   }, 1000)\n    // }\n  }\n)\n</script>\n\n<style lang=\"scss\" scoped>\n@import '@/assets/styles/sprite-home.scss';\n@import '@/assets/styles/sprite-001.scss';\n\n.nav-bar {\n  height: calc(constant(safe-area-inset-top) + 100px);\n  height: calc(env(safe-area-inset-top) + 100px);\n  &.nav-bar-wideMode {\n    height: calc(1 / var(--scale-factor) * 45px);\n    :deep(.van-nav-bar) {\n      height: calc(1 / var(--scale-factor) * 45px);\n      .top-icon-bg {\n        width: auto;\n        i {\n          margin-right: 6px;\n        }\n      }\n    }\n  }\n  &.nav-bar-message {\n    padding-bottom: 60px;\n  }\n  &--blue,\n  &--icons {\n    background-color: var(--van-button-primary-background);\n    :deep(.van-nav-bar) {\n      .van-nav-bar__title {\n        color: #fff;\n      }\n    }\n  }\n  &--white {\n    background-color: #fff;\n    :deep(.van-nav-bar) {\n      .van-nav-bar__title {\n        color: #13161b;\n      }\n    }\n  }\n  &--cardActivity {\n    background-color: var(--app-spring-festival-activity-theme);\n    :deep(.van-nav-bar) {\n      .van-nav-bar__title {\n        color: #f9db95;\n      }\n      .van-icon {\n        color: #f9db95;\n        font-size: 36px;\n        font-weight: bolder;\n      }\n    }\n  }\n  &--transparent {\n    background-color: transparent;\n  }\n\n  :deep(.van-nav-bar) {\n    background: transparent;\n    &.van-hairline--bottom::after {\n      border-bottom-width: 0;\n    }\n    .van-nav-bar__content {\n      height: 100px;\n\n      .arrow-back {\n        margin-left: 10px;\n        transform: rotate(180deg) scale(1.5);\n      }\n      .van-nav-bar__title {\n        height: 100%;\n        font-size: 42px;\n        display: flex;\n        align-items: center;\n        font-weight: initial;\n      }\n      .van-nav-bar__left {\n        top: 50%;\n        bottom: unset;\n        transform: translate3d(0, -50%, 0);\n      }\n      .van-nav-bar__right {\n        color: #fff;\n        height: 100%;\n        font-size: 42px;\n        display: flex;\n        align-items: center;\n        font-weight: initial;\n      }\n    }\n\n    .top-icon-bg {\n      display: flex;\n      align-items: center;\n      justify-content: space-between;\n      width: 132px;\n      height: 50px;\n      padding: 0 19px;\n      background: v-bind('topIconBg') no-repeat center / cover;\n      .unread-sign {\n        position: absolute;\n        top: -9px;\n        right: -12px;\n        width: 24px;\n        height: 24px;\n        line-height: 24px;\n        background-color: #d9001c;\n        color: #fff;\n        font-size: 14px;\n        text-align: center;\n        border-radius: 50%;\n      }\n    }\n    .onlineCharge {\n      background: none;\n    }\n  }\n}\n.nav-bar-wideMode {\n  :deep(.van-nav-bar) {\n    .van-nav-bar__content {\n      height: calc(1 / var(--scale-factor) * 45px);\n      .van-nav-bar__left {\n        padding-left: 0;\n      }\n      .onlineCharge {\n        transform: scale(0.7);\n      }\n    }\n  }\n}\n</style>\n",
+      "start": 1714699770742,
+      "end": 1714699770753,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699770753,
+      "end": 1714699770753,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699770753,
+      "end": 1714699770753,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699770753,
+      "end": 1714699770753,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699770753,
+      "end": 1714699770753,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/NavBar.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/NavBar.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/NavBar.vue?vue&type=style&index=0&scoped=3ab43741&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-3ab43741\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/NavBar.vue\"]]);\n",
+      "start": 1714699770753,
+      "end": 1714699771793,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771793,
+      "end": 1714699771793,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/NavBar.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/NavBar.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/NavBar.vue?vue&type=style&index=0&scoped=3ab43741&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-3ab43741\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/NavBar.vue\"]]);\n",
+      "start": 1714699771793,
+      "end": 1714699771793,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/NavBar.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/NavBar.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/NavBar.vue?vue&type=style&index=0&scoped=3ab43741&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-3ab43741\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/NavBar.vue\"]]);\n",
+      "start": 1714699771793,
+      "end": 1714699771898,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/NavBar.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/NavBar.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/NavBar.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/NavBar.vue?vue&type=style&index=0&scoped=3ab43741&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-3ab43741\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/NavBar.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,wEAAwE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/NavBar.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/NavBar.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/NavBar.vue?vue&type=style&index=0&scoped=3ab43741&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-3ab43741\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/NavBar.vue\"]]);\n",
+      "start": 1714699771899,
+      "end": 1714699771899,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/NavBar.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/NavBar.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/NavBar.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/NavBar.vue?vue&type=style&index=0&scoped=3ab43741&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-3ab43741\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/NavBar.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771899,
+      "end": 1714699771899,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771899,
+      "end": 1714699771899,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771899,
+      "end": 1714699771899,
+      "order": "normal"
+    }
+  ]
+}

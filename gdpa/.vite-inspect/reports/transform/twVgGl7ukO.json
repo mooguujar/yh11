@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/_createBind.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import createCtor from './_createCtor.js';\nimport root from './_root.js';\n\n/** Used to compose bitmasks for function metadata. */\nvar WRAP_BIND_FLAG = 1;\n\n/**\n * Creates a function that wraps `func` to invoke it with the optional `this`\n * binding of `thisArg`.\n *\n * @private\n * @param {Function} func The function to wrap.\n * @param {number} bitmask The bitmask flags. See `createWrap` for more details.\n * @param {*} [thisArg] The `this` binding of `func`.\n * @returns {Function} Returns the new wrapped function.\n */\nfunction createBind(func, bitmask, thisArg) {\n  var isBind = bitmask & WRAP_BIND_FLAG,\n      Ctor = createCtor(func);\n\n  function wrapper() {\n    var fn = (this && this !== root && this instanceof wrapper) ? Ctor : func;\n    return fn.apply(isBind ? thisArg : this, arguments);\n  }\n  return wrapper;\n}\n\nexport default createBind;\n",
+      "start": 1714699768786,
+      "end": 1714699768873,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768873,
+      "end": 1714699768873,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768873,
+      "end": 1714699768873,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768873,
+      "end": 1714699768873,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768873,
+      "end": 1714699768873,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768873,
+      "end": 1714699768873,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768873,
+      "end": 1714699768873,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import createCtor from './_createCtor.js';\nimport root from './_root.js';\n\n/** Used to compose bitmasks for function metadata. */\nvar WRAP_BIND_FLAG = 1;\n\n/**\n * Creates a function that wraps `func` to invoke it with the optional `this`\n * binding of `thisArg`.\n *\n * @private\n * @param {Function} func The function to wrap.\n * @param {number} bitmask The bitmask flags. See `createWrap` for more details.\n * @param {*} [thisArg] The `this` binding of `func`.\n * @returns {Function} Returns the new wrapped function.\n */\nfunction createBind(func, bitmask, thisArg) {\n  var isBind = bitmask & WRAP_BIND_FLAG,\n      Ctor = createCtor(func);\n\n  function wrapper() {\n    var fn = (this && this !== root && this instanceof wrapper) ? Ctor : func;\n    return fn.apply(isBind ? thisArg : this, arguments);\n  }\n  return wrapper;\n}\n\nexport default createBind;\n",
+      "start": 1714699768873,
+      "end": 1714699768873,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768873,
+      "end": 1714699768873,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768873,
+      "end": 1714699768873,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768874,
+      "end": 1714699768874,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768874,
+      "end": 1714699768874,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768874,
+      "end": 1714699768874,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768874,
+      "end": 1714699768874,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768874,
+      "end": 1714699768874,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768874,
+      "end": 1714699768874,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768874,
+      "end": 1714699768874,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768874,
+      "end": 1714699768874,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768874,
+      "end": 1714699768874,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768874,
+      "end": 1714699768874,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768874,
+      "end": 1714699768874,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768874,
+      "end": 1714699768874,
+      "order": "normal"
+    }
+  ]
+}

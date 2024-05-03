@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/range.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "/**\r\n  * 序号列表生成函数\r\n  *\r\n  * @param {Number} start 起始值\r\n  * @param {Number} stop 结束值\r\n  * @param {Number} step 自增值\r\n  * @return {Array}\r\n  */\r\nfunction range (start, stop, step) {\r\n  var index, len\r\n  var result = []\r\n  var args = arguments\r\n  if (args.length < 2) {\r\n    stop = args[0]\r\n    start = 0\r\n  }\r\n  index = start >> 0\r\n  len = stop >> 0\r\n  if (index < stop) {\r\n    step = step >> 0 || 1\r\n    for (; index < len; index += step) {\r\n      result.push(index)\r\n    }\r\n  }\r\n  return result\r\n}\r\n\r\nmodule.exports = range\r\n",
+      "start": 1714699767654,
+      "end": 1714699767675,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767675,
+      "end": 1714699767675,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767675,
+      "end": 1714699767675,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767675,
+      "end": 1714699767675,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767675,
+      "end": 1714699767675,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767675,
+      "end": 1714699767675,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767675,
+      "end": 1714699767675,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "/**\r\n  * 序号列表生成函数\r\n  *\r\n  * @param {Number} start 起始值\r\n  * @param {Number} stop 结束值\r\n  * @param {Number} step 自增值\r\n  * @return {Array}\r\n  */\r\nfunction range (start, stop, step) {\r\n  var index, len\r\n  var result = []\r\n  var args = arguments\r\n  if (args.length < 2) {\r\n    stop = args[0]\r\n    start = 0\r\n  }\r\n  index = start >> 0\r\n  len = stop >> 0\r\n  if (index < stop) {\r\n    step = step >> 0 || 1\r\n    for (; index < len; index += step) {\r\n      result.push(index)\r\n    }\r\n  }\r\n  return result\r\n}\r\n\r\nmodule.exports = range\r\n",
+      "start": 1714699767675,
+      "end": 1714699767675,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767675,
+      "end": 1714699767675,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767675,
+      "end": 1714699767675,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767675,
+      "end": 1714699767675,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767675,
+      "end": 1714699767675,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767675,
+      "end": 1714699767675,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767675,
+      "end": 1714699767675,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "/**\r\n  * 序号列表生成函数\r\n  *\r\n  * @param {Number} start 起始值\r\n  * @param {Number} stop 结束值\r\n  * @param {Number} step 自增值\r\n  * @return {Array}\r\n  */\nimport * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\n\nfunction range (start, stop, step) {\r\n  var index, len\r\n  var result = []\r\n  var args = arguments\r\n  if (args.length < 2) {\r\n    stop = args[0]\r\n    start = 0\r\n  }\r\n  index = start >> 0\r\n  len = stop >> 0\r\n  if (index < stop) {\r\n    step = step >> 0 || 1\r\n    for (; index < len; index += step) {\r\n      result.push(index)\r\n    }\r\n  }\r\n  return result\r\n}\r\n\r\nvar range_1 = range\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(range_1);\nexport { range_1 as __moduleExports };",
+      "start": 1714699767675,
+      "end": 1714699767676,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;;;;;;AAQA,SAAS,KAAK,EAAE,KAAK,EAAE,IAAI,EAAE,IAAI,EAAE;AACnC,EAAE,IAAI,KAAK,EAAE,GAAG;AAChB,EAAE,IAAI,MAAM,GAAG,EAAE;AACjB,EAAE,IAAI,IAAI,GAAG,SAAS;AACtB,EAAE,IAAI,IAAI,CAAC,MAAM,GAAG,CAAC,EAAE;AACvB,IAAI,IAAI,GAAG,IAAI,CAAC,CAAC,CAAC;AAClB,IAAI,KAAK,GAAG,CAAC;AACb,GAAG;AACH,EAAE,KAAK,GAAG,KAAK,IAAI,CAAC;AACpB,EAAE,GAAG,GAAG,IAAI,IAAI,CAAC;AACjB,EAAE,IAAI,KAAK,GAAG,IAAI,EAAE;AACpB,IAAI,IAAI,GAAG,IAAI,IAAI,CAAC,IAAI,CAAC;AACzB,IAAI,OAAO,KAAK,GAAG,GAAG,EAAE,KAAK,IAAI,IAAI,EAAE;AACvC,MAAM,MAAM,CAAC,IAAI,CAAC,KAAK,CAAC;AACxB,KAAK;AACL,GAAG;AACH,EAAE,OAAO,MAAM;AACf,CAAC;AACD;IACA,OAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767676,
+      "end": 1714699767676,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767676,
+      "end": 1714699767676,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767676,
+      "end": 1714699767676,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767676,
+      "end": 1714699767676,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767676,
+      "end": 1714699767676,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767676,
+      "end": 1714699767676,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767676,
+      "end": 1714699767676,
+      "order": "normal"
+    }
+  ]
+}

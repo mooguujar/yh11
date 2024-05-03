@@ -1,0 +1,165 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, resolveComponent as _resolveComponent, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-72e0a096\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = { class: \"card-list-container flex items-center\" }\nconst _hoisted_2 = {\n  key: 0,\n  class: \"payBox\"\n}\nconst _hoisted_3 = {\n  key: 1,\n  class: \"payBox\"\n}\nconst _hoisted_4 = {\n  key: 2,\n  class: \"payBox\"\n}\nconst _hoisted_5 = {\n  key: 3,\n  class: \"payBox\"\n}\n\nimport { requireImg } from '@/utils/tools'\n\ninterface Props {\n  coinProtocol: string\n}\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'CardList',\n  props: {\n    coinProtocol: { type: String, required: true, default: '' }\n  },\n  setup(__props: any) {\n\nconst props = __props\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_van_image = _resolveComponent(\"van-image\")!\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    (_ctx.coinProtocol.includes('BANK'))\n      ? (_openBlock(), _createElementBlock(\"div\", _hoisted_2, [\n          _createVNode(_component_van_image, {\n            class: \"credit\",\n            \"lazy-load\": \"\",\n            src: _unref(requireImg)('common/credit.png')\n          }, null, 8 /* PROPS */, [\"src\"])\n        ]))\n      : _createCommentVNode(\"v-if\", true),\n    (_ctx.coinProtocol.includes('ALIPAY'))\n      ? (_openBlock(), _createElementBlock(\"div\", _hoisted_3, [\n          _createVNode(_component_van_image, {\n            class: \"alipay\",\n            \"lazy-load\": \"\",\n            src: _unref(requireImg)('common/ALIPAY.png')\n          }, null, 8 /* PROPS */, [\"src\"])\n        ]))\n      : _createCommentVNode(\"v-if\", true),\n    (_ctx.coinProtocol.includes('WXPAY'))\n      ? (_openBlock(), _createElementBlock(\"div\", _hoisted_4, [\n          _createVNode(_component_van_image, {\n            class: \"WeChatPay\",\n            \"lazy-load\": \"\",\n            src: _unref(requireImg)('common/WeChatPay.png')\n          }, null, 8 /* PROPS */, [\"src\"])\n        ]))\n      : _createCommentVNode(\"v-if\", true),\n    (_ctx.coinProtocol.includes('SZRMB'))\n      ? (_openBlock(), _createElementBlock(\"div\", _hoisted_5, [\n          _createVNode(_component_van_image, {\n            class: \"alipay\",\n            \"lazy-load\": \"\",\n            src: _unref(requireImg)('common/SZRMB.png')\n          }, null, 8 /* PROPS */, [\"src\"])\n        ]))\n      : _createCommentVNode(\"v-if\", true)\n  ]))\n}\n}\n\n})",
+      "start": 1714699771964,
+      "end": 1714699771964
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771964,
+      "end": 1714699771964,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, resolveComponent as _resolveComponent, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\";\nconst _withScopeId = (n) => (_pushScopeId(\"data-v-72e0a096\"), n = n(), _popScopeId(), n);\nconst _hoisted_1 = { class: \"card-list-container flex items-center\" };\nconst _hoisted_2 = {\n  key: 0,\n  class: \"payBox\"\n};\nconst _hoisted_3 = {\n  key: 1,\n  class: \"payBox\"\n};\nconst _hoisted_4 = {\n  key: 2,\n  class: \"payBox\"\n};\nconst _hoisted_5 = {\n  key: 3,\n  class: \"payBox\"\n};\nimport { requireImg } from \"@/utils/tools\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"CardList\",\n  props: {\n    coinProtocol: { type: String, required: true, default: \"\" }\n  },\n  setup(__props) {\n    const props = __props;\n    return (_ctx, _cache) => {\n      const _component_van_image = _resolveComponent(\"van-image\");\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _ctx.coinProtocol.includes(\"BANK\") ? (_openBlock(), _createElementBlock(\"div\", _hoisted_2, [\n          _createVNode(_component_van_image, {\n            class: \"credit\",\n            \"lazy-load\": \"\",\n            src: _unref(requireImg)(\"common/credit.png\")\n          }, null, 8, [\"src\"])\n        ])) : _createCommentVNode(\"v-if\", true),\n        _ctx.coinProtocol.includes(\"ALIPAY\") ? (_openBlock(), _createElementBlock(\"div\", _hoisted_3, [\n          _createVNode(_component_van_image, {\n            class: \"alipay\",\n            \"lazy-load\": \"\",\n            src: _unref(requireImg)(\"common/ALIPAY.png\")\n          }, null, 8, [\"src\"])\n        ])) : _createCommentVNode(\"v-if\", true),\n        _ctx.coinProtocol.includes(\"WXPAY\") ? (_openBlock(), _createElementBlock(\"div\", _hoisted_4, [\n          _createVNode(_component_van_image, {\n            class: \"WeChatPay\",\n            \"lazy-load\": \"\",\n            src: _unref(requireImg)(\"common/WeChatPay.png\")\n          }, null, 8, [\"src\"])\n        ])) : _createCommentVNode(\"v-if\", true),\n        _ctx.coinProtocol.includes(\"SZRMB\") ? (_openBlock(), _createElementBlock(\"div\", _hoisted_5, [\n          _createVNode(_component_van_image, {\n            class: \"alipay\",\n            \"lazy-load\": \"\",\n            src: _unref(requireImg)(\"common/SZRMB.png\")\n          }, null, 8, [\"src\"])\n        ])) : _createCommentVNode(\"v-if\", true)\n      ]);\n    };\n  }\n});\n",
+      "start": 1714699771965,
+      "end": 1714699772181,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { unref as _unref, resolveComponent as _resolveComponent, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-72e0a096\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = { class: \"card-list-container flex items-center\" }\nconst _hoisted_2 = {\n  key: 0,\n  class: \"payBox\"\n}\nconst _hoisted_3 = {\n  key: 1,\n  class: \"payBox\"\n}\nconst _hoisted_4 = {\n  key: 2,\n  class: \"payBox\"\n}\nconst _hoisted_5 = {\n  key: 3,\n  class: \"payBox\"\n}\n\nimport { requireImg } from '@/utils/tools'\n\ninterface Props {\n  coinProtocol: string\n}\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'CardList',\n  props: {\n    coinProtocol: { type: String, required: true, default: '' }\n  },\n  setup(__props: any) {\n\nconst props = __props\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_van_image = _resolveComponent(\"van-image\")!\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    (_ctx.coinProtocol.includes('BANK'))\n      ? (_openBlock(), _createElementBlock(\"div\", _hoisted_2, [\n          _createVNode(_component_van_image, {\n            class: \"credit\",\n            \"lazy-load\": \"\",\n            src: _unref(requireImg)('common/credit.png')\n          }, null, 8 /* PROPS */, [\"src\"])\n        ]))\n      : _createCommentVNode(\"v-if\", true),\n    (_ctx.coinProtocol.includes('ALIPAY'))\n      ? (_openBlock(), _createElementBlock(\"div\", _hoisted_3, [\n          _createVNode(_component_van_image, {\n            class: \"alipay\",\n            \"lazy-load\": \"\",\n            src: _unref(requireImg)('common/ALIPAY.png')\n          }, null, 8 /* PROPS */, [\"src\"])\n        ]))\n      : _createCommentVNode(\"v-if\", true),\n    (_ctx.coinProtocol.includes('WXPAY'))\n      ? (_openBlock(), _createElementBlock(\"div\", _hoisted_4, [\n          _createVNode(_component_van_image, {\n            class: \"WeChatPay\",\n            \"lazy-load\": \"\",\n            src: _unref(requireImg)('common/WeChatPay.png')\n          }, null, 8 /* PROPS */, [\"src\"])\n        ]))\n      : _createCommentVNode(\"v-if\", true),\n    (_ctx.coinProtocol.includes('SZRMB'))\n      ? (_openBlock(), _createElementBlock(\"div\", _hoisted_5, [\n          _createVNode(_component_van_image, {\n            class: \"alipay\",\n            \"lazy-load\": \"\",\n            src: _unref(requireImg)('common/SZRMB.png')\n          }, null, 8 /* PROPS */, [\"src\"])\n        ]))\n      : _createCommentVNode(\"v-if\", true)\n  ]))\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,SAAS,QAAQ,oBAAoB,mBAAmB,eAAe,cAAc,aAAa,YAAY,sBAAsB,qBAAqB,sBAAsB,qBAAqB,eAAe,cAAc,cAAc,mBAAmB;AAE3Q,MAAM,eAAe,QAAM,aAAa,iBAAiB,GAAE,IAAE,EAAE,GAAE,YAAY,GAAE;AAC/E,MAAM,aAAa,EAAE,OAAO,wCAAwC;AACpE,MAAM,aAAa;AAAA,EACjB,KAAK;AAAA,EACL,OAAO;AACT;AACA,MAAM,aAAa;AAAA,EACjB,KAAK;AAAA,EACL,OAAO;AACT;AACA,MAAM,aAAa;AAAA,EACjB,KAAK;AAAA,EACL,OAAO;AACT;AACA,MAAM,aAAa;AAAA,EACjB,KAAK;AAAA,EACL,OAAO;AACT;AAEA,SAAS,kBAAkB;AAO3B,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,OAAO;AAAA,IACL,cAAc,EAAE,MAAM,QAAQ,UAAU,MAAM,SAAS,GAAG;AAAA,EAC5D;AAAA,EACA,MAAM,SAAc;AAEtB,UAAM,QAAQ;AAEd,WAAO,CAAC,MAAU,WAAgB;AAChC,YAAM,uBAAuB,kBAAkB,WAAW;AAE1D,aAAQ,WAAW,GAAG,oBAAoB,OAAO,YAAY;AAAA,QAC1D,KAAK,aAAa,SAAS,MAAM,KAC7B,WAAW,GAAG,oBAAoB,OAAO,YAAY;AAAA,UACpD,aAAa,sBAAsB;AAAA,YACjC,OAAO;AAAA,YACP,aAAa;AAAA,YACb,KAAK,OAAO,UAAU,EAAE,mBAAmB;AAAA,UAC7C,GAAG,MAAM,GAAe,CAAC,KAAK,CAAC;AAAA,QACjC,CAAC,KACD,oBAAoB,QAAQ,IAAI;AAAA,QACnC,KAAK,aAAa,SAAS,QAAQ,KAC/B,WAAW,GAAG,oBAAoB,OAAO,YAAY;AAAA,UACpD,aAAa,sBAAsB;AAAA,YACjC,OAAO;AAAA,YACP,aAAa;AAAA,YACb,KAAK,OAAO,UAAU,EAAE,mBAAmB;AAAA,UAC7C,GAAG,MAAM,GAAe,CAAC,KAAK,CAAC;AAAA,QACjC,CAAC,KACD,oBAAoB,QAAQ,IAAI;AAAA,QACnC,KAAK,aAAa,SAAS,OAAO,KAC9B,WAAW,GAAG,oBAAoB,OAAO,YAAY;AAAA,UACpD,aAAa,sBAAsB;AAAA,YACjC,OAAO;AAAA,YACP,aAAa;AAAA,YACb,KAAK,OAAO,UAAU,EAAE,sBAAsB;AAAA,UAChD,GAAG,MAAM,GAAe,CAAC,KAAK,CAAC;AAAA,QACjC,CAAC,KACD,oBAAoB,QAAQ,IAAI;AAAA,QACnC,KAAK,aAAa,SAAS,OAAO,KAC9B,WAAW,GAAG,oBAAoB,OAAO,YAAY;AAAA,UACpD,aAAa,sBAAsB;AAAA,YACjC,OAAO;AAAA,YACP,aAAa;AAAA,YACb,KAAK,OAAO,UAAU,EAAE,kBAAkB;AAAA,UAC5C,GAAG,MAAM,GAAe,CAAC,KAAK,CAAC;AAAA,QACjC,CAAC,KACD,oBAAoB,QAAQ,IAAI;AAAA,MACtC,CAAC;AAAA,IACH;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699772181,
+      "end": 1714699772181,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699772181,
+      "end": 1714699772181,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699772181,
+      "end": 1714699772181,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699772181,
+      "end": 1714699772181,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, resolveComponent as _resolveComponent, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\";\nconst _withScopeId = (n) => (_pushScopeId(\"data-v-72e0a096\"), n = n(), _popScopeId(), n);\nconst _hoisted_1 = { class: \"card-list-container flex items-center\" };\nconst _hoisted_2 = {\n  key: 0,\n  class: \"payBox\"\n};\nconst _hoisted_3 = {\n  key: 1,\n  class: \"payBox\"\n};\nconst _hoisted_4 = {\n  key: 2,\n  class: \"payBox\"\n};\nconst _hoisted_5 = {\n  key: 3,\n  class: \"payBox\"\n};\nimport { requireImg } from \"@/utils/tools\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"CardList\",\n  props: {\n    coinProtocol: { type: String, required: true, default: \"\" }\n  },\n  setup(__props) {\n    const props = __props;\n    return (_ctx, _cache) => {\n      const _component_van_image = _resolveComponent(\"van-image\");\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _ctx.coinProtocol.includes(\"BANK\") ? (_openBlock(), _createElementBlock(\"div\", _hoisted_2, [\n          _createVNode(_component_van_image, {\n            class: \"credit\",\n            \"lazy-load\": \"\",\n            src: _unref(requireImg)(\"common/credit.png\")\n          }, null, 8, [\"src\"])\n        ])) : _createCommentVNode(\"v-if\", true),\n        _ctx.coinProtocol.includes(\"ALIPAY\") ? (_openBlock(), _createElementBlock(\"div\", _hoisted_3, [\n          _createVNode(_component_van_image, {\n            class: \"alipay\",\n            \"lazy-load\": \"\",\n            src: _unref(requireImg)(\"common/ALIPAY.png\")\n          }, null, 8, [\"src\"])\n        ])) : _createCommentVNode(\"v-if\", true),\n        _ctx.coinProtocol.includes(\"WXPAY\") ? (_openBlock(), _createElementBlock(\"div\", _hoisted_4, [\n          _createVNode(_component_van_image, {\n            class: \"WeChatPay\",\n            \"lazy-load\": \"\",\n            src: _unref(requireImg)(\"common/WeChatPay.png\")\n          }, null, 8, [\"src\"])\n        ])) : _createCommentVNode(\"v-if\", true),\n        _ctx.coinProtocol.includes(\"SZRMB\") ? (_openBlock(), _createElementBlock(\"div\", _hoisted_5, [\n          _createVNode(_component_van_image, {\n            class: \"alipay\",\n            \"lazy-load\": \"\",\n            src: _unref(requireImg)(\"common/SZRMB.png\")\n          }, null, 8, [\"src\"])\n        ])) : _createCommentVNode(\"v-if\", true)\n      ]);\n    };\n  }\n});\n",
+      "start": 1714699772181,
+      "end": 1714699772181,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, resolveComponent as _resolveComponent, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\";\nconst _withScopeId = (n) => (_pushScopeId(\"data-v-72e0a096\"), n = n(), _popScopeId(), n);\nconst _hoisted_1 = { class: \"card-list-container flex items-center\" };\nconst _hoisted_2 = {\n  key: 0,\n  class: \"payBox\"\n};\nconst _hoisted_3 = {\n  key: 1,\n  class: \"payBox\"\n};\nconst _hoisted_4 = {\n  key: 2,\n  class: \"payBox\"\n};\nconst _hoisted_5 = {\n  key: 3,\n  class: \"payBox\"\n};\nimport { requireImg } from \"@/utils/tools\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"CardList\",\n  props: {\n    coinProtocol: { type: String, required: true, default: \"\" }\n  },\n  setup(__props) {\n    const props = __props;\n    return (_ctx, _cache) => {\n      const _component_van_image = _resolveComponent(\"van-image\");\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _ctx.coinProtocol.includes(\"BANK\") ? (_openBlock(), _createElementBlock(\"div\", _hoisted_2, [\n          _createVNode(_component_van_image, {\n            class: \"credit\",\n            \"lazy-load\": \"\",\n            src: _unref(requireImg)(\"common/credit.png\")\n          }, null, 8, [\"src\"])\n        ])) : _createCommentVNode(\"v-if\", true),\n        _ctx.coinProtocol.includes(\"ALIPAY\") ? (_openBlock(), _createElementBlock(\"div\", _hoisted_3, [\n          _createVNode(_component_van_image, {\n            class: \"alipay\",\n            \"lazy-load\": \"\",\n            src: _unref(requireImg)(\"common/ALIPAY.png\")\n          }, null, 8, [\"src\"])\n        ])) : _createCommentVNode(\"v-if\", true),\n        _ctx.coinProtocol.includes(\"WXPAY\") ? (_openBlock(), _createElementBlock(\"div\", _hoisted_4, [\n          _createVNode(_component_van_image, {\n            class: \"WeChatPay\",\n            \"lazy-load\": \"\",\n            src: _unref(requireImg)(\"common/WeChatPay.png\")\n          }, null, 8, [\"src\"])\n        ])) : _createCommentVNode(\"v-if\", true),\n        _ctx.coinProtocol.includes(\"SZRMB\") ? (_openBlock(), _createElementBlock(\"div\", _hoisted_5, [\n          _createVNode(_component_van_image, {\n            class: \"alipay\",\n            \"lazy-load\": \"\",\n            src: _unref(requireImg)(\"common/SZRMB.png\")\n          }, null, 8, [\"src\"])\n        ])) : _createCommentVNode(\"v-if\", true)\n      ]);\n    };\n  }\n});\n",
+      "start": 1714699772181,
+      "end": 1714699772268,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue?vue&type=script&setup=true&lang.ts\"],\n  \"sourcesContent\": [\"import { defineComponent as _defineComponent } from \\\"vue\\\";\\nimport { unref as _unref, resolveComponent as _resolveComponent, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \\\"vue\\\";\\nconst _withScopeId = (n) => (_pushScopeId(\\\"data-v-72e0a096\\\"), n = n(), _popScopeId(), n);\\nconst _hoisted_1 = { class: \\\"card-list-container flex items-center\\\" };\\nconst _hoisted_2 = {\\n  key: 0,\\n  class: \\\"payBox\\\"\\n};\\nconst _hoisted_3 = {\\n  key: 1,\\n  class: \\\"payBox\\\"\\n};\\nconst _hoisted_4 = {\\n  key: 2,\\n  class: \\\"payBox\\\"\\n};\\nconst _hoisted_5 = {\\n  key: 3,\\n  class: \\\"payBox\\\"\\n};\\nimport { requireImg } from \\\"@/utils/tools\\\";\\nexport default /* @__PURE__ */ _defineComponent({\\n  __name: \\\"CardList\\\",\\n  props: {\\n    coinProtocol: { type: String, required: true, default: \\\"\\\" }\\n  },\\n  setup(__props) {\\n    const props = __props;\\n    return (_ctx, _cache) => {\\n      const _component_van_image = _resolveComponent(\\\"van-image\\\");\\n      return _openBlock(), _createElementBlock(\\\"div\\\", _hoisted_1, [\\n        _ctx.coinProtocol.includes(\\\"BANK\\\") ? (_openBlock(), _createElementBlock(\\\"div\\\", _hoisted_2, [\\n          _createVNode(_component_van_image, {\\n            class: \\\"credit\\\",\\n            \\\"lazy-load\\\": \\\"\\\",\\n            src: _unref(requireImg)(\\\"common/credit.png\\\")\\n          }, null, 8, [\\\"src\\\"])\\n        ])) : _createCommentVNode(\\\"v-if\\\", true),\\n        _ctx.coinProtocol.includes(\\\"ALIPAY\\\") ? (_openBlock(), _createElementBlock(\\\"div\\\", _hoisted_3, [\\n          _createVNode(_component_van_image, {\\n            class: \\\"alipay\\\",\\n            \\\"lazy-load\\\": \\\"\\\",\\n            src: _unref(requireImg)(\\\"common/ALIPAY.png\\\")\\n          }, null, 8, [\\\"src\\\"])\\n        ])) : _createCommentVNode(\\\"v-if\\\", true),\\n        _ctx.coinProtocol.includes(\\\"WXPAY\\\") ? (_openBlock(), _createElementBlock(\\\"div\\\", _hoisted_4, [\\n          _createVNode(_component_van_image, {\\n            class: \\\"WeChatPay\\\",\\n            \\\"lazy-load\\\": \\\"\\\",\\n            src: _unref(requireImg)(\\\"common/WeChatPay.png\\\")\\n          }, null, 8, [\\\"src\\\"])\\n        ])) : _createCommentVNode(\\\"v-if\\\", true),\\n        _ctx.coinProtocol.includes(\\\"SZRMB\\\") ? (_openBlock(), _createElementBlock(\\\"div\\\", _hoisted_5, [\\n          _createVNode(_component_van_image, {\\n            class: \\\"alipay\\\",\\n            \\\"lazy-load\\\": \\\"\\\",\\n            src: _unref(requireImg)(\\\"common/SZRMB.png\\\")\\n          }, null, 8, [\\\"src\\\"])\\n        ])) : _createCommentVNode(\\\"v-if\\\", true)\\n      ]);\\n    };\\n  }\\n});\\n\"],\n  \"mappings\": \";AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,SAAS,QAAQ,oBAAoB,mBAAmB,eAAe,cAAc,aAAa,YAAY,sBAAsB,qBAAqB,sBAAsB,qBAAqB,eAAe,cAAc,cAAc,mBAAmB;AAC3Q,MAAM,eAAe,CAAC,OAAO,aAAa,iBAAiB,GAAG,IAAI,EAAE,GAAG,YAAY,GAAG;AACtF,MAAM,aAAa,EAAE,OAAO,wCAAwC;AACpE,MAAM,aAAa;AAAA,EACjB,KAAK;AAAA,EACL,OAAO;AACT;AACA,MAAM,aAAa;AAAA,EACjB,KAAK;AAAA,EACL,OAAO;AACT;AACA,MAAM,aAAa;AAAA,EACjB,KAAK;AAAA,EACL,OAAO;AACT;AACA,MAAM,aAAa;AAAA,EACjB,KAAK;AAAA,EACL,OAAO;AACT;AACA,SAAS,kBAAkB;AAC3B,eAA+B,iCAAiB;AAAA,EAC9C,QAAQ;AAAA,EACR,OAAO;AAAA,IACL,cAAc,EAAE,MAAM,QAAQ,UAAU,MAAM,SAAS,GAAG;AAAA,EAC5D;AAAA,EACA,MAAM,SAAS;AACb,UAAM,QAAQ;AACd,WAAO,CAAC,MAAM,WAAW;AACvB,YAAM,uBAAuB,kBAAkB,WAAW;AAC1D,aAAO,WAAW,GAAG,oBAAoB,OAAO,YAAY;AAAA,QAC1D,KAAK,aAAa,SAAS,MAAM,KAAK,WAAW,GAAG,oBAAoB,OAAO,YAAY;AAAA,UACzF,aAAa,sBAAsB;AAAA,YACjC,OAAO;AAAA,YACP,aAAa;AAAA,YACb,KAAK,OAAO,UAAU,EAAE,mBAAmB;AAAA,UAC7C,GAAG,MAAM,GAAG,CAAC,KAAK,CAAC;AAAA,QACrB,CAAC,KAAK,oBAAoB,QAAQ,IAAI;AAAA,QACtC,KAAK,aAAa,SAAS,QAAQ,KAAK,WAAW,GAAG,oBAAoB,OAAO,YAAY;AAAA,UAC3F,aAAa,sBAAsB;AAAA,YACjC,OAAO;AAAA,YACP,aAAa;AAAA,YACb,KAAK,OAAO,UAAU,EAAE,mBAAmB;AAAA,UAC7C,GAAG,MAAM,GAAG,CAAC,KAAK,CAAC;AAAA,QACrB,CAAC,KAAK,oBAAoB,QAAQ,IAAI;AAAA,QACtC,KAAK,aAAa,SAAS,OAAO,KAAK,WAAW,GAAG,oBAAoB,OAAO,YAAY;AAAA,UAC1F,aAAa,sBAAsB;AAAA,YACjC,OAAO;AAAA,YACP,aAAa;AAAA,YACb,KAAK,OAAO,UAAU,EAAE,sBAAsB;AAAA,UAChD,GAAG,MAAM,GAAG,CAAC,KAAK,CAAC;AAAA,QACrB,CAAC,KAAK,oBAAoB,QAAQ,IAAI;AAAA,QACtC,KAAK,aAAa,SAAS,OAAO,KAAK,WAAW,GAAG,oBAAoB,OAAO,YAAY;AAAA,UAC1F,aAAa,sBAAsB;AAAA,YACjC,OAAO;AAAA,YACP,aAAa;AAAA,YACb,KAAK,OAAO,UAAU,EAAE,kBAAkB;AAAA,UAC5C,GAAG,MAAM,GAAG,CAAC,KAAK,CAAC;AAAA,QACrB,CAAC,KAAK,oBAAoB,QAAQ,IAAI;AAAA,MACxC,CAAC;AAAA,IACH;AAAA,EACF;AACF,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699772268,
+      "end": 1714699772268,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699772268,
+      "end": 1714699772268,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699772268,
+      "end": 1714699772268,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699772268,
+      "end": 1714699772268,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699772268,
+      "end": 1714699772268,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699772268,
+      "end": 1714699772268,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699772268,
+      "end": 1714699772268,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699772268,
+      "end": 1714699772268,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699772268,
+      "end": 1714699772269,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */import { Image as __unplugin_components_0 } from 'vant/es';import 'vant/es/image/style/index';\n\"use strict\";\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, resolveComponent as _resolveComponent, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\";\nconst _withScopeId = (n) => (_pushScopeId(\"data-v-72e0a096\"), n = n(), _popScopeId(), n);\nconst _hoisted_1 = { class: \"card-list-container flex items-center\" };\nconst _hoisted_2 = {\n  key: 0,\n  class: \"payBox\"\n};\nconst _hoisted_3 = {\n  key: 1,\n  class: \"payBox\"\n};\nconst _hoisted_4 = {\n  key: 2,\n  class: \"payBox\"\n};\nconst _hoisted_5 = {\n  key: 3,\n  class: \"payBox\"\n};\nimport { requireImg } from \"@/utils/tools\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"CardList\",\n  props: {\n    coinProtocol: { type: String, required: true, default: \"\" }\n  },\n  setup(__props) {\n    const props = __props;\n    return (_ctx, _cache) => {\n      const _component_van_image = __unplugin_components_0;\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _ctx.coinProtocol.includes(\"BANK\") ? (_openBlock(), _createElementBlock(\"div\", _hoisted_2, [\n          _createVNode(_component_van_image, {\n            class: \"credit\",\n            \"lazy-load\": \"\",\n            src: _unref(requireImg)(\"common/credit.png\")\n          }, null, 8, [\"src\"])\n        ])) : _createCommentVNode(\"v-if\", true),\n        _ctx.coinProtocol.includes(\"ALIPAY\") ? (_openBlock(), _createElementBlock(\"div\", _hoisted_3, [\n          _createVNode(_component_van_image, {\n            class: \"alipay\",\n            \"lazy-load\": \"\",\n            src: _unref(requireImg)(\"common/ALIPAY.png\")\n          }, null, 8, [\"src\"])\n        ])) : _createCommentVNode(\"v-if\", true),\n        _ctx.coinProtocol.includes(\"WXPAY\") ? (_openBlock(), _createElementBlock(\"div\", _hoisted_4, [\n          _createVNode(_component_van_image, {\n            class: \"WeChatPay\",\n            \"lazy-load\": \"\",\n            src: _unref(requireImg)(\"common/WeChatPay.png\")\n          }, null, 8, [\"src\"])\n        ])) : _createCommentVNode(\"v-if\", true),\n        _ctx.coinProtocol.includes(\"SZRMB\") ? (_openBlock(), _createElementBlock(\"div\", _hoisted_5, [\n          _createVNode(_component_van_image, {\n            class: \"alipay\",\n            \"lazy-load\": \"\",\n            src: _unref(requireImg)(\"common/SZRMB.png\")\n          }, null, 8, [\"src\"])\n        ])) : _createCommentVNode(\"v-if\", true)\n      ]);\n    };\n  }\n});\n",
+      "start": 1714699772269,
+      "end": 1714699772269,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { unref as _unref, resolveComponent as _resolveComponent, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock, createCommentVNode as _createCommentVNode, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\";\nconst _withScopeId = (n) => (_pushScopeId(\"data-v-72e0a096\"), n = n(), _popScopeId(), n);\nconst _hoisted_1 = { class: \"card-list-container flex items-center\" };\nconst _hoisted_2 = {\n  key: 0,\n  class: \"payBox\"\n};\nconst _hoisted_3 = {\n  key: 1,\n  class: \"payBox\"\n};\nconst _hoisted_4 = {\n  key: 2,\n  class: \"payBox\"\n};\nconst _hoisted_5 = {\n  key: 3,\n  class: \"payBox\"\n};\nimport { requireImg } from \"@/utils/tools\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"CardList\",\n  props: {\n    coinProtocol: { type: String, required: true, default: \"\" }\n  },\n  setup(__props) {\n    const props = __props;\n    return (_ctx, _cache) => {\n      const _component_van_image = _resolveComponent(\"van-image\");\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _ctx.coinProtocol.includes(\"BANK\") ? (_openBlock(), _createElementBlock(\"div\", _hoisted_2, [\n          _createVNode(_component_van_image, {\n            class: \"credit\",\n            \"lazy-load\": \"\",\n            src: _unref(requireImg)(\"common/credit.png\")\n          }, null, 8, [\"src\"])\n        ])) : _createCommentVNode(\"v-if\", true),\n        _ctx.coinProtocol.includes(\"ALIPAY\") ? (_openBlock(), _createElementBlock(\"div\", _hoisted_3, [\n          _createVNode(_component_van_image, {\n            class: \"alipay\",\n            \"lazy-load\": \"\",\n            src: _unref(requireImg)(\"common/ALIPAY.png\")\n          }, null, 8, [\"src\"])\n        ])) : _createCommentVNode(\"v-if\", true),\n        _ctx.coinProtocol.includes(\"WXPAY\") ? (_openBlock(), _createElementBlock(\"div\", _hoisted_4, [\n          _createVNode(_component_van_image, {\n            class: \"WeChatPay\",\n            \"lazy-load\": \"\",\n            src: _unref(requireImg)(\"common/WeChatPay.png\")\n          }, null, 8, [\"src\"])\n        ])) : _createCommentVNode(\"v-if\", true),\n        _ctx.coinProtocol.includes(\"SZRMB\") ? (_openBlock(), _createElementBlock(\"div\", _hoisted_5, [\n          _createVNode(_component_van_image, {\n            class: \"alipay\",\n            \"lazy-load\": \"\",\n            src: _unref(requireImg)(\"common/SZRMB.png\")\n          }, null, 8, [\"src\"])\n        ])) : _createCommentVNode(\"v-if\", true)\n      ]);\n    };\n  }\n});\n"
+        ],
+        "names": [],
+        "mappings": ";AAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,mCAAmC,uBAA8B;AACjE;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699772269,
+      "end": 1714699772269,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699772269,
+      "end": 1714699772269,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699772269,
+      "end": 1714699772269,
+      "order": "normal"
+    }
+  ]
+}

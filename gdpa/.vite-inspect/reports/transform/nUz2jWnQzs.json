@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/html5-qrcode@2.3.8/node_modules/html5-qrcode/esm/storage.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var PersistedDataFactory = (function () {\n    function PersistedDataFactory() {\n    }\n    PersistedDataFactory.createDefault = function () {\n        return {\n            hasPermission: false,\n            lastUsedCameraId: null\n        };\n    };\n    return PersistedDataFactory;\n}());\nvar PersistedDataManager = (function () {\n    function PersistedDataManager() {\n        this.data = PersistedDataFactory.createDefault();\n        var data = localStorage.getItem(PersistedDataManager.LOCAL_STORAGE_KEY);\n        if (!data) {\n            this.reset();\n        }\n        else {\n            this.data = JSON.parse(data);\n        }\n    }\n    PersistedDataManager.prototype.hasCameraPermissions = function () {\n        return this.data.hasPermission;\n    };\n    PersistedDataManager.prototype.getLastUsedCameraId = function () {\n        return this.data.lastUsedCameraId;\n    };\n    PersistedDataManager.prototype.setHasPermission = function (hasPermission) {\n        this.data.hasPermission = hasPermission;\n        this.flush();\n    };\n    PersistedDataManager.prototype.setLastUsedCameraId = function (lastUsedCameraId) {\n        this.data.lastUsedCameraId = lastUsedCameraId;\n        this.flush();\n    };\n    PersistedDataManager.prototype.resetLastUsedCameraId = function () {\n        this.data.lastUsedCameraId = null;\n        this.flush();\n    };\n    PersistedDataManager.prototype.reset = function () {\n        this.data = PersistedDataFactory.createDefault();\n        this.flush();\n    };\n    PersistedDataManager.prototype.flush = function () {\n        localStorage.setItem(PersistedDataManager.LOCAL_STORAGE_KEY, JSON.stringify(this.data));\n    };\n    PersistedDataManager.LOCAL_STORAGE_KEY = \"HTML5_QRCODE_DATA\";\n    return PersistedDataManager;\n}());\nexport { PersistedDataManager };\n//# sourceMappingURL=storage.js.map",
+      "start": 1714699771223,
+      "end": 1714699771238,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771238,
+      "end": 1714699771238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771238,
+      "end": 1714699771238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771238,
+      "end": 1714699771238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771238,
+      "end": 1714699771238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771238,
+      "end": 1714699771238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771238,
+      "end": 1714699771238,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var PersistedDataFactory = (function () {\n    function PersistedDataFactory() {\n    }\n    PersistedDataFactory.createDefault = function () {\n        return {\n            hasPermission: false,\n            lastUsedCameraId: null\n        };\n    };\n    return PersistedDataFactory;\n}());\nvar PersistedDataManager = (function () {\n    function PersistedDataManager() {\n        this.data = PersistedDataFactory.createDefault();\n        var data = localStorage.getItem(PersistedDataManager.LOCAL_STORAGE_KEY);\n        if (!data) {\n            this.reset();\n        }\n        else {\n            this.data = JSON.parse(data);\n        }\n    }\n    PersistedDataManager.prototype.hasCameraPermissions = function () {\n        return this.data.hasPermission;\n    };\n    PersistedDataManager.prototype.getLastUsedCameraId = function () {\n        return this.data.lastUsedCameraId;\n    };\n    PersistedDataManager.prototype.setHasPermission = function (hasPermission) {\n        this.data.hasPermission = hasPermission;\n        this.flush();\n    };\n    PersistedDataManager.prototype.setLastUsedCameraId = function (lastUsedCameraId) {\n        this.data.lastUsedCameraId = lastUsedCameraId;\n        this.flush();\n    };\n    PersistedDataManager.prototype.resetLastUsedCameraId = function () {\n        this.data.lastUsedCameraId = null;\n        this.flush();\n    };\n    PersistedDataManager.prototype.reset = function () {\n        this.data = PersistedDataFactory.createDefault();\n        this.flush();\n    };\n    PersistedDataManager.prototype.flush = function () {\n        localStorage.setItem(PersistedDataManager.LOCAL_STORAGE_KEY, JSON.stringify(this.data));\n    };\n    PersistedDataManager.LOCAL_STORAGE_KEY = \"HTML5_QRCODE_DATA\";\n    return PersistedDataManager;\n}());\nexport { PersistedDataManager };\n//# sourceMappingURL=storage.js.map",
+      "start": 1714699771238,
+      "end": 1714699771238,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699771238,
+      "end": 1714699771238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771238,
+      "end": 1714699771238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771238,
+      "end": 1714699771238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771238,
+      "end": 1714699771238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771238,
+      "end": 1714699771238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771238,
+      "end": 1714699771238,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699771238,
+      "end": 1714699771239,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771239,
+      "end": 1714699771239,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771239,
+      "end": 1714699771239,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771239,
+      "end": 1714699771239,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699771239,
+      "end": 1714699771239,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771239,
+      "end": 1714699771239,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771239,
+      "end": 1714699771239,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771239,
+      "end": 1714699771239,
+      "order": "normal"
+    }
+  ]
+}

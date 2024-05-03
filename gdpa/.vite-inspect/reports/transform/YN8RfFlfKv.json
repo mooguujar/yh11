@@ -1,0 +1,154 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/tools.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { Ref, toRefs } from 'vue'\n\nexport type ChangeValue = Array<{ key: string; value: string }>\n\nexport const inputChange =\n  <T extends StateProps>(target: T) =>\n  (data: ChangeValue) => {\n    const newData = Object.create(null)\n\n    for (let i = 0; i < data.length; i++) {\n      const d = {\n        [data[i].key]: data[i].value\n      }\n\n      Object.assign(newData, d)\n    }\n\n    Object.assign(target, newData)\n  }\n\nexport type InputType = 'text' | 'password' | 'number'\nexport interface StateProps {\n  [key: string]: any\n  value: string\n  error: string\n  type: InputType\n}\nexport interface PhoneCheckProps {\n  '+1': RegExp\n  '+62': RegExp\n  '+60': RegExp\n  '+66': RegExp\n  '+84': RegExp\n  '+63': RegExp\n  '+855': RegExp\n  '+886': RegExp\n  '+852': RegExp\n  '+971': RegExp\n  '+86': RegExp\n}\n\n// 国际手机号格式正则映射map\nexport const phoneCheckMap: PhoneCheckProps = {\n  '+1': /^(\\+?1)?[2-9]\\d{2}[2-9](?!11)\\d{6}$/,\n  '+62': /^(?:\\+?62|0)[2-9]\\d{7,11}$/,\n  '+60': /^(?:\\+?60|0)[1-9]\\d{7,9}$/,\n  '+66': /^(?:\\+?66|0)[689]\\d{7,8}$/,\n  '+84': /^(?:\\+?84|0)(?:3[2-9]|5[689]|7[0-9]|8[1-9]|9[0-9])\\d{7}$/,\n  '+63': /^(?:\\+?63|0)(?:9\\d{2}|[2-8]\\d{2})\\d{7}$/,\n  '+855': /^(?:\\+?855|0)(?:[1-9]\\d{7,8}|[1-9]\\d{9})$/,\n  '+886': /^(?:\\+?886|0)[9]\\d{8}$/,\n  '+852': /^(?:\\+?852-?)?[569]\\d{3}-?\\d{4}$/,\n  '+971': /^(?:\\+?971|0)?(?:50|51|52|54|55|56|58|2|3|4|6|7|9)\\d{7}$/,\n  '+86': /^(?:(?:\\+|00)86-?)?1[345789]\\d{9}$/\n}\n",
+      "start": 1714699771686,
+      "end": 1714699771694,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771694,
+      "end": 1714699771694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "export const inputChange = (target) => (data) => {\n  const newData = /* @__PURE__ */ Object.create(null);\n  for (let i = 0; i < data.length; i++) {\n    const d = {\n      [data[i].key]: data[i].value\n    };\n    Object.assign(newData, d);\n  }\n  Object.assign(target, newData);\n};\nexport const phoneCheckMap = {\n  \"+1\": /^(\\+?1)?[2-9]\\d{2}[2-9](?!11)\\d{6}$/,\n  \"+62\": /^(?:\\+?62|0)[2-9]\\d{7,11}$/,\n  \"+60\": /^(?:\\+?60|0)[1-9]\\d{7,9}$/,\n  \"+66\": /^(?:\\+?66|0)[689]\\d{7,8}$/,\n  \"+84\": /^(?:\\+?84|0)(?:3[2-9]|5[689]|7[0-9]|8[1-9]|9[0-9])\\d{7}$/,\n  \"+63\": /^(?:\\+?63|0)(?:9\\d{2}|[2-8]\\d{2})\\d{7}$/,\n  \"+855\": /^(?:\\+?855|0)(?:[1-9]\\d{7,8}|[1-9]\\d{9})$/,\n  \"+886\": /^(?:\\+?886|0)[9]\\d{8}$/,\n  \"+852\": /^(?:\\+?852-?)?[569]\\d{3}-?\\d{4}$/,\n  \"+971\": /^(?:\\+?971|0)?(?:50|51|52|54|55|56|58|2|3|4|6|7|9)\\d{7}$/,\n  \"+86\": /^(?:(?:\\+|00)86-?)?1[345789]\\d{9}$/\n};\n",
+      "start": 1714699771694,
+      "end": 1714699771896,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/tools.ts"
+        ],
+        "sourcesContent": [
+          "import { Ref, toRefs } from 'vue'\n\nexport type ChangeValue = Array<{ key: string; value: string }>\n\nexport const inputChange =\n  <T extends StateProps>(target: T) =>\n  (data: ChangeValue) => {\n    const newData = Object.create(null)\n\n    for (let i = 0; i < data.length; i++) {\n      const d = {\n        [data[i].key]: data[i].value\n      }\n\n      Object.assign(newData, d)\n    }\n\n    Object.assign(target, newData)\n  }\n\nexport type InputType = 'text' | 'password' | 'number'\nexport interface StateProps {\n  [key: string]: any\n  value: string\n  error: string\n  type: InputType\n}\nexport interface PhoneCheckProps {\n  '+1': RegExp\n  '+62': RegExp\n  '+60': RegExp\n  '+66': RegExp\n  '+84': RegExp\n  '+63': RegExp\n  '+855': RegExp\n  '+886': RegExp\n  '+852': RegExp\n  '+971': RegExp\n  '+86': RegExp\n}\n\n// 国际手机号格式正则映射map\nexport const phoneCheckMap: PhoneCheckProps = {\n  '+1': /^(\\+?1)?[2-9]\\d{2}[2-9](?!11)\\d{6}$/,\n  '+62': /^(?:\\+?62|0)[2-9]\\d{7,11}$/,\n  '+60': /^(?:\\+?60|0)[1-9]\\d{7,9}$/,\n  '+66': /^(?:\\+?66|0)[689]\\d{7,8}$/,\n  '+84': /^(?:\\+?84|0)(?:3[2-9]|5[689]|7[0-9]|8[1-9]|9[0-9])\\d{7}$/,\n  '+63': /^(?:\\+?63|0)(?:9\\d{2}|[2-8]\\d{2})\\d{7}$/,\n  '+855': /^(?:\\+?855|0)(?:[1-9]\\d{7,8}|[1-9]\\d{9})$/,\n  '+886': /^(?:\\+?886|0)[9]\\d{8}$/,\n  '+852': /^(?:\\+?852-?)?[569]\\d{3}-?\\d{4}$/,\n  '+971': /^(?:\\+?971|0)?(?:50|51|52|54|55|56|58|2|3|4|6|7|9)\\d{7}$/,\n  '+86': /^(?:(?:\\+|00)86-?)?1[345789]\\d{9}$/\n}\n"
+        ],
+        "mappings": "AAIO,aAAM,cACX,CAAuB,WACvB,CAAC,SAAsB;AACrB,QAAM,UAAU,uBAAO,OAAO,IAAI;AAElC,WAAS,IAAI,GAAG,IAAI,KAAK,QAAQ,KAAK;AACpC,UAAM,IAAI;AAAA,MACR,CAAC,KAAK,CAAC,EAAE,GAAG,GAAG,KAAK,CAAC,EAAE;AAAA,IACzB;AAEA,WAAO,OAAO,SAAS,CAAC;AAAA,EAC1B;AAEA,SAAO,OAAO,QAAQ,OAAO;AAC/B;AAwBK,aAAM,gBAAiC;AAAA,EAC5C,MAAM;AAAA,EACN,OAAO;AAAA,EACP,OAAO;AAAA,EACP,OAAO;AAAA,EACP,OAAO;AAAA,EACP,OAAO;AAAA,EACP,QAAQ;AAAA,EACR,QAAQ;AAAA,EACR,QAAQ;AAAA,EACR,QAAQ;AAAA,EACR,OAAO;AACT;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771896,
+      "end": 1714699771896,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771896,
+      "end": 1714699771896,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771896,
+      "end": 1714699771897,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771897,
+      "end": 1714699771897,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "export const inputChange = (target) => (data) => {\n  const newData = /* @__PURE__ */ Object.create(null);\n  for (let i = 0; i < data.length; i++) {\n    const d = {\n      [data[i].key]: data[i].value\n    };\n    Object.assign(newData, d);\n  }\n  Object.assign(target, newData);\n};\nexport const phoneCheckMap = {\n  \"+1\": /^(\\+?1)?[2-9]\\d{2}[2-9](?!11)\\d{6}$/,\n  \"+62\": /^(?:\\+?62|0)[2-9]\\d{7,11}$/,\n  \"+60\": /^(?:\\+?60|0)[1-9]\\d{7,9}$/,\n  \"+66\": /^(?:\\+?66|0)[689]\\d{7,8}$/,\n  \"+84\": /^(?:\\+?84|0)(?:3[2-9]|5[689]|7[0-9]|8[1-9]|9[0-9])\\d{7}$/,\n  \"+63\": /^(?:\\+?63|0)(?:9\\d{2}|[2-8]\\d{2})\\d{7}$/,\n  \"+855\": /^(?:\\+?855|0)(?:[1-9]\\d{7,8}|[1-9]\\d{9})$/,\n  \"+886\": /^(?:\\+?886|0)[9]\\d{8}$/,\n  \"+852\": /^(?:\\+?852-?)?[569]\\d{3}-?\\d{4}$/,\n  \"+971\": /^(?:\\+?971|0)?(?:50|51|52|54|55|56|58|2|3|4|6|7|9)\\d{7}$/,\n  \"+86\": /^(?:(?:\\+|00)86-?)?1[345789]\\d{9}$/\n};\n",
+      "start": 1714699771897,
+      "end": 1714699771897,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nexport const inputChange = (target) => (data) => {\n  const newData = /* @__PURE__ */ Object.create(null);\n  for (let i = 0; i < data.length; i++) {\n    const d = {\n      [data[i].key]: data[i].value\n    };\n    Object.assign(newData, d);\n  }\n  Object.assign(target, newData);\n};\nexport const phoneCheckMap = {\n  \"+1\": /^(\\+?1)?[2-9]\\d{2}[2-9](?!11)\\d{6}$/,\n  \"+62\": /^(?:\\+?62|0)[2-9]\\d{7,11}$/,\n  \"+60\": /^(?:\\+?60|0)[1-9]\\d{7,9}$/,\n  \"+66\": /^(?:\\+?66|0)[689]\\d{7,8}$/,\n  \"+84\": /^(?:\\+?84|0)(?:3[2-9]|5[689]|7[0-9]|8[1-9]|9[0-9])\\d{7}$/,\n  \"+63\": /^(?:\\+?63|0)(?:9\\d{2}|[2-8]\\d{2})\\d{7}$/,\n  \"+855\": /^(?:\\+?855|0)(?:[1-9]\\d{7,8}|[1-9]\\d{9})$/,\n  \"+886\": /^(?:\\+?886|0)[9]\\d{8}$/,\n  \"+852\": /^(?:\\+?852-?)?[569]\\d{3}-?\\d{4}$/,\n  \"+971\": /^(?:\\+?971|0)?(?:50|51|52|54|55|56|58|2|3|4|6|7|9)\\d{7}$/,\n  \"+86\": /^(?:(?:\\+|00)86-?)?1[345789]\\d{9}$/\n};\n",
+      "start": 1714699771897,
+      "end": 1714699772040,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/tools.ts\"],\n  \"sourcesContent\": [\"export const inputChange = (target) => (data) => {\\n  const newData = /* @__PURE__ */ Object.create(null);\\n  for (let i = 0; i < data.length; i++) {\\n    const d = {\\n      [data[i].key]: data[i].value\\n    };\\n    Object.assign(newData, d);\\n  }\\n  Object.assign(target, newData);\\n};\\nexport const phoneCheckMap = {\\n  \\\"+1\\\": /^(\\\\+?1)?[2-9]\\\\d{2}[2-9](?!11)\\\\d{6}$/,\\n  \\\"+62\\\": /^(?:\\\\+?62|0)[2-9]\\\\d{7,11}$/,\\n  \\\"+60\\\": /^(?:\\\\+?60|0)[1-9]\\\\d{7,9}$/,\\n  \\\"+66\\\": /^(?:\\\\+?66|0)[689]\\\\d{7,8}$/,\\n  \\\"+84\\\": /^(?:\\\\+?84|0)(?:3[2-9]|5[689]|7[0-9]|8[1-9]|9[0-9])\\\\d{7}$/,\\n  \\\"+63\\\": /^(?:\\\\+?63|0)(?:9\\\\d{2}|[2-8]\\\\d{2})\\\\d{7}$/,\\n  \\\"+855\\\": /^(?:\\\\+?855|0)(?:[1-9]\\\\d{7,8}|[1-9]\\\\d{9})$/,\\n  \\\"+886\\\": /^(?:\\\\+?886|0)[9]\\\\d{8}$/,\\n  \\\"+852\\\": /^(?:\\\\+?852-?)?[569]\\\\d{3}-?\\\\d{4}$/,\\n  \\\"+971\\\": /^(?:\\\\+?971|0)?(?:50|51|52|54|55|56|58|2|3|4|6|7|9)\\\\d{7}$/,\\n  \\\"+86\\\": /^(?:(?:\\\\+|00)86-?)?1[345789]\\\\d{9}$/\\n};\\n\"],\n  \"mappings\": \";AAAO,aAAM,cAAc,CAAC,WAAW,CAAC,SAAS;AAC/C,QAAM,UAA0B,uBAAO,OAAO,IAAI;AAClD,WAAS,IAAI,GAAG,IAAI,KAAK,QAAQ,KAAK;AACpC,UAAM,IAAI;AAAA,MACR,CAAC,KAAK,CAAC,EAAE,GAAG,GAAG,KAAK,CAAC,EAAE;AAAA,IACzB;AACA,WAAO,OAAO,SAAS,CAAC;AAAA,EAC1B;AACA,SAAO,OAAO,QAAQ,OAAO;AAC/B;AACO,aAAM,gBAAgB;AAAA,EAC3B,MAAM;AAAA,EACN,OAAO;AAAA,EACP,OAAO;AAAA,EACP,OAAO;AAAA,EACP,OAAO;AAAA,EACP,OAAO;AAAA,EACP,QAAQ;AAAA,EACR,QAAQ;AAAA,EACR,QAAQ;AAAA,EACR,QAAQ;AAAA,EACR,OAAO;AACT;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699772040,
+      "end": 1714699772040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699772040,
+      "end": 1714699772040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699772040,
+      "end": 1714699772040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699772040,
+      "end": 1714699772040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699772040,
+      "end": 1714699772040,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699772040,
+      "end": 1714699772040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699772040,
+      "end": 1714699772040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699772040,
+      "end": 1714699772040,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699772040,
+      "end": 1714699772041,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699772041,
+      "end": 1714699772041,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699772041,
+      "end": 1714699772041,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699772041,
+      "end": 1714699772041,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699772041,
+      "end": 1714699772041,
+      "order": "normal"
+    }
+  ]
+}

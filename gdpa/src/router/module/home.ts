@@ -23,6 +23,11 @@ const home = [
         meta: {}
       },
       {
+        path: '/activeList',
+        name: 'activeList',
+        component: () => import(/* webpackChunkName: "point" */ '@/pages/activeList/index.vue')
+      },
+      {
         path: '/point',
         name: 'Point',
         component: () => import(/* webpackChunkName: "point" */ '@/pages/Point/index.vue')

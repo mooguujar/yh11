@@ -1,0 +1,152 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/buy.scss?vue&type=style&index=0&src=17597f85&scoped=17597f85&lang.scss",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": ".coinBuy {\n  position: relative;\n  flex: 1;\n  &.buy {\n    .content {\n      position: relative;\n      width: 100%;\n      padding: 0 20px;\n    }\n  }\n  .nav-bar {\n    padding-bottom: 50px;\n  }\n  .content {\n    width: 100%;\n    height: 100%;\n    background-color: #ebf1f6;\n    // border-radius: 20.8px 20.8px 0px 0px;\n    overflow: hidden;\n    // z-index: 10;\n    // margin-top: -40px;\n    position: absolute;\n    // padding: 0 20px;\n    :deep(.van-tabs1) {\n      .van-tabs__wrap {\n        // width: 340px;\n        // padding-right: 415px;\n        //height: 100px;\n        background-color: #ebf1f6;\n        //border-bottom: #d6dce8 solid 2px;\n        #van-tabs-1-0 {\n          margin-left: -20px;\n          .van-tab__text:after {\n            content: \"\";\n            display: block;\n            width: 2px;\n            height: 29px;\n            background: #d6dce8;\n            position: absolute;\n            top: 0;\n            right: -25px;\n          }\n        }\n        .van-tabs__line {\n          height: 0;\n        }\n        .van-tabs__nav--line {\n          background-color: #ebf1f6;\n          .van-tab__text {\n            position: relative;\n            overflow: inherit;\n            height: 29.2px;\n            font-family: MicrosoftYaHei-Bold;\n            font-size: 30.6px;\n            font-weight: 500;\n            font-stretch: normal;\n            line-height: 30px;\n            letter-spacing: 0px;\n            color: #868d9a;\n          }\n          .van-tab--active {\n            .van-tab__text {\n              color: #13161b;\n            }\n          }\n        }\n      }\n    }\n    :deep(.van-tabs.active) {\n      .van-tabs__wrap {\n        //height: 147px;\n        .van-tab__text {\n          position: relative;\n          //top: -25px;\n        }\n      }\n    }\n\n    :deep(.selfSelect) {\n      height: calc(100% - 90px);\n      flex: 0 0 calc(100% - 90px);\n      display: flex;\n      flex-direction: column;\n      &.selfSelect-wide-mode {\n        flex: 1;\n      }\n      .selectList {\n        // height: 68px;\n        flex: 0 0 68px;\n        > span {\n          padding-bottom: 0;\n        }\n      }\n      .O_wrap {\n        height: calc(100% - 68px);\n        flex: 1;\n      }\n    }\n  }\n  .title_buy {\n    float: left;\n    height: 98px;\n    line-height: 98px;\n    padding: 0 5px;\n    overflow: inherit;\n\n    font-family: MicrosoftYaHei-Bold;\n    font-size: 0.408rem;\n    font-weight: 500;\n    font-stretch: normal;\n    letter-spacing: 0px;\n    color: #7a7879;\n    margin-right: 10px;\n  }\n  .title_buy.active {\n    color: #070707;\n  }\n  .shu_f {\n    height: 30px;\n    width: 1px;\n    overflow: hidden;\n    background: #868d9a;\n    position: relative;\n    top: 36px;\n  }\n}\n",
+      "start": 1714699770043,
+      "end": 1714699770043,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "result": ".coinBuy {\n  position: relative;\n  flex: 1;\n}\n.coinBuy.buy .content {\n  position: relative;\n  width: 100%;\n  padding: 0 0.26667rem;\n}\n.coinBuy .nav-bar {\n  padding-bottom: 0.66667rem;\n}\n.coinBuy .content {\n  width: 100%;\n  height: 100%;\n  background-color: #ebf1f6;\n  overflow: hidden;\n  position: absolute;\n}\n.coinBuy .content :deep(.van-tabs1) .van-tabs__wrap {\n  background-color: #ebf1f6;\n}\n.coinBuy .content :deep(.van-tabs1) .van-tabs__wrap #van-tabs-1-0 {\n  margin-left: -0.26667rem;\n}\n.coinBuy .content :deep(.van-tabs1) .van-tabs__wrap #van-tabs-1-0 .van-tab__text:after {\n  content: \"\";\n  display: block;\n  width: 0.02667rem;\n  height: 0.38667rem;\n  background: #d6dce8;\n  position: absolute;\n  top: 0;\n  right: -0.33333rem;\n}\n.coinBuy .content :deep(.van-tabs1) .van-tabs__wrap .van-tabs__line {\n  height: 0;\n}\n.coinBuy .content :deep(.van-tabs1) .van-tabs__wrap .van-tabs__nav--line {\n  background-color: #ebf1f6;\n}\n.coinBuy .content :deep(.van-tabs1) .van-tabs__wrap .van-tabs__nav--line .van-tab__text {\n  position: relative;\n  overflow: inherit;\n  height: 0.38933rem;\n  font-family: MicrosoftYaHei-Bold;\n  font-size: 0.408rem;\n  font-weight: 500;\n  font-stretch: normal;\n  line-height: 0.4rem;\n  letter-spacing: 0px;\n  color: #868d9a;\n}\n.coinBuy .content :deep(.van-tabs1) .van-tabs__wrap .van-tabs__nav--line .van-tab--active .van-tab__text {\n  color: #13161b;\n}\n.coinBuy .content :deep(.van-tabs.active) .van-tabs__wrap .van-tab__text {\n  position: relative;\n}\n.coinBuy .content :deep(.selfSelect) {\n  height: calc(100% - 1.2rem);\n  flex: 0 0 calc(100% - 1.2rem);\n  display: flex;\n  flex-direction: column;\n}\n.coinBuy .content :deep(.selfSelect).selfSelect-wide-mode {\n  flex: 1;\n}\n.coinBuy .content :deep(.selfSelect) .selectList {\n  flex: 0 0 0.90667rem;\n}\n.coinBuy .content :deep(.selfSelect) .selectList > span {\n  padding-bottom: 0;\n}\n.coinBuy .content :deep(.selfSelect) .O_wrap {\n  height: calc(100% - 0.90667rem);\n  flex: 1;\n}\n.coinBuy .title_buy {\n  float: left;\n  height: 1.30667rem;\n  line-height: 1.30667rem;\n  padding: 0 0.06667rem;\n  overflow: inherit;\n  font-family: MicrosoftYaHei-Bold;\n  font-size: 0.408rem;\n  font-weight: 500;\n  font-stretch: normal;\n  letter-spacing: 0px;\n  color: #7a7879;\n  margin-right: 0.13333rem;\n}\n.coinBuy .title_buy.active {\n  color: #070707;\n}\n.coinBuy .shu_f {\n  height: 0.4rem;\n  width: 1px;\n  overflow: hidden;\n  background: #868d9a;\n  position: relative;\n  top: 0.48rem;\n}",
+      "start": 1714699770043,
+      "end": 1714699770107,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699770108,
+      "end": 1714699770108,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699770109,
+      "end": 1714699770109,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699770113,
+      "end": 1714699770113,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".coinBuy[data-v-17597f85] {\n  position: relative;\n  flex: 1;\n}\n.coinBuy.buy .content[data-v-17597f85] {\n  position: relative;\n  width: 100%;\n  padding: 0 0.26667rem;\n}\n.coinBuy .nav-bar[data-v-17597f85] {\n  padding-bottom: 0.66667rem;\n}\n.coinBuy .content[data-v-17597f85] {\n  width: 100%;\n  height: 100%;\n  background-color: #ebf1f6;\n  overflow: hidden;\n  position: absolute;\n}\n.coinBuy .content[data-v-17597f85] .van-tabs1 .van-tabs__wrap {\n  background-color: #ebf1f6;\n}\n.coinBuy .content[data-v-17597f85] .van-tabs1 .van-tabs__wrap #van-tabs-1-0 {\n  margin-left: -0.26667rem;\n}\n.coinBuy .content[data-v-17597f85] .van-tabs1 .van-tabs__wrap #van-tabs-1-0 .van-tab__text:after {\n  content: \"\";\n  display: block;\n  width: 0.02667rem;\n  height: 0.38667rem;\n  background: #d6dce8;\n  position: absolute;\n  top: 0;\n  right: -0.33333rem;\n}\n.coinBuy .content[data-v-17597f85] .van-tabs1 .van-tabs__wrap .van-tabs__line {\n  height: 0;\n}\n.coinBuy .content[data-v-17597f85] .van-tabs1 .van-tabs__wrap .van-tabs__nav--line {\n  background-color: #ebf1f6;\n}\n.coinBuy .content[data-v-17597f85] .van-tabs1 .van-tabs__wrap .van-tabs__nav--line .van-tab__text {\n  position: relative;\n  overflow: inherit;\n  height: 0.38933rem;\n  font-family: MicrosoftYaHei-Bold;\n  font-size: 0.408rem;\n  font-weight: 500;\n  font-stretch: normal;\n  line-height: 0.4rem;\n  letter-spacing: 0px;\n  color: #868d9a;\n}\n.coinBuy .content[data-v-17597f85] .van-tabs1 .van-tabs__wrap .van-tabs__nav--line .van-tab--active .van-tab__text {\n  color: #13161b;\n}\n.coinBuy .content[data-v-17597f85] .van-tabs.active .van-tabs__wrap .van-tab__text {\n  position: relative;\n}\n.coinBuy .content[data-v-17597f85] .selfSelect {\n  height: calc(100% - 1.2rem);\n  flex: 0 0 calc(100% - 1.2rem);\n  display: flex;\n  flex-direction: column;\n}\n.coinBuy .content[data-v-17597f85] .selfSelect.selfSelect-wide-mode {\n  flex: 1;\n}\n.coinBuy .content[data-v-17597f85] .selfSelect .selectList {\n  flex: 0 0 0.90667rem;\n}\n.coinBuy .content[data-v-17597f85] .selfSelect .selectList > span {\n  padding-bottom: 0;\n}\n.coinBuy .content[data-v-17597f85] .selfSelect .O_wrap {\n  height: calc(100% - 0.90667rem);\n  flex: 1;\n}\n.coinBuy .title_buy[data-v-17597f85] {\n  float: left;\n  height: 1.30667rem;\n  line-height: 1.30667rem;\n  padding: 0 0.06667rem;\n  overflow: inherit;\n  font-family: MicrosoftYaHei-Bold;\n  font-size: 0.408rem;\n  font-weight: 500;\n  font-stretch: normal;\n  letter-spacing: 0px;\n  color: #7a7879;\n  margin-right: 0.13333rem;\n}\n.coinBuy .title_buy.active[data-v-17597f85] {\n  color: #070707;\n}\n.coinBuy .shu_f[data-v-17597f85] {\n  height: 0.4rem;\n  width: 1px;\n  overflow: hidden;\n  background: #868d9a;\n  position: relative;\n  top: 0.48rem;\n}",
+      "start": 1714699770113,
+      "end": 1714699770115,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699770115,
+      "end": 1714699770115,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": ".coinBuy[data-v-17597f85] {\n  position: relative;\n  flex: 1;\n}\n.coinBuy.buy .content[data-v-17597f85] {\n  position: relative;\n  width: 100%;\n  padding: 0 0.26667rem;\n}\n.coinBuy .nav-bar[data-v-17597f85] {\n  padding-bottom: 0.66667rem;\n}\n.coinBuy .content[data-v-17597f85] {\n  width: 100%;\n  height: 100%;\n  background-color: #ebf1f6;\n  overflow: hidden;\n  position: absolute;\n}\n.coinBuy .content[data-v-17597f85] .van-tabs1 .van-tabs__wrap {\n  background-color: #ebf1f6;\n}\n.coinBuy .content[data-v-17597f85] .van-tabs1 .van-tabs__wrap #van-tabs-1-0 {\n  margin-left: -0.26667rem;\n}\n.coinBuy .content[data-v-17597f85] .van-tabs1 .van-tabs__wrap #van-tabs-1-0 .van-tab__text:after {\n  content: \"\";\n  display: block;\n  width: 0.02667rem;\n  height: 0.38667rem;\n  background: #d6dce8;\n  position: absolute;\n  top: 0;\n  right: -0.33333rem;\n}\n.coinBuy .content[data-v-17597f85] .van-tabs1 .van-tabs__wrap .van-tabs__line {\n  height: 0;\n}\n.coinBuy .content[data-v-17597f85] .van-tabs1 .van-tabs__wrap .van-tabs__nav--line {\n  background-color: #ebf1f6;\n}\n.coinBuy .content[data-v-17597f85] .van-tabs1 .van-tabs__wrap .van-tabs__nav--line .van-tab__text {\n  position: relative;\n  overflow: inherit;\n  height: 0.38933rem;\n  font-family: MicrosoftYaHei-Bold;\n  font-size: 0.408rem;\n  font-weight: 500;\n  font-stretch: normal;\n  line-height: 0.4rem;\n  letter-spacing: 0px;\n  color: #868d9a;\n}\n.coinBuy .content[data-v-17597f85] .van-tabs1 .van-tabs__wrap .van-tabs__nav--line .van-tab--active .van-tab__text {\n  color: #13161b;\n}\n.coinBuy .content[data-v-17597f85] .van-tabs.active .van-tabs__wrap .van-tab__text {\n  position: relative;\n}\n.coinBuy .content[data-v-17597f85] .selfSelect {\n  height: calc(100% - 1.2rem);\n  flex: 0 0 calc(100% - 1.2rem);\n  display: flex;\n  flex-direction: column;\n}\n.coinBuy .content[data-v-17597f85] .selfSelect.selfSelect-wide-mode {\n  flex: 1;\n}\n.coinBuy .content[data-v-17597f85] .selfSelect .selectList {\n  flex: 0 0 0.90667rem;\n}\n.coinBuy .content[data-v-17597f85] .selfSelect .selectList > span {\n  padding-bottom: 0;\n}\n.coinBuy .content[data-v-17597f85] .selfSelect .O_wrap {\n  height: calc(100% - 0.90667rem);\n  flex: 1;\n}\n.coinBuy .title_buy[data-v-17597f85] {\n  float: left;\n  height: 1.30667rem;\n  line-height: 1.30667rem;\n  padding: 0 0.06667rem;\n  overflow: inherit;\n  font-family: MicrosoftYaHei-Bold;\n  font-size: 0.408rem;\n  font-weight: 500;\n  font-stretch: normal;\n  letter-spacing: 0px;\n  color: #7a7879;\n  margin-right: 0.13333rem;\n}\n.coinBuy .title_buy.active[data-v-17597f85] {\n  color: #070707;\n}\n.coinBuy .shu_f[data-v-17597f85] {\n  height: 0.4rem;\n  width: 1px;\n  overflow: hidden;\n  background: #868d9a;\n  position: relative;\n  top: 0.48rem;\n}",
+      "start": 1714699770115,
+      "end": 1714699770115,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699770121,
+      "end": 1714699770121,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770121,
+      "end": 1714699770121,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699770121,
+      "end": 1714699770121,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770121,
+      "end": 1714699770121,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770121,
+      "end": 1714699770121,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770121,
+      "end": 1714699770121,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770121,
+      "end": 1714699770121,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770121,
+      "end": 1714699770121,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770121,
+      "end": 1714699770121,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770121,
+      "end": 1714699770121,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699770121,
+      "end": 1714699770121,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770121,
+      "end": 1714699770121,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770121,
+      "end": 1714699770121,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770121,
+      "end": 1714699770121,
+      "order": "normal"
+    }
+  ]
+}

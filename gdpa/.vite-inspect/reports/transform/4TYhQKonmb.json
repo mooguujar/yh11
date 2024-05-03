@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/get.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var staticHGKeyRE = require('./staticHGKeyRE')\r\n\r\nvar helperGetHGSKeys = require('./helperGetHGSKeys')\r\nvar hasOwnProp = require('./hasOwnProp')\r\nvar isUndefined = require('./isUndefined')\r\nvar eqNull = require('./eqNull')\r\n\r\n/**\r\n * 获取对象的属性的值，如果值为 undefined，则返回默认值\r\n * @param {Object/Array} obj 对象\r\n * @param {String/Function} property 键、路径\r\n * @param {Object} defaultValue 默认值\r\n * @return {Object}\r\n */\r\nfunction get (obj, property, defaultValue) {\r\n  if (eqNull(obj)) {\r\n    return defaultValue\r\n  }\r\n  var result = getValueByPath(obj, property)\r\n  return isUndefined(result) ? defaultValue : result\r\n}\r\n\r\nfunction getDeepProps (obj, key) {\r\n  var matchs = key ? key.match(staticHGKeyRE) : ''\r\n  return matchs ? (matchs[1] ? (obj[matchs[1]] ? obj[matchs[1]][matchs[2]] : undefined) : obj[matchs[2]]) : obj[key]\r\n}\r\n\r\nfunction getValueByPath (obj, property) {\r\n  if (obj) {\r\n    var rest, props, len\r\n    var index = 0\r\n    if (obj[property] || hasOwnProp(obj, property)) {\r\n      return obj[property]\r\n    } else {\r\n      props = helperGetHGSKeys(property)\r\n      len = props.length\r\n      if (len) {\r\n        for (rest = obj; index < len; index++) {\r\n          rest = getDeepProps(rest, props[index])\r\n          if (eqNull(rest)) {\r\n            if (index === len - 1) {\r\n              return rest\r\n            }\r\n            return\r\n          }\r\n        }\r\n      }\r\n      return rest\r\n    }\r\n  }\r\n}\r\n\r\nmodule.exports = get\r\n",
+      "start": 1714699767653,
+      "end": 1714699767669,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767669,
+      "end": 1714699767669,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767669,
+      "end": 1714699767669,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767669,
+      "end": 1714699767669,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767669,
+      "end": 1714699767669,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767669,
+      "end": 1714699767669,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767669,
+      "end": 1714699767669,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var staticHGKeyRE = require('./staticHGKeyRE')\r\n\r\nvar helperGetHGSKeys = require('./helperGetHGSKeys')\r\nvar hasOwnProp = require('./hasOwnProp')\r\nvar isUndefined = require('./isUndefined')\r\nvar eqNull = require('./eqNull')\r\n\r\n/**\r\n * 获取对象的属性的值，如果值为 undefined，则返回默认值\r\n * @param {Object/Array} obj 对象\r\n * @param {String/Function} property 键、路径\r\n * @param {Object} defaultValue 默认值\r\n * @return {Object}\r\n */\r\nfunction get (obj, property, defaultValue) {\r\n  if (eqNull(obj)) {\r\n    return defaultValue\r\n  }\r\n  var result = getValueByPath(obj, property)\r\n  return isUndefined(result) ? defaultValue : result\r\n}\r\n\r\nfunction getDeepProps (obj, key) {\r\n  var matchs = key ? key.match(staticHGKeyRE) : ''\r\n  return matchs ? (matchs[1] ? (obj[matchs[1]] ? obj[matchs[1]][matchs[2]] : undefined) : obj[matchs[2]]) : obj[key]\r\n}\r\n\r\nfunction getValueByPath (obj, property) {\r\n  if (obj) {\r\n    var rest, props, len\r\n    var index = 0\r\n    if (obj[property] || hasOwnProp(obj, property)) {\r\n      return obj[property]\r\n    } else {\r\n      props = helperGetHGSKeys(property)\r\n      len = props.length\r\n      if (len) {\r\n        for (rest = obj; index < len; index++) {\r\n          rest = getDeepProps(rest, props[index])\r\n          if (eqNull(rest)) {\r\n            if (index === len - 1) {\r\n              return rest\r\n            }\r\n            return\r\n          }\r\n        }\r\n      }\r\n      return rest\r\n    }\r\n  }\r\n}\r\n\r\nmodule.exports = get\r\n",
+      "start": 1714699767669,
+      "end": 1714699767669,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767669,
+      "end": 1714699767669,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767669,
+      "end": 1714699767669,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767669,
+      "end": 1714699767669,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767669,
+      "end": 1714699767669,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767669,
+      "end": 1714699767669,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767669,
+      "end": 1714699767669,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/staticHGKeyRE.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/helperGetHGSKeys.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/hasOwnProp.js?commonjs-proxy\";\nimport require$$3 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isUndefined.js?commonjs-proxy\";\nimport require$$4 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/eqNull.js?commonjs-proxy\";\n\nvar staticHGKeyRE = require$$0\r\n\r\nvar helperGetHGSKeys = require$$1\r\nvar hasOwnProp = require$$2\r\nvar isUndefined = require$$3\r\nvar eqNull = require$$4\r\n\r\n/**\r\n * 获取对象的属性的值，如果值为 undefined，则返回默认值\r\n * @param {Object/Array} obj 对象\r\n * @param {String/Function} property 键、路径\r\n * @param {Object} defaultValue 默认值\r\n * @return {Object}\r\n */\r\nfunction get (obj, property, defaultValue) {\r\n  if (eqNull(obj)) {\r\n    return defaultValue\r\n  }\r\n  var result = getValueByPath(obj, property)\r\n  return isUndefined(result) ? defaultValue : result\r\n}\r\n\r\nfunction getDeepProps (obj, key) {\r\n  var matchs = key ? key.match(staticHGKeyRE) : ''\r\n  return matchs ? (matchs[1] ? (obj[matchs[1]] ? obj[matchs[1]][matchs[2]] : undefined) : obj[matchs[2]]) : obj[key]\r\n}\r\n\r\nfunction getValueByPath (obj, property) {\r\n  if (obj) {\r\n    var rest, props, len\r\n    var index = 0\r\n    if (obj[property] || hasOwnProp(obj, property)) {\r\n      return obj[property]\r\n    } else {\r\n      props = helperGetHGSKeys(property)\r\n      len = props.length\r\n      if (len) {\r\n        for (rest = obj; index < len; index++) {\r\n          rest = getDeepProps(rest, props[index])\r\n          if (eqNull(rest)) {\r\n            if (index === len - 1) {\r\n              return rest\r\n            }\r\n            return\r\n          }\r\n        }\r\n      }\r\n      return rest\r\n    }\r\n  }\r\n}\r\n\r\nvar get_1 = get\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(get_1);\nexport { get_1 as __moduleExports };",
+      "start": 1714699767669,
+      "end": 1714699768103,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;;;AAAA,IAAI,aAAa,GAAG,UAA0B;AAC9C;AACA,IAAI,gBAAgB,GAAG,UAA6B;AACpD,IAAI,UAAU,GAAG,UAAuB;AACxC,IAAI,WAAW,GAAG,UAAwB;AAC1C,IAAI,MAAM,GAAG,UAAmB;AAChC;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,GAAG,EAAE,GAAG,EAAE,QAAQ,EAAE,YAAY,EAAE;AAC3C,EAAE,IAAI,MAAM,CAAC,GAAG,CAAC,EAAE;AACnB,IAAI,OAAO,YAAY;AACvB,GAAG;AACH,EAAE,IAAI,MAAM,GAAG,cAAc,CAAC,GAAG,EAAE,QAAQ,CAAC;AAC5C,EAAE,OAAO,WAAW,CAAC,MAAM,CAAC,GAAG,YAAY,GAAG,MAAM;AACpD,CAAC;AACD;AACA,SAAS,YAAY,EAAE,GAAG,EAAE,GAAG,EAAE;AACjC,EAAE,IAAI,MAAM,GAAG,GAAG,GAAG,GAAG,CAAC,KAAK,CAAC,aAAa,CAAC,GAAG,EAAE;AAClD,EAAE,OAAO,MAAM,IAAI,MAAM,CAAC,CAAC,CAAC,IAAI,GAAG,CAAC,MAAM,CAAC,CAAC,CAAC,CAAC,GAAG,GAAG,CAAC,MAAM,CAAC,CAAC,CAAC,CAAC,CAAC,MAAM,CAAC,CAAC,CAAC,CAAC,GAAG,SAAS,IAAI,GAAG,CAAC,MAAM,CAAC,CAAC,CAAC,CAAC,IAAI,GAAG,CAAC,GAAG,CAAC;AACpH,CAAC;AACD;AACA,SAAS,cAAc,EAAE,GAAG,EAAE,QAAQ,EAAE;AACxC,EAAE,IAAI,GAAG,EAAE;AACX,IAAI,IAAI,IAAI,EAAE,KAAK,EAAE,GAAG;AACxB,IAAI,IAAI,KAAK,GAAG,CAAC;AACjB,IAAI,IAAI,GAAG,CAAC,QAAQ,CAAC,IAAI,UAAU,CAAC,GAAG,EAAE,QAAQ,CAAC,EAAE;AACpD,MAAM,OAAO,GAAG,CAAC,QAAQ,CAAC;AAC1B,KAAK,MAAM;AACX,MAAM,KAAK,GAAG,gBAAgB,CAAC,QAAQ,CAAC;AACxC,MAAM,GAAG,GAAG,KAAK,CAAC,MAAM;AACxB,MAAM,IAAI,GAAG,EAAE;AACf,QAAQ,KAAK,IAAI,GAAG,GAAG,EAAE,KAAK,GAAG,GAAG,EAAE,KAAK,EAAE,EAAE;AAC/C,UAAU,IAAI,GAAG,YAAY,CAAC,IAAI,EAAE,KAAK,CAAC,KAAK,CAAC,CAAC;AACjD,UAAU,IAAI,MAAM,CAAC,IAAI,CAAC,EAAE;AAC5B,YAAY,IAAI,KAAK,KAAK,GAAG,GAAG,CAAC,EAAE;AACnC,cAAc,OAAO,IAAI;AACzB,aAAa;AACb,YAAY,MAAM;AAClB,WAAW;AACX,SAAS;AACT,OAAO;AACP,MAAM,OAAO,IAAI;AACjB,KAAK;AACL,GAAG;AACH,CAAC;AACD;IACA,KAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768103,
+      "end": 1714699768103,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768103,
+      "end": 1714699768103,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768103,
+      "end": 1714699768103,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768103,
+      "end": 1714699768103,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768103,
+      "end": 1714699768103,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768103,
+      "end": 1714699768103,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768103,
+      "end": 1714699768103,
+      "order": "normal"
+    }
+  ]
+}

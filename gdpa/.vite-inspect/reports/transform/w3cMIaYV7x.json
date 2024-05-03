@@ -1,0 +1,154 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Dialog/index.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { type DialogOptions } from 'vant'\nimport { type AppContext } from 'vue'\nimport { createVM } from '../core'\nimport DialogConstructor from './Dialog.vue'\n\ntype IProps = {\n  action?: (parm: any) => void | Promise<void>\n  cancelAction?: () => void | Promise<void>\n  hideConfirmButton?: boolean\n  hideCancelButton?: boolean\n}\n\nexport default function Dialog(props: IProps & DialogOptions, appContext?: AppContext | null) {\n  let vm = createVM<IProps & DialogOptions>(DialogConstructor, props, appContext)\n  vm!.exposed!.visible.value = true\n}\n\nDialog.alert = function (props?: (IProps & DialogOptions) | undefined) {\n  const defaultProps = {\n    dialogType: 'alert'\n  }\n  const newProps = Object.assign(defaultProps, props)\n  Dialog(newProps)\n}\n\nDialog.confirm = function (props: IProps & DialogOptions) {\n  const defaultProps = {\n    dialogType: 'confirm'\n  }\n  const newProps = Object.assign(defaultProps, props)\n  Dialog(newProps)\n}\nDialog.keeptime = function (props: IProps & DialogOptions) {\n  const defaultProps = {\n    dialogType: 'keeptime'\n  }\n  const newProps = Object.assign(defaultProps, props)\n  Dialog(newProps)\n}\n",
+      "start": 1714699770791,
+      "end": 1714699770805,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699770805,
+      "end": 1714699770805,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { createVM } from \"../core\";\nimport DialogConstructor from \"./Dialog.vue\";\nexport default function Dialog(props, appContext) {\n  let vm = createVM(DialogConstructor, props, appContext);\n  vm.exposed.visible.value = true;\n}\nDialog.alert = function(props) {\n  const defaultProps = {\n    dialogType: \"alert\"\n  };\n  const newProps = Object.assign(defaultProps, props);\n  Dialog(newProps);\n};\nDialog.confirm = function(props) {\n  const defaultProps = {\n    dialogType: \"confirm\"\n  };\n  const newProps = Object.assign(defaultProps, props);\n  Dialog(newProps);\n};\nDialog.keeptime = function(props) {\n  const defaultProps = {\n    dialogType: \"keeptime\"\n  };\n  const newProps = Object.assign(defaultProps, props);\n  Dialog(newProps);\n};\n",
+      "start": 1714699770805,
+      "end": 1714699771799,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Dialog/index.ts"
+        ],
+        "sourcesContent": [
+          "import { type DialogOptions } from 'vant'\nimport { type AppContext } from 'vue'\nimport { createVM } from '../core'\nimport DialogConstructor from './Dialog.vue'\n\ntype IProps = {\n  action?: (parm: any) => void | Promise<void>\n  cancelAction?: () => void | Promise<void>\n  hideConfirmButton?: boolean\n  hideCancelButton?: boolean\n}\n\nexport default function Dialog(props: IProps & DialogOptions, appContext?: AppContext | null) {\n  let vm = createVM<IProps & DialogOptions>(DialogConstructor, props, appContext)\n  vm!.exposed!.visible.value = true\n}\n\nDialog.alert = function (props?: (IProps & DialogOptions) | undefined) {\n  const defaultProps = {\n    dialogType: 'alert'\n  }\n  const newProps = Object.assign(defaultProps, props)\n  Dialog(newProps)\n}\n\nDialog.confirm = function (props: IProps & DialogOptions) {\n  const defaultProps = {\n    dialogType: 'confirm'\n  }\n  const newProps = Object.assign(defaultProps, props)\n  Dialog(newProps)\n}\nDialog.keeptime = function (props: IProps & DialogOptions) {\n  const defaultProps = {\n    dialogType: 'keeptime'\n  }\n  const newProps = Object.assign(defaultProps, props)\n  Dialog(newProps)\n}\n"
+        ],
+        "mappings": "AAEA,SAAS,gBAAgB;AACzB,OAAO,uBAAuB;AAS9B,wBAAwB,OAAO,OAA+B,YAAgC;AAC5F,MAAI,KAAK,SAAiC,mBAAmB,OAAO,UAAU;AAC9E,KAAI,QAAS,QAAQ,QAAQ;AAC/B;AAEA,OAAO,QAAQ,SAAU,OAA8C;AACrE,QAAM,eAAe;AAAA,IACnB,YAAY;AAAA,EACd;AACA,QAAM,WAAW,OAAO,OAAO,cAAc,KAAK;AAClD,SAAO,QAAQ;AACjB;AAEA,OAAO,UAAU,SAAU,OAA+B;AACxD,QAAM,eAAe;AAAA,IACnB,YAAY;AAAA,EACd;AACA,QAAM,WAAW,OAAO,OAAO,cAAc,KAAK;AAClD,SAAO,QAAQ;AACjB;AACA,OAAO,WAAW,SAAU,OAA+B;AACzD,QAAM,eAAe;AAAA,IACnB,YAAY;AAAA,EACd;AACA,QAAM,WAAW,OAAO,OAAO,cAAc,KAAK;AAClD,SAAO,QAAQ;AACjB;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771799,
+      "end": 1714699771799,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771799,
+      "end": 1714699771799,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771799,
+      "end": 1714699771799,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771799,
+      "end": 1714699771799,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { createVM } from \"../core\";\nimport DialogConstructor from \"./Dialog.vue\";\nexport default function Dialog(props, appContext) {\n  let vm = createVM(DialogConstructor, props, appContext);\n  vm.exposed.visible.value = true;\n}\nDialog.alert = function(props) {\n  const defaultProps = {\n    dialogType: \"alert\"\n  };\n  const newProps = Object.assign(defaultProps, props);\n  Dialog(newProps);\n};\nDialog.confirm = function(props) {\n  const defaultProps = {\n    dialogType: \"confirm\"\n  };\n  const newProps = Object.assign(defaultProps, props);\n  Dialog(newProps);\n};\nDialog.keeptime = function(props) {\n  const defaultProps = {\n    dialogType: \"keeptime\"\n  };\n  const newProps = Object.assign(defaultProps, props);\n  Dialog(newProps);\n};\n",
+      "start": 1714699771799,
+      "end": 1714699771799,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport { createVM } from \"../core\";\nimport DialogConstructor from \"./Dialog.vue\";\nexport default function Dialog(props, appContext) {\n  let vm = createVM(DialogConstructor, props, appContext);\n  vm.exposed.visible.value = true;\n}\nDialog.alert = function(props) {\n  const defaultProps = {\n    dialogType: \"alert\"\n  };\n  const newProps = Object.assign(defaultProps, props);\n  Dialog(newProps);\n};\nDialog.confirm = function(props) {\n  const defaultProps = {\n    dialogType: \"confirm\"\n  };\n  const newProps = Object.assign(defaultProps, props);\n  Dialog(newProps);\n};\nDialog.keeptime = function(props) {\n  const defaultProps = {\n    dialogType: \"keeptime\"\n  };\n  const newProps = Object.assign(defaultProps, props);\n  Dialog(newProps);\n};\n",
+      "start": 1714699771799,
+      "end": 1714699771922,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Dialog/index.ts\"],\n  \"sourcesContent\": [\"import { createVM } from \\\"../core\\\";\\nimport DialogConstructor from \\\"./Dialog.vue\\\";\\nexport default function Dialog(props, appContext) {\\n  let vm = createVM(DialogConstructor, props, appContext);\\n  vm.exposed.visible.value = true;\\n}\\nDialog.alert = function(props) {\\n  const defaultProps = {\\n    dialogType: \\\"alert\\\"\\n  };\\n  const newProps = Object.assign(defaultProps, props);\\n  Dialog(newProps);\\n};\\nDialog.confirm = function(props) {\\n  const defaultProps = {\\n    dialogType: \\\"confirm\\\"\\n  };\\n  const newProps = Object.assign(defaultProps, props);\\n  Dialog(newProps);\\n};\\nDialog.keeptime = function(props) {\\n  const defaultProps = {\\n    dialogType: \\\"keeptime\\\"\\n  };\\n  const newProps = Object.assign(defaultProps, props);\\n  Dialog(newProps);\\n};\\n\"],\n  \"mappings\": \";AAAA,SAAS,gBAAgB;AACzB,OAAO,uBAAuB;AAC9B,wBAAwB,OAAO,OAAO,YAAY;AAChD,MAAI,KAAK,SAAS,mBAAmB,OAAO,UAAU;AACtD,KAAG,QAAQ,QAAQ,QAAQ;AAC7B;AACA,OAAO,QAAQ,SAAS,OAAO;AAC7B,QAAM,eAAe;AAAA,IACnB,YAAY;AAAA,EACd;AACA,QAAM,WAAW,OAAO,OAAO,cAAc,KAAK;AAClD,SAAO,QAAQ;AACjB;AACA,OAAO,UAAU,SAAS,OAAO;AAC/B,QAAM,eAAe;AAAA,IACnB,YAAY;AAAA,EACd;AACA,QAAM,WAAW,OAAO,OAAO,cAAc,KAAK;AAClD,SAAO,QAAQ;AACjB;AACA,OAAO,WAAW,SAAS,OAAO;AAChC,QAAM,eAAe;AAAA,IACnB,YAAY;AAAA,EACd;AACA,QAAM,WAAW,OAAO,OAAO,cAAc,KAAK;AAClD,SAAO,QAAQ;AACjB;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771922,
+      "end": 1714699771922,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771922,
+      "end": 1714699771922,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771922,
+      "end": 1714699771922,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771922,
+      "end": 1714699771922,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771922,
+      "end": 1714699771922,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699771922,
+      "end": 1714699771922,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771922,
+      "end": 1714699771922,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771922,
+      "end": 1714699771922,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771922,
+      "end": 1714699771922,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699771922,
+      "end": 1714699771922,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771922,
+      "end": 1714699771922,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771922,
+      "end": 1714699771922,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771922,
+      "end": 1714699771922,
+      "order": "normal"
+    }
+  ]
+}

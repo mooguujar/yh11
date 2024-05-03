@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/WeekTask.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\nimport { computed, onMounted } from 'vue'\n\ninterface Props {\n  data: Record<string, any>\n}\nconst props = withDefaults(defineProps<Props>(), {\n  data: () => ({\n    top: [\n      { name: '本周累计上分', value: 0 },\n      { name: '可申请总次数', value: 0 },\n      { name: '已申请次数', value: 0 }\n    ],\n    middle: {\n      text: '每上分【 200 】元可获得1次翻卡机会，一周最多可得【 10 】次（上分到不同的游戏平台次数可累加）',\n      num1: 0,\n      num2: 20\n    }\n  })\n})\n\nconst taskPercentage = computed(() => (props.data.middle.num1 / props.data.middle.num2) * 100)\n\nonMounted(() => {\n  //\n})\n</script>\n\n<template>\n  <div class=\"week-task-container\">\n    <div class=\"top-content flex justify-between items-center\">\n      <div\n        v-for=\"(item, index) in data.top\"\n        :key=\"index\"\n        class=\"item-data flex flex-col justify-between items-center\"\n      >\n        <div class=\"text-[#df4954] text-[50px] font-bold\">{{ item.value }}</div>\n        <div class=\"text-[#955608] text-[26px]\">{{ item.name }}</div>\n      </div>\n    </div>\n\n    <div class=\"middle-content\">\n      <van-progress\n        pivot-text=\"\"\n        color=\"linear-gradient(to right, #e8466b 15%, #ea5451 47%, #ec6342 100%)\"\n        track-color=\"#d1d1d1\"\n        :percentage=\"taskPercentage\"\n        stroke-width=\"10\"\n      />\n      <div class=\"flex justify-between items-start gap-[50px] mt-[25px] mb-[40px]\">\n        <div\n          class=\"text-desc text-[21px] text-[#b1a7a7]\"\n          v-html=\"data.middle.text\"\n        ></div>\n        <div class=\"text-[26px] text-[#955608]\">{{ data.middle.num1 }}/{{ data.middle.num2 }}</div>\n      </div>\n    </div>\n\n    <slot></slot>\n  </div>\n</template>\n\n<style lang=\"scss\" scoped>\n.week-task-container {\n  padding: 0 23px;\n  border-radius: 14px;\n  border: 2px solid #f7d6c2;\n  background-image: linear-gradient(0deg, #fffaea 0%, #fff2d3 50%, #ffeabb 100%);\n  .top-content {\n    padding: 45px 20px 10px 20px;\n    border-bottom: 2px dashed #f7d6c2;\n  }\n\n  .middle-content {\n    padding: 25px 10px 0 10px;\n    :deep(.van-progress) {\n      margin: 0 -10px;\n      border-radius: 10px;\n    }\n    .text-desc {\n      :deep(span) {\n        font-size: 21px;\n        font-weight: bold;\n        color: #df4954;\n      }\n    }\n  }\n}\n</style>\n",
+      "start": 1714699771850,
+      "end": 1714699771852,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771852,
+      "end": 1714699771852,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771852,
+      "end": 1714699771852,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771852,
+      "end": 1714699771852,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771852,
+      "end": 1714699771852,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/WeekTask.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/WeekTask.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/WeekTask.vue?vue&type=style&index=0&scoped=82059d9b&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-82059d9b\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/WeekTask.vue\"]]);\n",
+      "start": 1714699771852,
+      "end": 1714699771932,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/WeekTask.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/WeekTask.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/WeekTask.vue?vue&type=style&index=0&scoped=82059d9b&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-82059d9b\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/WeekTask.vue\"]]);\n",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/WeekTask.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/WeekTask.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/WeekTask.vue?vue&type=style&index=0&scoped=82059d9b&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-82059d9b\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/WeekTask.vue\"]]);\n",
+      "start": 1714699771932,
+      "end": 1714699772167,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/WeekTask.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/WeekTask.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/WeekTask.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/WeekTask.vue?vue&type=style&index=0&scoped=82059d9b&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-82059d9b\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/WeekTask.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,4EAA4E,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699772167,
+      "end": 1714699772167,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699772167,
+      "end": 1714699772167,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699772167,
+      "end": 1714699772167,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699772167,
+      "end": 1714699772167,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699772167,
+      "end": 1714699772167,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699772167,
+      "end": 1714699772167,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699772167,
+      "end": 1714699772167,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699772167,
+      "end": 1714699772167,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699772167,
+      "end": 1714699772168,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/WeekTask.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/WeekTask.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/WeekTask.vue?vue&type=style&index=0&scoped=82059d9b&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-82059d9b\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/WeekTask.vue\"]]);\n",
+      "start": 1714699772168,
+      "end": 1714699772168,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/WeekTask.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/WeekTask.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/WeekTask.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/WeekTask.vue?vue&type=style&index=0&scoped=82059d9b&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-82059d9b\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/WeekTask.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699772168,
+      "end": 1714699772168,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699772168,
+      "end": 1714699772168,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699772168,
+      "end": 1714699772168,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/field/utils.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import {\n  isObject,\n  isPromise,\n  isFunction,\n  getRootScrollTop,\n  setRootScrollTop\n} from \"../utils/index.mjs\";\nfunction isEmptyValue(value) {\n  if (Array.isArray(value)) {\n    return !value.length;\n  }\n  if (value === 0) {\n    return false;\n  }\n  return !value;\n}\nfunction runSyncRule(value, rule) {\n  if (isEmptyValue(value)) {\n    if (rule.required) {\n      return false;\n    }\n    if (rule.validateEmpty === false) {\n      return true;\n    }\n  }\n  if (rule.pattern && !rule.pattern.test(String(value))) {\n    return false;\n  }\n  return true;\n}\nfunction runRuleValidator(value, rule) {\n  return new Promise((resolve) => {\n    const returnVal = rule.validator(value, rule);\n    if (isPromise(returnVal)) {\n      returnVal.then(resolve);\n      return;\n    }\n    resolve(returnVal);\n  });\n}\nfunction getRuleMessage(value, rule) {\n  const { message } = rule;\n  if (isFunction(message)) {\n    return message(value, rule);\n  }\n  return message || \"\";\n}\nfunction startComposing({ target }) {\n  target.composing = true;\n}\nfunction endComposing({ target }) {\n  if (target.composing) {\n    target.composing = false;\n    target.dispatchEvent(new Event(\"input\"));\n  }\n}\nfunction resizeTextarea(input, autosize) {\n  const scrollTop = getRootScrollTop();\n  input.style.height = \"auto\";\n  let height = input.scrollHeight;\n  if (isObject(autosize)) {\n    const { maxHeight, minHeight } = autosize;\n    if (maxHeight !== void 0) {\n      height = Math.min(height, maxHeight);\n    }\n    if (minHeight !== void 0) {\n      height = Math.max(height, minHeight);\n    }\n  }\n  if (height) {\n    input.style.height = `${height}px`;\n    setRootScrollTop(scrollTop);\n  }\n}\nfunction mapInputType(type) {\n  if (type === \"number\") {\n    return {\n      type: \"text\",\n      inputmode: \"decimal\"\n    };\n  }\n  if (type === \"digit\") {\n    return {\n      type: \"tel\",\n      inputmode: \"numeric\"\n    };\n  }\n  return { type };\n}\nfunction getStringLength(str) {\n  return [...str].length;\n}\nfunction cutString(str, maxlength) {\n  return [...str].slice(0, maxlength).join(\"\");\n}\nexport {\n  cutString,\n  endComposing,\n  getRuleMessage,\n  getStringLength,\n  isEmptyValue,\n  mapInputType,\n  resizeTextarea,\n  runRuleValidator,\n  runSyncRule,\n  startComposing\n};\n",
+      "start": 1714699767871,
+      "end": 1714699767891,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import {\n  isObject,\n  isPromise,\n  isFunction,\n  getRootScrollTop,\n  setRootScrollTop\n} from \"../utils/index.mjs\";\nfunction isEmptyValue(value) {\n  if (Array.isArray(value)) {\n    return !value.length;\n  }\n  if (value === 0) {\n    return false;\n  }\n  return !value;\n}\nfunction runSyncRule(value, rule) {\n  if (isEmptyValue(value)) {\n    if (rule.required) {\n      return false;\n    }\n    if (rule.validateEmpty === false) {\n      return true;\n    }\n  }\n  if (rule.pattern && !rule.pattern.test(String(value))) {\n    return false;\n  }\n  return true;\n}\nfunction runRuleValidator(value, rule) {\n  return new Promise((resolve) => {\n    const returnVal = rule.validator(value, rule);\n    if (isPromise(returnVal)) {\n      returnVal.then(resolve);\n      return;\n    }\n    resolve(returnVal);\n  });\n}\nfunction getRuleMessage(value, rule) {\n  const { message } = rule;\n  if (isFunction(message)) {\n    return message(value, rule);\n  }\n  return message || \"\";\n}\nfunction startComposing({ target }) {\n  target.composing = true;\n}\nfunction endComposing({ target }) {\n  if (target.composing) {\n    target.composing = false;\n    target.dispatchEvent(new Event(\"input\"));\n  }\n}\nfunction resizeTextarea(input, autosize) {\n  const scrollTop = getRootScrollTop();\n  input.style.height = \"auto\";\n  let height = input.scrollHeight;\n  if (isObject(autosize)) {\n    const { maxHeight, minHeight } = autosize;\n    if (maxHeight !== void 0) {\n      height = Math.min(height, maxHeight);\n    }\n    if (minHeight !== void 0) {\n      height = Math.max(height, minHeight);\n    }\n  }\n  if (height) {\n    input.style.height = `${height}px`;\n    setRootScrollTop(scrollTop);\n  }\n}\nfunction mapInputType(type) {\n  if (type === \"number\") {\n    return {\n      type: \"text\",\n      inputmode: \"decimal\"\n    };\n  }\n  if (type === \"digit\") {\n    return {\n      type: \"tel\",\n      inputmode: \"numeric\"\n    };\n  }\n  return { type };\n}\nfunction getStringLength(str) {\n  return [...str].length;\n}\nfunction cutString(str, maxlength) {\n  return [...str].slice(0, maxlength).join(\"\");\n}\nexport {\n  cutString,\n  endComposing,\n  getRuleMessage,\n  getStringLength,\n  isEmptyValue,\n  mapInputType,\n  resizeTextarea,\n  runRuleValidator,\n  runSyncRule,\n  startComposing\n};\n",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767891,
+      "end": 1714699767891,
+      "order": "normal"
+    }
+  ]
+}

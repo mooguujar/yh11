@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/index.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\nimport { useAuthStore } from '@/store/modules/auth'\nimport { requireImg } from '@/utils/tools'\nimport { storeToRefs } from 'pinia'\nimport { computed, onMounted, ref, watch } from 'vue'\nimport { useRoute, useRouter } from 'vue-router'\n\nconst authStore = useAuthStore()\nconst { token } = storeToRefs(authStore)\n\nconst route = useRoute()\nconst router = useRouter()\nconst tabs = ref(['欢乐集卡', '集卡合成排行榜'])\nconst currTabIndex = ref(0)\nconst showBackBtn = ref(true)\n\nconst isLogin = computed(() => !!token.value)\n\nconst onToggleTab = (index: number) => {\n  const collectCardsName = sessionStorage.getItem('isApp') ? 'AppCollectCards' : 'CollectCards'\n  const routeName = index === 0 ? collectCardsName : 'RankingList'\n  currTabIndex.value = index\n  router.push({ name: routeName })\n}\n\nconst onBtnBack = () => {\n  const activityEntryRoute = sessionStorage.getItem('activity_entry_route') || ''\n  if (activityEntryRoute) {\n    if (activityEntryRoute === '/auth/login') {\n      router.push('/')\n    } else {\n      router.push(activityEntryRoute)\n    }\n  }\n}\n\nconst onBtnRefresh = () => {\n  window.location.reload()\n}\n\nwatch(\n  () => router.options.history.state,\n  newRoute => {\n    currTabIndex.value = route.name === 'RankingList' ? 1 : 0\n\n    // 手机app跳转活动页\n    if (route.name === 'AppCollectCards') {\n      sessionStorage.setItem('isApp', '1')\n    }\n    // app进入活动页，不显示返回按钮\n    if (sessionStorage.getItem('isApp')) {\n      showBackBtn.value = false\n    } else {\n      const activityEntryRoute = ['/index', '/point', '/activeList', '/mine', '/auth/login']\n      if (activityEntryRoute.includes(newRoute.back as string)) {\n        sessionStorage.setItem('activity_entry_route', newRoute.back as string)\n      }\n    }\n  },\n  { immediate: true }\n)\n\nonMounted(() => {\n  //\n})\n</script>\n\n<template>\n  <!-- <nav-bar\n    class=\"nav-bar\"\n    title=\"欢度春节集卡活动\"\n    mode=\"white\"\n  /> -->\n\n  <div class=\"h-[100%] overflow-y-auto relative\">\n    <div class=\"activity-container\">\n      <div class=\"bg-top\">\n        <img\n          v-if=\"showBackBtn\"\n          class=\"btn-back\"\n          :src=\"requireImg('activity/fanhui.png')\"\n          @click=\"onBtnBack\"\n        />\n        <img\n          class=\"btn-refresh\"\n          :src=\"requireImg('activity/shuaxin_.png')\"\n          @click=\"onBtnRefresh\"\n        />\n        <div\n          class=\"activity-rule\"\n          @click=\"router.push('/activityRules')\"\n        >\n          活动规则\n        </div>\n      </div>\n      <div class=\"bg-middle\">\n        <div class=\"tab-container flex justify-center items-center h-[115px]\">\n          <div\n            v-for=\"(tab, index) in tabs\"\n            :key=\"index\"\n            :class=\"[\n              'btn-tab flex items-center justify-center',\n              { active: index === currTabIndex }\n            ]\"\n            @click=\"onToggleTab(index)\"\n          ></div>\n        </div>\n      </div>\n\n      <router-view />\n    </div>\n  </div>\n</template>\n\n<style lang=\"scss\" scoped>\n.banner-container {\n  padding: 50px 0 20px 0;\n}\n\n.bg-top {\n  position: relative;\n  width: 100%;\n  height: 368px;\n  background: url('@/assets/images/activity/bg_001.png') no-repeat center / cover;\n  background-size: 100% 100%;\n  .btn-back {\n    width: 80px;\n    height: 80px;\n    position: absolute;\n    top: 20px;\n    left: 20px;\n  }\n  .btn-refresh {\n    width: 80px;\n    height: 80px;\n    position: absolute;\n    top: 20px;\n    right: 20px;\n  }\n}\n.bg-middle {\n  width: 100%;\n  height: 686px;\n  background: url('@/assets/images/activity/bg_02.jpg') no-repeat center / cover;\n  background-size: 100% 100%;\n  margin-top: -2px;\n}\n.bg-bottom {\n  position: relative;\n  width: 100%;\n  height: 300px;\n  background: url('@/assets/images/activity/bg_03.jpg') no-repeat center / cover;\n  background-size: 100% 100%;\n}\n.activity-rule {\n  position: absolute;\n  bottom: 47px;\n  left: 50%;\n  transform: translate3d(-50%, 0, 0);\n  color: #f9e09a;\n  font-size: 25px;\n  font-weight: bold;\n  text-decoration: underline;\n}\n.activity-container {\n  background-color: #a43740;\n  .tab-container {\n    position: relative;\n    z-index: 1;\n    .btn-tab {\n      flex: 0 0 268px;\n      height: 94px;\n      background: no-repeat center / cover;\n      background-size: 100% 100%;\n      &:first-child {\n        margin-right: 29px;\n        background-image: url('@/assets/images/activity/btn_jfkhl02.png');\n        &.active {\n          background-image: url('@/assets/images/activity/btn_jfkhl01.png');\n        }\n      }\n      &:last-child {\n        background-image: url('@/assets/images/activity/btn_phbhl02.png');\n        &.active {\n          background-image: url('@/assets/images/activity/btn_phbhl01.png');\n        }\n      }\n    }\n  }\n}\n</style>\n",
+      "start": 1714699769442,
+      "end": 1714699769493,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769493,
+      "end": 1714699769493,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769493,
+      "end": 1714699769493,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769493,
+      "end": 1714699769493,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769493,
+      "end": 1714699769493,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/index.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/index.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/index.vue?vue&type=style&index=0&scoped=ef1a6d77&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-ef1a6d77\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/index.vue\"]]);\n",
+      "start": 1714699769493,
+      "end": 1714699769606,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769606,
+      "end": 1714699769606,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/index.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/index.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/index.vue?vue&type=style&index=0&scoped=ef1a6d77&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-ef1a6d77\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/index.vue\"]]);\n",
+      "start": 1714699769606,
+      "end": 1714699769606,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/index.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/index.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/index.vue?vue&type=style&index=0&scoped=ef1a6d77&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-ef1a6d77\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/index.vue\"]]);\n",
+      "start": 1714699769606,
+      "end": 1714699770598,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/index.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/index.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/index.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/index.vue?vue&type=style&index=0&scoped=ef1a6d77&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-ef1a6d77\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/index.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,oEAAoE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770598,
+      "end": 1714699770598,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699770598,
+      "end": 1714699770598,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770598,
+      "end": 1714699770598,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770598,
+      "end": 1714699770598,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770598,
+      "end": 1714699770598,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770598,
+      "end": 1714699770598,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770598,
+      "end": 1714699770598,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770598,
+      "end": 1714699770598,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770598,
+      "end": 1714699770598,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/index.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/index.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/index.vue?vue&type=style&index=0&scoped=ef1a6d77&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-ef1a6d77\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/index.vue\"]]);\n",
+      "start": 1714699770598,
+      "end": 1714699770598,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/index.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/index.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/index.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/index.vue?vue&type=style&index=0&scoped=ef1a6d77&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-ef1a6d77\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Activity/index.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770598,
+      "end": 1714699770598,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770598,
+      "end": 1714699770598,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770598,
+      "end": 1714699770598,
+      "order": "normal"
+    }
+  ]
+}

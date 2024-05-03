@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/orderBy.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import baseOrderBy from './_baseOrderBy.js';\nimport isArray from './isArray.js';\n\n/**\n * This method is like `_.sortBy` except that it allows specifying the sort\n * orders of the iteratees to sort by. If `orders` is unspecified, all values\n * are sorted in ascending order. Otherwise, specify an order of \"desc\" for\n * descending or \"asc\" for ascending sort order of corresponding values.\n *\n * @static\n * @memberOf _\n * @since 4.0.0\n * @category Collection\n * @param {Array|Object} collection The collection to iterate over.\n * @param {Array[]|Function[]|Object[]|string[]} [iteratees=[_.identity]]\n *  The iteratees to sort by.\n * @param {string[]} [orders] The sort orders of `iteratees`.\n * @param- {Object} [guard] Enables use as an iteratee for methods like `_.reduce`.\n * @returns {Array} Returns the new sorted array.\n * @example\n *\n * var users = [\n *   { 'user': 'fred',   'age': 48 },\n *   { 'user': 'barney', 'age': 34 },\n *   { 'user': 'fred',   'age': 40 },\n *   { 'user': 'barney', 'age': 36 }\n * ];\n *\n * // Sort by `user` in ascending order and by `age` in descending order.\n * _.orderBy(users, ['user', 'age'], ['asc', 'desc']);\n * // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 40]]\n */\nfunction orderBy(collection, iteratees, orders, guard) {\n  if (collection == null) {\n    return [];\n  }\n  if (!isArray(iteratees)) {\n    iteratees = iteratees == null ? [] : [iteratees];\n  }\n  orders = guard ? undefined : orders;\n  if (!isArray(orders)) {\n    orders = orders == null ? [] : [orders];\n  }\n  return baseOrderBy(collection, iteratees, orders);\n}\n\nexport default orderBy;\n",
+      "start": 1714699768459,
+      "end": 1714699768474,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768474,
+      "end": 1714699768474,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768474,
+      "end": 1714699768474,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768474,
+      "end": 1714699768474,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768474,
+      "end": 1714699768474,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768474,
+      "end": 1714699768474,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768474,
+      "end": 1714699768474,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import baseOrderBy from './_baseOrderBy.js';\nimport isArray from './isArray.js';\n\n/**\n * This method is like `_.sortBy` except that it allows specifying the sort\n * orders of the iteratees to sort by. If `orders` is unspecified, all values\n * are sorted in ascending order. Otherwise, specify an order of \"desc\" for\n * descending or \"asc\" for ascending sort order of corresponding values.\n *\n * @static\n * @memberOf _\n * @since 4.0.0\n * @category Collection\n * @param {Array|Object} collection The collection to iterate over.\n * @param {Array[]|Function[]|Object[]|string[]} [iteratees=[_.identity]]\n *  The iteratees to sort by.\n * @param {string[]} [orders] The sort orders of `iteratees`.\n * @param- {Object} [guard] Enables use as an iteratee for methods like `_.reduce`.\n * @returns {Array} Returns the new sorted array.\n * @example\n *\n * var users = [\n *   { 'user': 'fred',   'age': 48 },\n *   { 'user': 'barney', 'age': 34 },\n *   { 'user': 'fred',   'age': 40 },\n *   { 'user': 'barney', 'age': 36 }\n * ];\n *\n * // Sort by `user` in ascending order and by `age` in descending order.\n * _.orderBy(users, ['user', 'age'], ['asc', 'desc']);\n * // => objects for [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 40]]\n */\nfunction orderBy(collection, iteratees, orders, guard) {\n  if (collection == null) {\n    return [];\n  }\n  if (!isArray(iteratees)) {\n    iteratees = iteratees == null ? [] : [iteratees];\n  }\n  orders = guard ? undefined : orders;\n  if (!isArray(orders)) {\n    orders = orders == null ? [] : [orders];\n  }\n  return baseOrderBy(collection, iteratees, orders);\n}\n\nexport default orderBy;\n",
+      "start": 1714699768474,
+      "end": 1714699768474,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768474,
+      "end": 1714699768474,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768474,
+      "end": 1714699768474,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768474,
+      "end": 1714699768474,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768474,
+      "end": 1714699768474,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768474,
+      "end": 1714699768474,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768474,
+      "end": 1714699768474,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768474,
+      "end": 1714699768474,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768474,
+      "end": 1714699768474,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768474,
+      "end": 1714699768474,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768474,
+      "end": 1714699768474,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768474,
+      "end": 1714699768474,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768474,
+      "end": 1714699768474,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768474,
+      "end": 1714699768474,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768474,
+      "end": 1714699768474,
+      "order": "normal"
+    }
+  ]
+}

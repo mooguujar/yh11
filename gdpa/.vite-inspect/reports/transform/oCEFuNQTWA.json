@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/flatMapDepth.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import baseFlatten from './_baseFlatten.js';\nimport map from './map.js';\nimport toInteger from './toInteger.js';\n\n/**\n * This method is like `_.flatMap` except that it recursively flattens the\n * mapped results up to `depth` times.\n *\n * @static\n * @memberOf _\n * @since 4.7.0\n * @category Collection\n * @param {Array|Object} collection The collection to iterate over.\n * @param {Function} [iteratee=_.identity] The function invoked per iteration.\n * @param {number} [depth=1] The maximum recursion depth.\n * @returns {Array} Returns the new flattened array.\n * @example\n *\n * function duplicate(n) {\n *   return [[[n, n]]];\n * }\n *\n * _.flatMapDepth([1, 2], duplicate, 2);\n * // => [[1, 1], [2, 2]]\n */\nfunction flatMapDepth(collection, iteratee, depth) {\n  depth = depth === undefined ? 1 : toInteger(depth);\n  return baseFlatten(map(collection, iteratee), depth);\n}\n\nexport default flatMapDepth;\n",
+      "start": 1714699768350,
+      "end": 1714699768366,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768366,
+      "end": 1714699768366,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768366,
+      "end": 1714699768366,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768366,
+      "end": 1714699768366,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768366,
+      "end": 1714699768366,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768366,
+      "end": 1714699768366,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768366,
+      "end": 1714699768366,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import baseFlatten from './_baseFlatten.js';\nimport map from './map.js';\nimport toInteger from './toInteger.js';\n\n/**\n * This method is like `_.flatMap` except that it recursively flattens the\n * mapped results up to `depth` times.\n *\n * @static\n * @memberOf _\n * @since 4.7.0\n * @category Collection\n * @param {Array|Object} collection The collection to iterate over.\n * @param {Function} [iteratee=_.identity] The function invoked per iteration.\n * @param {number} [depth=1] The maximum recursion depth.\n * @returns {Array} Returns the new flattened array.\n * @example\n *\n * function duplicate(n) {\n *   return [[[n, n]]];\n * }\n *\n * _.flatMapDepth([1, 2], duplicate, 2);\n * // => [[1, 1], [2, 2]]\n */\nfunction flatMapDepth(collection, iteratee, depth) {\n  depth = depth === undefined ? 1 : toInteger(depth);\n  return baseFlatten(map(collection, iteratee), depth);\n}\n\nexport default flatMapDepth;\n",
+      "start": 1714699768366,
+      "end": 1714699768366,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768366,
+      "end": 1714699768366,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768366,
+      "end": 1714699768366,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768366,
+      "end": 1714699768366,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768366,
+      "end": 1714699768366,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768366,
+      "end": 1714699768366,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768366,
+      "end": 1714699768366,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768366,
+      "end": 1714699768366,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768366,
+      "end": 1714699768366,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768366,
+      "end": 1714699768366,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768366,
+      "end": 1714699768366,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768366,
+      "end": 1714699768366,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768366,
+      "end": 1714699768366,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768366,
+      "end": 1714699768366,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768366,
+      "end": 1714699768366,
+      "order": "normal"
+    }
+  ]
+}

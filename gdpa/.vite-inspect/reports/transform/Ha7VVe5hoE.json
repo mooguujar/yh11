@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Bulletin.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\nimport { useArticleStore } from '@/store/modules/article'\nimport { useAuthStore } from '@/store/modules/auth'\nimport { useEntryStore } from '@/store/modules/entry'\nimport { IArticleListType } from '@/store/types/article'\nimport { IWebUrlLink } from '@/store/types/entry'\nimport { IGlobalNotification } from '@/store/types/global'\nimport mitt from '@/utils/mitt'\nimport { storeToRefs } from 'pinia'\nimport { computed, onMounted, onUnmounted, reactive, ref } from 'vue'\nimport { useRouter } from 'vue-router'\n\nconst authStore = useAuthStore()\nconst { token, userInfo } = storeToRefs(authStore)\nconst { cash } = userInfo.value\n\nconst router = useRouter()\nconst articleStore = useArticleStore()\nconst { getArticleListApi } = articleStore\nconst { rollingNotice } = storeToRefs(articleStore)\n\nconst entryStore = useEntryStore()\nconst { config } = storeToRefs(entryStore)\n\nconst emit = defineEmits(['update-article'])\n\nconst bulletinData = ref<IArticleListType[]>([])\nconst currStatus = reactive({\n  AuthExpire: false\n})\n\nconst adModWebUrlLink = computed<IWebUrlLink>(\n  () => (config.value.Web_Set_DefaultInfo?.AD_Mod_WebUrlLink ?? {}) as IWebUrlLink\n)\n\nlet updateArticleTimer: NodeJS.Timeout | null\nconst handleRollingNoticeData = async () => {\n  try {\n    let res: IArticleListType[] = await getArticleListApi({\n      bind_key: 'OpenNotice,RollingNotice,HomeHuanDeng'\n    })\n\n    updateArticleTimer = setTimeout(() => {\n      if (!currStatus.AuthExpire) {\n        emit('update-article')\n      }\n    }, 1000)\n    // res = rollingNotice.value\n\n    // if (res.length) {\n    //   bulletinData.value = res\n    // }\n\n    window.log('跑马灯公告内容', res)\n  } catch (error) {\n    console.error(error)\n  }\n}\n\nconst dialogShow = ref(false)\nconst dialog = ref<IArticleListType | Record<string, any>>({})\n\nconst handleShowDialog = (_dialog: IArticleListType) => {\n  dialog.value = _dialog\n  dialogShow.value = true\n}\nconst closeDialog = () => {\n  dialogShow.value = false\n}\nconst setCurrStatus = (data: IGlobalNotification) => {\n  if (data.type === 'AuthExpire') {\n    currStatus.AuthExpire = data.value\n  }\n}\n\nonMounted(() => {\n  mitt.on('global-notification', setCurrStatus)\n  handleRollingNoticeData()\n})\nonUnmounted(() => {\n  mitt.off('global-notification', setCurrStatus)\n  updateArticleTimer && clearTimeout(updateArticleTimer)\n  updateArticleTimer = null\n})\n</script>\n\n<template>\n  <div class=\"bulletin-container flex items-center\">\n    <div\n      class=\"bulletin\"\n      :class=\"{ 'bulletin-activity': adModWebUrlLink.theme_activities_show }\"\n    ></div>\n    <van-swipe\n      autoplay=\"4000\"\n      duration=\"600\"\n      vertical\n      :show-indicators=\"false\"\n      :touchable=\"false\"\n      class=\"swipe-bulletin\"\n    >\n      <van-swipe-item\n        v-for=\"item in rollingNotice\"\n        :key=\"item.id\"\n        @click.stop=\"handleShowDialog(item)\"\n      >\n        <div v-html=\"item.title\"></div>\n      </van-swipe-item>\n    </van-swipe>\n\n    <van-dialog\n      v-model:show=\"dialogShow\"\n      title=\"公告\"\n      confirmButtonText=\"我知道了\"\n      theme=\"round-button\"\n      className=\"dialog-bulletin\"\n    >\n      <i\n        class=\"icon-close close-dark block\"\n        @click=\"closeDialog\"\n      ></i>\n      <div\n        v-html=\"dialog.content\"\n        v-content\n      ></div>\n    </van-dialog>\n  </div>\n</template>\n\n<style lang=\"scss\" scoped>\n@import '@/assets/styles/sprite-home.scss';\n.bulletin-container {\n  position: relative;\n  width: 100%;\n  height: 50px;\n  margin: 10px 0;\n  font-size: 26px;\n  .bulletin {\n    margin-right: 10px;\n    &.bulletin-activity {\n      width: 28px;\n      height: 24px;\n      background: url('@/assets/images/activity/horn-messge.png') no-repeat center / cover;\n      background-size: 100% 100%;\n    }\n  }\n  :deep(.swipe-bulletin) {\n    height: 50px;\n    line-height: 50px;\n    overflow: hidden;\n    .van-swipe__track {\n      transition-timing-function: linear;\n    }\n  }\n  :deep(.dialog-bulletin) {\n    width: 708px;\n    height: auto;\n    padding: 40px;\n    .van-dialog__header {\n      padding: 0;\n      font-size: 29px;\n      color: #13161b;\n    }\n    .van-dialog__content {\n      margin: 33px 0 35px 0;\n      font-size: 25px;\n      color: #787f8c;\n      text-align: justify;\n    }\n    .van-dialog__footer {\n      padding: 0;\n    }\n    .van-dialog__confirm {\n      width: 100%;\n      height: 80px;\n      font-size: 31px;\n      background: var(--van-button-primary-background);\n      border-radius: 8px;\n      border-width: 0;\n    }\n    .icon-close {\n      position: absolute;\n      right: 40px;\n      top: 24px;\n    }\n    img {\n      width: 100%;\n      margin-top: 20px;\n    }\n  }\n  .marquee {\n    height: 50px;\n  }\n  .item-notice {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    height: 50px;\n    margin-bottom: 20px;\n  }\n}\n</style>\n",
+      "start": 1714699770780,
+      "end": 1714699770791,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699770791,
+      "end": 1714699770791,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699770791,
+      "end": 1714699770791,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699770791,
+      "end": 1714699770791,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699770791,
+      "end": 1714699770791,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Bulletin.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Bulletin.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Bulletin.vue?vue&type=style&index=0&scoped=7d8a463d&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-7d8a463d\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Bulletin.vue\"]]);\n",
+      "start": 1714699770791,
+      "end": 1714699771796,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771796,
+      "end": 1714699771796,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Bulletin.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Bulletin.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Bulletin.vue?vue&type=style&index=0&scoped=7d8a463d&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-7d8a463d\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Bulletin.vue\"]]);\n",
+      "start": 1714699771796,
+      "end": 1714699771796,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Bulletin.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Bulletin.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Bulletin.vue?vue&type=style&index=0&scoped=7d8a463d&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-7d8a463d\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Bulletin.vue\"]]);\n",
+      "start": 1714699771796,
+      "end": 1714699771919,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Bulletin.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Bulletin.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Bulletin.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Bulletin.vue?vue&type=style&index=0&scoped=7d8a463d&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-7d8a463d\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Bulletin.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,wEAAwE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771919,
+      "end": 1714699771919,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771919,
+      "end": 1714699771919,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771919,
+      "end": 1714699771919,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771919,
+      "end": 1714699771919,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771919,
+      "end": 1714699771919,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699771919,
+      "end": 1714699771919,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771920,
+      "end": 1714699771920,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771920,
+      "end": 1714699771920,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771920,
+      "end": 1714699771920,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Bulletin.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Bulletin.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Bulletin.vue?vue&type=style&index=0&scoped=7d8a463d&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-7d8a463d\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Bulletin.vue\"]]);\n",
+      "start": 1714699771920,
+      "end": 1714699771920,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Bulletin.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Bulletin.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Bulletin.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Bulletin.vue?vue&type=style&index=0&scoped=7d8a463d&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-7d8a463d\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Bulletin.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771920,
+      "end": 1714699771920,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771920,
+      "end": 1714699771921,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771921,
+      "end": 1714699771921,
+      "order": "normal"
+    }
+  ]
+}

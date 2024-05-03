@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/renderer/svg-tag.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "const Utils = require('./utils')\n\nfunction getColorAttrib (color, attrib) {\n  const alpha = color.a / 255\n  const str = attrib + '=\"' + color.hex + '\"'\n\n  return alpha < 1\n    ? str + ' ' + attrib + '-opacity=\"' + alpha.toFixed(2).slice(1) + '\"'\n    : str\n}\n\nfunction svgCmd (cmd, x, y) {\n  let str = cmd + x\n  if (typeof y !== 'undefined') str += ' ' + y\n\n  return str\n}\n\nfunction qrToPath (data, size, margin) {\n  let path = ''\n  let moveBy = 0\n  let newRow = false\n  let lineLength = 0\n\n  for (let i = 0; i < data.length; i++) {\n    const col = Math.floor(i % size)\n    const row = Math.floor(i / size)\n\n    if (!col && !newRow) newRow = true\n\n    if (data[i]) {\n      lineLength++\n\n      if (!(i > 0 && col > 0 && data[i - 1])) {\n        path += newRow\n          ? svgCmd('M', col + margin, 0.5 + row + margin)\n          : svgCmd('m', moveBy, 0)\n\n        moveBy = 0\n        newRow = false\n      }\n\n      if (!(col + 1 < size && data[i + 1])) {\n        path += svgCmd('h', lineLength)\n        lineLength = 0\n      }\n    } else {\n      moveBy++\n    }\n  }\n\n  return path\n}\n\nexports.render = function render (qrData, options, cb) {\n  const opts = Utils.getOptions(options)\n  const size = qrData.modules.size\n  const data = qrData.modules.data\n  const qrcodesize = size + opts.margin * 2\n\n  const bg = !opts.color.light.a\n    ? ''\n    : '<path ' + getColorAttrib(opts.color.light, 'fill') +\n      ' d=\"M0 0h' + qrcodesize + 'v' + qrcodesize + 'H0z\"/>'\n\n  const path =\n    '<path ' + getColorAttrib(opts.color.dark, 'stroke') +\n    ' d=\"' + qrToPath(data, size, opts.margin) + '\"/>'\n\n  const viewBox = 'viewBox=\"' + '0 0 ' + qrcodesize + ' ' + qrcodesize + '\"'\n\n  const width = !opts.width ? '' : 'width=\"' + opts.width + '\" height=\"' + opts.width + '\" '\n\n  const svgTag = '<svg xmlns=\"http://www.w3.org/2000/svg\" ' + width + viewBox + ' shape-rendering=\"crispEdges\">' + bg + path + '</svg>\\n'\n\n  if (typeof cb === 'function') {\n    cb(null, svgTag)\n  }\n\n  return svgTag\n}\n",
+      "start": 1714699771017,
+      "end": 1714699771036,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771036,
+      "end": 1714699771036,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771036,
+      "end": 1714699771036,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771037,
+      "end": 1714699771037,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771037,
+      "end": 1714699771037,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771037,
+      "end": 1714699771037,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771037,
+      "end": 1714699771037,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "const Utils = require('./utils')\n\nfunction getColorAttrib (color, attrib) {\n  const alpha = color.a / 255\n  const str = attrib + '=\"' + color.hex + '\"'\n\n  return alpha < 1\n    ? str + ' ' + attrib + '-opacity=\"' + alpha.toFixed(2).slice(1) + '\"'\n    : str\n}\n\nfunction svgCmd (cmd, x, y) {\n  let str = cmd + x\n  if (typeof y !== 'undefined') str += ' ' + y\n\n  return str\n}\n\nfunction qrToPath (data, size, margin) {\n  let path = ''\n  let moveBy = 0\n  let newRow = false\n  let lineLength = 0\n\n  for (let i = 0; i < data.length; i++) {\n    const col = Math.floor(i % size)\n    const row = Math.floor(i / size)\n\n    if (!col && !newRow) newRow = true\n\n    if (data[i]) {\n      lineLength++\n\n      if (!(i > 0 && col > 0 && data[i - 1])) {\n        path += newRow\n          ? svgCmd('M', col + margin, 0.5 + row + margin)\n          : svgCmd('m', moveBy, 0)\n\n        moveBy = 0\n        newRow = false\n      }\n\n      if (!(col + 1 < size && data[i + 1])) {\n        path += svgCmd('h', lineLength)\n        lineLength = 0\n      }\n    } else {\n      moveBy++\n    }\n  }\n\n  return path\n}\n\nexports.render = function render (qrData, options, cb) {\n  const opts = Utils.getOptions(options)\n  const size = qrData.modules.size\n  const data = qrData.modules.data\n  const qrcodesize = size + opts.margin * 2\n\n  const bg = !opts.color.light.a\n    ? ''\n    : '<path ' + getColorAttrib(opts.color.light, 'fill') +\n      ' d=\"M0 0h' + qrcodesize + 'v' + qrcodesize + 'H0z\"/>'\n\n  const path =\n    '<path ' + getColorAttrib(opts.color.dark, 'stroke') +\n    ' d=\"' + qrToPath(data, size, opts.margin) + '\"/>'\n\n  const viewBox = 'viewBox=\"' + '0 0 ' + qrcodesize + ' ' + qrcodesize + '\"'\n\n  const width = !opts.width ? '' : 'width=\"' + opts.width + '\" height=\"' + opts.width + '\" '\n\n  const svgTag = '<svg xmlns=\"http://www.w3.org/2000/svg\" ' + width + viewBox + ' shape-rendering=\"crispEdges\">' + bg + path + '</svg>\\n'\n\n  if (typeof cb === 'function') {\n    cb(null, svgTag)\n  }\n\n  return svgTag\n}\n",
+      "start": 1714699771037,
+      "end": 1714699771037,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699771037,
+      "end": 1714699771037,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771037,
+      "end": 1714699771037,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771037,
+      "end": 1714699771037,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771037,
+      "end": 1714699771037,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771037,
+      "end": 1714699771037,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771037,
+      "end": 1714699771037,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as svgTag } from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/renderer/svg-tag.js?commonjs-exports\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/renderer/utils.js?commonjs-proxy\";\n\nconst Utils = require$$0\n\nfunction getColorAttrib (color, attrib) {\n  const alpha = color.a / 255\n  const str = attrib + '=\"' + color.hex + '\"'\n\n  return alpha < 1\n    ? str + ' ' + attrib + '-opacity=\"' + alpha.toFixed(2).slice(1) + '\"'\n    : str\n}\n\nfunction svgCmd (cmd, x, y) {\n  let str = cmd + x\n  if (typeof y !== 'undefined') str += ' ' + y\n\n  return str\n}\n\nfunction qrToPath (data, size, margin) {\n  let path = ''\n  let moveBy = 0\n  let newRow = false\n  let lineLength = 0\n\n  for (let i = 0; i < data.length; i++) {\n    const col = Math.floor(i % size)\n    const row = Math.floor(i / size)\n\n    if (!col && !newRow) newRow = true\n\n    if (data[i]) {\n      lineLength++\n\n      if (!(i > 0 && col > 0 && data[i - 1])) {\n        path += newRow\n          ? svgCmd('M', col + margin, 0.5 + row + margin)\n          : svgCmd('m', moveBy, 0)\n\n        moveBy = 0\n        newRow = false\n      }\n\n      if (!(col + 1 < size && data[i + 1])) {\n        path += svgCmd('h', lineLength)\n        lineLength = 0\n      }\n    } else {\n      moveBy++\n    }\n  }\n\n  return path\n}\n\nvar render = svgTag.render = function render (qrData, options, cb) {\n  const opts = Utils.getOptions(options)\n  const size = qrData.modules.size\n  const data = qrData.modules.data\n  const qrcodesize = size + opts.margin * 2\n\n  const bg = !opts.color.light.a\n    ? ''\n    : '<path ' + getColorAttrib(opts.color.light, 'fill') +\n      ' d=\"M0 0h' + qrcodesize + 'v' + qrcodesize + 'H0z\"/>'\n\n  const path =\n    '<path ' + getColorAttrib(opts.color.dark, 'stroke') +\n    ' d=\"' + qrToPath(data, size, opts.margin) + '\"/>'\n\n  const viewBox = 'viewBox=\"' + '0 0 ' + qrcodesize + ' ' + qrcodesize + '\"'\n\n  const width = !opts.width ? '' : 'width=\"' + opts.width + '\" height=\"' + opts.width + '\" '\n\n  const svgTag = '<svg xmlns=\"http://www.w3.org/2000/svg\" ' + width + viewBox + ' shape-rendering=\"crispEdges\">' + bg + path + '</svg>\\n'\n\n  if (typeof cb === 'function') {\n    cb(null, svgTag)\n  }\n\n  return svgTag\n}\n\nexport { svgTag as __moduleExports, render, svgTag as default };",
+      "start": 1714699771037,
+      "end": 1714699771075,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "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"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771075,
+      "end": 1714699771075,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771075,
+      "end": 1714699771075,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771075,
+      "end": 1714699771075,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699771075,
+      "end": 1714699771075,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771075,
+      "end": 1714699771075,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771075,
+      "end": 1714699771075,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771075,
+      "end": 1714699771075,
+      "order": "normal"
+    }
+  ]
+}

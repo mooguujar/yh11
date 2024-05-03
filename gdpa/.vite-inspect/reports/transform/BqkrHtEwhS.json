@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/sum.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var helperNumberAdd = require('./helperNumberAdd')\r\n\r\nvar isFunction = require('./isFunction')\r\nvar each = require('./each')\r\nvar get = require('./get')\r\n\r\n/**\r\n  * 求和函数，将数值相加\r\n  *\r\n  * @param {Array} array 数组\r\n  * @param {Function/String} iterate 方法或属性\r\n  * @param {Object} context 上下文\r\n  * @return {Number}\r\n  */\r\nfunction sum (array, iterate, context) {\r\n  var result = 0\r\n  each(array, iterate ? isFunction(iterate) ? function () {\r\n    result = helperNumberAdd(result, iterate.apply(context, arguments))\r\n  } : function (val) {\r\n    result = helperNumberAdd(result, get(val, iterate))\r\n  } : function (val) {\r\n    result = helperNumberAdd(result, val)\r\n  })\r\n  return result\r\n}\r\n\r\nmodule.exports = sum\r\n",
+      "start": 1714699767671,
+      "end": 1714699767705,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767705,
+      "end": 1714699767705,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767705,
+      "end": 1714699767705,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767705,
+      "end": 1714699767705,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767705,
+      "end": 1714699767705,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767705,
+      "end": 1714699767705,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767705,
+      "end": 1714699767705,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var helperNumberAdd = require('./helperNumberAdd')\r\n\r\nvar isFunction = require('./isFunction')\r\nvar each = require('./each')\r\nvar get = require('./get')\r\n\r\n/**\r\n  * 求和函数，将数值相加\r\n  *\r\n  * @param {Array} array 数组\r\n  * @param {Function/String} iterate 方法或属性\r\n  * @param {Object} context 上下文\r\n  * @return {Number}\r\n  */\r\nfunction sum (array, iterate, context) {\r\n  var result = 0\r\n  each(array, iterate ? isFunction(iterate) ? function () {\r\n    result = helperNumberAdd(result, iterate.apply(context, arguments))\r\n  } : function (val) {\r\n    result = helperNumberAdd(result, get(val, iterate))\r\n  } : function (val) {\r\n    result = helperNumberAdd(result, val)\r\n  })\r\n  return result\r\n}\r\n\r\nmodule.exports = sum\r\n",
+      "start": 1714699767705,
+      "end": 1714699767705,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767705,
+      "end": 1714699767705,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767705,
+      "end": 1714699767705,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767705,
+      "end": 1714699767705,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767705,
+      "end": 1714699767705,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767705,
+      "end": 1714699767705,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767705,
+      "end": 1714699767705,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/helperNumberAdd.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isFunction.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/each.js?commonjs-proxy\";\nimport require$$3 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/get.js?commonjs-proxy\";\n\nvar helperNumberAdd = require$$0\r\n\r\nvar isFunction = require$$1\r\nvar each = require$$2\r\nvar get = require$$3\r\n\r\n/**\r\n  * 求和函数，将数值相加\r\n  *\r\n  * @param {Array} array 数组\r\n  * @param {Function/String} iterate 方法或属性\r\n  * @param {Object} context 上下文\r\n  * @return {Number}\r\n  */\r\nfunction sum (array, iterate, context) {\r\n  var result = 0\r\n  each(array, iterate ? isFunction(iterate) ? function () {\r\n    result = helperNumberAdd(result, iterate.apply(context, arguments))\r\n  } : function (val) {\r\n    result = helperNumberAdd(result, get(val, iterate))\r\n  } : function (val) {\r\n    result = helperNumberAdd(result, val)\r\n  })\r\n  return result\r\n}\r\n\r\nvar sum_1 = sum\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(sum_1);\nexport { sum_1 as __moduleExports };",
+      "start": 1714699767705,
+      "end": 1714699768240,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;;AAAA,IAAI,eAAe,GAAG,UAA4B;AAClD;AACA,IAAI,UAAU,GAAG,UAAuB;AACxC,IAAI,IAAI,GAAG,UAAiB;AAC5B,IAAI,GAAG,GAAG,UAAgB;AAC1B;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,GAAG,EAAE,KAAK,EAAE,OAAO,EAAE,OAAO,EAAE;AACvC,EAAE,IAAI,MAAM,GAAG,CAAC;AAChB,EAAE,IAAI,CAAC,KAAK,EAAE,OAAO,GAAG,UAAU,CAAC,OAAO,CAAC,GAAG,YAAY;AAC1D,IAAI,MAAM,GAAG,eAAe,CAAC,MAAM,EAAE,OAAO,CAAC,KAAK,CAAC,OAAO,EAAE,SAAS,CAAC,CAAC;AACvE,GAAG,GAAG,UAAU,GAAG,EAAE;AACrB,IAAI,MAAM,GAAG,eAAe,CAAC,MAAM,EAAE,GAAG,CAAC,GAAG,EAAE,OAAO,CAAC,CAAC;AACvD,GAAG,GAAG,UAAU,GAAG,EAAE;AACrB,IAAI,MAAM,GAAG,eAAe,CAAC,MAAM,EAAE,GAAG,CAAC;AACzC,GAAG,CAAC;AACJ,EAAE,OAAO,MAAM;AACf,CAAC;AACD;IACA,KAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768240,
+      "end": 1714699768240,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768240,
+      "end": 1714699768240,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768240,
+      "end": 1714699768240,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768240,
+      "end": 1714699768240,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768240,
+      "end": 1714699768240,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768240,
+      "end": 1714699768240,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768240,
+      "end": 1714699768240,
+      "order": "normal"
+    }
+  ]
+}

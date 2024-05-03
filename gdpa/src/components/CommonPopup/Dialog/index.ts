@@ -1,11 +1,13 @@
-import { type AppContext } from 'vue'
-import DialogConstructor from './Dialog.vue'
-import { createVM } from '../core'
 import { type DialogOptions } from 'vant'
+import { type AppContext } from 'vue'
+import { createVM } from '../core'
+import DialogConstructor from './Dialog.vue'
 
 type IProps = {
   action?: (parm: any) => void | Promise<void>
   cancelAction?: () => void | Promise<void>
+  hideConfirmButton?: boolean
+  hideCancelButton?: boolean
 }
 
 export default function Dialog(props: IProps & DialogOptions, appContext?: AppContext | null) {

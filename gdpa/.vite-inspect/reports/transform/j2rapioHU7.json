@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/components/wideModeSelfSelect.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <div class=\"selfSelect selfSelect-wide-mode\">\n    <!-- <div class=\"selectList\">\n      <span\n        class=\"paymate\"\n        @click=\"onFilter('payment')\"\n        :class=\"{ active: filterType === 'payment' }\"\n      >\n        支付方式\n        <van-icon name=\"arrow-up\" />\n      </span>\n      <span\n        class=\"pays\"\n        @click=\"onFilter('sell')\"\n        :class=\"{ active: filterType === 'sell' }\"\n      >\n        售卖方式\n        <van-icon name=\"arrow-up\" />\n      </span>\n      <span\n        class=\"amount\"\n        @click=\"onFilter('amount')\"\n        :class=\"{ active: filterType === 'amount' }\"\n      >\n        金额\n        <van-icon name=\"arrow-up\" />\n      </span>\n      <span\n        class=\"select\"\n        @click=\"onFilter('')\"\n      >\n        筛选\n        <van-icon name=\"filter-o\" />\n      </span>\n    </div> -->\n    <div class=\"select_amount flex_sz justify-between primaryColor\">\n      <div\n        v-for=\"item in amountList\"\n        :key=\"item.name\"\n        class=\"item_amount\"\n        :class=\"oderParm.money == item.value ? 'activeAount' : ''\"\n        @click=\"onClickButton(item.value)\"\n      >\n        {{ item.value }}\n      </div>\n    </div>\n    <form action=\"/\">\n      <van-search\n        v-model=\"value\"\n        class=\"!p-[0]\"\n        show-action\n        placeholder=\"快速查找充值金额\"\n        @search=\"onSearch\"\n        @cancel=\"onCancel\"\n      >\n        <template #action>\n          <div @click=\"onClickButton()\">查找</div>\n        </template>\n      </van-search>\n    </form>\n    <p\n      class=\"red_f !mb-[10px] text-[16px]\"\n      v-if=\"unFixedAmount == 1\"\n    >\n      暂无匹配金额，为您推荐以下充值金额！\n    </p>\n    <p\n      class=\"red_f !mb-[10px] text-[16px]\"\n      v-else-if=\"!list.length\"\n    >\n      暂无匹配金额，请尝试其它金额！\n    </p>\n    <div class=\"O_wrap\">\n      <van-pull-refresh\n        v-model=\"refreshing\"\n        @refresh=\"onRefresh\"\n      >\n        <van-list\n          v-model:loading=\"loading\"\n          :finished=\"finished\"\n          finished-text=\"没有更多了\"\n          @load=\"onLoad\"\n          class=\"clearfix\"\n        >\n          <van-skeleton\n            title\n            avatar\n            :row=\"3\"\n            :loading=\"false\"\n            v-for=\"(item, i) in list\"\n            :key=\"i\"\n          >\n            <div\n              class=\"buyList\"\n              :class=\"{\n                '!h-[150px] !py-[5px] !w-[49%]': onlineCharge,\n                '!mb-0': i === list.length - 1\n              }\"\n            >\n              <van-row\n                justify=\"space-between\"\n                class=\"content-container\"\n              >\n                <van-col\n                  class=\"flex_s items-center coin-amount amountMoney !h-[57px] text-[54px]\"\n                  v-if=\"onlineCharge\"\n                >\n                  <span class=\"text-[18px]\">\n                    {{\n                      unFixedAmount != 1\n                        ? oderParm.money\n                          ? (+oderParm.money).toTruncFixed(2)\n                          : (+item.remaining_num).toTruncFixed(2)\n                        : (+item.remaining_num).toTruncFixed(2)\n                    }}\n                  </span>\n                  <span class=\"unit !text-[12px]\">{{ onlineCharge ? 'CNY' : coin_name }}</span>\n                </van-col>\n                <!-- <van-col class=\"flex_s justify-between\">\n                  <div>\n                    <p\n                      class=\"contentText flex items-center !h-[25px]\"\n                      :class=\"item.is_split == 1 ? '' : 'colorred'\"\n                    >\n                      <span>{{ item.is_split == 1 ? '可拆分' : '不可拆分' }}</span>\n                      <span\n                        class=\"mixinNum\"\n                        v-if=\"item.is_split == 1\"\n                      >\n                        最低购买{{ item.split_min == 0 ? 10 : item.split_min }}\n                      </span>\n                    </p>\n                  </div>\n                </van-col> -->\n                <!-- <van-col\n                  v-if=\"!onlineCharge\"\n                  class=\"col-left flex_s\"\n                >\n                  <div>\n                    <div class=\"user-info-container flex items-center\">\n                      <van-image\n                        lazy-load1\n                        class=\"avatar\"\n                        :src=\"imgserver_url + item.headimg\"\n                      />\n                      <span class=\"userName flex items-center\">{{ item.nickname }}</span>\n                    </div>\n                    <p\n                      class=\"usert\"\n                      :class=\"onlineCharge ? '!text-[#000]' : ''\"\n                    >\n                      交易成功率{{ item.statistics?.completion_rate || '0.00' }}%\n                    </p>\n                    <p\n                      class=\"usert\"\n                      :class=\"onlineCharge ? '!text-[#000]' : ''\"\n                    >\n                      平均回应时长{{ item.statistics?.response_time || '0' }}分钟\n                    </p>\n                  </div>\n                </van-col> -->\n                <van-col class=\"col-middle flex justify-between flex_s\">\n                  <div>\n                    <!-- <p\n                      v-if=\"!onlineCharge\"\n                      class=\"contentText flex items-center\"\n                      :class=\"item.is_split == 1 ? '' : 'colorred'\"\n                    >\n                      <span>{{ item.is_split == 1 ? '可拆分' : '不可拆分' }}</span>\n                    </p>\n                    <p class=\"contentText flex items-center !h-[30px]\">\n                      <span\n                        class=\"mixinNum text-[#a6a6a6]\"\n                        v-if=\"item.is_split == 1\"\n                      >\n                        最低购买{{ item.split_min == 0 ? 10 : item.split_min }}\n                      </span>\n                    </p> -->\n                    <van-row\n                      justify=\"start\"\n                      gutter=\"5\"\n                      class=\"pay-way-container flex_z\"\n                    >\n                      <van-col\n                        v-if=\"item.coin_protocol.includes('BANK')\"\n                        class=\"payBox\"\n                      >\n                        <van-image\n                          class=\"credit\"\n                          lazy-load1\n                          :src=\"requireImg('common/credit.png')\"\n                        />\n                      </van-col>\n                      <van-col\n                        v-if=\"item.coin_protocol.includes('WXPAY')\"\n                        class=\"payBox\"\n                      >\n                        <van-image\n                          class=\"WeChatPay\"\n                          lazy-load1\n                          :src=\"requireImg('common/WeChatPay.png')\"\n                        />\n                      </van-col>\n                      <van-col\n                        v-if=\"item.coin_protocol.includes('ALIPAY')\"\n                        class=\"payBox\"\n                      >\n                        <van-image\n                          class=\"alipay\"\n                          lazy-load1\n                          :src=\"requireImg('common/ALIPAY.png')\"\n                        />\n                      </van-col>\n                      <van-col\n                        v-if=\"item.coin_protocol.includes('SZRMB')\"\n                        class=\"payBox\"\n                      >\n                        <van-image\n                          class=\"SZRMB\"\n                          lazy-load1\n                          :src=\"requireImg('common/SZRMB.png')\"\n                        />\n                      </van-col>\n                    </van-row>\n                  </div>\n                </van-col>\n                <van-col class=\"col-right flex flex_s !justify-end\">\n                  <div class=\"\">\n                    <van-button\n                      type=\"primary\"\n                      class=\"buyButton\"\n                      @click=\"\n                        router.push(\n                          '/selfbuy_coin?money=' +\n                            (unFixedAmount == 1\n                              ? item.remaining_num\n                              : oderParm.money\n                              ? oderParm.money\n                              : item.remaining_num) +\n                            '&gd_buy_fixmomey=' +\n                            gd_buy_fixmomey +\n                            '&data=' +\n                            JSON.stringify(item)\n                        )\n                      \"\n                    >\n                      购买\n                    </van-button>\n                  </div>\n                </van-col>\n              </van-row>\n            </div>\n          </van-skeleton>\n        </van-list>\n      </van-pull-refresh>\n    </div>\n  </div>\n</template>\n\n<script setup lang=\"ts\">\nconst coin_name = sessionStorage.getItem('coin_name')\nimport { SellOrders } from '@/apis/buySellCoin'\nimport verified from '@/assets/images/common/verified.png'\nimport { useAppBar } from '@/components/AppBar/useAppBar'\nimport Dialog from '@/components/CommonPopup/Dialog/index'\nimport router from '@/router'\nimport { useEntryStore } from '@/store/modules/entry'\nimport { IQBuyConfig } from '@/store/types/entry'\nimport mitt from '@/utils/mitt'\nimport { mergeHrefParams, requireImg } from '@/utils/tools'\nimport { storeToRefs } from 'pinia'\nimport { showToast } from 'vant'\nimport { computed, onMounted, onUnmounted, ref, watch } from 'vue'\nimport clipboard3 from 'vue-clipboard3'\nimport { useRoute } from 'vue-router'\n\nconst filterType = ref('')\nconst unFixedAmount = ref() //固额模式下 如果想要的金额没有的时候 去开启推荐金额的模式\nconst show = ref(false)\nconst show1 = ref(false)\n\nconst amountFilter = [\n  { name: '全部', value: '' },\n  { name: '10-100', value: '10-100' },\n  { name: '101-1000', value: '101-1000' },\n  { name: '1001-5000', value: '1001-5000' },\n  { name: '5001-10000', value: '5001-10000' },\n  { name: '10001-20000', value: '10001-20000' }\n]\nconst amountFilter1 = [\n  { name: '100-500元', value: '100-500' },\n  { name: '500-2000元', value: '500-2000' },\n  { name: '2000-5000元', value: '2000-5000' },\n  { name: '5000以上', value: '5000-100000' }\n]\n// 複製\nconst { toClipboard } = clipboard3()\nconst msgtext = `\n</br>\n</br>\n复制成功！是否返回重新输入金额充值？ </br>\n</br>\n</br>\n`\nconst showDIYDialog = async (remaining_num: string) => {\n  // console.log('remaining_num', remaining_num)\n  try {\n    await toClipboard(remaining_num)\n    // showToast('复制成功');\n    Dialog.confirm({\n      title: '温馨提示',\n      message: msgtext,\n      allowHtml: true,\n      messageAlign: 'center',\n      className: 'selldialog',\n      confirmButtonText: '返回充值',\n      cancelButtonText: '取消',\n      action: () => {\n        window.DIYclose()\n      }\n    })\n  } catch (error) {\n    showToast('复制失败!!')\n    showToast({\n      message: '复制失败!!',\n      icon: verified\n    })\n  }\n}\n\nconst amountList = [\n  { name: '100', value: '100' },\n  { name: '300', value: '300' },\n  { name: '500', value: '500' },\n  { name: '1000', value: '1000' },\n  { name: '2000', value: '2000' },\n  { name: '3000', value: '3000' }\n]\n\nconst value = ref(sessionStorage.getItem('oderParm_money') || '')\n\nconst onSearch = (val: string) => {\n  // console.log('val', value.value)\n  onClickButton()\n}\n\nsessionStorage.setItem('oderParm_money', '')\nsessionStorage.setItem('oderParm_amount', '')\n\nconst onCancel = () => {}\nconst onClickButton = (e?: string) => {\n  if (e) value.value = e\n  oderParm.value.money = e || value.value\n  // sessionStorage.setItem('oderParm_money', oderParm.value.money)\n  num.value = oderParm.value.money\n  // searchAmount.value = ''\n  setSearchAmount()\n\n  changeFullpath(searchAmount.value)\n  onConfirm()\n}\n\nconst onFilter = (type: string) => {\n  filterType.value = type\n  show.value = true\n}\n\nuseAppBar({ mode: 'dark' })\nconst EntryStore = useEntryStore()\nconst { config, QBuy_Config } = storeToRefs(EntryStore)\nconst imgserver_url = computed(() => {\n  // console.log('(imgserver_url',(config.value.Web_Set_DefaultInfo?.imgserver_url as any)?.v);\n  return (config.value.Web_Set_DefaultInfo?.imgserver_url as any)?.v || ''\n})\nconst num = ref('')\nconst route = useRoute()\nconst { query, path, fullPath } = route\n\nconst search = new URLSearchParams(mergeHrefParams())\nconst hs = search.get('hs') || ''\nconst wideMode = hs === 'h'\nconst targetRoute = wideMode ? 'wideOrderCreate' : 'orderCreate'\n\nconst gd_buy_fixmomey = ref()\nconst amountScope = ref() //直接查看 金额范围的数据\ngd_buy_fixmomey.value = search.get('gd_buy_fixmomey') || 1\n// num.value = search.get('money') || ''\n// console.log('gd_buy_fixmomey.value', gd_buy_fixmomey.value)\n\namountScope.value = search.get('amountScope') || ''\n\nconst oderParm = ref({\n  page: 1, //\t否\tint\t当前页码 默认1\n  money: sessionStorage.getItem('oderParm_money') || num.value || '',\n  pagesize: 10, //\t否\tint\t每页数据量 默认20\n  coin_protocol: '', //否\tstring\t支付方式 BANK ALIPAY WXPAY USDT 支持多选,请用逗点隔开\n  is_split: 0, //否\tint\t售卖方式 1可拆分 2不可拆分\n  amount: amountScope.value ? amountScope.value : sessionStorage.getItem('oderParm_amount') || '' //金额 ex:指定金额100, 范围查询100-1000\n})\n\nconst currentselectAmountS = ref('')\nconst selectAmountS = (item: { value: string }) => {\n  currentselectAmountS.value = item.value\n  oderParm.value.amount = item.value\n  // console.log('oderParm.amount', oderParm.value.amount, item.value)\n  // searchAmount.value = ''\n  onConfirm()\n}\n\nconst onlineCharge = ref(false)\nonlineCharge.value = path.includes('onlineCharge') ? true : false\nonMounted(() => {\n  onRefresh()\n  mitt.emit('action-sheet-show')\n})\n// 配置是否开启买币推荐\nconst isOpenRecommendConfig = computed(\n  () => (config.value.Web_BuySell_Coin_Times?.QBuy_Config as IQBuyConfig)?.v == '1'\n)\n// 买币推荐范围配置列表\nconst recommendRangeList = computed(() => {\n  return QBuy_Config.value ?? []\n})\n// 无匹配金额时，默认选中全部金额\nconst isAllMoney = computed(\n  () =>\n    !amountFilter.some(item => item.value == oderParm.value.amount) ||\n    !amountScope.value ||\n    !gd_buy_fixmomey.value ||\n    !amountFilter1.some(item => item.value == oderParm.value.amount)\n)\n\n// 搜索推荐金额范围\nconst searchAmount = ref('')\nconst setSearchAmount = () => {\n  let amountFrom, amountTo\n\n  for (const target of recommendRangeList.value) {\n    const { q, v } = target\n    const [from, to] = q.split('-')\n    const vRate = parseFloat(v)\n\n    if (num.value && +from <= +num.value && +num.value <= +to) {\n      amountFrom = +num.value * (1 - vRate / 100)\n      amountTo = +num.value * (1 + vRate / 100)\n      break\n    }\n  }\n\n  if (!!!amountFrom && !!!amountTo) {\n    searchAmount.value = num.value\n  } else {\n    // sessionStorage.setItem('oderParm_amount', '')\n    searchAmount.value = `${amountFrom}-${amountTo}`\n  }\n  // console.log(\n  //   'num.value1111111',\n  //   num.value,\n  //   amountFrom,\n  //   amountTo,\n  //   searchAmount.value,\n  //   recommendRangeList.value\n  // )\n}\nsetSearchAmount()\nwatch(\n  () => QBuy_Config.value,\n  (newv, old) => {\n    setSearchAmount()\n    setTimeout(() => {\n      num.value && onConfirm()\n    }, 300)\n  },\n  { deep: true }\n)\n\n// 监听是否可变更为全部金额（若无匹配结果）\nwatch(isAllMoney, (newValue, oldValue) => {\n  if (newValue) {\n    oderParm.value.amount = ''\n    searchAmount.value = ''\n    // changeFullpath('')\n  }\n})\n\nconst loading = ref(false)\nconst finished = ref(false)\nconst refreshing = ref(false)\n\n// 传入的金额,若没有挂单，且所有金额区间都没有挂单，设置状态标识拦截\nconst allowAllMoney = ref(true)\n\nconst active = ref(0)\nactive.value = query.active ? +query.active : 0\n\nconst oldOnlineCharge = ref(\n  onlineCharge.value && gd_buy_fixmomey.value != 1 && num.value ? true : false\n)\n\nlet goSelfbuy_coin = false\nconst list = ref<any>([])\nconst onLoad = () => {\n  if (refreshing.value) {\n    oderParm.value.page = 1\n    list.value = []\n    // console.log('加载', refreshing.value, list.value.length)\n    refreshing.value = false\n  }\n\n  oderParm.value.amount = oderParm.value.amount\n    ? searchAmount.value || oderParm.value.amount\n    : isOpenRecommendConfig.value\n    ? searchAmount.value || ''\n    : ''\n  // console.log('oderParm', oderParm.value.amount, searchAmount.value)\n  SellOrders(oderParm.value).then(data => {\n    let count = oldOnlineCharge.value ? data.count : data.gd_buyfix_count || data.count\n    // if (!!!count && count !== 0) return showToast('数据异常!!')\n    if (!count && !data.count) {\n      loading.value = false\n      finished.value = true\n\n      if (search.get('money') && allowAllMoney.value) {\n        if (gd_buy_fixmomey.value != 1) {\n          searchAmount.value = ''\n          oderParm.value.amount = ''\n        }\n        onConfirm()\n        allowAllMoney.value = false\n      }\n\n      return\n    }\n    let currentData = []\n    if (data.gd_buyfix_count) {\n      unFixedAmount.value = 0\n\n      currentData = data.gd_buyfix_list\n    } else {\n      // console.log('oderParm.value.money', oderParm.value.money)\n      if (oderParm.value.money) unFixedAmount.value = 1\n      currentData = data.list\n    }\n    // console.log('currentData', currentData)\n    if (oldOnlineCharge.value) {\n      list.value.push(...data.list) //gd_buyfix_list\n      if (oderParm.value.page == 1) {\n        list.value.unshift(...data.gd_buyfix_list)\n      }\n    } else {\n      list.value.push(...currentData) //gd_buyfix_list\n    }\n    // list.value = data.list;\n    // console.log('list.value', data.list, list.value)\n\n    // 如果只有一单跳转\n    // if (gd_buy_fixmomey.value == 1) {\n    //   if (data.gd_buyfix_count == 1) {\n    //     if (!goSelfbuy_coin && !order_id && active.value != 2)\n    //       router.push(\n    //         '/selfbuy_coin?onlineCharge=1&money=' +\n    //           num.value +\n    //           '&gd_buy_fixmomey=' +\n    //           gd_buy_fixmomey.value +\n    //           '&data=' +\n    //           JSON.stringify(list.value[0])\n    //       )\n    //     goSelfbuy_coin = true\n    //     sessionStorage.setItem('gd_buyfix_count1age', '1')\n    //   } else {\n    //     sessionStorage.setItem('gd_buyfix_count1age', '')\n    //   }\n    // }\n\n    loading.value = false\n    oderParm.value.page++\n    if (list.value.length >= count + (oldOnlineCharge.value ? data.gd_buyfix_count : 0)) {\n      finished.value = true\n    }\n  })\n}\nconst onRefresh = () => {\n  // 清空列表数据\n  finished.value = false\n  // 重新加载数据\n  // 将 loading 设置为 true，表示处于加载状态\n  loading.value = true\n  // console.log('刷新成功')\n  // showToast('刷新成功')\n  onLoad()\n}\nconst onReset = () => {\n  oderParm.value.amount = ''\n  oderParm.value.coin_protocol = ''\n  oderParm.value.is_split = 0\n}\nfunction getStorageWithExpiration(key: string) {\n  const itemStr = localStorage.getItem(key)\n\n  // 检查是否存在对应的值\n  if (!itemStr) {\n    return null\n  }\n  let item = { expiry: 1, value: '' }\n  try {\n    item = JSON.parse(itemStr)\n  } catch {\n    item = { expiry: 1, value: '' }\n  }\n  const now = new Date()\n  // 检查是否过期\n  if (now.getTime() > item.expiry) {\n    sessionStorage.removeItem(key)\n    return null\n  }\n  return item.value\n}\nconst merchantorderid = search.get('merchantorderid') || ''\nconst order_id = getStorageWithExpiration('order_id')\n\nif (gd_buy_fixmomey.value == 1) {\n  // console.log('order_id', order_id)\n  sessionStorage.setItem('gd_buy_fixmomey', '1')\n  if (order_id && merchantorderid == localStorage.getItem('merchantorderid')) {\n    setTimeout(() => {\n      router.push(`/${targetRoute}?order_id=` + order_id)\n    }, 100)\n  }\n}\nconst WfullPath = ref(window.location.search.replace('money=', 'mone2y='))\nlet IsFullpath = ref(false)\nconst changeFullpath = (e: string) => {\n  IsFullpath.value = true\n  // sessionStorage.setItem('oderParm_amount', e) //上次点击选择的金额范围\n}\nconst onConfirm = () => {\n  refreshing.value = true\n  loading.value = true\n  // console.log('onConfirm 重新加载', oderParm.value.amount, '<-')\n  if (IsFullpath.value) {\n    window.location.search = WfullPath.value\n  }\n  // window.location.search = WfullPath.value\n  onLoad()\n  show.value = false\n}\nlet self_t = ref()\nonUnmounted(() => {\n  clearInterval(self_t.value)\n  self_t.value = null\n})\n</script>\n<style lang=\"sass\" src=\"./SelfSelect.scss\" scoped></style>\n",
+      "start": 1714699771280,
+      "end": 1714699771287,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771287,
+      "end": 1714699771287,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771287,
+      "end": 1714699771287,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771287,
+      "end": 1714699771287,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771287,
+      "end": 1714699771287,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/components/wideModeSelfSelect.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/components/wideModeSelfSelect.vue?vue&type=script&setup=true&lang.ts\";\nimport \"./SelfSelect.scss?vue&type=style&index=0&src=a718ab2f&scoped=a718ab2f&lang.sass\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-a718ab2f\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/components/wideModeSelfSelect.vue\"]]);\n",
+      "start": 1714699771287,
+      "end": 1714699771891,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771891,
+      "end": 1714699771891,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/components/wideModeSelfSelect.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/components/wideModeSelfSelect.vue?vue&type=script&setup=true&lang.ts\";\nimport \"./SelfSelect.scss?vue&type=style&index=0&src=a718ab2f&scoped=a718ab2f&lang.sass\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-a718ab2f\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/components/wideModeSelfSelect.vue\"]]);\n",
+      "start": 1714699771891,
+      "end": 1714699771891,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/components/wideModeSelfSelect.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/components/wideModeSelfSelect.vue?vue&type=script&setup=true&lang.ts\";\nimport \"./SelfSelect.scss?vue&type=style&index=0&src=a718ab2f&scoped=a718ab2f&lang.sass\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-a718ab2f\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/components/wideModeSelfSelect.vue\"]]);\n",
+      "start": 1714699771892,
+      "end": 1714699771981,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/components/wideModeSelfSelect.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/components/wideModeSelfSelect.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/components/wideModeSelfSelect.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"./SelfSelect.scss?vue&type=style&index=0&src=a718ab2f&scoped=a718ab2f&lang.sass\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-a718ab2f\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/components/wideModeSelfSelect.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,0FAA0F,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771981,
+      "end": 1714699771981,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771981,
+      "end": 1714699771981,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771981,
+      "end": 1714699771981,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771981,
+      "end": 1714699771981,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771981,
+      "end": 1714699771981,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699771981,
+      "end": 1714699771981,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771981,
+      "end": 1714699771981,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771982,
+      "end": 1714699771982,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771982,
+      "end": 1714699771982,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/components/wideModeSelfSelect.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/components/wideModeSelfSelect.vue?vue&type=script&setup=true&lang.ts\";\nimport \"./SelfSelect.scss?vue&type=style&index=0&src=a718ab2f&scoped=a718ab2f&lang.sass\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-a718ab2f\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/components/wideModeSelfSelect.vue\"]]);\n",
+      "start": 1714699771982,
+      "end": 1714699771982,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/components/wideModeSelfSelect.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/components/wideModeSelfSelect.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/components/wideModeSelfSelect.vue?vue&type=script&setup=true&lang.ts\";\nimport \"./SelfSelect.scss?vue&type=style&index=0&src=a718ab2f&scoped=a718ab2f&lang.sass\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-a718ab2f\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/components/wideModeSelfSelect.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771982,
+      "end": 1714699771982,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771982,
+      "end": 1714699771982,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771982,
+      "end": 1714699771982,
+      "order": "normal"
+    }
+  ]
+}

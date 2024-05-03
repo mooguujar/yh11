@@ -1,0 +1,154 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/router/routers.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import activity from './module/activity'\nimport auth from './module/auth'\nimport bricks from './module/bricks'\nimport crypto from './module/crypto'\nimport details from './module/details'\nimport home from './module/home'\nimport iframe from './module/iframe'\nimport mine from './module/mine'\nimport order from './module/order'\n\nconst routes = [\n  {\n    path: '/',\n    redirect: '/index'\n  },\n  ...auth,\n  ...home,\n  ...crypto,\n  ...iframe,\n  ...details,\n  ...mine,\n  ...order,\n  ...bricks,\n  ...activity\n]\n\nexport default routes\n",
+      "start": 1714699767248,
+      "end": 1714699767291,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767291,
+      "end": 1714699767291,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import activity from \"./module/activity\";\nimport auth from \"./module/auth\";\nimport bricks from \"./module/bricks\";\nimport crypto from \"./module/crypto\";\nimport details from \"./module/details\";\nimport home from \"./module/home\";\nimport iframe from \"./module/iframe\";\nimport mine from \"./module/mine\";\nimport order from \"./module/order\";\nconst routes = [\n  {\n    path: \"/\",\n    redirect: \"/index\"\n  },\n  ...auth,\n  ...home,\n  ...crypto,\n  ...iframe,\n  ...details,\n  ...mine,\n  ...order,\n  ...bricks,\n  ...activity\n];\nexport default routes;\n",
+      "start": 1714699767291,
+      "end": 1714699767451,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/router/routers.ts"
+        ],
+        "sourcesContent": [
+          "import activity from './module/activity'\nimport auth from './module/auth'\nimport bricks from './module/bricks'\nimport crypto from './module/crypto'\nimport details from './module/details'\nimport home from './module/home'\nimport iframe from './module/iframe'\nimport mine from './module/mine'\nimport order from './module/order'\n\nconst routes = [\n  {\n    path: '/',\n    redirect: '/index'\n  },\n  ...auth,\n  ...home,\n  ...crypto,\n  ...iframe,\n  ...details,\n  ...mine,\n  ...order,\n  ...bricks,\n  ...activity\n]\n\nexport default routes\n"
+        ],
+        "mappings": "AAAA,OAAO,cAAc;AACrB,OAAO,UAAU;AACjB,OAAO,YAAY;AACnB,OAAO,YAAY;AACnB,OAAO,aAAa;AACpB,OAAO,UAAU;AACjB,OAAO,YAAY;AACnB,OAAO,UAAU;AACjB,OAAO,WAAW;AAElB,MAAM,SAAS;AAAA,EACb;AAAA,IACE,MAAM;AAAA,IACN,UAAU;AAAA,EACZ;AAAA,EACA,GAAG;AAAA,EACH,GAAG;AAAA,EACH,GAAG;AAAA,EACH,GAAG;AAAA,EACH,GAAG;AAAA,EACH,GAAG;AAAA,EACH,GAAG;AAAA,EACH,GAAG;AAAA,EACH,GAAG;AACL;AAEA,eAAe;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767451,
+      "end": 1714699767451,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767451,
+      "end": 1714699767451,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767451,
+      "end": 1714699767451,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767451,
+      "end": 1714699767451,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import activity from \"./module/activity\";\nimport auth from \"./module/auth\";\nimport bricks from \"./module/bricks\";\nimport crypto from \"./module/crypto\";\nimport details from \"./module/details\";\nimport home from \"./module/home\";\nimport iframe from \"./module/iframe\";\nimport mine from \"./module/mine\";\nimport order from \"./module/order\";\nconst routes = [\n  {\n    path: \"/\",\n    redirect: \"/index\"\n  },\n  ...auth,\n  ...home,\n  ...crypto,\n  ...iframe,\n  ...details,\n  ...mine,\n  ...order,\n  ...bricks,\n  ...activity\n];\nexport default routes;\n",
+      "start": 1714699767451,
+      "end": 1714699767451,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport activity from \"./module/activity\";\nimport auth from \"./module/auth\";\nimport bricks from \"./module/bricks\";\nimport crypto from \"./module/crypto\";\nimport details from \"./module/details\";\nimport home from \"./module/home\";\nimport iframe from \"./module/iframe\";\nimport mine from \"./module/mine\";\nimport order from \"./module/order\";\nconst routes = [\n  {\n    path: \"/\",\n    redirect: \"/index\"\n  },\n  ...auth,\n  ...home,\n  ...crypto,\n  ...iframe,\n  ...details,\n  ...mine,\n  ...order,\n  ...bricks,\n  ...activity\n];\nexport default routes;\n",
+      "start": 1714699767451,
+      "end": 1714699767588,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/router/routers.ts\"],\n  \"sourcesContent\": [\"import activity from \\\"./module/activity\\\";\\nimport auth from \\\"./module/auth\\\";\\nimport bricks from \\\"./module/bricks\\\";\\nimport crypto from \\\"./module/crypto\\\";\\nimport details from \\\"./module/details\\\";\\nimport home from \\\"./module/home\\\";\\nimport iframe from \\\"./module/iframe\\\";\\nimport mine from \\\"./module/mine\\\";\\nimport order from \\\"./module/order\\\";\\nconst routes = [\\n  {\\n    path: \\\"/\\\",\\n    redirect: \\\"/index\\\"\\n  },\\n  ...auth,\\n  ...home,\\n  ...crypto,\\n  ...iframe,\\n  ...details,\\n  ...mine,\\n  ...order,\\n  ...bricks,\\n  ...activity\\n];\\nexport default routes;\\n\"],\n  \"mappings\": \";AAAA,OAAO,cAAc;AACrB,OAAO,UAAU;AACjB,OAAO,YAAY;AACnB,OAAO,YAAY;AACnB,OAAO,aAAa;AACpB,OAAO,UAAU;AACjB,OAAO,YAAY;AACnB,OAAO,UAAU;AACjB,OAAO,WAAW;AAClB,MAAM,SAAS;AAAA,EACb;AAAA,IACE,MAAM;AAAA,IACN,UAAU;AAAA,EACZ;AAAA,EACA,GAAG;AAAA,EACH,GAAG;AAAA,EACH,GAAG;AAAA,EACH,GAAG;AAAA,EACH,GAAG;AAAA,EACH,GAAG;AAAA,EACH,GAAG;AAAA,EACH,GAAG;AAAA,EACH,GAAG;AACL;AACA,eAAe;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767588,
+      "end": 1714699767588,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767588,
+      "end": 1714699767588,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767588,
+      "end": 1714699767588,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767588,
+      "end": 1714699767588,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767588,
+      "end": 1714699767588,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767588,
+      "end": 1714699767588,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767588,
+      "end": 1714699767588,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767588,
+      "end": 1714699767588,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767588,
+      "end": 1714699767590,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767590,
+      "end": 1714699767590,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767590,
+      "end": 1714699767590,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767590,
+      "end": 1714699767590,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767590,
+      "end": 1714699767590,
+      "order": "normal"
+    }
+  ]
+}

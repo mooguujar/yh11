@@ -1,0 +1,165 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuBar.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode } from \"vue\"\n\nimport { onMounted, reactive, ref } from 'vue'\nimport MenuItem from './MenuItem.vue'\nimport { requireImg } from '@/utils/tools'\nimport { InWEB } from '@/utils/tools'\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'MenuBar',\n  setup(__props) {\n\nconst inweb = ref(false)\nconst menuData = reactive([\n  {\n    title: '买币',\n    routePath: '/index',\n    icon: 'buy-coin',\n    active: true\n  },\n  {\n    title: '卖币',\n    routePath: '/sell-coin',\n    icon: 'sell-coin',\n    active: false\n  },\n  {\n    title: '订单',\n    routePath: '/order',\n    icon: 'order',\n    active: false\n  },\n  {\n    title: '活动',\n    routePath: '/activeList',\n    icon: 'point',\n    active: false\n  },\n  {\n    title: '扫码',\n    routePath: '/scanQR',\n    img_src: requireImg('qr.png', 1),\n    active: false\n  },\n  {\n    title: '我的',\n    routePath: '/mine',\n    icon: 'mine-icon',\n    active: false\n  }\n])\n\nlet tabBar = ref(null)\nonMounted(() => {\n  inweb.value = InWEB()\n})\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", {\n    class: \"tab-bar hairline-border\",\n    ref_key: \"tabBar\",\n    ref: tabBar\n  }, [\n    (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(menuData, (item) => {\n      return (_openBlock(), _createElementBlock(_Fragment, {\n        key: item.routePath\n      }, [\n        (item.title != '扫码' || (item.title == '扫码' && inweb.value))\n          ? (_openBlock(), _createBlock(MenuItem, {\n              key: 0,\n              title: item.title,\n              \"route-path\": item.routePath,\n              icon: item.icon,\n              img_src: item.img_src\n            }, null, 8 /* PROPS */, [\"title\", \"route-path\", \"icon\", \"img_src\"]))\n          : _createCommentVNode(\"v-if\", true)\n      ], 64 /* STABLE_FRAGMENT */))\n    }), 128 /* KEYED_FRAGMENT */))\n  ], 512 /* NEED_PATCH */))\n}\n}\n\n})",
+      "start": 1714699769427,
+      "end": 1714699769427
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769427,
+      "end": 1714699769427,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode } from \"vue\";\nimport { onMounted, reactive, ref } from \"vue\";\nimport MenuItem from \"./MenuItem.vue\";\nimport { requireImg } from \"@/utils/tools\";\nimport { InWEB } from \"@/utils/tools\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"MenuBar\",\n  setup(__props) {\n    const inweb = ref(false);\n    const menuData = reactive([\n      {\n        title: \"买币\",\n        routePath: \"/index\",\n        icon: \"buy-coin\",\n        active: true\n      },\n      {\n        title: \"卖币\",\n        routePath: \"/sell-coin\",\n        icon: \"sell-coin\",\n        active: false\n      },\n      {\n        title: \"订单\",\n        routePath: \"/order\",\n        icon: \"order\",\n        active: false\n      },\n      {\n        title: \"活动\",\n        routePath: \"/activeList\",\n        icon: \"point\",\n        active: false\n      },\n      {\n        title: \"扫码\",\n        routePath: \"/scanQR\",\n        img_src: requireImg(\"qr.png\", 1),\n        active: false\n      },\n      {\n        title: \"我的\",\n        routePath: \"/mine\",\n        icon: \"mine-icon\",\n        active: false\n      }\n    ]);\n    let tabBar = ref(null);\n    onMounted(() => {\n      inweb.value = InWEB();\n    });\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\n        \"div\",\n        {\n          class: \"tab-bar hairline-border\",\n          ref_key: \"tabBar\",\n          ref: tabBar\n        },\n        [\n          (_openBlock(true), _createElementBlock(\n            _Fragment,\n            null,\n            _renderList(menuData, (item) => {\n              return _openBlock(), _createElementBlock(\n                _Fragment,\n                {\n                  key: item.routePath\n                },\n                [\n                  item.title != \"扫码\" || item.title == \"扫码\" && inweb.value ? (_openBlock(), _createBlock(MenuItem, {\n                    key: 0,\n                    title: item.title,\n                    \"route-path\": item.routePath,\n                    icon: item.icon,\n                    img_src: item.img_src\n                  }, null, 8, [\"title\", \"route-path\", \"icon\", \"img_src\"])) : _createCommentVNode(\"v-if\", true)\n                ],\n                64\n                /* STABLE_FRAGMENT */\n              );\n            }),\n            128\n            /* KEYED_FRAGMENT */\n          ))\n        ],\n        512\n        /* NEED_PATCH */\n      );\n    };\n  }\n});\n",
+      "start": 1714699769428,
+      "end": 1714699769587,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuBar.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode } from \"vue\"\n\nimport { onMounted, reactive, ref } from 'vue'\nimport MenuItem from './MenuItem.vue'\nimport { requireImg } from '@/utils/tools'\nimport { InWEB } from '@/utils/tools'\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'MenuBar',\n  setup(__props) {\n\nconst inweb = ref(false)\nconst menuData = reactive([\n  {\n    title: '买币',\n    routePath: '/index',\n    icon: 'buy-coin',\n    active: true\n  },\n  {\n    title: '卖币',\n    routePath: '/sell-coin',\n    icon: 'sell-coin',\n    active: false\n  },\n  {\n    title: '订单',\n    routePath: '/order',\n    icon: 'order',\n    active: false\n  },\n  {\n    title: '活动',\n    routePath: '/activeList',\n    icon: 'point',\n    active: false\n  },\n  {\n    title: '扫码',\n    routePath: '/scanQR',\n    img_src: requireImg('qr.png', 1),\n    active: false\n  },\n  {\n    title: '我的',\n    routePath: '/mine',\n    icon: 'mine-icon',\n    active: false\n  }\n])\n\nlet tabBar = ref(null)\nonMounted(() => {\n  inweb.value = InWEB()\n})\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", {\n    class: \"tab-bar hairline-border\",\n    ref_key: \"tabBar\",\n    ref: tabBar\n  }, [\n    (_openBlock(true), _createElementBlock(_Fragment, null, _renderList(menuData, (item) => {\n      return (_openBlock(), _createElementBlock(_Fragment, {\n        key: item.routePath\n      }, [\n        (item.title != '扫码' || (item.title == '扫码' && inweb.value))\n          ? (_openBlock(), _createBlock(MenuItem, {\n              key: 0,\n              title: item.title,\n              \"route-path\": item.routePath,\n              icon: item.icon,\n              img_src: item.img_src\n            }, null, 8 /* PROPS */, [\"title\", \"route-path\", \"icon\", \"img_src\"]))\n          : _createCommentVNode(\"v-if\", true)\n      ], 64 /* STABLE_FRAGMENT */))\n    }), 128 /* KEYED_FRAGMENT */))\n  ], 512 /* NEED_PATCH */))\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,cAAc,aAAa,YAAY,WAAW,aAAa,YAAY,sBAAsB,qBAAqB,eAAe,cAAc,sBAAsB,2BAA2B;AAE7M,SAAS,WAAW,UAAU,WAAW;AACzC,OAAO,cAAc;AACrB,SAAS,kBAAkB;AAC3B,SAAS,aAAa;AAEtB,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,MAAM,SAAS;AAEjB,UAAM,QAAQ,IAAI,KAAK;AACvB,UAAM,WAAW,SAAS;AAAA,MACxB;AAAA,QACE,OAAO;AAAA,QACP,WAAW;AAAA,QACX,MAAM;AAAA,QACN,QAAQ;AAAA,MACV;AAAA,MACA;AAAA,QACE,OAAO;AAAA,QACP,WAAW;AAAA,QACX,MAAM;AAAA,QACN,QAAQ;AAAA,MACV;AAAA,MACA;AAAA,QACE,OAAO;AAAA,QACP,WAAW;AAAA,QACX,MAAM;AAAA,QACN,QAAQ;AAAA,MACV;AAAA,MACA;AAAA,QACE,OAAO;AAAA,QACP,WAAW;AAAA,QACX,MAAM;AAAA,QACN,QAAQ;AAAA,MACV;AAAA,MACA;AAAA,QACE,OAAO;AAAA,QACP,WAAW;AAAA,QACX,SAAS,WAAW,UAAU,CAAC;AAAA,QAC/B,QAAQ;AAAA,MACV;AAAA,MACA;AAAA,QACE,OAAO;AAAA,QACP,WAAW;AAAA,QACX,MAAM;AAAA,QACN,QAAQ;AAAA,MACV;AAAA,IACF,CAAC;AAED,QAAI,SAAS,IAAI,IAAI;AACrB,cAAU,MAAM;AACd,YAAM,QAAQ,MAAM;AAAA,IACtB,CAAC;AAED,WAAO,CAAC,MAAU,WAAgB;AAChC,aAAQ,WAAW,GAAG;AAAA,QAAoB;AAAA,QAAO;AAAA,UAC/C,OAAO;AAAA,UACP,SAAS;AAAA,UACT,KAAK;AAAA,QACP;AAAA,QAAG;AAAA,WACA,WAAW,IAAI,GAAG;AAAA,YAAoB;AAAA,YAAW;AAAA,YAAM,YAAY,UAAU,CAAC,SAAS;AACtF,qBAAQ,WAAW,GAAG;AAAA,gBAAoB;AAAA,gBAAW;AAAA,kBACnD,KAAK,KAAK;AAAA,gBACZ;AAAA,gBAAG;AAAA,kBACA,KAAK,SAAS,QAAS,KAAK,SAAS,QAAQ,MAAM,SAC/C,WAAW,GAAG,aAAa,UAAU;AAAA,oBACpC,KAAK;AAAA,oBACL,OAAO,KAAK;AAAA,oBACZ,cAAc,KAAK;AAAA,oBACnB,MAAM,KAAK;AAAA,oBACX,SAAS,KAAK;AAAA,kBAChB,GAAG,MAAM,GAAe,CAAC,SAAS,cAAc,QAAQ,SAAS,CAAC,KAClE,oBAAoB,QAAQ,IAAI;AAAA,gBACtC;AAAA,gBAAG;AAAA;AAAA,cAAwB;AAAA,YAC7B,CAAC;AAAA,YAAG;AAAA;AAAA,UAAwB;AAAA,QAC9B;AAAA,QAAG;AAAA;AAAA,MAAoB;AAAA,IACzB;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769587,
+      "end": 1714699769587,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769587,
+      "end": 1714699769587,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699769587,
+      "end": 1714699769587,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769587,
+      "end": 1714699769587,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode } from \"vue\";\nimport { onMounted, reactive, ref } from \"vue\";\nimport MenuItem from \"./MenuItem.vue\";\nimport { requireImg } from \"@/utils/tools\";\nimport { InWEB } from \"@/utils/tools\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"MenuBar\",\n  setup(__props) {\n    const inweb = ref(false);\n    const menuData = reactive([\n      {\n        title: \"买币\",\n        routePath: \"/index\",\n        icon: \"buy-coin\",\n        active: true\n      },\n      {\n        title: \"卖币\",\n        routePath: \"/sell-coin\",\n        icon: \"sell-coin\",\n        active: false\n      },\n      {\n        title: \"订单\",\n        routePath: \"/order\",\n        icon: \"order\",\n        active: false\n      },\n      {\n        title: \"活动\",\n        routePath: \"/activeList\",\n        icon: \"point\",\n        active: false\n      },\n      {\n        title: \"扫码\",\n        routePath: \"/scanQR\",\n        img_src: requireImg(\"qr.png\", 1),\n        active: false\n      },\n      {\n        title: \"我的\",\n        routePath: \"/mine\",\n        icon: \"mine-icon\",\n        active: false\n      }\n    ]);\n    let tabBar = ref(null);\n    onMounted(() => {\n      inweb.value = InWEB();\n    });\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\n        \"div\",\n        {\n          class: \"tab-bar hairline-border\",\n          ref_key: \"tabBar\",\n          ref: tabBar\n        },\n        [\n          (_openBlock(true), _createElementBlock(\n            _Fragment,\n            null,\n            _renderList(menuData, (item) => {\n              return _openBlock(), _createElementBlock(\n                _Fragment,\n                {\n                  key: item.routePath\n                },\n                [\n                  item.title != \"扫码\" || item.title == \"扫码\" && inweb.value ? (_openBlock(), _createBlock(MenuItem, {\n                    key: 0,\n                    title: item.title,\n                    \"route-path\": item.routePath,\n                    icon: item.icon,\n                    img_src: item.img_src\n                  }, null, 8, [\"title\", \"route-path\", \"icon\", \"img_src\"])) : _createCommentVNode(\"v-if\", true)\n                ],\n                64\n                /* STABLE_FRAGMENT */\n              );\n            }),\n            128\n            /* KEYED_FRAGMENT */\n          ))\n        ],\n        512\n        /* NEED_PATCH */\n      );\n    };\n  }\n});\n",
+      "start": 1714699769587,
+      "end": 1714699769587,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode } from \"vue\";\nimport { onMounted, reactive, ref } from \"vue\";\nimport MenuItem from \"./MenuItem.vue\";\nimport { requireImg } from \"@/utils/tools\";\nimport { InWEB } from \"@/utils/tools\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"MenuBar\",\n  setup(__props) {\n    const inweb = ref(false);\n    const menuData = reactive([\n      {\n        title: \"\\u4E70\\u5E01\",\n        routePath: \"/index\",\n        icon: \"buy-coin\",\n        active: true\n      },\n      {\n        title: \"\\u5356\\u5E01\",\n        routePath: \"/sell-coin\",\n        icon: \"sell-coin\",\n        active: false\n      },\n      {\n        title: \"\\u8BA2\\u5355\",\n        routePath: \"/order\",\n        icon: \"order\",\n        active: false\n      },\n      {\n        title: \"\\u6D3B\\u52A8\",\n        routePath: \"/activeList\",\n        icon: \"point\",\n        active: false\n      },\n      {\n        title: \"\\u626B\\u7801\",\n        routePath: \"/scanQR\",\n        img_src: requireImg(\"qr.png\", 1),\n        active: false\n      },\n      {\n        title: \"\\u6211\\u7684\",\n        routePath: \"/mine\",\n        icon: \"mine-icon\",\n        active: false\n      }\n    ]);\n    let tabBar = ref(null);\n    onMounted(() => {\n      inweb.value = InWEB();\n    });\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\n        \"div\",\n        {\n          class: \"tab-bar hairline-border\",\n          ref_key: \"tabBar\",\n          ref: tabBar\n        },\n        [\n          (_openBlock(true), _createElementBlock(\n            _Fragment,\n            null,\n            _renderList(menuData, (item) => {\n              return _openBlock(), _createElementBlock(\n                _Fragment,\n                {\n                  key: item.routePath\n                },\n                [\n                  item.title != \"\\u626B\\u7801\" || item.title == \"\\u626B\\u7801\" && inweb.value ? (_openBlock(), _createBlock(MenuItem, {\n                    key: 0,\n                    title: item.title,\n                    \"route-path\": item.routePath,\n                    icon: item.icon,\n                    img_src: item.img_src\n                  }, null, 8, [\"title\", \"route-path\", \"icon\", \"img_src\"])) : _createCommentVNode(\"v-if\", true)\n                ],\n                64\n                /* STABLE_FRAGMENT */\n              );\n            }),\n            128\n            /* KEYED_FRAGMENT */\n          ))\n        ],\n        512\n        /* NEED_PATCH */\n      );\n    };\n  }\n});\n",
+      "start": 1714699769587,
+      "end": 1714699770191,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuBar.vue?vue&type=script&setup=true&lang.ts\"],\n  \"sourcesContent\": [\"import { defineComponent as _defineComponent } from \\\"vue\\\";\\nimport { renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode } from \\\"vue\\\";\\nimport { onMounted, reactive, ref } from \\\"vue\\\";\\nimport MenuItem from \\\"./MenuItem.vue\\\";\\nimport { requireImg } from \\\"@/utils/tools\\\";\\nimport { InWEB } from \\\"@/utils/tools\\\";\\nexport default /* @__PURE__ */ _defineComponent({\\n  __name: \\\"MenuBar\\\",\\n  setup(__props) {\\n    const inweb = ref(false);\\n    const menuData = reactive([\\n      {\\n        title: \\\"\\u4E70\\u5E01\\\",\\n        routePath: \\\"/index\\\",\\n        icon: \\\"buy-coin\\\",\\n        active: true\\n      },\\n      {\\n        title: \\\"\\u5356\\u5E01\\\",\\n        routePath: \\\"/sell-coin\\\",\\n        icon: \\\"sell-coin\\\",\\n        active: false\\n      },\\n      {\\n        title: \\\"\\u8BA2\\u5355\\\",\\n        routePath: \\\"/order\\\",\\n        icon: \\\"order\\\",\\n        active: false\\n      },\\n      {\\n        title: \\\"\\u6D3B\\u52A8\\\",\\n        routePath: \\\"/activeList\\\",\\n        icon: \\\"point\\\",\\n        active: false\\n      },\\n      {\\n        title: \\\"\\u626B\\u7801\\\",\\n        routePath: \\\"/scanQR\\\",\\n        img_src: requireImg(\\\"qr.png\\\", 1),\\n        active: false\\n      },\\n      {\\n        title: \\\"\\u6211\\u7684\\\",\\n        routePath: \\\"/mine\\\",\\n        icon: \\\"mine-icon\\\",\\n        active: false\\n      }\\n    ]);\\n    let tabBar = ref(null);\\n    onMounted(() => {\\n      inweb.value = InWEB();\\n    });\\n    return (_ctx, _cache) => {\\n      return _openBlock(), _createElementBlock(\\n        \\\"div\\\",\\n        {\\n          class: \\\"tab-bar hairline-border\\\",\\n          ref_key: \\\"tabBar\\\",\\n          ref: tabBar\\n        },\\n        [\\n          (_openBlock(true), _createElementBlock(\\n            _Fragment,\\n            null,\\n            _renderList(menuData, (item) => {\\n              return _openBlock(), _createElementBlock(\\n                _Fragment,\\n                {\\n                  key: item.routePath\\n                },\\n                [\\n                  item.title != \\\"\\u626B\\u7801\\\" || item.title == \\\"\\u626B\\u7801\\\" && inweb.value ? (_openBlock(), _createBlock(MenuItem, {\\n                    key: 0,\\n                    title: item.title,\\n                    \\\"route-path\\\": item.routePath,\\n                    icon: item.icon,\\n                    img_src: item.img_src\\n                  }, null, 8, [\\\"title\\\", \\\"route-path\\\", \\\"icon\\\", \\\"img_src\\\"])) : _createCommentVNode(\\\"v-if\\\", true)\\n                ],\\n                64\\n                /* STABLE_FRAGMENT */\\n              );\\n            }),\\n            128\\n            /* KEYED_FRAGMENT */\\n          ))\\n        ],\\n        512\\n        /* NEED_PATCH */\\n      );\\n    };\\n  }\\n});\\n\"],\n  \"mappings\": \";AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,cAAc,aAAa,YAAY,WAAW,aAAa,YAAY,sBAAsB,qBAAqB,eAAe,cAAc,sBAAsB,2BAA2B;AAC7M,SAAS,WAAW,UAAU,WAAW;AACzC,OAAO,cAAc;AACrB,SAAS,kBAAkB;AAC3B,SAAS,aAAa;AACtB,eAA+B,iCAAiB;AAAA,EAC9C,QAAQ;AAAA,EACR,MAAM,SAAS;AACb,UAAM,QAAQ,IAAI,KAAK;AACvB,UAAM,WAAW,SAAS;AAAA,MACxB;AAAA,QACE,OAAO;AAAA,QACP,WAAW;AAAA,QACX,MAAM;AAAA,QACN,QAAQ;AAAA,MACV;AAAA,MACA;AAAA,QACE,OAAO;AAAA,QACP,WAAW;AAAA,QACX,MAAM;AAAA,QACN,QAAQ;AAAA,MACV;AAAA,MACA;AAAA,QACE,OAAO;AAAA,QACP,WAAW;AAAA,QACX,MAAM;AAAA,QACN,QAAQ;AAAA,MACV;AAAA,MACA;AAAA,QACE,OAAO;AAAA,QACP,WAAW;AAAA,QACX,MAAM;AAAA,QACN,QAAQ;AAAA,MACV;AAAA,MACA;AAAA,QACE,OAAO;AAAA,QACP,WAAW;AAAA,QACX,SAAS,WAAW,UAAU,CAAC;AAAA,QAC/B,QAAQ;AAAA,MACV;AAAA,MACA;AAAA,QACE,OAAO;AAAA,QACP,WAAW;AAAA,QACX,MAAM;AAAA,QACN,QAAQ;AAAA,MACV;AAAA,IACF,CAAC;AACD,QAAI,SAAS,IAAI,IAAI;AACrB,cAAU,MAAM;AACd,YAAM,QAAQ,MAAM;AAAA,IACtB,CAAC;AACD,WAAO,CAAC,MAAM,WAAW;AACvB,aAAO,WAAW,GAAG;AAAA,QACnB;AAAA,QACA;AAAA,UACE,OAAO;AAAA,UACP,SAAS;AAAA,UACT,KAAK;AAAA,QACP;AAAA,QACA;AAAA,WACG,WAAW,IAAI,GAAG;AAAA,YACjB;AAAA,YACA;AAAA,YACA,YAAY,UAAU,CAAC,SAAS;AAC9B,qBAAO,WAAW,GAAG;AAAA,gBACnB;AAAA,gBACA;AAAA,kBACE,KAAK,KAAK;AAAA,gBACZ;AAAA,gBACA;AAAA,kBACE,KAAK,SAAS,kBAAQ,KAAK,SAAS,kBAAQ,MAAM,SAAS,WAAW,GAAG,aAAa,UAAU;AAAA,oBAC9F,KAAK;AAAA,oBACL,OAAO,KAAK;AAAA,oBACZ,cAAc,KAAK;AAAA,oBACnB,MAAM,KAAK;AAAA,oBACX,SAAS,KAAK;AAAA,kBAChB,GAAG,MAAM,GAAG,CAAC,SAAS,cAAc,QAAQ,SAAS,CAAC,KAAK,oBAAoB,QAAQ,IAAI;AAAA,gBAC7F;AAAA,gBACA;AAAA;AAAA,cAEF;AAAA,YACF,CAAC;AAAA,YACD;AAAA;AAAA,UAEF;AAAA,QACF;AAAA,QACA;AAAA;AAAA,MAEF;AAAA,IACF;AAAA,EACF;AACF,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770191,
+      "end": 1714699770191,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699770191,
+      "end": 1714699770191,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770191,
+      "end": 1714699770191,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770191,
+      "end": 1714699770191,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770191,
+      "end": 1714699770191,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770191,
+      "end": 1714699770191,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770191,
+      "end": 1714699770191,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770191,
+      "end": 1714699770191,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770191,
+      "end": 1714699770191,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode } from \"vue\";\nimport { onMounted, reactive, ref } from \"vue\";\nimport MenuItem from \"./MenuItem.vue\";\nimport { requireImg } from \"@/utils/tools\";\nimport { InWEB } from \"@/utils/tools\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"MenuBar\",\n  setup(__props) {\n    const inweb = ref(false);\n    const menuData = reactive([\n      {\n        title: \"\\u4E70\\u5E01\",\n        routePath: \"/index\",\n        icon: \"buy-coin\",\n        active: true\n      },\n      {\n        title: \"\\u5356\\u5E01\",\n        routePath: \"/sell-coin\",\n        icon: \"sell-coin\",\n        active: false\n      },\n      {\n        title: \"\\u8BA2\\u5355\",\n        routePath: \"/order\",\n        icon: \"order\",\n        active: false\n      },\n      {\n        title: \"\\u6D3B\\u52A8\",\n        routePath: \"/activeList\",\n        icon: \"point\",\n        active: false\n      },\n      {\n        title: \"\\u626B\\u7801\",\n        routePath: \"/scanQR\",\n        img_src: requireImg(\"qr.png\", 1),\n        active: false\n      },\n      {\n        title: \"\\u6211\\u7684\",\n        routePath: \"/mine\",\n        icon: \"mine-icon\",\n        active: false\n      }\n    ]);\n    let tabBar = ref(null);\n    onMounted(() => {\n      inweb.value = InWEB();\n    });\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\n        \"div\",\n        {\n          class: \"tab-bar hairline-border\",\n          ref_key: \"tabBar\",\n          ref: tabBar\n        },\n        [\n          (_openBlock(true), _createElementBlock(\n            _Fragment,\n            null,\n            _renderList(menuData, (item) => {\n              return _openBlock(), _createElementBlock(\n                _Fragment,\n                {\n                  key: item.routePath\n                },\n                [\n                  item.title != \"\\u626B\\u7801\" || item.title == \"\\u626B\\u7801\" && inweb.value ? (_openBlock(), _createBlock(MenuItem, {\n                    key: 0,\n                    title: item.title,\n                    \"route-path\": item.routePath,\n                    icon: item.icon,\n                    img_src: item.img_src\n                  }, null, 8, [\"title\", \"route-path\", \"icon\", \"img_src\"])) : _createCommentVNode(\"v-if\", true)\n                ],\n                64\n                /* STABLE_FRAGMENT */\n              );\n            }),\n            128\n            /* KEYED_FRAGMENT */\n          ))\n        ],\n        512\n        /* NEED_PATCH */\n      );\n    };\n  }\n});\n",
+      "start": 1714699770191,
+      "end": 1714699770191,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuBar.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode } from \"vue\";\nimport { onMounted, reactive, ref } from \"vue\";\nimport MenuItem from \"./MenuItem.vue\";\nimport { requireImg } from \"@/utils/tools\";\nimport { InWEB } from \"@/utils/tools\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"MenuBar\",\n  setup(__props) {\n    const inweb = ref(false);\n    const menuData = reactive([\n      {\n        title: \"\\u4E70\\u5E01\",\n        routePath: \"/index\",\n        icon: \"buy-coin\",\n        active: true\n      },\n      {\n        title: \"\\u5356\\u5E01\",\n        routePath: \"/sell-coin\",\n        icon: \"sell-coin\",\n        active: false\n      },\n      {\n        title: \"\\u8BA2\\u5355\",\n        routePath: \"/order\",\n        icon: \"order\",\n        active: false\n      },\n      {\n        title: \"\\u6D3B\\u52A8\",\n        routePath: \"/activeList\",\n        icon: \"point\",\n        active: false\n      },\n      {\n        title: \"\\u626B\\u7801\",\n        routePath: \"/scanQR\",\n        img_src: requireImg(\"qr.png\", 1),\n        active: false\n      },\n      {\n        title: \"\\u6211\\u7684\",\n        routePath: \"/mine\",\n        icon: \"mine-icon\",\n        active: false\n      }\n    ]);\n    let tabBar = ref(null);\n    onMounted(() => {\n      inweb.value = InWEB();\n    });\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\n        \"div\",\n        {\n          class: \"tab-bar hairline-border\",\n          ref_key: \"tabBar\",\n          ref: tabBar\n        },\n        [\n          (_openBlock(true), _createElementBlock(\n            _Fragment,\n            null,\n            _renderList(menuData, (item) => {\n              return _openBlock(), _createElementBlock(\n                _Fragment,\n                {\n                  key: item.routePath\n                },\n                [\n                  item.title != \"\\u626B\\u7801\" || item.title == \"\\u626B\\u7801\" && inweb.value ? (_openBlock(), _createBlock(MenuItem, {\n                    key: 0,\n                    title: item.title,\n                    \"route-path\": item.routePath,\n                    icon: item.icon,\n                    img_src: item.img_src\n                  }, null, 8, [\"title\", \"route-path\", \"icon\", \"img_src\"])) : _createCommentVNode(\"v-if\", true)\n                ],\n                64\n                /* STABLE_FRAGMENT */\n              );\n            }),\n            128\n            /* KEYED_FRAGMENT */\n          ))\n        ],\n        512\n        /* NEED_PATCH */\n      );\n    };\n  }\n});\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770191,
+      "end": 1714699770191,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770191,
+      "end": 1714699770191,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770191,
+      "end": 1714699770191,
+      "order": "normal"
+    }
+  ]
+}

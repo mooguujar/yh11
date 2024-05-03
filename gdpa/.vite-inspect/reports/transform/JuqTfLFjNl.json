@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Dialog/Dialog.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\nimport { computed, ref, watch } from 'vue'\n\nconst visible = ref(false)\nconst setTime = ref(6)\nconst loadingConfirm = ref(false)\nconst loadingCancel = ref(false)\n\nconst props = defineProps({\n  confirmButtonText: {\n    type: String,\n    default: ''\n  },\n  action: {\n    type: Function\n  },\n  cancelAction: {\n    type: Function\n  },\n  dialogType: {\n    type: String,\n    default: 'alert'\n  },\n  onVanish: {\n    type: Function\n  },\n  closeable: {\n    type: Boolean,\n    default: true\n  },\n  teleport: {\n    type: String,\n    default: 'body'\n  }\n})\nconst checked = ref(false)\n// console.log('props', props.confirmButtonText)\nwatch(\n  () => props.confirmButtonText,\n  newVal => {\n    // console.log('newVal', newVal)\n    if (newVal == 'setTime') {\n      let t = setInterval(() => {\n        if (setTime.value > 0) {\n          setTime.value -= 1\n        } else {\n          clearInterval(t)\n        }\n      }, 1000)\n    }\n  },\n  {\n    immediate: true\n  }\n)\n\nconst onConfirm = async () => {\n  loadingConfirm.value = true\n  let parm: any = null\n  if (props.dialogType == 'keeptime') parm = checked.value\n  await props.action?.(parm)\n  loadingConfirm.value = false\n  visible.value = false\n}\n\nconst onCancel = async () => {\n  loadingCancel.value = true\n  await props.cancelAction?.()\n  loadingCancel.value = false\n  visible.value = false\n}\n\nconst onClosed = () => {\n  props.onVanish?.()\n}\n\ndefineExpose({\n  visible\n})\n</script>\n\n<template>\n  <van-dialog\n    v-model:show=\"visible\"\n    v-bind=\"$attrs\"\n    @closed=\"onClosed\"\n    :show-confirm-button=\"false\"\n    :show-cancel-button=\"false\"\n    :teleport=\"teleport\"\n  >\n    <template #title>\n      <div class=\"dialog-title\">\n        {{ $attrs.title }}\n        <i\n          v-if=\"closeable\"\n          class=\"block close-dark\"\n          @click=\"visible = false\"\n        ></i>\n      </div>\n    </template>\n    <div class=\"dialog-content\">\n      <template v-if=\"$attrs.allowHtml\">\n        <div v-html=\"$attrs.message\"></div>\n      </template>\n      <template v-else>\n        {{ $attrs.message }}\n      </template>\n    </div>\n    <template #footer>\n      <div class=\"button-wrapper\">\n        <van-button\n          v-if=\"confirmButtonText == 'setTime'\"\n          type=\"primary\"\n          block\n          :disabled=\"setTime != 0\"\n          @click=\"onConfirm\"\n          :loading=\"loadingConfirm\"\n        >\n          {{ setTime ? setTime : '确认' }}\n        </van-button>\n        <van-button\n          v-else\n          type=\"primary\"\n          block\n          @click=\"onConfirm\"\n          :loading=\"loadingConfirm\"\n        >\n          {{ confirmButtonText || '是' }}\n        </van-button>\n        <van-button\n          color=\"#777777\"\n          v-if=\"dialogType === 'confirm' && !$attrs.hideCancelButton\"\n          type=\"primary\"\n          block\n          @click=\"onCancel\"\n          :loading=\"loadingCancel\"\n        >\n          {{ $attrs.cancelButtonText || '否' }}\n        </van-button>\n      </div>\n      <div\n        v-if=\"dialogType == 'keeptime'\"\n        class=\"pb-[30px] flex items-center justify-center\"\n      >\n        <i\n          class=\"radio mr-[10px]\"\n          :class=\"checked ? 'radio-checked' : 'radio-uncheck'\"\n          @click=\"checked = !checked\"\n        ></i>\n        <div class=\"radio-text text-[24px]\">今日不再显示</div>\n      </div>\n    </template>\n  </van-dialog>\n</template>\n\n<style scoped lang=\"scss\">\n.button-wrapper {\n  display: flex;\n  padding: 20px 40px;\n  gap: 30px;\n}\n\n.dialog-title {\n  position: relative;\n  .close-dark {\n    position: absolute;\n    right: 40px;\n    top: -10px;\n  }\n}\n\n.dialog-content {\n  padding: 40px;\n}\n.van-dialog__header {\n  padding-top: 25px;\n}\n.dialog-title {\n  font-weight: 430;\n  .close-dark {\n    top: 8px !important;\n  }\n}\n.van-dialog__content {\n  .dialog-content {\n    padding: 15px 30px;\n    font-size: 26px;\n    line-height: 30px;\n  }\n}\n.van-button--block {\n  height: 70px;\n}\n</style>\n",
+      "start": 1714699771928,
+      "end": 1714699772026,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699772026,
+      "end": 1714699772026,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699772026,
+      "end": 1714699772026,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699772026,
+      "end": 1714699772026,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699772026,
+      "end": 1714699772026,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Dialog/Dialog.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Dialog/Dialog.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Dialog/Dialog.vue?vue&type=style&index=0&scoped=fcc48a42&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-fcc48a42\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Dialog/Dialog.vue\"]]);\n",
+      "start": 1714699772026,
+      "end": 1714699772219,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699772219,
+      "end": 1714699772219,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Dialog/Dialog.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Dialog/Dialog.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Dialog/Dialog.vue?vue&type=style&index=0&scoped=fcc48a42&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-fcc48a42\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Dialog/Dialog.vue\"]]);\n",
+      "start": 1714699772219,
+      "end": 1714699772219,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Dialog/Dialog.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Dialog/Dialog.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Dialog/Dialog.vue?vue&type=style&index=0&scoped=fcc48a42&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-fcc48a42\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Dialog/Dialog.vue\"]]);\n",
+      "start": 1714699772219,
+      "end": 1714699772269,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Dialog/Dialog.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Dialog/Dialog.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Dialog/Dialog.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Dialog/Dialog.vue?vue&type=style&index=0&scoped=fcc48a42&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-fcc48a42\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Dialog/Dialog.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,oFAAoF,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699772270,
+      "end": 1714699772270,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699772270,
+      "end": 1714699772270,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699772270,
+      "end": 1714699772270,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699772270,
+      "end": 1714699772270,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699772271,
+      "end": 1714699772271,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699772271,
+      "end": 1714699772271,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699772271,
+      "end": 1714699772271,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699772271,
+      "end": 1714699772271,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699772271,
+      "end": 1714699772272,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Dialog/Dialog.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Dialog/Dialog.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Dialog/Dialog.vue?vue&type=style&index=0&scoped=fcc48a42&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-fcc48a42\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Dialog/Dialog.vue\"]]);\n",
+      "start": 1714699772272,
+      "end": 1714699772272,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Dialog/Dialog.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Dialog/Dialog.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Dialog/Dialog.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Dialog/Dialog.vue?vue&type=style&index=0&scoped=fcc48a42&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-fcc48a42\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Dialog/Dialog.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699772272,
+      "end": 1714699772272,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699772272,
+      "end": 1714699772272,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699772273,
+      "end": 1714699772273,
+      "order": "normal"
+    }
+  ]
+}

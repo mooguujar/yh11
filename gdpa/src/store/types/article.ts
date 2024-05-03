@@ -31,6 +31,7 @@ export interface IArticleListType {
 }
 
 export interface ArticleState {
+  articleList_Activity_Mod: IArticleListType[]
   articleList: IArticleListType[]
   homeNoticeShowStatus: boolean
   homeNoticeShowList: Array<boolean | string>

@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuItem.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <div\n    class=\"item flex justify-center\"\n    :class=\"{ active: isActive }\"\n  >\n    <div\n      class=\"flex-item\"\n      :class=\"isActive ? 'active' : ''\"\n      @click=\"to(routePath)\"\n    >\n      <div\n        class=\"icon-container\"\n        :class=\"img_src ? 'mb-[3px]' : ''\"\n      >\n        <img\n          v-if=\"img_src\"\n          :src=\"isActive ? img_src : requireImg('qr1.png')\"\n          alt=\"\"\n          class=\"w-[42px] block\"\n        />\n        <i\n          v-else\n          class=\"icon\"\n          :class=\"isActive ? icon + '-active' : icon\"\n        ></i>\n        <div\n          v-if=\"icon === 'order' && unHandleOrderCount\"\n          class=\"process-order-sign\"\n        >\n          {{ unHandleOrderCount }}\n        </div>\n      </div>\n      <span class=\"title\">{{ title }}</span>\n    </div>\n  </div>\n</template>\n\n<script setup lang=\"ts\">\nimport { useAuthStore } from '@/store'\nimport { BuyOrder, SellOrder } from '@/store/types/buySellCoin'\nimport { requireImg } from '@/utils/tools'\nimport { storeToRefs } from 'pinia'\nimport { computed } from 'vue'\nimport { useRoute, useRouter } from 'vue-router'\n\nexport interface Props {\n  title: string\n  routePath: string\n  img_src: string\n  icon: string\n}\n\nconst props = withDefaults(defineProps<Props>(), {\n  title: '',\n  routePath: '/',\n  img_src: '',\n  icon: ''\n})\n\nconst route = useRoute()\nconst router = useRouter()\n\nconst authStore = useAuthStore()\nconst { token, processnum } = storeToRefs(authStore)\n\nconst isLogin = computed(() => !!token.value)\nconst isActive = computed(() => route.path.split('/')[1] === props.routePath.split('/')[1])\n// 未处理订单数(过滤掉搬砖卖币)\nconst unHandleOrderCount = computed(() => {\n  const buyOrders =\n    processnum.value?.buy_orders?.filter((item: BuyOrder) => item.mtype !== 30) ?? []\n  const sellOrders =\n    processnum.value?.sell_orders?.filter((item: SellOrder) => item.mtype !== 30) ?? []\n\n  return buyOrders.length + sellOrders.length\n})\n\nconst to = (routePath: string) => {\n  const authRoute = ['/order', '/mine']\n  if (!isLogin.value && authRoute.includes(routePath)) {\n    router.push('/auth/login')\n  } else {\n    router.push(routePath)\n  }\n}\n</script>\n\n<style lang=\"scss\" scoped>\n@import '@/assets/styles/sprite-001.scss';\n.item {\n  flex: 1;\n  text-align: center;\n  font-size: 18px;\n  &.active {\n    .title {\n      color: var(--van-button-primary-background);\n    }\n  }\n\n  .flex-item {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n  }\n\n  .icon-container {\n    position: relative;\n    height: 38px;\n    i {\n      display: block;\n    }\n    .process-order-sign {\n      position: absolute;\n      top: -15px;\n      right: -20px;\n      width: 35px;\n      height: 35px;\n      line-height: 35px;\n      background-color: #d9001c;\n      color: #fff;\n      font-size: 21px;\n      text-align: center;\n      border-radius: 50%;\n    }\n  }\n  .title {\n    color: #868d9a;\n  }\n}\n\n.active {\n  font-weight: 600;\n}\n</style>\n",
+      "start": 1714699770239,
+      "end": 1714699770446,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699770446,
+      "end": 1714699770446,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699770446,
+      "end": 1714699770446,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699770446,
+      "end": 1714699770446,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699770446,
+      "end": 1714699770446,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuItem.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuItem.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuItem.vue?vue&type=style&index=0&scoped=3ebc91da&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-3ebc91da\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuItem.vue\"]]);\n",
+      "start": 1714699770446,
+      "end": 1714699770710,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699770710,
+      "end": 1714699770710,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuItem.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuItem.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuItem.vue?vue&type=style&index=0&scoped=3ebc91da&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-3ebc91da\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuItem.vue\"]]);\n",
+      "start": 1714699770710,
+      "end": 1714699770710,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuItem.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuItem.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuItem.vue?vue&type=style&index=0&scoped=3ebc91da&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-3ebc91da\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuItem.vue\"]]);\n",
+      "start": 1714699770710,
+      "end": 1714699771649,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuItem.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuItem.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuItem.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuItem.vue?vue&type=style&index=0&scoped=3ebc91da&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-3ebc91da\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuItem.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,wEAAwE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771649,
+      "end": 1714699771649,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771649,
+      "end": 1714699771649,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771649,
+      "end": 1714699771649,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771649,
+      "end": 1714699771649,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771649,
+      "end": 1714699771649,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699771649,
+      "end": 1714699771649,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771649,
+      "end": 1714699771649,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771649,
+      "end": 1714699771649,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771649,
+      "end": 1714699771649,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuItem.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuItem.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuItem.vue?vue&type=style&index=0&scoped=3ebc91da&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-3ebc91da\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuItem.vue\"]]);\n",
+      "start": 1714699771649,
+      "end": 1714699771649,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuItem.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuItem.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuItem.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuItem.vue?vue&type=style&index=0&scoped=3ebc91da&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-3ebc91da\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuItem.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771649,
+      "end": 1714699771649,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771649,
+      "end": 1714699771649,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771649,
+      "end": 1714699771649,
+      "order": "normal"
+    }
+  ]
+}

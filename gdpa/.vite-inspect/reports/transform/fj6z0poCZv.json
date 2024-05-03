@@ -1,0 +1,142 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/tabbar-item/TabbarItem.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { mergeProps as _mergeProps, createVNode as _createVNode } from \"vue\";\nimport { computed, defineComponent, getCurrentInstance } from \"vue\";\nimport { createNamespace, extend, isObject, numericProp } from \"../utils/index.mjs\";\nimport { TABBAR_KEY } from \"../tabbar/Tabbar.mjs\";\nimport { useParent } from \"@vant/use\";\nimport { routeProps, useRoute } from \"../composables/use-route.mjs\";\nimport { Icon } from \"../icon/index.mjs\";\nimport { Badge } from \"../badge/index.mjs\";\nconst [name, bem] = createNamespace(\"tabbar-item\");\nconst tabbarItemProps = extend({}, routeProps, {\n  dot: Boolean,\n  icon: String,\n  name: numericProp,\n  badge: numericProp,\n  badgeProps: Object,\n  iconPrefix: String\n});\nvar stdin_default = defineComponent({\n  name,\n  props: tabbarItemProps,\n  emits: [\"click\"],\n  setup(props, {\n    emit,\n    slots\n  }) {\n    const route = useRoute();\n    const vm = getCurrentInstance().proxy;\n    const {\n      parent,\n      index\n    } = useParent(TABBAR_KEY);\n    if (!parent) {\n      if (process.env.NODE_ENV !== \"production\") {\n        console.error(\"[Vant] <TabbarItem> must be a child component of <Tabbar>.\");\n      }\n      return;\n    }\n    const active = computed(() => {\n      var _a;\n      const {\n        route: route2,\n        modelValue\n      } = parent.props;\n      if (route2 && \"$route\" in vm) {\n        const {\n          $route\n        } = vm;\n        const {\n          to\n        } = props;\n        const config = isObject(to) ? to : {\n          path: to\n        };\n        return !!$route.matched.find((val) => {\n          const pathMatched = \"path\" in config && config.path === val.path;\n          const nameMatched = \"name\" in config && config.name === val.name;\n          return pathMatched || nameMatched;\n        });\n      }\n      return ((_a = props.name) != null ? _a : index.value) === modelValue;\n    });\n    const onClick = (event) => {\n      var _a;\n      if (!active.value) {\n        parent.setActive((_a = props.name) != null ? _a : index.value, route);\n      }\n      emit(\"click\", event);\n    };\n    const renderIcon = () => {\n      if (slots.icon) {\n        return slots.icon({\n          active: active.value\n        });\n      }\n      if (props.icon) {\n        return _createVNode(Icon, {\n          \"name\": props.icon,\n          \"classPrefix\": props.iconPrefix\n        }, null);\n      }\n    };\n    return () => {\n      var _a;\n      const {\n        dot,\n        badge\n      } = props;\n      const {\n        activeColor,\n        inactiveColor\n      } = parent.props;\n      const color = active.value ? activeColor : inactiveColor;\n      return _createVNode(\"div\", {\n        \"role\": \"tab\",\n        \"class\": bem({\n          active: active.value\n        }),\n        \"style\": {\n          color\n        },\n        \"tabindex\": 0,\n        \"aria-selected\": active.value,\n        \"onClick\": onClick\n      }, [_createVNode(Badge, _mergeProps({\n        \"dot\": dot,\n        \"class\": bem(\"icon\"),\n        \"content\": badge\n      }, props.badgeProps), {\n        default: renderIcon\n      }), _createVNode(\"div\", {\n        \"class\": bem(\"text\")\n      }, [(_a = slots.default) == null ? void 0 : _a.call(slots, {\n        active: active.value\n      })])]);\n    };\n  }\n});\nexport {\n  stdin_default as default,\n  tabbarItemProps\n};\n",
+      "start": 1714699767507,
+      "end": 1714699767525,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767525,
+      "end": 1714699767525,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767525,
+      "end": 1714699767525,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767525,
+      "end": 1714699767525,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767525,
+      "end": 1714699767525,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767525,
+      "end": 1714699767525,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767525,
+      "end": 1714699767525,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { mergeProps as _mergeProps, createVNode as _createVNode } from \"vue\";\nimport { computed, defineComponent, getCurrentInstance } from \"vue\";\nimport { createNamespace, extend, isObject, numericProp } from \"../utils/index.mjs\";\nimport { TABBAR_KEY } from \"../tabbar/Tabbar.mjs\";\nimport { useParent } from \"@vant/use\";\nimport { routeProps, useRoute } from \"../composables/use-route.mjs\";\nimport { Icon } from \"../icon/index.mjs\";\nimport { Badge } from \"../badge/index.mjs\";\nconst [name, bem] = createNamespace(\"tabbar-item\");\nconst tabbarItemProps = extend({}, routeProps, {\n  dot: Boolean,\n  icon: String,\n  name: numericProp,\n  badge: numericProp,\n  badgeProps: Object,\n  iconPrefix: String\n});\nvar stdin_default = defineComponent({\n  name,\n  props: tabbarItemProps,\n  emits: [\"click\"],\n  setup(props, {\n    emit,\n    slots\n  }) {\n    const route = useRoute();\n    const vm = getCurrentInstance().proxy;\n    const {\n      parent,\n      index\n    } = useParent(TABBAR_KEY);\n    if (!parent) {\n      if (process.env.NODE_ENV !== \"production\") {\n        console.error(\"[Vant] <TabbarItem> must be a child component of <Tabbar>.\");\n      }\n      return;\n    }\n    const active = computed(() => {\n      var _a;\n      const {\n        route: route2,\n        modelValue\n      } = parent.props;\n      if (route2 && \"$route\" in vm) {\n        const {\n          $route\n        } = vm;\n        const {\n          to\n        } = props;\n        const config = isObject(to) ? to : {\n          path: to\n        };\n        return !!$route.matched.find((val) => {\n          const pathMatched = \"path\" in config && config.path === val.path;\n          const nameMatched = \"name\" in config && config.name === val.name;\n          return pathMatched || nameMatched;\n        });\n      }\n      return ((_a = props.name) != null ? _a : index.value) === modelValue;\n    });\n    const onClick = (event) => {\n      var _a;\n      if (!active.value) {\n        parent.setActive((_a = props.name) != null ? _a : index.value, route);\n      }\n      emit(\"click\", event);\n    };\n    const renderIcon = () => {\n      if (slots.icon) {\n        return slots.icon({\n          active: active.value\n        });\n      }\n      if (props.icon) {\n        return _createVNode(Icon, {\n          \"name\": props.icon,\n          \"classPrefix\": props.iconPrefix\n        }, null);\n      }\n    };\n    return () => {\n      var _a;\n      const {\n        dot,\n        badge\n      } = props;\n      const {\n        activeColor,\n        inactiveColor\n      } = parent.props;\n      const color = active.value ? activeColor : inactiveColor;\n      return _createVNode(\"div\", {\n        \"role\": \"tab\",\n        \"class\": bem({\n          active: active.value\n        }),\n        \"style\": {\n          color\n        },\n        \"tabindex\": 0,\n        \"aria-selected\": active.value,\n        \"onClick\": onClick\n      }, [_createVNode(Badge, _mergeProps({\n        \"dot\": dot,\n        \"class\": bem(\"icon\"),\n        \"content\": badge\n      }, props.badgeProps), {\n        default: renderIcon\n      }), _createVNode(\"div\", {\n        \"class\": bem(\"text\")\n      }, [(_a = slots.default) == null ? void 0 : _a.call(slots, {\n        active: active.value\n      })])]);\n    };\n  }\n});\nexport {\n  stdin_default as default,\n  tabbarItemProps\n};\n",
+      "start": 1714699767525,
+      "end": 1714699767525,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767525,
+      "end": 1714699767525,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "result": "import { mergeProps as _mergeProps, createVNode as _createVNode } from \"vue\";\nimport { computed, defineComponent, getCurrentInstance } from \"vue\";\nimport { createNamespace, extend, isObject, numericProp } from \"../utils/index.mjs\";\nimport { TABBAR_KEY } from \"../tabbar/Tabbar.mjs\";\nimport { useParent } from \"@vant/use\";\nimport { routeProps, useRoute } from \"../composables/use-route.mjs\";\nimport { Icon } from \"../icon/index.mjs\";\nimport { Badge } from \"../badge/index.mjs\";\nconst [name, bem] = createNamespace(\"tabbar-item\");\nconst tabbarItemProps = extend({}, routeProps, {\n  dot: Boolean,\n  icon: String,\n  name: numericProp,\n  badge: numericProp,\n  badgeProps: Object,\n  iconPrefix: String\n});\nvar stdin_default = defineComponent({\n  name,\n  props: tabbarItemProps,\n  emits: [\"click\"],\n  setup(props, {\n    emit,\n    slots\n  }) {\n    const route = useRoute();\n    const vm = getCurrentInstance().proxy;\n    const {\n      parent,\n      index\n    } = useParent(TABBAR_KEY);\n    if (!parent) {\n      if (true) {\n        console.error(\"[Vant] <TabbarItem> must be a child component of <Tabbar>.\");\n      }\n      return;\n    }\n    const active = computed(() => {\n      var _a;\n      const {\n        route: route2,\n        modelValue\n      } = parent.props;\n      if (route2 && \"$route\" in vm) {\n        const {\n          $route\n        } = vm;\n        const {\n          to\n        } = props;\n        const config = isObject(to) ? to : {\n          path: to\n        };\n        return !!$route.matched.find((val) => {\n          const pathMatched = \"path\" in config && config.path === val.path;\n          const nameMatched = \"name\" in config && config.name === val.name;\n          return pathMatched || nameMatched;\n        });\n      }\n      return ((_a = props.name) != null ? _a : index.value) === modelValue;\n    });\n    const onClick = (event) => {\n      var _a;\n      if (!active.value) {\n        parent.setActive((_a = props.name) != null ? _a : index.value, route);\n      }\n      emit(\"click\", event);\n    };\n    const renderIcon = () => {\n      if (slots.icon) {\n        return slots.icon({\n          active: active.value\n        });\n      }\n      if (props.icon) {\n        return _createVNode(Icon, {\n          \"name\": props.icon,\n          \"classPrefix\": props.iconPrefix\n        }, null);\n      }\n    };\n    return () => {\n      var _a;\n      const {\n        dot,\n        badge\n      } = props;\n      const {\n        activeColor,\n        inactiveColor\n      } = parent.props;\n      const color = active.value ? activeColor : inactiveColor;\n      return _createVNode(\"div\", {\n        \"role\": \"tab\",\n        \"class\": bem({\n          active: active.value\n        }),\n        \"style\": {\n          color\n        },\n        \"tabindex\": 0,\n        \"aria-selected\": active.value,\n        \"onClick\": onClick\n      }, [_createVNode(Badge, _mergeProps({\n        \"dot\": dot,\n        \"class\": bem(\"icon\"),\n        \"content\": badge\n      }, props.badgeProps), {\n        default: renderIcon\n      }), _createVNode(\"div\", {\n        \"class\": bem(\"text\")\n      }, [(_a = slots.default) == null ? void 0 : _a.call(slots, {\n        active: active.value\n      })])]);\n    };\n  }\n});\nexport {\n  stdin_default as default,\n  tabbarItemProps\n};\n",
+      "start": 1714699767525,
+      "end": 1714699767619,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767619,
+      "end": 1714699767619,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767619,
+      "end": 1714699767619,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767619,
+      "end": 1714699767619,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767619,
+      "end": 1714699767619,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767619,
+      "end": 1714699767619,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767619,
+      "end": 1714699767619,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767619,
+      "end": 1714699767619,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767619,
+      "end": 1714699767619,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767619,
+      "end": 1714699767619,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767619,
+      "end": 1714699767619,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767619,
+      "end": 1714699767619,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767619,
+      "end": 1714699767619,
+      "order": "normal"
+    }
+  ]
+}

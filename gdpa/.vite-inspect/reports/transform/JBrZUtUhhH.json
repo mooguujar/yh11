@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/getDayOfYear.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var getWhatYear = require('./getWhatYear')\r\nvar toStringDate = require('./toStringDate')\r\n\r\nvar isValidDate = require('./isValidDate')\r\nvar isLeapYear = require('./isLeapYear')\r\n\r\n/**\r\n  * 返回某个年份的天数\r\n  *\r\n  * @param {Date} date 日期或数字\r\n  * @param {Number} offset 年(默认当年)、前几个年、后几个年\r\n  * @return {Number}\r\n  */\r\nfunction getDayOfYear (date, year) {\r\n  date = toStringDate(date)\r\n  if (isValidDate(date)) {\r\n    return isLeapYear(getWhatYear(date, year)) ? 366 : 365\r\n  }\r\n  return NaN\r\n}\r\n\r\nmodule.exports = getDayOfYear\r\n",
+      "start": 1714699767700,
+      "end": 1714699767715,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767715,
+      "end": 1714699767715,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767715,
+      "end": 1714699767715,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767715,
+      "end": 1714699767715,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767715,
+      "end": 1714699767715,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767715,
+      "end": 1714699767715,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767715,
+      "end": 1714699767715,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var getWhatYear = require('./getWhatYear')\r\nvar toStringDate = require('./toStringDate')\r\n\r\nvar isValidDate = require('./isValidDate')\r\nvar isLeapYear = require('./isLeapYear')\r\n\r\n/**\r\n  * 返回某个年份的天数\r\n  *\r\n  * @param {Date} date 日期或数字\r\n  * @param {Number} offset 年(默认当年)、前几个年、后几个年\r\n  * @return {Number}\r\n  */\r\nfunction getDayOfYear (date, year) {\r\n  date = toStringDate(date)\r\n  if (isValidDate(date)) {\r\n    return isLeapYear(getWhatYear(date, year)) ? 366 : 365\r\n  }\r\n  return NaN\r\n}\r\n\r\nmodule.exports = getDayOfYear\r\n",
+      "start": 1714699767715,
+      "end": 1714699767715,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767715,
+      "end": 1714699767715,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767715,
+      "end": 1714699767715,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767715,
+      "end": 1714699767715,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767715,
+      "end": 1714699767715,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767715,
+      "end": 1714699767715,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767715,
+      "end": 1714699767715,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/getWhatYear.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/toStringDate.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isValidDate.js?commonjs-proxy\";\nimport require$$3 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isLeapYear.js?commonjs-proxy\";\n\nvar getWhatYear = require$$0\r\nvar toStringDate = require$$1\r\n\r\nvar isValidDate = require$$2\r\nvar isLeapYear = require$$3\r\n\r\n/**\r\n  * 返回某个年份的天数\r\n  *\r\n  * @param {Date} date 日期或数字\r\n  * @param {Number} offset 年(默认当年)、前几个年、后几个年\r\n  * @return {Number}\r\n  */\r\nfunction getDayOfYear (date, year) {\r\n  date = toStringDate(date)\r\n  if (isValidDate(date)) {\r\n    return isLeapYear(getWhatYear(date, year)) ? 366 : 365\r\n  }\r\n  return NaN\r\n}\r\n\r\nvar getDayOfYear_1 = getDayOfYear\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(getDayOfYear_1);\nexport { getDayOfYear_1 as __moduleExports };",
+      "start": 1714699767715,
+      "end": 1714699768253,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;;AAAA,IAAI,WAAW,GAAG,UAAwB;AAC1C,IAAI,YAAY,GAAG,UAAyB;AAC5C;AACA,IAAI,WAAW,GAAG,UAAwB;AAC1C,IAAI,UAAU,GAAG,UAAuB;AACxC;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,YAAY,EAAE,IAAI,EAAE,IAAI,EAAE;AACnC,EAAE,IAAI,GAAG,YAAY,CAAC,IAAI,CAAC;AAC3B,EAAE,IAAI,WAAW,CAAC,IAAI,CAAC,EAAE;AACzB,IAAI,OAAO,UAAU,CAAC,WAAW,CAAC,IAAI,EAAE,IAAI,CAAC,CAAC,GAAG,GAAG,GAAG,GAAG;AAC1D,GAAG;AACH,EAAE,OAAO,GAAG;AACZ,CAAC;AACD;IACA,cAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768253,
+      "end": 1714699768253,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768253,
+      "end": 1714699768253,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768253,
+      "end": 1714699768253,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768253,
+      "end": 1714699768253,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768253,
+      "end": 1714699768253,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768253,
+      "end": 1714699768253,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768253,
+      "end": 1714699768253,
+      "order": "normal"
+    }
+  ]
+}

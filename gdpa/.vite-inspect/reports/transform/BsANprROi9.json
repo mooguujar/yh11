@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/nav-bar/NavBar.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { ref, defineComponent } from \"vue\";\nimport { truthProp, numericProp, BORDER_BOTTOM, getZIndexStyle, createNamespace, HAPTICS_FEEDBACK } from \"../utils/index.mjs\";\nimport { usePlaceholder } from \"../composables/use-placeholder.mjs\";\nimport { Icon } from \"../icon/index.mjs\";\nconst [name, bem] = createNamespace(\"nav-bar\");\nconst navBarProps = {\n  title: String,\n  fixed: Boolean,\n  zIndex: numericProp,\n  border: truthProp,\n  leftText: String,\n  rightText: String,\n  leftDisabled: Boolean,\n  rightDisabled: Boolean,\n  leftArrow: Boolean,\n  placeholder: Boolean,\n  safeAreaInsetTop: Boolean,\n  clickable: truthProp\n};\nvar stdin_default = defineComponent({\n  name,\n  props: navBarProps,\n  emits: [\"clickLeft\", \"clickRight\"],\n  setup(props, {\n    emit,\n    slots\n  }) {\n    const navBarRef = ref();\n    const renderPlaceholder = usePlaceholder(navBarRef, bem);\n    const onClickLeft = (event) => {\n      if (!props.leftDisabled) {\n        emit(\"clickLeft\", event);\n      }\n    };\n    const onClickRight = (event) => {\n      if (!props.rightDisabled) {\n        emit(\"clickRight\", event);\n      }\n    };\n    const renderLeft = () => {\n      if (slots.left) {\n        return slots.left();\n      }\n      return [props.leftArrow && _createVNode(Icon, {\n        \"class\": bem(\"arrow\"),\n        \"name\": \"arrow-left\"\n      }, null), props.leftText && _createVNode(\"span\", {\n        \"class\": bem(\"text\")\n      }, [props.leftText])];\n    };\n    const renderRight = () => {\n      if (slots.right) {\n        return slots.right();\n      }\n      return _createVNode(\"span\", {\n        \"class\": bem(\"text\")\n      }, [props.rightText]);\n    };\n    const renderNavBar = () => {\n      const {\n        title,\n        fixed,\n        border,\n        zIndex\n      } = props;\n      const style = getZIndexStyle(zIndex);\n      const hasLeft = props.leftArrow || props.leftText || slots.left;\n      const hasRight = props.rightText || slots.right;\n      return _createVNode(\"div\", {\n        \"ref\": navBarRef,\n        \"style\": style,\n        \"class\": [bem({\n          fixed\n        }), {\n          [BORDER_BOTTOM]: border,\n          \"van-safe-area-top\": props.safeAreaInsetTop\n        }]\n      }, [_createVNode(\"div\", {\n        \"class\": bem(\"content\")\n      }, [hasLeft && _createVNode(\"div\", {\n        \"class\": [bem(\"left\", {\n          disabled: props.leftDisabled\n        }), props.clickable && !props.leftDisabled ? HAPTICS_FEEDBACK : \"\"],\n        \"onClick\": onClickLeft\n      }, [renderLeft()]), _createVNode(\"div\", {\n        \"class\": [bem(\"title\"), \"van-ellipsis\"]\n      }, [slots.title ? slots.title() : title]), hasRight && _createVNode(\"div\", {\n        \"class\": [bem(\"right\", {\n          disabled: props.rightDisabled\n        }), props.clickable && !props.rightDisabled ? HAPTICS_FEEDBACK : \"\"],\n        \"onClick\": onClickRight\n      }, [renderRight()])])]);\n    };\n    return () => {\n      if (props.fixed && props.placeholder) {\n        return renderPlaceholder(renderNavBar);\n      }\n      return renderNavBar();\n    };\n  }\n});\nexport {\n  stdin_default as default,\n  navBarProps\n};\n",
+      "start": 1714699767291,
+      "end": 1714699767312,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { ref, defineComponent } from \"vue\";\nimport { truthProp, numericProp, BORDER_BOTTOM, getZIndexStyle, createNamespace, HAPTICS_FEEDBACK } from \"../utils/index.mjs\";\nimport { usePlaceholder } from \"../composables/use-placeholder.mjs\";\nimport { Icon } from \"../icon/index.mjs\";\nconst [name, bem] = createNamespace(\"nav-bar\");\nconst navBarProps = {\n  title: String,\n  fixed: Boolean,\n  zIndex: numericProp,\n  border: truthProp,\n  leftText: String,\n  rightText: String,\n  leftDisabled: Boolean,\n  rightDisabled: Boolean,\n  leftArrow: Boolean,\n  placeholder: Boolean,\n  safeAreaInsetTop: Boolean,\n  clickable: truthProp\n};\nvar stdin_default = defineComponent({\n  name,\n  props: navBarProps,\n  emits: [\"clickLeft\", \"clickRight\"],\n  setup(props, {\n    emit,\n    slots\n  }) {\n    const navBarRef = ref();\n    const renderPlaceholder = usePlaceholder(navBarRef, bem);\n    const onClickLeft = (event) => {\n      if (!props.leftDisabled) {\n        emit(\"clickLeft\", event);\n      }\n    };\n    const onClickRight = (event) => {\n      if (!props.rightDisabled) {\n        emit(\"clickRight\", event);\n      }\n    };\n    const renderLeft = () => {\n      if (slots.left) {\n        return slots.left();\n      }\n      return [props.leftArrow && _createVNode(Icon, {\n        \"class\": bem(\"arrow\"),\n        \"name\": \"arrow-left\"\n      }, null), props.leftText && _createVNode(\"span\", {\n        \"class\": bem(\"text\")\n      }, [props.leftText])];\n    };\n    const renderRight = () => {\n      if (slots.right) {\n        return slots.right();\n      }\n      return _createVNode(\"span\", {\n        \"class\": bem(\"text\")\n      }, [props.rightText]);\n    };\n    const renderNavBar = () => {\n      const {\n        title,\n        fixed,\n        border,\n        zIndex\n      } = props;\n      const style = getZIndexStyle(zIndex);\n      const hasLeft = props.leftArrow || props.leftText || slots.left;\n      const hasRight = props.rightText || slots.right;\n      return _createVNode(\"div\", {\n        \"ref\": navBarRef,\n        \"style\": style,\n        \"class\": [bem({\n          fixed\n        }), {\n          [BORDER_BOTTOM]: border,\n          \"van-safe-area-top\": props.safeAreaInsetTop\n        }]\n      }, [_createVNode(\"div\", {\n        \"class\": bem(\"content\")\n      }, [hasLeft && _createVNode(\"div\", {\n        \"class\": [bem(\"left\", {\n          disabled: props.leftDisabled\n        }), props.clickable && !props.leftDisabled ? HAPTICS_FEEDBACK : \"\"],\n        \"onClick\": onClickLeft\n      }, [renderLeft()]), _createVNode(\"div\", {\n        \"class\": [bem(\"title\"), \"van-ellipsis\"]\n      }, [slots.title ? slots.title() : title]), hasRight && _createVNode(\"div\", {\n        \"class\": [bem(\"right\", {\n          disabled: props.rightDisabled\n        }), props.clickable && !props.rightDisabled ? HAPTICS_FEEDBACK : \"\"],\n        \"onClick\": onClickRight\n      }, [renderRight()])])]);\n    };\n    return () => {\n      if (props.fixed && props.placeholder) {\n        return renderPlaceholder(renderNavBar);\n      }\n      return renderNavBar();\n    };\n  }\n});\nexport {\n  stdin_default as default,\n  navBarProps\n};\n",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    }
+  ]
+}

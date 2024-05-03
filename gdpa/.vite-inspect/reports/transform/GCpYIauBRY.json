@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/alphanumeric-data.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "const Mode = require('./mode')\n\n/**\n * Array of characters available in alphanumeric mode\n *\n * As per QR Code specification, to each character\n * is assigned a value from 0 to 44 which in this case coincides\n * with the array index\n *\n * @type {Array}\n */\nconst ALPHA_NUM_CHARS = [\n  '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',\n  'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',\n  'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',\n  ' ', '$', '%', '*', '+', '-', '.', '/', ':'\n]\n\nfunction AlphanumericData (data) {\n  this.mode = Mode.ALPHANUMERIC\n  this.data = data\n}\n\nAlphanumericData.getBitsLength = function getBitsLength (length) {\n  return 11 * Math.floor(length / 2) + 6 * (length % 2)\n}\n\nAlphanumericData.prototype.getLength = function getLength () {\n  return this.data.length\n}\n\nAlphanumericData.prototype.getBitsLength = function getBitsLength () {\n  return AlphanumericData.getBitsLength(this.data.length)\n}\n\nAlphanumericData.prototype.write = function write (bitBuffer) {\n  let i\n\n  // Input data characters are divided into groups of two characters\n  // and encoded as 11-bit binary codes.\n  for (i = 0; i + 2 <= this.data.length; i += 2) {\n    // The character value of the first character is multiplied by 45\n    let value = ALPHA_NUM_CHARS.indexOf(this.data[i]) * 45\n\n    // The character value of the second digit is added to the product\n    value += ALPHA_NUM_CHARS.indexOf(this.data[i + 1])\n\n    // The sum is then stored as 11-bit binary number\n    bitBuffer.put(value, 11)\n  }\n\n  // If the number of input data characters is not a multiple of two,\n  // the character value of the final character is encoded as a 6-bit binary number.\n  if (this.data.length % 2) {\n    bitBuffer.put(ALPHA_NUM_CHARS.indexOf(this.data[i]), 6)\n  }\n}\n\nmodule.exports = AlphanumericData\n",
+      "start": 1714699771069,
+      "end": 1714699771088,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "const Mode = require('./mode')\n\n/**\n * Array of characters available in alphanumeric mode\n *\n * As per QR Code specification, to each character\n * is assigned a value from 0 to 44 which in this case coincides\n * with the array index\n *\n * @type {Array}\n */\nconst ALPHA_NUM_CHARS = [\n  '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',\n  'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',\n  'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',\n  ' ', '$', '%', '*', '+', '-', '.', '/', ':'\n]\n\nfunction AlphanumericData (data) {\n  this.mode = Mode.ALPHANUMERIC\n  this.data = data\n}\n\nAlphanumericData.getBitsLength = function getBitsLength (length) {\n  return 11 * Math.floor(length / 2) + 6 * (length % 2)\n}\n\nAlphanumericData.prototype.getLength = function getLength () {\n  return this.data.length\n}\n\nAlphanumericData.prototype.getBitsLength = function getBitsLength () {\n  return AlphanumericData.getBitsLength(this.data.length)\n}\n\nAlphanumericData.prototype.write = function write (bitBuffer) {\n  let i\n\n  // Input data characters are divided into groups of two characters\n  // and encoded as 11-bit binary codes.\n  for (i = 0; i + 2 <= this.data.length; i += 2) {\n    // The character value of the first character is multiplied by 45\n    let value = ALPHA_NUM_CHARS.indexOf(this.data[i]) * 45\n\n    // The character value of the second digit is added to the product\n    value += ALPHA_NUM_CHARS.indexOf(this.data[i + 1])\n\n    // The sum is then stored as 11-bit binary number\n    bitBuffer.put(value, 11)\n  }\n\n  // If the number of input data characters is not a multiple of two,\n  // the character value of the final character is encoded as a 6-bit binary number.\n  if (this.data.length % 2) {\n    bitBuffer.put(ALPHA_NUM_CHARS.indexOf(this.data[i]), 6)\n  }\n}\n\nmodule.exports = AlphanumericData\n",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771088,
+      "end": 1714699771088,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/mode.js?commonjs-proxy\";\n\nconst Mode = require$$0\n\n/**\n * Array of characters available in alphanumeric mode\n *\n * As per QR Code specification, to each character\n * is assigned a value from 0 to 44 which in this case coincides\n * with the array index\n *\n * @type {Array}\n */\nconst ALPHA_NUM_CHARS = [\n  '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',\n  'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',\n  'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',\n  ' ', '$', '%', '*', '+', '-', '.', '/', ':'\n]\n\nfunction AlphanumericData (data) {\n  this.mode = Mode.ALPHANUMERIC\n  this.data = data\n}\n\nAlphanumericData.getBitsLength = function getBitsLength (length) {\n  return 11 * Math.floor(length / 2) + 6 * (length % 2)\n}\n\nAlphanumericData.prototype.getLength = function getLength () {\n  return this.data.length\n}\n\nAlphanumericData.prototype.getBitsLength = function getBitsLength () {\n  return AlphanumericData.getBitsLength(this.data.length)\n}\n\nAlphanumericData.prototype.write = function write (bitBuffer) {\n  let i\n\n  // Input data characters are divided into groups of two characters\n  // and encoded as 11-bit binary codes.\n  for (i = 0; i + 2 <= this.data.length; i += 2) {\n    // The character value of the first character is multiplied by 45\n    let value = ALPHA_NUM_CHARS.indexOf(this.data[i]) * 45\n\n    // The character value of the second digit is added to the product\n    value += ALPHA_NUM_CHARS.indexOf(this.data[i + 1])\n\n    // The sum is then stored as 11-bit binary number\n    bitBuffer.put(value, 11)\n  }\n\n  // If the number of input data characters is not a multiple of two,\n  // the character value of the final character is encoded as a 6-bit binary number.\n  if (this.data.length % 2) {\n    bitBuffer.put(ALPHA_NUM_CHARS.indexOf(this.data[i]), 6)\n  }\n}\n\nvar alphanumericData = AlphanumericData\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(alphanumericData);\nexport { alphanumericData as __moduleExports };",
+      "start": 1714699771088,
+      "end": 1714699771103,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;AAAA,MAAM,IAAI,GAAG,UAAiB;AAC9B;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,MAAM,eAAe,GAAG;AACxB,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG;AAClD,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG;AACjE,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG;AACjE,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG;AAC7C,CAAC;AACD;AACA,SAAS,gBAAgB,EAAE,IAAI,EAAE;AACjC,EAAE,IAAI,CAAC,IAAI,GAAG,IAAI,CAAC,YAAY;AAC/B,EAAE,IAAI,CAAC,IAAI,GAAG,IAAI;AAClB,CAAC;AACD;AACA,gBAAgB,CAAC,aAAa,GAAG,SAAS,aAAa,EAAE,MAAM,EAAE;AACjE,EAAE,OAAO,EAAE,GAAG,IAAI,CAAC,KAAK,CAAC,MAAM,GAAG,CAAC,CAAC,GAAG,CAAC,IAAI,MAAM,GAAG,CAAC,CAAC;AACvD,CAAC;AACD;AACA,gBAAgB,CAAC,SAAS,CAAC,SAAS,GAAG,SAAS,SAAS,IAAI;AAC7D,EAAE,OAAO,IAAI,CAAC,IAAI,CAAC,MAAM;AACzB,CAAC;AACD;AACA,gBAAgB,CAAC,SAAS,CAAC,aAAa,GAAG,SAAS,aAAa,IAAI;AACrE,EAAE,OAAO,gBAAgB,CAAC,aAAa,CAAC,IAAI,CAAC,IAAI,CAAC,MAAM,CAAC;AACzD,CAAC;AACD;AACA,gBAAgB,CAAC,SAAS,CAAC,KAAK,GAAG,SAAS,KAAK,EAAE,SAAS,EAAE;AAC9D,EAAE,IAAI,CAAC;AACP;AACA;AACA;AACA,EAAE,KAAK,CAAC,GAAG,CAAC,EAAE,CAAC,GAAG,CAAC,IAAI,IAAI,CAAC,IAAI,CAAC,MAAM,EAAE,CAAC,IAAI,CAAC,EAAE;AACjD;AACA,IAAI,IAAI,KAAK,GAAG,eAAe,CAAC,OAAO,CAAC,IAAI,CAAC,IAAI,CAAC,CAAC,CAAC,CAAC,GAAG,EAAE;AAC1D;AACA;AACA,IAAI,KAAK,IAAI,eAAe,CAAC,OAAO,CAAC,IAAI,CAAC,IAAI,CAAC,CAAC,GAAG,CAAC,CAAC,CAAC;AACtD;AACA;AACA,IAAI,SAAS,CAAC,GAAG,CAAC,KAAK,EAAE,EAAE,CAAC;AAC5B,GAAG;AACH;AACA;AACA;AACA,EAAE,IAAI,IAAI,CAAC,IAAI,CAAC,MAAM,GAAG,CAAC,EAAE;AAC5B,IAAI,SAAS,CAAC,GAAG,CAAC,eAAe,CAAC,OAAO,CAAC,IAAI,CAAC,IAAI,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC;AAC3D,GAAG;AACH,CAAC;AACD;IACA,gBAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771103,
+      "end": 1714699771103,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771103,
+      "end": 1714699771103,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771103,
+      "end": 1714699771103,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699771103,
+      "end": 1714699771103,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771103,
+      "end": 1714699771103,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771103,
+      "end": 1714699771103,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771103,
+      "end": 1714699771103,
+      "order": "normal"
+    }
+  ]
+}

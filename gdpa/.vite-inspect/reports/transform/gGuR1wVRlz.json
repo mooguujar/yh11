@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/es/menu/src/panel.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { defineComponent, h, Teleport, inject, ref, createCommentVNode } from 'vue';\nimport { getFuncText } from '../../tools/utils';\nimport XEUtils from 'xe-utils';\nexport default defineComponent({\n    name: 'VxeTableContextMenu',\n    setup: function (props, context) {\n        var xID = XEUtils.uniqueId();\n        var $xetable = inject('$xetable', {});\n        var tableReactData = $xetable.reactData;\n        var refElem = ref();\n        var refMaps = {\n            refElem: refElem\n        };\n        var $xemenupanel = {\n            xID: xID,\n            props: props,\n            context: context,\n            getRefMaps: function () { return refMaps; }\n        };\n        var renderVN = function () {\n            var ctxMenuStore = tableReactData.ctxMenuStore;\n            var computeMenuOpts = $xetable.getComputeMaps().computeMenuOpts;\n            var menuOpts = computeMenuOpts.value;\n            return h(Teleport, {\n                to: 'body',\n                disabled: false\n            }, [\n                h('div', {\n                    ref: refElem,\n                    class: ['vxe-table--context-menu-wrapper', menuOpts.className, {\n                            'is--visible': ctxMenuStore.visible\n                        }],\n                    style: ctxMenuStore.style\n                }, ctxMenuStore.list.map(function (options, gIndex) {\n                    return options.every(function (item) { return item.visible === false; }) ? createCommentVNode() : h('ul', {\n                        class: 'vxe-context-menu--option-wrapper',\n                        key: gIndex\n                    }, options.map(function (item, index) {\n                        var hasChildMenus = item.children && item.children.some(function (child) { return child.visible !== false; });\n                        return item.visible === false ? null : h('li', {\n                            class: [item.className, {\n                                    'link--disabled': item.disabled,\n                                    'link--active': item === ctxMenuStore.selected\n                                }],\n                            key: \"\".concat(gIndex, \"_\").concat(index)\n                        }, [\n                            h('a', {\n                                class: 'vxe-context-menu--link',\n                                onClick: function (evnt) {\n                                    $xetable.ctxMenuLinkEvent(evnt, item);\n                                },\n                                onMouseover: function (evnt) {\n                                    $xetable.ctxMenuMouseoverEvent(evnt, item);\n                                },\n                                onMouseout: function (evnt) {\n                                    $xetable.ctxMenuMouseoutEvent(evnt, item);\n                                }\n                            }, [\n                                h('i', {\n                                    class: ['vxe-context-menu--link-prefix', item.prefixIcon]\n                                }),\n                                h('span', {\n                                    class: 'vxe-context-menu--link-content'\n                                }, getFuncText(item.name)),\n                                h('i', {\n                                    class: ['vxe-context-menu--link-suffix', hasChildMenus ? item.suffixIcon || 'suffix--haschild' : item.suffixIcon]\n                                })\n                            ]),\n                            hasChildMenus ? h('ul', {\n                                class: ['vxe-table--context-menu-clild-wrapper', {\n                                        'is--show': item === ctxMenuStore.selected && ctxMenuStore.showChild\n                                    }]\n                            }, item.children.map(function (child, cIndex) {\n                                return child.visible === false ? null : h('li', {\n                                    class: [child.className, {\n                                            'link--disabled': child.disabled,\n                                            'link--active': child === ctxMenuStore.selectChild\n                                        }],\n                                    key: \"\".concat(gIndex, \"_\").concat(index, \"_\").concat(cIndex)\n                                }, [\n                                    h('a', {\n                                        class: 'vxe-context-menu--link',\n                                        onClick: function (evnt) {\n                                            $xetable.ctxMenuLinkEvent(evnt, child);\n                                        },\n                                        onMouseover: function (evnt) {\n                                            $xetable.ctxMenuMouseoverEvent(evnt, item, child);\n                                        },\n                                        onMouseout: function (evnt) {\n                                            $xetable.ctxMenuMouseoutEvent(evnt, item);\n                                        }\n                                    }, [\n                                        h('i', {\n                                            class: ['vxe-context-menu--link-prefix', child.prefixIcon]\n                                        }),\n                                        h('span', {\n                                            class: 'vxe-context-menu--link-content'\n                                        }, getFuncText(child.name))\n                                    ])\n                                ]);\n                            })) : null\n                        ]);\n                    }));\n                }))\n            ]);\n        };\n        $xemenupanel.renderVN = renderVN;\n        return $xemenupanel;\n    },\n    render: function () {\n        return this.renderVN();\n    }\n});\n",
+      "start": 1714699767731,
+      "end": 1714699767746,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767746,
+      "end": 1714699767746,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767746,
+      "end": 1714699767746,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767746,
+      "end": 1714699767746,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767746,
+      "end": 1714699767746,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767746,
+      "end": 1714699767746,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767746,
+      "end": 1714699767746,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { defineComponent, h, Teleport, inject, ref, createCommentVNode } from 'vue';\nimport { getFuncText } from '../../tools/utils';\nimport XEUtils from 'xe-utils';\nexport default defineComponent({\n    name: 'VxeTableContextMenu',\n    setup: function (props, context) {\n        var xID = XEUtils.uniqueId();\n        var $xetable = inject('$xetable', {});\n        var tableReactData = $xetable.reactData;\n        var refElem = ref();\n        var refMaps = {\n            refElem: refElem\n        };\n        var $xemenupanel = {\n            xID: xID,\n            props: props,\n            context: context,\n            getRefMaps: function () { return refMaps; }\n        };\n        var renderVN = function () {\n            var ctxMenuStore = tableReactData.ctxMenuStore;\n            var computeMenuOpts = $xetable.getComputeMaps().computeMenuOpts;\n            var menuOpts = computeMenuOpts.value;\n            return h(Teleport, {\n                to: 'body',\n                disabled: false\n            }, [\n                h('div', {\n                    ref: refElem,\n                    class: ['vxe-table--context-menu-wrapper', menuOpts.className, {\n                            'is--visible': ctxMenuStore.visible\n                        }],\n                    style: ctxMenuStore.style\n                }, ctxMenuStore.list.map(function (options, gIndex) {\n                    return options.every(function (item) { return item.visible === false; }) ? createCommentVNode() : h('ul', {\n                        class: 'vxe-context-menu--option-wrapper',\n                        key: gIndex\n                    }, options.map(function (item, index) {\n                        var hasChildMenus = item.children && item.children.some(function (child) { return child.visible !== false; });\n                        return item.visible === false ? null : h('li', {\n                            class: [item.className, {\n                                    'link--disabled': item.disabled,\n                                    'link--active': item === ctxMenuStore.selected\n                                }],\n                            key: \"\".concat(gIndex, \"_\").concat(index)\n                        }, [\n                            h('a', {\n                                class: 'vxe-context-menu--link',\n                                onClick: function (evnt) {\n                                    $xetable.ctxMenuLinkEvent(evnt, item);\n                                },\n                                onMouseover: function (evnt) {\n                                    $xetable.ctxMenuMouseoverEvent(evnt, item);\n                                },\n                                onMouseout: function (evnt) {\n                                    $xetable.ctxMenuMouseoutEvent(evnt, item);\n                                }\n                            }, [\n                                h('i', {\n                                    class: ['vxe-context-menu--link-prefix', item.prefixIcon]\n                                }),\n                                h('span', {\n                                    class: 'vxe-context-menu--link-content'\n                                }, getFuncText(item.name)),\n                                h('i', {\n                                    class: ['vxe-context-menu--link-suffix', hasChildMenus ? item.suffixIcon || 'suffix--haschild' : item.suffixIcon]\n                                })\n                            ]),\n                            hasChildMenus ? h('ul', {\n                                class: ['vxe-table--context-menu-clild-wrapper', {\n                                        'is--show': item === ctxMenuStore.selected && ctxMenuStore.showChild\n                                    }]\n                            }, item.children.map(function (child, cIndex) {\n                                return child.visible === false ? null : h('li', {\n                                    class: [child.className, {\n                                            'link--disabled': child.disabled,\n                                            'link--active': child === ctxMenuStore.selectChild\n                                        }],\n                                    key: \"\".concat(gIndex, \"_\").concat(index, \"_\").concat(cIndex)\n                                }, [\n                                    h('a', {\n                                        class: 'vxe-context-menu--link',\n                                        onClick: function (evnt) {\n                                            $xetable.ctxMenuLinkEvent(evnt, child);\n                                        },\n                                        onMouseover: function (evnt) {\n                                            $xetable.ctxMenuMouseoverEvent(evnt, item, child);\n                                        },\n                                        onMouseout: function (evnt) {\n                                            $xetable.ctxMenuMouseoutEvent(evnt, item);\n                                        }\n                                    }, [\n                                        h('i', {\n                                            class: ['vxe-context-menu--link-prefix', child.prefixIcon]\n                                        }),\n                                        h('span', {\n                                            class: 'vxe-context-menu--link-content'\n                                        }, getFuncText(child.name))\n                                    ])\n                                ]);\n                            })) : null\n                        ]);\n                    }));\n                }))\n            ]);\n        };\n        $xemenupanel.renderVN = renderVN;\n        return $xemenupanel;\n    },\n    render: function () {\n        return this.renderVN();\n    }\n});\n",
+      "start": 1714699767746,
+      "end": 1714699767746,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767746,
+      "end": 1714699767746,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767746,
+      "end": 1714699767746,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767746,
+      "end": 1714699767746,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767746,
+      "end": 1714699767746,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767746,
+      "end": 1714699767746,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767746,
+      "end": 1714699767746,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767746,
+      "end": 1714699767746,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767746,
+      "end": 1714699767746,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767746,
+      "end": 1714699767746,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767746,
+      "end": 1714699767746,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767746,
+      "end": 1714699767746,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767746,
+      "end": 1714699767746,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767746,
+      "end": 1714699767746,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767746,
+      "end": 1714699767746,
+      "order": "normal"
+    }
+  ]
+}

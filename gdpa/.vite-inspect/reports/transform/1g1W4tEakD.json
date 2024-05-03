@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/kebabCase.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var toValueString = require('./toValueString')\r\nvar helperStringSubstring = require('./helperStringSubstring')\r\nvar helperStringLowerCase = require('./helperStringLowerCase')\r\n\r\nvar kebabCacheMaps = {}\r\n\r\n/**\r\n  * 将带驼峰字符串转成字符串,例如： projectName 转为 project-name\r\n  *\r\n  * @param {String} str 字符串\r\n  * @return {String}\r\n  */\r\nfunction kebabCase (str) {\r\n  str = toValueString(str)\r\n  if (kebabCacheMaps[str]) {\r\n    return kebabCacheMaps[str]\r\n  }\r\n  if (/^[A-Z]+$/.test(str)) {\r\n    return helperStringLowerCase(str)\r\n  }\r\n  var rest = str.replace(/^([a-z])([A-Z]+)([a-z]+)$/, function (text, prevLower, upper, nextLower) {\r\n    var upperLen = upper.length\r\n    if (upperLen > 1) {\r\n      return prevLower + '-' + helperStringLowerCase(helperStringSubstring(upper, 0, upperLen - 1)) + '-' + helperStringLowerCase(helperStringSubstring(upper, upperLen - 1, upperLen)) + nextLower\r\n    }\r\n    return helperStringLowerCase(prevLower + '-' + upper + nextLower)\r\n  }).replace(/^([A-Z]+)([a-z]+)?$/, function (text, upper, nextLower) {\r\n    var upperLen = upper.length\r\n    return helperStringLowerCase(helperStringSubstring(upper, 0, upperLen - 1) + '-' + helperStringSubstring(upper, upperLen - 1, upperLen) + (nextLower || ''))\r\n  }).replace(/([a-z]?)([A-Z]+)([a-z]?)/g, function (text, prevLower, upper, nextLower, index) {\r\n    var upperLen = upper.length\r\n    if (upperLen > 1) {\r\n      if (prevLower) {\r\n        prevLower += '-'\r\n      }\r\n      if (nextLower) {\r\n        return (prevLower || '') + helperStringLowerCase(helperStringSubstring(upper, 0, upperLen - 1)) + '-' + helperStringLowerCase(helperStringSubstring(upper, upperLen - 1, upperLen)) + nextLower\r\n      }\r\n    }\r\n    return (prevLower || '') + (index ? '-' : '') + helperStringLowerCase(upper) + (nextLower || '')\r\n  })\r\n  rest = rest.replace(/([-]+)/g, function (text, flag, index) {\r\n    return index && index + flag.length < rest.length ? '-' : ''\r\n  })\r\n  kebabCacheMaps[str] =  rest\r\n  return rest\r\n}\r\n\r\nmodule.exports = kebabCase\r\n",
+      "start": 1714699767710,
+      "end": 1714699767720,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767720,
+      "end": 1714699767720,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767720,
+      "end": 1714699767720,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767720,
+      "end": 1714699767720,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767720,
+      "end": 1714699767720,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767720,
+      "end": 1714699767720,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767720,
+      "end": 1714699767720,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var toValueString = require('./toValueString')\r\nvar helperStringSubstring = require('./helperStringSubstring')\r\nvar helperStringLowerCase = require('./helperStringLowerCase')\r\n\r\nvar kebabCacheMaps = {}\r\n\r\n/**\r\n  * 将带驼峰字符串转成字符串,例如： projectName 转为 project-name\r\n  *\r\n  * @param {String} str 字符串\r\n  * @return {String}\r\n  */\r\nfunction kebabCase (str) {\r\n  str = toValueString(str)\r\n  if (kebabCacheMaps[str]) {\r\n    return kebabCacheMaps[str]\r\n  }\r\n  if (/^[A-Z]+$/.test(str)) {\r\n    return helperStringLowerCase(str)\r\n  }\r\n  var rest = str.replace(/^([a-z])([A-Z]+)([a-z]+)$/, function (text, prevLower, upper, nextLower) {\r\n    var upperLen = upper.length\r\n    if (upperLen > 1) {\r\n      return prevLower + '-' + helperStringLowerCase(helperStringSubstring(upper, 0, upperLen - 1)) + '-' + helperStringLowerCase(helperStringSubstring(upper, upperLen - 1, upperLen)) + nextLower\r\n    }\r\n    return helperStringLowerCase(prevLower + '-' + upper + nextLower)\r\n  }).replace(/^([A-Z]+)([a-z]+)?$/, function (text, upper, nextLower) {\r\n    var upperLen = upper.length\r\n    return helperStringLowerCase(helperStringSubstring(upper, 0, upperLen - 1) + '-' + helperStringSubstring(upper, upperLen - 1, upperLen) + (nextLower || ''))\r\n  }).replace(/([a-z]?)([A-Z]+)([a-z]?)/g, function (text, prevLower, upper, nextLower, index) {\r\n    var upperLen = upper.length\r\n    if (upperLen > 1) {\r\n      if (prevLower) {\r\n        prevLower += '-'\r\n      }\r\n      if (nextLower) {\r\n        return (prevLower || '') + helperStringLowerCase(helperStringSubstring(upper, 0, upperLen - 1)) + '-' + helperStringLowerCase(helperStringSubstring(upper, upperLen - 1, upperLen)) + nextLower\r\n      }\r\n    }\r\n    return (prevLower || '') + (index ? '-' : '') + helperStringLowerCase(upper) + (nextLower || '')\r\n  })\r\n  rest = rest.replace(/([-]+)/g, function (text, flag, index) {\r\n    return index && index + flag.length < rest.length ? '-' : ''\r\n  })\r\n  kebabCacheMaps[str] =  rest\r\n  return rest\r\n}\r\n\r\nmodule.exports = kebabCase\r\n",
+      "start": 1714699767720,
+      "end": 1714699767720,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767720,
+      "end": 1714699767720,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767720,
+      "end": 1714699767720,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767720,
+      "end": 1714699767720,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767720,
+      "end": 1714699767720,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767720,
+      "end": 1714699767720,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767720,
+      "end": 1714699767720,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/toValueString.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/helperStringSubstring.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/helperStringLowerCase.js?commonjs-proxy\";\n\nvar toValueString = require$$0\r\nvar helperStringSubstring = require$$1\r\nvar helperStringLowerCase = require$$2\r\n\r\nvar kebabCacheMaps = {}\r\n\r\n/**\r\n  * 将带驼峰字符串转成字符串,例如： projectName 转为 project-name\r\n  *\r\n  * @param {String} str 字符串\r\n  * @return {String}\r\n  */\r\nfunction kebabCase (str) {\r\n  str = toValueString(str)\r\n  if (kebabCacheMaps[str]) {\r\n    return kebabCacheMaps[str]\r\n  }\r\n  if (/^[A-Z]+$/.test(str)) {\r\n    return helperStringLowerCase(str)\r\n  }\r\n  var rest = str.replace(/^([a-z])([A-Z]+)([a-z]+)$/, function (text, prevLower, upper, nextLower) {\r\n    var upperLen = upper.length\r\n    if (upperLen > 1) {\r\n      return prevLower + '-' + helperStringLowerCase(helperStringSubstring(upper, 0, upperLen - 1)) + '-' + helperStringLowerCase(helperStringSubstring(upper, upperLen - 1, upperLen)) + nextLower\r\n    }\r\n    return helperStringLowerCase(prevLower + '-' + upper + nextLower)\r\n  }).replace(/^([A-Z]+)([a-z]+)?$/, function (text, upper, nextLower) {\r\n    var upperLen = upper.length\r\n    return helperStringLowerCase(helperStringSubstring(upper, 0, upperLen - 1) + '-' + helperStringSubstring(upper, upperLen - 1, upperLen) + (nextLower || ''))\r\n  }).replace(/([a-z]?)([A-Z]+)([a-z]?)/g, function (text, prevLower, upper, nextLower, index) {\r\n    var upperLen = upper.length\r\n    if (upperLen > 1) {\r\n      if (prevLower) {\r\n        prevLower += '-'\r\n      }\r\n      if (nextLower) {\r\n        return (prevLower || '') + helperStringLowerCase(helperStringSubstring(upper, 0, upperLen - 1)) + '-' + helperStringLowerCase(helperStringSubstring(upper, upperLen - 1, upperLen)) + nextLower\r\n      }\r\n    }\r\n    return (prevLower || '') + (index ? '-' : '') + helperStringLowerCase(upper) + (nextLower || '')\r\n  })\r\n  rest = rest.replace(/([-]+)/g, function (text, flag, index) {\r\n    return index && index + flag.length < rest.length ? '-' : ''\r\n  })\r\n  kebabCacheMaps[str] =  rest\r\n  return rest\r\n}\r\n\r\nvar kebabCase_1 = kebabCase\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(kebabCase_1);\nexport { kebabCase_1 as __moduleExports };",
+      "start": 1714699767720,
+      "end": 1714699768241,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "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"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768241,
+      "end": 1714699768241,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768241,
+      "end": 1714699768241,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768241,
+      "end": 1714699768241,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768241,
+      "end": 1714699768241,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768241,
+      "end": 1714699768241,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768241,
+      "end": 1714699768241,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768241,
+      "end": 1714699768241,
+      "order": "normal"
+    }
+  ]
+}

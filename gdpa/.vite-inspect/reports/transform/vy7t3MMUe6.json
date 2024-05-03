@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/index.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\nimport { useEntryStore } from '@/store/modules/entry'\nimport { storeToRefs } from 'pinia'\nimport { computed, ref, watch } from 'vue'\nimport { useRoute, useRouter } from 'vue-router'\n\nconst bricksPageMap = {\n  Recharge: {\n    title: 'USDT充值'\n  },\n  WithdrawCoins: {\n    title: 'USDT提币'\n  },\n  Transfer: {\n    title: '划转'\n  },\n  MoveBrick: {\n    title: '搬砖'\n  }\n} as Record<string, any>\nconst EntryStore = useEntryStore()\nconst { config } = storeToRefs(EntryStore)\nconst route = useRoute()\nconst router = useRouter()\nconst coin = ref({ title: '' })\nconst title = ref('')\nconst KGB_Mod_tutorial_url = computed(() => {\n  console.log(\n    '(KGB_Mod_tutorial_url',\n    (config.value.Web_Set_DefaultInfo?.KGB_Mod_tutorial_url as any)?.v\n  )\n  return (config.value.Web_Set_DefaultInfo?.KGB_Mod_tutorial_url as any)?.v || ''\n})\n// 路由变化时，动态变更页面title\nwatch(\n  () => router.currentRoute.value,\n  route => {\n    if (Object.keys(bricksPageMap).includes(route.name as string)) {\n      coin.value = bricksPageMap[route.name as string]\n      title.value = coin.value.title\n    }\n  },\n  { immediate: true }\n)\n</script>\n\n<template>\n  <div class=\"details-nav-bar\">\n    <nav-bar\n      :title=\"title\"\n      :mode=\"['WithdrawCoins', 'MoveBrick'].includes(route.name as string) ? 'blue' : 'white'\"\n    >\n      <template\n        #title\n        v-if=\"(route.name as string)=='MoveBrick'\"\n      >\n        搬砖赚钱\n        <van-icon\n          name=\"question-o\"\n          size=\"20\"\n          class=\"ml-[8px] top-[0px]\"\n          color=\"#fff\"\n          @click=\"$router.push('/iframe-page/third?url=' + KGB_Mod_tutorial_url)\"\n        />\n      </template>\n    </nav-bar>\n  </div>\n\n  <div class=\"bricks-container\">\n    <router-view />\n  </div>\n</template>\n\n<style lang=\"scss\" scoped>\n@import '@/assets/styles/sprite-home.scss';\n\n.details-nav-bar {\n  flex: 0 0 100px;\n  width: 100%;\n  :deep(.van-nav-bar) {\n    &.van-hairline--bottom::after {\n      border-width: 0;\n    }\n    .arrow-back {\n      margin-left: 24px;\n      transform: rotate(180deg) scale(1.5);\n    }\n\n    .van-nav-bar__right {\n      top: 80px;\n      height: 75px;\n      padding-right: 40px;\n      .van-icon {\n        font-size: 28px;\n        color: #787f8c;\n      }\n    }\n    .btn-text {\n      font-size: 33px;\n      color: var(--van-button-primary-background);\n    }\n  }\n}\n.bricks-container {\n  flex: 1;\n  overflow: auto;\n}\n</style>\n",
+      "start": 1714699769250,
+      "end": 1714699769304,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769304,
+      "end": 1714699769304,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769304,
+      "end": 1714699769304,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769304,
+      "end": 1714699769304,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769304,
+      "end": 1714699769304,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/index.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/index.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/index.vue?vue&type=style&index=0&scoped=078f751e&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-078f751e\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/index.vue\"]]);\n",
+      "start": 1714699769304,
+      "end": 1714699769537,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769537,
+      "end": 1714699769537,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/index.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/index.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/index.vue?vue&type=style&index=0&scoped=078f751e&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-078f751e\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/index.vue\"]]);\n",
+      "start": 1714699769537,
+      "end": 1714699769537,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/index.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/index.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/index.vue?vue&type=style&index=0&scoped=078f751e&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-078f751e\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/index.vue\"]]);\n",
+      "start": 1714699769537,
+      "end": 1714699769943,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/index.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/index.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/index.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/index.vue?vue&type=style&index=0&scoped=078f751e&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-078f751e\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/index.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,kEAAkE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769943,
+      "end": 1714699769943,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769943,
+      "end": 1714699769943,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769943,
+      "end": 1714699769943,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769943,
+      "end": 1714699769943,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769943,
+      "end": 1714699769943,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769943,
+      "end": 1714699769943,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769943,
+      "end": 1714699769943,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769943,
+      "end": 1714699769943,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769943,
+      "end": 1714699769943,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/index.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/index.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/index.vue?vue&type=style&index=0&scoped=078f751e&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-078f751e\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/index.vue\"]]);\n",
+      "start": 1714699769943,
+      "end": 1714699769943,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/index.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/index.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/index.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/index.vue?vue&type=style&index=0&scoped=078f751e&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-078f751e\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/index.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769943,
+      "end": 1714699769943,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769943,
+      "end": 1714699769943,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769943,
+      "end": 1714699769943,
+      "order": "normal"
+    }
+  ]
+}

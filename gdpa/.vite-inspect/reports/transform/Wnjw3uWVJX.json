@@ -1,0 +1,154 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/store/modules/common/index.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { defineStore } from 'pinia'\n\nexport const useCommonStore = defineStore('common', {\n  state: () => ({\n    showLoading: false,\n    requests: [] as AbortController[]\n  }),\n  getters: {\n    // 获取showLoading的值\n    getShowLoading: state => state.showLoading\n  },\n  actions: {\n    setShowLoading(status: boolean) {\n      this.showLoading = status\n    },\n    // 给每个请求添加AbortController\n    addRequest(controller: AbortController) {\n      this.requests.push(controller)\n    },\n    // 终止所有未完成的请求\n    abortAllRequest() {\n      this.requests.forEach(controller => controller.abort?.())\n      // 执行完清空，从而不影响新页面的请求列表\n      this.requests = []\n    }\n  },\n  persist: true\n})\n",
+      "start": 1714699768090,
+      "end": 1714699768112,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768112,
+      "end": 1714699768112,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineStore } from \"pinia\";\nexport const useCommonStore = defineStore(\"common\", {\n  state: () => ({\n    showLoading: false,\n    requests: []\n  }),\n  getters: {\n    // 获取showLoading的值\n    getShowLoading: (state) => state.showLoading\n  },\n  actions: {\n    setShowLoading(status) {\n      this.showLoading = status;\n    },\n    // 给每个请求添加AbortController\n    addRequest(controller) {\n      this.requests.push(controller);\n    },\n    // 终止所有未完成的请求\n    abortAllRequest() {\n      this.requests.forEach((controller) => controller.abort?.());\n      this.requests = [];\n    }\n  },\n  persist: true\n});\n",
+      "start": 1714699768112,
+      "end": 1714699769063,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/store/modules/common/index.ts"
+        ],
+        "sourcesContent": [
+          "import { defineStore } from 'pinia'\n\nexport const useCommonStore = defineStore('common', {\n  state: () => ({\n    showLoading: false,\n    requests: [] as AbortController[]\n  }),\n  getters: {\n    // 获取showLoading的值\n    getShowLoading: state => state.showLoading\n  },\n  actions: {\n    setShowLoading(status: boolean) {\n      this.showLoading = status\n    },\n    // 给每个请求添加AbortController\n    addRequest(controller: AbortController) {\n      this.requests.push(controller)\n    },\n    // 终止所有未完成的请求\n    abortAllRequest() {\n      this.requests.forEach(controller => controller.abort?.())\n      // 执行完清空，从而不影响新页面的请求列表\n      this.requests = []\n    }\n  },\n  persist: true\n})\n"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB;AAErB,aAAM,iBAAiB,YAAY,UAAU;AAAA,EAClD,OAAO,OAAO;AAAA,IACZ,aAAa;AAAA,IACb,UAAU,CAAC;AAAA,EACb;AAAA,EACA,SAAS;AAAA;AAAA,IAEP,gBAAgB,WAAS,MAAM;AAAA,EACjC;AAAA,EACA,SAAS;AAAA,IACP,eAAe,QAAiB;AAC9B,WAAK,cAAc;AAAA,IACrB;AAAA;AAAA,IAEA,WAAW,YAA6B;AACtC,WAAK,SAAS,KAAK,UAAU;AAAA,IAC/B;AAAA;AAAA,IAEA,kBAAkB;AAChB,WAAK,SAAS,QAAQ,gBAAc,WAAW,QAAQ,CAAC;AAExD,WAAK,WAAW,CAAC;AAAA,IACnB;AAAA,EACF;AAAA,EACA,SAAS;AACX,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769063,
+      "end": 1714699769063,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769063,
+      "end": 1714699769063,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699769063,
+      "end": 1714699769063,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769063,
+      "end": 1714699769063,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { defineStore } from \"pinia\";\nexport const useCommonStore = defineStore(\"common\", {\n  state: () => ({\n    showLoading: false,\n    requests: []\n  }),\n  getters: {\n    // 获取showLoading的值\n    getShowLoading: (state) => state.showLoading\n  },\n  actions: {\n    setShowLoading(status) {\n      this.showLoading = status;\n    },\n    // 给每个请求添加AbortController\n    addRequest(controller) {\n      this.requests.push(controller);\n    },\n    // 终止所有未完成的请求\n    abortAllRequest() {\n      this.requests.forEach((controller) => controller.abort?.());\n      this.requests = [];\n    }\n  },\n  persist: true\n});\n",
+      "start": 1714699769063,
+      "end": 1714699769063,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport { defineStore } from \"pinia\";\nexport const useCommonStore = defineStore(\"common\", {\n  state: () => ({\n    showLoading: false,\n    requests: []\n  }),\n  getters: {\n    // 获取showLoading的值\n    getShowLoading: (state) => state.showLoading\n  },\n  actions: {\n    setShowLoading(status) {\n      this.showLoading = status;\n    },\n    // 给每个请求添加AbortController\n    addRequest(controller) {\n      this.requests.push(controller);\n    },\n    // 终止所有未完成的请求\n    abortAllRequest() {\n      this.requests.forEach((controller) => {\n        var _a;\n        return (_a = controller.abort) == null ? void 0 : _a.call(controller);\n      });\n      this.requests = [];\n    }\n  },\n  persist: true\n});\n",
+      "start": 1714699769063,
+      "end": 1714699769449,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/store/modules/common/index.ts\"],\n  \"sourcesContent\": [\"import { defineStore } from \\\"pinia\\\";\\nexport const useCommonStore = defineStore(\\\"common\\\", {\\n  state: () => ({\\n    showLoading: false,\\n    requests: []\\n  }),\\n  getters: {\\n    // \\u83B7\\u53D6showLoading\\u7684\\u503C\\n    getShowLoading: (state) => state.showLoading\\n  },\\n  actions: {\\n    setShowLoading(status) {\\n      this.showLoading = status;\\n    },\\n    // \\u7ED9\\u6BCF\\u4E2A\\u8BF7\\u6C42\\u6DFB\\u52A0AbortController\\n    addRequest(controller) {\\n      this.requests.push(controller);\\n    },\\n    // \\u7EC8\\u6B62\\u6240\\u6709\\u672A\\u5B8C\\u6210\\u7684\\u8BF7\\u6C42\\n    abortAllRequest() {\\n      this.requests.forEach((controller) => controller.abort?.());\\n      this.requests = [];\\n    }\\n  },\\n  persist: true\\n});\\n\"],\n  \"mappings\": \";AAAA,SAAS,mBAAmB;AACrB,aAAM,iBAAiB,YAAY,UAAU;AAAA,EAClD,OAAO,OAAO;AAAA,IACZ,aAAa;AAAA,IACb,UAAU,CAAC;AAAA,EACb;AAAA,EACA,SAAS;AAAA;AAAA,IAEP,gBAAgB,CAAC,UAAU,MAAM;AAAA,EACnC;AAAA,EACA,SAAS;AAAA,IACP,eAAe,QAAQ;AACrB,WAAK,cAAc;AAAA,IACrB;AAAA;AAAA,IAEA,WAAW,YAAY;AACrB,WAAK,SAAS,KAAK,UAAU;AAAA,IAC/B;AAAA;AAAA,IAEA,kBAAkB;AAChB,WAAK,SAAS,QAAQ,CAAC,eAAY;AApBzC;AAoB4C,gCAAW,UAAX;AAAA,OAAoB;AAC1D,WAAK,WAAW,CAAC;AAAA,IACnB;AAAA,EACF;AAAA,EACA,SAAS;AACX,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769449,
+      "end": 1714699769449,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769449,
+      "end": 1714699769449,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769449,
+      "end": 1714699769449,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769449,
+      "end": 1714699769449,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769449,
+      "end": 1714699769449,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769449,
+      "end": 1714699769449,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769449,
+      "end": 1714699769449,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769449,
+      "end": 1714699769449,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769449,
+      "end": 1714699769449,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699769449,
+      "end": 1714699769449,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769450,
+      "end": 1714699769450,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769450,
+      "end": 1714699769450,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769450,
+      "end": 1714699769450,
+      "order": "normal"
+    }
+  ]
+}

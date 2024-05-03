@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/objectEach.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var hasOwnProp = require('./hasOwnProp')\r\n\r\nfunction objectEach (obj, iterate, context) {\r\n  if (obj) {\r\n    for (var key in obj) {\r\n      if (hasOwnProp(obj, key)) {\r\n        iterate.call(context, obj[key], key, obj)\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\nmodule.exports = objectEach\r\n",
+      "start": 1714699767512,
+      "end": 1714699767558,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767558,
+      "end": 1714699767558,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767558,
+      "end": 1714699767558,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767558,
+      "end": 1714699767558,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767558,
+      "end": 1714699767558,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767558,
+      "end": 1714699767558,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767558,
+      "end": 1714699767558,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var hasOwnProp = require('./hasOwnProp')\r\n\r\nfunction objectEach (obj, iterate, context) {\r\n  if (obj) {\r\n    for (var key in obj) {\r\n      if (hasOwnProp(obj, key)) {\r\n        iterate.call(context, obj[key], key, obj)\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\nmodule.exports = objectEach\r\n",
+      "start": 1714699767558,
+      "end": 1714699767558,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767558,
+      "end": 1714699767558,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767558,
+      "end": 1714699767558,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767558,
+      "end": 1714699767558,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767558,
+      "end": 1714699767558,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767558,
+      "end": 1714699767558,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767558,
+      "end": 1714699767558,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/hasOwnProp.js?commonjs-proxy\";\n\nvar hasOwnProp = require$$0\r\n\r\nfunction objectEach (obj, iterate, context) {\r\n  if (obj) {\r\n    for (var key in obj) {\r\n      if (hasOwnProp(obj, key)) {\r\n        iterate.call(context, obj[key], key, obj)\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\nvar objectEach_1 = objectEach\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(objectEach_1);\nexport { objectEach_1 as __moduleExports };",
+      "start": 1714699767558,
+      "end": 1714699767615,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;AAAA,IAAI,UAAU,GAAG,UAAuB;AACxC;AACA,SAAS,UAAU,EAAE,GAAG,EAAE,OAAO,EAAE,OAAO,EAAE;AAC5C,EAAE,IAAI,GAAG,EAAE;AACX,IAAI,KAAK,IAAI,GAAG,IAAI,GAAG,EAAE;AACzB,MAAM,IAAI,UAAU,CAAC,GAAG,EAAE,GAAG,CAAC,EAAE;AAChC,QAAQ,OAAO,CAAC,IAAI,CAAC,OAAO,EAAE,GAAG,CAAC,GAAG,CAAC,EAAE,GAAG,EAAE,GAAG,CAAC;AACjD,OAAO;AACP,KAAK;AACL,GAAG;AACH,CAAC;AACD;IACA,YAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767615,
+      "end": 1714699767615,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767615,
+      "end": 1714699767615,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767615,
+      "end": 1714699767615,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767615,
+      "end": 1714699767615,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767615,
+      "end": 1714699767615,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767615,
+      "end": 1714699767615,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767615,
+      "end": 1714699767615,
+      "order": "normal"
+    }
+  ]
+}

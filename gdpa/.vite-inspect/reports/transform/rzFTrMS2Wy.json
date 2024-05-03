@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TodayActivity.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\nimport { userDoTaskApi } from '@/apis/taskActivity'\nimport progressbarGrey from '@/assets/images/common/progressbar-grey.png'\nimport progressbarYellow from '@/assets/images/common/progressbar-yellow.png'\nimport success from '@/assets/images/common/success.png'\nimport { useEntryStore } from '@/store'\nimport { useTaskActivityStore } from '@/store/modules/taskActivity'\nimport { INormal } from '@/store/types/entry'\nimport { IAction, IDayAction, IUserActionData } from '@/store/types/taskActivity'\nimport mitt from '@/utils/mitt'\nimport { storeToRefs } from 'pinia'\nimport { showToast } from 'vant'\nimport { computed, onMounted, onUnmounted, ref } from 'vue'\nimport Task from './Task.vue'\nimport { DAILYTASK } from './tools'\n\nconst emit = defineEmits(['update-coins'])\n\nconst activityValue = ref(0)\nconst finalTarget = ref(0)\n\ntype TAction = Partial<IAction>\nconst awardPointList = ref<TAction[]>([\n  {\n    class: 'point-10'\n  },\n  {\n    class: 'point-10'\n  },\n  {\n    class: 'point-30'\n  },\n  {\n    class: 'point-50'\n  },\n  {\n    class: 'point-80'\n  }\n])\nconst dailyTaskList = ref<IDayAction[]>([])\nconst barGrey = ref()\nconst barYellow = ref()\n\nconst entryStore = useEntryStore()\nconst { config } = storeToRefs(entryStore)\n\nconst appDomain = computed(() => {\n  return (config.value.Web_Set_DefaultInfo?.imgserver_url as INormal).v || ''\n})\n\nconst taskActivityStore = useTaskActivityStore()\nconst { getUserActionListApi } = taskActivityStore\nconst { userActionList } = storeToRefs(taskActivityStore)\n\nconst handleTodayActivityData = (data: IUserActionData) => {\n  activityValue.value = data.total\n  awardPointList.value = data.actions\n  dailyTaskList.value = data.dayactions\n  finalTarget.value = +(data.actions[data.actions.length - 1].target ?? 0)\n\n  barYellow.value.style.width =\n    (activityValue.value / finalTarget.value) * barGrey.value.clientWidth + 'px'\n}\nconst getUserActionList = async (isReq: boolean = false) => {\n  try {\n    // if (userActionList.value.dayactions && !isReq) {\n    //   handleTodayActivityData(userActionList.value)\n    //   return\n    // }\n\n    const res = await getUserActionListApi()\n\n    window.log('每日活跃度任务列表', res)\n\n    if (res) {\n      handleTodayActivityData(res)\n    }\n  } catch (error) {\n    console.error(error)\n  }\n}\n\nconst awardBox = ref()\n// 计算积分宝箱的位置\nconst awardBoxPos = (item: TAction, index: number) => {\n  if (awardBox.value?.[index]) {\n    if (!item.target) return\n\n    // 宝箱一半的距离，最后一个宝箱微调\n    const distance = +(item.target as unknown as number) === finalTarget.value ? 32 : 53 / 2\n    // 宝箱偏移位置\n    const left =\n      Math.abs(\n        (+(item.target as unknown as number) / finalTarget.value) * barGrey.value.clientWidth -\n          distance\n      ) + 'px'\n    return `left: ${left}`\n  }\n}\n\n// 点击宝箱领取积分\nconst getBoxAward = async (item: TAction) => {\n  try {\n    if (!item.cando) return\n\n    const res = await userDoTaskApi({\n      idd: userActionList.value.task_idd,\n      levelid: item.id\n    })\n\n    // 领取积分后更新积分数据\n    if (res.money) {\n      getUserActionList()\n      emit('update-coins', true)\n\n      showToast({\n        message: `领取成功，+${res.money}积分`,\n        icon: success,\n        teleport: '.today-activity-container'\n      })\n    }\n\n    window.log('领取宝箱积分奖励', res)\n  } catch (error) {\n    console.error(error)\n  }\n}\n\nonMounted(() => {\n  getUserActionList()\n  mitt.on('updateTodayActivity', getUserActionList)\n})\nonUnmounted(() => {\n  mitt.off('updateTodayActivity', getUserActionList)\n})\n</script>\n\n<template>\n  <div class=\"today-activity-container\">\n    <div class=\"container-title\">\n      今日活跃度：\n      <span>{{ activityValue }}</span>\n    </div>\n    <div class=\"progressbar-container\">\n      <img\n        :src=\"progressbarGrey\"\n        class=\"progressbar-grey\"\n        ref=\"barGrey\"\n      />\n      <img\n        :src=\"progressbarYellow\"\n        class=\"progressbar-yellow\"\n        ref=\"barYellow\"\n      />\n      <div class=\"award-point-wrapper flex items-center\">\n        <div\n          v-for=\"(item, index) in awardPointList\"\n          :key=\"index\"\n          ref=\"awardBox\"\n          class=\"item-point-column flex flex-col items-center\"\n          :style=\"awardBoxPos(item, index)\"\n        >\n          <img\n            v-if=\"item.task_img\"\n            :src=\"appDomain + item.task_img\"\n            class=\"award-box\"\n            :class=\"{ 'award-gray-box': item.flag }\"\n            @click=\"getBoxAward(item)\"\n          />\n          <i\n            v-else\n            :class=\"item.class\"\n          ></i>\n          <div class=\"award-point-value\">{{ item.target }}</div>\n          <i\n            v-if=\"item.cando\"\n            class=\"light-step\"\n          ></i>\n          <i\n            v-if=\"item.flag\"\n            class=\"received\"\n          ></i>\n        </div>\n      </div>\n    </div>\n    <div class=\"task-container\">\n      <div class=\"task-tips\">完成每日任务，获得活跃度!</div>\n      <Task\n        :list=\"dailyTaskList\"\n        :type=\"DAILYTASK\"\n        @update-list=\"getUserActionList\"\n      />\n    </div>\n  </div>\n</template>\n\n<style lang=\"scss\" score>\n@import '@/assets/styles/sprite-point.scss';\n\n.today-activity-container {\n  width: 100%;\n  padding: 30px 20px;\n  margin-bottom: 20px;\n  background-color: #fff;\n  border-radius: 14px;\n  .container-title {\n    font-size: 28px;\n    text-align: left;\n    margin-bottom: 15px;\n    color: #13161b;\n    span {\n      color: #ffc000;\n    }\n  }\n  .progressbar-container {\n    position: relative;\n    margin-bottom: 15px;\n    .progressbar-grey,\n    .progressbar-yellow {\n      position: absolute;\n      left: 0;\n      top: 44px;\n      height: 20px;\n    }\n    .progressbar-grey {\n      width: calc(100% - 20px);\n    }\n    .progressbar-yellow {\n      width: 0;\n      left: -1px;\n      border-top-left-radius: 20px;\n      border-bottom-left-radius: 20px;\n    }\n    .award-point-wrapper {\n      // position: relative;\n      height: 114px;\n      .award-box {\n        width: 106px;\n        position: relative;\n        z-index: 9;\n      }\n      .award-gray-box {\n        filter: grayscale(100%);\n      }\n      .award-point-value {\n        margin-top: -16px;\n        font-size: 21px;\n        color: #ffc000;\n      }\n    }\n    .point-80 {\n      margin-top: -4px;\n    }\n    .item-point-column {\n      position: absolute;\n      left: 0;\n      transition: all 0.3s ease-in-out;\n      [class*='point-'] {\n        position: relative;\n        z-index: 9;\n      }\n      .light-step {\n        position: absolute;\n        top: -6px;\n        animation: lightRotate 4.3s linear infinite;\n      }\n      .received {\n        position: absolute;\n        top: calc(50% - 8px);\n        transform: translate3d(0, -50%, 0);\n        // left: 6px;\n        z-index: 10;\n      }\n    }\n  }\n  .task-container {\n    .task-tips {\n      font-size: 25px;\n      color: #a1a7b2;\n      text-align: left;\n    }\n  }\n\n  .van-toast {\n    width: 270px;\n    height: 270px;\n    padding: 40px;\n    font-size: 33px;\n    .van-toast__icon {\n      font-size: 110px;\n    }\n    .van-toast__text {\n      margin-top: 15px;\n      line-height: 1.5;\n    }\n  }\n}\n\n@keyframes lightRotate {\n  to {\n    transform: rotate(360deg);\n  }\n}\n</style>\n",
+      "start": 1714699770786,
+      "end": 1714699770798,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699770798,
+      "end": 1714699770798,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699770798,
+      "end": 1714699770798,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699770798,
+      "end": 1714699770798,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699770798,
+      "end": 1714699770798,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TodayActivity.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TodayActivity.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TodayActivity.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TodayActivity.vue\"]]);\n",
+      "start": 1714699770798,
+      "end": 1714699771793,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771793,
+      "end": 1714699771793,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TodayActivity.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TodayActivity.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TodayActivity.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TodayActivity.vue\"]]);\n",
+      "start": 1714699771793,
+      "end": 1714699771793,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TodayActivity.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TodayActivity.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TodayActivity.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TodayActivity.vue\"]]);\n",
+      "start": 1714699771793,
+      "end": 1714699771898,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TodayActivity.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TodayActivity.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TodayActivity.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TodayActivity.vue?vue&type=style&index=0&score=true&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TodayActivity.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,UAAU,8EAA8E,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771898,
+      "end": 1714699771898,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TodayActivity.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TodayActivity.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TodayActivity.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TodayActivity.vue\"]]);\n",
+      "start": 1714699771899,
+      "end": 1714699771899,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TodayActivity.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TodayActivity.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TodayActivity.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TodayActivity.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TodayActivity.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771899,
+      "end": 1714699771899,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771899,
+      "end": 1714699771899,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771899,
+      "end": 1714699771899,
+      "order": "normal"
+    }
+  ]
+}

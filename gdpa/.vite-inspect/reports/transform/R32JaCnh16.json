@@ -1,0 +1,156 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/router/module/order.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "const order = [\n  {\n    path: '/orderList', // 挂单详情\n    name: 'orderList',\n    component: () => import(/* webpackChunkName: \"order\" */ '@/pages/Order/list.vue')\n  }\n]\n\nexport default order\n",
+      "start": 1714699767956,
+      "end": 1714699768012,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768012,
+      "end": 1714699768012,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "const order = [\n  {\n    path: \"/orderList\",\n    // 挂单详情\n    name: \"orderList\",\n    component: () => import(\n      /* webpackChunkName: \"order\" */\n      \"@/pages/Order/list.vue\"\n    )\n  }\n];\nexport default order;\n",
+      "start": 1714699768012,
+      "end": 1714699769058,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/router/module/order.ts"
+        ],
+        "sourcesContent": [
+          "const order = [\n  {\n    path: '/orderList', // 挂单详情\n    name: 'orderList',\n    component: () => import(/* webpackChunkName: \"order\" */ '@/pages/Order/list.vue')\n  }\n]\n\nexport default order\n"
+        ],
+        "mappings": "AAAA,MAAM,QAAQ;AAAA,EACZ;AAAA,IACE,MAAM;AAAA;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MAAM;AAAA;AAAA,MAAuC;AAAA,IAAwB;AAAA,EAClF;AACF;AAEA,eAAe;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769058,
+      "end": 1714699769058,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769058,
+      "end": 1714699769058,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699769059,
+      "end": 1714699769059,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769059,
+      "end": 1714699769059,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "const order = [\n  {\n    path: \"/orderList\",\n    // 挂单详情\n    name: \"orderList\",\n    component: () => import(\n      /* webpackChunkName: \"order\" */\n      \"@/pages/Order/list.vue\"\n    )\n  }\n];\nexport default order;\n",
+      "start": 1714699769059,
+      "end": 1714699769059,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nconst order = [\n  {\n    path: \"/orderList\",\n    // 挂单详情\n    name: \"orderList\",\n    component: () => import(\n      /* webpackChunkName: \"order\" */\n      \"@/pages/Order/list.vue\"\n    )\n  }\n];\nexport default order;\n",
+      "start": 1714699769059,
+      "end": 1714699769397,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/router/module/order.ts\"],\n  \"sourcesContent\": [\"const order = [\\n  {\\n    path: \\\"/orderList\\\",\\n    // \\u6302\\u5355\\u8BE6\\u60C5\\n    name: \\\"orderList\\\",\\n    component: () => import(\\n      /* webpackChunkName: \\\"order\\\" */\\n      \\\"@/pages/Order/list.vue\\\"\\n    )\\n  }\\n];\\nexport default order;\\n\"],\n  \"mappings\": \";AAAA,MAAM,QAAQ;AAAA,EACZ;AAAA,IACE,MAAM;AAAA;AAAA,IAEN,MAAM;AAAA,IACN,WAAW,MAAM;AAAA;AAAA,MAEf;AAAA,IACF;AAAA,EACF;AACF;AACA,eAAe;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769397,
+      "end": 1714699769398,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699769398,
+      "end": 1714699769398,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769398,
+      "end": 1714699769398,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "result": "import { __vitePreload } from \"\u0000vite/preload-helper.js\";\"use strict\";\nconst order = [\n  {\n    path: \"/orderList\",\n    // 挂单详情\n    name: \"orderList\",\n    component: () => __vitePreload(() => import(\n      /* webpackChunkName: \"order\" */\n      \"@/pages/Order/list.vue\"\n    ),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url)\n  }\n];\nexport default order;\n",
+      "start": 1714699769398,
+      "end": 1714699769398,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769398,
+      "end": 1714699769398,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/collapse-item/CollapseItem.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { withDirectives as _withDirectives, vShow as _vShow, createVNode as _createVNode, mergeProps as _mergeProps } from \"vue\";\nimport { ref, watch, computed, nextTick, defineComponent } from \"vue\";\nimport { cellSharedProps } from \"../cell/Cell.mjs\";\nimport { pick, extend, truthProp, numericProp, createNamespace } from \"../utils/index.mjs\";\nimport { COLLAPSE_KEY } from \"../collapse/Collapse.mjs\";\nimport { raf, doubleRaf, useParent } from \"@vant/use\";\nimport { useExpose } from \"../composables/use-expose.mjs\";\nimport { useLazyRender } from \"../composables/use-lazy-render.mjs\";\nimport { Cell } from \"../cell/index.mjs\";\nconst [name, bem] = createNamespace(\"collapse-item\");\nconst CELL_SLOTS = [\"icon\", \"title\", \"value\", \"label\", \"right-icon\"];\nconst collapseItemProps = extend({}, cellSharedProps, {\n  name: numericProp,\n  isLink: truthProp,\n  disabled: Boolean,\n  readonly: Boolean,\n  lazyRender: truthProp\n});\nvar stdin_default = defineComponent({\n  name,\n  props: collapseItemProps,\n  setup(props, {\n    slots\n  }) {\n    const wrapperRef = ref();\n    const contentRef = ref();\n    const {\n      parent,\n      index\n    } = useParent(COLLAPSE_KEY);\n    if (!parent) {\n      if (process.env.NODE_ENV !== \"production\") {\n        console.error(\"[Vant] <CollapseItem> must be a child component of <Collapse>.\");\n      }\n      return;\n    }\n    const name2 = computed(() => {\n      var _a;\n      return (_a = props.name) != null ? _a : index.value;\n    });\n    const expanded = computed(() => parent.isExpanded(name2.value));\n    const show = ref(expanded.value);\n    const lazyRender = useLazyRender(() => show.value || !props.lazyRender);\n    const onTransitionEnd = () => {\n      if (!expanded.value) {\n        show.value = false;\n      } else if (wrapperRef.value) {\n        wrapperRef.value.style.height = \"\";\n      }\n    };\n    watch(expanded, (value, oldValue) => {\n      if (oldValue === null) {\n        return;\n      }\n      if (value) {\n        show.value = true;\n      }\n      const tick = value ? nextTick : raf;\n      tick(() => {\n        if (!contentRef.value || !wrapperRef.value) {\n          return;\n        }\n        const {\n          offsetHeight\n        } = contentRef.value;\n        if (offsetHeight) {\n          const contentHeight = `${offsetHeight}px`;\n          wrapperRef.value.style.height = value ? \"0\" : contentHeight;\n          doubleRaf(() => {\n            if (wrapperRef.value) {\n              wrapperRef.value.style.height = value ? contentHeight : \"0\";\n            }\n          });\n        } else {\n          onTransitionEnd();\n        }\n      });\n    });\n    const toggle = (newValue = !expanded.value) => {\n      parent.toggle(name2.value, newValue);\n    };\n    const onClickTitle = () => {\n      if (!props.disabled && !props.readonly) {\n        toggle();\n      }\n    };\n    const renderTitle = () => {\n      const {\n        border,\n        disabled,\n        readonly\n      } = props;\n      const attrs = pick(props, Object.keys(cellSharedProps));\n      if (readonly) {\n        attrs.isLink = false;\n      }\n      if (disabled || readonly) {\n        attrs.clickable = false;\n      }\n      return _createVNode(Cell, _mergeProps({\n        \"role\": \"button\",\n        \"class\": bem(\"title\", {\n          disabled,\n          expanded: expanded.value,\n          borderless: !border\n        }),\n        \"aria-expanded\": String(expanded.value),\n        \"onClick\": onClickTitle\n      }, attrs), pick(slots, CELL_SLOTS));\n    };\n    const renderContent = lazyRender(() => {\n      var _a;\n      return _withDirectives(_createVNode(\"div\", {\n        \"ref\": wrapperRef,\n        \"class\": bem(\"wrapper\"),\n        \"onTransitionend\": onTransitionEnd\n      }, [_createVNode(\"div\", {\n        \"ref\": contentRef,\n        \"class\": bem(\"content\")\n      }, [(_a = slots.default) == null ? void 0 : _a.call(slots)])]), [[_vShow, show.value]]);\n    });\n    useExpose({\n      toggle,\n      expanded,\n      itemName: name2\n    });\n    return () => _createVNode(\"div\", {\n      \"class\": [bem({\n        border: index.value && props.border\n      })]\n    }, [renderTitle(), renderContent()]);\n  }\n});\nexport {\n  collapseItemProps,\n  stdin_default as default\n};\n",
+      "start": 1714699767189,
+      "end": 1714699767249,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767249,
+      "end": 1714699767249,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767249,
+      "end": 1714699767249,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767249,
+      "end": 1714699767249,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767249,
+      "end": 1714699767249,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767249,
+      "end": 1714699767249,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767249,
+      "end": 1714699767249,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { withDirectives as _withDirectives, vShow as _vShow, createVNode as _createVNode, mergeProps as _mergeProps } from \"vue\";\nimport { ref, watch, computed, nextTick, defineComponent } from \"vue\";\nimport { cellSharedProps } from \"../cell/Cell.mjs\";\nimport { pick, extend, truthProp, numericProp, createNamespace } from \"../utils/index.mjs\";\nimport { COLLAPSE_KEY } from \"../collapse/Collapse.mjs\";\nimport { raf, doubleRaf, useParent } from \"@vant/use\";\nimport { useExpose } from \"../composables/use-expose.mjs\";\nimport { useLazyRender } from \"../composables/use-lazy-render.mjs\";\nimport { Cell } from \"../cell/index.mjs\";\nconst [name, bem] = createNamespace(\"collapse-item\");\nconst CELL_SLOTS = [\"icon\", \"title\", \"value\", \"label\", \"right-icon\"];\nconst collapseItemProps = extend({}, cellSharedProps, {\n  name: numericProp,\n  isLink: truthProp,\n  disabled: Boolean,\n  readonly: Boolean,\n  lazyRender: truthProp\n});\nvar stdin_default = defineComponent({\n  name,\n  props: collapseItemProps,\n  setup(props, {\n    slots\n  }) {\n    const wrapperRef = ref();\n    const contentRef = ref();\n    const {\n      parent,\n      index\n    } = useParent(COLLAPSE_KEY);\n    if (!parent) {\n      if (process.env.NODE_ENV !== \"production\") {\n        console.error(\"[Vant] <CollapseItem> must be a child component of <Collapse>.\");\n      }\n      return;\n    }\n    const name2 = computed(() => {\n      var _a;\n      return (_a = props.name) != null ? _a : index.value;\n    });\n    const expanded = computed(() => parent.isExpanded(name2.value));\n    const show = ref(expanded.value);\n    const lazyRender = useLazyRender(() => show.value || !props.lazyRender);\n    const onTransitionEnd = () => {\n      if (!expanded.value) {\n        show.value = false;\n      } else if (wrapperRef.value) {\n        wrapperRef.value.style.height = \"\";\n      }\n    };\n    watch(expanded, (value, oldValue) => {\n      if (oldValue === null) {\n        return;\n      }\n      if (value) {\n        show.value = true;\n      }\n      const tick = value ? nextTick : raf;\n      tick(() => {\n        if (!contentRef.value || !wrapperRef.value) {\n          return;\n        }\n        const {\n          offsetHeight\n        } = contentRef.value;\n        if (offsetHeight) {\n          const contentHeight = `${offsetHeight}px`;\n          wrapperRef.value.style.height = value ? \"0\" : contentHeight;\n          doubleRaf(() => {\n            if (wrapperRef.value) {\n              wrapperRef.value.style.height = value ? contentHeight : \"0\";\n            }\n          });\n        } else {\n          onTransitionEnd();\n        }\n      });\n    });\n    const toggle = (newValue = !expanded.value) => {\n      parent.toggle(name2.value, newValue);\n    };\n    const onClickTitle = () => {\n      if (!props.disabled && !props.readonly) {\n        toggle();\n      }\n    };\n    const renderTitle = () => {\n      const {\n        border,\n        disabled,\n        readonly\n      } = props;\n      const attrs = pick(props, Object.keys(cellSharedProps));\n      if (readonly) {\n        attrs.isLink = false;\n      }\n      if (disabled || readonly) {\n        attrs.clickable = false;\n      }\n      return _createVNode(Cell, _mergeProps({\n        \"role\": \"button\",\n        \"class\": bem(\"title\", {\n          disabled,\n          expanded: expanded.value,\n          borderless: !border\n        }),\n        \"aria-expanded\": String(expanded.value),\n        \"onClick\": onClickTitle\n      }, attrs), pick(slots, CELL_SLOTS));\n    };\n    const renderContent = lazyRender(() => {\n      var _a;\n      return _withDirectives(_createVNode(\"div\", {\n        \"ref\": wrapperRef,\n        \"class\": bem(\"wrapper\"),\n        \"onTransitionend\": onTransitionEnd\n      }, [_createVNode(\"div\", {\n        \"ref\": contentRef,\n        \"class\": bem(\"content\")\n      }, [(_a = slots.default) == null ? void 0 : _a.call(slots)])]), [[_vShow, show.value]]);\n    });\n    useExpose({\n      toggle,\n      expanded,\n      itemName: name2\n    });\n    return () => _createVNode(\"div\", {\n      \"class\": [bem({\n        border: index.value && props.border\n      })]\n    }, [renderTitle(), renderContent()]);\n  }\n});\nexport {\n  collapseItemProps,\n  stdin_default as default\n};\n",
+      "start": 1714699767249,
+      "end": 1714699767249,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767249,
+      "end": 1714699767249,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "result": "import { withDirectives as _withDirectives, vShow as _vShow, createVNode as _createVNode, mergeProps as _mergeProps } from \"vue\";\nimport { ref, watch, computed, nextTick, defineComponent } from \"vue\";\nimport { cellSharedProps } from \"../cell/Cell.mjs\";\nimport { pick, extend, truthProp, numericProp, createNamespace } from \"../utils/index.mjs\";\nimport { COLLAPSE_KEY } from \"../collapse/Collapse.mjs\";\nimport { raf, doubleRaf, useParent } from \"@vant/use\";\nimport { useExpose } from \"../composables/use-expose.mjs\";\nimport { useLazyRender } from \"../composables/use-lazy-render.mjs\";\nimport { Cell } from \"../cell/index.mjs\";\nconst [name, bem] = createNamespace(\"collapse-item\");\nconst CELL_SLOTS = [\"icon\", \"title\", \"value\", \"label\", \"right-icon\"];\nconst collapseItemProps = extend({}, cellSharedProps, {\n  name: numericProp,\n  isLink: truthProp,\n  disabled: Boolean,\n  readonly: Boolean,\n  lazyRender: truthProp\n});\nvar stdin_default = defineComponent({\n  name,\n  props: collapseItemProps,\n  setup(props, {\n    slots\n  }) {\n    const wrapperRef = ref();\n    const contentRef = ref();\n    const {\n      parent,\n      index\n    } = useParent(COLLAPSE_KEY);\n    if (!parent) {\n      if (true) {\n        console.error(\"[Vant] <CollapseItem> must be a child component of <Collapse>.\");\n      }\n      return;\n    }\n    const name2 = computed(() => {\n      var _a;\n      return (_a = props.name) != null ? _a : index.value;\n    });\n    const expanded = computed(() => parent.isExpanded(name2.value));\n    const show = ref(expanded.value);\n    const lazyRender = useLazyRender(() => show.value || !props.lazyRender);\n    const onTransitionEnd = () => {\n      if (!expanded.value) {\n        show.value = false;\n      } else if (wrapperRef.value) {\n        wrapperRef.value.style.height = \"\";\n      }\n    };\n    watch(expanded, (value, oldValue) => {\n      if (oldValue === null) {\n        return;\n      }\n      if (value) {\n        show.value = true;\n      }\n      const tick = value ? nextTick : raf;\n      tick(() => {\n        if (!contentRef.value || !wrapperRef.value) {\n          return;\n        }\n        const {\n          offsetHeight\n        } = contentRef.value;\n        if (offsetHeight) {\n          const contentHeight = `${offsetHeight}px`;\n          wrapperRef.value.style.height = value ? \"0\" : contentHeight;\n          doubleRaf(() => {\n            if (wrapperRef.value) {\n              wrapperRef.value.style.height = value ? contentHeight : \"0\";\n            }\n          });\n        } else {\n          onTransitionEnd();\n        }\n      });\n    });\n    const toggle = (newValue = !expanded.value) => {\n      parent.toggle(name2.value, newValue);\n    };\n    const onClickTitle = () => {\n      if (!props.disabled && !props.readonly) {\n        toggle();\n      }\n    };\n    const renderTitle = () => {\n      const {\n        border,\n        disabled,\n        readonly\n      } = props;\n      const attrs = pick(props, Object.keys(cellSharedProps));\n      if (readonly) {\n        attrs.isLink = false;\n      }\n      if (disabled || readonly) {\n        attrs.clickable = false;\n      }\n      return _createVNode(Cell, _mergeProps({\n        \"role\": \"button\",\n        \"class\": bem(\"title\", {\n          disabled,\n          expanded: expanded.value,\n          borderless: !border\n        }),\n        \"aria-expanded\": String(expanded.value),\n        \"onClick\": onClickTitle\n      }, attrs), pick(slots, CELL_SLOTS));\n    };\n    const renderContent = lazyRender(() => {\n      var _a;\n      return _withDirectives(_createVNode(\"div\", {\n        \"ref\": wrapperRef,\n        \"class\": bem(\"wrapper\"),\n        \"onTransitionend\": onTransitionEnd\n      }, [_createVNode(\"div\", {\n        \"ref\": contentRef,\n        \"class\": bem(\"content\")\n      }, [(_a = slots.default) == null ? void 0 : _a.call(slots)])]), [[_vShow, show.value]]);\n    });\n    useExpose({\n      toggle,\n      expanded,\n      itemName: name2\n    });\n    return () => _createVNode(\"div\", {\n      \"class\": [bem({\n        border: index.value && props.border\n      })]\n    }, [renderTitle(), renderContent()]);\n  }\n});\nexport {\n  collapseItemProps,\n  stdin_default as default\n};\n",
+      "start": 1714699767249,
+      "end": 1714699767407,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767407,
+      "end": 1714699767407,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767407,
+      "end": 1714699767407,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767407,
+      "end": 1714699767407,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767407,
+      "end": 1714699767407,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767407,
+      "end": 1714699767407,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767407,
+      "end": 1714699767407,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767407,
+      "end": 1714699767407,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767407,
+      "end": 1714699767407,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767407,
+      "end": 1714699767407,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767407,
+      "end": 1714699767407,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767407,
+      "end": 1714699767407,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767407,
+      "end": 1714699767407,
+      "order": "normal"
+    }
+  ]
+}

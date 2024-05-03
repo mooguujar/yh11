@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/cell/Cell.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { defineComponent } from \"vue\";\nimport { isDef, extend, truthProp, unknownProp, numericProp, makeStringProp, createNamespace } from \"../utils/index.mjs\";\nimport { useRoute, routeProps } from \"../composables/use-route.mjs\";\nimport { Icon } from \"../icon/index.mjs\";\nconst [name, bem] = createNamespace(\"cell\");\nconst cellSharedProps = {\n  tag: makeStringProp(\"div\"),\n  icon: String,\n  size: String,\n  title: numericProp,\n  value: numericProp,\n  label: numericProp,\n  center: Boolean,\n  isLink: Boolean,\n  border: truthProp,\n  iconPrefix: String,\n  valueClass: unknownProp,\n  labelClass: unknownProp,\n  titleClass: unknownProp,\n  titleStyle: null,\n  arrowDirection: String,\n  required: {\n    type: [Boolean, String],\n    default: null\n  },\n  clickable: {\n    type: Boolean,\n    default: null\n  }\n};\nconst cellProps = extend({}, cellSharedProps, routeProps);\nvar stdin_default = defineComponent({\n  name,\n  props: cellProps,\n  setup(props, {\n    slots\n  }) {\n    const route = useRoute();\n    const renderLabel = () => {\n      const showLabel = slots.label || isDef(props.label);\n      if (showLabel) {\n        return _createVNode(\"div\", {\n          \"class\": [bem(\"label\"), props.labelClass]\n        }, [slots.label ? slots.label() : props.label]);\n      }\n    };\n    const renderTitle = () => {\n      var _a;\n      if (slots.title || isDef(props.title)) {\n        const titleSlot = (_a = slots.title) == null ? void 0 : _a.call(slots);\n        if (Array.isArray(titleSlot) && titleSlot.length === 0) {\n          return;\n        }\n        return _createVNode(\"div\", {\n          \"class\": [bem(\"title\"), props.titleClass],\n          \"style\": props.titleStyle\n        }, [titleSlot || _createVNode(\"span\", null, [props.title]), renderLabel()]);\n      }\n    };\n    const renderValue = () => {\n      const slot = slots.value || slots.default;\n      const hasValue = slot || isDef(props.value);\n      if (hasValue) {\n        return _createVNode(\"div\", {\n          \"class\": [bem(\"value\"), props.valueClass]\n        }, [slot ? slot() : _createVNode(\"span\", null, [props.value])]);\n      }\n    };\n    const renderLeftIcon = () => {\n      if (slots.icon) {\n        return slots.icon();\n      }\n      if (props.icon) {\n        return _createVNode(Icon, {\n          \"name\": props.icon,\n          \"class\": bem(\"left-icon\"),\n          \"classPrefix\": props.iconPrefix\n        }, null);\n      }\n    };\n    const renderRightIcon = () => {\n      if (slots[\"right-icon\"]) {\n        return slots[\"right-icon\"]();\n      }\n      if (props.isLink) {\n        const name2 = props.arrowDirection && props.arrowDirection !== \"right\" ? `arrow-${props.arrowDirection}` : \"arrow\";\n        return _createVNode(Icon, {\n          \"name\": name2,\n          \"class\": bem(\"right-icon\")\n        }, null);\n      }\n    };\n    return () => {\n      var _a;\n      const {\n        tag,\n        size,\n        center,\n        border,\n        isLink,\n        required\n      } = props;\n      const clickable = (_a = props.clickable) != null ? _a : isLink;\n      const classes = {\n        center,\n        required: !!required,\n        clickable,\n        borderless: !border\n      };\n      if (size) {\n        classes[size] = !!size;\n      }\n      return _createVNode(tag, {\n        \"class\": bem(classes),\n        \"role\": clickable ? \"button\" : void 0,\n        \"tabindex\": clickable ? 0 : void 0,\n        \"onClick\": route\n      }, {\n        default: () => {\n          var _a2;\n          return [renderLeftIcon(), renderTitle(), renderValue(), renderRightIcon(), (_a2 = slots.extra) == null ? void 0 : _a2.call(slots)];\n        }\n      });\n    };\n  }\n});\nexport {\n  cellProps,\n  cellSharedProps,\n  stdin_default as default\n};\n",
+      "start": 1714699767166,
+      "end": 1714699767246,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767246,
+      "end": 1714699767246,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767246,
+      "end": 1714699767246,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767246,
+      "end": 1714699767246,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767246,
+      "end": 1714699767246,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767246,
+      "end": 1714699767246,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767246,
+      "end": 1714699767246,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { defineComponent } from \"vue\";\nimport { isDef, extend, truthProp, unknownProp, numericProp, makeStringProp, createNamespace } from \"../utils/index.mjs\";\nimport { useRoute, routeProps } from \"../composables/use-route.mjs\";\nimport { Icon } from \"../icon/index.mjs\";\nconst [name, bem] = createNamespace(\"cell\");\nconst cellSharedProps = {\n  tag: makeStringProp(\"div\"),\n  icon: String,\n  size: String,\n  title: numericProp,\n  value: numericProp,\n  label: numericProp,\n  center: Boolean,\n  isLink: Boolean,\n  border: truthProp,\n  iconPrefix: String,\n  valueClass: unknownProp,\n  labelClass: unknownProp,\n  titleClass: unknownProp,\n  titleStyle: null,\n  arrowDirection: String,\n  required: {\n    type: [Boolean, String],\n    default: null\n  },\n  clickable: {\n    type: Boolean,\n    default: null\n  }\n};\nconst cellProps = extend({}, cellSharedProps, routeProps);\nvar stdin_default = defineComponent({\n  name,\n  props: cellProps,\n  setup(props, {\n    slots\n  }) {\n    const route = useRoute();\n    const renderLabel = () => {\n      const showLabel = slots.label || isDef(props.label);\n      if (showLabel) {\n        return _createVNode(\"div\", {\n          \"class\": [bem(\"label\"), props.labelClass]\n        }, [slots.label ? slots.label() : props.label]);\n      }\n    };\n    const renderTitle = () => {\n      var _a;\n      if (slots.title || isDef(props.title)) {\n        const titleSlot = (_a = slots.title) == null ? void 0 : _a.call(slots);\n        if (Array.isArray(titleSlot) && titleSlot.length === 0) {\n          return;\n        }\n        return _createVNode(\"div\", {\n          \"class\": [bem(\"title\"), props.titleClass],\n          \"style\": props.titleStyle\n        }, [titleSlot || _createVNode(\"span\", null, [props.title]), renderLabel()]);\n      }\n    };\n    const renderValue = () => {\n      const slot = slots.value || slots.default;\n      const hasValue = slot || isDef(props.value);\n      if (hasValue) {\n        return _createVNode(\"div\", {\n          \"class\": [bem(\"value\"), props.valueClass]\n        }, [slot ? slot() : _createVNode(\"span\", null, [props.value])]);\n      }\n    };\n    const renderLeftIcon = () => {\n      if (slots.icon) {\n        return slots.icon();\n      }\n      if (props.icon) {\n        return _createVNode(Icon, {\n          \"name\": props.icon,\n          \"class\": bem(\"left-icon\"),\n          \"classPrefix\": props.iconPrefix\n        }, null);\n      }\n    };\n    const renderRightIcon = () => {\n      if (slots[\"right-icon\"]) {\n        return slots[\"right-icon\"]();\n      }\n      if (props.isLink) {\n        const name2 = props.arrowDirection && props.arrowDirection !== \"right\" ? `arrow-${props.arrowDirection}` : \"arrow\";\n        return _createVNode(Icon, {\n          \"name\": name2,\n          \"class\": bem(\"right-icon\")\n        }, null);\n      }\n    };\n    return () => {\n      var _a;\n      const {\n        tag,\n        size,\n        center,\n        border,\n        isLink,\n        required\n      } = props;\n      const clickable = (_a = props.clickable) != null ? _a : isLink;\n      const classes = {\n        center,\n        required: !!required,\n        clickable,\n        borderless: !border\n      };\n      if (size) {\n        classes[size] = !!size;\n      }\n      return _createVNode(tag, {\n        \"class\": bem(classes),\n        \"role\": clickable ? \"button\" : void 0,\n        \"tabindex\": clickable ? 0 : void 0,\n        \"onClick\": route\n      }, {\n        default: () => {\n          var _a2;\n          return [renderLeftIcon(), renderTitle(), renderValue(), renderRightIcon(), (_a2 = slots.extra) == null ? void 0 : _a2.call(slots)];\n        }\n      });\n    };\n  }\n});\nexport {\n  cellProps,\n  cellSharedProps,\n  stdin_default as default\n};\n",
+      "start": 1714699767247,
+      "end": 1714699767247,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767247,
+      "end": 1714699767247,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767247,
+      "end": 1714699767247,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767247,
+      "end": 1714699767247,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767247,
+      "end": 1714699767247,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767247,
+      "end": 1714699767247,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767247,
+      "end": 1714699767247,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767247,
+      "end": 1714699767247,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767247,
+      "end": 1714699767247,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767247,
+      "end": 1714699767247,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767247,
+      "end": 1714699767247,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767247,
+      "end": 1714699767247,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767247,
+      "end": 1714699767247,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767247,
+      "end": 1714699767247,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767247,
+      "end": 1714699767247,
+      "order": "normal"
+    }
+  ]
+}

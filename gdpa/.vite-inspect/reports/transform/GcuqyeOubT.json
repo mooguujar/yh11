@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/password-input/PasswordInput.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { defineComponent } from \"vue\";\nimport { addUnit, truthProp, numericProp, BORDER_LEFT, makeStringProp, BORDER_SURROUND, createNamespace, makeNumericProp } from \"../utils/index.mjs\";\nconst [name, bem] = createNamespace(\"password-input\");\nconst passwordInputProps = {\n  info: String,\n  mask: truthProp,\n  value: makeStringProp(\"\"),\n  gutter: numericProp,\n  length: makeNumericProp(6),\n  focused: Boolean,\n  errorInfo: String\n};\nvar stdin_default = defineComponent({\n  name,\n  props: passwordInputProps,\n  emits: [\"focus\"],\n  setup(props, {\n    emit\n  }) {\n    const onTouchStart = (event) => {\n      event.stopPropagation();\n      emit(\"focus\", event);\n    };\n    const renderPoints = () => {\n      const Points = [];\n      const {\n        mask,\n        value,\n        gutter,\n        focused\n      } = props;\n      const length = +props.length;\n      for (let i = 0; i < length; i++) {\n        const char = value[i];\n        const showBorder = i !== 0 && !gutter;\n        const showCursor = focused && i === value.length;\n        let style;\n        if (i !== 0 && gutter) {\n          style = {\n            marginLeft: addUnit(gutter)\n          };\n        }\n        Points.push(_createVNode(\"li\", {\n          \"class\": [{\n            [BORDER_LEFT]: showBorder\n          }, bem(\"item\", {\n            focus: showCursor\n          })],\n          \"style\": style\n        }, [mask ? _createVNode(\"i\", {\n          \"style\": {\n            visibility: char ? \"visible\" : \"hidden\"\n          }\n        }, null) : char, showCursor && _createVNode(\"div\", {\n          \"class\": bem(\"cursor\")\n        }, null)]));\n      }\n      return Points;\n    };\n    return () => {\n      const info = props.errorInfo || props.info;\n      return _createVNode(\"div\", {\n        \"class\": bem()\n      }, [_createVNode(\"ul\", {\n        \"class\": [bem(\"security\"), {\n          [BORDER_SURROUND]: !props.gutter\n        }],\n        \"onTouchstartPassive\": onTouchStart\n      }, [renderPoints()]), info && _createVNode(\"div\", {\n        \"class\": bem(props.errorInfo ? \"error-info\" : \"info\")\n      }, [info])]);\n    };\n  }\n});\nexport {\n  stdin_default as default,\n  passwordInputProps\n};\n",
+      "start": 1714699767294,
+      "end": 1714699767315,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { defineComponent } from \"vue\";\nimport { addUnit, truthProp, numericProp, BORDER_LEFT, makeStringProp, BORDER_SURROUND, createNamespace, makeNumericProp } from \"../utils/index.mjs\";\nconst [name, bem] = createNamespace(\"password-input\");\nconst passwordInputProps = {\n  info: String,\n  mask: truthProp,\n  value: makeStringProp(\"\"),\n  gutter: numericProp,\n  length: makeNumericProp(6),\n  focused: Boolean,\n  errorInfo: String\n};\nvar stdin_default = defineComponent({\n  name,\n  props: passwordInputProps,\n  emits: [\"focus\"],\n  setup(props, {\n    emit\n  }) {\n    const onTouchStart = (event) => {\n      event.stopPropagation();\n      emit(\"focus\", event);\n    };\n    const renderPoints = () => {\n      const Points = [];\n      const {\n        mask,\n        value,\n        gutter,\n        focused\n      } = props;\n      const length = +props.length;\n      for (let i = 0; i < length; i++) {\n        const char = value[i];\n        const showBorder = i !== 0 && !gutter;\n        const showCursor = focused && i === value.length;\n        let style;\n        if (i !== 0 && gutter) {\n          style = {\n            marginLeft: addUnit(gutter)\n          };\n        }\n        Points.push(_createVNode(\"li\", {\n          \"class\": [{\n            [BORDER_LEFT]: showBorder\n          }, bem(\"item\", {\n            focus: showCursor\n          })],\n          \"style\": style\n        }, [mask ? _createVNode(\"i\", {\n          \"style\": {\n            visibility: char ? \"visible\" : \"hidden\"\n          }\n        }, null) : char, showCursor && _createVNode(\"div\", {\n          \"class\": bem(\"cursor\")\n        }, null)]));\n      }\n      return Points;\n    };\n    return () => {\n      const info = props.errorInfo || props.info;\n      return _createVNode(\"div\", {\n        \"class\": bem()\n      }, [_createVNode(\"ul\", {\n        \"class\": [bem(\"security\"), {\n          [BORDER_SURROUND]: !props.gutter\n        }],\n        \"onTouchstartPassive\": onTouchStart\n      }, [renderPoints()]), info && _createVNode(\"div\", {\n        \"class\": bem(props.errorInfo ? \"error-info\" : \"info\")\n      }, [info])]);\n    };\n  }\n});\nexport {\n  stdin_default as default,\n  passwordInputProps\n};\n",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767315,
+      "end": 1714699767315,
+      "order": "normal"
+    }
+  ]
+}

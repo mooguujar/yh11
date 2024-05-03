@@ -1,0 +1,142 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/es/v-x-e-table/src/store.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { warnLog } from '../../tools/log';\nimport XEUtils from 'xe-utils';\n/**\n * 创建数据仓库\n */\nvar Store = /** @class */ (function () {\n    function Store() {\n        this.store = {};\n    }\n    Store.prototype.mixin = function (options) {\n        var _this = this;\n        XEUtils.each(options, function (item, key) {\n            _this.add(key, item);\n        });\n        return this;\n    };\n    Store.prototype.has = function (name) {\n        return !!this.get(name);\n    };\n    Store.prototype.get = function (name) {\n        return this.store[name];\n    };\n    Store.prototype.add = function (name, render) {\n        var conf = this.store[name];\n        // 检测是否覆盖\n        if (process.env.NODE_ENV === 'development') {\n            var confKeys_1 = XEUtils.keys(conf);\n            XEUtils.each(render, function (item, key) {\n                if (confKeys_1.includes(key)) {\n                    warnLog('vxe.error.coverProp', [name, key]);\n                }\n            });\n        }\n        this.store[name] = conf ? XEUtils.merge(conf, render) : render;\n        return this;\n    };\n    Store.prototype.delete = function (name) {\n        delete this.store[name];\n    };\n    Store.prototype.forEach = function (callback) {\n        XEUtils.objectEach(this.store, callback);\n    };\n    return Store;\n}());\nexport { Store };\nexport default Store;\n",
+      "start": 1714699768216,
+      "end": 1714699768252,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768252,
+      "end": 1714699768252,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768252,
+      "end": 1714699768252,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768252,
+      "end": 1714699768252,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768252,
+      "end": 1714699768252,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768252,
+      "end": 1714699768252,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768252,
+      "end": 1714699768252,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { warnLog } from '../../tools/log';\nimport XEUtils from 'xe-utils';\n/**\n * 创建数据仓库\n */\nvar Store = /** @class */ (function () {\n    function Store() {\n        this.store = {};\n    }\n    Store.prototype.mixin = function (options) {\n        var _this = this;\n        XEUtils.each(options, function (item, key) {\n            _this.add(key, item);\n        });\n        return this;\n    };\n    Store.prototype.has = function (name) {\n        return !!this.get(name);\n    };\n    Store.prototype.get = function (name) {\n        return this.store[name];\n    };\n    Store.prototype.add = function (name, render) {\n        var conf = this.store[name];\n        // 检测是否覆盖\n        if (process.env.NODE_ENV === 'development') {\n            var confKeys_1 = XEUtils.keys(conf);\n            XEUtils.each(render, function (item, key) {\n                if (confKeys_1.includes(key)) {\n                    warnLog('vxe.error.coverProp', [name, key]);\n                }\n            });\n        }\n        this.store[name] = conf ? XEUtils.merge(conf, render) : render;\n        return this;\n    };\n    Store.prototype.delete = function (name) {\n        delete this.store[name];\n    };\n    Store.prototype.forEach = function (callback) {\n        XEUtils.objectEach(this.store, callback);\n    };\n    return Store;\n}());\nexport { Store };\nexport default Store;\n",
+      "start": 1714699768252,
+      "end": 1714699768252,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768252,
+      "end": 1714699768252,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "result": "import { warnLog } from \"../../tools/log\";\nimport XEUtils from \"xe-utils\";\nvar Store = (\n  /** @class */\n  function() {\n    function Store2() {\n      this.store = {};\n    }\n    Store2.prototype.mixin = function(options) {\n      var _this = this;\n      XEUtils.each(options, function(item, key) {\n        _this.add(key, item);\n      });\n      return this;\n    };\n    Store2.prototype.has = function(name) {\n      return !!this.get(name);\n    };\n    Store2.prototype.get = function(name) {\n      return this.store[name];\n    };\n    Store2.prototype.add = function(name, render) {\n      var conf = this.store[name];\n      if (false) {\n        var confKeys_1 = XEUtils.keys(conf);\n        XEUtils.each(render, function(item, key) {\n          if (confKeys_1.includes(key)) {\n            warnLog(\"vxe.error.coverProp\", [name, key]);\n          }\n        });\n      }\n      this.store[name] = conf ? XEUtils.merge(conf, render) : render;\n      return this;\n    };\n    Store2.prototype.delete = function(name) {\n      delete this.store[name];\n    };\n    Store2.prototype.forEach = function(callback) {\n      XEUtils.objectEach(this.store, callback);\n    };\n    return Store2;\n  }()\n);\nexport { Store };\nexport default Store;\n",
+      "start": 1714699768252,
+      "end": 1714699769070,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769070,
+      "end": 1714699769070,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769070,
+      "end": 1714699769070,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769070,
+      "end": 1714699769070,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769070,
+      "end": 1714699769070,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769070,
+      "end": 1714699769070,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769070,
+      "end": 1714699769070,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769070,
+      "end": 1714699769071,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769071,
+      "end": 1714699769071,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699769071,
+      "end": 1714699769071,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769071,
+      "end": 1714699769071,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769071,
+      "end": 1714699769071,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769071,
+      "end": 1714699769071,
+      "order": "normal"
+    }
+  ]
+}

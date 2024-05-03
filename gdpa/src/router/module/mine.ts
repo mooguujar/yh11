@@ -105,7 +105,10 @@ const mine = [
   {
     path: '/vip',
     name: 'Vip',
-    component: () => import('@/pages/Mine/vip.vue')
+    component: () => import('@/pages/Mine/vip.vue'),
+    meta: {
+      title: '会员权益'
+    }
   }
 ]
 

@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/_matchesStrictComparable.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "/**\n * A specialized version of `matchesProperty` for source values suitable\n * for strict equality comparisons, i.e. `===`.\n *\n * @private\n * @param {string} key The key of the property to get.\n * @param {*} srcValue The value to match.\n * @returns {Function} Returns the new spec function.\n */\nfunction matchesStrictComparable(key, srcValue) {\n  return function(object) {\n    if (object == null) {\n      return false;\n    }\n    return object[key] === srcValue &&\n      (srcValue !== undefined || (key in Object(object)));\n  };\n}\n\nexport default matchesStrictComparable;\n",
+      "start": 1714699768907,
+      "end": 1714699768924,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768924,
+      "end": 1714699768924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768924,
+      "end": 1714699768924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768924,
+      "end": 1714699768924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768924,
+      "end": 1714699768924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768924,
+      "end": 1714699768924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768924,
+      "end": 1714699768924,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "/**\n * A specialized version of `matchesProperty` for source values suitable\n * for strict equality comparisons, i.e. `===`.\n *\n * @private\n * @param {string} key The key of the property to get.\n * @param {*} srcValue The value to match.\n * @returns {Function} Returns the new spec function.\n */\nfunction matchesStrictComparable(key, srcValue) {\n  return function(object) {\n    if (object == null) {\n      return false;\n    }\n    return object[key] === srcValue &&\n      (srcValue !== undefined || (key in Object(object)));\n  };\n}\n\nexport default matchesStrictComparable;\n",
+      "start": 1714699768924,
+      "end": 1714699768924,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768924,
+      "end": 1714699768924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768924,
+      "end": 1714699768924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768924,
+      "end": 1714699768924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768924,
+      "end": 1714699768924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768924,
+      "end": 1714699768924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768924,
+      "end": 1714699768924,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768924,
+      "end": 1714699768924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768924,
+      "end": 1714699768924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768924,
+      "end": 1714699768924,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768924,
+      "end": 1714699768924,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768924,
+      "end": 1714699768924,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768924,
+      "end": 1714699768924,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768924,
+      "end": 1714699768924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768924,
+      "end": 1714699768924,
+      "order": "normal"
+    }
+  ]
+}

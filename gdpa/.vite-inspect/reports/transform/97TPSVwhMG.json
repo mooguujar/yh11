@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/credit.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <div class=\"verify w-100 bg-white flex flex-col justify-between\">\n    <nav-bar\n      title=\"信誉评分\"\n      mode=\"white\"\n    />\n\n    <div class=\"main-content-container\">\n      <div class=\"credit-content p-[22px] bg-[#ebf1f6] flex items-center flex-wrap justify-center\">\n        <div class=\"card mt-[30px] flex items-center justify-between relative\">\n          <img\n            :src=\"credit_bg\"\n            alt=\"\"\n            class=\"w-full h-full\"\n          />\n          <div class=\"flex absolute z-1 top-1 left-1\">\n            <div class=\"avatar relative overflow-hidden rounded-md bg-[#fff]\">\n              <div\n                class=\"avatar1\"\n                v-if=\"!authStore?.userInfo?.headimg\"\n              ></div>\n              <img\n                v-else\n                class=\"w-[110px] h-[110px] block\"\n                :src=\"imgServerUrl + authStore?.userInfo?.headimg\"\n                alt=\"\"\n              />\n            </div>\n            <div class=\"ml-[7.5px]\">\n              <div class=\"text-[42px] text-white\">\n                {{ userInfo?.nickname }}\n              </div>\n              <div class=\"text-[#fff] text-[28px]\">ID: {{ authStore?.userInfo?.username }}</div>\n            </div>\n          </div>\n          <div class=\"absolute left-1 bottom-[10px] flex items-center\">\n            <div class=\"text-white text-[32px] mr-1\">当前用户星级:</div>\n            <div\n              class=\"star w-[30px] mr-[10px] flex items-center\"\n              v-for=\"(star, index) in stars\"\n              :key=\"index\"\n            >\n              <img\n                v-if=\"star\"\n                :src=\"star_active\"\n                alt=\"\"\n                class=\"w-full h-full\"\n              />\n              <img\n                v-else\n                :src=\"star_blank\"\n                alt=\"\"\n                class=\"w-full h-full\"\n              />\n            </div>\n          </div>\n          <div class=\"absolute z-1 right-[85px] top-[120px] text-center\">\n            <div class=\"text-[28px] text-[#096eff]\">当前信誉评分</div>\n            <div class=\"text-[60px] text-[#096eff] text-center\">\n              {{ userScore?.score }}\n            </div>\n          </div>\n          <div></div>\n        </div>\n      </div>\n      <div class=\"credit-desc bg-white rounded-[10px] mt-[-25px] w-full px-2 py-2\">\n        <div class=\"item mb-[20px]\">\n          <div class=\"title text-[32px] text-black font-bold flex items-center\">\n            <img\n              class=\"mr-[12px] w-[8px]\"\n              :src=\"credit_label\"\n              alt=\"\"\n            />\n            信誉评分作用\n          </div>\n          <div class=\"desc text-[24px] text-[#787f8c] pl-1 mt-[5px]\">\n            信誉评分越高，交易匹配速度越快\n          </div>\n        </div>\n        <div class=\"item mb-[20px]\">\n          <div class=\"title text-[32px] text-black font-bold flex items-center\">\n            <img\n              class=\"mr-[12px] w-[8px]\"\n              :src=\"credit_label\"\n              alt=\"\"\n            />\n            信誉星级\n          </div>\n          <div class=\"desc text-[24px] text-[#787f8c] pl-1 mt-[5px]\">\n            信誉星级 ≤ 60\n            <br />\n            <div class=\"flex items-center\">\n              <img\n                :src=\"star_active\"\n                alt=\"\"\n                class=\"w-[30px] h-[30px] mr-[10px] mt-[10px]\"\n              />\n              <img\n                :src=\"star_active\"\n                alt=\"\"\n                class=\"w-[30px] h-[30px] mr-[10px] mt-[10px]\"\n              />\n              <img\n                :src=\"star_active\"\n                alt=\"\"\n                class=\"w-[30px] h-[30px] mr-[10px] mt-[10px]\"\n              />\n              <img\n                :src=\"star_blank\"\n                alt=\"\"\n                class=\"w-[30px] h-[30px] mr-[10px] mt-[10px]\"\n              />\n              <img\n                :src=\"star_blank\"\n                alt=\"\"\n                class=\"w-[30px] h-[30px] mr-[10px] mt-[10px]\"\n              />\n            </div>\n            <br />\n            信誉星级 61-80\n            <br />\n            <div class=\"flex items-center\">\n              <img\n                :src=\"star_active\"\n                alt=\"\"\n                class=\"w-[30px] h-[30px] mr-[10px] mt-[10px]\"\n              />\n              <img\n                :src=\"star_active\"\n                alt=\"\"\n                class=\"w-[30px] h-[30px] mr-[10px] mt-[10px]\"\n              />\n              <img\n                :src=\"star_active\"\n                alt=\"\"\n                class=\"w-[30px] h-[30px] mr-[10px] mt-[10px]\"\n              />\n              <img\n                :src=\"star_active\"\n                alt=\"\"\n                class=\"w-[30px] h-[30px] mr-[10px] mt-[10px]\"\n              />\n              <img\n                :src=\"star_blank\"\n                alt=\"\"\n                class=\"w-[30px] h-[30px] mr-[10px] mt-[10px]\"\n              />\n            </div>\n            <br />\n            信誉星级 81-100\n            <br />\n            <div class=\"flex items-center\">\n              <img\n                :src=\"star_active\"\n                alt=\"\"\n                class=\"w-[30px] h-[30px] mr-[10px] mt-[10px]\"\n              />\n              <img\n                :src=\"star_active\"\n                alt=\"\"\n                class=\"w-[30px] h-[30px] mr-[10px] mt-[10px]\"\n              />\n              <img\n                :src=\"star_active\"\n                alt=\"\"\n                class=\"w-[30px] h-[30px] mr-[10px] mt-[10px]\"\n              />\n              <img\n                :src=\"star_active\"\n                alt=\"\"\n                class=\"w-[30px] h-[30px] mr-[10px] mt-[10px]\"\n              />\n              <img\n                :src=\"star_active\"\n                alt=\"\"\n                class=\"w-[30px] h-[30px] mr-[10px] mt-[10px]\"\n              />\n            </div>\n          </div>\n        </div>\n        <div class=\"item mb-[20px]\">\n          <div class=\"title text-[32px] text-black font-bold flex items-center\">\n            <img\n              class=\"mr-[12px] w-[8px]\"\n              :src=\"credit_label\"\n              alt=\"\"\n            />\n            如何提升信誉评分\n          </div>\n          <div class=\"desc text-[24px] text-[#787f8c] pl-1 mt-[5px]\">\n            完成实名认证，规定时间内完成交易，获得交易买/卖方好评\n          </div>\n        </div>\n        <div class=\"item mb-[20px]\">\n          <div class=\"title text-[32px] text-black font-bold flex items-center\">\n            <img\n              class=\"mr-[12px] w-[8px]\"\n              :src=\"credit_label\"\n              alt=\"\"\n            />\n            信誉评分衰减条件\n          </div>\n          <div class=\"desc text-[24px] text-[#787f8c] pl-1 mt-[5px]\">\n            超时处理订单，频繁取消订单\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</template>\n\n<script setup lang=\"ts\">\nimport credit_bg from '@/assets/images/credit/credit_bg.png'\nimport credit_label from '@/assets/images/credit/credit_label.png'\nimport star_active from '@/assets/images/credit/star.png'\nimport star_blank from '@/assets/images/credit/star_blank.png'\nimport { useAuthStore, useEntryStore } from '@/store'\nimport { useUserStore } from '@/store/modules/user'\nimport { storeToRefs } from 'pinia'\nimport { computed, onMounted, ref } from 'vue'\nimport { useRouter } from 'vue-router'\n\nconst router = useRouter()\nconst userStore = useUserStore()\nconst authStore = useAuthStore()\nconst entryStore = useEntryStore()\nconst imgServerUrl = entryStore.imgServerUrl\nconst { userScore } = storeToRefs(userStore)\nconst { userInfo } = storeToRefs(authStore)\n\nconsole.log(userScore.value, 'userScore')\n\n// 信誉评分等级\nconst star_level = computed(() => userScore.value.scorelevel)\n// star列表\nconst stars = ref<boolean[]>([])\n\n// 更新星星填充数据\nconst gen_stars = () => {\n  for (let i = 0; i < 5; i++) {\n    if (i < star_level.value) {\n      // 添加对应评分等级（填充）\n      stars.value.push(true)\n    } else {\n      // 未达到对应评分等级时（不填充）\n      stars.value.push(false)\n    }\n  }\n}\n\nonMounted(() => {\n  // 先从缓存更新数据\n  gen_stars()\n\n  // 请求到最新数据后，再次更新\n  userStore.getUserScore().then(() => {\n    stars.value = []\n    gen_stars()\n  })\n})\n</script>\n\n<style lang=\"scss\" scoped>\n@import '@/assets/styles/sprite-mine.scss';\n\n.verify {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  .main-content-container {\n    flex: 1;\n    overflow-y: auto;\n  }\n}\n\n:deep(.van-field__label) {\n  font-size: 28px;\n  color: #13161b;\n  margin-bottom: 13px;\n}\n\n:deep(.van-cell__value) {\n  height: 79px;\n  background: #ebf1f6;\n  display: flex;\n  align-items: center;\n  padding: 0 17px;\n  font-size: 25px;\n  margin-bottom: 42px;\n}\n\n:deep(.van-cell:after) {\n  display: none;\n}\n\n:deep(.van-button--large) {\n  width: 96%;\n  height: 80px;\n  margin: 0 auto;\n  font-size: 31px;\n}\n\n:deep(.van-field__body) {\n  width: 100%;\n}\n</style>\n",
+      "start": 1714699769207,
+      "end": 1714699769290,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769290,
+      "end": 1714699769290,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769290,
+      "end": 1714699769290,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769290,
+      "end": 1714699769290,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769290,
+      "end": 1714699769290,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/credit.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/credit.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/credit.vue?vue&type=style&index=0&scoped=3ab31a0b&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-3ab31a0b\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/credit.vue\"]]);\n",
+      "start": 1714699769290,
+      "end": 1714699769534,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769534,
+      "end": 1714699769534,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/credit.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/credit.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/credit.vue?vue&type=style&index=0&scoped=3ab31a0b&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-3ab31a0b\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/credit.vue\"]]);\n",
+      "start": 1714699769534,
+      "end": 1714699769534,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/credit.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/credit.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/credit.vue?vue&type=style&index=0&scoped=3ab31a0b&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-3ab31a0b\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/credit.vue\"]]);\n",
+      "start": 1714699769534,
+      "end": 1714699769743,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/credit.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/credit.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/credit.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/credit.vue?vue&type=style&index=0&scoped=3ab31a0b&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-3ab31a0b\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/credit.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,iEAAiE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769743,
+      "end": 1714699769744,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/credit.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/credit.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/credit.vue?vue&type=style&index=0&scoped=3ab31a0b&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-3ab31a0b\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/credit.vue\"]]);\n",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/credit.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/credit.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/credit.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/credit.vue?vue&type=style&index=0&scoped=3ab31a0b&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-3ab31a0b\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/credit.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769744,
+      "end": 1714699769744,
+      "order": "normal"
+    }
+  ]
+}

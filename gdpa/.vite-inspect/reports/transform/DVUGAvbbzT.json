@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/unzipWith.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import apply from './_apply.js';\nimport arrayMap from './_arrayMap.js';\nimport unzip from './unzip.js';\n\n/**\n * This method is like `_.unzip` except that it accepts `iteratee` to specify\n * how regrouped values should be combined. The iteratee is invoked with the\n * elements of each group: (...group).\n *\n * @static\n * @memberOf _\n * @since 3.8.0\n * @category Array\n * @param {Array} array The array of grouped elements to process.\n * @param {Function} [iteratee=_.identity] The function to combine\n *  regrouped values.\n * @returns {Array} Returns the new array of regrouped elements.\n * @example\n *\n * var zipped = _.zip([1, 2], [10, 20], [100, 200]);\n * // => [[1, 10, 100], [2, 20, 200]]\n *\n * _.unzipWith(zipped, _.add);\n * // => [3, 30, 300]\n */\nfunction unzipWith(array, iteratee) {\n  if (!(array && array.length)) {\n    return [];\n  }\n  var result = unzip(array);\n  if (iteratee == null) {\n    return result;\n  }\n  return arrayMap(result, function(group) {\n    return apply(iteratee, undefined, group);\n  });\n}\n\nexport default unzipWith;\n",
+      "start": 1714699768554,
+      "end": 1714699768578,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768578,
+      "end": 1714699768578,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768578,
+      "end": 1714699768578,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768578,
+      "end": 1714699768578,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768578,
+      "end": 1714699768578,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768578,
+      "end": 1714699768578,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768578,
+      "end": 1714699768578,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import apply from './_apply.js';\nimport arrayMap from './_arrayMap.js';\nimport unzip from './unzip.js';\n\n/**\n * This method is like `_.unzip` except that it accepts `iteratee` to specify\n * how regrouped values should be combined. The iteratee is invoked with the\n * elements of each group: (...group).\n *\n * @static\n * @memberOf _\n * @since 3.8.0\n * @category Array\n * @param {Array} array The array of grouped elements to process.\n * @param {Function} [iteratee=_.identity] The function to combine\n *  regrouped values.\n * @returns {Array} Returns the new array of regrouped elements.\n * @example\n *\n * var zipped = _.zip([1, 2], [10, 20], [100, 200]);\n * // => [[1, 10, 100], [2, 20, 200]]\n *\n * _.unzipWith(zipped, _.add);\n * // => [3, 30, 300]\n */\nfunction unzipWith(array, iteratee) {\n  if (!(array && array.length)) {\n    return [];\n  }\n  var result = unzip(array);\n  if (iteratee == null) {\n    return result;\n  }\n  return arrayMap(result, function(group) {\n    return apply(iteratee, undefined, group);\n  });\n}\n\nexport default unzipWith;\n",
+      "start": 1714699768578,
+      "end": 1714699768578,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768578,
+      "end": 1714699768578,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768578,
+      "end": 1714699768578,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768578,
+      "end": 1714699768578,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768578,
+      "end": 1714699768578,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768578,
+      "end": 1714699768578,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768578,
+      "end": 1714699768578,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768578,
+      "end": 1714699768578,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768578,
+      "end": 1714699768578,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768578,
+      "end": 1714699768578,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768578,
+      "end": 1714699768578,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768578,
+      "end": 1714699768578,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768578,
+      "end": 1714699768578,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768578,
+      "end": 1714699768578,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768578,
+      "end": 1714699768578,
+      "order": "normal"
+    }
+  ]
+}

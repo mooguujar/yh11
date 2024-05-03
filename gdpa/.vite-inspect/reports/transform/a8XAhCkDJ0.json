@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/_baseIndexOf.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import baseFindIndex from './_baseFindIndex.js';\nimport baseIsNaN from './_baseIsNaN.js';\nimport strictIndexOf from './_strictIndexOf.js';\n\n/**\n * The base implementation of `_.indexOf` without `fromIndex` bounds checks.\n *\n * @private\n * @param {Array} array The array to inspect.\n * @param {*} value The value to search for.\n * @param {number} fromIndex The index to search from.\n * @returns {number} Returns the index of the matched value, else `-1`.\n */\nfunction baseIndexOf(array, value, fromIndex) {\n  return value === value\n    ? strictIndexOf(array, value, fromIndex)\n    : baseFindIndex(array, baseIsNaN, fromIndex);\n}\n\nexport default baseIndexOf;\n",
+      "start": 1714699768705,
+      "end": 1714699768717,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768717,
+      "end": 1714699768717,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768717,
+      "end": 1714699768717,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768717,
+      "end": 1714699768717,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768717,
+      "end": 1714699768717,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768717,
+      "end": 1714699768717,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768717,
+      "end": 1714699768717,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import baseFindIndex from './_baseFindIndex.js';\nimport baseIsNaN from './_baseIsNaN.js';\nimport strictIndexOf from './_strictIndexOf.js';\n\n/**\n * The base implementation of `_.indexOf` without `fromIndex` bounds checks.\n *\n * @private\n * @param {Array} array The array to inspect.\n * @param {*} value The value to search for.\n * @param {number} fromIndex The index to search from.\n * @returns {number} Returns the index of the matched value, else `-1`.\n */\nfunction baseIndexOf(array, value, fromIndex) {\n  return value === value\n    ? strictIndexOf(array, value, fromIndex)\n    : baseFindIndex(array, baseIsNaN, fromIndex);\n}\n\nexport default baseIndexOf;\n",
+      "start": 1714699768717,
+      "end": 1714699768717,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768717,
+      "end": 1714699768717,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768717,
+      "end": 1714699768717,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768717,
+      "end": 1714699768717,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768717,
+      "end": 1714699768717,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768717,
+      "end": 1714699768717,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768717,
+      "end": 1714699768717,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768717,
+      "end": 1714699768717,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768717,
+      "end": 1714699768717,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768717,
+      "end": 1714699768717,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768717,
+      "end": 1714699768717,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768717,
+      "end": 1714699768717,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768717,
+      "end": 1714699768717,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768717,
+      "end": 1714699768717,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768717,
+      "end": 1714699768717,
+      "order": "normal"
+    }
+  ]
+}

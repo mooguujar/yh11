@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Ad/AdBanner.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\nimport { useAuthStore } from '@/store/modules/auth'\nimport { useEntryStore } from '@/store/modules/entry'\nimport { IWebUrlLink } from '@/store/types/entry'\nimport { requireImg } from '@/utils/tools'\nimport { storeToRefs } from 'pinia'\nimport { showToast } from 'vant'\nimport { computed, nextTick, ref, watch } from 'vue'\nimport { useRouter } from 'vue-router'\n\ninterface adBannerProps {\n  // 是否为轮播图\n  slider: boolean\n}\nconst props = withDefaults(defineProps<adBannerProps>(), {\n  slider: false\n})\n\nconst router = useRouter()\n\nconst authStore = useAuthStore()\nconst { token } = storeToRefs(authStore)\n\nconst entryStore = useEntryStore()\nconst { config } = storeToRefs(entryStore)\n\nconst adSliderList = ref<IWebUrlLink[]>([])\n// banner列表变更记录\nconst checkCount = ref(0)\n\nconst isLogin = computed(() => !!token.value)\n// 单个链接banner\nconst adModWebUrlLink = computed<IWebUrlLink>(\n  () => (config.value.Web_Set_DefaultInfo?.AD_Mod_WebUrlLink ?? {}) as IWebUrlLink\n)\n// 轮播banner\nconst adModWebUrlLinkArr = computed<IWebUrlLink[]>(\n  () => (config.value.Web_Set_DefaultInfo?.AD_Mod_WebUrlLink_Arr ?? {}) as IWebUrlLink[]\n)\nconst isShow = computed(() => {\n  if (props.slider) return adModWebUrlLinkArr.value.some(item => item.is_show && item.v)\n  return adModWebUrlLink.value.is_show && adModWebUrlLink.value.v\n})\n\nconst onImageError = (e: Event, index: number) => {\n  ;(e.target as HTMLImageElement).onerror = null\n  adSliderList.value = []\n\n  nextTick(() => {\n    adSliderList.value = adModWebUrlLinkArr.value\n  })\n}\n\n// 广告位跳转\nconst goPage = (webUrlLink: string) => {\n  const url = new URL(webUrlLink)\n  if (adModWebUrlLink.value.H5_action) {\n    const { href, hash } = window.location\n\n    router.push(adModWebUrlLink.value.H5_action)\n    // window.location.href = href.replace(hash, `#${adModWebUrlLink.value.H5_action}`)\n  } else {\n    window.open(webUrlLink, '_blank')\n  }\n}\n\nconst handleClick = async (data: IWebUrlLink) => {\n  const { app_action, H5_action, WebUrlLink, isAppLogin, target } = data\n  if (isAppLogin && !isLogin.value) {\n    return showToast({\n      message: '请先登录',\n      icon: requireImg('common/info.png'),\n      iconSize: '48px'\n    })\n  }\n\n  if (H5_action) {\n    if (target === 1) {\n      window.open(WebUrlLink, '_blank')\n    } else {\n      router.push(H5_action)\n    }\n  } else {\n    window.open(WebUrlLink, '_blank')\n  }\n}\n\nwatch(\n  adModWebUrlLinkArr,\n  (list, oldList) => {\n    if (checkCount.value < 3) {\n      adSliderList.value = adModWebUrlLinkArr.value\n      checkCount.value++\n    }\n  },\n  { deep: true, immediate: true }\n)\n</script>\n\n<template>\n  <!-- 广告位 -->\n  <div\n    v-if=\"isShow\"\n    class=\"app-ad-banner-container\"\n  >\n    <van-swipe\n      v-if=\"slider\"\n      :autoplay=\"2000\"\n      lazy-render\n      indicator-color=\"white\"\n      class=\"swipe-slider\"\n    >\n      <van-swipe-item\n        v-for=\"(item, index) in adSliderList\"\n        :key=\"item.app_action\"\n        @click=\"handleClick(item)\"\n      >\n        <van-image\n          :src=\"(item.v as string)\"\n          @error=\"onImageError($event, index)\"\n        />\n      </van-swipe-item>\n    </van-swipe>\n    <img\n      v-else\n      :src=\"(adModWebUrlLink.v as string)\"\n      @click=\"goPage(adModWebUrlLink.WebUrlLink)\"\n    />\n  </div>\n</template>\n\n<style lang=\"scss\" scoped>\n.app-ad-banner-container {\n  margin: 0 auto;\n  margin-bottom: 30px;\n  padding: 0 41px;\n  img {\n    width: 100%;\n  }\n\n  :deep(.swipe-slider) {\n    --van-swipe-indicator-size: 12px;\n    width: 100%;\n    height: 100%;\n    border-radius: 14px;\n\n    .van-image {\n      width: 100%;\n      height: 100%;\n    }\n  }\n}\n</style>\n",
+      "start": 1714699771686,
+      "end": 1714699771690,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771690,
+      "end": 1714699771690,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771690,
+      "end": 1714699771690,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771690,
+      "end": 1714699771690,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771690,
+      "end": 1714699771690,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Ad/AdBanner.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Ad/AdBanner.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Ad/AdBanner.vue?vue&type=style&index=0&scoped=ea6fb864&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-ea6fb864\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Ad/AdBanner.vue\"]]);\n",
+      "start": 1714699771690,
+      "end": 1714699771896,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771896,
+      "end": 1714699771896,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Ad/AdBanner.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Ad/AdBanner.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Ad/AdBanner.vue?vue&type=style&index=0&scoped=ea6fb864&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-ea6fb864\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Ad/AdBanner.vue\"]]);\n",
+      "start": 1714699771896,
+      "end": 1714699771896,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Ad/AdBanner.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Ad/AdBanner.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Ad/AdBanner.vue?vue&type=style&index=0&scoped=ea6fb864&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-ea6fb864\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Ad/AdBanner.vue\"]]);\n",
+      "start": 1714699771896,
+      "end": 1714699772040,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Ad/AdBanner.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Ad/AdBanner.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Ad/AdBanner.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Ad/AdBanner.vue?vue&type=style&index=0&scoped=ea6fb864&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-ea6fb864\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Ad/AdBanner.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,sEAAsE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699772040,
+      "end": 1714699772040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699772040,
+      "end": 1714699772040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699772040,
+      "end": 1714699772040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699772040,
+      "end": 1714699772040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699772040,
+      "end": 1714699772040,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699772040,
+      "end": 1714699772040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699772040,
+      "end": 1714699772040,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699772040,
+      "end": 1714699772040,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699772040,
+      "end": 1714699772041,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Ad/AdBanner.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Ad/AdBanner.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Ad/AdBanner.vue?vue&type=style&index=0&scoped=ea6fb864&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-ea6fb864\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Ad/AdBanner.vue\"]]);\n",
+      "start": 1714699772041,
+      "end": 1714699772041,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Ad/AdBanner.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Ad/AdBanner.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Ad/AdBanner.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Ad/AdBanner.vue?vue&type=style&index=0&scoped=ea6fb864&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-ea6fb864\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Ad/AdBanner.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699772041,
+      "end": 1714699772041,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699772041,
+      "end": 1714699772041,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699772041,
+      "end": 1714699772041,
+      "order": "normal"
+    }
+  ]
+}

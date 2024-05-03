@@ -1,0 +1,154 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/store/modules/coinBuySell/buySell.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import {\n  buyOrdersParams,\n  buySellCoinInfoApi,\n  myBuyOrdersApi,\n  mySellOrdersApi,\n  sellOrdersParams\n} from '@/apis/buySellCoin'\nimport { BuyOrder, IBuySellCoin, SellOrder } from '@/store/types/buySellCoin'\nimport { request } from '@/utils/http'\nimport { defineStore } from 'pinia'\nimport { IBuyOrder, ISellOrder, withdrawddresslist } from '../../types/buySellCoin'\n\nexport const useCoinBuySellStore = defineStore('coin', {\n  state: () => ({\n    token: '',\n    userInfo: {},\n    withdrawddresslist: (sessionStorage['withdrawddresslist'] as withdrawddresslist[]) || [],\n    sell_orders: (sessionStorage['sell_orders'] as SellOrder[]) || [],\n    buy_orders: (sessionStorage['buy_orders'] as BuyOrder[]) || [],\n    coins: [],\n    dealInfo: {\n      wallets: {},\n      buy_orders: [],\n      sell_orders: []\n    } as IBuySellCoin,\n    bricks: {\n      buy_orders: [] as IBuyOrder[],\n      sell_orders: [] as ISellOrder[]\n    }\n  }),\n  getters: {},\n  actions: {\n    async getInfo() {\n      try {\n        const response: any = await request.post(\n          '/api/UserCenter/getInfo',\n          {},\n          {\n            options: {\n              login: true\n            }\n          }\n        )\n        this.userInfo = response.info ? response.info : {}\n        // console.log('this.userInfo', this.userInfo, response.info)\n        if (!!!response.info) {\n          console.log('返回数据格式异常000')\n          return false\n        }\n        return true\n      } catch (error) {\n        console.log('返回数据异常', error)\n        return false\n      }\n    },\n    async getWithdrawddresslist(params: {\n      mtype?: string\n      coin_name?: string\n      coin_protocol?: string\n    }) {\n      try {\n        const response: any = await request.post('/api/Usercenter/withdrawddresslist', params, {\n          options: {\n            // auth: true\n          }\n        })\n        if (!!!params.coin_protocol) {\n          this.withdrawddresslist = response.list ? response.list : []\n        }\n        return response.list\n        // if (!!!this.withdrawddresslist.length) console.log('返回数据格式异常000')\n      } catch (error) {\n        console.log('返回数据异常', error)\n        throw error\n      }\n    },\n    async getBuySellCoinInfo(params: any) {\n      try {\n        const response: any = await buySellCoinInfoApi(params)\n        this.dealInfo = response\n        this.sell_orders = response.sell_orders ? response.sell_orders : []\n        this.buy_orders = response.buy_orders ? response.buy_orders : []\n        // if (!!!this.sell_orders.length) console.log('返回数据格式异常000')\n\n        return response\n      } catch (error) {\n        console.log('返回数据异常', error)\n        throw error\n      }\n    },\n    async getMyBuyOrders(params: buyOrdersParams) {\n      try {\n        const response = await myBuyOrdersApi(params)\n\n        this.bricks.buy_orders = response.list\n\n        return response\n      } catch (error) {\n        console.log('返回数据异常', error)\n        throw error\n      }\n    },\n    async getMySellOrders(params: sellOrdersParams) {\n      try {\n        const response = await mySellOrdersApi(params)\n\n        this.bricks.sell_orders = response.list\n\n        return response\n      } catch (error) {\n        console.log('返回数据异常', error)\n        throw error\n      }\n    }\n  },\n  persist: true\n  // persist: [\n  //   // {\n  //   //   key: 'withdrawddresslist',\n  //   //   storage: sessionStorage\n  //   // },\n  //   // {\n  //   //   key: 'sell_orders',\n  //   //   storage: sessionStorage\n  //   // },\n  //   // {\n  //   //   key: 'buy_orders',\n  //   //   storage: sessionStorage\n  //   // },\n  //   // {\n  //   //   key: 'userInfo',\n  //   //   storage: sessionStorage\n  //   // }\n  // ]\n})\n",
+      "start": 1714699769234,
+      "end": 1714699769304,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769304,
+      "end": 1714699769304,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import {\n  buySellCoinInfoApi,\n  myBuyOrdersApi,\n  mySellOrdersApi\n} from \"@/apis/buySellCoin\";\nimport { request } from \"@/utils/http\";\nimport { defineStore } from \"pinia\";\nexport const useCoinBuySellStore = defineStore(\"coin\", {\n  state: () => ({\n    token: \"\",\n    userInfo: {},\n    withdrawddresslist: sessionStorage[\"withdrawddresslist\"] || [],\n    sell_orders: sessionStorage[\"sell_orders\"] || [],\n    buy_orders: sessionStorage[\"buy_orders\"] || [],\n    coins: [],\n    dealInfo: {\n      wallets: {},\n      buy_orders: [],\n      sell_orders: []\n    },\n    bricks: {\n      buy_orders: [],\n      sell_orders: []\n    }\n  }),\n  getters: {},\n  actions: {\n    async getInfo() {\n      try {\n        const response = await request.post(\n          \"/api/UserCenter/getInfo\",\n          {},\n          {\n            options: {\n              login: true\n            }\n          }\n        );\n        this.userInfo = response.info ? response.info : {};\n        if (!!!response.info) {\n          console.log(\"返回数据格式异常000\");\n          return false;\n        }\n        return true;\n      } catch (error) {\n        console.log(\"返回数据异常\", error);\n        return false;\n      }\n    },\n    async getWithdrawddresslist(params) {\n      try {\n        const response = await request.post(\"/api/Usercenter/withdrawddresslist\", params, {\n          options: {\n            // auth: true\n          }\n        });\n        if (!!!params.coin_protocol) {\n          this.withdrawddresslist = response.list ? response.list : [];\n        }\n        return response.list;\n      } catch (error) {\n        console.log(\"返回数据异常\", error);\n        throw error;\n      }\n    },\n    async getBuySellCoinInfo(params) {\n      try {\n        const response = await buySellCoinInfoApi(params);\n        this.dealInfo = response;\n        this.sell_orders = response.sell_orders ? response.sell_orders : [];\n        this.buy_orders = response.buy_orders ? response.buy_orders : [];\n        return response;\n      } catch (error) {\n        console.log(\"返回数据异常\", error);\n        throw error;\n      }\n    },\n    async getMyBuyOrders(params) {\n      try {\n        const response = await myBuyOrdersApi(params);\n        this.bricks.buy_orders = response.list;\n        return response;\n      } catch (error) {\n        console.log(\"返回数据异常\", error);\n        throw error;\n      }\n    },\n    async getMySellOrders(params) {\n      try {\n        const response = await mySellOrdersApi(params);\n        this.bricks.sell_orders = response.list;\n        return response;\n      } catch (error) {\n        console.log(\"返回数据异常\", error);\n        throw error;\n      }\n    }\n  },\n  persist: true\n  // persist: [\n  //   // {\n  //   //   key: 'withdrawddresslist',\n  //   //   storage: sessionStorage\n  //   // },\n  //   // {\n  //   //   key: 'sell_orders',\n  //   //   storage: sessionStorage\n  //   // },\n  //   // {\n  //   //   key: 'buy_orders',\n  //   //   storage: sessionStorage\n  //   // },\n  //   // {\n  //   //   key: 'userInfo',\n  //   //   storage: sessionStorage\n  //   // }\n  // ]\n});\n",
+      "start": 1714699769304,
+      "end": 1714699769535,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/store/modules/coinBuySell/buySell.ts"
+        ],
+        "sourcesContent": [
+          "import {\n  buyOrdersParams,\n  buySellCoinInfoApi,\n  myBuyOrdersApi,\n  mySellOrdersApi,\n  sellOrdersParams\n} from '@/apis/buySellCoin'\nimport { BuyOrder, IBuySellCoin, SellOrder } from '@/store/types/buySellCoin'\nimport { request } from '@/utils/http'\nimport { defineStore } from 'pinia'\nimport { IBuyOrder, ISellOrder, withdrawddresslist } from '../../types/buySellCoin'\n\nexport const useCoinBuySellStore = defineStore('coin', {\n  state: () => ({\n    token: '',\n    userInfo: {},\n    withdrawddresslist: (sessionStorage['withdrawddresslist'] as withdrawddresslist[]) || [],\n    sell_orders: (sessionStorage['sell_orders'] as SellOrder[]) || [],\n    buy_orders: (sessionStorage['buy_orders'] as BuyOrder[]) || [],\n    coins: [],\n    dealInfo: {\n      wallets: {},\n      buy_orders: [],\n      sell_orders: []\n    } as IBuySellCoin,\n    bricks: {\n      buy_orders: [] as IBuyOrder[],\n      sell_orders: [] as ISellOrder[]\n    }\n  }),\n  getters: {},\n  actions: {\n    async getInfo() {\n      try {\n        const response: any = await request.post(\n          '/api/UserCenter/getInfo',\n          {},\n          {\n            options: {\n              login: true\n            }\n          }\n        )\n        this.userInfo = response.info ? response.info : {}\n        // console.log('this.userInfo', this.userInfo, response.info)\n        if (!!!response.info) {\n          console.log('返回数据格式异常000')\n          return false\n        }\n        return true\n      } catch (error) {\n        console.log('返回数据异常', error)\n        return false\n      }\n    },\n    async getWithdrawddresslist(params: {\n      mtype?: string\n      coin_name?: string\n      coin_protocol?: string\n    }) {\n      try {\n        const response: any = await request.post('/api/Usercenter/withdrawddresslist', params, {\n          options: {\n            // auth: true\n          }\n        })\n        if (!!!params.coin_protocol) {\n          this.withdrawddresslist = response.list ? response.list : []\n        }\n        return response.list\n        // if (!!!this.withdrawddresslist.length) console.log('返回数据格式异常000')\n      } catch (error) {\n        console.log('返回数据异常', error)\n        throw error\n      }\n    },\n    async getBuySellCoinInfo(params: any) {\n      try {\n        const response: any = await buySellCoinInfoApi(params)\n        this.dealInfo = response\n        this.sell_orders = response.sell_orders ? response.sell_orders : []\n        this.buy_orders = response.buy_orders ? response.buy_orders : []\n        // if (!!!this.sell_orders.length) console.log('返回数据格式异常000')\n\n        return response\n      } catch (error) {\n        console.log('返回数据异常', error)\n        throw error\n      }\n    },\n    async getMyBuyOrders(params: buyOrdersParams) {\n      try {\n        const response = await myBuyOrdersApi(params)\n\n        this.bricks.buy_orders = response.list\n\n        return response\n      } catch (error) {\n        console.log('返回数据异常', error)\n        throw error\n      }\n    },\n    async getMySellOrders(params: sellOrdersParams) {\n      try {\n        const response = await mySellOrdersApi(params)\n\n        this.bricks.sell_orders = response.list\n\n        return response\n      } catch (error) {\n        console.log('返回数据异常', error)\n        throw error\n      }\n    }\n  },\n  persist: true\n  // persist: [\n  //   // {\n  //   //   key: 'withdrawddresslist',\n  //   //   storage: sessionStorage\n  //   // },\n  //   // {\n  //   //   key: 'sell_orders',\n  //   //   storage: sessionStorage\n  //   // },\n  //   // {\n  //   //   key: 'buy_orders',\n  //   //   storage: sessionStorage\n  //   // },\n  //   // {\n  //   //   key: 'userInfo',\n  //   //   storage: sessionStorage\n  //   // }\n  // ]\n})\n"
+        ],
+        "mappings": "AAAA;AAAA,EAEE;AAAA,EACA;AAAA,EACA;AAAA,OAEK;AAEP,SAAS,eAAe;AACxB,SAAS,mBAAmB;AAGrB,aAAM,sBAAsB,YAAY,QAAQ;AAAA,EACrD,OAAO,OAAO;AAAA,IACZ,OAAO;AAAA,IACP,UAAU,CAAC;AAAA,IACX,oBAAqB,eAAe,oBAAoB,KAA8B,CAAC;AAAA,IACvF,aAAc,eAAe,aAAa,KAAqB,CAAC;AAAA,IAChE,YAAa,eAAe,YAAY,KAAoB,CAAC;AAAA,IAC7D,OAAO,CAAC;AAAA,IACR,UAAU;AAAA,MACR,SAAS,CAAC;AAAA,MACV,YAAY,CAAC;AAAA,MACb,aAAa,CAAC;AAAA,IAChB;AAAA,IACA,QAAQ;AAAA,MACN,YAAY,CAAC;AAAA,MACb,aAAa,CAAC;AAAA,IAChB;AAAA,EACF;AAAA,EACA,SAAS,CAAC;AAAA,EACV,SAAS;AAAA,IACP,MAAM,UAAU;AACd,UAAI;AACF,cAAM,WAAgB,MAAM,QAAQ;AAAA,UAClC;AAAA,UACA,CAAC;AAAA,UACD;AAAA,YACE,SAAS;AAAA,cACP,OAAO;AAAA,YACT;AAAA,UACF;AAAA,QACF;AACA,aAAK,WAAW,SAAS,OAAO,SAAS,OAAO,CAAC;AAEjD,YAAI,CAAC,CAAC,CAAC,SAAS,MAAM;AACpB,kBAAQ,IAAI,aAAa;AACzB,iBAAO;AAAA,QACT;AACA,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,IAAI,UAAU,KAAK;AAC3B,eAAO;AAAA,MACT;AAAA,IACF;AAAA,IACA,MAAM,sBAAsB,QAIzB;AACD,UAAI;AACF,cAAM,WAAgB,MAAM,QAAQ,KAAK,sCAAsC,QAAQ;AAAA,UACrF,SAAS;AAAA;AAAA,UAET;AAAA,QACF,CAAC;AACD,YAAI,CAAC,CAAC,CAAC,OAAO,eAAe;AAC3B,eAAK,qBAAqB,SAAS,OAAO,SAAS,OAAO,CAAC;AAAA,QAC7D;AACA,eAAO,SAAS;AAAA,MAElB,SAAS,OAAO;AACd,gBAAQ,IAAI,UAAU,KAAK;AAC3B,cAAM;AAAA,MACR;AAAA,IACF;AAAA,IACA,MAAM,mBAAmB,QAAa;AACpC,UAAI;AACF,cAAM,WAAgB,MAAM,mBAAmB,MAAM;AACrD,aAAK,WAAW;AAChB,aAAK,cAAc,SAAS,cAAc,SAAS,cAAc,CAAC;AAClE,aAAK,aAAa,SAAS,aAAa,SAAS,aAAa,CAAC;AAG/D,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,IAAI,UAAU,KAAK;AAC3B,cAAM;AAAA,MACR;AAAA,IACF;AAAA,IACA,MAAM,eAAe,QAAyB;AAC5C,UAAI;AACF,cAAM,WAAW,MAAM,eAAe,MAAM;AAE5C,aAAK,OAAO,aAAa,SAAS;AAElC,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,IAAI,UAAU,KAAK;AAC3B,cAAM;AAAA,MACR;AAAA,IACF;AAAA,IACA,MAAM,gBAAgB,QAA0B;AAC9C,UAAI;AACF,cAAM,WAAW,MAAM,gBAAgB,MAAM;AAE7C,aAAK,OAAO,cAAc,SAAS;AAEnC,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,IAAI,UAAU,KAAK;AAC3B,cAAM;AAAA,MACR;AAAA,IACF;AAAA,EACF;AAAA,EACA,SAAS;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAmBX,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769535,
+      "end": 1714699769535,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769535,
+      "end": 1714699769535,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699769535,
+      "end": 1714699769535,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769535,
+      "end": 1714699769535,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import {\n  buySellCoinInfoApi,\n  myBuyOrdersApi,\n  mySellOrdersApi\n} from \"@/apis/buySellCoin\";\nimport { request } from \"@/utils/http\";\nimport { defineStore } from \"pinia\";\nexport const useCoinBuySellStore = defineStore(\"coin\", {\n  state: () => ({\n    token: \"\",\n    userInfo: {},\n    withdrawddresslist: sessionStorage[\"withdrawddresslist\"] || [],\n    sell_orders: sessionStorage[\"sell_orders\"] || [],\n    buy_orders: sessionStorage[\"buy_orders\"] || [],\n    coins: [],\n    dealInfo: {\n      wallets: {},\n      buy_orders: [],\n      sell_orders: []\n    },\n    bricks: {\n      buy_orders: [],\n      sell_orders: []\n    }\n  }),\n  getters: {},\n  actions: {\n    async getInfo() {\n      try {\n        const response = await request.post(\n          \"/api/UserCenter/getInfo\",\n          {},\n          {\n            options: {\n              login: true\n            }\n          }\n        );\n        this.userInfo = response.info ? response.info : {};\n        if (!!!response.info) {\n          console.log(\"返回数据格式异常000\");\n          return false;\n        }\n        return true;\n      } catch (error) {\n        console.log(\"返回数据异常\", error);\n        return false;\n      }\n    },\n    async getWithdrawddresslist(params) {\n      try {\n        const response = await request.post(\"/api/Usercenter/withdrawddresslist\", params, {\n          options: {\n            // auth: true\n          }\n        });\n        if (!!!params.coin_protocol) {\n          this.withdrawddresslist = response.list ? response.list : [];\n        }\n        return response.list;\n      } catch (error) {\n        console.log(\"返回数据异常\", error);\n        throw error;\n      }\n    },\n    async getBuySellCoinInfo(params) {\n      try {\n        const response = await buySellCoinInfoApi(params);\n        this.dealInfo = response;\n        this.sell_orders = response.sell_orders ? response.sell_orders : [];\n        this.buy_orders = response.buy_orders ? response.buy_orders : [];\n        return response;\n      } catch (error) {\n        console.log(\"返回数据异常\", error);\n        throw error;\n      }\n    },\n    async getMyBuyOrders(params) {\n      try {\n        const response = await myBuyOrdersApi(params);\n        this.bricks.buy_orders = response.list;\n        return response;\n      } catch (error) {\n        console.log(\"返回数据异常\", error);\n        throw error;\n      }\n    },\n    async getMySellOrders(params) {\n      try {\n        const response = await mySellOrdersApi(params);\n        this.bricks.sell_orders = response.list;\n        return response;\n      } catch (error) {\n        console.log(\"返回数据异常\", error);\n        throw error;\n      }\n    }\n  },\n  persist: true\n  // persist: [\n  //   // {\n  //   //   key: 'withdrawddresslist',\n  //   //   storage: sessionStorage\n  //   // },\n  //   // {\n  //   //   key: 'sell_orders',\n  //   //   storage: sessionStorage\n  //   // },\n  //   // {\n  //   //   key: 'buy_orders',\n  //   //   storage: sessionStorage\n  //   // },\n  //   // {\n  //   //   key: 'userInfo',\n  //   //   storage: sessionStorage\n  //   // }\n  // ]\n});\n",
+      "start": 1714699769535,
+      "end": 1714699769535,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport {\n  buySellCoinInfoApi,\n  myBuyOrdersApi,\n  mySellOrdersApi\n} from \"@/apis/buySellCoin\";\nimport { request } from \"@/utils/http\";\nimport { defineStore } from \"pinia\";\nexport const useCoinBuySellStore = defineStore(\"coin\", {\n  state: () => ({\n    token: \"\",\n    userInfo: {},\n    withdrawddresslist: sessionStorage[\"withdrawddresslist\"] || [],\n    sell_orders: sessionStorage[\"sell_orders\"] || [],\n    buy_orders: sessionStorage[\"buy_orders\"] || [],\n    coins: [],\n    dealInfo: {\n      wallets: {},\n      buy_orders: [],\n      sell_orders: []\n    },\n    bricks: {\n      buy_orders: [],\n      sell_orders: []\n    }\n  }),\n  getters: {},\n  actions: {\n    async getInfo() {\n      try {\n        const response = await request.post(\n          \"/api/UserCenter/getInfo\",\n          {},\n          {\n            options: {\n              login: true\n            }\n          }\n        );\n        this.userInfo = response.info ? response.info : {};\n        if (!!!response.info) {\n          console.log(\"\\u8FD4\\u56DE\\u6570\\u636E\\u683C\\u5F0F\\u5F02\\u5E38000\");\n          return false;\n        }\n        return true;\n      } catch (error) {\n        console.log(\"\\u8FD4\\u56DE\\u6570\\u636E\\u5F02\\u5E38\", error);\n        return false;\n      }\n    },\n    async getWithdrawddresslist(params) {\n      try {\n        const response = await request.post(\"/api/Usercenter/withdrawddresslist\", params, {\n          options: {\n            // auth: true\n          }\n        });\n        if (!!!params.coin_protocol) {\n          this.withdrawddresslist = response.list ? response.list : [];\n        }\n        return response.list;\n      } catch (error) {\n        console.log(\"\\u8FD4\\u56DE\\u6570\\u636E\\u5F02\\u5E38\", error);\n        throw error;\n      }\n    },\n    async getBuySellCoinInfo(params) {\n      try {\n        const response = await buySellCoinInfoApi(params);\n        this.dealInfo = response;\n        this.sell_orders = response.sell_orders ? response.sell_orders : [];\n        this.buy_orders = response.buy_orders ? response.buy_orders : [];\n        return response;\n      } catch (error) {\n        console.log(\"\\u8FD4\\u56DE\\u6570\\u636E\\u5F02\\u5E38\", error);\n        throw error;\n      }\n    },\n    async getMyBuyOrders(params) {\n      try {\n        const response = await myBuyOrdersApi(params);\n        this.bricks.buy_orders = response.list;\n        return response;\n      } catch (error) {\n        console.log(\"\\u8FD4\\u56DE\\u6570\\u636E\\u5F02\\u5E38\", error);\n        throw error;\n      }\n    },\n    async getMySellOrders(params) {\n      try {\n        const response = await mySellOrdersApi(params);\n        this.bricks.sell_orders = response.list;\n        return response;\n      } catch (error) {\n        console.log(\"\\u8FD4\\u56DE\\u6570\\u636E\\u5F02\\u5E38\", error);\n        throw error;\n      }\n    }\n  },\n  persist: true\n  // persist: [\n  //   // {\n  //   //   key: 'withdrawddresslist',\n  //   //   storage: sessionStorage\n  //   // },\n  //   // {\n  //   //   key: 'sell_orders',\n  //   //   storage: sessionStorage\n  //   // },\n  //   // {\n  //   //   key: 'buy_orders',\n  //   //   storage: sessionStorage\n  //   // },\n  //   // {\n  //   //   key: 'userInfo',\n  //   //   storage: sessionStorage\n  //   // }\n  // ]\n});\n",
+      "start": 1714699769535,
+      "end": 1714699769894,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/store/modules/coinBuySell/buySell.ts\"],\n  \"sourcesContent\": [\"import {\\n  buySellCoinInfoApi,\\n  myBuyOrdersApi,\\n  mySellOrdersApi\\n} from \\\"@/apis/buySellCoin\\\";\\nimport { request } from \\\"@/utils/http\\\";\\nimport { defineStore } from \\\"pinia\\\";\\nexport const useCoinBuySellStore = defineStore(\\\"coin\\\", {\\n  state: () => ({\\n    token: \\\"\\\",\\n    userInfo: {},\\n    withdrawddresslist: sessionStorage[\\\"withdrawddresslist\\\"] || [],\\n    sell_orders: sessionStorage[\\\"sell_orders\\\"] || [],\\n    buy_orders: sessionStorage[\\\"buy_orders\\\"] || [],\\n    coins: [],\\n    dealInfo: {\\n      wallets: {},\\n      buy_orders: [],\\n      sell_orders: []\\n    },\\n    bricks: {\\n      buy_orders: [],\\n      sell_orders: []\\n    }\\n  }),\\n  getters: {},\\n  actions: {\\n    async getInfo() {\\n      try {\\n        const response = await request.post(\\n          \\\"/api/UserCenter/getInfo\\\",\\n          {},\\n          {\\n            options: {\\n              login: true\\n            }\\n          }\\n        );\\n        this.userInfo = response.info ? response.info : {};\\n        if (!!!response.info) {\\n          console.log(\\\"\\u8FD4\\u56DE\\u6570\\u636E\\u683C\\u5F0F\\u5F02\\u5E38000\\\");\\n          return false;\\n        }\\n        return true;\\n      } catch (error) {\\n        console.log(\\\"\\u8FD4\\u56DE\\u6570\\u636E\\u5F02\\u5E38\\\", error);\\n        return false;\\n      }\\n    },\\n    async getWithdrawddresslist(params) {\\n      try {\\n        const response = await request.post(\\\"/api/Usercenter/withdrawddresslist\\\", params, {\\n          options: {\\n            // auth: true\\n          }\\n        });\\n        if (!!!params.coin_protocol) {\\n          this.withdrawddresslist = response.list ? response.list : [];\\n        }\\n        return response.list;\\n      } catch (error) {\\n        console.log(\\\"\\u8FD4\\u56DE\\u6570\\u636E\\u5F02\\u5E38\\\", error);\\n        throw error;\\n      }\\n    },\\n    async getBuySellCoinInfo(params) {\\n      try {\\n        const response = await buySellCoinInfoApi(params);\\n        this.dealInfo = response;\\n        this.sell_orders = response.sell_orders ? response.sell_orders : [];\\n        this.buy_orders = response.buy_orders ? response.buy_orders : [];\\n        return response;\\n      } catch (error) {\\n        console.log(\\\"\\u8FD4\\u56DE\\u6570\\u636E\\u5F02\\u5E38\\\", error);\\n        throw error;\\n      }\\n    },\\n    async getMyBuyOrders(params) {\\n      try {\\n        const response = await myBuyOrdersApi(params);\\n        this.bricks.buy_orders = response.list;\\n        return response;\\n      } catch (error) {\\n        console.log(\\\"\\u8FD4\\u56DE\\u6570\\u636E\\u5F02\\u5E38\\\", error);\\n        throw error;\\n      }\\n    },\\n    async getMySellOrders(params) {\\n      try {\\n        const response = await mySellOrdersApi(params);\\n        this.bricks.sell_orders = response.list;\\n        return response;\\n      } catch (error) {\\n        console.log(\\\"\\u8FD4\\u56DE\\u6570\\u636E\\u5F02\\u5E38\\\", error);\\n        throw error;\\n      }\\n    }\\n  },\\n  persist: true\\n  // persist: [\\n  //   // {\\n  //   //   key: 'withdrawddresslist',\\n  //   //   storage: sessionStorage\\n  //   // },\\n  //   // {\\n  //   //   key: 'sell_orders',\\n  //   //   storage: sessionStorage\\n  //   // },\\n  //   // {\\n  //   //   key: 'buy_orders',\\n  //   //   storage: sessionStorage\\n  //   // },\\n  //   // {\\n  //   //   key: 'userInfo',\\n  //   //   storage: sessionStorage\\n  //   // }\\n  // ]\\n});\\n\"],\n  \"mappings\": \";AAAA;AAAA,EACE;AAAA,EACA;AAAA,EACA;AAAA,OACK;AACP,SAAS,eAAe;AACxB,SAAS,mBAAmB;AACrB,aAAM,sBAAsB,YAAY,QAAQ;AAAA,EACrD,OAAO,OAAO;AAAA,IACZ,OAAO;AAAA,IACP,UAAU,CAAC;AAAA,IACX,oBAAoB,eAAe,oBAAoB,KAAK,CAAC;AAAA,IAC7D,aAAa,eAAe,aAAa,KAAK,CAAC;AAAA,IAC/C,YAAY,eAAe,YAAY,KAAK,CAAC;AAAA,IAC7C,OAAO,CAAC;AAAA,IACR,UAAU;AAAA,MACR,SAAS,CAAC;AAAA,MACV,YAAY,CAAC;AAAA,MACb,aAAa,CAAC;AAAA,IAChB;AAAA,IACA,QAAQ;AAAA,MACN,YAAY,CAAC;AAAA,MACb,aAAa,CAAC;AAAA,IAChB;AAAA,EACF;AAAA,EACA,SAAS,CAAC;AAAA,EACV,SAAS;AAAA,IACP,MAAM,UAAU;AACd,UAAI;AACF,cAAM,WAAW,MAAM,QAAQ;AAAA,UAC7B;AAAA,UACA,CAAC;AAAA,UACD;AAAA,YACE,SAAS;AAAA,cACP,OAAO;AAAA,YACT;AAAA,UACF;AAAA,QACF;AACA,aAAK,WAAW,SAAS,OAAO,SAAS,OAAO,CAAC;AACjD,YAAI,CAAC,CAAC,CAAC,SAAS,MAAM;AACpB,kBAAQ,IAAI,qDAAa;AACzB,iBAAO;AAAA,QACT;AACA,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,IAAI,wCAAU,KAAK;AAC3B,eAAO;AAAA,MACT;AAAA,IACF;AAAA,IACA,MAAM,sBAAsB,QAAQ;AAClC,UAAI;AACF,cAAM,WAAW,MAAM,QAAQ,KAAK,sCAAsC,QAAQ;AAAA,UAChF,SAAS;AAAA;AAAA,UAET;AAAA,QACF,CAAC;AACD,YAAI,CAAC,CAAC,CAAC,OAAO,eAAe;AAC3B,eAAK,qBAAqB,SAAS,OAAO,SAAS,OAAO,CAAC;AAAA,QAC7D;AACA,eAAO,SAAS;AAAA,MAClB,SAAS,OAAO;AACd,gBAAQ,IAAI,wCAAU,KAAK;AAC3B,cAAM;AAAA,MACR;AAAA,IACF;AAAA,IACA,MAAM,mBAAmB,QAAQ;AAC/B,UAAI;AACF,cAAM,WAAW,MAAM,mBAAmB,MAAM;AAChD,aAAK,WAAW;AAChB,aAAK,cAAc,SAAS,cAAc,SAAS,cAAc,CAAC;AAClE,aAAK,aAAa,SAAS,aAAa,SAAS,aAAa,CAAC;AAC/D,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,IAAI,wCAAU,KAAK;AAC3B,cAAM;AAAA,MACR;AAAA,IACF;AAAA,IACA,MAAM,eAAe,QAAQ;AAC3B,UAAI;AACF,cAAM,WAAW,MAAM,eAAe,MAAM;AAC5C,aAAK,OAAO,aAAa,SAAS;AAClC,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,IAAI,wCAAU,KAAK;AAC3B,cAAM;AAAA,MACR;AAAA,IACF;AAAA,IACA,MAAM,gBAAgB,QAAQ;AAC5B,UAAI;AACF,cAAM,WAAW,MAAM,gBAAgB,MAAM;AAC7C,aAAK,OAAO,cAAc,SAAS;AACnC,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,IAAI,wCAAU,KAAK;AAC3B,cAAM;AAAA,MACR;AAAA,IACF;AAAA,EACF;AAAA,EACA,SAAS;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAmBX,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769894,
+      "end": 1714699769894,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769895,
+      "end": 1714699769895,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769895,
+      "end": 1714699769895,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769895,
+      "end": 1714699769895,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769895,
+      "end": 1714699769895,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769895,
+      "end": 1714699769895,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769895,
+      "end": 1714699769895,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769895,
+      "end": 1714699769895,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769897,
+      "end": 1714699769898,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699769898,
+      "end": 1714699769898,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769898,
+      "end": 1714699769898,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769898,
+      "end": 1714699769898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769898,
+      "end": 1714699769898,
+      "order": "normal"
+    }
+  ]
+}

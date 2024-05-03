@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/contact-edit/ContactEdit.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { watch, reactive, defineComponent } from \"vue\";\nimport { isMobile, createNamespace, extend } from \"../utils/index.mjs\";\nimport { Cell } from \"../cell/index.mjs\";\nimport { Form } from \"../form/index.mjs\";\nimport { Field } from \"../field/index.mjs\";\nimport { Button } from \"../button/index.mjs\";\nimport { Switch } from \"../switch/index.mjs\";\nconst [name, bem, t] = createNamespace(\"contact-edit\");\nconst DEFAULT_CONTACT = {\n  tel: \"\",\n  name: \"\"\n};\nconst contactEditProps = {\n  isEdit: Boolean,\n  isSaving: Boolean,\n  isDeleting: Boolean,\n  showSetDefault: Boolean,\n  setDefaultLabel: String,\n  contactInfo: {\n    type: Object,\n    default: () => extend({}, DEFAULT_CONTACT)\n  },\n  telValidator: {\n    type: Function,\n    default: isMobile\n  }\n};\nvar stdin_default = defineComponent({\n  name,\n  props: contactEditProps,\n  emits: [\"save\", \"delete\", \"changeDefault\"],\n  setup(props, {\n    emit\n  }) {\n    const contact = reactive(extend({}, DEFAULT_CONTACT, props.contactInfo));\n    const onSave = () => {\n      if (!props.isSaving) {\n        emit(\"save\", contact);\n      }\n    };\n    const onDelete = () => emit(\"delete\", contact);\n    const renderButtons = () => _createVNode(\"div\", {\n      \"class\": bem(\"buttons\")\n    }, [_createVNode(Button, {\n      \"block\": true,\n      \"round\": true,\n      \"type\": \"primary\",\n      \"text\": t(\"save\"),\n      \"class\": bem(\"button\"),\n      \"loading\": props.isSaving,\n      \"nativeType\": \"submit\"\n    }, null), props.isEdit && _createVNode(Button, {\n      \"block\": true,\n      \"round\": true,\n      \"text\": t(\"delete\"),\n      \"class\": bem(\"button\"),\n      \"loading\": props.isDeleting,\n      \"onClick\": onDelete\n    }, null)]);\n    const renderSwitch = () => _createVNode(Switch, {\n      \"modelValue\": contact.isDefault,\n      \"onUpdate:modelValue\": ($event) => contact.isDefault = $event,\n      \"onChange\": (checked) => emit(\"changeDefault\", checked)\n    }, null);\n    const renderSetDefault = () => {\n      if (props.showSetDefault) {\n        return _createVNode(Cell, {\n          \"title\": props.setDefaultLabel,\n          \"class\": bem(\"switch-cell\"),\n          \"border\": false\n        }, {\n          \"right-icon\": renderSwitch\n        });\n      }\n    };\n    watch(() => props.contactInfo, (value) => extend(contact, DEFAULT_CONTACT, value));\n    return () => _createVNode(Form, {\n      \"class\": bem(),\n      \"onSubmit\": onSave\n    }, {\n      default: () => [_createVNode(\"div\", {\n        \"class\": bem(\"fields\")\n      }, [_createVNode(Field, {\n        \"modelValue\": contact.name,\n        \"onUpdate:modelValue\": ($event) => contact.name = $event,\n        \"clearable\": true,\n        \"label\": t(\"name\"),\n        \"rules\": [{\n          required: true,\n          message: t(\"nameEmpty\")\n        }],\n        \"maxlength\": \"30\",\n        \"placeholder\": t(\"name\")\n      }, null), _createVNode(Field, {\n        \"modelValue\": contact.tel,\n        \"onUpdate:modelValue\": ($event) => contact.tel = $event,\n        \"clearable\": true,\n        \"type\": \"tel\",\n        \"label\": t(\"tel\"),\n        \"rules\": [{\n          validator: props.telValidator,\n          message: t(\"telInvalid\")\n        }],\n        \"placeholder\": t(\"tel\")\n      }, null)]), renderSetDefault(), renderButtons()]\n    });\n  }\n});\nexport {\n  contactEditProps,\n  stdin_default as default\n};\n",
+      "start": 1714699767189,
+      "end": 1714699767249,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767249,
+      "end": 1714699767249,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767249,
+      "end": 1714699767249,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767249,
+      "end": 1714699767249,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767249,
+      "end": 1714699767249,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767249,
+      "end": 1714699767249,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767249,
+      "end": 1714699767249,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { watch, reactive, defineComponent } from \"vue\";\nimport { isMobile, createNamespace, extend } from \"../utils/index.mjs\";\nimport { Cell } from \"../cell/index.mjs\";\nimport { Form } from \"../form/index.mjs\";\nimport { Field } from \"../field/index.mjs\";\nimport { Button } from \"../button/index.mjs\";\nimport { Switch } from \"../switch/index.mjs\";\nconst [name, bem, t] = createNamespace(\"contact-edit\");\nconst DEFAULT_CONTACT = {\n  tel: \"\",\n  name: \"\"\n};\nconst contactEditProps = {\n  isEdit: Boolean,\n  isSaving: Boolean,\n  isDeleting: Boolean,\n  showSetDefault: Boolean,\n  setDefaultLabel: String,\n  contactInfo: {\n    type: Object,\n    default: () => extend({}, DEFAULT_CONTACT)\n  },\n  telValidator: {\n    type: Function,\n    default: isMobile\n  }\n};\nvar stdin_default = defineComponent({\n  name,\n  props: contactEditProps,\n  emits: [\"save\", \"delete\", \"changeDefault\"],\n  setup(props, {\n    emit\n  }) {\n    const contact = reactive(extend({}, DEFAULT_CONTACT, props.contactInfo));\n    const onSave = () => {\n      if (!props.isSaving) {\n        emit(\"save\", contact);\n      }\n    };\n    const onDelete = () => emit(\"delete\", contact);\n    const renderButtons = () => _createVNode(\"div\", {\n      \"class\": bem(\"buttons\")\n    }, [_createVNode(Button, {\n      \"block\": true,\n      \"round\": true,\n      \"type\": \"primary\",\n      \"text\": t(\"save\"),\n      \"class\": bem(\"button\"),\n      \"loading\": props.isSaving,\n      \"nativeType\": \"submit\"\n    }, null), props.isEdit && _createVNode(Button, {\n      \"block\": true,\n      \"round\": true,\n      \"text\": t(\"delete\"),\n      \"class\": bem(\"button\"),\n      \"loading\": props.isDeleting,\n      \"onClick\": onDelete\n    }, null)]);\n    const renderSwitch = () => _createVNode(Switch, {\n      \"modelValue\": contact.isDefault,\n      \"onUpdate:modelValue\": ($event) => contact.isDefault = $event,\n      \"onChange\": (checked) => emit(\"changeDefault\", checked)\n    }, null);\n    const renderSetDefault = () => {\n      if (props.showSetDefault) {\n        return _createVNode(Cell, {\n          \"title\": props.setDefaultLabel,\n          \"class\": bem(\"switch-cell\"),\n          \"border\": false\n        }, {\n          \"right-icon\": renderSwitch\n        });\n      }\n    };\n    watch(() => props.contactInfo, (value) => extend(contact, DEFAULT_CONTACT, value));\n    return () => _createVNode(Form, {\n      \"class\": bem(),\n      \"onSubmit\": onSave\n    }, {\n      default: () => [_createVNode(\"div\", {\n        \"class\": bem(\"fields\")\n      }, [_createVNode(Field, {\n        \"modelValue\": contact.name,\n        \"onUpdate:modelValue\": ($event) => contact.name = $event,\n        \"clearable\": true,\n        \"label\": t(\"name\"),\n        \"rules\": [{\n          required: true,\n          message: t(\"nameEmpty\")\n        }],\n        \"maxlength\": \"30\",\n        \"placeholder\": t(\"name\")\n      }, null), _createVNode(Field, {\n        \"modelValue\": contact.tel,\n        \"onUpdate:modelValue\": ($event) => contact.tel = $event,\n        \"clearable\": true,\n        \"type\": \"tel\",\n        \"label\": t(\"tel\"),\n        \"rules\": [{\n          validator: props.telValidator,\n          message: t(\"telInvalid\")\n        }],\n        \"placeholder\": t(\"tel\")\n      }, null)]), renderSetDefault(), renderButtons()]\n    });\n  }\n});\nexport {\n  contactEditProps,\n  stdin_default as default\n};\n",
+      "start": 1714699767249,
+      "end": 1714699767249,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767249,
+      "end": 1714699767249,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767249,
+      "end": 1714699767249,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767249,
+      "end": 1714699767249,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767249,
+      "end": 1714699767249,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767249,
+      "end": 1714699767249,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767249,
+      "end": 1714699767249,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767249,
+      "end": 1714699767249,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767249,
+      "end": 1714699767249,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767249,
+      "end": 1714699767249,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767249,
+      "end": 1714699767249,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767249,
+      "end": 1714699767249,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767249,
+      "end": 1714699767249,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767249,
+      "end": 1714699767249,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767249,
+      "end": 1714699767249,
+      "order": "normal"
+    }
+  ]
+}

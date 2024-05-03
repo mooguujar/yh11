@@ -53,6 +53,10 @@ router.beforeEach(async (to, from, next) => {
       return next('/auth/login')
     }
 
+    if (to.meta.title) {
+      document.title = to.meta.title as string
+    }
+
     // 如果匹配到正确跳转
     next()
   }

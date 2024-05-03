@@ -1,0 +1,163 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue?vue&type=style&index=0&scoped=da75b41f&lang.scss",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\n.van-overlay {\n  width: 755px;\n  z-index: 3000;\n  background: 0;\n  :deep(.van-loading) {\n    .van-loading__spinner {\n      margin-left: -60px;\n    }\n  }\n}\n",
+      "start": 1714699772233,
+      "end": 1714699772233
+    },
+    {
+      "name": "vite:css",
+      "result": ".van-overlay {\n  width: 10.06667rem;\n  z-index: 3000;\n  background: 0;\n}\n.van-overlay :deep(.van-loading) .van-loading__spinner {\n  margin-left: -0.8rem;\n}",
+      "start": 1714699772233,
+      "end": 1714699772238,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699772238,
+      "end": 1714699772238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699772238,
+      "end": 1714699772238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699772238,
+      "end": 1714699772238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".van-overlay[data-v-da75b41f] {\n  width: 10.06667rem;\n  z-index: 3000;\n  background: 0;\n}\n.van-overlay[data-v-da75b41f] .van-loading .van-loading__spinner {\n  margin-left: -0.8rem;\n}",
+      "start": 1714699772238,
+      "end": 1714699772238,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699772238,
+      "end": 1714699772238,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": ".van-overlay[data-v-da75b41f] {\n  width: 10.06667rem;\n  z-index: 3000;\n  background: 0;\n}\n.van-overlay[data-v-da75b41f] .van-loading .van-loading__spinner {\n  margin-left: -0.8rem;\n}",
+      "start": 1714699772238,
+      "end": 1714699772238,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699772238,
+      "end": 1714699772238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699772238,
+      "end": 1714699772238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699772238,
+      "end": 1714699772238,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699772238,
+      "end": 1714699772238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699772238,
+      "end": 1714699772238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699772238,
+      "end": 1714699772238,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699772238,
+      "end": 1714699772238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699772238,
+      "end": 1714699772238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699772238,
+      "end": 1714699772238,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699772238,
+      "end": 1714699772238,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */",
+      "start": 1714699772238,
+      "end": 1714699772238,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/Loding/Loding.vue?vue&type=style&index=0&scoped=da75b41f&lang.scss"
+        ],
+        "sourcesContent": [
+          ""
+        ],
+        "names": [],
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699772238,
+      "end": 1714699772238,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699772238,
+      "end": 1714699772238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699772238,
+      "end": 1714699772238,
+      "order": "normal"
+    }
+  ]
+}

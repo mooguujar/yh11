@@ -1,0 +1,154 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/store/modules/taskActivity/index.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { defineStore } from 'pinia'\nimport { ISignInData, TaskActivityState } from '../../types/taskActivity'\nimport {\n  IPlayTurntableParams,\n  IRewardRecordListParams,\n  IUserDoTaskParams,\n  allTaskBandsListApi,\n  gameRecordApi,\n  playTurntableApi,\n  rewardRecordListApi,\n  signInListApi,\n  turntableAwardsApi,\n  userActionListApi,\n  userDoTaskApi\n} from '@/apis/taskActivity'\n\nexport const useTaskActivityStore = defineStore('taskActivity', {\n  state: () =>\n    ({\n      signInData: {},\n      turntableAwards: {},\n      userActionList: {},\n      awardRecord: {}\n    } as unknown as TaskActivityState),\n  getters: {},\n  actions: {\n    async getSignInListApi() {\n      try {\n        const response = await signInListApi()\n        this.signInData = response\n\n        return response\n      } catch (error) {\n        console.log(error)\n        throw error\n      }\n    },\n    updateSignInData(data: ISignInData) {\n      this.signInData = data\n    },\n    async getTurntableAwardsApi() {\n      try {\n        const response = await turntableAwardsApi()\n        this.turntableAwards = response\n\n        return response\n      } catch (error) {\n        console.log(error)\n        throw error\n      }\n    },\n    async getGameRecordApi() {\n      try {\n        const response = await gameRecordApi()\n\n        this.awardRecord = response\n\n        return response\n      } catch (error) {\n        console.log(error)\n        throw error\n      }\n    },\n    async getPlayTurntableApi(params: IPlayTurntableParams) {\n      try {\n        const response = await playTurntableApi(params)\n\n        return response\n      } catch (error) {\n        console.log(error)\n        throw error\n      }\n    },\n    // 已完成任务列表\n    async getRewardRecordListApi(params: IRewardRecordListParams) {\n      try {\n        const response = await rewardRecordListApi(params)\n\n        return response\n      } catch (error) {\n        console.log(error)\n        throw error\n      }\n    },\n    // 每日活跃度任务列表\n    async getUserActionListApi() {\n      try {\n        const response = await userActionListApi()\n        this.userActionList = response\n\n        return response\n      } catch (error) {\n        console.log(error)\n        throw error\n      }\n    },\n    // 累计任务列表\n    async getAllTaskBandsListApi() {\n      try {\n        const response = await allTaskBandsListApi()\n\n        return response\n      } catch (error) {\n        console.log(error)\n        throw error\n      }\n    },\n    async getUserDoTaskApi(params: IUserDoTaskParams, fn: (...arg: any[]) => void) {\n      try {\n        const response = await userDoTaskApi(params)\n\n        if (response) {\n          fn?.()\n        }\n\n        return response\n      } catch (error) {\n        console.log(error)\n        throw error\n      }\n    }\n  },\n  persist: true\n})\n",
+      "start": 1714699768001,
+      "end": 1714699768042,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768042,
+      "end": 1714699768042,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineStore } from \"pinia\";\nimport {\n  allTaskBandsListApi,\n  gameRecordApi,\n  playTurntableApi,\n  rewardRecordListApi,\n  signInListApi,\n  turntableAwardsApi,\n  userActionListApi,\n  userDoTaskApi\n} from \"@/apis/taskActivity\";\nexport const useTaskActivityStore = defineStore(\"taskActivity\", {\n  state: () => ({\n    signInData: {},\n    turntableAwards: {},\n    userActionList: {},\n    awardRecord: {}\n  }),\n  getters: {},\n  actions: {\n    async getSignInListApi() {\n      try {\n        const response = await signInListApi();\n        this.signInData = response;\n        return response;\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    },\n    updateSignInData(data) {\n      this.signInData = data;\n    },\n    async getTurntableAwardsApi() {\n      try {\n        const response = await turntableAwardsApi();\n        this.turntableAwards = response;\n        return response;\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    },\n    async getGameRecordApi() {\n      try {\n        const response = await gameRecordApi();\n        this.awardRecord = response;\n        return response;\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    },\n    async getPlayTurntableApi(params) {\n      try {\n        const response = await playTurntableApi(params);\n        return response;\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    },\n    // 已完成任务列表\n    async getRewardRecordListApi(params) {\n      try {\n        const response = await rewardRecordListApi(params);\n        return response;\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    },\n    // 每日活跃度任务列表\n    async getUserActionListApi() {\n      try {\n        const response = await userActionListApi();\n        this.userActionList = response;\n        return response;\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    },\n    // 累计任务列表\n    async getAllTaskBandsListApi() {\n      try {\n        const response = await allTaskBandsListApi();\n        return response;\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    },\n    async getUserDoTaskApi(params, fn) {\n      try {\n        const response = await userDoTaskApi(params);\n        if (response) {\n          fn?.();\n        }\n        return response;\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    }\n  },\n  persist: true\n});\n",
+      "start": 1714699768042,
+      "end": 1714699769064,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/store/modules/taskActivity/index.ts"
+        ],
+        "sourcesContent": [
+          "import { defineStore } from 'pinia'\nimport { ISignInData, TaskActivityState } from '../../types/taskActivity'\nimport {\n  IPlayTurntableParams,\n  IRewardRecordListParams,\n  IUserDoTaskParams,\n  allTaskBandsListApi,\n  gameRecordApi,\n  playTurntableApi,\n  rewardRecordListApi,\n  signInListApi,\n  turntableAwardsApi,\n  userActionListApi,\n  userDoTaskApi\n} from '@/apis/taskActivity'\n\nexport const useTaskActivityStore = defineStore('taskActivity', {\n  state: () =>\n    ({\n      signInData: {},\n      turntableAwards: {},\n      userActionList: {},\n      awardRecord: {}\n    } as unknown as TaskActivityState),\n  getters: {},\n  actions: {\n    async getSignInListApi() {\n      try {\n        const response = await signInListApi()\n        this.signInData = response\n\n        return response\n      } catch (error) {\n        console.log(error)\n        throw error\n      }\n    },\n    updateSignInData(data: ISignInData) {\n      this.signInData = data\n    },\n    async getTurntableAwardsApi() {\n      try {\n        const response = await turntableAwardsApi()\n        this.turntableAwards = response\n\n        return response\n      } catch (error) {\n        console.log(error)\n        throw error\n      }\n    },\n    async getGameRecordApi() {\n      try {\n        const response = await gameRecordApi()\n\n        this.awardRecord = response\n\n        return response\n      } catch (error) {\n        console.log(error)\n        throw error\n      }\n    },\n    async getPlayTurntableApi(params: IPlayTurntableParams) {\n      try {\n        const response = await playTurntableApi(params)\n\n        return response\n      } catch (error) {\n        console.log(error)\n        throw error\n      }\n    },\n    // 已完成任务列表\n    async getRewardRecordListApi(params: IRewardRecordListParams) {\n      try {\n        const response = await rewardRecordListApi(params)\n\n        return response\n      } catch (error) {\n        console.log(error)\n        throw error\n      }\n    },\n    // 每日活跃度任务列表\n    async getUserActionListApi() {\n      try {\n        const response = await userActionListApi()\n        this.userActionList = response\n\n        return response\n      } catch (error) {\n        console.log(error)\n        throw error\n      }\n    },\n    // 累计任务列表\n    async getAllTaskBandsListApi() {\n      try {\n        const response = await allTaskBandsListApi()\n\n        return response\n      } catch (error) {\n        console.log(error)\n        throw error\n      }\n    },\n    async getUserDoTaskApi(params: IUserDoTaskParams, fn: (...arg: any[]) => void) {\n      try {\n        const response = await userDoTaskApi(params)\n\n        if (response) {\n          fn?.()\n        }\n\n        return response\n      } catch (error) {\n        console.log(error)\n        throw error\n      }\n    }\n  },\n  persist: true\n})\n"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB;AAE5B;AAAA,EAIE;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,OACK;AAEA,aAAM,uBAAuB,YAAY,gBAAgB;AAAA,EAC9D,OAAO,OACJ;AAAA,IACC,YAAY,CAAC;AAAA,IACb,iBAAiB,CAAC;AAAA,IAClB,gBAAgB,CAAC;AAAA,IACjB,aAAa,CAAC;AAAA,EAChB;AAAA,EACF,SAAS,CAAC;AAAA,EACV,SAAS;AAAA,IACP,MAAM,mBAAmB;AACvB,UAAI;AACF,cAAM,WAAW,MAAM,cAAc;AACrC,aAAK,aAAa;AAElB,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,IAAI,KAAK;AACjB,cAAM;AAAA,MACR;AAAA,IACF;AAAA,IACA,iBAAiB,MAAmB;AAClC,WAAK,aAAa;AAAA,IACpB;AAAA,IACA,MAAM,wBAAwB;AAC5B,UAAI;AACF,cAAM,WAAW,MAAM,mBAAmB;AAC1C,aAAK,kBAAkB;AAEvB,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,IAAI,KAAK;AACjB,cAAM;AAAA,MACR;AAAA,IACF;AAAA,IACA,MAAM,mBAAmB;AACvB,UAAI;AACF,cAAM,WAAW,MAAM,cAAc;AAErC,aAAK,cAAc;AAEnB,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,IAAI,KAAK;AACjB,cAAM;AAAA,MACR;AAAA,IACF;AAAA,IACA,MAAM,oBAAoB,QAA8B;AACtD,UAAI;AACF,cAAM,WAAW,MAAM,iBAAiB,MAAM;AAE9C,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,IAAI,KAAK;AACjB,cAAM;AAAA,MACR;AAAA,IACF;AAAA;AAAA,IAEA,MAAM,uBAAuB,QAAiC;AAC5D,UAAI;AACF,cAAM,WAAW,MAAM,oBAAoB,MAAM;AAEjD,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,IAAI,KAAK;AACjB,cAAM;AAAA,MACR;AAAA,IACF;AAAA;AAAA,IAEA,MAAM,uBAAuB;AAC3B,UAAI;AACF,cAAM,WAAW,MAAM,kBAAkB;AACzC,aAAK,iBAAiB;AAEtB,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,IAAI,KAAK;AACjB,cAAM;AAAA,MACR;AAAA,IACF;AAAA;AAAA,IAEA,MAAM,yBAAyB;AAC7B,UAAI;AACF,cAAM,WAAW,MAAM,oBAAoB;AAE3C,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,IAAI,KAAK;AACjB,cAAM;AAAA,MACR;AAAA,IACF;AAAA,IACA,MAAM,iBAAiB,QAA2B,IAA6B;AAC7E,UAAI;AACF,cAAM,WAAW,MAAM,cAAc,MAAM;AAE3C,YAAI,UAAU;AACZ,eAAK;AAAA,QACP;AAEA,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,IAAI,KAAK;AACjB,cAAM;AAAA,MACR;AAAA,IACF;AAAA,EACF;AAAA,EACA,SAAS;AACX,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769064,
+      "end": 1714699769064,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769064,
+      "end": 1714699769064,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699769064,
+      "end": 1714699769064,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769064,
+      "end": 1714699769064,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { defineStore } from \"pinia\";\nimport {\n  allTaskBandsListApi,\n  gameRecordApi,\n  playTurntableApi,\n  rewardRecordListApi,\n  signInListApi,\n  turntableAwardsApi,\n  userActionListApi,\n  userDoTaskApi\n} from \"@/apis/taskActivity\";\nexport const useTaskActivityStore = defineStore(\"taskActivity\", {\n  state: () => ({\n    signInData: {},\n    turntableAwards: {},\n    userActionList: {},\n    awardRecord: {}\n  }),\n  getters: {},\n  actions: {\n    async getSignInListApi() {\n      try {\n        const response = await signInListApi();\n        this.signInData = response;\n        return response;\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    },\n    updateSignInData(data) {\n      this.signInData = data;\n    },\n    async getTurntableAwardsApi() {\n      try {\n        const response = await turntableAwardsApi();\n        this.turntableAwards = response;\n        return response;\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    },\n    async getGameRecordApi() {\n      try {\n        const response = await gameRecordApi();\n        this.awardRecord = response;\n        return response;\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    },\n    async getPlayTurntableApi(params) {\n      try {\n        const response = await playTurntableApi(params);\n        return response;\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    },\n    // 已完成任务列表\n    async getRewardRecordListApi(params) {\n      try {\n        const response = await rewardRecordListApi(params);\n        return response;\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    },\n    // 每日活跃度任务列表\n    async getUserActionListApi() {\n      try {\n        const response = await userActionListApi();\n        this.userActionList = response;\n        return response;\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    },\n    // 累计任务列表\n    async getAllTaskBandsListApi() {\n      try {\n        const response = await allTaskBandsListApi();\n        return response;\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    },\n    async getUserDoTaskApi(params, fn) {\n      try {\n        const response = await userDoTaskApi(params);\n        if (response) {\n          fn?.();\n        }\n        return response;\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    }\n  },\n  persist: true\n});\n",
+      "start": 1714699769064,
+      "end": 1714699769064,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport { defineStore } from \"pinia\";\nimport {\n  allTaskBandsListApi,\n  gameRecordApi,\n  playTurntableApi,\n  rewardRecordListApi,\n  signInListApi,\n  turntableAwardsApi,\n  userActionListApi,\n  userDoTaskApi\n} from \"@/apis/taskActivity\";\nexport const useTaskActivityStore = defineStore(\"taskActivity\", {\n  state: () => ({\n    signInData: {},\n    turntableAwards: {},\n    userActionList: {},\n    awardRecord: {}\n  }),\n  getters: {},\n  actions: {\n    async getSignInListApi() {\n      try {\n        const response = await signInListApi();\n        this.signInData = response;\n        return response;\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    },\n    updateSignInData(data) {\n      this.signInData = data;\n    },\n    async getTurntableAwardsApi() {\n      try {\n        const response = await turntableAwardsApi();\n        this.turntableAwards = response;\n        return response;\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    },\n    async getGameRecordApi() {\n      try {\n        const response = await gameRecordApi();\n        this.awardRecord = response;\n        return response;\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    },\n    async getPlayTurntableApi(params) {\n      try {\n        const response = await playTurntableApi(params);\n        return response;\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    },\n    // 已完成任务列表\n    async getRewardRecordListApi(params) {\n      try {\n        const response = await rewardRecordListApi(params);\n        return response;\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    },\n    // 每日活跃度任务列表\n    async getUserActionListApi() {\n      try {\n        const response = await userActionListApi();\n        this.userActionList = response;\n        return response;\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    },\n    // 累计任务列表\n    async getAllTaskBandsListApi() {\n      try {\n        const response = await allTaskBandsListApi();\n        return response;\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    },\n    async getUserDoTaskApi(params, fn) {\n      try {\n        const response = await userDoTaskApi(params);\n        if (response) {\n          fn == null ? void 0 : fn();\n        }\n        return response;\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    }\n  },\n  persist: true\n});\n",
+      "start": 1714699769064,
+      "end": 1714699769488,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/store/modules/taskActivity/index.ts\"],\n  \"sourcesContent\": [\"import { defineStore } from \\\"pinia\\\";\\nimport {\\n  allTaskBandsListApi,\\n  gameRecordApi,\\n  playTurntableApi,\\n  rewardRecordListApi,\\n  signInListApi,\\n  turntableAwardsApi,\\n  userActionListApi,\\n  userDoTaskApi\\n} from \\\"@/apis/taskActivity\\\";\\nexport const useTaskActivityStore = defineStore(\\\"taskActivity\\\", {\\n  state: () => ({\\n    signInData: {},\\n    turntableAwards: {},\\n    userActionList: {},\\n    awardRecord: {}\\n  }),\\n  getters: {},\\n  actions: {\\n    async getSignInListApi() {\\n      try {\\n        const response = await signInListApi();\\n        this.signInData = response;\\n        return response;\\n      } catch (error) {\\n        console.log(error);\\n        throw error;\\n      }\\n    },\\n    updateSignInData(data) {\\n      this.signInData = data;\\n    },\\n    async getTurntableAwardsApi() {\\n      try {\\n        const response = await turntableAwardsApi();\\n        this.turntableAwards = response;\\n        return response;\\n      } catch (error) {\\n        console.log(error);\\n        throw error;\\n      }\\n    },\\n    async getGameRecordApi() {\\n      try {\\n        const response = await gameRecordApi();\\n        this.awardRecord = response;\\n        return response;\\n      } catch (error) {\\n        console.log(error);\\n        throw error;\\n      }\\n    },\\n    async getPlayTurntableApi(params) {\\n      try {\\n        const response = await playTurntableApi(params);\\n        return response;\\n      } catch (error) {\\n        console.log(error);\\n        throw error;\\n      }\\n    },\\n    // \\u5DF2\\u5B8C\\u6210\\u4EFB\\u52A1\\u5217\\u8868\\n    async getRewardRecordListApi(params) {\\n      try {\\n        const response = await rewardRecordListApi(params);\\n        return response;\\n      } catch (error) {\\n        console.log(error);\\n        throw error;\\n      }\\n    },\\n    // \\u6BCF\\u65E5\\u6D3B\\u8DC3\\u5EA6\\u4EFB\\u52A1\\u5217\\u8868\\n    async getUserActionListApi() {\\n      try {\\n        const response = await userActionListApi();\\n        this.userActionList = response;\\n        return response;\\n      } catch (error) {\\n        console.log(error);\\n        throw error;\\n      }\\n    },\\n    // \\u7D2F\\u8BA1\\u4EFB\\u52A1\\u5217\\u8868\\n    async getAllTaskBandsListApi() {\\n      try {\\n        const response = await allTaskBandsListApi();\\n        return response;\\n      } catch (error) {\\n        console.log(error);\\n        throw error;\\n      }\\n    },\\n    async getUserDoTaskApi(params, fn) {\\n      try {\\n        const response = await userDoTaskApi(params);\\n        if (response) {\\n          fn?.();\\n        }\\n        return response;\\n      } catch (error) {\\n        console.log(error);\\n        throw error;\\n      }\\n    }\\n  },\\n  persist: true\\n});\\n\"],\n  \"mappings\": \";AAAA,SAAS,mBAAmB;AAC5B;AAAA,EACE;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,OACK;AACA,aAAM,uBAAuB,YAAY,gBAAgB;AAAA,EAC9D,OAAO,OAAO;AAAA,IACZ,YAAY,CAAC;AAAA,IACb,iBAAiB,CAAC;AAAA,IAClB,gBAAgB,CAAC;AAAA,IACjB,aAAa,CAAC;AAAA,EAChB;AAAA,EACA,SAAS,CAAC;AAAA,EACV,SAAS;AAAA,IACP,MAAM,mBAAmB;AACvB,UAAI;AACF,cAAM,WAAW,MAAM,cAAc;AACrC,aAAK,aAAa;AAClB,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,IAAI,KAAK;AACjB,cAAM;AAAA,MACR;AAAA,IACF;AAAA,IACA,iBAAiB,MAAM;AACrB,WAAK,aAAa;AAAA,IACpB;AAAA,IACA,MAAM,wBAAwB;AAC5B,UAAI;AACF,cAAM,WAAW,MAAM,mBAAmB;AAC1C,aAAK,kBAAkB;AACvB,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,IAAI,KAAK;AACjB,cAAM;AAAA,MACR;AAAA,IACF;AAAA,IACA,MAAM,mBAAmB;AACvB,UAAI;AACF,cAAM,WAAW,MAAM,cAAc;AACrC,aAAK,cAAc;AACnB,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,IAAI,KAAK;AACjB,cAAM;AAAA,MACR;AAAA,IACF;AAAA,IACA,MAAM,oBAAoB,QAAQ;AAChC,UAAI;AACF,cAAM,WAAW,MAAM,iBAAiB,MAAM;AAC9C,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,IAAI,KAAK;AACjB,cAAM;AAAA,MACR;AAAA,IACF;AAAA;AAAA,IAEA,MAAM,uBAAuB,QAAQ;AACnC,UAAI;AACF,cAAM,WAAW,MAAM,oBAAoB,MAAM;AACjD,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,IAAI,KAAK;AACjB,cAAM;AAAA,MACR;AAAA,IACF;AAAA;AAAA,IAEA,MAAM,uBAAuB;AAC3B,UAAI;AACF,cAAM,WAAW,MAAM,kBAAkB;AACzC,aAAK,iBAAiB;AACtB,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,IAAI,KAAK;AACjB,cAAM;AAAA,MACR;AAAA,IACF;AAAA;AAAA,IAEA,MAAM,yBAAyB;AAC7B,UAAI;AACF,cAAM,WAAW,MAAM,oBAAoB;AAC3C,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,IAAI,KAAK;AACjB,cAAM;AAAA,MACR;AAAA,IACF;AAAA,IACA,MAAM,iBAAiB,QAAQ,IAAI;AACjC,UAAI;AACF,cAAM,WAAW,MAAM,cAAc,MAAM;AAC3C,YAAI,UAAU;AACZ;AAAA,QACF;AACA,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,IAAI,KAAK;AACjB,cAAM;AAAA,MACR;AAAA,IACF;AAAA,EACF;AAAA,EACA,SAAS;AACX,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769488,
+      "end": 1714699769488,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769488,
+      "end": 1714699769488,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769488,
+      "end": 1714699769488,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769488,
+      "end": 1714699769488,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769488,
+      "end": 1714699769488,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769488,
+      "end": 1714699769488,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769488,
+      "end": 1714699769488,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769488,
+      "end": 1714699769488,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769488,
+      "end": 1714699769488,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699769488,
+      "end": 1714699769488,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769488,
+      "end": 1714699769489,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769489,
+      "end": 1714699769489,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769489,
+      "end": 1714699769489,
+      "order": "normal"
+    }
+  ]
+}

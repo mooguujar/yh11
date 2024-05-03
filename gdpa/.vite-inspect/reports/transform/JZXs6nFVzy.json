@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/omit.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import arrayMap from './_arrayMap.js';\nimport baseClone from './_baseClone.js';\nimport baseUnset from './_baseUnset.js';\nimport castPath from './_castPath.js';\nimport copyObject from './_copyObject.js';\nimport customOmitClone from './_customOmitClone.js';\nimport flatRest from './_flatRest.js';\nimport getAllKeysIn from './_getAllKeysIn.js';\n\n/** Used to compose bitmasks for cloning. */\nvar CLONE_DEEP_FLAG = 1,\n    CLONE_FLAT_FLAG = 2,\n    CLONE_SYMBOLS_FLAG = 4;\n\n/**\n * The opposite of `_.pick`; this method creates an object composed of the\n * own and inherited enumerable property paths of `object` that are not omitted.\n *\n * **Note:** This method is considerably slower than `_.pick`.\n *\n * @static\n * @since 0.1.0\n * @memberOf _\n * @category Object\n * @param {Object} object The source object.\n * @param {...(string|string[])} [paths] The property paths to omit.\n * @returns {Object} Returns the new object.\n * @example\n *\n * var object = { 'a': 1, 'b': '2', 'c': 3 };\n *\n * _.omit(object, ['a', 'c']);\n * // => { 'b': '2' }\n */\nvar omit = flatRest(function(object, paths) {\n  var result = {};\n  if (object == null) {\n    return result;\n  }\n  var isDeep = false;\n  paths = arrayMap(paths, function(path) {\n    path = castPath(path, object);\n    isDeep || (isDeep = path.length > 1);\n    return path;\n  });\n  copyObject(object, getAllKeysIn(object), result);\n  if (isDeep) {\n    result = baseClone(result, CLONE_DEEP_FLAG | CLONE_FLAT_FLAG | CLONE_SYMBOLS_FLAG, customOmitClone);\n  }\n  var length = paths.length;\n  while (length--) {\n    baseUnset(result, paths[length]);\n  }\n  return result;\n});\n\nexport default omit;\n",
+      "start": 1714699768457,
+      "end": 1714699768469,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768469,
+      "end": 1714699768469,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768469,
+      "end": 1714699768469,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768469,
+      "end": 1714699768469,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768469,
+      "end": 1714699768469,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768469,
+      "end": 1714699768469,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768469,
+      "end": 1714699768469,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import arrayMap from './_arrayMap.js';\nimport baseClone from './_baseClone.js';\nimport baseUnset from './_baseUnset.js';\nimport castPath from './_castPath.js';\nimport copyObject from './_copyObject.js';\nimport customOmitClone from './_customOmitClone.js';\nimport flatRest from './_flatRest.js';\nimport getAllKeysIn from './_getAllKeysIn.js';\n\n/** Used to compose bitmasks for cloning. */\nvar CLONE_DEEP_FLAG = 1,\n    CLONE_FLAT_FLAG = 2,\n    CLONE_SYMBOLS_FLAG = 4;\n\n/**\n * The opposite of `_.pick`; this method creates an object composed of the\n * own and inherited enumerable property paths of `object` that are not omitted.\n *\n * **Note:** This method is considerably slower than `_.pick`.\n *\n * @static\n * @since 0.1.0\n * @memberOf _\n * @category Object\n * @param {Object} object The source object.\n * @param {...(string|string[])} [paths] The property paths to omit.\n * @returns {Object} Returns the new object.\n * @example\n *\n * var object = { 'a': 1, 'b': '2', 'c': 3 };\n *\n * _.omit(object, ['a', 'c']);\n * // => { 'b': '2' }\n */\nvar omit = flatRest(function(object, paths) {\n  var result = {};\n  if (object == null) {\n    return result;\n  }\n  var isDeep = false;\n  paths = arrayMap(paths, function(path) {\n    path = castPath(path, object);\n    isDeep || (isDeep = path.length > 1);\n    return path;\n  });\n  copyObject(object, getAllKeysIn(object), result);\n  if (isDeep) {\n    result = baseClone(result, CLONE_DEEP_FLAG | CLONE_FLAT_FLAG | CLONE_SYMBOLS_FLAG, customOmitClone);\n  }\n  var length = paths.length;\n  while (length--) {\n    baseUnset(result, paths[length]);\n  }\n  return result;\n});\n\nexport default omit;\n",
+      "start": 1714699768469,
+      "end": 1714699768469,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768469,
+      "end": 1714699768469,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768469,
+      "end": 1714699768469,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768469,
+      "end": 1714699768469,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768469,
+      "end": 1714699768469,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768469,
+      "end": 1714699768469,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768469,
+      "end": 1714699768469,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768469,
+      "end": 1714699768469,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768469,
+      "end": 1714699768469,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768469,
+      "end": 1714699768469,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768469,
+      "end": 1714699768469,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768469,
+      "end": 1714699768469,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768469,
+      "end": 1714699768469,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768469,
+      "end": 1714699768469,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768469,
+      "end": 1714699768469,
+      "order": "normal"
+    }
+  ]
+}

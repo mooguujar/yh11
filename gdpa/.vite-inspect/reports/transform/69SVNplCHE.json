@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/es/icon/src/icon.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { defineComponent, h } from 'vue';\nexport default defineComponent({\n    name: 'VxeIcon',\n    props: {\n        name: String,\n        roll: Boolean,\n        status: String\n    },\n    emits: [\n        'click'\n    ],\n    setup: function (props, _a) {\n        var emit = _a.emit;\n        var clickEvent = function (evnt) {\n            emit('click', { $event: evnt });\n        };\n        return function () {\n            var name = props.name, roll = props.roll, status = props.status;\n            return h('i', {\n                class: [\"vxe-icon-\".concat(name), roll || '', status ? [\"theme--\".concat(status)] : ''],\n                onClick: clickEvent\n            });\n        };\n    }\n});\n",
+      "start": 1714699767739,
+      "end": 1714699767775,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767775,
+      "end": 1714699767775,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767775,
+      "end": 1714699767775,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767775,
+      "end": 1714699767775,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767775,
+      "end": 1714699767775,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767775,
+      "end": 1714699767775,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767775,
+      "end": 1714699767775,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { defineComponent, h } from 'vue';\nexport default defineComponent({\n    name: 'VxeIcon',\n    props: {\n        name: String,\n        roll: Boolean,\n        status: String\n    },\n    emits: [\n        'click'\n    ],\n    setup: function (props, _a) {\n        var emit = _a.emit;\n        var clickEvent = function (evnt) {\n            emit('click', { $event: evnt });\n        };\n        return function () {\n            var name = props.name, roll = props.roll, status = props.status;\n            return h('i', {\n                class: [\"vxe-icon-\".concat(name), roll || '', status ? [\"theme--\".concat(status)] : ''],\n                onClick: clickEvent\n            });\n        };\n    }\n});\n",
+      "start": 1714699767775,
+      "end": 1714699767775,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767775,
+      "end": 1714699767775,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767775,
+      "end": 1714699767775,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767775,
+      "end": 1714699767775,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767775,
+      "end": 1714699767775,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767775,
+      "end": 1714699767775,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767775,
+      "end": 1714699767775,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767775,
+      "end": 1714699767776,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767776,
+      "end": 1714699767776,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767776,
+      "end": 1714699767776,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767776,
+      "end": 1714699767776,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767776,
+      "end": 1714699767776,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767776,
+      "end": 1714699767776,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767776,
+      "end": 1714699767776,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767776,
+      "end": 1714699767776,
+      "order": "normal"
+    }
+  ]
+}

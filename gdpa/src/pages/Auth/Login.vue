@@ -336,7 +336,7 @@ onUnmounted(() => {
   </div>
 
   <!-- 广告位 -->
-  <AdBanner />
+  <AdBanner slider />
 
   <footer-view
     btn-name="登录"

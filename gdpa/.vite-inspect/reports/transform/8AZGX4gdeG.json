@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/wallet.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <div class=\"wallet\">wallet</div>\n</template>\n\n<script setup lang=\"ts\"></script>\n\n<style lang=\"scss\" scoped>\n@import '@/assets/styles/sprite-mine.scss';\n.wallet {\n  position: relative;\n  flex-direction: column;\n  width: 100%;\n  height: 100%;\n  padding: 10vh 0;\n}\n</style>\n",
+      "start": 1714699769100,
+      "end": 1714699769276,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769276,
+      "end": 1714699769276,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769276,
+      "end": 1714699769276,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769276,
+      "end": 1714699769276,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769276,
+      "end": 1714699769276,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "const _sfc_main = {}\nimport { openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-17e29a84\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = { class: \"wallet\" }\n\nfunction _sfc_render(_ctx, _cache) {\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, \"wallet\"))\n}\n\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/wallet.vue?vue&type=style&index=0&scoped=17e29a84&lang.scss\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render],['__scopeId',\"data-v-17e29a84\"],['__file',\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/wallet.vue\"]])",
+      "start": 1714699769276,
+      "end": 1714699769276,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769276,
+      "end": 1714699769276,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "const _sfc_main = {}\nimport { openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\"\n\nconst _withScopeId = n => (_pushScopeId(\"data-v-17e29a84\"),n=n(),_popScopeId(),n)\nconst _hoisted_1 = { class: \"wallet\" }\n\nfunction _sfc_render(_ctx, _cache) {\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, \"wallet\"))\n}\n\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/wallet.vue?vue&type=style&index=0&scoped=17e29a84&lang.scss\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render],['__scopeId',\"data-v-17e29a84\"],['__file',\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/wallet.vue\"]])",
+      "start": 1714699769276,
+      "end": 1714699769276,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nconst _sfc_main = {};\nimport { openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\";\nconst _withScopeId = (n) => (_pushScopeId(\"data-v-17e29a84\"), n = n(), _popScopeId(), n);\nconst _hoisted_1 = { class: \"wallet\" };\nfunction _sfc_render(_ctx, _cache) {\n  return _openBlock(), _createElementBlock(\"div\", _hoisted_1, \"wallet\");\n}\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/wallet.vue?vue&type=style&index=0&scoped=17e29a84&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"render\", _sfc_render], [\"__scopeId\", \"data-v-17e29a84\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/wallet.vue\"]]);\n",
+      "start": 1714699769276,
+      "end": 1714699769524,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/wallet.vue\"],\n  \"sourcesContent\": [\"const _sfc_main = {}\\nimport { openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \\\"vue\\\"\\n\\nconst _withScopeId = n => (_pushScopeId(\\\"data-v-17e29a84\\\"),n=n(),_popScopeId(),n)\\nconst _hoisted_1 = { class: \\\"wallet\\\" }\\n\\nfunction _sfc_render(_ctx, _cache) {\\n  return (_openBlock(), _createElementBlock(\\\"div\\\", _hoisted_1, \\\"wallet\\\"))\\n}\\n\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/wallet.vue?vue&type=style&index=0&scoped=17e29a84&lang.scss\\\"\\n\\nimport _export_sfc from '\\u0000plugin-vue:export-helper'\\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render],['__scopeId',\\\"data-v-17e29a84\\\"],['__file',\\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/wallet.vue\\\"]])\"],\n  \"mappings\": \";AAAA,MAAM,YAAY,CAAC;AACnB,SAAS,aAAa,YAAY,sBAAsB,qBAAqB,eAAe,cAAc,cAAc,mBAAmB;AAE3I,MAAM,eAAe,QAAM,aAAa,iBAAiB,GAAE,IAAE,EAAE,GAAE,YAAY,GAAE;AAC/E,MAAM,aAAa,EAAE,OAAO,SAAS;AAErC,SAAS,YAAY,MAAM,QAAQ;AACjC,SAAQ,WAAW,GAAG,oBAAoB,OAAO,YAAY,QAAQ;AACvE;AAEA,OAAO;AAEP,OAAO,iBAAiB;AACxB,eAA4B,4BAAY,WAAW,CAAC,CAAC,UAAS,WAAW,GAAE,CAAC,aAAY,iBAAiB,GAAE,CAAC,UAAS,iEAAiE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769524,
+      "end": 1714699769524,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769524,
+      "end": 1714699769524,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769524,
+      "end": 1714699769526,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769526,
+      "end": 1714699769526,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769526,
+      "end": 1714699769526,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769526,
+      "end": 1714699769526,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769526,
+      "end": 1714699769526,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769526,
+      "end": 1714699769526,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769526,
+      "end": 1714699769527,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nconst _sfc_main = {};\nimport { openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\";\nconst _withScopeId = (n) => (_pushScopeId(\"data-v-17e29a84\"), n = n(), _popScopeId(), n);\nconst _hoisted_1 = { class: \"wallet\" };\nfunction _sfc_render(_ctx, _cache) {\n  return _openBlock(), _createElementBlock(\"div\", _hoisted_1, \"wallet\");\n}\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/wallet.vue?vue&type=style&index=0&scoped=17e29a84&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"render\", _sfc_render], [\"__scopeId\", \"data-v-17e29a84\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/wallet.vue\"]]);\n",
+      "start": 1714699769527,
+      "end": 1714699769527,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/wallet.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nconst _sfc_main = {};\nimport { openBlock as _openBlock, createElementBlock as _createElementBlock, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from \"vue\";\nconst _withScopeId = (n) => (_pushScopeId(\"data-v-17e29a84\"), n = n(), _popScopeId(), n);\nconst _hoisted_1 = { class: \"wallet\" };\nfunction _sfc_render(_ctx, _cache) {\n  return _openBlock(), _createElementBlock(\"div\", _hoisted_1, \"wallet\");\n}\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/wallet.vue?vue&type=style&index=0&scoped=17e29a84&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"render\", _sfc_render], [\"__scopeId\", \"data-v-17e29a84\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/wallet.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769527,
+      "end": 1714699769527,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769527,
+      "end": 1714699769527,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769527,
+      "end": 1714699769527,
+      "order": "normal"
+    }
+  ]
+}

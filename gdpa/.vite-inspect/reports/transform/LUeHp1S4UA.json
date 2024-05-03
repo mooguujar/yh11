@@ -1,0 +1,163 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue?vue&type=style&index=0&score=true&lang.scss",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\n.preload-resources-container {\n  &::before {\n    content: '';\n    background-image: v-bind('spritesHomeUrl');\n  }\n}\n",
+      "start": 1714699769400,
+      "end": 1714699769401
+    },
+    {
+      "name": "vite:css",
+      "result": ".preload-resources-container::before {\n  content: \"\";\n  background-image: v-bind(\"spritesHomeUrl\");\n}",
+      "start": 1714699769401,
+      "end": 1714699769404,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769404,
+      "end": 1714699769404,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769404,
+      "end": 1714699769404,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769404,
+      "end": 1714699769404,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".preload-resources-container::before {\n  content: \"\";\n  background-image: var(--9535fcaf-spritesHomeUrl);\n}",
+      "start": 1714699769404,
+      "end": 1714699769404,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769404,
+      "end": 1714699769404,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": ".preload-resources-container::before {\n  content: \"\";\n  background-image: var(--9535fcaf-spritesHomeUrl);\n}",
+      "start": 1714699769404,
+      "end": 1714699769404,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699769404,
+      "end": 1714699769404,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769404,
+      "end": 1714699769404,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699769404,
+      "end": 1714699769404,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769404,
+      "end": 1714699769404,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769404,
+      "end": 1714699769404,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769404,
+      "end": 1714699769404,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769404,
+      "end": 1714699769404,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769404,
+      "end": 1714699769404,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769404,
+      "end": 1714699769404,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769404,
+      "end": 1714699769404,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */",
+      "start": 1714699769404,
+      "end": 1714699769404,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue?vue&type=style&index=0&score=true&lang.scss"
+        ],
+        "sourcesContent": [
+          ""
+        ],
+        "names": [],
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769404,
+      "end": 1714699769404,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769404,
+      "end": 1714699769404,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769404,
+      "end": 1714699769404,
+      "order": "normal"
+    }
+  ]
+}

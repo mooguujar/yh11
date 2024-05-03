@@ -28,7 +28,7 @@ const AppBar = enableAppBar(mode as modeType)
 const { width } = useWindowSize()
 
 // 需显示底部导航栏的路由列表
-const MenuBarRouteList = ['Home', 'SellCoin', 'Order', 'Point', 'scanQR', 'Mine']
+const MenuBarRouteList = ['Home', 'SellCoin', 'Order', 'activeList', 'scanQR', 'Mine']
 const commonStore = useCommonStore()
 const { showLoading, getShowLoading: reqLoading } = storeToRefs(commonStore)
 

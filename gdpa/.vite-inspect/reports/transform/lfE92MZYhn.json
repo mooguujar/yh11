@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/searchTree.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var helperCreateTreeFunc = require('./helperCreateTreeFunc')\r\n\r\nvar arrayEach = require('./arrayEach')\r\n\r\nvar assign = require('./assign')\r\n\r\nfunction searchTreeItem (matchParent, parent, obj, iterate, context, path, node, parseChildren, opts) {\r\n  var paths, nodes, rest, isMatch, hasChild\r\n  var rests = []\r\n  var hasOriginal = opts.original\r\n  var sourceData = opts.data\r\n  var mapChildren = opts.mapChildren || parseChildren\r\n  var isEvery = opts.isEvery\r\n  arrayEach(obj, function (item, index) {\r\n    paths = path.concat(['' + index])\r\n    nodes = node.concat([item])\r\n    isMatch = (matchParent && !isEvery) || iterate.call(context, item, index, obj, paths, parent, nodes)\r\n    hasChild = parseChildren && item[parseChildren]\r\n    if (isMatch || hasChild) {\r\n      if (hasOriginal) {\r\n        rest = item\r\n      } else {\r\n        rest = assign({}, item)\r\n        if (sourceData) {\r\n          rest[sourceData] = item\r\n        }\r\n      }\r\n      rest[mapChildren] = searchTreeItem(isMatch, item, item[parseChildren], iterate, context, paths, nodes, parseChildren, opts)\r\n      if (isMatch || rest[mapChildren].length) {\r\n        rests.push(rest)\r\n      }\r\n    } else if (isMatch) {\r\n      rests.push(rest)\r\n    }\r\n  })\r\n  return rests\r\n}\r\n\r\n/**\r\n  * 从树结构中根据回调查找数据\r\n  *\r\n  * @param {Object} obj 对象/数组\r\n  * @param {Function} iterate(item, index, items, path, parent, nodes) 回调\r\n  * @param {Object} options {children: 'children'}\r\n  * @param {Object} context 上下文\r\n  * @return {Array}\r\n  */\r\nvar searchTree = helperCreateTreeFunc(function (parent, obj, iterate, context, path, nodes, parseChildren, opts) {\r\n  return searchTreeItem(0, parent, obj, iterate, context, path, nodes, parseChildren, opts)\r\n})\r\n\r\nmodule.exports = searchTree\r\n",
+      "start": 1714699767582,
+      "end": 1714699767605,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767605,
+      "end": 1714699767605,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767605,
+      "end": 1714699767605,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767605,
+      "end": 1714699767605,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767605,
+      "end": 1714699767605,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767605,
+      "end": 1714699767605,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767605,
+      "end": 1714699767605,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var helperCreateTreeFunc = require('./helperCreateTreeFunc')\r\n\r\nvar arrayEach = require('./arrayEach')\r\n\r\nvar assign = require('./assign')\r\n\r\nfunction searchTreeItem (matchParent, parent, obj, iterate, context, path, node, parseChildren, opts) {\r\n  var paths, nodes, rest, isMatch, hasChild\r\n  var rests = []\r\n  var hasOriginal = opts.original\r\n  var sourceData = opts.data\r\n  var mapChildren = opts.mapChildren || parseChildren\r\n  var isEvery = opts.isEvery\r\n  arrayEach(obj, function (item, index) {\r\n    paths = path.concat(['' + index])\r\n    nodes = node.concat([item])\r\n    isMatch = (matchParent && !isEvery) || iterate.call(context, item, index, obj, paths, parent, nodes)\r\n    hasChild = parseChildren && item[parseChildren]\r\n    if (isMatch || hasChild) {\r\n      if (hasOriginal) {\r\n        rest = item\r\n      } else {\r\n        rest = assign({}, item)\r\n        if (sourceData) {\r\n          rest[sourceData] = item\r\n        }\r\n      }\r\n      rest[mapChildren] = searchTreeItem(isMatch, item, item[parseChildren], iterate, context, paths, nodes, parseChildren, opts)\r\n      if (isMatch || rest[mapChildren].length) {\r\n        rests.push(rest)\r\n      }\r\n    } else if (isMatch) {\r\n      rests.push(rest)\r\n    }\r\n  })\r\n  return rests\r\n}\r\n\r\n/**\r\n  * 从树结构中根据回调查找数据\r\n  *\r\n  * @param {Object} obj 对象/数组\r\n  * @param {Function} iterate(item, index, items, path, parent, nodes) 回调\r\n  * @param {Object} options {children: 'children'}\r\n  * @param {Object} context 上下文\r\n  * @return {Array}\r\n  */\r\nvar searchTree = helperCreateTreeFunc(function (parent, obj, iterate, context, path, nodes, parseChildren, opts) {\r\n  return searchTreeItem(0, parent, obj, iterate, context, path, nodes, parseChildren, opts)\r\n})\r\n\r\nmodule.exports = searchTree\r\n",
+      "start": 1714699767605,
+      "end": 1714699767605,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767605,
+      "end": 1714699767605,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767605,
+      "end": 1714699767605,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767605,
+      "end": 1714699767605,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767605,
+      "end": 1714699767605,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767605,
+      "end": 1714699767605,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767605,
+      "end": 1714699767605,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/helperCreateTreeFunc.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/arrayEach.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/assign.js?commonjs-proxy\";\n\nvar helperCreateTreeFunc = require$$0\r\n\r\nvar arrayEach = require$$1\r\n\r\nvar assign = require$$2\r\n\r\nfunction searchTreeItem (matchParent, parent, obj, iterate, context, path, node, parseChildren, opts) {\r\n  var paths, nodes, rest, isMatch, hasChild\r\n  var rests = []\r\n  var hasOriginal = opts.original\r\n  var sourceData = opts.data\r\n  var mapChildren = opts.mapChildren || parseChildren\r\n  var isEvery = opts.isEvery\r\n  arrayEach(obj, function (item, index) {\r\n    paths = path.concat(['' + index])\r\n    nodes = node.concat([item])\r\n    isMatch = (matchParent && !isEvery) || iterate.call(context, item, index, obj, paths, parent, nodes)\r\n    hasChild = parseChildren && item[parseChildren]\r\n    if (isMatch || hasChild) {\r\n      if (hasOriginal) {\r\n        rest = item\r\n      } else {\r\n        rest = assign({}, item)\r\n        if (sourceData) {\r\n          rest[sourceData] = item\r\n        }\r\n      }\r\n      rest[mapChildren] = searchTreeItem(isMatch, item, item[parseChildren], iterate, context, paths, nodes, parseChildren, opts)\r\n      if (isMatch || rest[mapChildren].length) {\r\n        rests.push(rest)\r\n      }\r\n    } else if (isMatch) {\r\n      rests.push(rest)\r\n    }\r\n  })\r\n  return rests\r\n}\r\n\r\n/**\r\n  * 从树结构中根据回调查找数据\r\n  *\r\n  * @param {Object} obj 对象/数组\r\n  * @param {Function} iterate(item, index, items, path, parent, nodes) 回调\r\n  * @param {Object} options {children: 'children'}\r\n  * @param {Object} context 上下文\r\n  * @return {Array}\r\n  */\r\nvar searchTree = helperCreateTreeFunc(function (parent, obj, iterate, context, path, nodes, parseChildren, opts) {\r\n  return searchTreeItem(0, parent, obj, iterate, context, path, nodes, parseChildren, opts)\r\n})\r\n\r\nvar searchTree_1 = searchTree\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(searchTree_1);\nexport { searchTree_1 as __moduleExports };",
+      "start": 1714699767605,
+      "end": 1714699768219,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;AAAA,IAAI,oBAAoB,GAAG,UAAiC;AAC5D;AACA,IAAI,SAAS,GAAG,UAAsB;AACtC;AACA,IAAI,MAAM,GAAG,UAAmB;AAChC;AACA,SAAS,cAAc,EAAE,WAAW,EAAE,MAAM,EAAE,GAAG,EAAE,OAAO,EAAE,OAAO,EAAE,IAAI,EAAE,IAAI,EAAE,aAAa,EAAE,IAAI,EAAE;AACtG,EAAE,IAAI,KAAK,EAAE,KAAK,EAAE,IAAI,EAAE,OAAO,EAAE,QAAQ;AAC3C,EAAE,IAAI,KAAK,GAAG,EAAE;AAChB,EAAE,IAAI,WAAW,GAAG,IAAI,CAAC,QAAQ;AACjC,EAAE,IAAI,UAAU,GAAG,IAAI,CAAC,IAAI;AAC5B,EAAE,IAAI,WAAW,GAAG,IAAI,CAAC,WAAW,IAAI,aAAa;AACrD,EAAE,IAAI,OAAO,GAAG,IAAI,CAAC,OAAO;AAC5B,EAAE,SAAS,CAAC,GAAG,EAAE,UAAU,IAAI,EAAE,KAAK,EAAE;AACxC,IAAI,KAAK,GAAG,IAAI,CAAC,MAAM,CAAC,CAAC,EAAE,GAAG,KAAK,CAAC,CAAC;AACrC,IAAI,KAAK,GAAG,IAAI,CAAC,MAAM,CAAC,CAAC,IAAI,CAAC,CAAC;AAC/B,IAAI,OAAO,GAAG,CAAC,WAAW,IAAI,CAAC,OAAO,KAAK,OAAO,CAAC,IAAI,CAAC,OAAO,EAAE,IAAI,EAAE,KAAK,EAAE,GAAG,EAAE,KAAK,EAAE,MAAM,EAAE,KAAK,CAAC;AACxG,IAAI,QAAQ,GAAG,aAAa,IAAI,IAAI,CAAC,aAAa,CAAC;AACnD,IAAI,IAAI,OAAO,IAAI,QAAQ,EAAE;AAC7B,MAAM,IAAI,WAAW,EAAE;AACvB,QAAQ,IAAI,GAAG,IAAI;AACnB,OAAO,MAAM;AACb,QAAQ,IAAI,GAAG,MAAM,CAAC,EAAE,EAAE,IAAI,CAAC;AAC/B,QAAQ,IAAI,UAAU,EAAE;AACxB,UAAU,IAAI,CAAC,UAAU,CAAC,GAAG,IAAI;AACjC,SAAS;AACT,OAAO;AACP,MAAM,IAAI,CAAC,WAAW,CAAC,GAAG,cAAc,CAAC,OAAO,EAAE,IAAI,EAAE,IAAI,CAAC,aAAa,CAAC,EAAE,OAAO,EAAE,OAAO,EAAE,KAAK,EAAE,KAAK,EAAE,aAAa,EAAE,IAAI,CAAC;AACjI,MAAM,IAAI,OAAO,IAAI,IAAI,CAAC,WAAW,CAAC,CAAC,MAAM,EAAE;AAC/C,QAAQ,KAAK,CAAC,IAAI,CAAC,IAAI,CAAC;AACxB,OAAO;AACP,KAAK,MAAM,IAAI,OAAO,EAAE;AACxB,MAAM,KAAK,CAAC,IAAI,CAAC,IAAI,CAAC;AACtB,KAAK;AACL,GAAG,CAAC;AACJ,EAAE,OAAO,KAAK;AACd,CAAC;AACD;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,IAAI,UAAU,GAAG,oBAAoB,CAAC,UAAU,MAAM,EAAE,GAAG,EAAE,OAAO,EAAE,OAAO,EAAE,IAAI,EAAE,KAAK,EAAE,aAAa,EAAE,IAAI,EAAE;AACjH,EAAE,OAAO,cAAc,CAAC,CAAC,EAAE,MAAM,EAAE,GAAG,EAAE,OAAO,EAAE,OAAO,EAAE,IAAI,EAAE,KAAK,EAAE,aAAa,EAAE,IAAI,CAAC;AAC3F,CAAC,CAAC;AACF;IACA,YAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768219,
+      "end": 1714699768219,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768219,
+      "end": 1714699768219,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768219,
+      "end": 1714699768219,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768219,
+      "end": 1714699768219,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768219,
+      "end": 1714699768219,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768219,
+      "end": 1714699768219,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768219,
+      "end": 1714699768219,
+      "order": "normal"
+    }
+  ]
+}

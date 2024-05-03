@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/unserialize.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var staticDecodeURIComponent = require('./staticDecodeURIComponent')\r\n\r\nvar arrayEach = require('./arrayEach')\r\n\r\nvar isString = require('./isString')\r\n\r\n/**\r\n * 反序列化查询参数\r\n * @param {String} query 字符串\r\n */\r\nfunction unserialize (str) {\r\n  var items\r\n  var result = {}\r\n  if (str && isString(str)) {\r\n    arrayEach(str.split('&'), function (param) {\r\n      items = param.split('=')\r\n      result[staticDecodeURIComponent(items[0])] = staticDecodeURIComponent(items[1] || '')\r\n    })\r\n  }\r\n  return result\r\n}\r\n\r\nmodule.exports = unserialize\r\n",
+      "start": 1714699767718,
+      "end": 1714699767729,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767729,
+      "end": 1714699767729,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767729,
+      "end": 1714699767729,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767729,
+      "end": 1714699767729,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767729,
+      "end": 1714699767729,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767729,
+      "end": 1714699767729,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767729,
+      "end": 1714699767729,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var staticDecodeURIComponent = require('./staticDecodeURIComponent')\r\n\r\nvar arrayEach = require('./arrayEach')\r\n\r\nvar isString = require('./isString')\r\n\r\n/**\r\n * 反序列化查询参数\r\n * @param {String} query 字符串\r\n */\r\nfunction unserialize (str) {\r\n  var items\r\n  var result = {}\r\n  if (str && isString(str)) {\r\n    arrayEach(str.split('&'), function (param) {\r\n      items = param.split('=')\r\n      result[staticDecodeURIComponent(items[0])] = staticDecodeURIComponent(items[1] || '')\r\n    })\r\n  }\r\n  return result\r\n}\r\n\r\nmodule.exports = unserialize\r\n",
+      "start": 1714699767729,
+      "end": 1714699767729,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767729,
+      "end": 1714699767729,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767729,
+      "end": 1714699767729,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767729,
+      "end": 1714699767729,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767729,
+      "end": 1714699767729,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767729,
+      "end": 1714699767729,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767729,
+      "end": 1714699767729,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/staticDecodeURIComponent.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/arrayEach.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isString.js?commonjs-proxy\";\n\nvar staticDecodeURIComponent = require$$0\r\n\r\nvar arrayEach = require$$1\r\n\r\nvar isString = require$$2\r\n\r\n/**\r\n * 反序列化查询参数\r\n * @param {String} query 字符串\r\n */\r\nfunction unserialize (str) {\r\n  var items\r\n  var result = {}\r\n  if (str && isString(str)) {\r\n    arrayEach(str.split('&'), function (param) {\r\n      items = param.split('=')\r\n      result[staticDecodeURIComponent(items[0])] = staticDecodeURIComponent(items[1] || '')\r\n    })\r\n  }\r\n  return result\r\n}\r\n\r\nvar unserialize_1 = unserialize\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(unserialize_1);\nexport { unserialize_1 as __moduleExports };",
+      "start": 1714699767729,
+      "end": 1714699768245,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;AAAA,IAAI,wBAAwB,GAAG,UAAqC;AACpE;AACA,IAAI,SAAS,GAAG,UAAsB;AACtC;AACA,IAAI,QAAQ,GAAG,UAAqB;AACpC;AACA;AACA;AACA;AACA;AACA,SAAS,WAAW,EAAE,GAAG,EAAE;AAC3B,EAAE,IAAI,KAAK;AACX,EAAE,IAAI,MAAM,GAAG,EAAE;AACjB,EAAE,IAAI,GAAG,IAAI,QAAQ,CAAC,GAAG,CAAC,EAAE;AAC5B,IAAI,SAAS,CAAC,GAAG,CAAC,KAAK,CAAC,GAAG,CAAC,EAAE,UAAU,KAAK,EAAE;AAC/C,MAAM,KAAK,GAAG,KAAK,CAAC,KAAK,CAAC,GAAG,CAAC;AAC9B,MAAM,MAAM,CAAC,wBAAwB,CAAC,KAAK,CAAC,CAAC,CAAC,CAAC,CAAC,GAAG,wBAAwB,CAAC,KAAK,CAAC,CAAC,CAAC,IAAI,EAAE,CAAC;AAC3F,KAAK,CAAC;AACN,GAAG;AACH,EAAE,OAAO,MAAM;AACf,CAAC;AACD;IACA,aAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768245,
+      "end": 1714699768245,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768245,
+      "end": 1714699768245,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768245,
+      "end": 1714699768245,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768245,
+      "end": 1714699768245,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768245,
+      "end": 1714699768245,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768245,
+      "end": 1714699768245,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768245,
+      "end": 1714699768245,
+      "order": "normal"
+    }
+  ]
+}

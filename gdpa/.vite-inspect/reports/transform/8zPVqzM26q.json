@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/unzip.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var pluck = require('./pluck')\r\n\r\nvar max = require('./max')\r\n\r\n/**\r\n * 与 zip 相反\r\n *\r\n * @param {Array} arrays 数组集合\r\n */\r\nfunction unzip (arrays) {\r\n  var index, maxItem, len\r\n  var result = []\r\n  if (arrays && arrays.length) {\r\n    index = 0\r\n    maxItem = max(arrays, function (item) {\r\n      return item ? item.length : 0\r\n    })\r\n    for (len = maxItem ? maxItem.length : 0; index < len; index++) {\r\n      result.push(pluck(arrays, index))\r\n    }\r\n  }\r\n  return result\r\n}\r\n\r\nmodule.exports = unzip\r\n",
+      "start": 1714699767567,
+      "end": 1714699767595,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767595,
+      "end": 1714699767595,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767595,
+      "end": 1714699767595,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767595,
+      "end": 1714699767595,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767595,
+      "end": 1714699767595,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767595,
+      "end": 1714699767595,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767595,
+      "end": 1714699767595,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var pluck = require('./pluck')\r\n\r\nvar max = require('./max')\r\n\r\n/**\r\n * 与 zip 相反\r\n *\r\n * @param {Array} arrays 数组集合\r\n */\r\nfunction unzip (arrays) {\r\n  var index, maxItem, len\r\n  var result = []\r\n  if (arrays && arrays.length) {\r\n    index = 0\r\n    maxItem = max(arrays, function (item) {\r\n      return item ? item.length : 0\r\n    })\r\n    for (len = maxItem ? maxItem.length : 0; index < len; index++) {\r\n      result.push(pluck(arrays, index))\r\n    }\r\n  }\r\n  return result\r\n}\r\n\r\nmodule.exports = unzip\r\n",
+      "start": 1714699767595,
+      "end": 1714699767595,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767595,
+      "end": 1714699767595,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767595,
+      "end": 1714699767595,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767595,
+      "end": 1714699767595,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767595,
+      "end": 1714699767595,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767595,
+      "end": 1714699767595,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767596,
+      "end": 1714699767596,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/pluck.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/max.js?commonjs-proxy\";\n\nvar pluck = require$$0\r\n\r\nvar max = require$$1\r\n\r\n/**\r\n * 与 zip 相反\r\n *\r\n * @param {Array} arrays 数组集合\r\n */\r\nfunction unzip (arrays) {\r\n  var index, maxItem, len\r\n  var result = []\r\n  if (arrays && arrays.length) {\r\n    index = 0\r\n    maxItem = max(arrays, function (item) {\r\n      return item ? item.length : 0\r\n    })\r\n    for (len = maxItem ? maxItem.length : 0; index < len; index++) {\r\n      result.push(pluck(arrays, index))\r\n    }\r\n  }\r\n  return result\r\n}\r\n\r\nvar unzip_1 = unzip\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(unzip_1);\nexport { unzip_1 as __moduleExports };",
+      "start": 1714699767596,
+      "end": 1714699768214,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;AAAA,IAAI,KAAK,GAAG,UAAkB;AAC9B;AACA,IAAI,GAAG,GAAG,UAAgB;AAC1B;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,KAAK,EAAE,MAAM,EAAE;AACxB,EAAE,IAAI,KAAK,EAAE,OAAO,EAAE,GAAG;AACzB,EAAE,IAAI,MAAM,GAAG,EAAE;AACjB,EAAE,IAAI,MAAM,IAAI,MAAM,CAAC,MAAM,EAAE;AAC/B,IAAI,KAAK,GAAG,CAAC;AACb,IAAI,OAAO,GAAG,GAAG,CAAC,MAAM,EAAE,UAAU,IAAI,EAAE;AAC1C,MAAM,OAAO,IAAI,GAAG,IAAI,CAAC,MAAM,GAAG,CAAC;AACnC,KAAK,CAAC;AACN,IAAI,KAAK,GAAG,GAAG,OAAO,GAAG,OAAO,CAAC,MAAM,GAAG,CAAC,EAAE,KAAK,GAAG,GAAG,EAAE,KAAK,EAAE,EAAE;AACnE,MAAM,MAAM,CAAC,IAAI,CAAC,KAAK,CAAC,MAAM,EAAE,KAAK,CAAC,CAAC;AACvC,KAAK;AACL,GAAG;AACH,EAAE,OAAO,MAAM;AACf,CAAC;AACD;IACA,OAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768214,
+      "end": 1714699768214,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768214,
+      "end": 1714699768214,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768214,
+      "end": 1714699768214,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768214,
+      "end": 1714699768214,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768214,
+      "end": 1714699768214,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768214,
+      "end": 1714699768214,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768214,
+      "end": 1714699768214,
+      "order": "normal"
+    }
+  ]
+}

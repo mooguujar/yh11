@@ -5,10 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "cross-env NODE_ENV=dev DEBUG=\"vite:transform\" vite --profile --config ./config/vite.config.dev.ts --host",
+    "dev-debug": "NODE_OPTIONS='--inspect-brk' run-p dev",
     "dev:test": "cross-env NODE_ENV=test vite --config ./config/vite.config.dev.ts --host",
     "dev:https": "cross-env NODE_ENV=dev vite --host",
     "build": "cross-env NODE_ENV=prod run-p build-only",
     "build:pre-release": "cross-env NODE_ENV=pre-release run-p build-only",
+    "build:pre-release:dev": "rimraf dist && cross-env NODE_ENV=pre-release vite build --config ./config/vite.config.prod.ts",
     "preview": "cross-env NODE_ENV=dev vite preview",
     "report": "rimraf dist && vite build --config ./config/vite.config.prod.ts",
     "build-only": "rimraf dist && vite build --config ./config/vite.config.prod.ts",
@@ -51,6 +53,7 @@
     "vue-clipboard3": "^2.0.0",
     "vue-router": "^4.2.5",
     "vue-vconsole-devtools": "^1.0.9",
+    "vue-wechat-title": "^2.0.7",
     "vue3-seamless-scroll": "^2.0.1",
     "vxe-table": "^4.5.21"
   },

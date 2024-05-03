@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/es/tools/dom.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import XEUtils from 'xe-utils';\nvar reClsMap = {};\nexport var browse = XEUtils.browse();\nexport function getPropClass(property, params) {\n    return property ? XEUtils.isFunction(property) ? property(params) : property : '';\n}\nfunction getClsRE(cls) {\n    if (!reClsMap[cls]) {\n        reClsMap[cls] = new RegExp(\"(?:^|\\\\s)\".concat(cls, \"(?!\\\\S)\"), 'g');\n    }\n    return reClsMap[cls];\n}\nfunction getNodeOffset(elem, container, rest) {\n    if (elem) {\n        var parentElem = elem.parentNode;\n        rest.top += elem.offsetTop;\n        rest.left += elem.offsetLeft;\n        if (parentElem && parentElem !== document.documentElement && parentElem !== document.body) {\n            rest.top -= parentElem.scrollTop;\n            rest.left -= parentElem.scrollLeft;\n        }\n        if (container && (elem === container || elem.offsetParent === container) ? 0 : elem.offsetParent) {\n            return getNodeOffset(elem.offsetParent, container, rest);\n        }\n    }\n    return rest;\n}\nexport function isPx(val) {\n    return val && /^\\d+(px)?$/.test(val);\n}\nexport function isScale(val) {\n    return val && /^\\d+%$/.test(val);\n}\nexport function hasClass(elem, cls) {\n    return elem && elem.className && elem.className.match && elem.className.match(getClsRE(cls));\n}\nexport function removeClass(elem, cls) {\n    if (elem && hasClass(elem, cls)) {\n        elem.className = elem.className.replace(getClsRE(cls), '');\n    }\n}\nexport function addClass(elem, cls) {\n    if (elem && !hasClass(elem, cls)) {\n        removeClass(elem, cls);\n        elem.className = \"\".concat(elem.className, \" \").concat(cls);\n    }\n}\nexport function getDomNode() {\n    var documentElement = document.documentElement;\n    var bodyElem = document.body;\n    return {\n        scrollTop: documentElement.scrollTop || bodyElem.scrollTop,\n        scrollLeft: documentElement.scrollLeft || bodyElem.scrollLeft,\n        visibleHeight: documentElement.clientHeight || bodyElem.clientHeight,\n        visibleWidth: documentElement.clientWidth || bodyElem.clientWidth\n    };\n}\nexport function getOffsetHeight(elem) {\n    return elem ? elem.offsetHeight : 0;\n}\nexport function getPaddingTopBottomSize(elem) {\n    if (elem) {\n        var computedStyle = getComputedStyle(elem);\n        var paddingTop = XEUtils.toNumber(computedStyle.paddingTop);\n        var paddingBottom = XEUtils.toNumber(computedStyle.paddingBottom);\n        return paddingTop + paddingBottom;\n    }\n    return 0;\n}\nexport function setScrollTop(elem, scrollTop) {\n    if (elem) {\n        elem.scrollTop = scrollTop;\n    }\n}\nexport function setScrollLeft(elem, scrollLeft) {\n    if (elem) {\n        elem.scrollLeft = scrollLeft;\n    }\n}\n// export function setScrollLeftAndTop (elem: HTMLElement | null, scrollLeft: number, scrollTop: number) {\n//   if (elem) {\n//     elem.scrollLeft = scrollLeft\n//     elem.scrollTop = scrollTop\n//   }\n// }\nexport function updateCellTitle(overflowElem, column) {\n    var content = column.type === 'html' ? overflowElem.innerText : overflowElem.textContent;\n    if (overflowElem.getAttribute('title') !== content) {\n        overflowElem.setAttribute('title', content);\n    }\n}\n/**\n * 检查触发源是否属于目标节点\n */\nexport function getEventTargetNode(evnt, container, queryCls, queryMethod) {\n    var targetElem;\n    var target = (evnt.target.shadowRoot && evnt.composed) ? (evnt.composedPath()[0] || evnt.target) : evnt.target;\n    while (target && target.nodeType && target !== document) {\n        if (queryCls && hasClass(target, queryCls) && (!queryMethod || queryMethod(target))) {\n            targetElem = target;\n        }\n        else if (target === container) {\n            return { flag: queryCls ? !!targetElem : true, container: container, targetElem: targetElem };\n        }\n        target = target.parentNode;\n    }\n    return { flag: false };\n}\n/**\n * 获取元素相对于 document 的位置\n */\nexport function getOffsetPos(elem, container) {\n    return getNodeOffset(elem, container, { left: 0, top: 0 });\n}\nexport function getAbsolutePos(elem) {\n    // 当主页面嵌套在iframe时，elem.getBoundingClientRect()计算在当前body内的边界距离，document.body.getBoundingClientRect计算body所在的边界距离\n    var bodyBounding = document.body.getBoundingClientRect();\n    var bounding = elem.getBoundingClientRect();\n    var boundingTop = bounding.top - bodyBounding.top;\n    var boundingLeft = bounding.left - bodyBounding.left;\n    var _a = getDomNode(), scrollTop = _a.scrollTop, scrollLeft = _a.scrollLeft, visibleHeight = _a.visibleHeight, visibleWidth = _a.visibleWidth;\n    return { boundingTop: boundingTop, top: scrollTop + boundingTop, boundingLeft: boundingLeft, left: scrollLeft + boundingLeft, visibleHeight: visibleHeight, visibleWidth: visibleWidth };\n}\nvar scrollIntoViewIfNeeded = 'scrollIntoViewIfNeeded';\nvar scrollIntoView = 'scrollIntoView';\nexport function scrollToView(elem) {\n    if (elem) {\n        if (elem[scrollIntoViewIfNeeded]) {\n            elem[scrollIntoViewIfNeeded]();\n        }\n        else if (elem[scrollIntoView]) {\n            elem[scrollIntoView]();\n        }\n    }\n}\nexport function triggerEvent(targetElem, type) {\n    if (targetElem) {\n        targetElem.dispatchEvent(new Event(type));\n    }\n}\nexport function isNodeElement(elem) {\n    return elem && elem.nodeType === 1;\n}\n",
+      "start": 1714699768226,
+      "end": 1714699768273,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768273,
+      "end": 1714699768273,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768273,
+      "end": 1714699768273,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768273,
+      "end": 1714699768273,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768273,
+      "end": 1714699768273,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768273,
+      "end": 1714699768273,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768273,
+      "end": 1714699768273,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import XEUtils from 'xe-utils';\nvar reClsMap = {};\nexport var browse = XEUtils.browse();\nexport function getPropClass(property, params) {\n    return property ? XEUtils.isFunction(property) ? property(params) : property : '';\n}\nfunction getClsRE(cls) {\n    if (!reClsMap[cls]) {\n        reClsMap[cls] = new RegExp(\"(?:^|\\\\s)\".concat(cls, \"(?!\\\\S)\"), 'g');\n    }\n    return reClsMap[cls];\n}\nfunction getNodeOffset(elem, container, rest) {\n    if (elem) {\n        var parentElem = elem.parentNode;\n        rest.top += elem.offsetTop;\n        rest.left += elem.offsetLeft;\n        if (parentElem && parentElem !== document.documentElement && parentElem !== document.body) {\n            rest.top -= parentElem.scrollTop;\n            rest.left -= parentElem.scrollLeft;\n        }\n        if (container && (elem === container || elem.offsetParent === container) ? 0 : elem.offsetParent) {\n            return getNodeOffset(elem.offsetParent, container, rest);\n        }\n    }\n    return rest;\n}\nexport function isPx(val) {\n    return val && /^\\d+(px)?$/.test(val);\n}\nexport function isScale(val) {\n    return val && /^\\d+%$/.test(val);\n}\nexport function hasClass(elem, cls) {\n    return elem && elem.className && elem.className.match && elem.className.match(getClsRE(cls));\n}\nexport function removeClass(elem, cls) {\n    if (elem && hasClass(elem, cls)) {\n        elem.className = elem.className.replace(getClsRE(cls), '');\n    }\n}\nexport function addClass(elem, cls) {\n    if (elem && !hasClass(elem, cls)) {\n        removeClass(elem, cls);\n        elem.className = \"\".concat(elem.className, \" \").concat(cls);\n    }\n}\nexport function getDomNode() {\n    var documentElement = document.documentElement;\n    var bodyElem = document.body;\n    return {\n        scrollTop: documentElement.scrollTop || bodyElem.scrollTop,\n        scrollLeft: documentElement.scrollLeft || bodyElem.scrollLeft,\n        visibleHeight: documentElement.clientHeight || bodyElem.clientHeight,\n        visibleWidth: documentElement.clientWidth || bodyElem.clientWidth\n    };\n}\nexport function getOffsetHeight(elem) {\n    return elem ? elem.offsetHeight : 0;\n}\nexport function getPaddingTopBottomSize(elem) {\n    if (elem) {\n        var computedStyle = getComputedStyle(elem);\n        var paddingTop = XEUtils.toNumber(computedStyle.paddingTop);\n        var paddingBottom = XEUtils.toNumber(computedStyle.paddingBottom);\n        return paddingTop + paddingBottom;\n    }\n    return 0;\n}\nexport function setScrollTop(elem, scrollTop) {\n    if (elem) {\n        elem.scrollTop = scrollTop;\n    }\n}\nexport function setScrollLeft(elem, scrollLeft) {\n    if (elem) {\n        elem.scrollLeft = scrollLeft;\n    }\n}\n// export function setScrollLeftAndTop (elem: HTMLElement | null, scrollLeft: number, scrollTop: number) {\n//   if (elem) {\n//     elem.scrollLeft = scrollLeft\n//     elem.scrollTop = scrollTop\n//   }\n// }\nexport function updateCellTitle(overflowElem, column) {\n    var content = column.type === 'html' ? overflowElem.innerText : overflowElem.textContent;\n    if (overflowElem.getAttribute('title') !== content) {\n        overflowElem.setAttribute('title', content);\n    }\n}\n/**\n * 检查触发源是否属于目标节点\n */\nexport function getEventTargetNode(evnt, container, queryCls, queryMethod) {\n    var targetElem;\n    var target = (evnt.target.shadowRoot && evnt.composed) ? (evnt.composedPath()[0] || evnt.target) : evnt.target;\n    while (target && target.nodeType && target !== document) {\n        if (queryCls && hasClass(target, queryCls) && (!queryMethod || queryMethod(target))) {\n            targetElem = target;\n        }\n        else if (target === container) {\n            return { flag: queryCls ? !!targetElem : true, container: container, targetElem: targetElem };\n        }\n        target = target.parentNode;\n    }\n    return { flag: false };\n}\n/**\n * 获取元素相对于 document 的位置\n */\nexport function getOffsetPos(elem, container) {\n    return getNodeOffset(elem, container, { left: 0, top: 0 });\n}\nexport function getAbsolutePos(elem) {\n    // 当主页面嵌套在iframe时，elem.getBoundingClientRect()计算在当前body内的边界距离，document.body.getBoundingClientRect计算body所在的边界距离\n    var bodyBounding = document.body.getBoundingClientRect();\n    var bounding = elem.getBoundingClientRect();\n    var boundingTop = bounding.top - bodyBounding.top;\n    var boundingLeft = bounding.left - bodyBounding.left;\n    var _a = getDomNode(), scrollTop = _a.scrollTop, scrollLeft = _a.scrollLeft, visibleHeight = _a.visibleHeight, visibleWidth = _a.visibleWidth;\n    return { boundingTop: boundingTop, top: scrollTop + boundingTop, boundingLeft: boundingLeft, left: scrollLeft + boundingLeft, visibleHeight: visibleHeight, visibleWidth: visibleWidth };\n}\nvar scrollIntoViewIfNeeded = 'scrollIntoViewIfNeeded';\nvar scrollIntoView = 'scrollIntoView';\nexport function scrollToView(elem) {\n    if (elem) {\n        if (elem[scrollIntoViewIfNeeded]) {\n            elem[scrollIntoViewIfNeeded]();\n        }\n        else if (elem[scrollIntoView]) {\n            elem[scrollIntoView]();\n        }\n    }\n}\nexport function triggerEvent(targetElem, type) {\n    if (targetElem) {\n        targetElem.dispatchEvent(new Event(type));\n    }\n}\nexport function isNodeElement(elem) {\n    return elem && elem.nodeType === 1;\n}\n",
+      "start": 1714699768273,
+      "end": 1714699768273,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768273,
+      "end": 1714699768273,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768273,
+      "end": 1714699768273,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768273,
+      "end": 1714699768273,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768273,
+      "end": 1714699768273,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768273,
+      "end": 1714699768273,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768273,
+      "end": 1714699768273,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768273,
+      "end": 1714699768273,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768273,
+      "end": 1714699768273,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768273,
+      "end": 1714699768273,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768273,
+      "end": 1714699768273,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768273,
+      "end": 1714699768273,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768273,
+      "end": 1714699768273,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768273,
+      "end": 1714699768273,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768273,
+      "end": 1714699768273,
+      "order": "normal"
+    }
+  ]
+}

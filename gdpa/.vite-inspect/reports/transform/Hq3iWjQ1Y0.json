@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/throttle.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "/**\r\n  * 节流函数；当被调用 n 毫秒后才会执行，如果在这时间内又被调用则至少每隔 n 秒毫秒调用一次该函数\r\n  *\r\n  * @param {Function} callback 回调\r\n  * @param {Number} wait 多少秒毫\r\n  * @param {Object} options 参数{leading: 是否在之前执行, trailing: 是否在之后执行}\r\n  * @return {Function}\r\n  */\r\nfunction throttle (callback, wait, options) {\r\n  var args = null\r\n  var context = null\r\n  var opts = options || {}\r\n  var runFlag = false\r\n  var timeout = null\r\n  var optLeading = 'leading' in opts ? opts.leading : true\r\n  var optTrailing = 'trailing' in opts ? opts.trailing : false\r\n\r\n  var gcFn = function () {\r\n    args = null\r\n    context = null\r\n  }\r\n\r\n  var runFn = function () {\r\n    runFlag = true\r\n    callback.apply(context, args)\r\n    timeout = setTimeout(endFn, wait)\r\n    gcFn()\r\n  }\r\n  \r\n  var endFn = function () {\r\n    timeout = null\r\n    if (!runFlag && optTrailing === true) {\r\n      runFn()\r\n    }\r\n  }\r\n\r\n  var cancelFn = function () {\r\n    var rest = timeout !== null\r\n    if (rest) {\r\n      clearTimeout(timeout)\r\n    }\r\n    gcFn()\r\n    timeout = null\r\n    runFlag = false\r\n    return rest\r\n  }\r\n\r\n  var throttled = function () {\r\n    args = arguments\r\n    context = this\r\n    runFlag = false\r\n    if (timeout === null) {\r\n      if (optLeading === true) {\r\n        runFn()\r\n      } else if (optTrailing === true) {\r\n        timeout = setTimeout(endFn, wait)\r\n      }\r\n    }\r\n  }\r\n\r\n  throttled.cancel = cancelFn\r\n\r\n  return throttled\r\n}\r\n\r\nmodule.exports = throttle\r\n",
+      "start": 1714699767717,
+      "end": 1714699767727,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767727,
+      "end": 1714699767727,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767727,
+      "end": 1714699767727,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767727,
+      "end": 1714699767727,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767727,
+      "end": 1714699767727,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767727,
+      "end": 1714699767727,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767727,
+      "end": 1714699767727,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "/**\r\n  * 节流函数；当被调用 n 毫秒后才会执行，如果在这时间内又被调用则至少每隔 n 秒毫秒调用一次该函数\r\n  *\r\n  * @param {Function} callback 回调\r\n  * @param {Number} wait 多少秒毫\r\n  * @param {Object} options 参数{leading: 是否在之前执行, trailing: 是否在之后执行}\r\n  * @return {Function}\r\n  */\r\nfunction throttle (callback, wait, options) {\r\n  var args = null\r\n  var context = null\r\n  var opts = options || {}\r\n  var runFlag = false\r\n  var timeout = null\r\n  var optLeading = 'leading' in opts ? opts.leading : true\r\n  var optTrailing = 'trailing' in opts ? opts.trailing : false\r\n\r\n  var gcFn = function () {\r\n    args = null\r\n    context = null\r\n  }\r\n\r\n  var runFn = function () {\r\n    runFlag = true\r\n    callback.apply(context, args)\r\n    timeout = setTimeout(endFn, wait)\r\n    gcFn()\r\n  }\r\n  \r\n  var endFn = function () {\r\n    timeout = null\r\n    if (!runFlag && optTrailing === true) {\r\n      runFn()\r\n    }\r\n  }\r\n\r\n  var cancelFn = function () {\r\n    var rest = timeout !== null\r\n    if (rest) {\r\n      clearTimeout(timeout)\r\n    }\r\n    gcFn()\r\n    timeout = null\r\n    runFlag = false\r\n    return rest\r\n  }\r\n\r\n  var throttled = function () {\r\n    args = arguments\r\n    context = this\r\n    runFlag = false\r\n    if (timeout === null) {\r\n      if (optLeading === true) {\r\n        runFn()\r\n      } else if (optTrailing === true) {\r\n        timeout = setTimeout(endFn, wait)\r\n      }\r\n    }\r\n  }\r\n\r\n  throttled.cancel = cancelFn\r\n\r\n  return throttled\r\n}\r\n\r\nmodule.exports = throttle\r\n",
+      "start": 1714699767727,
+      "end": 1714699767727,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767727,
+      "end": 1714699767727,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767727,
+      "end": 1714699767727,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767727,
+      "end": 1714699767727,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767727,
+      "end": 1714699767727,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767727,
+      "end": 1714699767727,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767727,
+      "end": 1714699767727,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "/**\r\n  * 节流函数；当被调用 n 毫秒后才会执行，如果在这时间内又被调用则至少每隔 n 秒毫秒调用一次该函数\r\n  *\r\n  * @param {Function} callback 回调\r\n  * @param {Number} wait 多少秒毫\r\n  * @param {Object} options 参数{leading: 是否在之前执行, trailing: 是否在之后执行}\r\n  * @return {Function}\r\n  */\nimport * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\n\nfunction throttle (callback, wait, options) {\r\n  var args = null\r\n  var context = null\r\n  var opts = options || {}\r\n  var runFlag = false\r\n  var timeout = null\r\n  var optLeading = 'leading' in opts ? opts.leading : true\r\n  var optTrailing = 'trailing' in opts ? opts.trailing : false\r\n\r\n  var gcFn = function () {\r\n    args = null\r\n    context = null\r\n  }\r\n\r\n  var runFn = function () {\r\n    runFlag = true\r\n    callback.apply(context, args)\r\n    timeout = setTimeout(endFn, wait)\r\n    gcFn()\r\n  }\r\n  \r\n  var endFn = function () {\r\n    timeout = null\r\n    if (!runFlag && optTrailing === true) {\r\n      runFn()\r\n    }\r\n  }\r\n\r\n  var cancelFn = function () {\r\n    var rest = timeout !== null\r\n    if (rest) {\r\n      clearTimeout(timeout)\r\n    }\r\n    gcFn()\r\n    timeout = null\r\n    runFlag = false\r\n    return rest\r\n  }\r\n\r\n  var throttled = function () {\r\n    args = arguments\r\n    context = this\r\n    runFlag = false\r\n    if (timeout === null) {\r\n      if (optLeading === true) {\r\n        runFn()\r\n      } else if (optTrailing === true) {\r\n        timeout = setTimeout(endFn, wait)\r\n      }\r\n    }\r\n  }\r\n\r\n  throttled.cancel = cancelFn\r\n\r\n  return throttled\r\n}\r\n\r\nvar throttle_1 = throttle\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(throttle_1);\nexport { throttle_1 as __moduleExports };",
+      "start": 1714699767727,
+      "end": 1714699767727,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;;;;;;AAQA,SAAS,QAAQ,EAAE,QAAQ,EAAE,IAAI,EAAE,OAAO,EAAE;AAC5C,EAAE,IAAI,IAAI,GAAG,IAAI;AACjB,EAAE,IAAI,OAAO,GAAG,IAAI;AACpB,EAAE,IAAI,IAAI,GAAG,OAAO,IAAI,EAAE;AAC1B,EAAE,IAAI,OAAO,GAAG,KAAK;AACrB,EAAE,IAAI,OAAO,GAAG,IAAI;AACpB,EAAE,IAAI,UAAU,GAAG,SAAS,IAAI,IAAI,GAAG,IAAI,CAAC,OAAO,GAAG,IAAI;AAC1D,EAAE,IAAI,WAAW,GAAG,UAAU,IAAI,IAAI,GAAG,IAAI,CAAC,QAAQ,GAAG,KAAK;AAC9D;AACA,EAAE,IAAI,IAAI,GAAG,YAAY;AACzB,IAAI,IAAI,GAAG,IAAI;AACf,IAAI,OAAO,GAAG,IAAI;AAClB,GAAG;AACH;AACA,EAAE,IAAI,KAAK,GAAG,YAAY;AAC1B,IAAI,OAAO,GAAG,IAAI;AAClB,IAAI,QAAQ,CAAC,KAAK,CAAC,OAAO,EAAE,IAAI,CAAC;AACjC,IAAI,OAAO,GAAG,UAAU,CAAC,KAAK,EAAE,IAAI,CAAC;AACrC,IAAI,IAAI,EAAE;AACV,GAAG;AACH;AACA,EAAE,IAAI,KAAK,GAAG,YAAY;AAC1B,IAAI,OAAO,GAAG,IAAI;AAClB,IAAI,IAAI,CAAC,OAAO,IAAI,WAAW,KAAK,IAAI,EAAE;AAC1C,MAAM,KAAK,EAAE;AACb,KAAK;AACL,GAAG;AACH;AACA,EAAE,IAAI,QAAQ,GAAG,YAAY;AAC7B,IAAI,IAAI,IAAI,GAAG,OAAO,KAAK,IAAI;AAC/B,IAAI,IAAI,IAAI,EAAE;AACd,MAAM,YAAY,CAAC,OAAO,CAAC;AAC3B,KAAK;AACL,IAAI,IAAI,EAAE;AACV,IAAI,OAAO,GAAG,IAAI;AAClB,IAAI,OAAO,GAAG,KAAK;AACnB,IAAI,OAAO,IAAI;AACf,GAAG;AACH;AACA,EAAE,IAAI,SAAS,GAAG,YAAY;AAC9B,IAAI,IAAI,GAAG,SAAS;AACpB,IAAI,OAAO,GAAG,IAAI;AAClB,IAAI,OAAO,GAAG,KAAK;AACnB,IAAI,IAAI,OAAO,KAAK,IAAI,EAAE;AAC1B,MAAM,IAAI,UAAU,KAAK,IAAI,EAAE;AAC/B,QAAQ,KAAK,EAAE;AACf,OAAO,MAAM,IAAI,WAAW,KAAK,IAAI,EAAE;AACvC,QAAQ,OAAO,GAAG,UAAU,CAAC,KAAK,EAAE,IAAI,CAAC;AACzC,OAAO;AACP,KAAK;AACL,GAAG;AACH;AACA,EAAE,SAAS,CAAC,MAAM,GAAG,QAAQ;AAC7B;AACA,EAAE,OAAO,SAAS;AAClB,CAAC;AACD;IACA,UAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767727,
+      "end": 1714699767727,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767727,
+      "end": 1714699767727,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767727,
+      "end": 1714699767727,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767727,
+      "end": 1714699767727,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767727,
+      "end": 1714699767727,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767727,
+      "end": 1714699767727,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767727,
+      "end": 1714699767727,
+      "order": "normal"
+    }
+  ]
+}

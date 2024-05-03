@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <div class=\"card-list-container flex items-center\">\n    <div\n      v-if=\"coinProtocol.includes('BANK')\"\n      class=\"payBox\"\n    >\n      <van-image\n        class=\"credit\"\n        lazy-load\n        :src=\"requireImg('common/credit.png')\"\n      />\n    </div>\n    <div\n      v-if=\"coinProtocol.includes('ALIPAY')\"\n      class=\"payBox\"\n    >\n      <van-image\n        class=\"alipay\"\n        lazy-load\n        :src=\"requireImg('common/ALIPAY.png')\"\n      />\n    </div>\n    <div\n      v-if=\"coinProtocol.includes('WXPAY')\"\n      class=\"payBox\"\n    >\n      <van-image\n        class=\"WeChatPay\"\n        lazy-load\n        :src=\"requireImg('common/WeChatPay.png')\"\n      />\n    </div>\n    <div\n      v-if=\"coinProtocol.includes('SZRMB')\"\n      class=\"payBox\"\n    >\n      <van-image\n        class=\"alipay\"\n        lazy-load\n        :src=\"requireImg('common/SZRMB.png')\"\n      />\n    </div>\n  </div>\n</template>\n\n<script setup lang=\"ts\">\nimport { requireImg } from '@/utils/tools'\n\ninterface Props {\n  coinProtocol: string\n}\n\nconst props = withDefaults(defineProps<Props>(), {\n  coinProtocol: ''\n})\n</script>\n\n<style lang=\"scss\" scoped>\n.card-list-container {\n  .payBox {\n    display: flex;\n    align-items: center;\n    margin-right: 8px;\n    &:last-child {\n      margin-right: 0;\n    }\n  }\n  .credit {\n    width: 32.6px;\n    height: 25.7px;\n  }\n  .alipay {\n    width: 27.8px;\n    height: 27.1px;\n  }\n  .WeChatPay {\n    width: 32.6px;\n    height: 29.2px;\n  }\n  .SZRMB {\n    width: 20.5px;\n    height: 20.5px;\n  }\n}\n</style>\n",
+      "start": 1714699770836,
+      "end": 1714699770842,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699770842,
+      "end": 1714699770842,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699770843,
+      "end": 1714699770843,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699770843,
+      "end": 1714699770843,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699770843,
+      "end": 1714699770843,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue?vue&type=style&index=0&scoped=72e0a096&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-72e0a096\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue\"]]);\n",
+      "start": 1714699770843,
+      "end": 1714699771814,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771814,
+      "end": 1714699771814,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue?vue&type=style&index=0&scoped=72e0a096&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-72e0a096\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue\"]]);\n",
+      "start": 1714699771814,
+      "end": 1714699771814,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue?vue&type=style&index=0&scoped=72e0a096&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-72e0a096\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue\"]]);\n",
+      "start": 1714699771814,
+      "end": 1714699771932,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue?vue&type=style&index=0&scoped=72e0a096&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-72e0a096\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,wEAAwE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771932,
+      "end": 1714699771933,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue?vue&type=style&index=0&scoped=72e0a096&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-72e0a096\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue\"]]);\n",
+      "start": 1714699771933,
+      "end": 1714699771933,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue?vue&type=style&index=0&scoped=72e0a096&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-72e0a096\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/List/CardList.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771933,
+      "end": 1714699771933,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771933,
+      "end": 1714699771933,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771933,
+      "end": 1714699771933,
+      "order": "normal"
+    }
+  ]
+}

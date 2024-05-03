@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/nth.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import baseNth from './_baseNth.js';\nimport toInteger from './toInteger.js';\n\n/**\n * Gets the element at index `n` of `array`. If `n` is negative, the nth\n * element from the end is returned.\n *\n * @static\n * @memberOf _\n * @since 4.11.0\n * @category Array\n * @param {Array} array The array to query.\n * @param {number} [n=0] The index of the element to return.\n * @returns {*} Returns the nth element of `array`.\n * @example\n *\n * var array = ['a', 'b', 'c', 'd'];\n *\n * _.nth(array, 1);\n * // => 'b'\n *\n * _.nth(array, -2);\n * // => 'c';\n */\nfunction nth(array, n) {\n  return (array && array.length) ? baseNth(array, toInteger(n)) : undefined;\n}\n\nexport default nth;\n",
+      "start": 1714699768457,
+      "end": 1714699768467,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768467,
+      "end": 1714699768467,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768467,
+      "end": 1714699768467,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768467,
+      "end": 1714699768467,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768467,
+      "end": 1714699768467,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768467,
+      "end": 1714699768467,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768467,
+      "end": 1714699768467,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import baseNth from './_baseNth.js';\nimport toInteger from './toInteger.js';\n\n/**\n * Gets the element at index `n` of `array`. If `n` is negative, the nth\n * element from the end is returned.\n *\n * @static\n * @memberOf _\n * @since 4.11.0\n * @category Array\n * @param {Array} array The array to query.\n * @param {number} [n=0] The index of the element to return.\n * @returns {*} Returns the nth element of `array`.\n * @example\n *\n * var array = ['a', 'b', 'c', 'd'];\n *\n * _.nth(array, 1);\n * // => 'b'\n *\n * _.nth(array, -2);\n * // => 'c';\n */\nfunction nth(array, n) {\n  return (array && array.length) ? baseNth(array, toInteger(n)) : undefined;\n}\n\nexport default nth;\n",
+      "start": 1714699768467,
+      "end": 1714699768467,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768467,
+      "end": 1714699768467,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768467,
+      "end": 1714699768467,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768467,
+      "end": 1714699768467,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768467,
+      "end": 1714699768467,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768467,
+      "end": 1714699768467,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768467,
+      "end": 1714699768467,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768467,
+      "end": 1714699768467,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768467,
+      "end": 1714699768467,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768467,
+      "end": 1714699768467,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768467,
+      "end": 1714699768467,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768467,
+      "end": 1714699768467,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768467,
+      "end": 1714699768467,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768467,
+      "end": 1714699768467,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768467,
+      "end": 1714699768467,
+      "order": "normal"
+    }
+  ]
+}

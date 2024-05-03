@@ -1,0 +1,163 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue?vue&type=style&index=0&score=true&lang.scss",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\n@import '@/assets/styles/sprite-point.scss';\n\n.task-list-container {\n  width: 100%;\n  padding: 0 15px;\n  font-size: 25px;\n  gap: 10px;\n  .item-name {\n    color: #787f8c;\n  }\n  .item-curr-value {\n    margin: 0 auto 0 33px;\n  }\n  .item-award-value {\n    margin: 0 33px 0 auto;\n  }\n  .item-fields {\n    height: 60px;\n    line-height: 60px;\n  }\n  .item-status {\n    width: 112px;\n    text-align: center;\n  }\n  .item-completed {\n    width: 100%;\n    .item-curr-value,\n    .item-award-value,\n    .item-status {\n      color: #58cf00;\n    }\n  }\n  .item-can-do {\n    width: 100%;\n    .item-curr-value,\n    .item-award-value {\n      color: #58cf00;\n    }\n    .item-status {\n      background-color: #58cf00;\n      color: #fff;\n      border-radius: 7px;\n    }\n  }\n  .item-go-do {\n    width: 100%;\n    .item-curr-value,\n    .item-award-value {\n      color: #ff6d7f;\n    }\n    .item-status {\n      background-color: #ff4565;\n      color: #fff;\n      border-radius: 7px;\n    }\n  }\n\n  .task-dialog {\n    width: 100%;\n    max-width: 686px;\n    height: auto;\n    padding: unset;\n    background-color: #f5e8eb;\n    .icon-pos {\n      position: absolute;\n      right: 40px;\n      top: 32px;\n    }\n    .title {\n      width: 100%;\n      height: 83px;\n      line-height: 83px;\n      padding-left: 42px;\n      font-size: 29px;\n      color: #fff;\n      background-color: #fb3a67;\n      text-align: left;\n    }\n    .content {\n      width: 100%;\n      padding: 40px 32px;\n      font-size: 24px;\n      color: #13161b;\n      background-color: #fff;\n      text-align: justify;\n      .text-bold {\n        font-size: 28px;\n        font-weight: bold;\n      }\n      .notice-tips {\n        margin-top: 50px;\n      }\n      img {\n        width: 100%;\n        margin-top: 20px;\n      }\n    }\n\n    .van-dialog__footer {\n      padding: 35px 0;\n      justify-content: center;\n      background-color: #ffdbe3;\n    }\n    .van-dialog__confirm {\n      flex: 0 0 313px;\n      height: 80px;\n      background: #ff4565;\n      font-size: 31px;\n      border-radius: 7px;\n    }\n  }\n}\n",
+      "start": 1714699772436,
+      "end": 1714699772436
+    },
+    {
+      "name": "vite:css",
+      "result": ".light-step {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px -1.16667rem no-repeat;\n  width: 1.49333rem;\n  height: 1.49333rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.award-btn {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px 0px no-repeat;\n  width: 2.62267rem;\n  height: 1.12rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.lucky-star {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem -1.80133rem no-repeat;\n  width: 0.62533rem;\n  height: 0.94267rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.RMB-gold-box {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.66933rem 0px no-repeat;\n  width: 0.84933rem;\n  height: 0.90533rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.point-8 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.66933rem -0.952rem no-repeat;\n  width: 0.82133rem;\n  height: 0.87733rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.RMB-silver-box {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem -0.88667rem no-repeat;\n  width: 0.74667rem;\n  height: 0.868rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.discount {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem 0px no-repeat;\n  width: 0.84933rem;\n  height: 0.84rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.point-80 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.54rem -1.16667rem no-repeat;\n  width: 0.97067rem;\n  height: 0.84rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.point-50 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px -2.70667rem no-repeat;\n  width: 0.96133rem;\n  height: 0.79333rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.point-10 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.97867rem -2.70667rem no-repeat;\n  width: 0.896rem;\n  height: 0.76533rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.point-30 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.008rem -2.70667rem no-repeat;\n  width: 0.924rem;\n  height: 0.76533rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.RMB-4 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px -3.54667rem no-repeat;\n  width: 0.88667rem;\n  height: 0.7rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.point-5 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem -2.79067rem no-repeat;\n  width: 0.84933rem;\n  height: 0.68133rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.RMB-3 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.66933rem -1.876rem no-repeat;\n  width: 0.644rem;\n  height: 0.616rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.point-1 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.92133rem -2.70667rem no-repeat;\n  width: 0.55067rem;\n  height: 0.60667rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.RMB-1 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -0.93333rem -3.54667rem no-repeat;\n  width: 0.60667rem;\n  height: 0.59733rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.point-3 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.58667rem -3.54667rem no-repeat;\n  width: 0.644rem;\n  height: 0.504rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.received {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.54rem -2.05333rem no-repeat;\n  width: 0.73733rem;\n  height: 0.49467rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n\n.task-list-container {\n  width: 100%;\n  padding: 0 0.2rem;\n  font-size: 0.33333rem;\n  gap: 0.13333rem;\n}\n\n.task-list-container .item-name {\n  color: #787f8c;\n}\n\n.task-list-container .item-curr-value {\n  margin: 0 auto 0 0.44rem;\n}\n\n.task-list-container .item-award-value {\n  margin: 0 0.44rem 0 auto;\n}\n\n.task-list-container .item-fields {\n  height: 0.8rem;\n  line-height: 0.8rem;\n}\n\n.task-list-container .item-status {\n  width: 1.49333rem;\n  text-align: center;\n}\n\n.task-list-container .item-completed {\n  width: 100%;\n}\n\n.task-list-container .item-completed .item-curr-value,\n.task-list-container .item-completed .item-award-value,\n.task-list-container .item-completed .item-status {\n  color: #58cf00;\n}\n\n.task-list-container .item-can-do {\n  width: 100%;\n}\n\n.task-list-container .item-can-do .item-curr-value,\n.task-list-container .item-can-do .item-award-value {\n  color: #58cf00;\n}\n\n.task-list-container .item-can-do .item-status {\n  background-color: #58cf00;\n  color: #fff;\n  border-radius: 0.09333rem;\n}\n\n.task-list-container .item-go-do {\n  width: 100%;\n}\n\n.task-list-container .item-go-do .item-curr-value,\n.task-list-container .item-go-do .item-award-value {\n  color: #ff6d7f;\n}\n\n.task-list-container .item-go-do .item-status {\n  background-color: #ff4565;\n  color: #fff;\n  border-radius: 0.09333rem;\n}\n\n.task-list-container .task-dialog {\n  width: 100%;\n  max-width: 9.14667rem;\n  height: auto;\n  padding: unset;\n  background-color: #f5e8eb;\n}\n\n.task-list-container .task-dialog .icon-pos {\n  position: absolute;\n  right: 0.53333rem;\n  top: 0.42667rem;\n}\n\n.task-list-container .task-dialog .title {\n  width: 100%;\n  height: 1.10667rem;\n  line-height: 1.10667rem;\n  padding-left: 0.56rem;\n  font-size: 0.38667rem;\n  color: #fff;\n  background-color: #fb3a67;\n  text-align: left;\n}\n\n.task-list-container .task-dialog .content {\n  width: 100%;\n  padding: 0.53333rem 0.42667rem;\n  font-size: 0.32rem;\n  color: #13161b;\n  background-color: #fff;\n  text-align: justify;\n}\n\n.task-list-container .task-dialog .content .text-bold {\n  font-size: 0.37333rem;\n  font-weight: bold;\n}\n\n.task-list-container .task-dialog .content .notice-tips {\n  margin-top: 0.66667rem;\n}\n\n.task-list-container .task-dialog .content img {\n  width: 100%;\n  margin-top: 0.26667rem;\n}\n\n.task-list-container .task-dialog .van-dialog__footer {\n  padding: 0.46667rem 0;\n  justify-content: center;\n  background-color: #ffdbe3;\n}\n\n.task-list-container .task-dialog .van-dialog__confirm {\n  flex: 0 0 4.17333rem;\n  height: 1.06667rem;\n  background: #ff4565;\n  font-size: 0.41333rem;\n  border-radius: 0.09333rem;\n}",
+      "start": 1714699772436,
+      "end": 1714699772462,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699772462,
+      "end": 1714699772462,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699772462,
+      "end": 1714699772462,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699772462,
+      "end": 1714699772462,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".light-step {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px -1.16667rem no-repeat;\n  width: 1.49333rem;\n  height: 1.49333rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.award-btn {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px 0px no-repeat;\n  width: 2.62267rem;\n  height: 1.12rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.lucky-star {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem -1.80133rem no-repeat;\n  width: 0.62533rem;\n  height: 0.94267rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.RMB-gold-box {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.66933rem 0px no-repeat;\n  width: 0.84933rem;\n  height: 0.90533rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-8 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.66933rem -0.952rem no-repeat;\n  width: 0.82133rem;\n  height: 0.87733rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.RMB-silver-box {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem -0.88667rem no-repeat;\n  width: 0.74667rem;\n  height: 0.868rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.discount {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem 0px no-repeat;\n  width: 0.84933rem;\n  height: 0.84rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-80 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.54rem -1.16667rem no-repeat;\n  width: 0.97067rem;\n  height: 0.84rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-50 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px -2.70667rem no-repeat;\n  width: 0.96133rem;\n  height: 0.79333rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-10 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.97867rem -2.70667rem no-repeat;\n  width: 0.896rem;\n  height: 0.76533rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-30 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.008rem -2.70667rem no-repeat;\n  width: 0.924rem;\n  height: 0.76533rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.RMB-4 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px -3.54667rem no-repeat;\n  width: 0.88667rem;\n  height: 0.7rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-5 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem -2.79067rem no-repeat;\n  width: 0.84933rem;\n  height: 0.68133rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.RMB-3 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.66933rem -1.876rem no-repeat;\n  width: 0.644rem;\n  height: 0.616rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-1 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.92133rem -2.70667rem no-repeat;\n  width: 0.55067rem;\n  height: 0.60667rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.RMB-1 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -0.93333rem -3.54667rem no-repeat;\n  width: 0.60667rem;\n  height: 0.59733rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-3 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.58667rem -3.54667rem no-repeat;\n  width: 0.644rem;\n  height: 0.504rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.received {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.54rem -2.05333rem no-repeat;\n  width: 0.73733rem;\n  height: 0.49467rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.task-list-container {\n  width: 100%;\n  padding: 0 0.2rem;\n  font-size: 0.33333rem;\n  gap: 0.13333rem;\n}\n.task-list-container .item-name {\n  color: #787f8c;\n}\n.task-list-container .item-curr-value {\n  margin: 0 auto 0 0.44rem;\n}\n.task-list-container .item-award-value {\n  margin: 0 0.44rem 0 auto;\n}\n.task-list-container .item-fields {\n  height: 0.8rem;\n  line-height: 0.8rem;\n}\n.task-list-container .item-status {\n  width: 1.49333rem;\n  text-align: center;\n}\n.task-list-container .item-completed {\n  width: 100%;\n}\n.task-list-container .item-completed .item-curr-value,\n.task-list-container .item-completed .item-award-value,\n.task-list-container .item-completed .item-status {\n  color: #58cf00;\n}\n.task-list-container .item-can-do {\n  width: 100%;\n}\n.task-list-container .item-can-do .item-curr-value,\n.task-list-container .item-can-do .item-award-value {\n  color: #58cf00;\n}\n.task-list-container .item-can-do .item-status {\n  background-color: #58cf00;\n  color: #fff;\n  border-radius: 0.09333rem;\n}\n.task-list-container .item-go-do {\n  width: 100%;\n}\n.task-list-container .item-go-do .item-curr-value,\n.task-list-container .item-go-do .item-award-value {\n  color: #ff6d7f;\n}\n.task-list-container .item-go-do .item-status {\n  background-color: #ff4565;\n  color: #fff;\n  border-radius: 0.09333rem;\n}\n.task-list-container .task-dialog {\n  width: 100%;\n  max-width: 9.14667rem;\n  height: auto;\n  padding: unset;\n  background-color: #f5e8eb;\n}\n.task-list-container .task-dialog .icon-pos {\n  position: absolute;\n  right: 0.53333rem;\n  top: 0.42667rem;\n}\n.task-list-container .task-dialog .title {\n  width: 100%;\n  height: 1.10667rem;\n  line-height: 1.10667rem;\n  padding-left: 0.56rem;\n  font-size: 0.38667rem;\n  color: #fff;\n  background-color: #fb3a67;\n  text-align: left;\n}\n.task-list-container .task-dialog .content {\n  width: 100%;\n  padding: 0.53333rem 0.42667rem;\n  font-size: 0.32rem;\n  color: #13161b;\n  background-color: #fff;\n  text-align: justify;\n}\n.task-list-container .task-dialog .content .text-bold {\n  font-size: 0.37333rem;\n  font-weight: bold;\n}\n.task-list-container .task-dialog .content .notice-tips {\n  margin-top: 0.66667rem;\n}\n.task-list-container .task-dialog .content img {\n  width: 100%;\n  margin-top: 0.26667rem;\n}\n.task-list-container .task-dialog .van-dialog__footer {\n  padding: 0.46667rem 0;\n  justify-content: center;\n  background-color: #ffdbe3;\n}\n.task-list-container .task-dialog .van-dialog__confirm {\n  flex: 0 0 4.17333rem;\n  height: 1.06667rem;\n  background: #ff4565;\n  font-size: 0.41333rem;\n  border-radius: 0.09333rem;\n}",
+      "start": 1714699772462,
+      "end": 1714699772462,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699772462,
+      "end": 1714699772462,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": ".light-step {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px -1.16667rem no-repeat;\n  width: 1.49333rem;\n  height: 1.49333rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.award-btn {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px 0px no-repeat;\n  width: 2.62267rem;\n  height: 1.12rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.lucky-star {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem -1.80133rem no-repeat;\n  width: 0.62533rem;\n  height: 0.94267rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.RMB-gold-box {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.66933rem 0px no-repeat;\n  width: 0.84933rem;\n  height: 0.90533rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-8 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.66933rem -0.952rem no-repeat;\n  width: 0.82133rem;\n  height: 0.87733rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.RMB-silver-box {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem -0.88667rem no-repeat;\n  width: 0.74667rem;\n  height: 0.868rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.discount {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem 0px no-repeat;\n  width: 0.84933rem;\n  height: 0.84rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-80 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.54rem -1.16667rem no-repeat;\n  width: 0.97067rem;\n  height: 0.84rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-50 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px -2.70667rem no-repeat;\n  width: 0.96133rem;\n  height: 0.79333rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-10 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.97867rem -2.70667rem no-repeat;\n  width: 0.896rem;\n  height: 0.76533rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-30 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.008rem -2.70667rem no-repeat;\n  width: 0.924rem;\n  height: 0.76533rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.RMB-4 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") 0px -3.54667rem no-repeat;\n  width: 0.88667rem;\n  height: 0.7rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-5 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -3.56533rem -2.79067rem no-repeat;\n  width: 0.84933rem;\n  height: 0.68133rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.RMB-3 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.66933rem -1.876rem no-repeat;\n  width: 0.644rem;\n  height: 0.616rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-1 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -2.92133rem -2.70667rem no-repeat;\n  width: 0.55067rem;\n  height: 0.60667rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.RMB-1 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -0.93333rem -3.54667rem no-repeat;\n  width: 0.60667rem;\n  height: 0.59733rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.point-3 {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.58667rem -3.54667rem no-repeat;\n  width: 0.644rem;\n  height: 0.504rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.received {\n  background: url(\"__VITE_ASSET__6Pe0OORS__\") -1.54rem -2.05333rem no-repeat;\n  width: 0.73733rem;\n  height: 0.49467rem;\n  background-size: 4.41467rem 4.24667rem;\n}\n.task-list-container {\n  width: 100%;\n  padding: 0 0.2rem;\n  font-size: 0.33333rem;\n  gap: 0.13333rem;\n}\n.task-list-container .item-name {\n  color: #787f8c;\n}\n.task-list-container .item-curr-value {\n  margin: 0 auto 0 0.44rem;\n}\n.task-list-container .item-award-value {\n  margin: 0 0.44rem 0 auto;\n}\n.task-list-container .item-fields {\n  height: 0.8rem;\n  line-height: 0.8rem;\n}\n.task-list-container .item-status {\n  width: 1.49333rem;\n  text-align: center;\n}\n.task-list-container .item-completed {\n  width: 100%;\n}\n.task-list-container .item-completed .item-curr-value,\n.task-list-container .item-completed .item-award-value,\n.task-list-container .item-completed .item-status {\n  color: #58cf00;\n}\n.task-list-container .item-can-do {\n  width: 100%;\n}\n.task-list-container .item-can-do .item-curr-value,\n.task-list-container .item-can-do .item-award-value {\n  color: #58cf00;\n}\n.task-list-container .item-can-do .item-status {\n  background-color: #58cf00;\n  color: #fff;\n  border-radius: 0.09333rem;\n}\n.task-list-container .item-go-do {\n  width: 100%;\n}\n.task-list-container .item-go-do .item-curr-value,\n.task-list-container .item-go-do .item-award-value {\n  color: #ff6d7f;\n}\n.task-list-container .item-go-do .item-status {\n  background-color: #ff4565;\n  color: #fff;\n  border-radius: 0.09333rem;\n}\n.task-list-container .task-dialog {\n  width: 100%;\n  max-width: 9.14667rem;\n  height: auto;\n  padding: unset;\n  background-color: #f5e8eb;\n}\n.task-list-container .task-dialog .icon-pos {\n  position: absolute;\n  right: 0.53333rem;\n  top: 0.42667rem;\n}\n.task-list-container .task-dialog .title {\n  width: 100%;\n  height: 1.10667rem;\n  line-height: 1.10667rem;\n  padding-left: 0.56rem;\n  font-size: 0.38667rem;\n  color: #fff;\n  background-color: #fb3a67;\n  text-align: left;\n}\n.task-list-container .task-dialog .content {\n  width: 100%;\n  padding: 0.53333rem 0.42667rem;\n  font-size: 0.32rem;\n  color: #13161b;\n  background-color: #fff;\n  text-align: justify;\n}\n.task-list-container .task-dialog .content .text-bold {\n  font-size: 0.37333rem;\n  font-weight: bold;\n}\n.task-list-container .task-dialog .content .notice-tips {\n  margin-top: 0.66667rem;\n}\n.task-list-container .task-dialog .content img {\n  width: 100%;\n  margin-top: 0.26667rem;\n}\n.task-list-container .task-dialog .van-dialog__footer {\n  padding: 0.46667rem 0;\n  justify-content: center;\n  background-color: #ffdbe3;\n}\n.task-list-container .task-dialog .van-dialog__confirm {\n  flex: 0 0 4.17333rem;\n  height: 1.06667rem;\n  background: #ff4565;\n  font-size: 0.41333rem;\n  border-radius: 0.09333rem;\n}",
+      "start": 1714699772462,
+      "end": 1714699772462,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699772462,
+      "end": 1714699772462,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699772462,
+      "end": 1714699772462,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699772462,
+      "end": 1714699772462,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699772462,
+      "end": 1714699772462,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699772462,
+      "end": 1714699772462,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699772462,
+      "end": 1714699772462,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699772462,
+      "end": 1714699772462,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699772462,
+      "end": 1714699772462,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699772462,
+      "end": 1714699772462,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699772462,
+      "end": 1714699772462,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */",
+      "start": 1714699772462,
+      "end": 1714699772462,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue?vue&type=style&index=0&score=true&lang.scss"
+        ],
+        "sourcesContent": [
+          ""
+        ],
+        "names": [],
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699772462,
+      "end": 1714699772463,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699772463,
+      "end": 1714699772463,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699772463,
+      "end": 1714699772463,
+      "order": "normal"
+    }
+  ]
+}

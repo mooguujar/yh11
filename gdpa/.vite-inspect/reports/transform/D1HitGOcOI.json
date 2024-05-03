@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/function.default.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import after from './after.js';\nimport ary from './ary.js';\nimport before from './before.js';\nimport bind from './bind.js';\nimport bindKey from './bindKey.js';\nimport curry from './curry.js';\nimport curryRight from './curryRight.js';\nimport debounce from './debounce.js';\nimport defer from './defer.js';\nimport delay from './delay.js';\nimport flip from './flip.js';\nimport memoize from './memoize.js';\nimport negate from './negate.js';\nimport once from './once.js';\nimport overArgs from './overArgs.js';\nimport partial from './partial.js';\nimport partialRight from './partialRight.js';\nimport rearg from './rearg.js';\nimport rest from './rest.js';\nimport spread from './spread.js';\nimport throttle from './throttle.js';\nimport unary from './unary.js';\nimport wrap from './wrap.js';\n\nexport default {\n  after, ary, before, bind, bindKey,\n  curry, curryRight, debounce, defer, delay,\n  flip, memoize, negate, once, overArgs,\n  partial, partialRight, rearg, rest, spread,\n  throttle, unary, wrap\n};\n",
+      "start": 1714699768928,
+      "end": 1714699768980,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768980,
+      "end": 1714699768980,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768980,
+      "end": 1714699768980,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768980,
+      "end": 1714699768980,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768980,
+      "end": 1714699768980,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768980,
+      "end": 1714699768980,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768980,
+      "end": 1714699768980,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import after from './after.js';\nimport ary from './ary.js';\nimport before from './before.js';\nimport bind from './bind.js';\nimport bindKey from './bindKey.js';\nimport curry from './curry.js';\nimport curryRight from './curryRight.js';\nimport debounce from './debounce.js';\nimport defer from './defer.js';\nimport delay from './delay.js';\nimport flip from './flip.js';\nimport memoize from './memoize.js';\nimport negate from './negate.js';\nimport once from './once.js';\nimport overArgs from './overArgs.js';\nimport partial from './partial.js';\nimport partialRight from './partialRight.js';\nimport rearg from './rearg.js';\nimport rest from './rest.js';\nimport spread from './spread.js';\nimport throttle from './throttle.js';\nimport unary from './unary.js';\nimport wrap from './wrap.js';\n\nexport default {\n  after, ary, before, bind, bindKey,\n  curry, curryRight, debounce, defer, delay,\n  flip, memoize, negate, once, overArgs,\n  partial, partialRight, rearg, rest, spread,\n  throttle, unary, wrap\n};\n",
+      "start": 1714699768980,
+      "end": 1714699768980,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768980,
+      "end": 1714699768980,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768980,
+      "end": 1714699768980,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768980,
+      "end": 1714699768980,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768980,
+      "end": 1714699768980,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768980,
+      "end": 1714699768980,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768980,
+      "end": 1714699768980,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768980,
+      "end": 1714699768980,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768980,
+      "end": 1714699768980,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768980,
+      "end": 1714699768980,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768980,
+      "end": 1714699768980,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768980,
+      "end": 1714699768980,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768980,
+      "end": 1714699768980,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768980,
+      "end": 1714699768980,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768980,
+      "end": 1714699768980,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/has.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import baseHas from './_baseHas.js';\nimport hasPath from './_hasPath.js';\n\n/**\n * Checks if `path` is a direct property of `object`.\n *\n * @static\n * @since 0.1.0\n * @memberOf _\n * @category Object\n * @param {Object} object The object to query.\n * @param {Array|string} path The path to check.\n * @returns {boolean} Returns `true` if `path` exists, else `false`.\n * @example\n *\n * var object = { 'a': { 'b': 2 } };\n * var other = _.create({ 'a': _.create({ 'b': 2 }) });\n *\n * _.has(object, 'a');\n * // => true\n *\n * _.has(object, 'a.b');\n * // => true\n *\n * _.has(object, ['a', 'b']);\n * // => true\n *\n * _.has(other, 'a');\n * // => false\n */\nfunction has(object, path) {\n  return object != null && hasPath(object, path, baseHas);\n}\n\nexport default has;\n",
+      "start": 1714699768368,
+      "end": 1714699768388,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768388,
+      "end": 1714699768388,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768388,
+      "end": 1714699768388,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768388,
+      "end": 1714699768388,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768388,
+      "end": 1714699768388,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768388,
+      "end": 1714699768388,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768388,
+      "end": 1714699768388,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import baseHas from './_baseHas.js';\nimport hasPath from './_hasPath.js';\n\n/**\n * Checks if `path` is a direct property of `object`.\n *\n * @static\n * @since 0.1.0\n * @memberOf _\n * @category Object\n * @param {Object} object The object to query.\n * @param {Array|string} path The path to check.\n * @returns {boolean} Returns `true` if `path` exists, else `false`.\n * @example\n *\n * var object = { 'a': { 'b': 2 } };\n * var other = _.create({ 'a': _.create({ 'b': 2 }) });\n *\n * _.has(object, 'a');\n * // => true\n *\n * _.has(object, 'a.b');\n * // => true\n *\n * _.has(object, ['a', 'b']);\n * // => true\n *\n * _.has(other, 'a');\n * // => false\n */\nfunction has(object, path) {\n  return object != null && hasPath(object, path, baseHas);\n}\n\nexport default has;\n",
+      "start": 1714699768388,
+      "end": 1714699768388,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768388,
+      "end": 1714699768388,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768388,
+      "end": 1714699768388,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768388,
+      "end": 1714699768388,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768388,
+      "end": 1714699768388,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768388,
+      "end": 1714699768388,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768388,
+      "end": 1714699768388,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768388,
+      "end": 1714699768388,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768388,
+      "end": 1714699768388,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768388,
+      "end": 1714699768388,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768388,
+      "end": 1714699768388,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768388,
+      "end": 1714699768388,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768388,
+      "end": 1714699768388,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768388,
+      "end": 1714699768388,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768388,
+      "end": 1714699768388,
+      "order": "normal"
+    }
+  ]
+}

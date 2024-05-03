@@ -1,0 +1,148 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/styles/cssvar.scss",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "@import './variable.scss';\r\n@import './css-variable.scss';",
+      "start": 1714699765945,
+      "end": 1714699766139,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "result": "/*font*/\n/*size*/\n/*icon*/\n/*color*/\n/*input/radio/checkbox*/\n/*popup*/\n/*table*/\n/*filter*/\n/*menu*/\n/*loading*/\n/*validate*/\n/*grid*/\n/*toolbar*/\n/*tooltip*/\n/*pager*/\n/*modal*/\n/*checkbox*/\n/*radio*/\n/*button*/\n/*input*/\n/*textarea*/\n/*form*/\n/*select*/\n/*switch*/\n/*pulldown*/\n/**Variable**/\n:root {\n  /*font*/\n  --vxe-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;\n  --vxe-font-size: 0.18667rem;\n  --vxe-font-size-medium: 0.18667rem;\n  --vxe-font-size-small: 0.17333rem;\n  --vxe-font-size-mini: 0.16rem;\n  /*size*/\n  --vxe-border-radius: 0.05333rem;\n  /*icon*/\n  --vxe-icon-font-family: Verdana, Arial, Tahoma;\n  --vxe-icon-background-color: #fff;\n  /*color*/\n  --vxe-font-color: #606266;\n  --vxe-primary-color: #409eff;\n  --vxe-success-color: #67c23a;\n  --vxe-info-color: #909399;\n  --vxe-warning-color: #e6a23c;\n  --vxe-danger-color: #f56c6c;\n  --vxe-font-lighten-color: #797b80;\n  --vxe-primary-lighten-color: #73b8ff;\n  --vxe-success-lighten-color: #85cf60;\n  --vxe-info-lighten-color: #abadb1;\n  --vxe-warning-lighten-color: #ecb869;\n  --vxe-danger-lighten-color: #f89c9c;\n  --vxe-font-darken-color: #47494c;\n  --vxe-primary-darken-color: #0d84ff;\n  --vxe-success-darken-color: #529b2e;\n  --vxe-info-darken-color: #767980;\n  --vxe-warning-darken-color: #d48a1b;\n  --vxe-danger-darken-color: #f23c3c;\n  --vxe-font-disabled-color: #BFBFBF;\n  --vxe-primary-disabled-color: #a6d2ff;\n  --vxe-success-disabled-color: #a3db87;\n  --vxe-info-disabled-color: #c5c7ca;\n  --vxe-warning-disabled-color: #f2cd96;\n  --vxe-danger-disabled-color: #fbcccc;\n  /*input/radio/checkbox*/\n  --vxe-input-border-color: #dcdfe6;\n  --vxe-input-disabled-color: #dcdfe6;\n  --vxe-input-disabled-background-color: #f3f3f3;\n  --vxe-input-placeholder-color: #C0C4CC;\n  /*popup*/\n  --vxe-table-popup-border-color: #DADCE0;\n  /*table*/\n  --vxe-table-header-font-color: #606266;\n  --vxe-table-footer-font-color: #606266;\n  --vxe-table-border-radius: 0.05333rem;\n  --vxe-table-border-width: 1px;\n  --vxe-table-border-color: #e8eaec;\n  --vxe-table-resizable-line-color: #D9DDDF;\n  --vxe-table-resizable-drag-line-color: #409eff;\n  --vxe-table-header-background-color: #f8f8f9;\n  --vxe-table-body-background-color: #ffffff;\n  --vxe-table-footer-background-color: #ffffff;\n  --vxe-table-tree-node-line-color: #909399;\n  --vxe-table-tree-node-line-style: dotted;\n  --vxe-table-header-font-weight: 700;\n  --vxe-table-row-height-default: 0.64rem;\n  --vxe-table-row-height-medium: 0.58667rem;\n  --vxe-table-row-height-small: 0.53333rem;\n  --vxe-table-row-height-mini: 0.48rem;\n  --vxe-table-row-line-height: 0.29333rem;\n  --vxe-table-row-hover-background-color: #f5f7fa;\n  --vxe-table-row-striped-background-color: #fafafa;\n  --vxe-table-row-hover-striped-background-color: #f5f7fa;\n  --vxe-table-row-radio-checked-background-color: #fff3e0;\n  --vxe-table-row-hover-radio-checked-background-color: #ffebbc;\n  --vxe-table-row-checkbox-checked-background-color: #fff3e0;\n  --vxe-table-row-hover-checkbox-checked-background-color: #ffebbc;\n  --vxe-table-row-current-background-color: #e6f7ff;\n  --vxe-table-row-hover-current-background-color: #d7effb;\n  --vxe-table-column-padding-default: 0.17333rem 0;\n  --vxe-table-column-padding-medium: 0.14667rem 0;\n  --vxe-table-column-padding-small: 0.12rem 0;\n  --vxe-table-column-padding-mini: 0.09333rem 0;\n  --vxe-table-column-hover-background-color: #d7effb;\n  --vxe-table-column-current-background-color: #e6f7ff;\n  --vxe-table-column-icon-border-color: #c0c4cc;\n  --vxe-table-column-icon-border-hover-color: #515A6E;\n  --vxe-table-cell-placeholder-color: #C0C4CC;\n  --vxe-table-cell-padding-left: 0.13333rem;\n  --vxe-table-cell-padding-right: 0.13333rem;\n  --vxe-table-cell-input-height-default: 0.56rem;\n  --vxe-table-cell-input-height-medium: 0.50667rem;\n  --vxe-table-cell-input-height-small: 0.45333rem;\n  --vxe-table-cell-input-height-mini: 0.4rem;\n  --vxe-table-cell-dirty-width: 0.06667rem;\n  --vxe-table-cell-dirty-update-color: #f56c6c;\n  --vxe-table-cell-dirty-insert-color: #19A15F;\n  --vxe-table-cell-area-border-color: #409eff;\n  --vxe-table-cell-area-border-width: 1px;\n  --vxe-table-cell-main-area-extension-border-color: #fff;\n  --vxe-table-cell-main-area-extension-background-color: #409eff;\n  --vxe-table-cell-extend-area-border-width: 0.02667rem;\n  --vxe-table-cell-copy-area-border-width: 0.04rem;\n  --vxe-table-cell-active-area-border-width: 0.02667rem;\n  --vxe-table-cell-copy-area-border-color: #409eff;\n  --vxe-table-cell-extend-area-border-color: #409eff;\n  --vxe-table-cell-active-area-border-color: #409eff;\n  --vxe-table-cell-area-background-color: rgba(64, 158, 255, 0.2);\n  --vxe-table-checkbox-range-border-width: 1px;\n  --vxe-table-checkbox-range-border-color: #006af1;\n  --vxe-table-checkbox-range-background-color: rgba(50, 128, 252, 0.2);\n  --vxe-table-fixed-left-scrolling-box-shadow: 0.10667rem 0px 0.13333rem -0.06667rem rgba(0, 0, 0, 0.12);\n  --vxe-table-fixed-right-scrolling-box-shadow: -0.10667rem 0px 0.13333rem -0.06667rem rgba(0, 0, 0, 0.12);\n  /*filter*/\n  --vxe-table-filter-panel-background-color: #fff;\n  /*menu*/\n  --vxe-table-menu-item-width: 2.37333rem;\n  --vxe-table-menu-background-color: #fff;\n  /*loading*/\n  --vxe-loading-color: #409eff;\n  --vxe-loading-background-color: rgba(255, 255, 255, 0.5);\n  --vxe-loading-z-index: 999;\n  /*validate*/\n  --vxe-table-validate-error-color: #f56c6c;\n  --vxe-table-validate-error-background-color: #ffffff;\n  /*grid*/\n  --vxe-grid-maximize-background-color: #fff;\n  /*toolbar*/\n  --vxe-toolbar-background-color: #fff;\n  --vxe-toolbar-custom-active-background-color: #D9DADB;\n  --vxe-toolbar-panel-background-color: #fff;\n  /*tooltip*/\n  --vxe-tooltip-dark-color: #fff;\n  --vxe-tooltip-dark-background-color: #303133;\n  --vxe-tooltip-light-background-color: #fff;\n  /*pager*/\n  --vxe-pager-background-color: #fff;\n  --vxe-pager-perfect-background-color: #fff;\n  --vxe-pager-perfect-button-background-color: #f4f4f5;\n  /*modal*/\n  --vxe-modal-header-background-color: #F8F8F8;\n  --vxe-modal-body-background-color: #fff;\n  --vxe-modal-border-color: #ebeef5;\n  /*checkbox*/\n  --vxe-checkbox-font-size-default: 0.2rem;\n  --vxe-checkbox-font-size-medium: 0.18667rem;\n  --vxe-checkbox-font-size-small: 0.17333rem;\n  --vxe-checkbox-font-size-mini: 0.16rem;\n  --vxe-checkbox-checked-width: 0.32em;\n  --vxe-checkbox-checked-height: 0.64em;\n  --vxe-checkbox-indeterminate-width: 0.6em;\n  --vxe-checkbox-indeterminate-height: 0.02667rem;\n  --vxe-checkbox-border-width: 0.02667rem;\n  --vxe-checkbox-border-radius: 0.02667rem;\n  --vxe-checkbox-icon-background-color: #fff;\n  --vxe-checkbox-checked-icon-border-color: #fff;\n  --vxe-checkbox-indeterminate-icon-background-color: #fff;\n  /*radio*/\n  --vxe-radio-font-size-default: 0.2rem;\n  --vxe-radio-font-size-medium: 0.18667rem;\n  --vxe-radio-font-size-small: 0.17333rem;\n  --vxe-radio-font-size-mini: 0.16rem;\n  --vxe-radio-border-width: 0.02667rem;\n  --vxe-radio-icon-background-color: #fff;\n  --vxe-radio-checked-icon-background-color: #fff;\n  --vxe-radio-indeterminate-icon-background-color: #fff;\n  --vxe-radio-button-default-background-color: #fff;\n  /*button*/\n  --vxe-button-max-width: 6.66667rem;\n  --vxe-button-default-background-color: #fff;\n  --vxe-button-dropdown-panel-background-color: #fff;\n  --vxe-button-height-default: 0.45333rem;\n  --vxe-button-height-medium: 0.42667rem;\n  --vxe-button-height-small: 0.4rem;\n  --vxe-button-height-mini: 0.37333rem;\n  --vxe-button-round-border-radius-default: 0.22667rem;\n  --vxe-button-round-border-radius-medium: 0.21333rem;\n  --vxe-button-round-border-radius-small: 0.2rem;\n  --vxe-button-round-border-radius-mini: 0.18667rem;\n  /*input*/\n  --vxe-input-background-color: #fff;\n  --vxe-input-panel-background-color: #fff;\n  --vxe-input-number-disabled-color: #e4e7ed;\n  --vxe-input-date-festival-color: #999999;\n  --vxe-input-date-festival-important-color: #409eff;\n  --vxe-input-date-notice-background-color: #FF0000;\n  --vxe-input-date-picker-hover-background-color: #f2f6fc;\n  --vxe-input-date-picker-selected-color: #fff;\n  --vxe-input-date-time-confirm-button-color: #fff;\n  --vxe-input-date-picker-festival-selected-color: #fff;\n  --vxe-input-date-picker-notice-selected-background-color: #fff;\n  --vxe-input-date-extra-color: #67c23a;\n  --vxe-input-date-extra-important-color: #fd2222;\n  --vxe-input-date-title-height-default: 0.4rem;\n  --vxe-input-date-title-height-medium: 0.38667rem;\n  --vxe-input-date-title-height-small: 0.37333rem;\n  --vxe-input-date-title-height-mini: 0.34667rem;\n  --vxe-input-date-time-week-row-height-default: 0.50667rem;\n  --vxe-input-date-time-week-row-height-medium: 0.48rem;\n  --vxe-input-date-time-week-row-height-small: 0.45333rem;\n  --vxe-input-date-time-week-row-height-mini: 0.42667rem;\n  --vxe-input-date-month-year-row-height-default: 0.64rem;\n  --vxe-input-date-month-year-row-height-medium: 0.61333rem;\n  --vxe-input-date-month-year-row-height-small: 0.58667rem;\n  --vxe-input-date-month-year-row-height-mini: 0.56rem;\n  --vxe-input-date-quarter-row-height-default: 0.8rem;\n  --vxe-input-date-quarter-row-height-medium: 0.77333rem;\n  --vxe-input-date-quarter-row-height-small: 0.74667rem;\n  --vxe-input-date-quarter-row-height-mini: 0.72rem;\n  --vxe-input-height-default: 0.45333rem;\n  --vxe-input-height-medium: 0.42667rem;\n  --vxe-input-height-small: 0.4rem;\n  --vxe-input-height-mini: 0.37333rem;\n  --vxe-input-count-color: #999;\n  --vxe-input-count-background-color: #fff;\n  --vxe-input-count-error-color: #f56c6c;\n  /*textarea*/\n  --vxe-textarea-line-height: 1.5715;\n  --vxe-textarea-background-color: #fff;\n  /*form*/\n  --vxe-form-item-min-height-default: 0.48rem;\n  --vxe-form-item-min-height-medium: 0.45333rem;\n  --vxe-form-item-min-height-small: 0.42667rem;\n  --vxe-form-item-min-height-mini: 0.4rem;\n  --vxe-form-background-color: #fff;\n  --vxe-form-validate-error-color: #f56c6c;\n  --vxe-form-validate-error-background-color: inherit;\n  /*select*/\n  --vxe-select-option-height-default: 0.4rem;\n  --vxe-select-option-height-medium: 0.37333rem;\n  --vxe-select-option-height-small: 0.34667rem;\n  --vxe-select-option-height-mini: 0.32rem;\n  --vxe-select-option-hover-background-color: #f5f7fa;\n  --vxe-select-panel-background-color: #fff;\n  --vxe-select-empty-color: #C0C4CC;\n  --vxe-optgroup-title-color: #909399;\n  /*switch*/\n  --vxe-switch-font-color: #fff;\n  --vxe-switch-icon-background-color: #fff;\n  --vxe-switch-open-background-color: #409eff;\n  --vxe-switch-close-background-color: rgba(0, 0, 0, 0.35);\n  --vxe-switch-disabled-background-color: rgba(0, 0, 0, 0.15);\n  /*pulldown*/\n  --vxe-pulldown-panel-background-color: #fff;\n}",
+      "start": 1714699766139,
+      "end": 1714699766965,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699766965,
+      "end": 1714699766965,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699766965,
+      "end": 1714699766965,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699766965,
+      "end": 1714699766965,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699766965,
+      "end": 1714699766965,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699766965,
+      "end": 1714699766965,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "/*font*/\n/*size*/\n/*icon*/\n/*color*/\n/*input/radio/checkbox*/\n/*popup*/\n/*table*/\n/*filter*/\n/*menu*/\n/*loading*/\n/*validate*/\n/*grid*/\n/*toolbar*/\n/*tooltip*/\n/*pager*/\n/*modal*/\n/*checkbox*/\n/*radio*/\n/*button*/\n/*input*/\n/*textarea*/\n/*form*/\n/*select*/\n/*switch*/\n/*pulldown*/\n/**Variable**/\n:root {\n  /*font*/\n  --vxe-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;\n  --vxe-font-size: 0.18667rem;\n  --vxe-font-size-medium: 0.18667rem;\n  --vxe-font-size-small: 0.17333rem;\n  --vxe-font-size-mini: 0.16rem;\n  /*size*/\n  --vxe-border-radius: 0.05333rem;\n  /*icon*/\n  --vxe-icon-font-family: Verdana, Arial, Tahoma;\n  --vxe-icon-background-color: #fff;\n  /*color*/\n  --vxe-font-color: #606266;\n  --vxe-primary-color: #409eff;\n  --vxe-success-color: #67c23a;\n  --vxe-info-color: #909399;\n  --vxe-warning-color: #e6a23c;\n  --vxe-danger-color: #f56c6c;\n  --vxe-font-lighten-color: #797b80;\n  --vxe-primary-lighten-color: #73b8ff;\n  --vxe-success-lighten-color: #85cf60;\n  --vxe-info-lighten-color: #abadb1;\n  --vxe-warning-lighten-color: #ecb869;\n  --vxe-danger-lighten-color: #f89c9c;\n  --vxe-font-darken-color: #47494c;\n  --vxe-primary-darken-color: #0d84ff;\n  --vxe-success-darken-color: #529b2e;\n  --vxe-info-darken-color: #767980;\n  --vxe-warning-darken-color: #d48a1b;\n  --vxe-danger-darken-color: #f23c3c;\n  --vxe-font-disabled-color: #BFBFBF;\n  --vxe-primary-disabled-color: #a6d2ff;\n  --vxe-success-disabled-color: #a3db87;\n  --vxe-info-disabled-color: #c5c7ca;\n  --vxe-warning-disabled-color: #f2cd96;\n  --vxe-danger-disabled-color: #fbcccc;\n  /*input/radio/checkbox*/\n  --vxe-input-border-color: #dcdfe6;\n  --vxe-input-disabled-color: #dcdfe6;\n  --vxe-input-disabled-background-color: #f3f3f3;\n  --vxe-input-placeholder-color: #C0C4CC;\n  /*popup*/\n  --vxe-table-popup-border-color: #DADCE0;\n  /*table*/\n  --vxe-table-header-font-color: #606266;\n  --vxe-table-footer-font-color: #606266;\n  --vxe-table-border-radius: 0.05333rem;\n  --vxe-table-border-width: 1px;\n  --vxe-table-border-color: #e8eaec;\n  --vxe-table-resizable-line-color: #D9DDDF;\n  --vxe-table-resizable-drag-line-color: #409eff;\n  --vxe-table-header-background-color: #f8f8f9;\n  --vxe-table-body-background-color: #ffffff;\n  --vxe-table-footer-background-color: #ffffff;\n  --vxe-table-tree-node-line-color: #909399;\n  --vxe-table-tree-node-line-style: dotted;\n  --vxe-table-header-font-weight: 700;\n  --vxe-table-row-height-default: 0.64rem;\n  --vxe-table-row-height-medium: 0.58667rem;\n  --vxe-table-row-height-small: 0.53333rem;\n  --vxe-table-row-height-mini: 0.48rem;\n  --vxe-table-row-line-height: 0.29333rem;\n  --vxe-table-row-hover-background-color: #f5f7fa;\n  --vxe-table-row-striped-background-color: #fafafa;\n  --vxe-table-row-hover-striped-background-color: #f5f7fa;\n  --vxe-table-row-radio-checked-background-color: #fff3e0;\n  --vxe-table-row-hover-radio-checked-background-color: #ffebbc;\n  --vxe-table-row-checkbox-checked-background-color: #fff3e0;\n  --vxe-table-row-hover-checkbox-checked-background-color: #ffebbc;\n  --vxe-table-row-current-background-color: #e6f7ff;\n  --vxe-table-row-hover-current-background-color: #d7effb;\n  --vxe-table-column-padding-default: 0.17333rem 0;\n  --vxe-table-column-padding-medium: 0.14667rem 0;\n  --vxe-table-column-padding-small: 0.12rem 0;\n  --vxe-table-column-padding-mini: 0.09333rem 0;\n  --vxe-table-column-hover-background-color: #d7effb;\n  --vxe-table-column-current-background-color: #e6f7ff;\n  --vxe-table-column-icon-border-color: #c0c4cc;\n  --vxe-table-column-icon-border-hover-color: #515A6E;\n  --vxe-table-cell-placeholder-color: #C0C4CC;\n  --vxe-table-cell-padding-left: 0.13333rem;\n  --vxe-table-cell-padding-right: 0.13333rem;\n  --vxe-table-cell-input-height-default: 0.56rem;\n  --vxe-table-cell-input-height-medium: 0.50667rem;\n  --vxe-table-cell-input-height-small: 0.45333rem;\n  --vxe-table-cell-input-height-mini: 0.4rem;\n  --vxe-table-cell-dirty-width: 0.06667rem;\n  --vxe-table-cell-dirty-update-color: #f56c6c;\n  --vxe-table-cell-dirty-insert-color: #19A15F;\n  --vxe-table-cell-area-border-color: #409eff;\n  --vxe-table-cell-area-border-width: 1px;\n  --vxe-table-cell-main-area-extension-border-color: #fff;\n  --vxe-table-cell-main-area-extension-background-color: #409eff;\n  --vxe-table-cell-extend-area-border-width: 0.02667rem;\n  --vxe-table-cell-copy-area-border-width: 0.04rem;\n  --vxe-table-cell-active-area-border-width: 0.02667rem;\n  --vxe-table-cell-copy-area-border-color: #409eff;\n  --vxe-table-cell-extend-area-border-color: #409eff;\n  --vxe-table-cell-active-area-border-color: #409eff;\n  --vxe-table-cell-area-background-color: rgba(64, 158, 255, 0.2);\n  --vxe-table-checkbox-range-border-width: 1px;\n  --vxe-table-checkbox-range-border-color: #006af1;\n  --vxe-table-checkbox-range-background-color: rgba(50, 128, 252, 0.2);\n  --vxe-table-fixed-left-scrolling-box-shadow: 0.10667rem 0px 0.13333rem -0.06667rem rgba(0, 0, 0, 0.12);\n  --vxe-table-fixed-right-scrolling-box-shadow: -0.10667rem 0px 0.13333rem -0.06667rem rgba(0, 0, 0, 0.12);\n  /*filter*/\n  --vxe-table-filter-panel-background-color: #fff;\n  /*menu*/\n  --vxe-table-menu-item-width: 2.37333rem;\n  --vxe-table-menu-background-color: #fff;\n  /*loading*/\n  --vxe-loading-color: #409eff;\n  --vxe-loading-background-color: rgba(255, 255, 255, 0.5);\n  --vxe-loading-z-index: 999;\n  /*validate*/\n  --vxe-table-validate-error-color: #f56c6c;\n  --vxe-table-validate-error-background-color: #ffffff;\n  /*grid*/\n  --vxe-grid-maximize-background-color: #fff;\n  /*toolbar*/\n  --vxe-toolbar-background-color: #fff;\n  --vxe-toolbar-custom-active-background-color: #D9DADB;\n  --vxe-toolbar-panel-background-color: #fff;\n  /*tooltip*/\n  --vxe-tooltip-dark-color: #fff;\n  --vxe-tooltip-dark-background-color: #303133;\n  --vxe-tooltip-light-background-color: #fff;\n  /*pager*/\n  --vxe-pager-background-color: #fff;\n  --vxe-pager-perfect-background-color: #fff;\n  --vxe-pager-perfect-button-background-color: #f4f4f5;\n  /*modal*/\n  --vxe-modal-header-background-color: #F8F8F8;\n  --vxe-modal-body-background-color: #fff;\n  --vxe-modal-border-color: #ebeef5;\n  /*checkbox*/\n  --vxe-checkbox-font-size-default: 0.2rem;\n  --vxe-checkbox-font-size-medium: 0.18667rem;\n  --vxe-checkbox-font-size-small: 0.17333rem;\n  --vxe-checkbox-font-size-mini: 0.16rem;\n  --vxe-checkbox-checked-width: 0.32em;\n  --vxe-checkbox-checked-height: 0.64em;\n  --vxe-checkbox-indeterminate-width: 0.6em;\n  --vxe-checkbox-indeterminate-height: 0.02667rem;\n  --vxe-checkbox-border-width: 0.02667rem;\n  --vxe-checkbox-border-radius: 0.02667rem;\n  --vxe-checkbox-icon-background-color: #fff;\n  --vxe-checkbox-checked-icon-border-color: #fff;\n  --vxe-checkbox-indeterminate-icon-background-color: #fff;\n  /*radio*/\n  --vxe-radio-font-size-default: 0.2rem;\n  --vxe-radio-font-size-medium: 0.18667rem;\n  --vxe-radio-font-size-small: 0.17333rem;\n  --vxe-radio-font-size-mini: 0.16rem;\n  --vxe-radio-border-width: 0.02667rem;\n  --vxe-radio-icon-background-color: #fff;\n  --vxe-radio-checked-icon-background-color: #fff;\n  --vxe-radio-indeterminate-icon-background-color: #fff;\n  --vxe-radio-button-default-background-color: #fff;\n  /*button*/\n  --vxe-button-max-width: 6.66667rem;\n  --vxe-button-default-background-color: #fff;\n  --vxe-button-dropdown-panel-background-color: #fff;\n  --vxe-button-height-default: 0.45333rem;\n  --vxe-button-height-medium: 0.42667rem;\n  --vxe-button-height-small: 0.4rem;\n  --vxe-button-height-mini: 0.37333rem;\n  --vxe-button-round-border-radius-default: 0.22667rem;\n  --vxe-button-round-border-radius-medium: 0.21333rem;\n  --vxe-button-round-border-radius-small: 0.2rem;\n  --vxe-button-round-border-radius-mini: 0.18667rem;\n  /*input*/\n  --vxe-input-background-color: #fff;\n  --vxe-input-panel-background-color: #fff;\n  --vxe-input-number-disabled-color: #e4e7ed;\n  --vxe-input-date-festival-color: #999999;\n  --vxe-input-date-festival-important-color: #409eff;\n  --vxe-input-date-notice-background-color: #FF0000;\n  --vxe-input-date-picker-hover-background-color: #f2f6fc;\n  --vxe-input-date-picker-selected-color: #fff;\n  --vxe-input-date-time-confirm-button-color: #fff;\n  --vxe-input-date-picker-festival-selected-color: #fff;\n  --vxe-input-date-picker-notice-selected-background-color: #fff;\n  --vxe-input-date-extra-color: #67c23a;\n  --vxe-input-date-extra-important-color: #fd2222;\n  --vxe-input-date-title-height-default: 0.4rem;\n  --vxe-input-date-title-height-medium: 0.38667rem;\n  --vxe-input-date-title-height-small: 0.37333rem;\n  --vxe-input-date-title-height-mini: 0.34667rem;\n  --vxe-input-date-time-week-row-height-default: 0.50667rem;\n  --vxe-input-date-time-week-row-height-medium: 0.48rem;\n  --vxe-input-date-time-week-row-height-small: 0.45333rem;\n  --vxe-input-date-time-week-row-height-mini: 0.42667rem;\n  --vxe-input-date-month-year-row-height-default: 0.64rem;\n  --vxe-input-date-month-year-row-height-medium: 0.61333rem;\n  --vxe-input-date-month-year-row-height-small: 0.58667rem;\n  --vxe-input-date-month-year-row-height-mini: 0.56rem;\n  --vxe-input-date-quarter-row-height-default: 0.8rem;\n  --vxe-input-date-quarter-row-height-medium: 0.77333rem;\n  --vxe-input-date-quarter-row-height-small: 0.74667rem;\n  --vxe-input-date-quarter-row-height-mini: 0.72rem;\n  --vxe-input-height-default: 0.45333rem;\n  --vxe-input-height-medium: 0.42667rem;\n  --vxe-input-height-small: 0.4rem;\n  --vxe-input-height-mini: 0.37333rem;\n  --vxe-input-count-color: #999;\n  --vxe-input-count-background-color: #fff;\n  --vxe-input-count-error-color: #f56c6c;\n  /*textarea*/\n  --vxe-textarea-line-height: 1.5715;\n  --vxe-textarea-background-color: #fff;\n  /*form*/\n  --vxe-form-item-min-height-default: 0.48rem;\n  --vxe-form-item-min-height-medium: 0.45333rem;\n  --vxe-form-item-min-height-small: 0.42667rem;\n  --vxe-form-item-min-height-mini: 0.4rem;\n  --vxe-form-background-color: #fff;\n  --vxe-form-validate-error-color: #f56c6c;\n  --vxe-form-validate-error-background-color: inherit;\n  /*select*/\n  --vxe-select-option-height-default: 0.4rem;\n  --vxe-select-option-height-medium: 0.37333rem;\n  --vxe-select-option-height-small: 0.34667rem;\n  --vxe-select-option-height-mini: 0.32rem;\n  --vxe-select-option-hover-background-color: #f5f7fa;\n  --vxe-select-panel-background-color: #fff;\n  --vxe-select-empty-color: #C0C4CC;\n  --vxe-optgroup-title-color: #909399;\n  /*switch*/\n  --vxe-switch-font-color: #fff;\n  --vxe-switch-icon-background-color: #fff;\n  --vxe-switch-open-background-color: #409eff;\n  --vxe-switch-close-background-color: rgba(0, 0, 0, 0.35);\n  --vxe-switch-disabled-background-color: rgba(0, 0, 0, 0.15);\n  /*pulldown*/\n  --vxe-pulldown-panel-background-color: #fff;\n}",
+      "start": 1714699766965,
+      "end": 1714699766965,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699766965,
+      "end": 1714699766965,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699766965,
+      "end": 1714699766965,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699766965,
+      "end": 1714699766965,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699766965,
+      "end": 1714699766965,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699766965,
+      "end": 1714699766965,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699766965,
+      "end": 1714699766965,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699766965,
+      "end": 1714699766965,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699766965,
+      "end": 1714699766965,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699766965,
+      "end": 1714699766965,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699766965,
+      "end": 1714699766965,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699766965,
+      "end": 1714699766965,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699766965,
+      "end": 1714699766965,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699766965,
+      "end": 1714699766965,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699766965,
+      "end": 1714699766965,
+      "order": "normal"
+    }
+  ]
+}

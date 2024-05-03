@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/after.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var slice = require('./slice')\r\n\r\n/**\r\n  * 创建一个函数, 调用次数超过 count 次之后执行回调并将所有结果记住后返回\r\n  *\r\n  * @param {Number} count 调用次数\r\n  * @param {Function} callback 完成回调\r\n  * @return {Object}\r\n  */\r\nfunction after (count, callback, context) {\r\n  var runCount = 0\r\n  var rests = []\r\n  return function () {\r\n    var args = arguments\r\n    runCount++\r\n    if (runCount <= count) {\r\n      rests.push(args[0])\r\n    }\r\n    if (runCount >= count) {\r\n      callback.apply(context, [rests].concat(slice(args)))\r\n    }\r\n  }\r\n}\r\n\r\nmodule.exports = after\r\n",
+      "start": 1714699767716,
+      "end": 1714699767724,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767724,
+      "end": 1714699767724,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767724,
+      "end": 1714699767724,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767724,
+      "end": 1714699767724,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767724,
+      "end": 1714699767724,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767724,
+      "end": 1714699767724,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767724,
+      "end": 1714699767724,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var slice = require('./slice')\r\n\r\n/**\r\n  * 创建一个函数, 调用次数超过 count 次之后执行回调并将所有结果记住后返回\r\n  *\r\n  * @param {Number} count 调用次数\r\n  * @param {Function} callback 完成回调\r\n  * @return {Object}\r\n  */\r\nfunction after (count, callback, context) {\r\n  var runCount = 0\r\n  var rests = []\r\n  return function () {\r\n    var args = arguments\r\n    runCount++\r\n    if (runCount <= count) {\r\n      rests.push(args[0])\r\n    }\r\n    if (runCount >= count) {\r\n      callback.apply(context, [rests].concat(slice(args)))\r\n    }\r\n  }\r\n}\r\n\r\nmodule.exports = after\r\n",
+      "start": 1714699767724,
+      "end": 1714699767724,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767724,
+      "end": 1714699767724,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767724,
+      "end": 1714699767724,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767724,
+      "end": 1714699767724,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767724,
+      "end": 1714699767724,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767724,
+      "end": 1714699767724,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767724,
+      "end": 1714699767724,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/slice.js?commonjs-proxy\";\n\nvar slice = require$$0\r\n\r\n/**\r\n  * 创建一个函数, 调用次数超过 count 次之后执行回调并将所有结果记住后返回\r\n  *\r\n  * @param {Number} count 调用次数\r\n  * @param {Function} callback 完成回调\r\n  * @return {Object}\r\n  */\r\nfunction after (count, callback, context) {\r\n  var runCount = 0\r\n  var rests = []\r\n  return function () {\r\n    var args = arguments\r\n    runCount++\r\n    if (runCount <= count) {\r\n      rests.push(args[0])\r\n    }\r\n    if (runCount >= count) {\r\n      callback.apply(context, [rests].concat(slice(args)))\r\n    }\r\n  }\r\n}\r\n\r\nvar after_1 = after\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(after_1);\nexport { after_1 as __moduleExports };",
+      "start": 1714699767724,
+      "end": 1714699768207,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;AAAA,IAAI,KAAK,GAAG,UAAkB;AAC9B;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,KAAK,EAAE,KAAK,EAAE,QAAQ,EAAE,OAAO,EAAE;AAC1C,EAAE,IAAI,QAAQ,GAAG,CAAC;AAClB,EAAE,IAAI,KAAK,GAAG,EAAE;AAChB,EAAE,OAAO,YAAY;AACrB,IAAI,IAAI,IAAI,GAAG,SAAS;AACxB,IAAI,QAAQ,EAAE;AACd,IAAI,IAAI,QAAQ,IAAI,KAAK,EAAE;AAC3B,MAAM,KAAK,CAAC,IAAI,CAAC,IAAI,CAAC,CAAC,CAAC,CAAC;AACzB,KAAK;AACL,IAAI,IAAI,QAAQ,IAAI,KAAK,EAAE;AAC3B,MAAM,QAAQ,CAAC,KAAK,CAAC,OAAO,EAAE,CAAC,KAAK,CAAC,CAAC,MAAM,CAAC,KAAK,CAAC,IAAI,CAAC,CAAC,CAAC;AAC1D,KAAK;AACL,GAAG;AACH,CAAC;AACD;IACA,OAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768207,
+      "end": 1714699768207,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768207,
+      "end": 1714699768207,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768207,
+      "end": 1714699768207,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768207,
+      "end": 1714699768207,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768207,
+      "end": 1714699768207,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768207,
+      "end": 1714699768207,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768207,
+      "end": 1714699768207,
+      "order": "normal"
+    }
+  ]
+}

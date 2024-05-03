@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/assign.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var arrayEach = require('./arrayEach')\r\nvar keys = require('./keys')\r\nvar isArray = require('./isArray')\r\nvar clone = require('./clone')\r\n\r\nvar objectAssignFns = Object.assign\r\n\r\nfunction handleAssign (destination, args, isClone) {\r\n  var len = args.length\r\n  for (var source, index = 1; index < len; index++) {\r\n    source = args[index]\r\n    arrayEach(keys(args[index]), isClone ? function (key) {\r\n      destination[key] = clone(source[key], isClone)\r\n    } : function (key) {\r\n      destination[key] = source[key]\r\n    })\r\n  }\r\n  return destination\r\n}\r\n\r\n/**\r\n  * 将一个或多个源对象复制到目标对象中\r\n  *\r\n  * @param {Object} target 目标对象\r\n  * @param {...Object}\r\n  * @return {Boolean}\r\n  */\r\nvar assign = function (target) {\r\n  if (target) {\r\n    var args = arguments\r\n    if (target === true) {\r\n      if (args.length > 1) {\r\n        target = isArray(target[1]) ? [] : {}\r\n        return handleAssign(target, args, true)\r\n      }\r\n    } else {\r\n      return objectAssignFns ? objectAssignFns.apply(Object, args) : handleAssign(target, args)\r\n    }\r\n  }\r\n  return target\r\n}\r\n\r\nmodule.exports = assign\r\n",
+      "start": 1714699767512,
+      "end": 1714699767532,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767532,
+      "end": 1714699767532,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767532,
+      "end": 1714699767532,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767532,
+      "end": 1714699767532,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767532,
+      "end": 1714699767532,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767532,
+      "end": 1714699767532,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767532,
+      "end": 1714699767532,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var arrayEach = require('./arrayEach')\r\nvar keys = require('./keys')\r\nvar isArray = require('./isArray')\r\nvar clone = require('./clone')\r\n\r\nvar objectAssignFns = Object.assign\r\n\r\nfunction handleAssign (destination, args, isClone) {\r\n  var len = args.length\r\n  for (var source, index = 1; index < len; index++) {\r\n    source = args[index]\r\n    arrayEach(keys(args[index]), isClone ? function (key) {\r\n      destination[key] = clone(source[key], isClone)\r\n    } : function (key) {\r\n      destination[key] = source[key]\r\n    })\r\n  }\r\n  return destination\r\n}\r\n\r\n/**\r\n  * 将一个或多个源对象复制到目标对象中\r\n  *\r\n  * @param {Object} target 目标对象\r\n  * @param {...Object}\r\n  * @return {Boolean}\r\n  */\r\nvar assign = function (target) {\r\n  if (target) {\r\n    var args = arguments\r\n    if (target === true) {\r\n      if (args.length > 1) {\r\n        target = isArray(target[1]) ? [] : {}\r\n        return handleAssign(target, args, true)\r\n      }\r\n    } else {\r\n      return objectAssignFns ? objectAssignFns.apply(Object, args) : handleAssign(target, args)\r\n    }\r\n  }\r\n  return target\r\n}\r\n\r\nmodule.exports = assign\r\n",
+      "start": 1714699767532,
+      "end": 1714699767532,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767532,
+      "end": 1714699767532,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767532,
+      "end": 1714699767532,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767532,
+      "end": 1714699767532,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767532,
+      "end": 1714699767532,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767532,
+      "end": 1714699767532,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767532,
+      "end": 1714699767532,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/arrayEach.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/keys.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isArray.js?commonjs-proxy\";\nimport require$$3 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/clone.js?commonjs-proxy\";\n\nvar arrayEach = require$$0\r\nvar keys = require$$1\r\nvar isArray = require$$2\r\nvar clone = require$$3\r\n\r\nvar objectAssignFns = Object.assign\r\n\r\nfunction handleAssign (destination, args, isClone) {\r\n  var len = args.length\r\n  for (var source, index = 1; index < len; index++) {\r\n    source = args[index]\r\n    arrayEach(keys(args[index]), isClone ? function (key) {\r\n      destination[key] = clone(source[key], isClone)\r\n    } : function (key) {\r\n      destination[key] = source[key]\r\n    })\r\n  }\r\n  return destination\r\n}\r\n\r\n/**\r\n  * 将一个或多个源对象复制到目标对象中\r\n  *\r\n  * @param {Object} target 目标对象\r\n  * @param {...Object}\r\n  * @return {Boolean}\r\n  */\r\nvar assign = function (target) {\r\n  if (target) {\r\n    var args = arguments\r\n    if (target === true) {\r\n      if (args.length > 1) {\r\n        target = isArray(target[1]) ? [] : {}\r\n        return handleAssign(target, args, true)\r\n      }\r\n    } else {\r\n      return objectAssignFns ? objectAssignFns.apply(Object, args) : handleAssign(target, args)\r\n    }\r\n  }\r\n  return target\r\n}\r\n\r\nvar assign_1 = assign\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(assign_1);\nexport { assign_1 as __moduleExports };",
+      "start": 1714699767532,
+      "end": 1714699768215,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;;AAAA,IAAI,SAAS,GAAG,UAAsB;AACtC,IAAI,IAAI,GAAG,UAAiB;AAC5B,IAAI,OAAO,GAAG,UAAoB;AAClC,IAAI,KAAK,GAAG,UAAkB;AAC9B;AACA,IAAI,eAAe,GAAG,MAAM,CAAC,MAAM;AACnC;AACA,SAAS,YAAY,EAAE,WAAW,EAAE,IAAI,EAAE,OAAO,EAAE;AACnD,EAAE,IAAI,GAAG,GAAG,IAAI,CAAC,MAAM;AACvB,EAAE,KAAK,IAAI,MAAM,EAAE,KAAK,GAAG,CAAC,EAAE,KAAK,GAAG,GAAG,EAAE,KAAK,EAAE,EAAE;AACpD,IAAI,MAAM,GAAG,IAAI,CAAC,KAAK,CAAC;AACxB,IAAI,SAAS,CAAC,IAAI,CAAC,IAAI,CAAC,KAAK,CAAC,CAAC,EAAE,OAAO,GAAG,UAAU,GAAG,EAAE;AAC1D,MAAM,WAAW,CAAC,GAAG,CAAC,GAAG,KAAK,CAAC,MAAM,CAAC,GAAG,CAAC,EAAE,OAAO,CAAC;AACpD,KAAK,GAAG,UAAU,GAAG,EAAE;AACvB,MAAM,WAAW,CAAC,GAAG,CAAC,GAAG,MAAM,CAAC,GAAG,CAAC;AACpC,KAAK,CAAC;AACN,GAAG;AACH,EAAE,OAAO,WAAW;AACpB,CAAC;AACD;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,IAAI,MAAM,GAAG,UAAU,MAAM,EAAE;AAC/B,EAAE,IAAI,MAAM,EAAE;AACd,IAAI,IAAI,IAAI,GAAG,SAAS;AACxB,IAAI,IAAI,MAAM,KAAK,IAAI,EAAE;AACzB,MAAM,IAAI,IAAI,CAAC,MAAM,GAAG,CAAC,EAAE;AAC3B,QAAQ,MAAM,GAAG,OAAO,CAAC,MAAM,CAAC,CAAC,CAAC,CAAC,GAAG,EAAE,GAAG,EAAE;AAC7C,QAAQ,OAAO,YAAY,CAAC,MAAM,EAAE,IAAI,EAAE,IAAI,CAAC;AAC/C,OAAO;AACP,KAAK,MAAM;AACX,MAAM,OAAO,eAAe,GAAG,eAAe,CAAC,KAAK,CAAC,MAAM,EAAE,IAAI,CAAC,GAAG,YAAY,CAAC,MAAM,EAAE,IAAI,CAAC;AAC/F,KAAK;AACL,GAAG;AACH,EAAE,OAAO,MAAM;AACf,CAAC;AACD;IACA,QAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768215,
+      "end": 1714699768215,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768215,
+      "end": 1714699768215,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768215,
+      "end": 1714699768215,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768215,
+      "end": 1714699768215,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768215,
+      "end": 1714699768215,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768215,
+      "end": 1714699768215,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768215,
+      "end": 1714699768215,
+      "order": "normal"
+    }
+  ]
+}

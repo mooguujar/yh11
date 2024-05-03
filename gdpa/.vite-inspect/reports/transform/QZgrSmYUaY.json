@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/delay.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var slice = require('./slice')\r\n\r\n/**\r\n  * 该方法和 setTimeout 一样的效果，区别就是支持上下文和额外参数\r\n  *\r\n  * @param {Function} callback 函数\r\n  * @param {Number} wait 延迟毫秒\r\n  * @param {*} args 额外的参数\r\n  * @return {Number}\r\n */\r\nfunction delay (callback, wait) {\r\n  var args = slice(arguments, 2)\r\n  var context = this\r\n  return setTimeout(function () {\r\n    callback.apply(context, args)\r\n  }, wait)\r\n}\r\n\r\nmodule.exports = delay\r\n",
+      "start": 1714699767718,
+      "end": 1714699767728,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767728,
+      "end": 1714699767728,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767728,
+      "end": 1714699767728,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767728,
+      "end": 1714699767728,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767728,
+      "end": 1714699767728,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767728,
+      "end": 1714699767728,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767728,
+      "end": 1714699767728,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var slice = require('./slice')\r\n\r\n/**\r\n  * 该方法和 setTimeout 一样的效果，区别就是支持上下文和额外参数\r\n  *\r\n  * @param {Function} callback 函数\r\n  * @param {Number} wait 延迟毫秒\r\n  * @param {*} args 额外的参数\r\n  * @return {Number}\r\n */\r\nfunction delay (callback, wait) {\r\n  var args = slice(arguments, 2)\r\n  var context = this\r\n  return setTimeout(function () {\r\n    callback.apply(context, args)\r\n  }, wait)\r\n}\r\n\r\nmodule.exports = delay\r\n",
+      "start": 1714699767728,
+      "end": 1714699767728,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767728,
+      "end": 1714699767728,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767728,
+      "end": 1714699767728,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767728,
+      "end": 1714699767728,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767728,
+      "end": 1714699767728,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767728,
+      "end": 1714699767728,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767728,
+      "end": 1714699767728,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/slice.js?commonjs-proxy\";\n\nvar slice = require$$0\r\n\r\n/**\r\n  * 该方法和 setTimeout 一样的效果，区别就是支持上下文和额外参数\r\n  *\r\n  * @param {Function} callback 函数\r\n  * @param {Number} wait 延迟毫秒\r\n  * @param {*} args 额外的参数\r\n  * @return {Number}\r\n */\r\nfunction delay (callback, wait) {\r\n  var args = slice(arguments, 2)\r\n  var context = this\r\n  return setTimeout(function () {\r\n    callback.apply(context, args)\r\n  }, wait)\r\n}\r\n\r\nvar delay_1 = delay\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(delay_1);\nexport { delay_1 as __moduleExports };",
+      "start": 1714699767728,
+      "end": 1714699768207,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;AAAA,IAAI,KAAK,GAAG,UAAkB;AAC9B;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,KAAK,EAAE,QAAQ,EAAE,IAAI,EAAE;AAChC,EAAE,IAAI,IAAI,GAAG,KAAK,CAAC,SAAS,EAAE,CAAC,CAAC;AAChC,EAAE,IAAI,OAAO,GAAG,IAAI;AACpB,EAAE,OAAO,UAAU,CAAC,YAAY;AAChC,IAAI,QAAQ,CAAC,KAAK,CAAC,OAAO,EAAE,IAAI,CAAC;AACjC,GAAG,EAAE,IAAI,CAAC;AACV,CAAC;AACD;IACA,OAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768207,
+      "end": 1714699768207,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768207,
+      "end": 1714699768207,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768207,
+      "end": 1714699768207,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768207,
+      "end": 1714699768207,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768207,
+      "end": 1714699768207,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768207,
+      "end": 1714699768207,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768207,
+      "end": 1714699768207,
+      "order": "normal"
+    }
+  ]
+}

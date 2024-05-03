@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/progress/Progress.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { computed, defineComponent } from \"vue\";\nimport { addUnit, truthProp, numericProp, createNamespace } from \"../utils/index.mjs\";\nconst [name, bem] = createNamespace(\"progress\");\nconst progressProps = {\n  color: String,\n  inactive: Boolean,\n  pivotText: String,\n  textColor: String,\n  showPivot: truthProp,\n  pivotColor: String,\n  trackColor: String,\n  strokeWidth: numericProp,\n  percentage: {\n    type: numericProp,\n    default: 0,\n    validator: (value) => +value >= 0 && +value <= 100\n  }\n};\nvar stdin_default = defineComponent({\n  name,\n  props: progressProps,\n  setup(props) {\n    const background = computed(() => props.inactive ? void 0 : props.color);\n    const renderPivot = () => {\n      const {\n        textColor,\n        pivotText,\n        pivotColor,\n        percentage\n      } = props;\n      const text = pivotText != null ? pivotText : `${percentage}%`;\n      if (props.showPivot && text) {\n        const style = {\n          color: textColor,\n          left: `${+percentage}%`,\n          transform: `translate(-${+percentage}%,-50%)`,\n          background: pivotColor || background.value\n        };\n        return _createVNode(\"span\", {\n          \"style\": style,\n          \"class\": bem(\"pivot\", {\n            inactive: props.inactive\n          })\n        }, [text]);\n      }\n    };\n    return () => {\n      const {\n        trackColor,\n        percentage,\n        strokeWidth\n      } = props;\n      const rootStyle = {\n        background: trackColor,\n        height: addUnit(strokeWidth)\n      };\n      const portionStyle = {\n        width: `${percentage}%`,\n        background: background.value\n      };\n      return _createVNode(\"div\", {\n        \"class\": bem(),\n        \"style\": rootStyle\n      }, [_createVNode(\"span\", {\n        \"class\": bem(\"portion\", {\n          inactive: props.inactive\n        }),\n        \"style\": portionStyle\n      }, null), renderPivot()]);\n    };\n  }\n});\nexport {\n  stdin_default as default,\n  progressProps\n};\n",
+      "start": 1714699767311,
+      "end": 1714699767339,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767339,
+      "end": 1714699767339,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767339,
+      "end": 1714699767339,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767339,
+      "end": 1714699767339,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767339,
+      "end": 1714699767339,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767339,
+      "end": 1714699767339,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767339,
+      "end": 1714699767339,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { computed, defineComponent } from \"vue\";\nimport { addUnit, truthProp, numericProp, createNamespace } from \"../utils/index.mjs\";\nconst [name, bem] = createNamespace(\"progress\");\nconst progressProps = {\n  color: String,\n  inactive: Boolean,\n  pivotText: String,\n  textColor: String,\n  showPivot: truthProp,\n  pivotColor: String,\n  trackColor: String,\n  strokeWidth: numericProp,\n  percentage: {\n    type: numericProp,\n    default: 0,\n    validator: (value) => +value >= 0 && +value <= 100\n  }\n};\nvar stdin_default = defineComponent({\n  name,\n  props: progressProps,\n  setup(props) {\n    const background = computed(() => props.inactive ? void 0 : props.color);\n    const renderPivot = () => {\n      const {\n        textColor,\n        pivotText,\n        pivotColor,\n        percentage\n      } = props;\n      const text = pivotText != null ? pivotText : `${percentage}%`;\n      if (props.showPivot && text) {\n        const style = {\n          color: textColor,\n          left: `${+percentage}%`,\n          transform: `translate(-${+percentage}%,-50%)`,\n          background: pivotColor || background.value\n        };\n        return _createVNode(\"span\", {\n          \"style\": style,\n          \"class\": bem(\"pivot\", {\n            inactive: props.inactive\n          })\n        }, [text]);\n      }\n    };\n    return () => {\n      const {\n        trackColor,\n        percentage,\n        strokeWidth\n      } = props;\n      const rootStyle = {\n        background: trackColor,\n        height: addUnit(strokeWidth)\n      };\n      const portionStyle = {\n        width: `${percentage}%`,\n        background: background.value\n      };\n      return _createVNode(\"div\", {\n        \"class\": bem(),\n        \"style\": rootStyle\n      }, [_createVNode(\"span\", {\n        \"class\": bem(\"portion\", {\n          inactive: props.inactive\n        }),\n        \"style\": portionStyle\n      }, null), renderPivot()]);\n    };\n  }\n});\nexport {\n  stdin_default as default,\n  progressProps\n};\n",
+      "start": 1714699767339,
+      "end": 1714699767339,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767339,
+      "end": 1714699767339,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767339,
+      "end": 1714699767339,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767339,
+      "end": 1714699767339,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767339,
+      "end": 1714699767339,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767339,
+      "end": 1714699767339,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767339,
+      "end": 1714699767339,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767339,
+      "end": 1714699767339,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767339,
+      "end": 1714699767339,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767339,
+      "end": 1714699767339,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767339,
+      "end": 1714699767339,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767339,
+      "end": 1714699767339,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767339,
+      "end": 1714699767339,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767339,
+      "end": 1714699767339,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767339,
+      "end": 1714699767339,
+      "order": "normal"
+    }
+  ]
+}

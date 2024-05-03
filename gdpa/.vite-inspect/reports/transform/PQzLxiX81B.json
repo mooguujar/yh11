@@ -1,0 +1,141 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/index.html",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<!DOCTYPE html>\n<html\n  lang=\"en\"\n  id=\"html\"\n  style=\"font-size: 50px\"\n>\n  <head>\n    <meta charset=\"UTF-8\" />\n    <link\n      rel=\"icon\"\n      href=\"\"\n    />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover\"\n    />\n    <meta\n      http-equiv=\"pragram\"\n      content=\"no-cache\"\n    />\n    <meta\n      http-equiv=\"cache-control\"\n      content=\"no-cache, no-store, must-revalidate\"\n    />\n    <meta\n      http-equiv=\"expires\"\n      content=\"0\"\n    />\n    <title></title>\n    <script>\n      window.addEventListener('load', () => {\n        const navigator = window.navigator\n        const userAgent = navigator.userAgent\n        const normalizedUserAgent = userAgent.toLowerCase()\n        const standalone = navigator.standalone\n\n        const isIos =\n          /ip(ad|hone|od)/.test(normalizedUserAgent) ||\n          (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)\n        const isAndroid = /android/.test(normalizedUserAgent)\n        const isSafari = /safari/.test(normalizedUserAgent)\n        const isWebview =\n          (isAndroid && /; wv\\)/.test(normalizedUserAgent)) || (isIos && !standalone && !isSafari)\n\n        // 存储当前环境标识\n        sessionStorage.setItem('isWebview', isWebview ? 1 : 0)\n        window.DIYclose = function () {\n          try {\n            localStorage.setItem('token', '')\n            localStorage.setItem('md5_pri', '')\n            if (isWebview) {\n              if (isAndroid && window.imgupcallbcak) {\n                return imgupcallbcak.exitWeb(\n                  JSON.stringify({ code: 0, img: '5555', title: '成功' })\n                )\n              }\n              if (isIos && window.webkit) {\n                return window.webkit.messageHandlers.callNativeAndSend.postMessage('exitWeb', '*')\n              }\n            } else {\n              if (window.parent) {\n                window.parent.postMessage('closeH5', '*')\n                window.close()\n              } else {\n              }\n            }\n          } catch (e) {\n            console.log(e)\n          }\n        }\n      })\n    </script>\n    <link\n      rel=\"stylesheet\"\n      type=\"text/css\"\n      href=\"https://edis.esandcloud.com/efaceid/1.9.3/EsLivingDetection.1.9.3.css\"\n    />\n    <script src=\"https://edis.esandcloud.com/libs/plupload.full.min.js\"></script>\n    <script src=\"https://edis.esandcloud.com/efaceid/1.9.3/EsLivingDetection.min.1.9.3.js\"></script>\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <script\n      type=\"module\"\n      src=\"/src/main.ts\"\n    ></script>\n    <script>\n      function mergeHrefParams() {\n        const { search, hash } = window.location\n        const searchParams = search.replace(/\\?/, '')\n        // const hashParams = hash.match(/(?<=\\?)\\S+$/) || ['']\n        const hashParams = hash.split('?')[1] || ''\n        return searchParams + '&' + hashParams\n      }\n\n      const search = new URLSearchParams(mergeHrefParams())\n      function setRemUnit() {\n        const docEl = document.documentElement\n        const hs = search.get('hs') || ''\n        const isWebview = +sessionStorage.getItem('isWebview')\n        const isGuadan = (search.get('operation_verification') || '').includes('GUADAN')\n        const isLandscape = window.matchMedia('(orientation:landscape)').matches\n\n        const userWebSetFont = getComputedStyle(docEl, false)['fontSize']\n        const fontFactor = parseFloat(userWebSetFont) / 16\n\n        docEl.style.setProperty('--scale-factor', '1.0')\n        parseInt(docEl.style.fontSize) >= 50 && (docEl.style.fontSize = '50px')\n        if (hs == 'h' || (isWebview && isGuadan && isLandscape)) {\n          docEl.style.fontSize = window.innerWidth / 10 + 'px'\n\n          const docElFont = parseFloat(docEl.style.fontSize)\n          const userSetFont = parseFloat(userWebSetFont)\n          const scaleFactor = (docElFont / userSetFont).toFixed(1)\n\n          docEl.style.setProperty('--scale-factor', scaleFactor)\n          if (docElFont < userSetFont) {\n            document.querySelector(\n              '#app'\n            ).style.cssText = `transform: scale(${scaleFactor});transform-origin: 0 0;width: calc(1 / ${scaleFactor} * 100%);max-width: unset;height: calc(1 / ${scaleFactor} * 100vh);`\n          }\n        }\n      }\n\n      window.addEventListener('load', () => {\n        setRemUnit()\n        window.addEventListener('resize', setRemUnit, false)\n      })\n\n      // 移动端真机调试时打开，地址参数 ?vlog=1 开启 Vue-vConsole-devtools\n      window.addEventListener('load', async () => {\n        const loadVconsole = () => {\n          return new Promise(resolve => {\n            const vConsole = document.createElement('script')\n\n            vConsole.src = 'https://unpkg.com/vconsole/dist/vconsole.min.js'\n            vConsole.async = false\n\n            vConsole.onload = function () {\n              resolve(true)\n            }\n\n            document.head.appendChild(vConsole)\n          })\n        }\n\n        const loadVueVconsoleDevtools = () => {\n          return new Promise(resolve => {\n            const vueVconsoleDevtools = document.createElement('script')\n\n            vueVconsoleDevtools.src =\n              'https://cdn.jsdelivr.net/npm/vue-vconsole-devtools@1.0.5/dist/vue_plugin.js'\n            vueVconsoleDevtools.async = false\n\n            vueVconsoleDevtools.onload = function () {\n              const vConsole = window.vConsoleInstance\n                ? window.vConsoleInstance\n                : new window.VConsole()\n              const Devtools = window.vueVconsoleDevtools\n\n              Devtools.initPlugin(vConsole)\n              resolve(true)\n            }\n\n            document.head.appendChild(vueVconsoleDevtools)\n          })\n        }\n\n        // const search = new URLSearchParams(window.top.location.search || window.top.location.hash)\n\n        const isVlog = search.get('vlog')\n        if (isVlog) {\n          await loadVconsole()\n          loadVueVconsoleDevtools()\n        }\n      })\n    </script>\n    <!-- <script src=\"https://unpkg.com/vconsole/dist/vconsole.min.js\"></script>\n    <script src=\"https://cdn.jsdelivr.net/npm/vue-vconsole-devtools@1.0.5/dist/vue_plugin.js\"></script>\n    <script>\n      try {\n        var vConsole = new window.VConsole()\n        const Devtools = window.vueVconsoleDevtools\n        Devtools.initPlugin(vConsole)\n\n        setTimeout(() => {\n          // console.log('顶级url', window.top.location.href)\n        })\n      } catch (err) {\n        console.error(err)\n      }\n    </script> -->\n  </body>\n</html>\n",
+      "start": 1714699765897,
+      "end": 1714699765897,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699765897,
+      "end": 1714699765897,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699765897,
+      "end": 1714699765898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699765898,
+      "end": 1714699765898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699765898,
+      "end": 1714699765898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699765898,
+      "end": 1714699765898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699765898,
+      "end": 1714699765898,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "<!DOCTYPE html>\n<html\n  lang=\"en\"\n  id=\"html\"\n  style=\"font-size: 50px\"\n>\n  <head>\n    <meta charset=\"UTF-8\" />\n    <link\n      rel=\"icon\"\n      href=\"\"\n    />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover\"\n    />\n    <meta\n      http-equiv=\"pragram\"\n      content=\"no-cache\"\n    />\n    <meta\n      http-equiv=\"cache-control\"\n      content=\"no-cache, no-store, must-revalidate\"\n    />\n    <meta\n      http-equiv=\"expires\"\n      content=\"0\"\n    />\n    <title></title>\n    <script>\n      window.addEventListener('load', () => {\n        const navigator = window.navigator\n        const userAgent = navigator.userAgent\n        const normalizedUserAgent = userAgent.toLowerCase()\n        const standalone = navigator.standalone\n\n        const isIos =\n          /ip(ad|hone|od)/.test(normalizedUserAgent) ||\n          (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)\n        const isAndroid = /android/.test(normalizedUserAgent)\n        const isSafari = /safari/.test(normalizedUserAgent)\n        const isWebview =\n          (isAndroid && /; wv\\)/.test(normalizedUserAgent)) || (isIos && !standalone && !isSafari)\n\n        // 存储当前环境标识\n        sessionStorage.setItem('isWebview', isWebview ? 1 : 0)\n        window.DIYclose = function () {\n          try {\n            localStorage.setItem('token', '')\n            localStorage.setItem('md5_pri', '')\n            if (isWebview) {\n              if (isAndroid && window.imgupcallbcak) {\n                return imgupcallbcak.exitWeb(\n                  JSON.stringify({ code: 0, img: '5555', title: '成功' })\n                )\n              }\n              if (isIos && window.webkit) {\n                return window.webkit.messageHandlers.callNativeAndSend.postMessage('exitWeb', '*')\n              }\n            } else {\n              if (window.parent) {\n                window.parent.postMessage('closeH5', '*')\n                window.close()\n              } else {\n              }\n            }\n          } catch (e) {\n            console.log(e)\n          }\n        }\n      })\n    </script>\n    <link\n      rel=\"stylesheet\"\n      type=\"text/css\"\n      href=\"https://edis.esandcloud.com/efaceid/1.9.3/EsLivingDetection.1.9.3.css\"\n    />\n    <script src=\"https://edis.esandcloud.com/libs/plupload.full.min.js\"></script>\n    <script src=\"https://edis.esandcloud.com/efaceid/1.9.3/EsLivingDetection.min.1.9.3.js\"></script>\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <script\n      type=\"module\"\n      src=\"/src/main.ts\"\n    ></script>\n    <script>\n      function mergeHrefParams() {\n        const { search, hash } = window.location\n        const searchParams = search.replace(/\\?/, '')\n        // const hashParams = hash.match(/(?<=\\?)\\S+$/) || ['']\n        const hashParams = hash.split('?')[1] || ''\n        return searchParams + '&' + hashParams\n      }\n\n      const search = new URLSearchParams(mergeHrefParams())\n      function setRemUnit() {\n        const docEl = document.documentElement\n        const hs = search.get('hs') || ''\n        const isWebview = +sessionStorage.getItem('isWebview')\n        const isGuadan = (search.get('operation_verification') || '').includes('GUADAN')\n        const isLandscape = window.matchMedia('(orientation:landscape)').matches\n\n        const userWebSetFont = getComputedStyle(docEl, false)['fontSize']\n        const fontFactor = parseFloat(userWebSetFont) / 16\n\n        docEl.style.setProperty('--scale-factor', '1.0')\n        parseInt(docEl.style.fontSize) >= 50 && (docEl.style.fontSize = '50px')\n        if (hs == 'h' || (isWebview && isGuadan && isLandscape)) {\n          docEl.style.fontSize = window.innerWidth / 10 + 'px'\n\n          const docElFont = parseFloat(docEl.style.fontSize)\n          const userSetFont = parseFloat(userWebSetFont)\n          const scaleFactor = (docElFont / userSetFont).toFixed(1)\n\n          docEl.style.setProperty('--scale-factor', scaleFactor)\n          if (docElFont < userSetFont) {\n            document.querySelector(\n              '#app'\n            ).style.cssText = `transform: scale(${scaleFactor});transform-origin: 0 0;width: calc(1 / ${scaleFactor} * 100%);max-width: unset;height: calc(1 / ${scaleFactor} * 100vh);`\n          }\n        }\n      }\n\n      window.addEventListener('load', () => {\n        setRemUnit()\n        window.addEventListener('resize', setRemUnit, false)\n      })\n\n      // 移动端真机调试时打开，地址参数 ?vlog=1 开启 Vue-vConsole-devtools\n      window.addEventListener('load', async () => {\n        const loadVconsole = () => {\n          return new Promise(resolve => {\n            const vConsole = document.createElement('script')\n\n            vConsole.src = 'https://unpkg.com/vconsole/dist/vconsole.min.js'\n            vConsole.async = false\n\n            vConsole.onload = function () {\n              resolve(true)\n            }\n\n            document.head.appendChild(vConsole)\n          })\n        }\n\n        const loadVueVconsoleDevtools = () => {\n          return new Promise(resolve => {\n            const vueVconsoleDevtools = document.createElement('script')\n\n            vueVconsoleDevtools.src =\n              'https://cdn.jsdelivr.net/npm/vue-vconsole-devtools@1.0.5/dist/vue_plugin.js'\n            vueVconsoleDevtools.async = false\n\n            vueVconsoleDevtools.onload = function () {\n              const vConsole = window.vConsoleInstance\n                ? window.vConsoleInstance\n                : new window.VConsole()\n              const Devtools = window.vueVconsoleDevtools\n\n              Devtools.initPlugin(vConsole)\n              resolve(true)\n            }\n\n            document.head.appendChild(vueVconsoleDevtools)\n          })\n        }\n\n        // const search = new URLSearchParams(window.top.location.search || window.top.location.hash)\n\n        const isVlog = search.get('vlog')\n        if (isVlog) {\n          await loadVconsole()\n          loadVueVconsoleDevtools()\n        }\n      })\n    </script>\n    <!-- <script src=\"https://unpkg.com/vconsole/dist/vconsole.min.js\"></script>\n    <script src=\"https://cdn.jsdelivr.net/npm/vue-vconsole-devtools@1.0.5/dist/vue_plugin.js\"></script>\n    <script>\n      try {\n        var vConsole = new window.VConsole()\n        const Devtools = window.vueVconsoleDevtools\n        Devtools.initPlugin(vConsole)\n\n        setTimeout(() => {\n          // console.log('顶级url', window.top.location.href)\n        })\n      } catch (err) {\n        console.error(err)\n      }\n    </script> -->\n  </body>\n</html>\n",
+      "start": 1714699765898,
+      "end": 1714699765898,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699765898,
+      "end": 1714699765898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699765898,
+      "end": 1714699765898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699765898,
+      "end": 1714699765898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "result": "import \"vite/modulepreload-polyfill\";\n\nimport \"/src/main.ts\"",
+      "start": 1714699765898,
+      "end": 1714699765914,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699765914,
+      "end": 1714699765914,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699765914,
+      "end": 1714699765914,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699765914,
+      "end": 1714699765914,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699765914,
+      "end": 1714699765914,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699765914,
+      "end": 1714699765914,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699765914,
+      "end": 1714699765914,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699765914,
+      "end": 1714699765915,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699765915,
+      "end": 1714699765915,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699765915,
+      "end": 1714699765915,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699765915,
+      "end": 1714699765916,
+      "order": "normal"
+    }
+  ]
+}

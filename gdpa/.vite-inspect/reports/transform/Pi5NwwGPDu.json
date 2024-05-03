@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\nimport { userDoTaskApi } from '@/apis/taskActivity'\nimport success from '@/assets/images/common/success.png'\nimport { IAllTaskData, IDayAction, ITaskInfo } from '@/store/types/taskActivity'\nimport mitt from '@/utils/mitt'\nimport { showToast } from 'vant'\nimport { computed, onMounted, reactive } from 'vue'\nimport { DAILYTASK } from './tools'\n\ninterface Props {\n  list: IDayAction[] | IAllTaskData[]\n  type: number\n}\n\n// 当前组件属性\nconst props = withDefaults(defineProps<Props>(), {\n  list: () => [],\n  type: 1\n})\nconst emit = defineEmits(['update-list'])\n\n/**\n * @description 每日任务\n * @param item 任务项\n * @param propsKey 任务项属性\n * @param isText  是否显示文字\n */\nconst handleShowDayTask = (item: IDayAction, propsKey: keyof IDayAction, isText: boolean) => {\n  switch (propsKey) {\n    case 'flag':\n      if (isText) {\n        return item.flag ? '已完成' : '去完成'\n      } else {\n        return item.flag ? 'item-completed' : 'item-go-do'\n      }\n    case 'activity_name':\n      return item.activity_name\n    case 'doneNum':\n      return item.doneNum\n    case 'target':\n      return item.target\n    case 'reward':\n      return item.reward\n    default:\n      return ''\n  }\n}\n\nconst showStatusText = (flag: number) => {\n  if (flag === 1) return '可领取'\n  else if (flag === 2) return '去完成'\n  else return '已完成'\n}\nconst showStatus = (flag: number) => {\n  if (flag === 1) return 'item-can-do'\n  else if (flag === 2) return 'item-go-do'\n  else return 'item-completed'\n}\ntype AllTaskInfoProps = keyof IAllTaskData | keyof ITaskInfo\n/**\n * @description 累计任务\n * @param item 任务项\n * @param propsKey 任务项属性\n * @param isText  是否显示文字\n */\nconst handleShowAllTask = (item: IAllTaskData, propsKey: AllTaskInfoProps, isText: boolean) => {\n  switch (propsKey) {\n    case 'active':\n      if (isText) {\n        return showStatusText(item.active)\n      } else {\n        return showStatus(item.active)\n      }\n    case 'task_name':\n      return item.task_name\n    case 'nowmoney':\n      return item.nowmoney\n    case 'target':\n      return item.info.target\n    case 'reward':\n      return item.info.reward\n    default:\n      return ''\n  }\n}\nconst handleShowItem = (\n  item: IDayAction | IAllTaskData,\n  propsKey: keyof IDayAction | AllTaskInfoProps,\n  isText: boolean = false\n) => {\n  if (props.type === 1) {\n    return handleShowDayTask(\n      item as unknown as IDayAction,\n      propsKey as unknown as keyof IDayAction,\n      isText\n    )\n  } else {\n    return handleShowAllTask(item as unknown as IAllTaskData, propsKey as AllTaskInfoProps, isText)\n  }\n}\n\nconst btnDialog = reactive({\n  show: false,\n  content: ''\n})\n\nconst doTask = async (item: IAllTaskData, type: string) => {\n  try {\n    const res = await userDoTaskApi({\n      idd: item.task_idd,\n      levelid: item.info.id\n    })\n    // const res = {money: 5}\n    const suffix = type === 'day' ? '活跃度' : '积分'\n\n    if (res.money) {\n      emit('update-list')\n      mitt.emit('updateCoins', true)\n      showToast({\n        message: `领取成功，+${res.money}${suffix}`,\n        icon: success,\n        className: 'toast-task'\n      })\n    }\n\n    window.log('完成任务信息', res)\n  } catch (error) {\n    console.error(error)\n  }\n}\nconst handleBtnClick = (item: IDayAction | IAllTaskData) => {\n  // 每日活跃度任务\n  if (props.type === DAILYTASK) {\n    if ((item as IDayAction).flag) return\n\n    btnDialog.content = (item as IDayAction).tofinish_action\n      .replace(/GDB/gi, sessionStorage.getItem('coin_name') as string)\n      .replace(/GDpay/gi, sessionStorage.getItem('pay_name') as string)\n    btnDialog.show = true\n  }\n  // 累计任务\n  else {\n    // 已完成\n    if ((item as IAllTaskData).active === 3) return\n    // 可领取\n    if ((item as IAllTaskData).active === 1) {\n      doTask(item as IAllTaskData, 'all')\n      return\n    }\n\n    btnDialog.content = (item as IAllTaskData).task_desc\n      .replace(/GDB/gi, sessionStorage.getItem('coin_name') as string)\n      .replace(/GDpay/gi, sessionStorage.getItem('pay_name') as string)\n    btnDialog.show = true\n  }\n}\nconst closeDialog = () => {\n  btnDialog.show = false\n}\n\nconst subffix = computed(() => {\n  return (item: IDayAction | IAllTaskData) => {\n    if (props.type === DAILYTASK) return (item as IDayAction).danwei\n    return (item as IAllTaskData).task_idd.includes('sign') ? '次' : '元'\n  }\n})\n\nonMounted(() => {\n  //\n})\n</script>\n\n<template>\n  <div class=\"task-list-container flex flex-col\">\n    <div\n      v-for=\"(item, index) in list\"\n      :key=\"index\"\n      class=\"flex items-center justify-between\"\n      :class=\"handleShowItem(item, type === DAILYTASK ? 'flag' : 'active')\"\n    >\n      <div class=\"item-fields item-name\">\n        {{ handleShowItem(item, type === DAILYTASK ? 'activity_name' : 'task_name') }}\n      </div>\n      <div class=\"item-fields item-curr-value\">\n        {{ handleShowItem(item, type === DAILYTASK ? 'doneNum' : 'nowmoney') }}/{{\n          handleShowItem(item, 'target')\n        }}{{ subffix(item) }}\n      </div>\n      <div class=\"item-fields item-award-value\">\n        +{{ handleShowItem(item, 'reward') }}{{ type === DAILYTASK ? '活跃度' : '积分' }}\n      </div>\n      <div\n        class=\"item-fields item-status\"\n        @click=\"handleBtnClick(item)\"\n      >\n        {{ handleShowItem(item, type === DAILYTASK ? 'flag' : 'active', true) }}\n      </div>\n    </div>\n\n    <van-dialog\n      v-model:show=\"btnDialog.show\"\n      theme=\"round-button\"\n      class=\"task-dialog\"\n    >\n      <i\n        class=\"close-white block icon-pos\"\n        @click=\"closeDialog\"\n      ></i>\n      <div class=\"title\">提示</div>\n      <div class=\"content\">\n        <p>{{ btnDialog.content }}</p>\n      </div>\n    </van-dialog>\n  </div>\n</template>\n\n<style lang=\"scss\" score>\n@import '@/assets/styles/sprite-point.scss';\n\n.task-list-container {\n  width: 100%;\n  padding: 0 15px;\n  font-size: 25px;\n  gap: 10px;\n  .item-name {\n    color: #787f8c;\n  }\n  .item-curr-value {\n    margin: 0 auto 0 33px;\n  }\n  .item-award-value {\n    margin: 0 33px 0 auto;\n  }\n  .item-fields {\n    height: 60px;\n    line-height: 60px;\n  }\n  .item-status {\n    width: 112px;\n    text-align: center;\n  }\n  .item-completed {\n    width: 100%;\n    .item-curr-value,\n    .item-award-value,\n    .item-status {\n      color: #58cf00;\n    }\n  }\n  .item-can-do {\n    width: 100%;\n    .item-curr-value,\n    .item-award-value {\n      color: #58cf00;\n    }\n    .item-status {\n      background-color: #58cf00;\n      color: #fff;\n      border-radius: 7px;\n    }\n  }\n  .item-go-do {\n    width: 100%;\n    .item-curr-value,\n    .item-award-value {\n      color: #ff6d7f;\n    }\n    .item-status {\n      background-color: #ff4565;\n      color: #fff;\n      border-radius: 7px;\n    }\n  }\n\n  .task-dialog {\n    width: 100%;\n    max-width: 686px;\n    height: auto;\n    padding: unset;\n    background-color: #f5e8eb;\n    .icon-pos {\n      position: absolute;\n      right: 40px;\n      top: 32px;\n    }\n    .title {\n      width: 100%;\n      height: 83px;\n      line-height: 83px;\n      padding-left: 42px;\n      font-size: 29px;\n      color: #fff;\n      background-color: #fb3a67;\n      text-align: left;\n    }\n    .content {\n      width: 100%;\n      padding: 40px 32px;\n      font-size: 24px;\n      color: #13161b;\n      background-color: #fff;\n      text-align: justify;\n      .text-bold {\n        font-size: 28px;\n        font-weight: bold;\n      }\n      .notice-tips {\n        margin-top: 50px;\n      }\n      img {\n        width: 100%;\n        margin-top: 20px;\n      }\n    }\n\n    .van-dialog__footer {\n      padding: 35px 0;\n      justify-content: center;\n      background-color: #ffdbe3;\n    }\n    .van-dialog__confirm {\n      flex: 0 0 313px;\n      height: 80px;\n      background: #ff4565;\n      font-size: 31px;\n      border-radius: 7px;\n    }\n  }\n}\n</style>\n<style lang=\"scss\">\n.van-popup {\n  &.toast-task {\n    white-space: nowrap;\n  }\n}\n</style>\n",
+      "start": 1714699772245,
+      "end": 1714699772251,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699772251,
+      "end": 1714699772251,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699772251,
+      "end": 1714699772251,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699772251,
+      "end": 1714699772251,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699772251,
+      "end": 1714699772251,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue?vue&type=style&index=1&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue\"]]);\n",
+      "start": 1714699772251,
+      "end": 1714699772347,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699772347,
+      "end": 1714699772347,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue?vue&type=style&index=1&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue\"]]);\n",
+      "start": 1714699772347,
+      "end": 1714699772347,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue?vue&type=style&index=1&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue\"]]);\n",
+      "start": 1714699772347,
+      "end": 1714699772430,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue?vue&type=style&index=0&score=true&lang.scss\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue?vue&type=style&index=1&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,UAAU,qEAAqE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699772430,
+      "end": 1714699772430,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699772430,
+      "end": 1714699772430,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699772430,
+      "end": 1714699772430,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699772430,
+      "end": 1714699772430,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699772430,
+      "end": 1714699772430,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699772430,
+      "end": 1714699772430,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699772430,
+      "end": 1714699772430,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699772430,
+      "end": 1714699772430,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699772430,
+      "end": 1714699772430,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue?vue&type=style&index=1&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue\"]]);\n",
+      "start": 1714699772430,
+      "end": 1714699772430,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue?vue&type=style&index=1&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699772430,
+      "end": 1714699772430,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699772430,
+      "end": 1714699772430,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699772430,
+      "end": 1714699772430,
+      "order": "normal"
+    }
+  ]
+}

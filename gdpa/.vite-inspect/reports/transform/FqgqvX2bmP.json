@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/es/tools/resize.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import XEUtils from 'xe-utils';\nimport GlobalConfig from '../v-x-e-table/src/conf';\n/**\n * 监听 resize 事件\n * 如果项目中已使用了 resize-observer-polyfill，那么只需要将方法定义全局，该组件就会自动使用\n */\nvar resizeTimeout;\n/* eslint-disable no-use-before-define */\nvar eventStore = [];\nvar defaultInterval = 500;\nfunction eventHandle() {\n    if (eventStore.length) {\n        eventStore.forEach(function (item) {\n            item.tarList.forEach(function (observer) {\n                var target = observer.target, width = observer.width, heighe = observer.heighe;\n                var clientWidth = target.clientWidth;\n                var clientHeight = target.clientHeight;\n                var rWidth = clientWidth && width !== clientWidth;\n                var rHeight = clientHeight && heighe !== clientHeight;\n                if (rWidth || rHeight) {\n                    observer.width = clientWidth;\n                    observer.heighe = clientHeight;\n                    setTimeout(item.callback);\n                }\n            });\n        });\n        /* eslint-disable @typescript-eslint/no-use-before-define */\n        eventListener();\n    }\n}\nfunction eventListener() {\n    clearTimeout(resizeTimeout);\n    resizeTimeout = setTimeout(eventHandle, GlobalConfig.resizeInterval || defaultInterval);\n}\nvar XEResizeObserver = /** @class */ (function () {\n    function XEResizeObserver(callback) {\n        this.tarList = [];\n        this.callback = callback;\n    }\n    XEResizeObserver.prototype.observe = function (target) {\n        var _this = this;\n        if (target) {\n            var tarList = this.tarList;\n            if (!tarList.some(function (observer) { return observer.target === target; })) {\n                tarList.push({\n                    target: target,\n                    width: target.clientWidth,\n                    heighe: target.clientHeight\n                });\n            }\n            if (!eventStore.length) {\n                eventListener();\n            }\n            if (!eventStore.some(function (item) { return item === _this; })) {\n                eventStore.push(this);\n            }\n        }\n    };\n    XEResizeObserver.prototype.unobserve = function (target) {\n        XEUtils.remove(eventStore, function (item) { return item.tarList.some(function (observer) { return observer.target === target; }); });\n    };\n    XEResizeObserver.prototype.disconnect = function () {\n        var _this = this;\n        XEUtils.remove(eventStore, function (item) { return item === _this; });\n    };\n    return XEResizeObserver;\n}());\nexport { XEResizeObserver };\nexport function createResizeEvent(callback) {\n    if (window.ResizeObserver) {\n        return new window.ResizeObserver(callback);\n    }\n    return new XEResizeObserver(callback);\n}\n",
+      "start": 1714699768244,
+      "end": 1714699768292,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768292,
+      "end": 1714699768292,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768292,
+      "end": 1714699768292,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768292,
+      "end": 1714699768292,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768292,
+      "end": 1714699768292,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768292,
+      "end": 1714699768292,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768292,
+      "end": 1714699768292,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import XEUtils from 'xe-utils';\nimport GlobalConfig from '../v-x-e-table/src/conf';\n/**\n * 监听 resize 事件\n * 如果项目中已使用了 resize-observer-polyfill，那么只需要将方法定义全局，该组件就会自动使用\n */\nvar resizeTimeout;\n/* eslint-disable no-use-before-define */\nvar eventStore = [];\nvar defaultInterval = 500;\nfunction eventHandle() {\n    if (eventStore.length) {\n        eventStore.forEach(function (item) {\n            item.tarList.forEach(function (observer) {\n                var target = observer.target, width = observer.width, heighe = observer.heighe;\n                var clientWidth = target.clientWidth;\n                var clientHeight = target.clientHeight;\n                var rWidth = clientWidth && width !== clientWidth;\n                var rHeight = clientHeight && heighe !== clientHeight;\n                if (rWidth || rHeight) {\n                    observer.width = clientWidth;\n                    observer.heighe = clientHeight;\n                    setTimeout(item.callback);\n                }\n            });\n        });\n        /* eslint-disable @typescript-eslint/no-use-before-define */\n        eventListener();\n    }\n}\nfunction eventListener() {\n    clearTimeout(resizeTimeout);\n    resizeTimeout = setTimeout(eventHandle, GlobalConfig.resizeInterval || defaultInterval);\n}\nvar XEResizeObserver = /** @class */ (function () {\n    function XEResizeObserver(callback) {\n        this.tarList = [];\n        this.callback = callback;\n    }\n    XEResizeObserver.prototype.observe = function (target) {\n        var _this = this;\n        if (target) {\n            var tarList = this.tarList;\n            if (!tarList.some(function (observer) { return observer.target === target; })) {\n                tarList.push({\n                    target: target,\n                    width: target.clientWidth,\n                    heighe: target.clientHeight\n                });\n            }\n            if (!eventStore.length) {\n                eventListener();\n            }\n            if (!eventStore.some(function (item) { return item === _this; })) {\n                eventStore.push(this);\n            }\n        }\n    };\n    XEResizeObserver.prototype.unobserve = function (target) {\n        XEUtils.remove(eventStore, function (item) { return item.tarList.some(function (observer) { return observer.target === target; }); });\n    };\n    XEResizeObserver.prototype.disconnect = function () {\n        var _this = this;\n        XEUtils.remove(eventStore, function (item) { return item === _this; });\n    };\n    return XEResizeObserver;\n}());\nexport { XEResizeObserver };\nexport function createResizeEvent(callback) {\n    if (window.ResizeObserver) {\n        return new window.ResizeObserver(callback);\n    }\n    return new XEResizeObserver(callback);\n}\n",
+      "start": 1714699768292,
+      "end": 1714699768292,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768292,
+      "end": 1714699768292,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768292,
+      "end": 1714699768292,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768292,
+      "end": 1714699768292,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768292,
+      "end": 1714699768292,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768292,
+      "end": 1714699768292,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768292,
+      "end": 1714699768292,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768292,
+      "end": 1714699768292,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768292,
+      "end": 1714699768292,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768292,
+      "end": 1714699768292,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768292,
+      "end": 1714699768292,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768292,
+      "end": 1714699768292,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768292,
+      "end": 1714699768292,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768292,
+      "end": 1714699768292,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768292,
+      "end": 1714699768292,
+      "order": "normal"
+    }
+  ]
+}

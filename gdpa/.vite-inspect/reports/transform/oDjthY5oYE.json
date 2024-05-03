@@ -1,0 +1,152 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Bricks/moveBrick.scss?vue&type=style&index=0&src=c20efd6d&scoped=c20efd6d&lang.scss",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "$spriteHome: \"@/assets/images/sprites-home.png\";\n$sprite-computed-factor: 0.9;\n$sprite-home-background-size: calc(108px * $sprite-computed-factor)\n  calc(730px * $sprite-computed-factor);\n.banzhuan_m {\n  background-image: url($spriteHome);\n  background-position: calc(-0px * $sprite-computed-factor) calc(-571px * $sprite-computed-factor);\n  width: calc(51px * $sprite-computed-factor);\n  height: calc(45px * $sprite-computed-factor);\n  background-size: $sprite-home-background-size;\n  display: inline-block;\n  position: relative;\n  top: 10px;\n  left: 6px;\n  // border-radius: 50%;\n  // background-color: #ff9e2a;\n}\n.banzhuan_wrap {\n  background: #ff9e2a;\n  border-radius: 50%;\n  width: 62px;\n  height: 62px;\n  display: inline-block;\n}\n.wrap_coins {\n  border-radius: 13.89px;\n  overflow: hidden;\n}\n.moveBrick {\n  height: 100%;\n  .nav-bar {\n    padding-bottom: 20px;\n  }\n  .blue-top-container {\n    width: 100%;\n    height: 20px;\n    background-color: var(--van-button-primary-background);\n  }\n  .content {\n    overflow: hidden;\n    font-size: 27.78px;\n    color: #13161b;\n    width: 750px;\n    height: 100%;\n    // height: calc(100vh - 60px);\n    // background-image: linear-gradient(#ebf1f6, #ebf1f6), linear-gradient(#ffffff, #ffffff);\n    background-blend-mode: normal, normal;\n    border-radius: 20.83px 20.83px 0px 0px;\n    margin-top: -20px;\n    padding: 20px 20px 0;\n    .MinerCoin {\n      width: 708.33px;\n      height: 192.36px;\n      background-color: #ffffff;\n      // border-radius: 13.89px;\n      .m_dow {\n        .right {\n          .van-button {\n            width: 125px;\n            height: 52.78px !important;\n            background-color: var(--van-button-primary-background);\n            border-radius: 6.94px;\n            padding: 10px 0;\n            font-size: 27.78px;\n          }\n        }\n      }\n    }\n    .usdt_ct {\n      width: 708.33px;\n      height: 192.36px;\n      background-color: #ffffff;\n      // border-radius: 13.89px;\n      .van-button {\n        width: 125px;\n        height: 52.78px !important;\n        background-color: var(--van-button-primary-background);\n        border-radius: 6.94px;\n        padding: 10px 0;\n        font-size: 27.78px;\n        :deep(.van-button__icon) {\n          .van-icon__image {\n            width: 20px;\n          }\n        }\n      }\n    }\n    .moveBrick_top {\n      width: 708.33px;\n      height: 192.36px;\n      // border-radius: 13.89px;\n      background-color: #ffffff;\n      .wrap_dow {\n        .text {\n          position: relative;\n          display: block;\n          width: 25%;\n        }\n        .right_shu {\n          width: 0.5px;\n          height: 40%;\n          position: absolute;\n          right: 0;\n          top: 30%;\n          background: #d7d6d6;\n        }\n      }\n    }\n\n    .list_coins {\n      width: 708.33px;\n      overflow: hidden;\n      :deep(.van-tabs__wrap) {\n        height: 80px;\n        .van-tabs__nav {\n          background: #f6fbff;\n          .van-tab {\n            padding: 0;\n            .van-tab__text {\n              font-size: 24px;\n            }\n            .van-badge {\n              top: 2px;\n            }\n          }\n        }\n        .van-tabs__line {\n          width: 40px;\n        }\n        .van-tab--active {\n          color: #2776ba;\n        }\n      }\n      .borderb {\n        border-bottom: 1px #d8dfea solid;\n      }\n      :deep(.van-list__finished-text) {\n        height: 50px;\n        line-height: 50px;\n      }\n    }\n  }\n  .ml_20 {\n    margin-left: 20px !important;\n  }\n  .m-rotate-90 {\n    :deep(.van-button__icon) {\n      transform: rotate(90deg);\n    }\n  }\n  .no-data {\n    width: 200px;\n    margin: 0 auto;\n    margin-top: 120px;\n\n    img {\n      width: 180px;\n      height: 130px;\n      margin: 0 auto 20px;\n      // height: 110px;\n    }\n\n    .text-no-data {\n      width: 100%;\n      margin-bottom: 22px;\n      color: #999;\n      font-size: 28px;\n      text-align: center;\n    }\n  }\n}\n",
+      "start": 1714699770162,
+      "end": 1714699770162,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "result": ".banzhuan_m {\n  background-image: url(\"__VITE_ASSET__BPTP5uHM__\");\n  background-position: 0px -6.852rem;\n  width: 0.612rem;\n  height: 0.54rem;\n  background-size: 1.296rem 8.76rem;\n  display: inline-block;\n  position: relative;\n  top: 0.13333rem;\n  left: 0.08rem;\n}\n\n.banzhuan_wrap {\n  background: #ff9e2a;\n  border-radius: 50%;\n  width: 0.82667rem;\n  height: 0.82667rem;\n  display: inline-block;\n}\n\n.wrap_coins {\n  border-radius: 0.1852rem;\n  overflow: hidden;\n}\n\n.moveBrick {\n  height: 100%;\n}\n\n.moveBrick .nav-bar {\n  padding-bottom: 0.26667rem;\n}\n\n.moveBrick .blue-top-container {\n  width: 100%;\n  height: 0.26667rem;\n  background-color: var(--van-button-primary-background);\n}\n\n.moveBrick .content {\n  overflow: hidden;\n  font-size: 0.3704rem;\n  color: #13161b;\n  width: 10rem;\n  height: 100%;\n  background-blend-mode: normal, normal;\n  border-radius: 0.27773rem 0.27773rem 0px 0px;\n  margin-top: -0.26667rem;\n  padding: 0.26667rem 0.26667rem 0;\n}\n\n.moveBrick .content .MinerCoin {\n  width: 9.4444rem;\n  height: 2.5648rem;\n  background-color: #ffffff;\n}\n\n.moveBrick .content .MinerCoin .m_dow .right .van-button {\n  width: 1.66667rem;\n  height: 0.70373rem !important;\n  background-color: var(--van-button-primary-background);\n  border-radius: 0.09253rem;\n  padding: 0.13333rem 0;\n  font-size: 0.3704rem;\n}\n\n.moveBrick .content .usdt_ct {\n  width: 9.4444rem;\n  height: 2.5648rem;\n  background-color: #ffffff;\n}\n\n.moveBrick .content .usdt_ct .van-button {\n  width: 1.66667rem;\n  height: 0.70373rem !important;\n  background-color: var(--van-button-primary-background);\n  border-radius: 0.09253rem;\n  padding: 0.13333rem 0;\n  font-size: 0.3704rem;\n}\n\n.moveBrick .content .usdt_ct .van-button :deep(.van-button__icon) .van-icon__image {\n  width: 0.26667rem;\n}\n\n.moveBrick .content .moveBrick_top {\n  width: 9.4444rem;\n  height: 2.5648rem;\n  background-color: #ffffff;\n}\n\n.moveBrick .content .moveBrick_top .wrap_dow .text {\n  position: relative;\n  display: block;\n  width: 25%;\n}\n\n.moveBrick .content .moveBrick_top .wrap_dow .right_shu {\n  width: 0.5px;\n  height: 40%;\n  position: absolute;\n  right: 0;\n  top: 30%;\n  background: #d7d6d6;\n}\n\n.moveBrick .content .list_coins {\n  width: 9.4444rem;\n  overflow: hidden;\n}\n\n.moveBrick .content .list_coins :deep(.van-tabs__wrap) {\n  height: 1.06667rem;\n}\n\n.moveBrick .content .list_coins :deep(.van-tabs__wrap) .van-tabs__nav {\n  background: #f6fbff;\n}\n\n.moveBrick .content .list_coins :deep(.van-tabs__wrap) .van-tabs__nav .van-tab {\n  padding: 0;\n}\n\n.moveBrick .content .list_coins :deep(.van-tabs__wrap) .van-tabs__nav .van-tab .van-tab__text {\n  font-size: 0.32rem;\n}\n\n.moveBrick .content .list_coins :deep(.van-tabs__wrap) .van-tabs__nav .van-tab .van-badge {\n  top: 0.02667rem;\n}\n\n.moveBrick .content .list_coins :deep(.van-tabs__wrap) .van-tabs__line {\n  width: 0.53333rem;\n}\n\n.moveBrick .content .list_coins :deep(.van-tabs__wrap) .van-tab--active {\n  color: #2776ba;\n}\n\n.moveBrick .content .list_coins .borderb {\n  border-bottom: 1px #d8dfea solid;\n}\n\n.moveBrick .content .list_coins :deep(.van-list__finished-text) {\n  height: 0.66667rem;\n  line-height: 0.66667rem;\n}\n\n.moveBrick .ml_20 {\n  margin-left: 0.26667rem !important;\n}\n\n.moveBrick .m-rotate-90 :deep(.van-button__icon) {\n  transform: rotate(90deg);\n}\n\n.moveBrick .no-data {\n  width: 2.66667rem;\n  margin: 0 auto;\n  margin-top: 1.6rem;\n}\n\n.moveBrick .no-data img {\n  width: 2.4rem;\n  height: 1.73333rem;\n  margin: 0 auto 0.26667rem;\n}\n\n.moveBrick .no-data .text-no-data {\n  width: 100%;\n  margin-bottom: 0.29333rem;\n  color: #999;\n  font-size: 0.37333rem;\n  text-align: center;\n}",
+      "start": 1714699770162,
+      "end": 1714699770188,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699770188,
+      "end": 1714699770188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699770188,
+      "end": 1714699770188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699770188,
+      "end": 1714699770188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".banzhuan_m[data-v-c20efd6d] {\n  background-image: url(\"__VITE_ASSET__BPTP5uHM__\");\n  background-position: 0px -6.852rem;\n  width: 0.612rem;\n  height: 0.54rem;\n  background-size: 1.296rem 8.76rem;\n  display: inline-block;\n  position: relative;\n  top: 0.13333rem;\n  left: 0.08rem;\n}\n.banzhuan_wrap[data-v-c20efd6d] {\n  background: #ff9e2a;\n  border-radius: 50%;\n  width: 0.82667rem;\n  height: 0.82667rem;\n  display: inline-block;\n}\n.wrap_coins[data-v-c20efd6d] {\n  border-radius: 0.1852rem;\n  overflow: hidden;\n}\n.moveBrick[data-v-c20efd6d] {\n  height: 100%;\n}\n.moveBrick .nav-bar[data-v-c20efd6d] {\n  padding-bottom: 0.26667rem;\n}\n.moveBrick .blue-top-container[data-v-c20efd6d] {\n  width: 100%;\n  height: 0.26667rem;\n  background-color: var(--van-button-primary-background);\n}\n.moveBrick .content[data-v-c20efd6d] {\n  overflow: hidden;\n  font-size: 0.3704rem;\n  color: #13161b;\n  width: 10rem;\n  height: 100%;\n  background-blend-mode: normal, normal;\n  border-radius: 0.27773rem 0.27773rem 0px 0px;\n  margin-top: -0.26667rem;\n  padding: 0.26667rem 0.26667rem 0;\n}\n.moveBrick .content .MinerCoin[data-v-c20efd6d] {\n  width: 9.4444rem;\n  height: 2.5648rem;\n  background-color: #ffffff;\n}\n.moveBrick .content .MinerCoin .m_dow .right .van-button[data-v-c20efd6d] {\n  width: 1.66667rem;\n  height: 0.70373rem !important;\n  background-color: var(--van-button-primary-background);\n  border-radius: 0.09253rem;\n  padding: 0.13333rem 0;\n  font-size: 0.3704rem;\n}\n.moveBrick .content .usdt_ct[data-v-c20efd6d] {\n  width: 9.4444rem;\n  height: 2.5648rem;\n  background-color: #ffffff;\n}\n.moveBrick .content .usdt_ct .van-button[data-v-c20efd6d] {\n  width: 1.66667rem;\n  height: 0.70373rem !important;\n  background-color: var(--van-button-primary-background);\n  border-radius: 0.09253rem;\n  padding: 0.13333rem 0;\n  font-size: 0.3704rem;\n}\n.moveBrick .content .usdt_ct .van-button[data-v-c20efd6d] .van-button__icon .van-icon__image {\n  width: 0.26667rem;\n}\n.moveBrick .content .moveBrick_top[data-v-c20efd6d] {\n  width: 9.4444rem;\n  height: 2.5648rem;\n  background-color: #ffffff;\n}\n.moveBrick .content .moveBrick_top .wrap_dow .text[data-v-c20efd6d] {\n  position: relative;\n  display: block;\n  width: 25%;\n}\n.moveBrick .content .moveBrick_top .wrap_dow .right_shu[data-v-c20efd6d] {\n  width: 0.5px;\n  height: 40%;\n  position: absolute;\n  right: 0;\n  top: 30%;\n  background: #d7d6d6;\n}\n.moveBrick .content .list_coins[data-v-c20efd6d] {\n  width: 9.4444rem;\n  overflow: hidden;\n}\n.moveBrick .content .list_coins[data-v-c20efd6d] .van-tabs__wrap {\n  height: 1.06667rem;\n}\n.moveBrick .content .list_coins[data-v-c20efd6d] .van-tabs__wrap .van-tabs__nav {\n  background: #f6fbff;\n}\n.moveBrick .content .list_coins[data-v-c20efd6d] .van-tabs__wrap .van-tabs__nav .van-tab {\n  padding: 0;\n}\n.moveBrick .content .list_coins[data-v-c20efd6d] .van-tabs__wrap .van-tabs__nav .van-tab .van-tab__text {\n  font-size: 0.32rem;\n}\n.moveBrick .content .list_coins[data-v-c20efd6d] .van-tabs__wrap .van-tabs__nav .van-tab .van-badge {\n  top: 0.02667rem;\n}\n.moveBrick .content .list_coins[data-v-c20efd6d] .van-tabs__wrap .van-tabs__line {\n  width: 0.53333rem;\n}\n.moveBrick .content .list_coins[data-v-c20efd6d] .van-tabs__wrap .van-tab--active {\n  color: #2776ba;\n}\n.moveBrick .content .list_coins .borderb[data-v-c20efd6d] {\n  border-bottom: 1px #d8dfea solid;\n}\n.moveBrick .content .list_coins[data-v-c20efd6d] .van-list__finished-text {\n  height: 0.66667rem;\n  line-height: 0.66667rem;\n}\n.moveBrick .ml_20[data-v-c20efd6d] {\n  margin-left: 0.26667rem !important;\n}\n.moveBrick .m-rotate-90[data-v-c20efd6d] .van-button__icon {\n  transform: rotate(90deg);\n}\n.moveBrick .no-data[data-v-c20efd6d] {\n  width: 2.66667rem;\n  margin: 0 auto;\n  margin-top: 1.6rem;\n}\n.moveBrick .no-data img[data-v-c20efd6d] {\n  width: 2.4rem;\n  height: 1.73333rem;\n  margin: 0 auto 0.26667rem;\n}\n.moveBrick .no-data .text-no-data[data-v-c20efd6d] {\n  width: 100%;\n  margin-bottom: 0.29333rem;\n  color: #999;\n  font-size: 0.37333rem;\n  text-align: center;\n}",
+      "start": 1714699770189,
+      "end": 1714699770190,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699770190,
+      "end": 1714699770190,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": ".banzhuan_m[data-v-c20efd6d] {\n  background-image: url(\"__VITE_ASSET__BPTP5uHM__\");\n  background-position: 0px -6.852rem;\n  width: 0.612rem;\n  height: 0.54rem;\n  background-size: 1.296rem 8.76rem;\n  display: inline-block;\n  position: relative;\n  top: 0.13333rem;\n  left: 0.08rem;\n}\n.banzhuan_wrap[data-v-c20efd6d] {\n  background: #ff9e2a;\n  border-radius: 50%;\n  width: 0.82667rem;\n  height: 0.82667rem;\n  display: inline-block;\n}\n.wrap_coins[data-v-c20efd6d] {\n  border-radius: 0.1852rem;\n  overflow: hidden;\n}\n.moveBrick[data-v-c20efd6d] {\n  height: 100%;\n}\n.moveBrick .nav-bar[data-v-c20efd6d] {\n  padding-bottom: 0.26667rem;\n}\n.moveBrick .blue-top-container[data-v-c20efd6d] {\n  width: 100%;\n  height: 0.26667rem;\n  background-color: var(--van-button-primary-background);\n}\n.moveBrick .content[data-v-c20efd6d] {\n  overflow: hidden;\n  font-size: 0.3704rem;\n  color: #13161b;\n  width: 10rem;\n  height: 100%;\n  background-blend-mode: normal, normal;\n  border-radius: 0.27773rem 0.27773rem 0px 0px;\n  margin-top: -0.26667rem;\n  padding: 0.26667rem 0.26667rem 0;\n}\n.moveBrick .content .MinerCoin[data-v-c20efd6d] {\n  width: 9.4444rem;\n  height: 2.5648rem;\n  background-color: #ffffff;\n}\n.moveBrick .content .MinerCoin .m_dow .right .van-button[data-v-c20efd6d] {\n  width: 1.66667rem;\n  height: 0.70373rem !important;\n  background-color: var(--van-button-primary-background);\n  border-radius: 0.09253rem;\n  padding: 0.13333rem 0;\n  font-size: 0.3704rem;\n}\n.moveBrick .content .usdt_ct[data-v-c20efd6d] {\n  width: 9.4444rem;\n  height: 2.5648rem;\n  background-color: #ffffff;\n}\n.moveBrick .content .usdt_ct .van-button[data-v-c20efd6d] {\n  width: 1.66667rem;\n  height: 0.70373rem !important;\n  background-color: var(--van-button-primary-background);\n  border-radius: 0.09253rem;\n  padding: 0.13333rem 0;\n  font-size: 0.3704rem;\n}\n.moveBrick .content .usdt_ct .van-button[data-v-c20efd6d] .van-button__icon .van-icon__image {\n  width: 0.26667rem;\n}\n.moveBrick .content .moveBrick_top[data-v-c20efd6d] {\n  width: 9.4444rem;\n  height: 2.5648rem;\n  background-color: #ffffff;\n}\n.moveBrick .content .moveBrick_top .wrap_dow .text[data-v-c20efd6d] {\n  position: relative;\n  display: block;\n  width: 25%;\n}\n.moveBrick .content .moveBrick_top .wrap_dow .right_shu[data-v-c20efd6d] {\n  width: 0.5px;\n  height: 40%;\n  position: absolute;\n  right: 0;\n  top: 30%;\n  background: #d7d6d6;\n}\n.moveBrick .content .list_coins[data-v-c20efd6d] {\n  width: 9.4444rem;\n  overflow: hidden;\n}\n.moveBrick .content .list_coins[data-v-c20efd6d] .van-tabs__wrap {\n  height: 1.06667rem;\n}\n.moveBrick .content .list_coins[data-v-c20efd6d] .van-tabs__wrap .van-tabs__nav {\n  background: #f6fbff;\n}\n.moveBrick .content .list_coins[data-v-c20efd6d] .van-tabs__wrap .van-tabs__nav .van-tab {\n  padding: 0;\n}\n.moveBrick .content .list_coins[data-v-c20efd6d] .van-tabs__wrap .van-tabs__nav .van-tab .van-tab__text {\n  font-size: 0.32rem;\n}\n.moveBrick .content .list_coins[data-v-c20efd6d] .van-tabs__wrap .van-tabs__nav .van-tab .van-badge {\n  top: 0.02667rem;\n}\n.moveBrick .content .list_coins[data-v-c20efd6d] .van-tabs__wrap .van-tabs__line {\n  width: 0.53333rem;\n}\n.moveBrick .content .list_coins[data-v-c20efd6d] .van-tabs__wrap .van-tab--active {\n  color: #2776ba;\n}\n.moveBrick .content .list_coins .borderb[data-v-c20efd6d] {\n  border-bottom: 1px #d8dfea solid;\n}\n.moveBrick .content .list_coins[data-v-c20efd6d] .van-list__finished-text {\n  height: 0.66667rem;\n  line-height: 0.66667rem;\n}\n.moveBrick .ml_20[data-v-c20efd6d] {\n  margin-left: 0.26667rem !important;\n}\n.moveBrick .m-rotate-90[data-v-c20efd6d] .van-button__icon {\n  transform: rotate(90deg);\n}\n.moveBrick .no-data[data-v-c20efd6d] {\n  width: 2.66667rem;\n  margin: 0 auto;\n  margin-top: 1.6rem;\n}\n.moveBrick .no-data img[data-v-c20efd6d] {\n  width: 2.4rem;\n  height: 1.73333rem;\n  margin: 0 auto 0.26667rem;\n}\n.moveBrick .no-data .text-no-data[data-v-c20efd6d] {\n  width: 100%;\n  margin-bottom: 0.29333rem;\n  color: #999;\n  font-size: 0.37333rem;\n  text-align: center;\n}",
+      "start": 1714699770190,
+      "end": 1714699770190,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699770190,
+      "end": 1714699770190,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770190,
+      "end": 1714699770190,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699770190,
+      "end": 1714699770190,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770190,
+      "end": 1714699770190,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770190,
+      "end": 1714699770190,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770190,
+      "end": 1714699770190,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770190,
+      "end": 1714699770190,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770190,
+      "end": 1714699770190,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770190,
+      "end": 1714699770190,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770190,
+      "end": 1714699770190,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699770190,
+      "end": 1714699770190,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770190,
+      "end": 1714699770190,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770190,
+      "end": 1714699770190,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770190,
+      "end": 1714699770190,
+      "order": "normal"
+    }
+  ]
+}

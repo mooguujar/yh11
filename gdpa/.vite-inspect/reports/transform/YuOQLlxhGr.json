@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/CardPopup.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <transition-group\n    name=\"fade\"\n    tag=\"div\"\n  >\n    <div\n      class=\"card-popup-overlay\"\n      key=\"card-popup-overlay\"\n    ></div>\n    <div\n      class=\"card-popup-container flex justify-center items-center\"\n      :class=\"[toggle ? 'toggle-show' : 'toggle-hide', { 'award-show': awardCard }]\"\n      key=\"card-popup-container\"\n    >\n      <div\n        v-if=\"!awardCard\"\n        class=\"card-content-container\"\n      >\n        <img\n          :src=\"requireImg('activity/btn_guanbi.png')\"\n          class=\"close-popup\"\n          @click=\"handleClosePopup\"\n        />\n        <img\n          :src=\"requireImg('activity/decorations-002.png')\"\n          class=\"ticket-left\"\n        />\n        <img\n          :src=\"requireImg('activity/decorations-001.png')\"\n          class=\"ticket-right\"\n        />\n        <div\n          class=\"title-bg flex items-center justify-end\"\n          :class=\"{ 'title-bg-2': awardCard, 'title-bg-3': noCard }\"\n        >\n          <img\n            :src=\"requireImg('activity/decorations-003.png')\"\n            class=\"star-left\"\n          />\n          <div\n            v-if=\"!noCard\"\n            class=\"item-num flex justify-center items-center\"\n          >\n            {{ titleNum }}\n          </div>\n          <img\n            :src=\"requireImg('activity/decorations-003.png')\"\n            class=\"star-right\"\n          />\n        </div>\n        <div class=\"star-bg\">\n          <img :src=\"requireImg('activity/guang.png')\" />\n        </div>\n        <div class=\"light-bg\">\n          <img :src=\"requireImg('activity/guang02.png')\" />\n        </div>\n        <div\n          class=\"card-content\"\n          :class=\"{\n          'card-content-single-card': Object.values(cards as object).length === 1,\n          'flex justify-center gap-[45px]': !awardCard,\n          'card-award-content flex flex-col justify-end items-center gap-[42px]': awardCard || noCard,\n          }\"\n        >\n          <template v-if=\"noCard\">\n            <div class=\"cards\">\n              <img\n                class=\"no-card\"\n                :src=\"requireImg('activity/xxcy-no-card.png')\"\n              />\n            </div>\n          </template>\n          <template v-else-if=\"!awardCard\">\n            <div\n              v-for=\"(value, key, index) in cards\"\n              :key=\"key\"\n              class=\"item-card\"\n              :class=\"{\n                'single-card': Object.values(cards).length === 1\n              }\"\n            >\n              <img :src=\"requireImg(`activity/${cardTypeMap[key as unknown as cardType]}.png`)\" />\n              <div\n                v-if=\"value && Object.values(cards).length > 1\"\n                class=\"red-dot\"\n                :data-count=\"value\"\n              ></div>\n            </div>\n          </template>\n          <template v-else>\n            <img\n              class=\"compose-four-card\"\n              :src=\"requireImg('activity/gongxifacai2.png')\"\n            />\n            <div class=\"award-text\">奖励：{{ winning }} {{ coin_name }}币</div>\n          </template>\n        </div>\n        <div\n          class=\"bottom-cloud flex justify-center items-center text-[18px] text-[#461b02]\"\n          :class=\"{ 'bottom-cloud-2': !noCard }\"\n        ></div>\n      </div>\n      <div\n        v-else\n        class=\"card-award-content-container\"\n      >\n        <img\n          :src=\"requireImg('activity/btn_guanbi.png')\"\n          class=\"close-popup-2\"\n          @click=\"handleClosePopup\"\n        />\n        <div class=\"title-compose-bg flex items-center justify-end\">\n          <div class=\"item-num flex justify-center items-center\">\n            {{ titleNum }}\n          </div>\n        </div>\n        <div class=\"light-bg\">\n          <img :src=\"requireImg('activity/guang02.png')\" />\n        </div>\n        <div class=\"caishen-award-bg\">\n          <div class=\"award-text-container flex justify-between items-center\">\n            <div>奖励</div>\n            <div>\n              <span>{{ winning }}</span>\n              币\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </transition-group>\n</template>\n\n<script setup lang=\"ts\">\nimport { cardType } from '@/pages/Activity/tools'\nimport { requireImg } from '@/utils/tools'\nimport { computed } from 'vue'\nimport { useRouter } from 'vue-router'\n\nconst coin_name = sessionStorage.getItem('coin_name')\nconst router = useRouter()\n\ninterface Props {\n  cards: {\n    [key: number]: number\n  }\n  awardCard: boolean\n  awardNum: number\n  winning: string | number\n  noCard: boolean\n  // 动画切换\n  toggle: boolean\n}\nconst props = withDefaults(defineProps<Props>(), {\n  cards: () => ({}),\n  awardCard: false,\n  awardNum: 0,\n  winning: 0,\n  noCard: false,\n  toggle: false\n})\nconst emit = defineEmits(['close-popup'])\n\nconst cardTypeMap = {\n  0: '谢谢参与',\n  1: 'gong',\n  2: 'xi',\n  3: 'fa',\n  4: 'cai'\n}\n\nconst titleNum = computed(() => {\n  if (props.awardCard) return props.awardNum\n  return Object.values(props.cards).reduce((sum, item) => sum + item, 0)\n})\n\nconst handleClosePopup = () => {\n  emit('close-popup')\n}\n</script>\n\n<style lang=\"scss\" scoped>\n.card-popup-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.7);\n  z-index: 2000;\n}\n.card-popup-container {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 2001;\n  // transform: scale(0);\n  &.toggle-show {\n    // transform: scale(1);\n    // transition: all 0.15s 0.1s ease-in;\n    animation: popupScaleTo1 0.5s ease-in-out;\n  }\n  &.toggle-hide {\n    // transform: scale(0);\n    // transition: all 0.15s 0.1s ease-in;\n    animation: popupScaleTo0 0.2s ease-in-out;\n  }\n  // &.award-show {\n  //   animation: popupAwardScale 4.5s ease-in-out forwards;\n  // }\n}\n.card-content-container {\n  position: relative;\n  width: 625px;\n  height: 540px;\n\n  .close-popup {\n    position: absolute;\n    right: 31px;\n    top: -27px;\n    width: 65px;\n    height: 65px;\n  }\n  .ticket-left {\n    position: absolute;\n    left: -63px;\n    top: 96px;\n    width: 113px;\n    height: 78px;\n  }\n  .ticket-right {\n    position: absolute;\n    right: -25px;\n    top: 126px;\n    width: 77px;\n    height: 53px;\n  }\n  .title-bg {\n    width: 372px;\n    height: 44px;\n    background: url('@/assets/images/activity/title-bg-01.png') no-repeat center / cover;\n    background-size: 100% 100%;\n    position: relative;\n    margin: 47px auto 0 auto;\n    &.title-bg-2 {\n      width: 328px;\n      background-image: url('@/assets/images/activity/title-bg-02.png');\n      .item-num {\n        width: 50px;\n        margin-right: 48px;\n      }\n    }\n    &.title-bg-3 {\n      width: 317px;\n      background-image: url('@/assets/images/activity/regret-title.png');\n    }\n    .item-num {\n      width: 100px;\n      height: auto;\n      margin-top: -24px;\n      margin-right: 82px;\n      font-size: 82px;\n      font-weight: bold;\n      font-style: italic;\n      background-image: linear-gradient(#ef8d3b, #f4b947);\n      color: transparent;\n      -webkit-background-clip: text;\n    }\n    .star-left {\n      position: absolute;\n      left: -57px;\n      top: -15px;\n      width: 38px;\n      height: 38px;\n    }\n    .star-right {\n      position: absolute;\n      right: -43px;\n      bottom: -24px;\n      width: 24px;\n      height: 24px;\n    }\n  }\n  .star-bg,\n  .light-bg {\n    // width: 473px;\n    // height: 425px;\n    width: 520px;\n    height: 467px;\n    position: absolute;\n    top: 77px;\n    margin-left: 67px;\n    animation: starFlicker 1s ease-in-out infinite;\n    img {\n      width: 100%;\n      height: 100%;\n    }\n  }\n  .light-bg {\n    animation: bgLightRotate 4.3s linear infinite;\n    top: 50px;\n    opacity: 0.3;\n  }\n  .card-content {\n    width: 100%;\n    height: 180px;\n    position: absolute;\n    top: 50%;\n    transform: translate3d(0, -50%, 0);\n    &.card-content-single-card {\n      height: 270px;\n    }\n    &.card-award-content {\n      width: 476px;\n      height: 300px;\n      top: 97px;\n      left: 50%;\n      transform: translate3d(-50%, 0, 0);\n      .no-card {\n        width: 382px;\n        height: 273px;\n        margin-top: 54px;\n      }\n      .compose-four-card {\n        width: 100%;\n        height: 163px;\n      }\n      .award-text {\n        font-size: 30px;\n        font-weight: bold;\n        background-image: linear-gradient(#fefbf4, #f8d9a8);\n        color: transparent;\n        -webkit-background-clip: text;\n      }\n    }\n    .item-card {\n      position: relative;\n      width: 120px;\n      height: 172px;\n      &.single-card {\n        width: 190px;\n        height: 270px;\n      }\n      .red-dot {\n        position: absolute;\n        right: -10px;\n        top: -10px;\n        width: 48px;\n        height: 48px;\n        padding: 2px;\n        color: #fff;\n        border-radius: 50%;\n        background-image: linear-gradient(0deg, #f0a564 27%, #fbe8bc 100%);\n        box-shadow: 0px 1px 2px 0px rgba(138, 41, 35, 0.7);\n        &::after {\n          content: attr(data-count);\n          width: 100%;\n          height: 100%;\n          border-radius: 50%;\n          background-image: linear-gradient(#dd4e53, #dd4e53);\n          display: flex;\n          justify-content: center;\n          align-items: center;\n          font-size: 29px;\n          color: #f7d6c2;\n        }\n      }\n      img {\n        width: 100%;\n        height: 100%;\n      }\n    }\n  }\n  .bottom-cloud {\n    width: 300px;\n    height: 121px;\n    background: url('@/assets/images/activity/yun.png') no-repeat center / cover;\n    background-size: 100% 100%;\n    position: absolute;\n    bottom: 0;\n    left: 50%;\n    transform: translate3d(-50%, 0, 0);\n    &-2 {\n      bottom: -70px;\n    }\n    .xxcy-box {\n      position: absolute;\n      left: 45px;\n      bottom: 50px;\n      width: 233px;\n      height: 167px;\n    }\n  }\n}\n\n.card-award-content-container {\n  position: relative;\n  width: 10rem;\n  height: 882px;\n  .close-popup-2 {\n    position: absolute;\n    right: 65px;\n    top: -65px;\n    width: 65px;\n    height: 65px;\n  }\n  .title-compose-bg {\n    width: 328px;\n    height: 44px;\n    background: url('@/assets/images/activity/title-bg-02.png') no-repeat center / cover;\n    background-size: 100% 100%;\n    position: relative;\n    margin: /* 47px auto */ 0 auto;\n    .item-num {\n      width: 54px;\n      height: auto;\n      margin-top: -24px;\n      margin-right: 48px;\n      font-size: 82px;\n      font-weight: bold;\n      font-style: italic;\n      background-image: linear-gradient(#ef8d3b, #f4b947);\n      color: transparent;\n      -webkit-background-clip: text;\n    }\n  }\n  .light-bg {\n    width: 10rem;\n    height: 882px;\n    position: absolute;\n    // top: 77px;\n    // margin-left: 67px;\n    animation: bgLightRotate 4.3s linear infinite;\n    img {\n      width: 100%;\n      height: 100%;\n    }\n  }\n  .caishen-award-bg {\n    width: 735px;\n    height: 731px;\n    background: url('@/assets/images/activity/gongxifacai3.png') no-repeat center / cover;\n    background-size: 100% 100%;\n    position: absolute;\n    top: 80px;\n    left: 50%;\n    transform: translate3d(-50%, 0, 0);\n    .award-text-container {\n      width: 340px;\n      height: 68px;\n      padding: 0 60px;\n      position: absolute;\n      bottom: 14px;\n      left: 50%;\n      transform: translate3d(-50%, 0, 0);\n      font-size: 36px;\n      font-weight: bold;\n      color: #fcf16c;\n      text-shadow: 0px 3px 2px rgba(35, 8, 16, 0.68);\n    }\n  }\n}\n\n@keyframes starFlicker {\n  0% {\n    opacity: 0;\n  }\n  50% {\n    opacity: 1;\n  }\n  100% {\n    opacity: 0;\n  }\n}\n@keyframes bgLightRotate {\n  from {\n    transform: rotate(0);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n}\n@keyframes popupScaleTo1 {\n  from {\n    transform: scale(0);\n  }\n  to {\n    transform: scale(1);\n  }\n}\n@keyframes popupScaleTo0 {\n  from {\n    transform: scale(1);\n  }\n  to {\n    transform: scale(0);\n  }\n}\n@keyframes popupAwardScale {\n  0% {\n    transform: scale(0);\n  }\n  30% {\n    transform: scale(1);\n  }\n  80% {\n    transform: scale(0);\n  }\n  100% {\n    transform: scale(1);\n  }\n}\n</style>\n",
+      "start": 1714699771850,
+      "end": 1714699771855,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771855,
+      "end": 1714699771855,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771855,
+      "end": 1714699771855,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771855,
+      "end": 1714699771855,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771855,
+      "end": 1714699771855,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/CardPopup.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/CardPopup.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/CardPopup.vue?vue&type=style&index=0&scoped=8b782e46&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-8b782e46\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/CardPopup.vue\"]]);\n",
+      "start": 1714699771855,
+      "end": 1714699771932,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/CardPopup.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/CardPopup.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/CardPopup.vue?vue&type=style&index=0&scoped=8b782e46&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-8b782e46\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/CardPopup.vue\"]]);\n",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/CardPopup.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/CardPopup.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/CardPopup.vue?vue&type=style&index=0&scoped=8b782e46&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-8b782e46\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/CardPopup.vue\"]]);\n",
+      "start": 1714699771932,
+      "end": 1714699772152,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/CardPopup.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/CardPopup.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/CardPopup.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/CardPopup.vue?vue&type=style&index=0&scoped=8b782e46&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-8b782e46\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/CardPopup.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,6EAA6E,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699772152,
+      "end": 1714699772152,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699772152,
+      "end": 1714699772152,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699772152,
+      "end": 1714699772152,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699772152,
+      "end": 1714699772152,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699772152,
+      "end": 1714699772152,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699772152,
+      "end": 1714699772152,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699772152,
+      "end": 1714699772152,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699772152,
+      "end": 1714699772152,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699772152,
+      "end": 1714699772152,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/CardPopup.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/CardPopup.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/CardPopup.vue?vue&type=style&index=0&scoped=8b782e46&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-8b782e46\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/CardPopup.vue\"]]);\n",
+      "start": 1714699772152,
+      "end": 1714699772152,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/CardPopup.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/CardPopup.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/CardPopup.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/CardPopup.vue?vue&type=style&index=0&scoped=8b782e46&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-8b782e46\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/CardPopup.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699772152,
+      "end": 1714699772152,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699772152,
+      "end": 1714699772152,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699772152,
+      "end": 1714699772152,
+      "order": "normal"
+    }
+  ]
+}

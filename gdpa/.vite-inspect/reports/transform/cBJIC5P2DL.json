@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/zipWith.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import baseRest from './_baseRest.js';\nimport unzipWith from './unzipWith.js';\n\n/**\n * This method is like `_.zip` except that it accepts `iteratee` to specify\n * how grouped values should be combined. The iteratee is invoked with the\n * elements of each group: (...group).\n *\n * @static\n * @memberOf _\n * @since 3.8.0\n * @category Array\n * @param {...Array} [arrays] The arrays to process.\n * @param {Function} [iteratee=_.identity] The function to combine\n *  grouped values.\n * @returns {Array} Returns the new array of grouped elements.\n * @example\n *\n * _.zipWith([1, 2], [10, 20], [100, 200], function(a, b, c) {\n *   return a + b + c;\n * });\n * // => [111, 222]\n */\nvar zipWith = baseRest(function(arrays) {\n  var length = arrays.length,\n      iteratee = length > 1 ? arrays[length - 1] : undefined;\n\n  iteratee = typeof iteratee == 'function' ? (arrays.pop(), iteratee) : undefined;\n  return unzipWith(arrays, iteratee);\n});\n\nexport default zipWith;\n",
+      "start": 1714699768581,
+      "end": 1714699768611,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768611,
+      "end": 1714699768611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768611,
+      "end": 1714699768611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768611,
+      "end": 1714699768611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768611,
+      "end": 1714699768611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768611,
+      "end": 1714699768611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768611,
+      "end": 1714699768611,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import baseRest from './_baseRest.js';\nimport unzipWith from './unzipWith.js';\n\n/**\n * This method is like `_.zip` except that it accepts `iteratee` to specify\n * how grouped values should be combined. The iteratee is invoked with the\n * elements of each group: (...group).\n *\n * @static\n * @memberOf _\n * @since 3.8.0\n * @category Array\n * @param {...Array} [arrays] The arrays to process.\n * @param {Function} [iteratee=_.identity] The function to combine\n *  grouped values.\n * @returns {Array} Returns the new array of grouped elements.\n * @example\n *\n * _.zipWith([1, 2], [10, 20], [100, 200], function(a, b, c) {\n *   return a + b + c;\n * });\n * // => [111, 222]\n */\nvar zipWith = baseRest(function(arrays) {\n  var length = arrays.length,\n      iteratee = length > 1 ? arrays[length - 1] : undefined;\n\n  iteratee = typeof iteratee == 'function' ? (arrays.pop(), iteratee) : undefined;\n  return unzipWith(arrays, iteratee);\n});\n\nexport default zipWith;\n",
+      "start": 1714699768611,
+      "end": 1714699768611,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768611,
+      "end": 1714699768611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768611,
+      "end": 1714699768611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768611,
+      "end": 1714699768611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768611,
+      "end": 1714699768611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768611,
+      "end": 1714699768611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768611,
+      "end": 1714699768611,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768611,
+      "end": 1714699768611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768611,
+      "end": 1714699768611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768611,
+      "end": 1714699768611,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768611,
+      "end": 1714699768611,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768611,
+      "end": 1714699768611,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768611,
+      "end": 1714699768611,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768611,
+      "end": 1714699768611,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768611,
+      "end": 1714699768611,
+      "order": "normal"
+    }
+  ]
+}

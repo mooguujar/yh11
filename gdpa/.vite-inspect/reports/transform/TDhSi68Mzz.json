@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/html5-qrcode@2.3.8/node_modules/html5-qrcode/esm/ui/scanner/scan-type-selector.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { Html5QrcodeScanType, Html5QrcodeConstants } from \"../../core\";\nvar ScanTypeSelector = (function () {\n    function ScanTypeSelector(supportedScanTypes) {\n        this.supportedScanTypes = this.validateAndReturnScanTypes(supportedScanTypes);\n    }\n    ScanTypeSelector.prototype.getDefaultScanType = function () {\n        return this.supportedScanTypes[0];\n    };\n    ScanTypeSelector.prototype.hasMoreThanOneScanType = function () {\n        return this.supportedScanTypes.length > 1;\n    };\n    ScanTypeSelector.prototype.isCameraScanRequired = function () {\n        for (var _i = 0, _a = this.supportedScanTypes; _i < _a.length; _i++) {\n            var scanType = _a[_i];\n            if (ScanTypeSelector.isCameraScanType(scanType)) {\n                return true;\n            }\n        }\n        return false;\n    };\n    ScanTypeSelector.isCameraScanType = function (scanType) {\n        return scanType === Html5QrcodeScanType.SCAN_TYPE_CAMERA;\n    };\n    ScanTypeSelector.isFileScanType = function (scanType) {\n        return scanType === Html5QrcodeScanType.SCAN_TYPE_FILE;\n    };\n    ScanTypeSelector.prototype.validateAndReturnScanTypes = function (supportedScanTypes) {\n        if (!supportedScanTypes || supportedScanTypes.length === 0) {\n            return Html5QrcodeConstants.DEFAULT_SUPPORTED_SCAN_TYPE;\n        }\n        var maxExpectedValues = Html5QrcodeConstants.DEFAULT_SUPPORTED_SCAN_TYPE.length;\n        if (supportedScanTypes.length > maxExpectedValues) {\n            throw \"Max \".concat(maxExpectedValues, \" values expected for \")\n                + \"supportedScanTypes\";\n        }\n        for (var _i = 0, supportedScanTypes_1 = supportedScanTypes; _i < supportedScanTypes_1.length; _i++) {\n            var scanType = supportedScanTypes_1[_i];\n            if (!Html5QrcodeConstants.DEFAULT_SUPPORTED_SCAN_TYPE\n                .includes(scanType)) {\n                throw \"Unsupported scan type \".concat(scanType);\n            }\n        }\n        return supportedScanTypes;\n    };\n    return ScanTypeSelector;\n}());\nexport { ScanTypeSelector };\n//# sourceMappingURL=scan-type-selector.js.map",
+      "start": 1714699771223,
+      "end": 1714699771239,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771239,
+      "end": 1714699771239,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771239,
+      "end": 1714699771239,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771239,
+      "end": 1714699771239,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771239,
+      "end": 1714699771239,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771239,
+      "end": 1714699771239,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771239,
+      "end": 1714699771239,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { Html5QrcodeScanType, Html5QrcodeConstants } from \"../../core\";\nvar ScanTypeSelector = (function () {\n    function ScanTypeSelector(supportedScanTypes) {\n        this.supportedScanTypes = this.validateAndReturnScanTypes(supportedScanTypes);\n    }\n    ScanTypeSelector.prototype.getDefaultScanType = function () {\n        return this.supportedScanTypes[0];\n    };\n    ScanTypeSelector.prototype.hasMoreThanOneScanType = function () {\n        return this.supportedScanTypes.length > 1;\n    };\n    ScanTypeSelector.prototype.isCameraScanRequired = function () {\n        for (var _i = 0, _a = this.supportedScanTypes; _i < _a.length; _i++) {\n            var scanType = _a[_i];\n            if (ScanTypeSelector.isCameraScanType(scanType)) {\n                return true;\n            }\n        }\n        return false;\n    };\n    ScanTypeSelector.isCameraScanType = function (scanType) {\n        return scanType === Html5QrcodeScanType.SCAN_TYPE_CAMERA;\n    };\n    ScanTypeSelector.isFileScanType = function (scanType) {\n        return scanType === Html5QrcodeScanType.SCAN_TYPE_FILE;\n    };\n    ScanTypeSelector.prototype.validateAndReturnScanTypes = function (supportedScanTypes) {\n        if (!supportedScanTypes || supportedScanTypes.length === 0) {\n            return Html5QrcodeConstants.DEFAULT_SUPPORTED_SCAN_TYPE;\n        }\n        var maxExpectedValues = Html5QrcodeConstants.DEFAULT_SUPPORTED_SCAN_TYPE.length;\n        if (supportedScanTypes.length > maxExpectedValues) {\n            throw \"Max \".concat(maxExpectedValues, \" values expected for \")\n                + \"supportedScanTypes\";\n        }\n        for (var _i = 0, supportedScanTypes_1 = supportedScanTypes; _i < supportedScanTypes_1.length; _i++) {\n            var scanType = supportedScanTypes_1[_i];\n            if (!Html5QrcodeConstants.DEFAULT_SUPPORTED_SCAN_TYPE\n                .includes(scanType)) {\n                throw \"Unsupported scan type \".concat(scanType);\n            }\n        }\n        return supportedScanTypes;\n    };\n    return ScanTypeSelector;\n}());\nexport { ScanTypeSelector };\n//# sourceMappingURL=scan-type-selector.js.map",
+      "start": 1714699771239,
+      "end": 1714699771239,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699771239,
+      "end": 1714699771239,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771239,
+      "end": 1714699771239,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771239,
+      "end": 1714699771239,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771239,
+      "end": 1714699771239,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771239,
+      "end": 1714699771239,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771239,
+      "end": 1714699771239,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699771239,
+      "end": 1714699771239,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771239,
+      "end": 1714699771239,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771239,
+      "end": 1714699771239,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771239,
+      "end": 1714699771239,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699771239,
+      "end": 1714699771239,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771239,
+      "end": 1714699771239,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771239,
+      "end": 1714699771239,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771239,
+      "end": 1714699771239,
+      "order": "normal"
+    }
+  ]
+}

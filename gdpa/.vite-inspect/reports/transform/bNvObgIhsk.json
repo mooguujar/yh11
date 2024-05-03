@@ -1,0 +1,163 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Auth/FooterView.vue?vue&type=style&index=0&scoped=7dbd9486&lang.scss",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\n.footer-container {\n  bottom: 0;\n  width: 100%;\n  max-width: 750px;\n  padding: 0 41px;\n  .buttom-view {\n    width: 100%;\n    height: 80px;\n    :deep(.van-button) {\n      width: 100%;\n      height: 100%;\n      background-color: var(--van-button-primary-background);\n      border-radius: 4px;\n      color: #fff;\n      position: relative;\n      opacity: 1;\n      transition: opacity 0.5s ease-in-out;\n    }\n  }\n  .version-view {\n    margin-top: 45px;\n    font-size: 25px;\n    line-height: 35px;\n    color: #9f9e9e;\n  }\n  padding-bottom: 28px;\n}\n",
+      "start": 1714699772083,
+      "end": 1714699772083
+    },
+    {
+      "name": "vite:css",
+      "result": ".footer-container {\n  bottom: 0;\n  width: 100%;\n  max-width: 10rem;\n  padding: 0 0.54667rem;\n  padding-bottom: 0.37333rem;\n}\n.footer-container .buttom-view {\n  width: 100%;\n  height: 1.06667rem;\n}\n.footer-container .buttom-view :deep(.van-button) {\n  width: 100%;\n  height: 100%;\n  background-color: var(--van-button-primary-background);\n  border-radius: 0.05333rem;\n  color: #fff;\n  position: relative;\n  opacity: 1;\n  transition: opacity 0.5s ease-in-out;\n}\n.footer-container .version-view {\n  margin-top: 0.6rem;\n  font-size: 0.33333rem;\n  line-height: 0.46667rem;\n  color: #9f9e9e;\n}",
+      "start": 1714699772083,
+      "end": 1714699772108,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699772108,
+      "end": 1714699772108,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699772108,
+      "end": 1714699772108,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699772111,
+      "end": 1714699772111,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".footer-container[data-v-7dbd9486] {\n  bottom: 0;\n  width: 100%;\n  max-width: 10rem;\n  padding: 0 0.54667rem;\n  padding-bottom: 0.37333rem;\n}\n.footer-container .buttom-view[data-v-7dbd9486] {\n  width: 100%;\n  height: 1.06667rem;\n}\n.footer-container .buttom-view[data-v-7dbd9486] .van-button {\n  width: 100%;\n  height: 100%;\n  background-color: var(--van-button-primary-background);\n  border-radius: 0.05333rem;\n  color: #fff;\n  position: relative;\n  opacity: 1;\n  transition: opacity 0.5s ease-in-out;\n}\n.footer-container .version-view[data-v-7dbd9486] {\n  margin-top: 0.6rem;\n  font-size: 0.33333rem;\n  line-height: 0.46667rem;\n  color: #9f9e9e;\n}",
+      "start": 1714699772111,
+      "end": 1714699772111,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699772111,
+      "end": 1714699772111,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": ".footer-container[data-v-7dbd9486] {\n  bottom: 0;\n  width: 100%;\n  max-width: 10rem;\n  padding: 0 0.54667rem;\n  padding-bottom: 0.37333rem;\n}\n.footer-container .buttom-view[data-v-7dbd9486] {\n  width: 100%;\n  height: 1.06667rem;\n}\n.footer-container .buttom-view[data-v-7dbd9486] .van-button {\n  width: 100%;\n  height: 100%;\n  background-color: var(--van-button-primary-background);\n  border-radius: 0.05333rem;\n  color: #fff;\n  position: relative;\n  opacity: 1;\n  transition: opacity 0.5s ease-in-out;\n}\n.footer-container .version-view[data-v-7dbd9486] {\n  margin-top: 0.6rem;\n  font-size: 0.33333rem;\n  line-height: 0.46667rem;\n  color: #9f9e9e;\n}",
+      "start": 1714699772111,
+      "end": 1714699772111,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699772114,
+      "end": 1714699772114,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699772114,
+      "end": 1714699772114,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699772114,
+      "end": 1714699772114,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699772114,
+      "end": 1714699772114,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699772114,
+      "end": 1714699772114,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699772114,
+      "end": 1714699772114,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699772114,
+      "end": 1714699772114,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699772114,
+      "end": 1714699772114,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699772114,
+      "end": 1714699772114,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699772114,
+      "end": 1714699772115,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */",
+      "start": 1714699772115,
+      "end": 1714699772115,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Auth/FooterView.vue?vue&type=style&index=0&scoped=7dbd9486&lang.scss"
+        ],
+        "sourcesContent": [
+          ""
+        ],
+        "names": [],
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699772115,
+      "end": 1714699772115,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699772115,
+      "end": 1714699772115,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699772115,
+      "end": 1714699772115,
+      "order": "normal"
+    }
+  ]
+}

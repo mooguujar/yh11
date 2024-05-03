@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Balance.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\nconst coin_name = sessionStorage.getItem('coin_name')\nimport { useAuthStore } from '@/store/modules/auth'\nimport mitt from '@/utils/mitt'\nimport { storeToRefs } from 'pinia'\nimport { computed, onBeforeUnmount, onMounted, ref } from 'vue'\nimport { useRoute, useRouter } from 'vue-router'\n\ninterface Props {\n  money: {\n    coinCash: string | number\n    canSale: string | number\n    notSale: string | number\n  }\n}\n\nconst props = withDefaults(defineProps<Props>(), {\n  money: () => ({\n    coinCash: '0',\n    canSale: '0',\n    notSale: '0'\n  })\n})\n\nconst authStore = useAuthStore()\nconst { token, userInfo, getUserMoneyByMType, getFreezeMoney, processnum } = storeToRefs(authStore)\n\nconst route = useRoute()\nconst router = useRouter()\nconst showTips = ref(false)\nconst actions = [{ text: '不允许挂单出售，仅允许充值到商户' }]\n\nconst isLogin = computed(() => !!token.value)\n\nconst goFundingDetails = () => {\n  if (!isLogin.value) {\n    router.push('/auth/login')\n  } else {\n    router.push('/details/funding-details')\n  }\n}\n\n// 点击其他区域时，关闭不可售tips\nconst handleCloseInfoTips = () => {\n  if (showTips.value) {\n    showTips.value = false\n  }\n}\nonMounted(() => {\n  document.addEventListener('click', handleCloseInfoTips)\n\n  // 获取coins信息\n  authStore.getUserCoin({})\n  // 获取最新用户信息\n  authStore.getUserInfo().then(() => {\n    if (route.name === 'Home' && processnum.value?.total) {\n      mitt.emit('global-notification', { type: 'ProcessOrder', value: processnum.value })\n    }\n  })\n})\nonBeforeUnmount(() => {\n  document.removeEventListener('click', handleCloseInfoTips)\n})\n</script>\n\n<template>\n  <div class=\"balance-container\">\n    <div class=\"balance-content3 flex flex-col justify-between\">\n      <div class=\"coin-cash-container flex justify-center items-center\">\n        <div>余额</div>\n        <div class=\"amount\">{{ money.coinCash }}</div>\n        <div>{{ coin_name }}</div>\n        <div\n          v-if=\"route.name === 'Home'\"\n          class=\"funding-details\"\n          @click=\"goFundingDetails\"\n        >\n          资金明细\n        </div>\n      </div>\n      <div class=\"coin-other-container relative flex justify-between items-center\">\n        <div class=\"item-sale flex justify-between items-center\">\n          <div class=\"title\">可售</div>\n          <div class=\"amount\">{{ money.canSale }}</div>\n        </div>\n        <div class=\"item-sale flex justify-between items-center\">\n          <div class=\"title\">不可售</div>\n          <div class=\"amount\">{{ money.notSale }}</div>\n        </div>\n\n        <div\n          class=\"info-tips-container\"\n          @click.stop\n        >\n          <div\n            class=\"help icon-help-pos\"\n            @click=\"showTips = !showTips\"\n          ></div>\n          <div\n            v-show=\"showTips\"\n            class=\"money-tips-container tips-arrow text-justify\"\n          >\n            不允许挂单出售，仅允许充值到商户\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</template>\n\n<style lang=\"scss\" scoped>\n@import '@/assets/styles/sprite-home.scss';\n\n.balance-container {\n  width: 100%;\n  .title {\n    font-size: 26px;\n    color: #787f8c;\n  }\n  .balance-content {\n    font-size: 49px;\n    .balance-value {\n      color: #13161b;\n      font-weight: bold;\n    }\n    .balance-sell-status {\n      padding-bottom: 10px;\n      font-size: 31px;\n    }\n  }\n  .balance-content2 {\n    padding: 0 0 44px 18px;\n    .coin-cash-container {\n      margin-bottom: 70px;\n      padding: 0 37px 0 0;\n      font-size: 26px;\n      color: #787f8c;\n      gap: 10px 0;\n      .amount {\n        font-size: 78px;\n        font-weight: bold;\n        color: #13161b;\n      }\n      .funding-details {\n        margin-left: 39px;\n        color: var(--van-button-primary-background);\n      }\n    }\n    .coin-other-container {\n      padding: 0 170px 0 0;\n      .item-sale {\n        gap: 0 20px;\n        font-size: 26px;\n        color: #787f8c;\n      }\n      .amount {\n        font-size: 31px;\n        font-weight: bold;\n        color: #13161b;\n      }\n    }\n  }\n\n  .balance-content3 {\n    padding: 32px 0 28px 0;\n    gap: 34px 0;\n    .coin-cash-container {\n      font-size: 26px;\n      color: #787f8c;\n      .amount {\n        margin: -4px 17px 0 33px;\n        font-size: 49px;\n        font-weight: bold;\n        color: #13161b;\n      }\n      .funding-details {\n        margin-left: 39px;\n        font-size: 25px;\n        color: var(--van-button-primary-background);\n      }\n    }\n    .coin-other-container {\n      padding: 0 84px 0 50px;\n      .item-sale {\n        gap: 0 32px;\n      }\n      .amount {\n        font-size: 31px;\n        font-weight: bold;\n        color: #13161b;\n      }\n    }\n  }\n  .info-tips-container {\n    position: absolute;\n    right: 40px;\n    bottom: 0;\n  }\n  .icon-help-pos {\n    filter: brightness(0.9);\n  }\n  .money-tips-container {\n    position: absolute;\n    right: -60px;\n    bottom: -112px;\n    width: 313px;\n    height: auto;\n    line-height: 28px;\n    padding: 19px 22px;\n    background-color: #fff;\n    color: var(--van-button-primary-background);\n    font-size: 22px;\n    border-radius: 10px;\n    -webkit-filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));\n    filter: drop-shadow(0 2px 12px rgba(50, 50, 51, 0.12));\n    user-select: none;\n    z-index: 1000;\n\n    &.tips-arrow::before {\n      content: '';\n      position: absolute;\n      top: 0;\n      right: 64px;\n      margin-top: -14px;\n      width: 0;\n      height: 0;\n      border-color: transparent;\n      border-style: solid;\n      border-width: 16px;\n      border-top-width: 0;\n      border-bottom-color: #fff;\n    }\n  }\n}\n</style>\n",
+      "start": 1714699771273,
+      "end": 1714699771280,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771280,
+      "end": 1714699771280,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771280,
+      "end": 1714699771280,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771280,
+      "end": 1714699771280,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771280,
+      "end": 1714699771280,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Balance.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Balance.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Balance.vue?vue&type=style&index=0&scoped=b44078f6&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-b44078f6\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Balance.vue\"]]);\n",
+      "start": 1714699771280,
+      "end": 1714699771891,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771891,
+      "end": 1714699771891,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Balance.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Balance.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Balance.vue?vue&type=style&index=0&scoped=b44078f6&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-b44078f6\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Balance.vue\"]]);\n",
+      "start": 1714699771891,
+      "end": 1714699771891,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Balance.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Balance.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Balance.vue?vue&type=style&index=0&scoped=b44078f6&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-b44078f6\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Balance.vue\"]]);\n",
+      "start": 1714699771892,
+      "end": 1714699771967,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Balance.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Balance.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Balance.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Balance.vue?vue&type=style&index=0&scoped=b44078f6&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-b44078f6\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Balance.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,uEAAuE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771967,
+      "end": 1714699771967,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771967,
+      "end": 1714699771967,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771967,
+      "end": 1714699771967,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771967,
+      "end": 1714699771967,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771967,
+      "end": 1714699771967,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699771967,
+      "end": 1714699771967,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771967,
+      "end": 1714699771967,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771967,
+      "end": 1714699771967,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771967,
+      "end": 1714699771967,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Balance.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Balance.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Balance.vue?vue&type=style&index=0&scoped=b44078f6&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-b44078f6\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Balance.vue\"]]);\n",
+      "start": 1714699771967,
+      "end": 1714699771967,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Balance.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Balance.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Balance.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Balance.vue?vue&type=style&index=0&scoped=b44078f6&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-b44078f6\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Home/Balance.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771967,
+      "end": 1714699771967,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771967,
+      "end": 1714699771967,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771967,
+      "end": 1714699771967,
+      "order": "normal"
+    }
+  ]
+}

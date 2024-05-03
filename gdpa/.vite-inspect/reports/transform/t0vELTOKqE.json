@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/omit.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var helperCreatePickOmit = require('./helperCreatePickOmit')\r\n\r\n/**\r\n * 根据 key 排除指定的属性值，返回一个新的对象\r\n *\r\n * @param {Object} obj 对象\r\n * @param {String/Array} key 键数组\r\n * @return {Object}\r\n */\r\nvar omit = helperCreatePickOmit(0, 1)\r\n\r\nmodule.exports = omit\r\n",
+      "start": 1714699767652,
+      "end": 1714699767666,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767666,
+      "end": 1714699767666,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767666,
+      "end": 1714699767666,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767666,
+      "end": 1714699767666,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767666,
+      "end": 1714699767666,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767666,
+      "end": 1714699767666,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767666,
+      "end": 1714699767666,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var helperCreatePickOmit = require('./helperCreatePickOmit')\r\n\r\n/**\r\n * 根据 key 排除指定的属性值，返回一个新的对象\r\n *\r\n * @param {Object} obj 对象\r\n * @param {String/Array} key 键数组\r\n * @return {Object}\r\n */\r\nvar omit = helperCreatePickOmit(0, 1)\r\n\r\nmodule.exports = omit\r\n",
+      "start": 1714699767666,
+      "end": 1714699767666,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767666,
+      "end": 1714699767666,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767666,
+      "end": 1714699767666,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767666,
+      "end": 1714699767666,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767666,
+      "end": 1714699767666,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767667,
+      "end": 1714699767667,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767667,
+      "end": 1714699767667,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/helperCreatePickOmit.js?commonjs-proxy\";\n\nvar helperCreatePickOmit = require$$0\r\n\r\n/**\r\n * 根据 key 排除指定的属性值，返回一个新的对象\r\n *\r\n * @param {Object} obj 对象\r\n * @param {String/Array} key 键数组\r\n * @return {Object}\r\n */\r\nvar omit = helperCreatePickOmit(0, 1)\r\n\r\nvar omit_1 = omit\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(omit_1);\nexport { omit_1 as __moduleExports };",
+      "start": 1714699767667,
+      "end": 1714699768216,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;AAAA,IAAI,oBAAoB,GAAG,UAAiC;AAC5D;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,IAAI,IAAI,GAAG,oBAAoB,CAAC,CAAC,EAAE,CAAC,CAAC;AACrC;IACA,MAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768216,
+      "end": 1714699768216,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768216,
+      "end": 1714699768216,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768216,
+      "end": 1714699768216,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768216,
+      "end": 1714699768216,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768216,
+      "end": 1714699768216,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768216,
+      "end": 1714699768216,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768216,
+      "end": 1714699768216,
+      "order": "normal"
+    }
+  ]
+}

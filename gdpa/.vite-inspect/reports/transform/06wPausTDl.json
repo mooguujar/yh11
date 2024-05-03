@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/toTreeArray.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var setupDefaults = require('./setupDefaults')\r\n\r\nvar each = require('./each')\r\n\r\nvar assign = require('./assign')\r\n\r\nfunction unTreeList (result, array, opts) {\r\n  var optChildren = opts.children\r\n  var optData = opts.data\r\n  var optClear = opts.clear\r\n  each(array, function (item) {\r\n    var children = item[optChildren]\r\n    if (optData) {\r\n      item = item[optData]\r\n    }\r\n    result.push(item)\r\n    if (children && children.length) {\r\n      unTreeList(result, children, opts)\r\n    }\r\n    if (optClear) {\r\n      delete item[optChildren]\r\n    }\r\n  })\r\n  return result\r\n}\r\n\r\n/**\r\n  * 将一个树结构转成数组列表\r\n  *\r\n  * @param {Array} array 数组\r\n  * @param {Object} options { children: 'children', data: 'data', clear: false }\r\n  * @return {Array}\r\n  */\r\nfunction toTreeArray (array, options) {\r\n  return unTreeList([], array, assign({}, setupDefaults.treeOptions, options))\r\n}\r\n\r\nmodule.exports = toTreeArray\r\n",
+      "start": 1714699767579,
+      "end": 1714699767601,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767601,
+      "end": 1714699767601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767601,
+      "end": 1714699767601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767601,
+      "end": 1714699767601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767601,
+      "end": 1714699767601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767601,
+      "end": 1714699767601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767601,
+      "end": 1714699767601,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var setupDefaults = require('./setupDefaults')\r\n\r\nvar each = require('./each')\r\n\r\nvar assign = require('./assign')\r\n\r\nfunction unTreeList (result, array, opts) {\r\n  var optChildren = opts.children\r\n  var optData = opts.data\r\n  var optClear = opts.clear\r\n  each(array, function (item) {\r\n    var children = item[optChildren]\r\n    if (optData) {\r\n      item = item[optData]\r\n    }\r\n    result.push(item)\r\n    if (children && children.length) {\r\n      unTreeList(result, children, opts)\r\n    }\r\n    if (optClear) {\r\n      delete item[optChildren]\r\n    }\r\n  })\r\n  return result\r\n}\r\n\r\n/**\r\n  * 将一个树结构转成数组列表\r\n  *\r\n  * @param {Array} array 数组\r\n  * @param {Object} options { children: 'children', data: 'data', clear: false }\r\n  * @return {Array}\r\n  */\r\nfunction toTreeArray (array, options) {\r\n  return unTreeList([], array, assign({}, setupDefaults.treeOptions, options))\r\n}\r\n\r\nmodule.exports = toTreeArray\r\n",
+      "start": 1714699767601,
+      "end": 1714699767601,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767601,
+      "end": 1714699767601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767601,
+      "end": 1714699767601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767601,
+      "end": 1714699767601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767601,
+      "end": 1714699767601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767601,
+      "end": 1714699767601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767602,
+      "end": 1714699767602,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/setupDefaults.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/each.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/assign.js?commonjs-proxy\";\n\nvar setupDefaults = require$$0\r\n\r\nvar each = require$$1\r\n\r\nvar assign = require$$2\r\n\r\nfunction unTreeList (result, array, opts) {\r\n  var optChildren = opts.children\r\n  var optData = opts.data\r\n  var optClear = opts.clear\r\n  each(array, function (item) {\r\n    var children = item[optChildren]\r\n    if (optData) {\r\n      item = item[optData]\r\n    }\r\n    result.push(item)\r\n    if (children && children.length) {\r\n      unTreeList(result, children, opts)\r\n    }\r\n    if (optClear) {\r\n      delete item[optChildren]\r\n    }\r\n  })\r\n  return result\r\n}\r\n\r\n/**\r\n  * 将一个树结构转成数组列表\r\n  *\r\n  * @param {Array} array 数组\r\n  * @param {Object} options { children: 'children', data: 'data', clear: false }\r\n  * @return {Array}\r\n  */\r\nfunction toTreeArray (array, options) {\r\n  return unTreeList([], array, assign({}, setupDefaults.treeOptions, options))\r\n}\r\n\r\nvar toTreeArray_1 = toTreeArray\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(toTreeArray_1);\nexport { toTreeArray_1 as __moduleExports };",
+      "start": 1714699767602,
+      "end": 1714699768219,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;AAAA,IAAI,aAAa,GAAG,UAA0B;AAC9C;AACA,IAAI,IAAI,GAAG,UAAiB;AAC5B;AACA,IAAI,MAAM,GAAG,UAAmB;AAChC;AACA,SAAS,UAAU,EAAE,MAAM,EAAE,KAAK,EAAE,IAAI,EAAE;AAC1C,EAAE,IAAI,WAAW,GAAG,IAAI,CAAC,QAAQ;AACjC,EAAE,IAAI,OAAO,GAAG,IAAI,CAAC,IAAI;AACzB,EAAE,IAAI,QAAQ,GAAG,IAAI,CAAC,KAAK;AAC3B,EAAE,IAAI,CAAC,KAAK,EAAE,UAAU,IAAI,EAAE;AAC9B,IAAI,IAAI,QAAQ,GAAG,IAAI,CAAC,WAAW,CAAC;AACpC,IAAI,IAAI,OAAO,EAAE;AACjB,MAAM,IAAI,GAAG,IAAI,CAAC,OAAO,CAAC;AAC1B,KAAK;AACL,IAAI,MAAM,CAAC,IAAI,CAAC,IAAI,CAAC;AACrB,IAAI,IAAI,QAAQ,IAAI,QAAQ,CAAC,MAAM,EAAE;AACrC,MAAM,UAAU,CAAC,MAAM,EAAE,QAAQ,EAAE,IAAI,CAAC;AACxC,KAAK;AACL,IAAI,IAAI,QAAQ,EAAE;AAClB,MAAM,OAAO,IAAI,CAAC,WAAW,CAAC;AAC9B,KAAK;AACL,GAAG,CAAC;AACJ,EAAE,OAAO,MAAM;AACf,CAAC;AACD;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,WAAW,EAAE,KAAK,EAAE,OAAO,EAAE;AACtC,EAAE,OAAO,UAAU,CAAC,EAAE,EAAE,KAAK,EAAE,MAAM,CAAC,EAAE,EAAE,aAAa,CAAC,WAAW,EAAE,OAAO,CAAC,CAAC;AAC9E,CAAC;AACD;IACA,aAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768219,
+      "end": 1714699768219,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768219,
+      "end": 1714699768219,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768219,
+      "end": 1714699768219,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768219,
+      "end": 1714699768219,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768219,
+      "end": 1714699768219,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768219,
+      "end": 1714699768219,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768219,
+      "end": 1714699768219,
+      "order": "normal"
+    }
+  ]
+}

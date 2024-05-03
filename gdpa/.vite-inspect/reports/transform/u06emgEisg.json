@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\n/**\n * @description 此文件处理预加载资源逻辑，js、css、图片等\n */\nimport { ref } from 'vue'\nimport spritesHome from '@/assets/images/sprites-home.png'\n\nconst spritesHomeUrl = ref(`url(${spritesHome})`)\n</script>\n\n<template>\n  <div class=\"preload-resources-container\"></div>\n</template>\n\n<style lang=\"scss\" score>\n.preload-resources-container {\n  &::before {\n    content: '';\n    background-image: v-bind('spritesHomeUrl');\n  }\n}\n</style>\n",
+      "start": 1714699768086,
+      "end": 1714699768105,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768105,
+      "end": 1714699768105,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768105,
+      "end": 1714699768105,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768105,
+      "end": 1714699768105,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768105,
+      "end": 1714699768105,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue\"]]);\n",
+      "start": 1714699768105,
+      "end": 1714699769058,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769058,
+      "end": 1714699769058,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue\"]]);\n",
+      "start": 1714699769058,
+      "end": 1714699769058,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue\"]]);\n",
+      "start": 1714699769058,
+      "end": 1714699769397,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue?vue&type=style&index=0&score=true&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,UAAU,4FAA4F,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769397,
+      "end": 1714699769398,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue\"]]);\n",
+      "start": 1714699769398,
+      "end": 1714699769398,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/PreloadResources/PreloadResources.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769398,
+      "end": 1714699769398,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769398,
+      "end": 1714699769398,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769398,
+      "end": 1714699769398,
+      "order": "normal"
+    }
+  ]
+}

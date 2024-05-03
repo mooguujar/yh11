@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/toJSONString.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var eqNull = require('./eqNull')\r\n\r\n/**\r\n  * JSON转字符串\r\n  *\r\n  * @param {Object} obj 对象\r\n  * @return {String} 返回字符串\r\n  */\r\nfunction toJSONString (obj) {\r\n  return eqNull(obj) ? '' : JSON.stringify(obj)\r\n}\r\n\r\nmodule.exports = toJSONString\r\n",
+      "start": 1714699767649,
+      "end": 1714699767665,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767665,
+      "end": 1714699767665,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767665,
+      "end": 1714699767665,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767665,
+      "end": 1714699767665,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767665,
+      "end": 1714699767665,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767665,
+      "end": 1714699767665,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767665,
+      "end": 1714699767665,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var eqNull = require('./eqNull')\r\n\r\n/**\r\n  * JSON转字符串\r\n  *\r\n  * @param {Object} obj 对象\r\n  * @return {String} 返回字符串\r\n  */\r\nfunction toJSONString (obj) {\r\n  return eqNull(obj) ? '' : JSON.stringify(obj)\r\n}\r\n\r\nmodule.exports = toJSONString\r\n",
+      "start": 1714699767665,
+      "end": 1714699767665,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767665,
+      "end": 1714699767665,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767666,
+      "end": 1714699767666,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767666,
+      "end": 1714699767666,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767666,
+      "end": 1714699767666,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767666,
+      "end": 1714699767666,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767666,
+      "end": 1714699767666,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/eqNull.js?commonjs-proxy\";\n\nvar eqNull = require$$0\r\n\r\n/**\r\n  * JSON转字符串\r\n  *\r\n  * @param {Object} obj 对象\r\n  * @return {String} 返回字符串\r\n  */\r\nfunction toJSONString (obj) {\r\n  return eqNull(obj) ? '' : JSON.stringify(obj)\r\n}\r\n\r\nvar toJSONString_1 = toJSONString\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(toJSONString_1);\nexport { toJSONString_1 as __moduleExports };",
+      "start": 1714699767666,
+      "end": 1714699768094,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;AAAA,IAAI,MAAM,GAAG,UAAmB;AAChC;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,YAAY,EAAE,GAAG,EAAE;AAC5B,EAAE,OAAO,MAAM,CAAC,GAAG,CAAC,GAAG,EAAE,GAAG,IAAI,CAAC,SAAS,CAAC,GAAG,CAAC;AAC/C,CAAC;AACD;IACA,cAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768094,
+      "end": 1714699768094,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768094,
+      "end": 1714699768094,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768094,
+      "end": 1714699768094,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768094,
+      "end": 1714699768094,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768094,
+      "end": 1714699768094,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768094,
+      "end": 1714699768094,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768094,
+      "end": 1714699768094,
+      "order": "normal"
+    }
+  ]
+}

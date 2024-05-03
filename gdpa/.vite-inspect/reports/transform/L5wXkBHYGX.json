@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/mean.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var helperNumberDivide = require('./helperNumberDivide')\r\n\r\nvar getSize = require('./getSize')\r\n\r\nvar sum = require('./sum')\r\n\r\n/**\r\n  * 求平均值函数\r\n  *\r\n  * @param {Array} array 数组\r\n  * @param {Function/String} iterate 方法或属性\r\n  * @param {Object} context 上下文\r\n  * @return {Number}\r\n  */\r\nfunction mean (array, iterate, context) {\r\n  return helperNumberDivide(sum(array, iterate, context), getSize(array))\r\n}\r\n\r\nmodule.exports = mean\r\n",
+      "start": 1714699767672,
+      "end": 1714699767706,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767706,
+      "end": 1714699767706,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767706,
+      "end": 1714699767706,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767706,
+      "end": 1714699767706,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767706,
+      "end": 1714699767706,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767706,
+      "end": 1714699767706,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767706,
+      "end": 1714699767706,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var helperNumberDivide = require('./helperNumberDivide')\r\n\r\nvar getSize = require('./getSize')\r\n\r\nvar sum = require('./sum')\r\n\r\n/**\r\n  * 求平均值函数\r\n  *\r\n  * @param {Array} array 数组\r\n  * @param {Function/String} iterate 方法或属性\r\n  * @param {Object} context 上下文\r\n  * @return {Number}\r\n  */\r\nfunction mean (array, iterate, context) {\r\n  return helperNumberDivide(sum(array, iterate, context), getSize(array))\r\n}\r\n\r\nmodule.exports = mean\r\n",
+      "start": 1714699767706,
+      "end": 1714699767706,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767706,
+      "end": 1714699767706,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767706,
+      "end": 1714699767706,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767706,
+      "end": 1714699767706,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767706,
+      "end": 1714699767706,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767706,
+      "end": 1714699767706,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767706,
+      "end": 1714699767706,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/helperNumberDivide.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/getSize.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/sum.js?commonjs-proxy\";\n\nvar helperNumberDivide = require$$0\r\n\r\nvar getSize = require$$1\r\n\r\nvar sum = require$$2\r\n\r\n/**\r\n  * 求平均值函数\r\n  *\r\n  * @param {Array} array 数组\r\n  * @param {Function/String} iterate 方法或属性\r\n  * @param {Object} context 上下文\r\n  * @return {Number}\r\n  */\r\nfunction mean (array, iterate, context) {\r\n  return helperNumberDivide(sum(array, iterate, context), getSize(array))\r\n}\r\n\r\nvar mean_1 = mean\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(mean_1);\nexport { mean_1 as __moduleExports };",
+      "start": 1714699767706,
+      "end": 1714699768246,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;AAAA,IAAI,kBAAkB,GAAG,UAA+B;AACxD;AACA,IAAI,OAAO,GAAG,UAAoB;AAClC;AACA,IAAI,GAAG,GAAG,UAAgB;AAC1B;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,IAAI,EAAE,KAAK,EAAE,OAAO,EAAE,OAAO,EAAE;AACxC,EAAE,OAAO,kBAAkB,CAAC,GAAG,CAAC,KAAK,EAAE,OAAO,EAAE,OAAO,CAAC,EAAE,OAAO,CAAC,KAAK,CAAC,CAAC;AACzE,CAAC;AACD;IACA,MAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768246,
+      "end": 1714699768246,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768246,
+      "end": 1714699768246,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768246,
+      "end": 1714699768246,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768246,
+      "end": 1714699768246,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768246,
+      "end": 1714699768246,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768246,
+      "end": 1714699768246,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768246,
+      "end": 1714699768246,
+      "order": "normal"
+    }
+  ]
+}

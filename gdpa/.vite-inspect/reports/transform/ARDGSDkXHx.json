@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/about_us.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <div class=\"about-us w-100 bg-white h-full flex flex-col justify-between\">\n    <nav-bar\n      title=\"关于我们\"\n      mode=\"white\"\n    />\n\n    <div class=\"order-content p-[22px] bg-[#fff] flex flex-wrap justify-center overflow-y-auto\">\n      <!-- <div class=\"text-[#787f8c] text-[25px] text-left w-full px-2 mb-1 leading-[42px]\">\n        {{ pay_name }}跨境加密货币金流服务，一个引领金融的钱包。\n        致力于为全球用户提供最安全的支付和资产管理服务。\n        极致体验，安全高效，持续为客户创造更多价值...\n      </div>\n      <div class=\"text-[#787f8c] text-[25px] text-left w-full px-2 mb-1 leading-[42px]\">\n        {{ pay_name }}是以千万级用户的商家为基础，为上万个客户提\n        供安全，灵活，快速的数字支付业务。安全无风险，支 付新趋势！\n      </div>\n      <div class=\"text-[#787f8c] text-[25px] text-left w-full px-2 mb-1 leading-[42px]\">\n        <span class=\"text-[35px]\">✩</span>\n        客户对客户一对一自由贸易，用时短、速度快、可采用支付宝，微信，银行卡等进行交易！\n      </div>\n      <div class=\"text-[#787f8c] text-[25px] text-left w-full px-2 mb-1 leading-[42px]\">\n        <span class=\"text-[35px]\">✩</span>\n        支付稳定，大额无忧，拥有业内顶尖的安全团队，\n        搭建了完善的风险控制架构，确保账户安全，交易更放 心！\n      </div>\n      <div class=\"text-[#787f8c] text-[25px] text-left w-full px-2 mb-1 leading-[42px]\">\n        <span class=\"text-[35px]\">✩</span>\n        不受时间及国家限制，无论何时何地都能完成交易 安全高效，无需远行即可畅玩全球！\n      </div>\n      <div class=\"text-[#787f8c] text-[25px] text-left w-full px-2 mb-1 leading-[42px]\">\n        汇率稳定性高，恒定人民币币值1：1 100%互兑！\n        <br />\n        ❤❤❤ 7 x 24h客服在线，随时响应客户需求！\n      </div> -->\n      <div\n        v-html=\"aboutUsContent\"\n        class=\"text-[#787f8c] text-[25px] text-left w-full px-2 mb-1 leading-[42px]\"\n      ></div>\n    </div>\n  </div>\n</template>\n\n<script setup lang=\"ts\">\nimport { useArticleStore } from '@/store/modules/article'\nimport { useCommonStore } from '@/store/modules/common'\nimport { IArticleListType } from '@/store/types/article'\nimport { computed, ref } from 'vue'\n\nconst pay_name = sessionStorage.getItem('pay_name')\n\nconst articleStore = useArticleStore()\nconst { getArticleListApi } = articleStore\n\nconst commonStore = useCommonStore()\n\nconst aboutUsData = ref<IArticleListType[]>([])\n\nconst aboutUsContent = computed(\n  () => aboutUsData.value[0]?.content.replace(/GDpay/gi, pay_name as string) || ''\n)\n\nconst getAboutUsData = async () => {\n  try {\n    commonStore.setShowLoading(true)\n    const res: IArticleListType[] = await getArticleListApi({\n      bind_key: 'Article_AboutUs',\n      show_joint_key: sessionStorage.getItem('show_joint_key') || ''\n    })\n\n    aboutUsData.value = res\n  } catch (error) {\n    console.error(error)\n  } finally {\n    commonStore.setShowLoading(false)\n  }\n}\n\ngetAboutUsData()\n</script>\n\n<style lang=\"scss\" scoped>\n@import '@/assets/styles/sprite-mine.scss';\n\n.verify {\n  position: relative;\n  flex-direction: column;\n  width: 100%;\n  height: 100%;\n}\n\n.order-content {\n  flex: 1;\n}\n\n:deep(.van-field__label) {\n  font-size: 28px;\n  color: #13161b;\n  margin-bottom: 13px;\n}\n\n:deep(.van-cell__value) {\n  height: 79px;\n  background: #ebf1f6;\n  display: flex;\n  align-items: center;\n  padding: 0 17px;\n  font-size: 25px;\n  margin-bottom: 42px;\n}\n\n:deep(.van-cell:after) {\n  display: none;\n}\n\n:deep(.van-button--large) {\n  width: 96%;\n  height: 80px;\n  margin: 0 auto;\n  font-size: 31px;\n}\n\n:deep(.van-field__body) {\n  width: 100%;\n}\n</style>\n",
+      "start": 1714699769100,
+      "end": 1714699769240,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769240,
+      "end": 1714699769240,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769240,
+      "end": 1714699769240,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769240,
+      "end": 1714699769240,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769240,
+      "end": 1714699769240,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/about_us.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/about_us.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/about_us.vue?vue&type=style&index=0&scoped=e0b20273&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-e0b20273\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/about_us.vue\"]]);\n",
+      "start": 1714699769240,
+      "end": 1714699769529,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769529,
+      "end": 1714699769529,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/about_us.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/about_us.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/about_us.vue?vue&type=style&index=0&scoped=e0b20273&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-e0b20273\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/about_us.vue\"]]);\n",
+      "start": 1714699769529,
+      "end": 1714699769529,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/about_us.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/about_us.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/about_us.vue?vue&type=style&index=0&scoped=e0b20273&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-e0b20273\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/about_us.vue\"]]);\n",
+      "start": 1714699769529,
+      "end": 1714699769672,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/about_us.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/about_us.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/about_us.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/about_us.vue?vue&type=style&index=0&scoped=e0b20273&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-e0b20273\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/about_us.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,mEAAmE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769672,
+      "end": 1714699769672,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769673,
+      "end": 1714699769673,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769673,
+      "end": 1714699769673,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769673,
+      "end": 1714699769673,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769673,
+      "end": 1714699769673,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769673,
+      "end": 1714699769673,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769673,
+      "end": 1714699769673,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769673,
+      "end": 1714699769673,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769673,
+      "end": 1714699769673,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/about_us.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/about_us.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/about_us.vue?vue&type=style&index=0&scoped=e0b20273&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-e0b20273\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/about_us.vue\"]]);\n",
+      "start": 1714699769673,
+      "end": 1714699769673,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/about_us.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/about_us.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/about_us.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/about_us.vue?vue&type=style&index=0&scoped=e0b20273&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-e0b20273\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/about_us.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769673,
+      "end": 1714699769673,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769673,
+      "end": 1714699769673,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769673,
+      "end": 1714699769673,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/NoData.vue?vue&type=style&index=0&scoped=4921b713&lang.scss",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\n.no-data {\n  position: absolute;\n  left: 50%;\n  top: 35%;\n  transform: translate3d(-50%, -50%, 0);\n  img {\n    width: 240px;\n  }\n  .text-no-data {\n    width: 100%;\n    margin-bottom: 22px;\n    font-size: 18px;\n  }\n}\n",
+      "start": 1714699772433,
+      "end": 1714699772433
+    },
+    {
+      "name": "vite:css",
+      "result": ".no-data {\n  position: absolute;\n  left: 50%;\n  top: 35%;\n  transform: translate3d(-50%, -50%, 0);\n}\n.no-data img {\n  width: 3.2rem;\n}\n.no-data .text-no-data {\n  width: 100%;\n  margin-bottom: 0.29333rem;\n  font-size: 0.24rem;\n}",
+      "start": 1714699772433,
+      "end": 1714699772448,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".no-data[data-v-4921b713] {\n  position: absolute;\n  left: 50%;\n  top: 35%;\n  transform: translate3d(-50%, -50%, 0);\n}\n.no-data img[data-v-4921b713] {\n  width: 3.2rem;\n}\n.no-data .text-no-data[data-v-4921b713] {\n  width: 100%;\n  margin-bottom: 0.29333rem;\n  font-size: 0.24rem;\n}",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": ".no-data[data-v-4921b713] {\n  position: absolute;\n  left: 50%;\n  top: 35%;\n  transform: translate3d(-50%, -50%, 0);\n}\n.no-data img[data-v-4921b713] {\n  width: 3.2rem;\n}\n.no-data .text-no-data[data-v-4921b713] {\n  width: 100%;\n  margin-bottom: 0.29333rem;\n  font-size: 0.24rem;\n}",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Common/NoData.vue?vue&type=style&index=0&scoped=4921b713&lang.scss"
+        ],
+        "sourcesContent": [
+          ""
+        ],
+        "names": [],
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/assets/images/common/progressbar-yellow.png",
+  "transforms": [
+    {
+      "name": "vite:asset",
+      "result": "export default \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8EAAAAeCAMAAAA7FuxVAAAAOVBMVEXu2D/YwADjxwDewwD41wDqzAD+3QDlygX/8pPy0QD/4xfUvQD/6Dj/61P/7m7/8Yn/86H/9rX/98Tfb6BuAAAACXRSTlMB////////d4L9l5BVAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA/UlEQVR4nO3by26DMBBA0QEcbDfpI/3/j62gFUnaVdmQkc4xga01ypVXjti0dv0Ent21tVu2t36vQBa/G24fQCYPDbd3IJe7hNsbkM2WcHsF8vlJuF6AjOpa8OUFyOiyHsFH7wLYaTmEywzkVCLq0XsAdqtLwcUyAROYM665xljKXPzMwH9gTjiDMkZfPkBKXcGQWI8O5KVgyCyGfrJMwAR6zjVEPQH59PVdFQyJ1Yjp6D0A/zcur2m52TACOa3XC6ejdwHsshzBEXUCMvq+4S9hyBxwRB2AbLaAJQypA46oZyCTh4C3hgePCZjA+dlD+Nvv2rCDGM4J1Lt+vwCizW9ZjarhogAAAABJRU5ErkJggg==\"",
+      "start": 1714699772251,
+      "end": 1714699772251,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699772251,
+      "end": 1714699772251,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699772251,
+      "end": 1714699772251,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699772251,
+      "end": 1714699772251,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699772251,
+      "end": 1714699772251,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699772251,
+      "end": 1714699772251,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699772251,
+      "end": 1714699772251,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "export default \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8EAAAAeCAMAAAA7FuxVAAAAOVBMVEXu2D/YwADjxwDewwD41wDqzAD+3QDlygX/8pPy0QD/4xfUvQD/6Dj/61P/7m7/8Yn/86H/9rX/98Tfb6BuAAAACXRSTlMB////////d4L9l5BVAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA/UlEQVR4nO3by26DMBBA0QEcbDfpI/3/j62gFUnaVdmQkc4xga01ypVXjti0dv0Ent21tVu2t36vQBa/G24fQCYPDbd3IJe7hNsbkM2WcHsF8vlJuF6AjOpa8OUFyOiyHsFH7wLYaTmEywzkVCLq0XsAdqtLwcUyAROYM665xljKXPzMwH9gTjiDMkZfPkBKXcGQWI8O5KVgyCyGfrJMwAR6zjVEPQH59PVdFQyJ1Yjp6D0A/zcur2m52TACOa3XC6ejdwHsshzBEXUCMvq+4S9hyBxwRB2AbLaAJQypA46oZyCTh4C3hgePCZjA+dlD+Nvv2rCDGM4J1Lt+vwCizW9ZjarhogAAAABJRU5ErkJggg==\"",
+      "start": 1714699772251,
+      "end": 1714699772251,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699772251,
+      "end": 1714699772251,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699772251,
+      "end": 1714699772251,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699772251,
+      "end": 1714699772251,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699772251,
+      "end": 1714699772251,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699772251,
+      "end": 1714699772251,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699772251,
+      "end": 1714699772251,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699772251,
+      "end": 1714699772251,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699772251,
+      "end": 1714699772251,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699772251,
+      "end": 1714699772251,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699772251,
+      "end": 1714699772251,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699772251,
+      "end": 1714699772251,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699772251,
+      "end": 1714699772251,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699772251,
+      "end": 1714699772251,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699772251,
+      "end": 1714699772251,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/flatten.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var isArray = require('./isArray')\r\nvar arrayEach = require('./arrayEach')\r\n\r\nfunction flattenDeep (array, deep) {\r\n  var result = []\r\n  arrayEach(array, function (vals) {\r\n    result = result.concat(isArray(vals) ? (deep ? flattenDeep(vals, deep) : vals) : [vals])\r\n  })\r\n  return result\r\n}\r\n\r\n/**\r\n  * 将一个多维数组铺平\r\n  * @param {Array} array 数组\r\n  * @param {Boolean} deep 是否深层\r\n  * @return {Array}\r\n  */\r\nfunction flatten (array, deep) {\r\n  if (isArray(array)) {\r\n    return flattenDeep(array, deep)\r\n  }\r\n  return []\r\n}\r\n\r\nmodule.exports = flatten\r\n",
+      "start": 1714699767568,
+      "end": 1714699767597,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767597,
+      "end": 1714699767597,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767597,
+      "end": 1714699767597,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767597,
+      "end": 1714699767597,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767597,
+      "end": 1714699767597,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767597,
+      "end": 1714699767597,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767597,
+      "end": 1714699767597,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var isArray = require('./isArray')\r\nvar arrayEach = require('./arrayEach')\r\n\r\nfunction flattenDeep (array, deep) {\r\n  var result = []\r\n  arrayEach(array, function (vals) {\r\n    result = result.concat(isArray(vals) ? (deep ? flattenDeep(vals, deep) : vals) : [vals])\r\n  })\r\n  return result\r\n}\r\n\r\n/**\r\n  * 将一个多维数组铺平\r\n  * @param {Array} array 数组\r\n  * @param {Boolean} deep 是否深层\r\n  * @return {Array}\r\n  */\r\nfunction flatten (array, deep) {\r\n  if (isArray(array)) {\r\n    return flattenDeep(array, deep)\r\n  }\r\n  return []\r\n}\r\n\r\nmodule.exports = flatten\r\n",
+      "start": 1714699767597,
+      "end": 1714699767597,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767597,
+      "end": 1714699767597,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767597,
+      "end": 1714699767597,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767597,
+      "end": 1714699767597,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767597,
+      "end": 1714699767597,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767597,
+      "end": 1714699767597,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767597,
+      "end": 1714699767597,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isArray.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/arrayEach.js?commonjs-proxy\";\n\nvar isArray = require$$0\r\nvar arrayEach = require$$1\r\n\r\nfunction flattenDeep (array, deep) {\r\n  var result = []\r\n  arrayEach(array, function (vals) {\r\n    result = result.concat(isArray(vals) ? (deep ? flattenDeep(vals, deep) : vals) : [vals])\r\n  })\r\n  return result\r\n}\r\n\r\n/**\r\n  * 将一个多维数组铺平\r\n  * @param {Array} array 数组\r\n  * @param {Boolean} deep 是否深层\r\n  * @return {Array}\r\n  */\r\nfunction flatten (array, deep) {\r\n  if (isArray(array)) {\r\n    return flattenDeep(array, deep)\r\n  }\r\n  return []\r\n}\r\n\r\nvar flatten_1 = flatten\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(flatten_1);\nexport { flatten_1 as __moduleExports };",
+      "start": 1714699767597,
+      "end": 1714699768104,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;AAAA,IAAI,OAAO,GAAG,UAAoB;AAClC,IAAI,SAAS,GAAG,UAAsB;AACtC;AACA,SAAS,WAAW,EAAE,KAAK,EAAE,IAAI,EAAE;AACnC,EAAE,IAAI,MAAM,GAAG,EAAE;AACjB,EAAE,SAAS,CAAC,KAAK,EAAE,UAAU,IAAI,EAAE;AACnC,IAAI,MAAM,GAAG,MAAM,CAAC,MAAM,CAAC,OAAO,CAAC,IAAI,CAAC,IAAI,IAAI,GAAG,WAAW,CAAC,IAAI,EAAE,IAAI,CAAC,GAAG,IAAI,IAAI,CAAC,IAAI,CAAC,CAAC;AAC5F,GAAG,CAAC;AACJ,EAAE,OAAO,MAAM;AACf,CAAC;AACD;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,OAAO,EAAE,KAAK,EAAE,IAAI,EAAE;AAC/B,EAAE,IAAI,OAAO,CAAC,KAAK,CAAC,EAAE;AACtB,IAAI,OAAO,WAAW,CAAC,KAAK,EAAE,IAAI,CAAC;AACnC,GAAG;AACH,EAAE,OAAO,EAAE;AACX,CAAC;AACD;IACA,SAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768104,
+      "end": 1714699768104,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768104,
+      "end": 1714699768104,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768104,
+      "end": 1714699768104,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768104,
+      "end": 1714699768104,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768104,
+      "end": 1714699768104,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768104,
+      "end": 1714699768104,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768105,
+      "end": 1714699768105,
+      "order": "normal"
+    }
+  ]
+}

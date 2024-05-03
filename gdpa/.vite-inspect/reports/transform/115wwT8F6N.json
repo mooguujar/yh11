@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/lazyload/vue-lazyload/lazy-container.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { remove } from \"./util.mjs\";\nconst defaultOptions = {\n  selector: \"img\"\n};\nclass LazyContainer {\n  constructor({ el, binding, vnode, lazy }) {\n    this.el = null;\n    this.vnode = vnode;\n    this.binding = binding;\n    this.options = {};\n    this.lazy = lazy;\n    this.queue = [];\n    this.update({ el, binding });\n  }\n  update({ el, binding }) {\n    this.el = el;\n    this.options = Object.assign({}, defaultOptions, binding.value);\n    const imgs = this.getImgs();\n    imgs.forEach((el2) => {\n      this.lazy.add(\n        el2,\n        Object.assign({}, this.binding, {\n          value: {\n            src: \"dataset\" in el2 ? el2.dataset.src : el2.getAttribute(\"data-src\"),\n            error: (\"dataset\" in el2 ? el2.dataset.error : el2.getAttribute(\"data-error\")) || this.options.error,\n            loading: (\"dataset\" in el2 ? el2.dataset.loading : el2.getAttribute(\"data-loading\")) || this.options.loading\n          }\n        }),\n        this.vnode\n      );\n    });\n  }\n  getImgs() {\n    return Array.from(this.el.querySelectorAll(this.options.selector));\n  }\n  clear() {\n    const imgs = this.getImgs();\n    imgs.forEach((el) => this.lazy.remove(el));\n    this.vnode = null;\n    this.binding = null;\n    this.lazy = null;\n  }\n}\nclass LazyContainerManager {\n  constructor({ lazy }) {\n    this.lazy = lazy;\n    this.queue = [];\n  }\n  bind(el, binding, vnode) {\n    const container = new LazyContainer({\n      el,\n      binding,\n      vnode,\n      lazy: this.lazy\n    });\n    this.queue.push(container);\n  }\n  update(el, binding, vnode) {\n    const container = this.queue.find((item) => item.el === el);\n    if (!container)\n      return;\n    container.update({ el, binding, vnode });\n  }\n  unbind(el) {\n    const container = this.queue.find((item) => item.el === el);\n    if (!container)\n      return;\n    container.clear();\n    remove(this.queue, container);\n  }\n}\nexport {\n  LazyContainerManager as default\n};\n",
+      "start": 1714699768212,
+      "end": 1714699768244,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768244,
+      "end": 1714699768244,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768244,
+      "end": 1714699768244,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768244,
+      "end": 1714699768244,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768244,
+      "end": 1714699768244,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768244,
+      "end": 1714699768244,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768244,
+      "end": 1714699768244,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { remove } from \"./util.mjs\";\nconst defaultOptions = {\n  selector: \"img\"\n};\nclass LazyContainer {\n  constructor({ el, binding, vnode, lazy }) {\n    this.el = null;\n    this.vnode = vnode;\n    this.binding = binding;\n    this.options = {};\n    this.lazy = lazy;\n    this.queue = [];\n    this.update({ el, binding });\n  }\n  update({ el, binding }) {\n    this.el = el;\n    this.options = Object.assign({}, defaultOptions, binding.value);\n    const imgs = this.getImgs();\n    imgs.forEach((el2) => {\n      this.lazy.add(\n        el2,\n        Object.assign({}, this.binding, {\n          value: {\n            src: \"dataset\" in el2 ? el2.dataset.src : el2.getAttribute(\"data-src\"),\n            error: (\"dataset\" in el2 ? el2.dataset.error : el2.getAttribute(\"data-error\")) || this.options.error,\n            loading: (\"dataset\" in el2 ? el2.dataset.loading : el2.getAttribute(\"data-loading\")) || this.options.loading\n          }\n        }),\n        this.vnode\n      );\n    });\n  }\n  getImgs() {\n    return Array.from(this.el.querySelectorAll(this.options.selector));\n  }\n  clear() {\n    const imgs = this.getImgs();\n    imgs.forEach((el) => this.lazy.remove(el));\n    this.vnode = null;\n    this.binding = null;\n    this.lazy = null;\n  }\n}\nclass LazyContainerManager {\n  constructor({ lazy }) {\n    this.lazy = lazy;\n    this.queue = [];\n  }\n  bind(el, binding, vnode) {\n    const container = new LazyContainer({\n      el,\n      binding,\n      vnode,\n      lazy: this.lazy\n    });\n    this.queue.push(container);\n  }\n  update(el, binding, vnode) {\n    const container = this.queue.find((item) => item.el === el);\n    if (!container)\n      return;\n    container.update({ el, binding, vnode });\n  }\n  unbind(el) {\n    const container = this.queue.find((item) => item.el === el);\n    if (!container)\n      return;\n    container.clear();\n    remove(this.queue, container);\n  }\n}\nexport {\n  LazyContainerManager as default\n};\n",
+      "start": 1714699768244,
+      "end": 1714699768244,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768244,
+      "end": 1714699768244,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768244,
+      "end": 1714699768244,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768244,
+      "end": 1714699768244,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768244,
+      "end": 1714699768244,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768244,
+      "end": 1714699768244,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768244,
+      "end": 1714699768244,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768244,
+      "end": 1714699768244,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768244,
+      "end": 1714699768244,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768244,
+      "end": 1714699768244,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768244,
+      "end": 1714699768244,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768244,
+      "end": 1714699768244,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768244,
+      "end": 1714699768244,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768244,
+      "end": 1714699768244,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768244,
+      "end": 1714699768244,
+      "order": "normal"
+    }
+  ]
+}

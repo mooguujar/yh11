@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/_cloneBuffer.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import root from './_root.js';\n\n/** Detect free variable `exports`. */\nvar freeExports = typeof exports == 'object' && exports && !exports.nodeType && exports;\n\n/** Detect free variable `module`. */\nvar freeModule = freeExports && typeof module == 'object' && module && !module.nodeType && module;\n\n/** Detect the popular CommonJS extension `module.exports`. */\nvar moduleExports = freeModule && freeModule.exports === freeExports;\n\n/** Built-in value references. */\nvar Buffer = moduleExports ? root.Buffer : undefined,\n    allocUnsafe = Buffer ? Buffer.allocUnsafe : undefined;\n\n/**\n * Creates a clone of  `buffer`.\n *\n * @private\n * @param {Buffer} buffer The buffer to clone.\n * @param {boolean} [isDeep] Specify a deep clone.\n * @returns {Buffer} Returns the cloned buffer.\n */\nfunction cloneBuffer(buffer, isDeep) {\n  if (isDeep) {\n    return buffer.slice();\n  }\n  var length = buffer.length,\n      result = allocUnsafe ? allocUnsafe(length) : new buffer.constructor(length);\n\n  buffer.copy(result);\n  return result;\n}\n\nexport default cloneBuffer;\n",
+      "start": 1714699768839,
+      "end": 1714699768884,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768884,
+      "end": 1714699768884,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768884,
+      "end": 1714699768884,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768884,
+      "end": 1714699768884,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768884,
+      "end": 1714699768884,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768884,
+      "end": 1714699768884,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768884,
+      "end": 1714699768884,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import root from './_root.js';\n\n/** Detect free variable `exports`. */\nvar freeExports = typeof exports == 'object' && exports && !exports.nodeType && exports;\n\n/** Detect free variable `module`. */\nvar freeModule = freeExports && typeof module == 'object' && module && !module.nodeType && module;\n\n/** Detect the popular CommonJS extension `module.exports`. */\nvar moduleExports = freeModule && freeModule.exports === freeExports;\n\n/** Built-in value references. */\nvar Buffer = moduleExports ? root.Buffer : undefined,\n    allocUnsafe = Buffer ? Buffer.allocUnsafe : undefined;\n\n/**\n * Creates a clone of  `buffer`.\n *\n * @private\n * @param {Buffer} buffer The buffer to clone.\n * @param {boolean} [isDeep] Specify a deep clone.\n * @returns {Buffer} Returns the cloned buffer.\n */\nfunction cloneBuffer(buffer, isDeep) {\n  if (isDeep) {\n    return buffer.slice();\n  }\n  var length = buffer.length,\n      result = allocUnsafe ? allocUnsafe(length) : new buffer.constructor(length);\n\n  buffer.copy(result);\n  return result;\n}\n\nexport default cloneBuffer;\n",
+      "start": 1714699768884,
+      "end": 1714699768884,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768884,
+      "end": 1714699768884,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768884,
+      "end": 1714699768884,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768884,
+      "end": 1714699768884,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768884,
+      "end": 1714699768884,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768884,
+      "end": 1714699768884,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768884,
+      "end": 1714699768884,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768884,
+      "end": 1714699768884,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768884,
+      "end": 1714699768884,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768884,
+      "end": 1714699768884,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768884,
+      "end": 1714699768884,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768884,
+      "end": 1714699768884,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768884,
+      "end": 1714699768884,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768884,
+      "end": 1714699768884,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768884,
+      "end": 1714699768884,
+      "order": "normal"
+    }
+  ]
+}

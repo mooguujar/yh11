@@ -1,0 +1,144 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/AppBar/useAppBar.tsx",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { darkIconRouteList } from '@/utils/tools'\nimport { CSSProperties, InjectionKey, Ref, inject, onMounted, onUnmounted, provide, ref } from 'vue'\nimport { useRoute } from 'vue-router'\nimport AppBar from './AppBar.vue'\n\nexport type modeType = 'light' | 'dark'\n\nconst defaultMode = ref<modeType>('light')\n\nconst defaultStyle = {}\nconst defaultRefreshHandler = () => window.location.reload()\nconst defaultCloseHandler = () => window.DIYclose()\n\nconst modeKey = Symbol('mode') as InjectionKey<{\n  mode: Ref<modeType>\n  setMode: (mode: modeType) => void\n}>\nconst styleKey = Symbol('style') as InjectionKey<{\n  style: Ref<CSSProperties>\n  setStyle: (style: CSSProperties) => void\n}>\nconst refreshHandlerKey = Symbol('refresh') as InjectionKey<{\n  onRefresh: Ref<() => void>\n  setRefreshHandler: (handler: () => void) => void\n}>\nconst closeHandlerKey = Symbol('close') as InjectionKey<{\n  onClose: Ref<() => void>\n  setCloseHandler: (handler: () => void) => void\n}>\n\n/**\n * @name: enableAppBar\n * @description 开启AppBar功能\n */\nexport function enableAppBar(_mode: modeType) {\n  const route = useRoute()\n  const mode = ref<modeType>(_mode)\n  const setMode = (_mode: modeType) => {\n    mode.value = _mode\n  }\n\n  const style = ref<CSSProperties>({})\n  const setStyle = (_style: CSSProperties) => {\n    style.value = _style\n  }\n\n  const onRefresh = ref(defaultRefreshHandler)\n  const setRefreshHandler = (handler: () => void) => {\n    onRefresh.value = handler\n  }\n  const onClose = ref(defaultCloseHandler)\n  const setCloseHandler = (handler: () => void) => {\n    onClose.value = handler\n  }\n\n  provide(modeKey, { mode, setMode })\n  provide(styleKey, { style, setStyle })\n  provide(refreshHandlerKey, { onRefresh, setRefreshHandler })\n  provide(closeHandlerKey, { onClose, setCloseHandler })\n  return AppBar\n}\n\nexport function useAppBarProvide() {\n  const { mode } = inject(modeKey) as {\n    mode: Ref<modeType>\n    setMode: (mode: modeType) => void\n  }\n  const { style } = inject(styleKey) as {\n    style: Ref<CSSProperties>\n    setStyle: (style: CSSProperties) => void\n  }\n  const { onRefresh } = inject(refreshHandlerKey) as {\n    onRefresh: Ref<() => void>\n    setRefreshHandler: (handler: () => void) => void\n  }\n  const { onClose } = inject(closeHandlerKey) as {\n    onClose: Ref<() => void>\n    setCloseHandler: (handler: () => void) => void\n  }\n\n  return {\n    mode,\n    style,\n    onRefresh,\n    onClose\n  }\n}\n\n/**\n * @name: useAppBar\n * @description: 组件内部调用，用于设置AppBar样式，以及绑定刷新和关闭事件\n * @param props {CSSProperties & {onRefresh?: () => void, onClose?: () => void}}\n */\nexport function useAppBar(\n  props?: CSSProperties & {\n    mode?: modeType\n    onRefresh?: () => void\n    onClose?: () => void\n  }\n) {\n  const { setMode } = inject(modeKey) as {\n    mode: Ref<modeType>\n    setMode: (mode: modeType) => void\n  }\n  const { setStyle } = inject(styleKey) as {\n    style: Ref<CSSProperties>\n    setStyle: (style: CSSProperties) => void\n  }\n  const { setRefreshHandler } = inject(refreshHandlerKey) as {\n    onRefresh: Ref<() => void>\n    setRefreshHandler: (handler: () => void) => void\n  }\n  const { setCloseHandler } = inject(closeHandlerKey) as {\n    onClose: Ref<() => void>\n    setCloseHandler: (handler: () => void) => void\n  }\n\n  const route = useRoute()\n\n  if (darkIconRouteList.includes(route.name as string)) {\n    defaultMode.value = 'dark'\n  } else {\n    defaultMode.value = 'light'\n  }\n\n  onMounted(() => {\n    if (props) {\n      const { mode, onRefresh, onClose, ...style } = props\n      setStyle(style as CSSProperties)\n      setTimeout(() => {\n        mode && setMode(mode)\n      }, 100)\n      onRefresh && setRefreshHandler(onRefresh)\n      onClose && setCloseHandler(onClose)\n    }\n  })\n\n  onUnmounted(() => {\n    const mode = darkIconRouteList.includes(route.name as string) ? defaultMode.value : 'light'\n    setMode(mode)\n    setStyle(defaultStyle)\n    setCloseHandler(defaultCloseHandler)\n    setRefreshHandler(defaultRefreshHandler)\n  })\n}\n",
+      "start": 1714699768091,
+      "end": 1714699768112,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768112,
+      "end": 1714699768112,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768112,
+      "end": 1714699768112,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768112,
+      "end": 1714699768112,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768112,
+      "end": 1714699768112,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768112,
+      "end": 1714699768112,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "result": "import { darkIconRouteList } from '@/utils/tools';\nimport { inject, onMounted, onUnmounted, provide, ref } from 'vue';\nimport { useRoute } from 'vue-router';\nimport AppBar from './AppBar.vue';\nconst defaultMode = ref('light');\nconst defaultStyle = {};\nconst defaultRefreshHandler = () => window.location.reload();\nconst defaultCloseHandler = () => window.DIYclose();\nconst modeKey = Symbol('mode');\nconst styleKey = Symbol('style');\nconst refreshHandlerKey = Symbol('refresh');\nconst closeHandlerKey = Symbol('close');\n\n/**\n * @name: enableAppBar\n * @description 开启AppBar功能\n */\nexport function enableAppBar(_mode) {\n  const route = useRoute();\n  const mode = ref(_mode);\n  const setMode = _mode => {\n    mode.value = _mode;\n  };\n  const style = ref({});\n  const setStyle = _style => {\n    style.value = _style;\n  };\n  const onRefresh = ref(defaultRefreshHandler);\n  const setRefreshHandler = handler => {\n    onRefresh.value = handler;\n  };\n  const onClose = ref(defaultCloseHandler);\n  const setCloseHandler = handler => {\n    onClose.value = handler;\n  };\n  provide(modeKey, {\n    mode,\n    setMode\n  });\n  provide(styleKey, {\n    style,\n    setStyle\n  });\n  provide(refreshHandlerKey, {\n    onRefresh,\n    setRefreshHandler\n  });\n  provide(closeHandlerKey, {\n    onClose,\n    setCloseHandler\n  });\n  return AppBar;\n}\nexport function useAppBarProvide() {\n  const {\n    mode\n  } = inject(modeKey);\n  const {\n    style\n  } = inject(styleKey);\n  const {\n    onRefresh\n  } = inject(refreshHandlerKey);\n  const {\n    onClose\n  } = inject(closeHandlerKey);\n  return {\n    mode,\n    style,\n    onRefresh,\n    onClose\n  };\n}\n\n/**\n * @name: useAppBar\n * @description: 组件内部调用，用于设置AppBar样式，以及绑定刷新和关闭事件\n * @param props {CSSProperties & {onRefresh?: () => void, onClose?: () => void}}\n */\nexport function useAppBar(props) {\n  const {\n    setMode\n  } = inject(modeKey);\n  const {\n    setStyle\n  } = inject(styleKey);\n  const {\n    setRefreshHandler\n  } = inject(refreshHandlerKey);\n  const {\n    setCloseHandler\n  } = inject(closeHandlerKey);\n  const route = useRoute();\n  if (darkIconRouteList.includes(route.name)) {\n    defaultMode.value = 'dark';\n  } else {\n    defaultMode.value = 'light';\n  }\n  onMounted(() => {\n    if (props) {\n      const {\n        mode,\n        onRefresh,\n        onClose,\n        ...style\n      } = props;\n      setStyle(style);\n      setTimeout(() => {\n        mode && setMode(mode);\n      }, 100);\n      onRefresh && setRefreshHandler(onRefresh);\n      onClose && setCloseHandler(onClose);\n    }\n  });\n  onUnmounted(() => {\n    const mode = darkIconRouteList.includes(route.name) ? defaultMode.value : 'light';\n    setMode(mode);\n    setStyle(defaultStyle);\n    setCloseHandler(defaultCloseHandler);\n    setRefreshHandler(defaultRefreshHandler);\n  });\n}",
+      "start": 1714699768112,
+      "end": 1714699768185,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { darkIconRouteList } from '@/utils/tools';\nimport { inject, onMounted, onUnmounted, provide, ref } from 'vue';\nimport { useRoute } from 'vue-router';\nimport AppBar from './AppBar.vue';\nconst defaultMode = ref('light');\nconst defaultStyle = {};\nconst defaultRefreshHandler = () => window.location.reload();\nconst defaultCloseHandler = () => window.DIYclose();\nconst modeKey = Symbol('mode');\nconst styleKey = Symbol('style');\nconst refreshHandlerKey = Symbol('refresh');\nconst closeHandlerKey = Symbol('close');\n\n/**\n * @name: enableAppBar\n * @description 开启AppBar功能\n */\nexport function enableAppBar(_mode) {\n  const route = useRoute();\n  const mode = ref(_mode);\n  const setMode = _mode => {\n    mode.value = _mode;\n  };\n  const style = ref({});\n  const setStyle = _style => {\n    style.value = _style;\n  };\n  const onRefresh = ref(defaultRefreshHandler);\n  const setRefreshHandler = handler => {\n    onRefresh.value = handler;\n  };\n  const onClose = ref(defaultCloseHandler);\n  const setCloseHandler = handler => {\n    onClose.value = handler;\n  };\n  provide(modeKey, {\n    mode,\n    setMode\n  });\n  provide(styleKey, {\n    style,\n    setStyle\n  });\n  provide(refreshHandlerKey, {\n    onRefresh,\n    setRefreshHandler\n  });\n  provide(closeHandlerKey, {\n    onClose,\n    setCloseHandler\n  });\n  return AppBar;\n}\nexport function useAppBarProvide() {\n  const {\n    mode\n  } = inject(modeKey);\n  const {\n    style\n  } = inject(styleKey);\n  const {\n    onRefresh\n  } = inject(refreshHandlerKey);\n  const {\n    onClose\n  } = inject(closeHandlerKey);\n  return {\n    mode,\n    style,\n    onRefresh,\n    onClose\n  };\n}\n\n/**\n * @name: useAppBar\n * @description: 组件内部调用，用于设置AppBar样式，以及绑定刷新和关闭事件\n * @param props {CSSProperties & {onRefresh?: () => void, onClose?: () => void}}\n */\nexport function useAppBar(props) {\n  const {\n    setMode\n  } = inject(modeKey);\n  const {\n    setStyle\n  } = inject(styleKey);\n  const {\n    setRefreshHandler\n  } = inject(refreshHandlerKey);\n  const {\n    setCloseHandler\n  } = inject(closeHandlerKey);\n  const route = useRoute();\n  if (darkIconRouteList.includes(route.name)) {\n    defaultMode.value = 'dark';\n  } else {\n    defaultMode.value = 'light';\n  }\n  onMounted(() => {\n    if (props) {\n      const {\n        mode,\n        onRefresh,\n        onClose,\n        ...style\n      } = props;\n      setStyle(style);\n      setTimeout(() => {\n        mode && setMode(mode);\n      }, 100);\n      onRefresh && setRefreshHandler(onRefresh);\n      onClose && setCloseHandler(onClose);\n    }\n  });\n  onUnmounted(() => {\n    const mode = darkIconRouteList.includes(route.name) ? defaultMode.value : 'light';\n    setMode(mode);\n    setStyle(defaultStyle);\n    setCloseHandler(defaultCloseHandler);\n    setRefreshHandler(defaultRefreshHandler);\n  });\n}",
+      "start": 1714699768185,
+      "end": 1714699768185,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport { darkIconRouteList } from \"@/utils/tools\";\nimport { inject, onMounted, onUnmounted, provide, ref } from \"vue\";\nimport { useRoute } from \"vue-router\";\nimport AppBar from \"./AppBar.vue\";\nconst defaultMode = ref(\"light\");\nconst defaultStyle = {};\nconst defaultRefreshHandler = () => window.location.reload();\nconst defaultCloseHandler = () => window.DIYclose();\nconst modeKey = Symbol(\"mode\");\nconst styleKey = Symbol(\"style\");\nconst refreshHandlerKey = Symbol(\"refresh\");\nconst closeHandlerKey = Symbol(\"close\");\nexport function enableAppBar(_mode) {\n  const route = useRoute();\n  const mode = ref(_mode);\n  const setMode = (_mode2) => {\n    mode.value = _mode2;\n  };\n  const style = ref({});\n  const setStyle = (_style) => {\n    style.value = _style;\n  };\n  const onRefresh = ref(defaultRefreshHandler);\n  const setRefreshHandler = (handler) => {\n    onRefresh.value = handler;\n  };\n  const onClose = ref(defaultCloseHandler);\n  const setCloseHandler = (handler) => {\n    onClose.value = handler;\n  };\n  provide(modeKey, {\n    mode,\n    setMode\n  });\n  provide(styleKey, {\n    style,\n    setStyle\n  });\n  provide(refreshHandlerKey, {\n    onRefresh,\n    setRefreshHandler\n  });\n  provide(closeHandlerKey, {\n    onClose,\n    setCloseHandler\n  });\n  return AppBar;\n}\nexport function useAppBarProvide() {\n  const {\n    mode\n  } = inject(modeKey);\n  const {\n    style\n  } = inject(styleKey);\n  const {\n    onRefresh\n  } = inject(refreshHandlerKey);\n  const {\n    onClose\n  } = inject(closeHandlerKey);\n  return {\n    mode,\n    style,\n    onRefresh,\n    onClose\n  };\n}\nexport function useAppBar(props) {\n  const {\n    setMode\n  } = inject(modeKey);\n  const {\n    setStyle\n  } = inject(styleKey);\n  const {\n    setRefreshHandler\n  } = inject(refreshHandlerKey);\n  const {\n    setCloseHandler\n  } = inject(closeHandlerKey);\n  const route = useRoute();\n  if (darkIconRouteList.includes(route.name)) {\n    defaultMode.value = \"dark\";\n  } else {\n    defaultMode.value = \"light\";\n  }\n  onMounted(() => {\n    if (props) {\n      const {\n        mode,\n        onRefresh,\n        onClose,\n        ...style\n      } = props;\n      setStyle(style);\n      setTimeout(() => {\n        mode && setMode(mode);\n      }, 100);\n      onRefresh && setRefreshHandler(onRefresh);\n      onClose && setCloseHandler(onClose);\n    }\n  });\n  onUnmounted(() => {\n    const mode = darkIconRouteList.includes(route.name) ? defaultMode.value : \"light\";\n    setMode(mode);\n    setStyle(defaultStyle);\n    setCloseHandler(defaultCloseHandler);\n    setRefreshHandler(defaultRefreshHandler);\n  });\n}\n",
+      "start": 1714699768185,
+      "end": 1714699769061,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/AppBar/useAppBar.tsx\"],\n  \"sourcesContent\": [\"import { darkIconRouteList } from '@/utils/tools';\\nimport { inject, onMounted, onUnmounted, provide, ref } from 'vue';\\nimport { useRoute } from 'vue-router';\\nimport AppBar from './AppBar.vue';\\nconst defaultMode = ref('light');\\nconst defaultStyle = {};\\nconst defaultRefreshHandler = () => window.location.reload();\\nconst defaultCloseHandler = () => window.DIYclose();\\nconst modeKey = Symbol('mode');\\nconst styleKey = Symbol('style');\\nconst refreshHandlerKey = Symbol('refresh');\\nconst closeHandlerKey = Symbol('close');\\n\\n/**\\n * @name: enableAppBar\\n * @description \\u5F00\\u542FAppBar\\u529F\\u80FD\\n */\\nexport function enableAppBar(_mode) {\\n  const route = useRoute();\\n  const mode = ref(_mode);\\n  const setMode = _mode => {\\n    mode.value = _mode;\\n  };\\n  const style = ref({});\\n  const setStyle = _style => {\\n    style.value = _style;\\n  };\\n  const onRefresh = ref(defaultRefreshHandler);\\n  const setRefreshHandler = handler => {\\n    onRefresh.value = handler;\\n  };\\n  const onClose = ref(defaultCloseHandler);\\n  const setCloseHandler = handler => {\\n    onClose.value = handler;\\n  };\\n  provide(modeKey, {\\n    mode,\\n    setMode\\n  });\\n  provide(styleKey, {\\n    style,\\n    setStyle\\n  });\\n  provide(refreshHandlerKey, {\\n    onRefresh,\\n    setRefreshHandler\\n  });\\n  provide(closeHandlerKey, {\\n    onClose,\\n    setCloseHandler\\n  });\\n  return AppBar;\\n}\\nexport function useAppBarProvide() {\\n  const {\\n    mode\\n  } = inject(modeKey);\\n  const {\\n    style\\n  } = inject(styleKey);\\n  const {\\n    onRefresh\\n  } = inject(refreshHandlerKey);\\n  const {\\n    onClose\\n  } = inject(closeHandlerKey);\\n  return {\\n    mode,\\n    style,\\n    onRefresh,\\n    onClose\\n  };\\n}\\n\\n/**\\n * @name: useAppBar\\n * @description: \\u7EC4\\u4EF6\\u5185\\u90E8\\u8C03\\u7528\\uFF0C\\u7528\\u4E8E\\u8BBE\\u7F6EAppBar\\u6837\\u5F0F\\uFF0C\\u4EE5\\u53CA\\u7ED1\\u5B9A\\u5237\\u65B0\\u548C\\u5173\\u95ED\\u4E8B\\u4EF6\\n * @param props {CSSProperties & {onRefresh?: () => void, onClose?: () => void}}\\n */\\nexport function useAppBar(props) {\\n  const {\\n    setMode\\n  } = inject(modeKey);\\n  const {\\n    setStyle\\n  } = inject(styleKey);\\n  const {\\n    setRefreshHandler\\n  } = inject(refreshHandlerKey);\\n  const {\\n    setCloseHandler\\n  } = inject(closeHandlerKey);\\n  const route = useRoute();\\n  if (darkIconRouteList.includes(route.name)) {\\n    defaultMode.value = 'dark';\\n  } else {\\n    defaultMode.value = 'light';\\n  }\\n  onMounted(() => {\\n    if (props) {\\n      const {\\n        mode,\\n        onRefresh,\\n        onClose,\\n        ...style\\n      } = props;\\n      setStyle(style);\\n      setTimeout(() => {\\n        mode && setMode(mode);\\n      }, 100);\\n      onRefresh && setRefreshHandler(onRefresh);\\n      onClose && setCloseHandler(onClose);\\n    }\\n  });\\n  onUnmounted(() => {\\n    const mode = darkIconRouteList.includes(route.name) ? defaultMode.value : 'light';\\n    setMode(mode);\\n    setStyle(defaultStyle);\\n    setCloseHandler(defaultCloseHandler);\\n    setRefreshHandler(defaultRefreshHandler);\\n  });\\n}\"],\n  \"mappings\": \";AAAA,SAAS,yBAAyB;AAClC,SAAS,QAAQ,WAAW,aAAa,SAAS,WAAW;AAC7D,SAAS,gBAAgB;AACzB,OAAO,YAAY;AACnB,MAAM,cAAc,IAAI,OAAO;AAC/B,MAAM,eAAe,CAAC;AACtB,MAAM,wBAAwB,MAAM,OAAO,SAAS,OAAO;AAC3D,MAAM,sBAAsB,MAAM,OAAO,SAAS;AAClD,MAAM,UAAU,OAAO,MAAM;AAC7B,MAAM,WAAW,OAAO,OAAO;AAC/B,MAAM,oBAAoB,OAAO,SAAS;AAC1C,MAAM,kBAAkB,OAAO,OAAO;AAM/B,gBAAS,aAAa,OAAO;AAClC,QAAM,QAAQ,SAAS;AACvB,QAAM,OAAO,IAAI,KAAK;AACtB,QAAM,UAAU,CAAAA,WAAS;AACvB,SAAK,QAAQA;AAAA,EACf;AACA,QAAM,QAAQ,IAAI,CAAC,CAAC;AACpB,QAAM,WAAW,YAAU;AACzB,UAAM,QAAQ;AAAA,EAChB;AACA,QAAM,YAAY,IAAI,qBAAqB;AAC3C,QAAM,oBAAoB,aAAW;AACnC,cAAU,QAAQ;AAAA,EACpB;AACA,QAAM,UAAU,IAAI,mBAAmB;AACvC,QAAM,kBAAkB,aAAW;AACjC,YAAQ,QAAQ;AAAA,EAClB;AACA,UAAQ,SAAS;AAAA,IACf;AAAA,IACA;AAAA,EACF,CAAC;AACD,UAAQ,UAAU;AAAA,IAChB;AAAA,IACA;AAAA,EACF,CAAC;AACD,UAAQ,mBAAmB;AAAA,IACzB;AAAA,IACA;AAAA,EACF,CAAC;AACD,UAAQ,iBAAiB;AAAA,IACvB;AAAA,IACA;AAAA,EACF,CAAC;AACD,SAAO;AACT;AACO,gBAAS,mBAAmB;AACjC,QAAM;AAAA,IACJ;AAAA,EACF,IAAI,OAAO,OAAO;AAClB,QAAM;AAAA,IACJ;AAAA,EACF,IAAI,OAAO,QAAQ;AACnB,QAAM;AAAA,IACJ;AAAA,EACF,IAAI,OAAO,iBAAiB;AAC5B,QAAM;AAAA,IACJ;AAAA,EACF,IAAI,OAAO,eAAe;AAC1B,SAAO;AAAA,IACL;AAAA,IACA;AAAA,IACA;AAAA,IACA;AAAA,EACF;AACF;AAOO,gBAAS,UAAU,OAAO;AAC/B,QAAM;AAAA,IACJ;AAAA,EACF,IAAI,OAAO,OAAO;AAClB,QAAM;AAAA,IACJ;AAAA,EACF,IAAI,OAAO,QAAQ;AACnB,QAAM;AAAA,IACJ;AAAA,EACF,IAAI,OAAO,iBAAiB;AAC5B,QAAM;AAAA,IACJ;AAAA,EACF,IAAI,OAAO,eAAe;AAC1B,QAAM,QAAQ,SAAS;AACvB,MAAI,kBAAkB,SAAS,MAAM,IAAI,GAAG;AAC1C,gBAAY,QAAQ;AAAA,EACtB,OAAO;AACL,gBAAY,QAAQ;AAAA,EACtB;AACA,YAAU,MAAM;AACd,QAAI,OAAO;AACT,YAAM;AAAA,QACJ;AAAA,QACA;AAAA,QACA;AAAA,QACA,GAAG;AAAA,MACL,IAAI;AACJ,eAAS,KAAK;AACd,iBAAW,MAAM;AACf,gBAAQ,QAAQ,IAAI;AAAA,MACtB,GAAG,GAAG;AACN,mBAAa,kBAAkB,SAAS;AACxC,iBAAW,gBAAgB,OAAO;AAAA,IACpC;AAAA,EACF,CAAC;AACD,cAAY,MAAM;AAChB,UAAM,OAAO,kBAAkB,SAAS,MAAM,IAAI,IAAI,YAAY,QAAQ;AAC1E,YAAQ,IAAI;AACZ,aAAS,YAAY;AACrB,oBAAgB,mBAAmB;AACnC,sBAAkB,qBAAqB;AAAA,EACzC,CAAC;AACH;\",\n  \"names\": [\"_mode\"]\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769061,
+      "end": 1714699769061,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769061,
+      "end": 1714699769061,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769061,
+      "end": 1714699769061,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769061,
+      "end": 1714699769061,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769061,
+      "end": 1714699769061,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769061,
+      "end": 1714699769061,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769061,
+      "end": 1714699769061,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769061,
+      "end": 1714699769061,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769061,
+      "end": 1714699769063,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699769063,
+      "end": 1714699769063,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769063,
+      "end": 1714699769063,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769063,
+      "end": 1714699769063,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769063,
+      "end": 1714699769063,
+      "order": "normal"
+    }
+  ]
+}

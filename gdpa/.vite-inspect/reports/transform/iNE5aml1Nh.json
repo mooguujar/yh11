@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/toNumberString.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var helperStringRepeat = require('./helperStringRepeat')\r\nvar helperNumberOffsetPoint = require('./helperNumberOffsetPoint')\r\n\r\n/**\r\n * 数值转字符串，科学计数转字符串\r\n * @param { Number } num 数值\r\n *\r\n * @return {Number}\r\n */\r\nfunction toNumberString(num) {\r\n  var rest = '' + num\r\n  var scienceMatchs = rest.match(/^([-+]?)((\\d+)|((\\d+)?[.](\\d+)?))e([-+]{1})([0-9]+)$/)\r\n  if (scienceMatchs) {\r\n    var isNegative = num < 0\r\n    var absFlag = isNegative ? '-' : ''\r\n    var intNumStr = scienceMatchs[3] || ''\r\n    var dIntNumStr = scienceMatchs[5] || ''\r\n    var dFloatNumStr = scienceMatchs[6] || ''\r\n    var sciencFlag = scienceMatchs[7]\r\n    var scienceNumStr = scienceMatchs[8]\r\n    var floatOffsetIndex = scienceNumStr - dFloatNumStr.length\r\n    var intOffsetIndex = scienceNumStr - intNumStr.length\r\n    var dIntOffsetIndex = scienceNumStr - dIntNumStr.length\r\n    if (sciencFlag === '+') {\r\n      if (intNumStr) {\r\n        return absFlag + intNumStr + helperStringRepeat('0', scienceNumStr)\r\n      }\r\n      if (floatOffsetIndex > 0) {\r\n        return absFlag + dIntNumStr + dFloatNumStr + helperStringRepeat('0', floatOffsetIndex)\r\n      }\r\n      return absFlag + dIntNumStr + helperNumberOffsetPoint(dFloatNumStr, scienceNumStr)\r\n    }\r\n    if (intNumStr) {\r\n      if (intOffsetIndex > 0) {\r\n        return absFlag + '0.' + helperStringRepeat('0', Math.abs(intOffsetIndex)) + intNumStr\r\n      }\r\n      return absFlag + helperNumberOffsetPoint(intNumStr, intOffsetIndex)\r\n    }\r\n    if (dIntOffsetIndex > 0) {\r\n      return absFlag + '0.' + helperStringRepeat('0', Math.abs(dIntOffsetIndex)) + dIntNumStr + dFloatNumStr\r\n    }\r\n    return absFlag + helperNumberOffsetPoint(dIntNumStr, dIntOffsetIndex) + dFloatNumStr\r\n  }\r\n  return rest\r\n}\r\n\r\nmodule.exports = toNumberString\r\n",
+      "start": 1714699767667,
+      "end": 1714699767699,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767699,
+      "end": 1714699767699,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767699,
+      "end": 1714699767699,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767699,
+      "end": 1714699767699,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767699,
+      "end": 1714699767699,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767699,
+      "end": 1714699767699,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767699,
+      "end": 1714699767699,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var helperStringRepeat = require('./helperStringRepeat')\r\nvar helperNumberOffsetPoint = require('./helperNumberOffsetPoint')\r\n\r\n/**\r\n * 数值转字符串，科学计数转字符串\r\n * @param { Number } num 数值\r\n *\r\n * @return {Number}\r\n */\r\nfunction toNumberString(num) {\r\n  var rest = '' + num\r\n  var scienceMatchs = rest.match(/^([-+]?)((\\d+)|((\\d+)?[.](\\d+)?))e([-+]{1})([0-9]+)$/)\r\n  if (scienceMatchs) {\r\n    var isNegative = num < 0\r\n    var absFlag = isNegative ? '-' : ''\r\n    var intNumStr = scienceMatchs[3] || ''\r\n    var dIntNumStr = scienceMatchs[5] || ''\r\n    var dFloatNumStr = scienceMatchs[6] || ''\r\n    var sciencFlag = scienceMatchs[7]\r\n    var scienceNumStr = scienceMatchs[8]\r\n    var floatOffsetIndex = scienceNumStr - dFloatNumStr.length\r\n    var intOffsetIndex = scienceNumStr - intNumStr.length\r\n    var dIntOffsetIndex = scienceNumStr - dIntNumStr.length\r\n    if (sciencFlag === '+') {\r\n      if (intNumStr) {\r\n        return absFlag + intNumStr + helperStringRepeat('0', scienceNumStr)\r\n      }\r\n      if (floatOffsetIndex > 0) {\r\n        return absFlag + dIntNumStr + dFloatNumStr + helperStringRepeat('0', floatOffsetIndex)\r\n      }\r\n      return absFlag + dIntNumStr + helperNumberOffsetPoint(dFloatNumStr, scienceNumStr)\r\n    }\r\n    if (intNumStr) {\r\n      if (intOffsetIndex > 0) {\r\n        return absFlag + '0.' + helperStringRepeat('0', Math.abs(intOffsetIndex)) + intNumStr\r\n      }\r\n      return absFlag + helperNumberOffsetPoint(intNumStr, intOffsetIndex)\r\n    }\r\n    if (dIntOffsetIndex > 0) {\r\n      return absFlag + '0.' + helperStringRepeat('0', Math.abs(dIntOffsetIndex)) + dIntNumStr + dFloatNumStr\r\n    }\r\n    return absFlag + helperNumberOffsetPoint(dIntNumStr, dIntOffsetIndex) + dFloatNumStr\r\n  }\r\n  return rest\r\n}\r\n\r\nmodule.exports = toNumberString\r\n",
+      "start": 1714699767699,
+      "end": 1714699767699,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767699,
+      "end": 1714699767699,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767699,
+      "end": 1714699767699,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767699,
+      "end": 1714699767699,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767699,
+      "end": 1714699767699,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767699,
+      "end": 1714699767699,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767699,
+      "end": 1714699767699,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/helperStringRepeat.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/helperNumberOffsetPoint.js?commonjs-proxy\";\n\nvar helperStringRepeat = require$$0\r\nvar helperNumberOffsetPoint = require$$1\r\n\r\n/**\r\n * 数值转字符串，科学计数转字符串\r\n * @param { Number } num 数值\r\n *\r\n * @return {Number}\r\n */\r\nfunction toNumberString(num) {\r\n  var rest = '' + num\r\n  var scienceMatchs = rest.match(/^([-+]?)((\\d+)|((\\d+)?[.](\\d+)?))e([-+]{1})([0-9]+)$/)\r\n  if (scienceMatchs) {\r\n    var isNegative = num < 0\r\n    var absFlag = isNegative ? '-' : ''\r\n    var intNumStr = scienceMatchs[3] || ''\r\n    var dIntNumStr = scienceMatchs[5] || ''\r\n    var dFloatNumStr = scienceMatchs[6] || ''\r\n    var sciencFlag = scienceMatchs[7]\r\n    var scienceNumStr = scienceMatchs[8]\r\n    var floatOffsetIndex = scienceNumStr - dFloatNumStr.length\r\n    var intOffsetIndex = scienceNumStr - intNumStr.length\r\n    var dIntOffsetIndex = scienceNumStr - dIntNumStr.length\r\n    if (sciencFlag === '+') {\r\n      if (intNumStr) {\r\n        return absFlag + intNumStr + helperStringRepeat('0', scienceNumStr)\r\n      }\r\n      if (floatOffsetIndex > 0) {\r\n        return absFlag + dIntNumStr + dFloatNumStr + helperStringRepeat('0', floatOffsetIndex)\r\n      }\r\n      return absFlag + dIntNumStr + helperNumberOffsetPoint(dFloatNumStr, scienceNumStr)\r\n    }\r\n    if (intNumStr) {\r\n      if (intOffsetIndex > 0) {\r\n        return absFlag + '0.' + helperStringRepeat('0', Math.abs(intOffsetIndex)) + intNumStr\r\n      }\r\n      return absFlag + helperNumberOffsetPoint(intNumStr, intOffsetIndex)\r\n    }\r\n    if (dIntOffsetIndex > 0) {\r\n      return absFlag + '0.' + helperStringRepeat('0', Math.abs(dIntOffsetIndex)) + dIntNumStr + dFloatNumStr\r\n    }\r\n    return absFlag + helperNumberOffsetPoint(dIntNumStr, dIntOffsetIndex) + dFloatNumStr\r\n  }\r\n  return rest\r\n}\r\n\r\nvar toNumberString_1 = toNumberString\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(toNumberString_1);\nexport { toNumberString_1 as __moduleExports };",
+      "start": 1714699767699,
+      "end": 1714699768186,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;AAAA,IAAI,kBAAkB,GAAG,UAA+B;AACxD,IAAI,uBAAuB,GAAG,UAAoC;AAClE;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,cAAc,CAAC,GAAG,EAAE;AAC7B,EAAE,IAAI,IAAI,GAAG,EAAE,GAAG,GAAG;AACrB,EAAE,IAAI,aAAa,GAAG,IAAI,CAAC,KAAK,CAAC,sDAAsD,CAAC;AACxF,EAAE,IAAI,aAAa,EAAE;AACrB,IAAI,IAAI,UAAU,GAAG,GAAG,GAAG,CAAC;AAC5B,IAAI,IAAI,OAAO,GAAG,UAAU,GAAG,GAAG,GAAG,EAAE;AACvC,IAAI,IAAI,SAAS,GAAG,aAAa,CAAC,CAAC,CAAC,IAAI,EAAE;AAC1C,IAAI,IAAI,UAAU,GAAG,aAAa,CAAC,CAAC,CAAC,IAAI,EAAE;AAC3C,IAAI,IAAI,YAAY,GAAG,aAAa,CAAC,CAAC,CAAC,IAAI,EAAE;AAC7C,IAAI,IAAI,UAAU,GAAG,aAAa,CAAC,CAAC,CAAC;AACrC,IAAI,IAAI,aAAa,GAAG,aAAa,CAAC,CAAC,CAAC;AACxC,IAAI,IAAI,gBAAgB,GAAG,aAAa,GAAG,YAAY,CAAC,MAAM;AAC9D,IAAI,IAAI,cAAc,GAAG,aAAa,GAAG,SAAS,CAAC,MAAM;AACzD,IAAI,IAAI,eAAe,GAAG,aAAa,GAAG,UAAU,CAAC,MAAM;AAC3D,IAAI,IAAI,UAAU,KAAK,GAAG,EAAE;AAC5B,MAAM,IAAI,SAAS,EAAE;AACrB,QAAQ,OAAO,OAAO,GAAG,SAAS,GAAG,kBAAkB,CAAC,GAAG,EAAE,aAAa,CAAC;AAC3E,OAAO;AACP,MAAM,IAAI,gBAAgB,GAAG,CAAC,EAAE;AAChC,QAAQ,OAAO,OAAO,GAAG,UAAU,GAAG,YAAY,GAAG,kBAAkB,CAAC,GAAG,EAAE,gBAAgB,CAAC;AAC9F,OAAO;AACP,MAAM,OAAO,OAAO,GAAG,UAAU,GAAG,uBAAuB,CAAC,YAAY,EAAE,aAAa,CAAC;AACxF,KAAK;AACL,IAAI,IAAI,SAAS,EAAE;AACnB,MAAM,IAAI,cAAc,GAAG,CAAC,EAAE;AAC9B,QAAQ,OAAO,OAAO,GAAG,IAAI,GAAG,kBAAkB,CAAC,GAAG,EAAE,IAAI,CAAC,GAAG,CAAC,cAAc,CAAC,CAAC,GAAG,SAAS;AAC7F,OAAO;AACP,MAAM,OAAO,OAAO,GAAG,uBAAuB,CAAC,SAAS,EAAE,cAAc,CAAC;AACzE,KAAK;AACL,IAAI,IAAI,eAAe,GAAG,CAAC,EAAE;AAC7B,MAAM,OAAO,OAAO,GAAG,IAAI,GAAG,kBAAkB,CAAC,GAAG,EAAE,IAAI,CAAC,GAAG,CAAC,eAAe,CAAC,CAAC,GAAG,UAAU,GAAG,YAAY;AAC5G,KAAK;AACL,IAAI,OAAO,OAAO,GAAG,uBAAuB,CAAC,UAAU,EAAE,eAAe,CAAC,GAAG,YAAY;AACxF,GAAG;AACH,EAAE,OAAO,IAAI;AACb,CAAC;AACD;IACA,gBAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768186,
+      "end": 1714699768186,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768186,
+      "end": 1714699768186,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768186,
+      "end": 1714699768186,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768186,
+      "end": 1714699768186,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768186,
+      "end": 1714699768186,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768186,
+      "end": 1714699768186,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768186,
+      "end": 1714699768186,
+      "order": "normal"
+    }
+  ]
+}

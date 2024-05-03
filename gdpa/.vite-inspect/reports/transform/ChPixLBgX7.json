@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/icon/Icon.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { mergeProps as _mergeProps, createVNode as _createVNode } from \"vue\";\nimport { inject, computed, defineComponent } from \"vue\";\nimport { addUnit, numericProp, makeStringProp, createNamespace } from \"../utils/index.mjs\";\nimport { Badge } from \"../badge/index.mjs\";\nimport { CONFIG_PROVIDER_KEY } from \"../config-provider/ConfigProvider.mjs\";\nconst [name, bem] = createNamespace(\"icon\");\nconst isImage = (name2) => name2 == null ? void 0 : name2.includes(\"/\");\nconst iconProps = {\n  dot: Boolean,\n  tag: makeStringProp(\"i\"),\n  name: String,\n  size: numericProp,\n  badge: numericProp,\n  color: String,\n  badgeProps: Object,\n  classPrefix: String\n};\nvar stdin_default = defineComponent({\n  name,\n  props: iconProps,\n  setup(props, {\n    slots\n  }) {\n    const config = inject(CONFIG_PROVIDER_KEY, null);\n    const classPrefix = computed(() => props.classPrefix || (config == null ? void 0 : config.iconPrefix) || bem());\n    return () => {\n      const {\n        tag,\n        dot,\n        name: name2,\n        size,\n        badge,\n        color\n      } = props;\n      const isImageIcon = isImage(name2);\n      return _createVNode(Badge, _mergeProps({\n        \"dot\": dot,\n        \"tag\": tag,\n        \"class\": [classPrefix.value, isImageIcon ? \"\" : `${classPrefix.value}-${name2}`],\n        \"style\": {\n          color,\n          fontSize: addUnit(size)\n        },\n        \"content\": badge\n      }, props.badgeProps), {\n        default: () => {\n          var _a;\n          return [(_a = slots.default) == null ? void 0 : _a.call(slots), isImageIcon && _createVNode(\"img\", {\n            \"class\": bem(\"image\"),\n            \"src\": name2\n          }, null)];\n        }\n      });\n    };\n  }\n});\nexport {\n  stdin_default as default,\n  iconProps\n};\n",
+      "start": 1714699767291,
+      "end": 1714699767312,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { mergeProps as _mergeProps, createVNode as _createVNode } from \"vue\";\nimport { inject, computed, defineComponent } from \"vue\";\nimport { addUnit, numericProp, makeStringProp, createNamespace } from \"../utils/index.mjs\";\nimport { Badge } from \"../badge/index.mjs\";\nimport { CONFIG_PROVIDER_KEY } from \"../config-provider/ConfigProvider.mjs\";\nconst [name, bem] = createNamespace(\"icon\");\nconst isImage = (name2) => name2 == null ? void 0 : name2.includes(\"/\");\nconst iconProps = {\n  dot: Boolean,\n  tag: makeStringProp(\"i\"),\n  name: String,\n  size: numericProp,\n  badge: numericProp,\n  color: String,\n  badgeProps: Object,\n  classPrefix: String\n};\nvar stdin_default = defineComponent({\n  name,\n  props: iconProps,\n  setup(props, {\n    slots\n  }) {\n    const config = inject(CONFIG_PROVIDER_KEY, null);\n    const classPrefix = computed(() => props.classPrefix || (config == null ? void 0 : config.iconPrefix) || bem());\n    return () => {\n      const {\n        tag,\n        dot,\n        name: name2,\n        size,\n        badge,\n        color\n      } = props;\n      const isImageIcon = isImage(name2);\n      return _createVNode(Badge, _mergeProps({\n        \"dot\": dot,\n        \"tag\": tag,\n        \"class\": [classPrefix.value, isImageIcon ? \"\" : `${classPrefix.value}-${name2}`],\n        \"style\": {\n          color,\n          fontSize: addUnit(size)\n        },\n        \"content\": badge\n      }, props.badgeProps), {\n        default: () => {\n          var _a;\n          return [(_a = slots.default) == null ? void 0 : _a.call(slots), isImageIcon && _createVNode(\"img\", {\n            \"class\": bem(\"image\"),\n            \"src\": name2\n          }, null)];\n        }\n      });\n    };\n  }\n});\nexport {\n  stdin_default as default,\n  iconProps\n};\n",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767312,
+      "end": 1714699767312,
+      "order": "normal"
+    }
+  ]
+}

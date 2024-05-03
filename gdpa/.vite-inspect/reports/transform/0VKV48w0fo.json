@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/axios@1.6.7/node_modules/axios/lib/core/buildFullPath.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "'use strict';\n\nimport isAbsoluteURL from '../helpers/isAbsoluteURL.js';\nimport combineURLs from '../helpers/combineURLs.js';\n\n/**\n * Creates a new URL by combining the baseURL with the requestedURL,\n * only when the requestedURL is not already an absolute URL.\n * If the requestURL is absolute, this function returns the requestedURL untouched.\n *\n * @param {string} baseURL The base URL\n * @param {string} requestedURL Absolute or relative URL to combine\n *\n * @returns {string} The combined full path\n */\nexport default function buildFullPath(baseURL, requestedURL) {\n  if (baseURL && !isAbsoluteURL(requestedURL)) {\n    return combineURLs(baseURL, requestedURL);\n  }\n  return requestedURL;\n}\n",
+      "start": 1714699770744,
+      "end": 1714699770761,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699770761,
+      "end": 1714699770761,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699770761,
+      "end": 1714699770761,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699770761,
+      "end": 1714699770761,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699770761,
+      "end": 1714699770761,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699770761,
+      "end": 1714699770761,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699770761,
+      "end": 1714699770761,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "'use strict';\n\nimport isAbsoluteURL from '../helpers/isAbsoluteURL.js';\nimport combineURLs from '../helpers/combineURLs.js';\n\n/**\n * Creates a new URL by combining the baseURL with the requestedURL,\n * only when the requestedURL is not already an absolute URL.\n * If the requestURL is absolute, this function returns the requestedURL untouched.\n *\n * @param {string} baseURL The base URL\n * @param {string} requestedURL Absolute or relative URL to combine\n *\n * @returns {string} The combined full path\n */\nexport default function buildFullPath(baseURL, requestedURL) {\n  if (baseURL && !isAbsoluteURL(requestedURL)) {\n    return combineURLs(baseURL, requestedURL);\n  }\n  return requestedURL;\n}\n",
+      "start": 1714699770761,
+      "end": 1714699770761,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699770761,
+      "end": 1714699770761,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770761,
+      "end": 1714699770761,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699770761,
+      "end": 1714699770761,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770761,
+      "end": 1714699770761,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770761,
+      "end": 1714699770761,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770761,
+      "end": 1714699770761,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770761,
+      "end": 1714699770761,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770761,
+      "end": 1714699770761,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770761,
+      "end": 1714699770761,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770761,
+      "end": 1714699770761,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699770761,
+      "end": 1714699770761,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770761,
+      "end": 1714699770761,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770761,
+      "end": 1714699770761,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770761,
+      "end": 1714699770761,
+      "order": "normal"
+    }
+  ]
+}

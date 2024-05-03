@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/TImer.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <div>\n    <span class=\"progress-bar-seconds\">{{ timeText }}</span>\n  </div>\n</template>\n\n<script lang=\"ts\">\nimport { computed } from 'vue'\nimport { ref, onMounted, onUnmounted } from 'vue'\n\nexport default {\n  props: {\n    value: {\n      type: Number,\n      default: 0,\n      required: true\n    }\n  },\n  setup(props) {\n    const seconds = ref(0)\n    const min = ref('00')\n    const sec = ref('00')\n    const timeText = ref('00:00')\n\n    let _timerId: any = null\n\n    const transToTimeText = (seconds: number) => {\n      let minutes = Math.floor(seconds / 60)\n      let extraSeconds = seconds % 60\n      min.value = minutes < 10 ? '0' + minutes : `${minutes <= 0 ? '00' : minutes}`\n      sec.value =\n        extraSeconds < 10 ? '0' + extraSeconds : `${extraSeconds <= 0 ? '00' : extraSeconds}`\n      return `${min.value}:${sec.value}`\n    }\n    onMounted(() => {\n      seconds.value = props.value\n      timeText.value = transToTimeText(props.value)\n      if (seconds.value > 0) {\n        _timerId = setInterval(() => {\n          seconds.value--\n          console.log(transToTimeText(seconds.value), 'transToTimeText(seconds.value)')\n          timeText.value = transToTimeText(seconds.value)\n          console.log(timeText.value, 'timeText.value')\n          if (seconds.value <= 0) {\n            clearInterval(_timerId)\n          }\n        }, 1000)\n      }\n    })\n\n    onUnmounted(() => clearInterval(_timerId))\n\n    return {\n      seconds,\n      timeText\n    }\n  }\n}\n</script>\n",
+      "start": 1714699770836,
+      "end": 1714699770844,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699770844,
+      "end": 1714699770844,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699770844,
+      "end": 1714699770844,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699770844,
+      "end": 1714699770844,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699770844,
+      "end": 1714699770844,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/TImer.vue?vue&type=script&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/TImer.vue?vue&type=script&lang.ts\";\nimport { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"progress-bar-seconds\" };\nfunction _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {\n  return _openBlock(), _createElementBlock(\"div\", null, [\n    _createElementVNode(\n      \"span\",\n      _hoisted_1,\n      _toDisplayString($setup.timeText),\n      1\n      /* TEXT */\n    )\n  ]);\n}\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"render\", _sfc_render], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/TImer.vue\"]]);\n",
+      "start": 1714699770844,
+      "end": 1714699771814,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771814,
+      "end": 1714699771814,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/TImer.vue?vue&type=script&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/TImer.vue?vue&type=script&lang.ts\";\nimport { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"progress-bar-seconds\" };\nfunction _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {\n  return _openBlock(), _createElementBlock(\"div\", null, [\n    _createElementVNode(\n      \"span\",\n      _hoisted_1,\n      _toDisplayString($setup.timeText),\n      1\n      /* TEXT */\n    )\n  ]);\n}\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"render\", _sfc_render], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/TImer.vue\"]]);\n",
+      "start": 1714699771814,
+      "end": 1714699771814,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/TImer.vue?vue&type=script&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/TImer.vue?vue&type=script&lang.ts\";\nimport { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"progress-bar-seconds\" };\nfunction _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {\n  return _openBlock(), _createElementBlock(\"div\", null, [\n    _createElementVNode(\n      \"span\",\n      _hoisted_1,\n      _toDisplayString($setup.timeText),\n      1\n      /* TEXT */\n    )\n  ]);\n}\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"render\", _sfc_render], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/TImer.vue\"]]);\n",
+      "start": 1714699771814,
+      "end": 1714699771932,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/TImer.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/TImer.vue?vue&type=script&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/TImer.vue?vue&type=script&lang.ts\\\";\\nimport { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \\\"vue\\\";\\nconst _hoisted_1 = { class: \\\"progress-bar-seconds\\\" };\\nfunction _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {\\n  return _openBlock(), _createElementBlock(\\\"div\\\", null, [\\n    _createElementVNode(\\n      \\\"span\\\",\\n      _hoisted_1,\\n      _toDisplayString($setup.timeText),\\n      1\\n      /* TEXT */\\n    )\\n  ]);\\n}\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"render\\\", _sfc_render], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/TImer.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,SAAS,mBAAmB,kBAAkB,sBAAsB,qBAAqB,aAAa,YAAY,sBAAsB,2BAA2B;AACnK,MAAM,aAAa,EAAE,OAAO,uBAAuB;AACnD,SAAS,YAAY,MAAM,QAAQ,QAAQ,QAAQ,OAAO,UAAU;AAClE,SAAO,WAAW,GAAG,oBAAoB,OAAO,MAAM;AAAA,IACpD;AAAA,MACE;AAAA,MACA;AAAA,MACA,iBAAiB,OAAO,QAAQ;AAAA,MAChC;AAAA;AAAA,IAEF;AAAA,EACF,CAAC;AACH;AACA,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,UAAU,WAAW,GAAG,CAAC,UAAU,gEAAgE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771932,
+      "end": 1714699771933,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/TImer.vue?vue&type=script&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/TImer.vue?vue&type=script&lang.ts\";\nimport { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"progress-bar-seconds\" };\nfunction _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {\n  return _openBlock(), _createElementBlock(\"div\", null, [\n    _createElementVNode(\n      \"span\",\n      _hoisted_1,\n      _toDisplayString($setup.timeText),\n      1\n      /* TEXT */\n    )\n  ]);\n}\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"render\", _sfc_render], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/TImer.vue\"]]);\n",
+      "start": 1714699771933,
+      "end": 1714699771933,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/TImer.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/TImer.vue?vue&type=script&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/TImer.vue?vue&type=script&lang.ts\";\nimport { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"progress-bar-seconds\" };\nfunction _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {\n  return _openBlock(), _createElementBlock(\"div\", null, [\n    _createElementVNode(\n      \"span\",\n      _hoisted_1,\n      _toDisplayString($setup.timeText),\n      1\n      /* TEXT */\n    )\n  ]);\n}\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"render\", _sfc_render], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/TImer.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771933,
+      "end": 1714699771933,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771933,
+      "end": 1714699771933,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771933,
+      "end": 1714699771933,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/AppBar/AppBar.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <div\n    class=\"app-bar InWEB\"\n    :class=\"wideMode ? mode + ' wideMode' : mode\"\n    :style=\"styleComputed\"\n    v-if=\"isInWEB\"\n  >\n    <div\n      v-if=\"\n        !$route.fullPath.includes('cardReceive') &&\n        !$route.fullPath.includes('giftCard') &&\n        !$route.fullPath.includes('auth') &&\n        !$route.fullPath.includes('country') &&\n        !$route.fullPath.includes('scanQR')\n      \"\n      class=\"app-bar-item\"\n    >\n      <img\n        alt=\"\"\n        :src=\"iconRefresh\"\n        @click=\"onRefresh\"\n      />\n    </div>\n  </div>\n\n  <div\n    class=\"app-bar\"\n    :class=\"mode\"\n    :style=\"styleComputed\"\n    v-else\n  >\n    <div class=\"app-bar-item\">\n      <img\n        alt=\"\"\n        :src=\"iconRefresh\"\n        @click=\"onRefresh\"\n      />\n    </div>\n    <div class=\"app-bar-item\">\n      <img\n        alt=\"\"\n        :src=\"iconClose\"\n        @click=\"onClose\"\n      />\n    </div>\n  </div>\n</template>\n\n<script setup lang=\"ts\">\nimport { InWEB, mergeHrefParams } from '@/utils/tools'\nimport { isNumber } from 'lodash-es'\nimport { CSSProperties, computed, ref } from 'vue'\nimport IconCloseIconDark from './icon/close-dark.png'\nimport IconCloseIconLight from './icon/close-light.png'\nimport IconRefreshIconDark from './icon/refresh-dark.png'\nimport IconRefreshIconLight from './icon/refresh-light.png'\nimport { useAppBarProvide } from './useAppBar'\n\nconst search = new URLSearchParams(mergeHrefParams())\nconst operation_verification = search.get('operation_verification') || ''\nconst isInWEB = ref(InWEB() || operation_verification)\nconst onlineCharge = ref(0)\nonlineCharge.value = !!operation_verification ? 1 : 0\nconst hs = search.get('hs') || ''\nconst wideMode = hs == 'h'\nfunction px2rem(px: number | string) {\n  return +px / 75\n}\n\nfunction styleValueConverter(value: string | number) {\n  if (isNumber(value)) {\n    return `${px2rem(value)}rem`\n  } else if (/^\\d+(\\.\\d+)?px$/.test(value as string)) {\n    return `${px2rem(Number((value as string).slice(0, -2)))}rem`\n  }\n  return value\n}\n\nfunction styleConverter(style: CSSProperties) {\n  return Object.entries(style).reduce((acc: Record<string, any>, [key, value]) => {\n    acc[key] = styleValueConverter(value)\n    return acc\n  }, {})\n}\n\nconst styleComputed = computed(() => {\n  return styleConverter(style.value)\n})\n\nconst { mode, style, onClose, onRefresh } = useAppBarProvide()\n\nconst iconRefresh = computed(() => {\n  return mode.value === 'light' ? IconRefreshIconLight : IconRefreshIconDark\n})\n\nconst iconClose = computed(() => {\n  return mode.value === 'light' ? IconCloseIconLight : IconCloseIconDark\n})\n</script>\n<style scoped lang=\"scss\">\n.app-bar {\n  position: absolute;\n  display: flex;\n  top: calc(constant(safe-area-inset-top) + 22px);\n  top: calc(env(safe-area-inset-top) + 22px);\n  right: 19px;\n  width: 153px;\n  height: 56px;\n  border-radius: 40px;\n  border-width: 1px;\n  border-style: solid;\n  z-index: 1000;\n  background: #fff;\n  &.wideMode {\n    width: 118px;\n    height: calc(1 / var(--scale-factor) * 45px);\n    // margin-right: -95px;\n    right: 0 !important;\n    top: calc(constant(safe-area-inset-top));\n    top: calc(env(safe-area-inset-top));\n    .app-bar-item {\n      width: unset;\n      padding: 0;\n      img {\n        width: 30px;\n        height: 27px;\n      }\n    }\n  }\n  &::after {\n    content: '';\n    position: absolute;\n    top: 3px;\n    bottom: 3px;\n    left: 50%;\n    width: 1px;\n  }\n  &.light {\n    background: transparent;\n    border-color: rgba(0, 0, 0, 0.7);\n    &::after {\n      background-color: rgba(0, 0, 0, 0.7);\n    }\n    // .app-bar-item img {\n    //   filter: brightness(0) invert(1);\n    // }\n  }\n  &.dark {\n    background: transparent;\n    border-color: #e3e3e3;\n    &::after {\n      background-color: #e3e3e3;\n    }\n  }\n  &-item {\n    width: 50%;\n    font-size: 12px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    padding: 8px;\n    img {\n      height: 100%;\n    }\n  }\n}\n.InWEB {\n  border: none;\n  margin-right: -70px;\n  &::after {\n    content: none;\n  }\n}\n</style>\n",
+      "start": 1714699769064,
+      "end": 1714699769066,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769066,
+      "end": 1714699769066,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769066,
+      "end": 1714699769066,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769066,
+      "end": 1714699769066,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769066,
+      "end": 1714699769066,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/AppBar/AppBar.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/AppBar/AppBar.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/AppBar/AppBar.vue?vue&type=style&index=0&scoped=f5712619&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-f5712619\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/AppBar/AppBar.vue\"]]);\n",
+      "start": 1714699769066,
+      "end": 1714699769490,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769490,
+      "end": 1714699769490,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/AppBar/AppBar.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/AppBar/AppBar.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/AppBar/AppBar.vue?vue&type=style&index=0&scoped=f5712619&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-f5712619\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/AppBar/AppBar.vue\"]]);\n",
+      "start": 1714699769490,
+      "end": 1714699769490,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/AppBar/AppBar.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/AppBar/AppBar.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/AppBar/AppBar.vue?vue&type=style&index=0&scoped=f5712619&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-f5712619\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/AppBar/AppBar.vue\"]]);\n",
+      "start": 1714699769490,
+      "end": 1714699769587,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/AppBar/AppBar.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/AppBar/AppBar.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/AppBar/AppBar.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/AppBar/AppBar.vue?vue&type=style&index=0&scoped=f5712619&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-f5712619\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/AppBar/AppBar.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,wEAAwE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769587,
+      "end": 1714699769587,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769587,
+      "end": 1714699769587,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769588,
+      "end": 1714699769588,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769588,
+      "end": 1714699769588,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769588,
+      "end": 1714699769588,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769588,
+      "end": 1714699769588,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769588,
+      "end": 1714699769588,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769588,
+      "end": 1714699769588,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769588,
+      "end": 1714699769588,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/AppBar/AppBar.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/AppBar/AppBar.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/AppBar/AppBar.vue?vue&type=style&index=0&scoped=f5712619&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-f5712619\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/AppBar/AppBar.vue\"]]);\n",
+      "start": 1714699769589,
+      "end": 1714699769589,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/AppBar/AppBar.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/AppBar/AppBar.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/AppBar/AppBar.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/AppBar/AppBar.vue?vue&type=style&index=0&scoped=f5712619&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-f5712619\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/AppBar/AppBar.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769589,
+      "end": 1714699769589,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769589,
+      "end": 1714699769589,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769589,
+      "end": 1714699769589,
+      "order": "normal"
+    }
+  ]
+}

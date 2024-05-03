@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vue-clipboard3@2.0.0/node_modules/vue-clipboard3/dist/esm/index.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import Clipboard from 'clipboard';\nexport default (opts) => {\n    // default appendToBody true\n    const appendToBody = (opts === null || opts === void 0 ? void 0 : opts.appendToBody) === undefined ? true : opts.appendToBody;\n    return {\n        toClipboard(text, container) {\n            return new Promise((resolve, reject) => {\n                // make fake element\n                const fakeEl = document.createElement('button');\n                // setup a new Clipboard.js\n                const clipboard = new Clipboard(fakeEl, {\n                    text: () => text,\n                    action: () => 'copy',\n                    container: container !== undefined ? container : document.body\n                });\n                clipboard.on('success', (e) => {\n                    clipboard.destroy();\n                    resolve(e);\n                });\n                clipboard.on('error', (e) => {\n                    clipboard.destroy();\n                    reject(e);\n                });\n                // appendToBody fixes IE\n                if (appendToBody)\n                    document.body.appendChild(fakeEl);\n                // simulate click\n                fakeEl.click();\n                // remove from body if appended\n                if (appendToBody)\n                    document.body.removeChild(fakeEl);\n            });\n        }\n    };\n};\n//# sourceMappingURL=index.js.map",
+      "start": 1714699770836,
+      "end": 1714699770844,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699770844,
+      "end": 1714699770844,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699770844,
+      "end": 1714699770844,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699770844,
+      "end": 1714699770844,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699770844,
+      "end": 1714699770844,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699770844,
+      "end": 1714699770844,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699770844,
+      "end": 1714699770844,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import Clipboard from 'clipboard';\nexport default (opts) => {\n    // default appendToBody true\n    const appendToBody = (opts === null || opts === void 0 ? void 0 : opts.appendToBody) === undefined ? true : opts.appendToBody;\n    return {\n        toClipboard(text, container) {\n            return new Promise((resolve, reject) => {\n                // make fake element\n                const fakeEl = document.createElement('button');\n                // setup a new Clipboard.js\n                const clipboard = new Clipboard(fakeEl, {\n                    text: () => text,\n                    action: () => 'copy',\n                    container: container !== undefined ? container : document.body\n                });\n                clipboard.on('success', (e) => {\n                    clipboard.destroy();\n                    resolve(e);\n                });\n                clipboard.on('error', (e) => {\n                    clipboard.destroy();\n                    reject(e);\n                });\n                // appendToBody fixes IE\n                if (appendToBody)\n                    document.body.appendChild(fakeEl);\n                // simulate click\n                fakeEl.click();\n                // remove from body if appended\n                if (appendToBody)\n                    document.body.removeChild(fakeEl);\n            });\n        }\n    };\n};\n//# sourceMappingURL=index.js.map",
+      "start": 1714699770844,
+      "end": 1714699770844,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699770844,
+      "end": 1714699770844,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770844,
+      "end": 1714699770844,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699770844,
+      "end": 1714699770844,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770844,
+      "end": 1714699770844,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770844,
+      "end": 1714699770844,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770844,
+      "end": 1714699770844,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770844,
+      "end": 1714699770844,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770844,
+      "end": 1714699770844,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770844,
+      "end": 1714699770844,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770844,
+      "end": 1714699770844,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699770844,
+      "end": 1714699770844,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770844,
+      "end": 1714699770844,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770844,
+      "end": 1714699770844,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770844,
+      "end": 1714699770844,
+      "order": "normal"
+    }
+  ]
+}

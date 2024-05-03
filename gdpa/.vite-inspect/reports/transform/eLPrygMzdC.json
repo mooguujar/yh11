@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/utils/props.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "const unknownProp = null;\nconst numericProp = [Number, String];\nconst truthProp = {\n  type: Boolean,\n  default: true\n};\nconst makeRequiredProp = (type) => ({\n  type,\n  required: true\n});\nconst makeArrayProp = () => ({\n  type: Array,\n  default: () => []\n});\nconst makeNumberProp = (defaultVal) => ({\n  type: Number,\n  default: defaultVal\n});\nconst makeNumericProp = (defaultVal) => ({\n  type: numericProp,\n  default: defaultVal\n});\nconst makeStringProp = (defaultVal) => ({\n  type: String,\n  default: defaultVal\n});\nexport {\n  makeArrayProp,\n  makeNumberProp,\n  makeNumericProp,\n  makeRequiredProp,\n  makeStringProp,\n  numericProp,\n  truthProp,\n  unknownProp\n};\n",
+      "start": 1714699767784,
+      "end": 1714699767867,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767867,
+      "end": 1714699767867,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767867,
+      "end": 1714699767867,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767867,
+      "end": 1714699767867,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767867,
+      "end": 1714699767867,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767867,
+      "end": 1714699767867,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767867,
+      "end": 1714699767867,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "const unknownProp = null;\nconst numericProp = [Number, String];\nconst truthProp = {\n  type: Boolean,\n  default: true\n};\nconst makeRequiredProp = (type) => ({\n  type,\n  required: true\n});\nconst makeArrayProp = () => ({\n  type: Array,\n  default: () => []\n});\nconst makeNumberProp = (defaultVal) => ({\n  type: Number,\n  default: defaultVal\n});\nconst makeNumericProp = (defaultVal) => ({\n  type: numericProp,\n  default: defaultVal\n});\nconst makeStringProp = (defaultVal) => ({\n  type: String,\n  default: defaultVal\n});\nexport {\n  makeArrayProp,\n  makeNumberProp,\n  makeNumericProp,\n  makeRequiredProp,\n  makeStringProp,\n  numericProp,\n  truthProp,\n  unknownProp\n};\n",
+      "start": 1714699767867,
+      "end": 1714699767867,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767867,
+      "end": 1714699767867,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767867,
+      "end": 1714699767867,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767867,
+      "end": 1714699767867,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767867,
+      "end": 1714699767867,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767867,
+      "end": 1714699767867,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767867,
+      "end": 1714699767867,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767867,
+      "end": 1714699767867,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767867,
+      "end": 1714699767867,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767867,
+      "end": 1714699767867,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767867,
+      "end": 1714699767867,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767867,
+      "end": 1714699767867,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767867,
+      "end": 1714699767867,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767867,
+      "end": 1714699767867,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767867,
+      "end": 1714699767868,
+      "order": "normal"
+    }
+  ]
+}

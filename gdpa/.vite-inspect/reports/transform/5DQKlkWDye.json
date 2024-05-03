@@ -1,0 +1,163 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue?vue&type=style&index=1&lang.scss",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\n.van-popup {\n  &.toast-task {\n    white-space: nowrap;\n  }\n}\n",
+      "start": 1714699772436,
+      "end": 1714699772436
+    },
+    {
+      "name": "vite:css",
+      "result": ".van-popup.toast-task {\n  white-space: nowrap;\n}",
+      "start": 1714699772436,
+      "end": 1714699772448,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".van-popup.toast-task {\n  white-space: nowrap;\n}",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": ".van-popup.toast-task {\n  white-space: nowrap;\n}",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/Task.vue?vue&type=style&index=1&lang.scss"
+        ],
+        "sourcesContent": [
+          ""
+        ],
+        "names": [],
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699772448,
+      "end": 1714699772448,
+      "order": "normal"
+    }
+  ]
+}

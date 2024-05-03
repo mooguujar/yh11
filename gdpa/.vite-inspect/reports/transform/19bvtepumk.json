@@ -1,0 +1,142 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/grid-item/GridItem.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode, mergeProps as _mergeProps } from \"vue\";\nimport { computed, defineComponent } from \"vue\";\nimport { BORDER, extend, addUnit, numericProp, createNamespace } from \"../utils/index.mjs\";\nimport { GRID_KEY } from \"../grid/Grid.mjs\";\nimport { useParent } from \"@vant/use\";\nimport { useRoute, routeProps } from \"../composables/use-route.mjs\";\nimport { Icon } from \"../icon/index.mjs\";\nimport { Badge } from \"../badge/index.mjs\";\nconst [name, bem] = createNamespace(\"grid-item\");\nconst gridItemProps = extend({}, routeProps, {\n  dot: Boolean,\n  text: String,\n  icon: String,\n  badge: numericProp,\n  iconColor: String,\n  iconPrefix: String,\n  badgeProps: Object\n});\nvar stdin_default = defineComponent({\n  name,\n  props: gridItemProps,\n  setup(props, {\n    slots\n  }) {\n    const {\n      parent,\n      index\n    } = useParent(GRID_KEY);\n    const route = useRoute();\n    if (!parent) {\n      if (process.env.NODE_ENV !== \"production\") {\n        console.error(\"[Vant] <GridItem> must be a child component of <Grid>.\");\n      }\n      return;\n    }\n    const rootStyle = computed(() => {\n      const {\n        square,\n        gutter,\n        columnNum\n      } = parent.props;\n      const percent = `${100 / +columnNum}%`;\n      const style = {\n        flexBasis: percent\n      };\n      if (square) {\n        style.paddingTop = percent;\n      } else if (gutter) {\n        const gutterValue = addUnit(gutter);\n        style.paddingRight = gutterValue;\n        if (index.value >= +columnNum) {\n          style.marginTop = gutterValue;\n        }\n      }\n      return style;\n    });\n    const contentStyle = computed(() => {\n      const {\n        square,\n        gutter\n      } = parent.props;\n      if (square && gutter) {\n        const gutterValue = addUnit(gutter);\n        return {\n          right: gutterValue,\n          bottom: gutterValue,\n          height: \"auto\"\n        };\n      }\n    });\n    const renderIcon = () => {\n      if (slots.icon) {\n        return _createVNode(Badge, _mergeProps({\n          \"dot\": props.dot,\n          \"content\": props.badge\n        }, props.badgeProps), {\n          default: slots.icon\n        });\n      }\n      if (props.icon) {\n        return _createVNode(Icon, {\n          \"dot\": props.dot,\n          \"name\": props.icon,\n          \"size\": parent.props.iconSize,\n          \"badge\": props.badge,\n          \"class\": bem(\"icon\"),\n          \"color\": props.iconColor,\n          \"badgeProps\": props.badgeProps,\n          \"classPrefix\": props.iconPrefix\n        }, null);\n      }\n    };\n    const renderText = () => {\n      if (slots.text) {\n        return slots.text();\n      }\n      if (props.text) {\n        return _createVNode(\"span\", {\n          \"class\": bem(\"text\")\n        }, [props.text]);\n      }\n    };\n    const renderContent = () => {\n      if (slots.default) {\n        return slots.default();\n      }\n      return [renderIcon(), renderText()];\n    };\n    return () => {\n      const {\n        center,\n        border,\n        square,\n        gutter,\n        reverse,\n        direction,\n        clickable\n      } = parent.props;\n      const classes = [bem(\"content\", [direction, {\n        center,\n        square,\n        reverse,\n        clickable,\n        surround: border && gutter\n      }]), {\n        [BORDER]: border\n      }];\n      return _createVNode(\"div\", {\n        \"class\": [bem({\n          square\n        })],\n        \"style\": rootStyle.value\n      }, [_createVNode(\"div\", {\n        \"role\": clickable ? \"button\" : void 0,\n        \"class\": classes,\n        \"style\": contentStyle.value,\n        \"tabindex\": clickable ? 0 : void 0,\n        \"onClick\": route\n      }, [renderContent()])]);\n    };\n  }\n});\nexport {\n  stdin_default as default,\n  gridItemProps\n};\n",
+      "start": 1714699767284,
+      "end": 1714699767300,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767300,
+      "end": 1714699767300,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767300,
+      "end": 1714699767300,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767300,
+      "end": 1714699767300,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767300,
+      "end": 1714699767300,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767300,
+      "end": 1714699767300,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767300,
+      "end": 1714699767300,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { createVNode as _createVNode, mergeProps as _mergeProps } from \"vue\";\nimport { computed, defineComponent } from \"vue\";\nimport { BORDER, extend, addUnit, numericProp, createNamespace } from \"../utils/index.mjs\";\nimport { GRID_KEY } from \"../grid/Grid.mjs\";\nimport { useParent } from \"@vant/use\";\nimport { useRoute, routeProps } from \"../composables/use-route.mjs\";\nimport { Icon } from \"../icon/index.mjs\";\nimport { Badge } from \"../badge/index.mjs\";\nconst [name, bem] = createNamespace(\"grid-item\");\nconst gridItemProps = extend({}, routeProps, {\n  dot: Boolean,\n  text: String,\n  icon: String,\n  badge: numericProp,\n  iconColor: String,\n  iconPrefix: String,\n  badgeProps: Object\n});\nvar stdin_default = defineComponent({\n  name,\n  props: gridItemProps,\n  setup(props, {\n    slots\n  }) {\n    const {\n      parent,\n      index\n    } = useParent(GRID_KEY);\n    const route = useRoute();\n    if (!parent) {\n      if (process.env.NODE_ENV !== \"production\") {\n        console.error(\"[Vant] <GridItem> must be a child component of <Grid>.\");\n      }\n      return;\n    }\n    const rootStyle = computed(() => {\n      const {\n        square,\n        gutter,\n        columnNum\n      } = parent.props;\n      const percent = `${100 / +columnNum}%`;\n      const style = {\n        flexBasis: percent\n      };\n      if (square) {\n        style.paddingTop = percent;\n      } else if (gutter) {\n        const gutterValue = addUnit(gutter);\n        style.paddingRight = gutterValue;\n        if (index.value >= +columnNum) {\n          style.marginTop = gutterValue;\n        }\n      }\n      return style;\n    });\n    const contentStyle = computed(() => {\n      const {\n        square,\n        gutter\n      } = parent.props;\n      if (square && gutter) {\n        const gutterValue = addUnit(gutter);\n        return {\n          right: gutterValue,\n          bottom: gutterValue,\n          height: \"auto\"\n        };\n      }\n    });\n    const renderIcon = () => {\n      if (slots.icon) {\n        return _createVNode(Badge, _mergeProps({\n          \"dot\": props.dot,\n          \"content\": props.badge\n        }, props.badgeProps), {\n          default: slots.icon\n        });\n      }\n      if (props.icon) {\n        return _createVNode(Icon, {\n          \"dot\": props.dot,\n          \"name\": props.icon,\n          \"size\": parent.props.iconSize,\n          \"badge\": props.badge,\n          \"class\": bem(\"icon\"),\n          \"color\": props.iconColor,\n          \"badgeProps\": props.badgeProps,\n          \"classPrefix\": props.iconPrefix\n        }, null);\n      }\n    };\n    const renderText = () => {\n      if (slots.text) {\n        return slots.text();\n      }\n      if (props.text) {\n        return _createVNode(\"span\", {\n          \"class\": bem(\"text\")\n        }, [props.text]);\n      }\n    };\n    const renderContent = () => {\n      if (slots.default) {\n        return slots.default();\n      }\n      return [renderIcon(), renderText()];\n    };\n    return () => {\n      const {\n        center,\n        border,\n        square,\n        gutter,\n        reverse,\n        direction,\n        clickable\n      } = parent.props;\n      const classes = [bem(\"content\", [direction, {\n        center,\n        square,\n        reverse,\n        clickable,\n        surround: border && gutter\n      }]), {\n        [BORDER]: border\n      }];\n      return _createVNode(\"div\", {\n        \"class\": [bem({\n          square\n        })],\n        \"style\": rootStyle.value\n      }, [_createVNode(\"div\", {\n        \"role\": clickable ? \"button\" : void 0,\n        \"class\": classes,\n        \"style\": contentStyle.value,\n        \"tabindex\": clickable ? 0 : void 0,\n        \"onClick\": route\n      }, [renderContent()])]);\n    };\n  }\n});\nexport {\n  stdin_default as default,\n  gridItemProps\n};\n",
+      "start": 1714699767300,
+      "end": 1714699767300,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767300,
+      "end": 1714699767300,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "result": "import { createVNode as _createVNode, mergeProps as _mergeProps } from \"vue\";\nimport { computed, defineComponent } from \"vue\";\nimport { BORDER, extend, addUnit, numericProp, createNamespace } from \"../utils/index.mjs\";\nimport { GRID_KEY } from \"../grid/Grid.mjs\";\nimport { useParent } from \"@vant/use\";\nimport { useRoute, routeProps } from \"../composables/use-route.mjs\";\nimport { Icon } from \"../icon/index.mjs\";\nimport { Badge } from \"../badge/index.mjs\";\nconst [name, bem] = createNamespace(\"grid-item\");\nconst gridItemProps = extend({}, routeProps, {\n  dot: Boolean,\n  text: String,\n  icon: String,\n  badge: numericProp,\n  iconColor: String,\n  iconPrefix: String,\n  badgeProps: Object\n});\nvar stdin_default = defineComponent({\n  name,\n  props: gridItemProps,\n  setup(props, {\n    slots\n  }) {\n    const {\n      parent,\n      index\n    } = useParent(GRID_KEY);\n    const route = useRoute();\n    if (!parent) {\n      if (true) {\n        console.error(\"[Vant] <GridItem> must be a child component of <Grid>.\");\n      }\n      return;\n    }\n    const rootStyle = computed(() => {\n      const {\n        square,\n        gutter,\n        columnNum\n      } = parent.props;\n      const percent = `${100 / +columnNum}%`;\n      const style = {\n        flexBasis: percent\n      };\n      if (square) {\n        style.paddingTop = percent;\n      } else if (gutter) {\n        const gutterValue = addUnit(gutter);\n        style.paddingRight = gutterValue;\n        if (index.value >= +columnNum) {\n          style.marginTop = gutterValue;\n        }\n      }\n      return style;\n    });\n    const contentStyle = computed(() => {\n      const {\n        square,\n        gutter\n      } = parent.props;\n      if (square && gutter) {\n        const gutterValue = addUnit(gutter);\n        return {\n          right: gutterValue,\n          bottom: gutterValue,\n          height: \"auto\"\n        };\n      }\n    });\n    const renderIcon = () => {\n      if (slots.icon) {\n        return _createVNode(Badge, _mergeProps({\n          \"dot\": props.dot,\n          \"content\": props.badge\n        }, props.badgeProps), {\n          default: slots.icon\n        });\n      }\n      if (props.icon) {\n        return _createVNode(Icon, {\n          \"dot\": props.dot,\n          \"name\": props.icon,\n          \"size\": parent.props.iconSize,\n          \"badge\": props.badge,\n          \"class\": bem(\"icon\"),\n          \"color\": props.iconColor,\n          \"badgeProps\": props.badgeProps,\n          \"classPrefix\": props.iconPrefix\n        }, null);\n      }\n    };\n    const renderText = () => {\n      if (slots.text) {\n        return slots.text();\n      }\n      if (props.text) {\n        return _createVNode(\"span\", {\n          \"class\": bem(\"text\")\n        }, [props.text]);\n      }\n    };\n    const renderContent = () => {\n      if (slots.default) {\n        return slots.default();\n      }\n      return [renderIcon(), renderText()];\n    };\n    return () => {\n      const {\n        center,\n        border,\n        square,\n        gutter,\n        reverse,\n        direction,\n        clickable\n      } = parent.props;\n      const classes = [bem(\"content\", [direction, {\n        center,\n        square,\n        reverse,\n        clickable,\n        surround: border && gutter\n      }]), {\n        [BORDER]: border\n      }];\n      return _createVNode(\"div\", {\n        \"class\": [bem({\n          square\n        })],\n        \"style\": rootStyle.value\n      }, [_createVNode(\"div\", {\n        \"role\": clickable ? \"button\" : void 0,\n        \"class\": classes,\n        \"style\": contentStyle.value,\n        \"tabindex\": clickable ? 0 : void 0,\n        \"onClick\": route\n      }, [renderContent()])]);\n    };\n  }\n});\nexport {\n  stdin_default as default,\n  gridItemProps\n};\n",
+      "start": 1714699767300,
+      "end": 1714699767491,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767491,
+      "end": 1714699767491,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767491,
+      "end": 1714699767491,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767491,
+      "end": 1714699767491,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767491,
+      "end": 1714699767491,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767491,
+      "end": 1714699767491,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767491,
+      "end": 1714699767491,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767491,
+      "end": 1714699767491,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767491,
+      "end": 1714699767491,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767491,
+      "end": 1714699767491,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767491,
+      "end": 1714699767491,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767491,
+      "end": 1714699767491,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767491,
+      "end": 1714699767491,
+      "order": "normal"
+    }
+  ]
+}

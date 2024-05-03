@@ -1,0 +1,163 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/components/QuickCoins.vue?vue&type=style&index=1&lang.scss",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\n.dialog-bind-pay-way {\n  padding-bottom: 32px;\n  .dialog-title {\n    height: 50px;\n  }\n  .dialog-content {\n    height: 120px;\n    text-align: center;\n  }\n}\n\n.Tutorial_dialog {\n  top: 50%;\n  .van-dialog__content {\n    padding: 20px;\n    .text-center {\n      height: 1128px;\n      overflow: auto;\n    }\n  }\n}\n",
+      "start": 1714699772036,
+      "end": 1714699772036
+    },
+    {
+      "name": "vite:css",
+      "result": ".dialog-bind-pay-way {\n  padding-bottom: 0.42667rem;\n}\n.dialog-bind-pay-way .dialog-title {\n  height: 0.66667rem;\n}\n.dialog-bind-pay-way .dialog-content {\n  height: 1.6rem;\n  text-align: center;\n}\n.Tutorial_dialog {\n  top: 50%;\n}\n.Tutorial_dialog .van-dialog__content {\n  padding: 0.26667rem;\n}\n.Tutorial_dialog .van-dialog__content .text-center {\n  height: 15.04rem;\n  overflow: auto;\n}",
+      "start": 1714699772036,
+      "end": 1714699772069,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699772069,
+      "end": 1714699772069,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699772069,
+      "end": 1714699772069,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699772074,
+      "end": 1714699772074,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".dialog-bind-pay-way {\n  padding-bottom: 0.42667rem;\n}\n.dialog-bind-pay-way .dialog-title {\n  height: 0.66667rem;\n}\n.dialog-bind-pay-way .dialog-content {\n  height: 1.6rem;\n  text-align: center;\n}\n.Tutorial_dialog {\n  top: 50%;\n}\n.Tutorial_dialog .van-dialog__content {\n  padding: 0.26667rem;\n}\n.Tutorial_dialog .van-dialog__content .text-center {\n  height: 15.04rem;\n  overflow: auto;\n}",
+      "start": 1714699772074,
+      "end": 1714699772077,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699772077,
+      "end": 1714699772077,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": ".dialog-bind-pay-way {\n  padding-bottom: 0.42667rem;\n}\n.dialog-bind-pay-way .dialog-title {\n  height: 0.66667rem;\n}\n.dialog-bind-pay-way .dialog-content {\n  height: 1.6rem;\n  text-align: center;\n}\n.Tutorial_dialog {\n  top: 50%;\n}\n.Tutorial_dialog .van-dialog__content {\n  padding: 0.26667rem;\n}\n.Tutorial_dialog .van-dialog__content .text-center {\n  height: 15.04rem;\n  overflow: auto;\n}",
+      "start": 1714699772077,
+      "end": 1714699772077,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699772081,
+      "end": 1714699772081,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699772081,
+      "end": 1714699772081,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699772081,
+      "end": 1714699772081,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699772081,
+      "end": 1714699772081,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699772081,
+      "end": 1714699772081,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699772081,
+      "end": 1714699772081,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699772081,
+      "end": 1714699772081,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699772081,
+      "end": 1714699772081,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699772081,
+      "end": 1714699772081,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699772081,
+      "end": 1714699772082,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */",
+      "start": 1714699772082,
+      "end": 1714699772082,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/components/QuickCoins.vue?vue&type=style&index=1&lang.scss"
+        ],
+        "sourcesContent": [
+          ""
+        ],
+        "names": [],
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699772082,
+      "end": 1714699772082,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699772082,
+      "end": 1714699772082,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699772082,
+      "end": 1714699772082,
+      "order": "normal"
+    }
+  ]
+}

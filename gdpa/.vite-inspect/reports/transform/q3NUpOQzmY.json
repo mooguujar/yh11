@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/reed-solomon-encoder.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "const Polynomial = require('./polynomial')\n\nfunction ReedSolomonEncoder (degree) {\n  this.genPoly = undefined\n  this.degree = degree\n\n  if (this.degree) this.initialize(this.degree)\n}\n\n/**\n * Initialize the encoder.\n * The input param should correspond to the number of error correction codewords.\n *\n * @param  {Number} degree\n */\nReedSolomonEncoder.prototype.initialize = function initialize (degree) {\n  // create an irreducible generator polynomial\n  this.degree = degree\n  this.genPoly = Polynomial.generateECPolynomial(this.degree)\n}\n\n/**\n * Encodes a chunk of data\n *\n * @param  {Uint8Array} data Buffer containing input data\n * @return {Uint8Array}      Buffer containing encoded data\n */\nReedSolomonEncoder.prototype.encode = function encode (data) {\n  if (!this.genPoly) {\n    throw new Error('Encoder not initialized')\n  }\n\n  // Calculate EC for this data block\n  // extends data size to data+genPoly size\n  const paddedData = new Uint8Array(data.length + this.degree)\n  paddedData.set(data)\n\n  // The error correction codewords are the remainder after dividing the data codewords\n  // by a generator polynomial\n  const remainder = Polynomial.mod(paddedData, this.genPoly)\n\n  // return EC data blocks (last n byte, where n is the degree of genPoly)\n  // If coefficients number in remainder are less than genPoly degree,\n  // pad with 0s to the left to reach the needed number of coefficients\n  const start = this.degree - remainder.length\n  if (start > 0) {\n    const buff = new Uint8Array(this.degree)\n    buff.set(remainder, start)\n\n    return buff\n  }\n\n  return remainder\n}\n\nmodule.exports = ReedSolomonEncoder\n",
+      "start": 1714699771036,
+      "end": 1714699771059,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771059,
+      "end": 1714699771059,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771059,
+      "end": 1714699771059,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771059,
+      "end": 1714699771059,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771059,
+      "end": 1714699771059,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771059,
+      "end": 1714699771059,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771059,
+      "end": 1714699771059,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "const Polynomial = require('./polynomial')\n\nfunction ReedSolomonEncoder (degree) {\n  this.genPoly = undefined\n  this.degree = degree\n\n  if (this.degree) this.initialize(this.degree)\n}\n\n/**\n * Initialize the encoder.\n * The input param should correspond to the number of error correction codewords.\n *\n * @param  {Number} degree\n */\nReedSolomonEncoder.prototype.initialize = function initialize (degree) {\n  // create an irreducible generator polynomial\n  this.degree = degree\n  this.genPoly = Polynomial.generateECPolynomial(this.degree)\n}\n\n/**\n * Encodes a chunk of data\n *\n * @param  {Uint8Array} data Buffer containing input data\n * @return {Uint8Array}      Buffer containing encoded data\n */\nReedSolomonEncoder.prototype.encode = function encode (data) {\n  if (!this.genPoly) {\n    throw new Error('Encoder not initialized')\n  }\n\n  // Calculate EC for this data block\n  // extends data size to data+genPoly size\n  const paddedData = new Uint8Array(data.length + this.degree)\n  paddedData.set(data)\n\n  // The error correction codewords are the remainder after dividing the data codewords\n  // by a generator polynomial\n  const remainder = Polynomial.mod(paddedData, this.genPoly)\n\n  // return EC data blocks (last n byte, where n is the degree of genPoly)\n  // If coefficients number in remainder are less than genPoly degree,\n  // pad with 0s to the left to reach the needed number of coefficients\n  const start = this.degree - remainder.length\n  if (start > 0) {\n    const buff = new Uint8Array(this.degree)\n    buff.set(remainder, start)\n\n    return buff\n  }\n\n  return remainder\n}\n\nmodule.exports = ReedSolomonEncoder\n",
+      "start": 1714699771059,
+      "end": 1714699771059,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699771059,
+      "end": 1714699771059,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771059,
+      "end": 1714699771059,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771059,
+      "end": 1714699771059,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771059,
+      "end": 1714699771059,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771059,
+      "end": 1714699771059,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771059,
+      "end": 1714699771059,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/polynomial.js?commonjs-proxy\";\n\nconst Polynomial = require$$0\n\nfunction ReedSolomonEncoder (degree) {\n  this.genPoly = undefined\n  this.degree = degree\n\n  if (this.degree) this.initialize(this.degree)\n}\n\n/**\n * Initialize the encoder.\n * The input param should correspond to the number of error correction codewords.\n *\n * @param  {Number} degree\n */\nReedSolomonEncoder.prototype.initialize = function initialize (degree) {\n  // create an irreducible generator polynomial\n  this.degree = degree\n  this.genPoly = Polynomial.generateECPolynomial(this.degree)\n}\n\n/**\n * Encodes a chunk of data\n *\n * @param  {Uint8Array} data Buffer containing input data\n * @return {Uint8Array}      Buffer containing encoded data\n */\nReedSolomonEncoder.prototype.encode = function encode (data) {\n  if (!this.genPoly) {\n    throw new Error('Encoder not initialized')\n  }\n\n  // Calculate EC for this data block\n  // extends data size to data+genPoly size\n  const paddedData = new Uint8Array(data.length + this.degree)\n  paddedData.set(data)\n\n  // The error correction codewords are the remainder after dividing the data codewords\n  // by a generator polynomial\n  const remainder = Polynomial.mod(paddedData, this.genPoly)\n\n  // return EC data blocks (last n byte, where n is the degree of genPoly)\n  // If coefficients number in remainder are less than genPoly degree,\n  // pad with 0s to the left to reach the needed number of coefficients\n  const start = this.degree - remainder.length\n  if (start > 0) {\n    const buff = new Uint8Array(this.degree)\n    buff.set(remainder, start)\n\n    return buff\n  }\n\n  return remainder\n}\n\nvar reedSolomonEncoder = ReedSolomonEncoder\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(reedSolomonEncoder);\nexport { reedSolomonEncoder as __moduleExports };",
+      "start": 1714699771059,
+      "end": 1714699771115,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;AAAA,MAAM,UAAU,GAAG,UAAuB;AAC1C;AACA,SAAS,kBAAkB,EAAE,MAAM,EAAE;AACrC,EAAE,IAAI,CAAC,OAAO,GAAG,SAAS;AAC1B,EAAE,IAAI,CAAC,MAAM,GAAG,MAAM;AACtB;AACA,EAAE,IAAI,IAAI,CAAC,MAAM,EAAE,IAAI,CAAC,UAAU,CAAC,IAAI,CAAC,MAAM,CAAC;AAC/C,CAAC;AACD;AACA;AACA;AACA;AACA;AACA;AACA;AACA,kBAAkB,CAAC,SAAS,CAAC,UAAU,GAAG,SAAS,UAAU,EAAE,MAAM,EAAE;AACvE;AACA,EAAE,IAAI,CAAC,MAAM,GAAG,MAAM;AACtB,EAAE,IAAI,CAAC,OAAO,GAAG,UAAU,CAAC,oBAAoB,CAAC,IAAI,CAAC,MAAM,CAAC;AAC7D,CAAC;AACD;AACA;AACA;AACA;AACA;AACA;AACA;AACA,kBAAkB,CAAC,SAAS,CAAC,MAAM,GAAG,SAAS,MAAM,EAAE,IAAI,EAAE;AAC7D,EAAE,IAAI,CAAC,IAAI,CAAC,OAAO,EAAE;AACrB,IAAI,MAAM,IAAI,KAAK,CAAC,yBAAyB,CAAC;AAC9C,GAAG;AACH;AACA;AACA;AACA,EAAE,MAAM,UAAU,GAAG,IAAI,UAAU,CAAC,IAAI,CAAC,MAAM,GAAG,IAAI,CAAC,MAAM,CAAC;AAC9D,EAAE,UAAU,CAAC,GAAG,CAAC,IAAI,CAAC;AACtB;AACA;AACA;AACA,EAAE,MAAM,SAAS,GAAG,UAAU,CAAC,GAAG,CAAC,UAAU,EAAE,IAAI,CAAC,OAAO,CAAC;AAC5D;AACA;AACA;AACA;AACA,EAAE,MAAM,KAAK,GAAG,IAAI,CAAC,MAAM,GAAG,SAAS,CAAC,MAAM;AAC9C,EAAE,IAAI,KAAK,GAAG,CAAC,EAAE;AACjB,IAAI,MAAM,IAAI,GAAG,IAAI,UAAU,CAAC,IAAI,CAAC,MAAM,CAAC;AAC5C,IAAI,IAAI,CAAC,GAAG,CAAC,SAAS,EAAE,KAAK,CAAC;AAC9B;AACA,IAAI,OAAO,IAAI;AACf,GAAG;AACH;AACA,EAAE,OAAO,SAAS;AAClB,CAAC;AACD;IACA,kBAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771115,
+      "end": 1714699771115,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771115,
+      "end": 1714699771115,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771115,
+      "end": 1714699771115,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699771115,
+      "end": 1714699771115,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771115,
+      "end": 1714699771116,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771116,
+      "end": 1714699771116,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771116,
+      "end": 1714699771116,
+      "order": "normal"
+    }
+  ]
+}

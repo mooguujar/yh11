@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/tree-select/TreeSelect.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { defineComponent } from \"vue\";\nimport { addUnit, makeArrayProp, makeStringProp, makeNumericProp, createNamespace } from \"../utils/index.mjs\";\nimport { Icon } from \"../icon/index.mjs\";\nimport { Sidebar } from \"../sidebar/index.mjs\";\nimport { SidebarItem } from \"../sidebar-item/index.mjs\";\nconst [name, bem] = createNamespace(\"tree-select\");\nconst treeSelectProps = {\n  max: makeNumericProp(Infinity),\n  items: makeArrayProp(),\n  height: makeNumericProp(300),\n  selectedIcon: makeStringProp(\"success\"),\n  mainActiveIndex: makeNumericProp(0),\n  activeId: {\n    type: [Number, String, Array],\n    default: 0\n  }\n};\nvar stdin_default = defineComponent({\n  name,\n  props: treeSelectProps,\n  emits: [\"clickNav\", \"clickItem\", \"update:activeId\", \"update:mainActiveIndex\"],\n  setup(props, {\n    emit,\n    slots\n  }) {\n    const isActiveItem = (id) => Array.isArray(props.activeId) ? props.activeId.includes(id) : props.activeId === id;\n    const renderSubItem = (item) => {\n      const onClick = () => {\n        if (item.disabled) {\n          return;\n        }\n        let activeId;\n        if (Array.isArray(props.activeId)) {\n          activeId = props.activeId.slice();\n          const index = activeId.indexOf(item.id);\n          if (index !== -1) {\n            activeId.splice(index, 1);\n          } else if (activeId.length < +props.max) {\n            activeId.push(item.id);\n          }\n        } else {\n          activeId = item.id;\n        }\n        emit(\"update:activeId\", activeId);\n        emit(\"clickItem\", item);\n      };\n      return _createVNode(\"div\", {\n        \"key\": item.id,\n        \"class\": [\"van-ellipsis\", bem(\"item\", {\n          active: isActiveItem(item.id),\n          disabled: item.disabled\n        })],\n        \"onClick\": onClick\n      }, [item.text, isActiveItem(item.id) && _createVNode(Icon, {\n        \"name\": props.selectedIcon,\n        \"class\": bem(\"selected\")\n      }, null)]);\n    };\n    const onSidebarChange = (index) => {\n      emit(\"update:mainActiveIndex\", index);\n    };\n    const onClickSidebarItem = (index) => emit(\"clickNav\", index);\n    const renderSidebar = () => {\n      const Items = props.items.map((item) => _createVNode(SidebarItem, {\n        \"dot\": item.dot,\n        \"badge\": item.badge,\n        \"class\": [bem(\"nav-item\"), item.className],\n        \"disabled\": item.disabled,\n        \"onClick\": onClickSidebarItem\n      }, {\n        title: () => slots[\"nav-text\"] ? slots[\"nav-text\"](item) : item.text\n      }));\n      return _createVNode(Sidebar, {\n        \"class\": bem(\"nav\"),\n        \"modelValue\": props.mainActiveIndex,\n        \"onChange\": onSidebarChange\n      }, {\n        default: () => [Items]\n      });\n    };\n    const renderContent = () => {\n      if (slots.content) {\n        return slots.content();\n      }\n      const selected = props.items[+props.mainActiveIndex] || {};\n      if (selected.children) {\n        return selected.children.map(renderSubItem);\n      }\n    };\n    return () => _createVNode(\"div\", {\n      \"class\": bem(),\n      \"style\": {\n        height: addUnit(props.height)\n      }\n    }, [renderSidebar(), _createVNode(\"div\", {\n      \"class\": bem(\"content\")\n    }, [renderContent()])]);\n  }\n});\nexport {\n  stdin_default as default,\n  treeSelectProps\n};\n",
+      "start": 1714699767509,
+      "end": 1714699767527,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767527,
+      "end": 1714699767527,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767527,
+      "end": 1714699767527,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767527,
+      "end": 1714699767527,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767527,
+      "end": 1714699767527,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767527,
+      "end": 1714699767527,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767527,
+      "end": 1714699767527,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { defineComponent } from \"vue\";\nimport { addUnit, makeArrayProp, makeStringProp, makeNumericProp, createNamespace } from \"../utils/index.mjs\";\nimport { Icon } from \"../icon/index.mjs\";\nimport { Sidebar } from \"../sidebar/index.mjs\";\nimport { SidebarItem } from \"../sidebar-item/index.mjs\";\nconst [name, bem] = createNamespace(\"tree-select\");\nconst treeSelectProps = {\n  max: makeNumericProp(Infinity),\n  items: makeArrayProp(),\n  height: makeNumericProp(300),\n  selectedIcon: makeStringProp(\"success\"),\n  mainActiveIndex: makeNumericProp(0),\n  activeId: {\n    type: [Number, String, Array],\n    default: 0\n  }\n};\nvar stdin_default = defineComponent({\n  name,\n  props: treeSelectProps,\n  emits: [\"clickNav\", \"clickItem\", \"update:activeId\", \"update:mainActiveIndex\"],\n  setup(props, {\n    emit,\n    slots\n  }) {\n    const isActiveItem = (id) => Array.isArray(props.activeId) ? props.activeId.includes(id) : props.activeId === id;\n    const renderSubItem = (item) => {\n      const onClick = () => {\n        if (item.disabled) {\n          return;\n        }\n        let activeId;\n        if (Array.isArray(props.activeId)) {\n          activeId = props.activeId.slice();\n          const index = activeId.indexOf(item.id);\n          if (index !== -1) {\n            activeId.splice(index, 1);\n          } else if (activeId.length < +props.max) {\n            activeId.push(item.id);\n          }\n        } else {\n          activeId = item.id;\n        }\n        emit(\"update:activeId\", activeId);\n        emit(\"clickItem\", item);\n      };\n      return _createVNode(\"div\", {\n        \"key\": item.id,\n        \"class\": [\"van-ellipsis\", bem(\"item\", {\n          active: isActiveItem(item.id),\n          disabled: item.disabled\n        })],\n        \"onClick\": onClick\n      }, [item.text, isActiveItem(item.id) && _createVNode(Icon, {\n        \"name\": props.selectedIcon,\n        \"class\": bem(\"selected\")\n      }, null)]);\n    };\n    const onSidebarChange = (index) => {\n      emit(\"update:mainActiveIndex\", index);\n    };\n    const onClickSidebarItem = (index) => emit(\"clickNav\", index);\n    const renderSidebar = () => {\n      const Items = props.items.map((item) => _createVNode(SidebarItem, {\n        \"dot\": item.dot,\n        \"badge\": item.badge,\n        \"class\": [bem(\"nav-item\"), item.className],\n        \"disabled\": item.disabled,\n        \"onClick\": onClickSidebarItem\n      }, {\n        title: () => slots[\"nav-text\"] ? slots[\"nav-text\"](item) : item.text\n      }));\n      return _createVNode(Sidebar, {\n        \"class\": bem(\"nav\"),\n        \"modelValue\": props.mainActiveIndex,\n        \"onChange\": onSidebarChange\n      }, {\n        default: () => [Items]\n      });\n    };\n    const renderContent = () => {\n      if (slots.content) {\n        return slots.content();\n      }\n      const selected = props.items[+props.mainActiveIndex] || {};\n      if (selected.children) {\n        return selected.children.map(renderSubItem);\n      }\n    };\n    return () => _createVNode(\"div\", {\n      \"class\": bem(),\n      \"style\": {\n        height: addUnit(props.height)\n      }\n    }, [renderSidebar(), _createVNode(\"div\", {\n      \"class\": bem(\"content\")\n    }, [renderContent()])]);\n  }\n});\nexport {\n  stdin_default as default,\n  treeSelectProps\n};\n",
+      "start": 1714699767527,
+      "end": 1714699767527,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767527,
+      "end": 1714699767527,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767527,
+      "end": 1714699767527,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767527,
+      "end": 1714699767527,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767527,
+      "end": 1714699767527,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767527,
+      "end": 1714699767527,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767527,
+      "end": 1714699767527,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767527,
+      "end": 1714699767527,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767527,
+      "end": 1714699767527,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767527,
+      "end": 1714699767527,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767527,
+      "end": 1714699767527,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767527,
+      "end": 1714699767527,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767527,
+      "end": 1714699767527,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767527,
+      "end": 1714699767527,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767527,
+      "end": 1714699767527,
+      "order": "normal"
+    }
+  ]
+}

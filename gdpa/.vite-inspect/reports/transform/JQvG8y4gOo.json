@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/byte-data.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "const encodeUtf8 = require('encode-utf8')\nconst Mode = require('./mode')\n\nfunction ByteData (data) {\n  this.mode = Mode.BYTE\n  if (typeof (data) === 'string') {\n    data = encodeUtf8(data)\n  }\n  this.data = new Uint8Array(data)\n}\n\nByteData.getBitsLength = function getBitsLength (length) {\n  return length * 8\n}\n\nByteData.prototype.getLength = function getLength () {\n  return this.data.length\n}\n\nByteData.prototype.getBitsLength = function getBitsLength () {\n  return ByteData.getBitsLength(this.data.length)\n}\n\nByteData.prototype.write = function (bitBuffer) {\n  for (let i = 0, l = this.data.length; i < l; i++) {\n    bitBuffer.put(this.data[i], 8)\n  }\n}\n\nmodule.exports = ByteData\n",
+      "start": 1714699771069,
+      "end": 1714699771094,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771094,
+      "end": 1714699771094,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771094,
+      "end": 1714699771094,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771094,
+      "end": 1714699771094,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771094,
+      "end": 1714699771094,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771094,
+      "end": 1714699771094,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771094,
+      "end": 1714699771094,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "const encodeUtf8 = require('encode-utf8')\nconst Mode = require('./mode')\n\nfunction ByteData (data) {\n  this.mode = Mode.BYTE\n  if (typeof (data) === 'string') {\n    data = encodeUtf8(data)\n  }\n  this.data = new Uint8Array(data)\n}\n\nByteData.getBitsLength = function getBitsLength (length) {\n  return length * 8\n}\n\nByteData.prototype.getLength = function getLength () {\n  return this.data.length\n}\n\nByteData.prototype.getBitsLength = function getBitsLength () {\n  return ByteData.getBitsLength(this.data.length)\n}\n\nByteData.prototype.write = function (bitBuffer) {\n  for (let i = 0, l = this.data.length; i < l; i++) {\n    bitBuffer.put(this.data[i], 8)\n  }\n}\n\nmodule.exports = ByteData\n",
+      "start": 1714699771094,
+      "end": 1714699771094,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699771094,
+      "end": 1714699771094,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771094,
+      "end": 1714699771094,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771094,
+      "end": 1714699771094,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771094,
+      "end": 1714699771094,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771094,
+      "end": 1714699771094,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771094,
+      "end": 1714699771094,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/encode-utf8@1.0.3/node_modules/encode-utf8/index.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/mode.js?commonjs-proxy\";\n\nconst encodeUtf8 = require$$0\nconst Mode = require$$1\n\nfunction ByteData (data) {\n  this.mode = Mode.BYTE\n  if (typeof (data) === 'string') {\n    data = encodeUtf8(data)\n  }\n  this.data = new Uint8Array(data)\n}\n\nByteData.getBitsLength = function getBitsLength (length) {\n  return length * 8\n}\n\nByteData.prototype.getLength = function getLength () {\n  return this.data.length\n}\n\nByteData.prototype.getBitsLength = function getBitsLength () {\n  return ByteData.getBitsLength(this.data.length)\n}\n\nByteData.prototype.write = function (bitBuffer) {\n  for (let i = 0, l = this.data.length; i < l; i++) {\n    bitBuffer.put(this.data[i], 8)\n  }\n}\n\nvar byteData = ByteData\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(byteData);\nexport { byteData as __moduleExports };",
+      "start": 1714699771094,
+      "end": 1714699771116,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;AAAA,MAAM,UAAU,GAAG,UAAsB;AACzC,MAAM,IAAI,GAAG,UAAiB;AAC9B;AACA,SAAS,QAAQ,EAAE,IAAI,EAAE;AACzB,EAAE,IAAI,CAAC,IAAI,GAAG,IAAI,CAAC,IAAI;AACvB,EAAE,IAAI,QAAQ,IAAI,CAAC,KAAK,QAAQ,EAAE;AAClC,IAAI,IAAI,GAAG,UAAU,CAAC,IAAI,CAAC;AAC3B,GAAG;AACH,EAAE,IAAI,CAAC,IAAI,GAAG,IAAI,UAAU,CAAC,IAAI,CAAC;AAClC,CAAC;AACD;AACA,QAAQ,CAAC,aAAa,GAAG,SAAS,aAAa,EAAE,MAAM,EAAE;AACzD,EAAE,OAAO,MAAM,GAAG,CAAC;AACnB,CAAC;AACD;AACA,QAAQ,CAAC,SAAS,CAAC,SAAS,GAAG,SAAS,SAAS,IAAI;AACrD,EAAE,OAAO,IAAI,CAAC,IAAI,CAAC,MAAM;AACzB,CAAC;AACD;AACA,QAAQ,CAAC,SAAS,CAAC,aAAa,GAAG,SAAS,aAAa,IAAI;AAC7D,EAAE,OAAO,QAAQ,CAAC,aAAa,CAAC,IAAI,CAAC,IAAI,CAAC,MAAM,CAAC;AACjD,CAAC;AACD;AACA,QAAQ,CAAC,SAAS,CAAC,KAAK,GAAG,UAAU,SAAS,EAAE;AAChD,EAAE,KAAK,IAAI,CAAC,GAAG,CAAC,EAAE,CAAC,GAAG,IAAI,CAAC,IAAI,CAAC,MAAM,EAAE,CAAC,GAAG,CAAC,EAAE,CAAC,EAAE,EAAE;AACpD,IAAI,SAAS,CAAC,GAAG,CAAC,IAAI,CAAC,IAAI,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC;AAClC,GAAG;AACH,CAAC;AACD;IACA,QAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771116,
+      "end": 1714699771116,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771116,
+      "end": 1714699771116,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771116,
+      "end": 1714699771116,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699771116,
+      "end": 1714699771116,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771116,
+      "end": 1714699771116,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771116,
+      "end": 1714699771116,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771116,
+      "end": 1714699771116,
+      "order": "normal"
+    }
+  ]
+}

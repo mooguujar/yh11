@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/chunk.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var isArray = require('./isArray')\r\n\r\n/**\r\n  * 将一个数组分割成大小的组。如果数组不能被平均分配，那么最后一块将是剩下的元素\r\n  *\r\n  * @param {Array} array 数组\r\n  * @param {Number} size 每组大小\r\n  * @return {Array}\r\n  */\r\nfunction chunk (array, size) {\r\n  var index\r\n  var result = []\r\n  var arrLen = size >> 0 || 1\r\n  if (isArray(array)) {\r\n    if (arrLen >= 0 && array.length > arrLen) {\r\n      index = 0\r\n      while (index < array.length) {\r\n        result.push(array.slice(index, index + arrLen))\r\n        index += arrLen\r\n      }\r\n    } else {\r\n      result = array.length ? [array] : array\r\n    }\r\n  }\r\n  return result\r\n}\r\n\r\nmodule.exports = chunk\r\n",
+      "start": 1714699767566,
+      "end": 1714699767591,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767591,
+      "end": 1714699767591,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767591,
+      "end": 1714699767591,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767591,
+      "end": 1714699767591,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767591,
+      "end": 1714699767591,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767591,
+      "end": 1714699767591,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767591,
+      "end": 1714699767591,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var isArray = require('./isArray')\r\n\r\n/**\r\n  * 将一个数组分割成大小的组。如果数组不能被平均分配，那么最后一块将是剩下的元素\r\n  *\r\n  * @param {Array} array 数组\r\n  * @param {Number} size 每组大小\r\n  * @return {Array}\r\n  */\r\nfunction chunk (array, size) {\r\n  var index\r\n  var result = []\r\n  var arrLen = size >> 0 || 1\r\n  if (isArray(array)) {\r\n    if (arrLen >= 0 && array.length > arrLen) {\r\n      index = 0\r\n      while (index < array.length) {\r\n        result.push(array.slice(index, index + arrLen))\r\n        index += arrLen\r\n      }\r\n    } else {\r\n      result = array.length ? [array] : array\r\n    }\r\n  }\r\n  return result\r\n}\r\n\r\nmodule.exports = chunk\r\n",
+      "start": 1714699767591,
+      "end": 1714699767591,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767591,
+      "end": 1714699767591,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767591,
+      "end": 1714699767591,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767591,
+      "end": 1714699767591,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767591,
+      "end": 1714699767591,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767591,
+      "end": 1714699767591,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767591,
+      "end": 1714699767591,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isArray.js?commonjs-proxy\";\n\nvar isArray = require$$0\r\n\r\n/**\r\n  * 将一个数组分割成大小的组。如果数组不能被平均分配，那么最后一块将是剩下的元素\r\n  *\r\n  * @param {Array} array 数组\r\n  * @param {Number} size 每组大小\r\n  * @return {Array}\r\n  */\r\nfunction chunk (array, size) {\r\n  var index\r\n  var result = []\r\n  var arrLen = size >> 0 || 1\r\n  if (isArray(array)) {\r\n    if (arrLen >= 0 && array.length > arrLen) {\r\n      index = 0\r\n      while (index < array.length) {\r\n        result.push(array.slice(index, index + arrLen))\r\n        index += arrLen\r\n      }\r\n    } else {\r\n      result = array.length ? [array] : array\r\n    }\r\n  }\r\n  return result\r\n}\r\n\r\nvar chunk_1 = chunk\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(chunk_1);\nexport { chunk_1 as __moduleExports };",
+      "start": 1714699767591,
+      "end": 1714699768104,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;AAAA,IAAI,OAAO,GAAG,UAAoB;AAClC;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,KAAK,EAAE,KAAK,EAAE,IAAI,EAAE;AAC7B,EAAE,IAAI,KAAK;AACX,EAAE,IAAI,MAAM,GAAG,EAAE;AACjB,EAAE,IAAI,MAAM,GAAG,IAAI,IAAI,CAAC,IAAI,CAAC;AAC7B,EAAE,IAAI,OAAO,CAAC,KAAK,CAAC,EAAE;AACtB,IAAI,IAAI,MAAM,IAAI,CAAC,IAAI,KAAK,CAAC,MAAM,GAAG,MAAM,EAAE;AAC9C,MAAM,KAAK,GAAG,CAAC;AACf,MAAM,OAAO,KAAK,GAAG,KAAK,CAAC,MAAM,EAAE;AACnC,QAAQ,MAAM,CAAC,IAAI,CAAC,KAAK,CAAC,KAAK,CAAC,KAAK,EAAE,KAAK,GAAG,MAAM,CAAC,CAAC;AACvD,QAAQ,KAAK,IAAI,MAAM;AACvB,OAAO;AACP,KAAK,MAAM;AACX,MAAM,MAAM,GAAG,KAAK,CAAC,MAAM,GAAG,CAAC,KAAK,CAAC,GAAG,KAAK;AAC7C,KAAK;AACL,GAAG;AACH,EAAE,OAAO,MAAM;AACf,CAAC;AACD;IACA,OAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768104,
+      "end": 1714699768104,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768104,
+      "end": 1714699768104,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768104,
+      "end": 1714699768104,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768104,
+      "end": 1714699768104,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768104,
+      "end": 1714699768104,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768104,
+      "end": 1714699768104,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768105,
+      "end": 1714699768105,
+      "order": "normal"
+    }
+  ]
+}

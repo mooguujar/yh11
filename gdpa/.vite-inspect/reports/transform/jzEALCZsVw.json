@@ -1,0 +1,157 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/utils/WSUtil.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "export class Socket {\n  url: any\n  protocols: any\n  ws: any\n  reconnectTimeout: number\n  maxReconnectTimes: number\n  reconnectTimes: any\n  token: string\n  t_s: any\n  constructor(url?: any, token?: string, protocols?: any) {\n    this.url = url || ''\n    this.token = token || ''\n    // this.protocols = protocols\n    this.ws = null\n    this.reconnectTimeout = 1000\n    this.maxReconnectTimes = 10\n    this.t_s = null\n  }\n  start(Token: string, url?: string) {\n    this.reconnectTimes = 0\n    Token && (this.token = Token)\n    url && (this.url = url)\n    return this\n  }\n  connect() {\n    this.ws = new WebSocket(this.url)\n    this.ws.onopen = () => {\n      console.log('连接以打开--->', this.token, '<---token')\n      this.ws.send(this.token)\n\n      this.reconnectTimes = 0\n    }\n    this.ws.onclose = () => {\n      clearTimeout(this.t_s)\n      this.t_s = setTimeout(() => {\n        location.reload()\n      }, 1000 * 30)\n      console.log('WebSocket断开连接')\n      this.reconnect()\n    }\n    this.ws.onerror = (err: any) => {\n      console.log('WebSocket连接出错', err)\n    }\n  }\n  reconnect() {\n    if (this.reconnectTimes < this.maxReconnectTimes) {\n      setTimeout(() => {\n        this.connect()\n        this.reconnectTimes++\n      }, this.reconnectTimeout)\n      this.reconnectTimeout *= 2\n    } else {\n      console.log('WebSocket重连超过最大次数,放弃重连')\n    }\n  }\n  msg(param: any) {\n    if (param === 'ping') {\n      this.ws.send(param)\n    } else {\n      this.ws.send(JSON.stringify(param))\n    }\n  }\n  // 延迟发送\n  timeout(param: any) {\n    setTimeout(() => {\n      this.msg(param)\n    }, 2000)\n  }\n  send(param: any) {\n    if (this.ws.readyState === WebSocket.OPEN) {\n      this.msg(param)\n    } else if (this.ws.readyState === WebSocket.CONNECTING) {\n      this.timeout(param)\n    } else {\n      this.timeout(param)\n    }\n  }\n}\n\nimport resHandle from '@/store/modules/coinBuySell/resHandle'\n// callback: { (data: any): void; (arg0: any): void }\nexport function wsInit(URL?: string) {\n  // const url = import.meta.env.VITE_APP_WS_URL;\n  const url = URL\n  const init = new Socket(url)\n  init.connect()\n  init.ws.onmessage = function (ev: { data: string | string[] }) {\n    if (ev && ev.data && ev.data.indexOf('subscribe') > -1) {\n      console.log('subscribe->', ev.data)\n    } else if (ev && ev.data) {\n      let data = ev.data == 'pong' ? ev.data : eval('(' + ev.data + ')')\n      // callback(data)\n\n      // cmd 消息返回数据处理\n      // 事件 消息返回数据处理\n      // 推送买币 消息返回数据处理\n      resHandle(data)\n    }\n  }\n  // 心跳连接\n  function heartbeat() {\n    let data = 'ping'\n    // data = JSON.stringify(data)\n    init && init.send(data)\n  }\n  // 9秒一次\n  heartbeat()\n  let t = null\n  t = setInterval(heartbeat, 1000 * 9)\n  return init\n}\n\n// const socket = wsInit()\n\nexport default wsInit\n",
+      "start": 1714699768093,
+      "end": 1714699768204,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768204,
+      "end": 1714699768204,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "export class Socket {\n  url;\n  protocols;\n  ws;\n  reconnectTimeout;\n  maxReconnectTimes;\n  reconnectTimes;\n  token;\n  t_s;\n  constructor(url2, token, protocols) {\n    this.url = url2 || \"\";\n    this.token = token || \"\";\n    this.ws = null;\n    this.reconnectTimeout = 1e3;\n    this.maxReconnectTimes = 10;\n    this.t_s = null;\n  }\n  start(Token, url2) {\n    this.reconnectTimes = 0;\n    Token && (this.token = Token);\n    url2 && (this.url = url2);\n    return this;\n  }\n  connect() {\n    this.ws = new WebSocket(this.url);\n    this.ws.onopen = () => {\n      console.log(\"连接以打开--->\", this.token, \"<---token\");\n      this.ws.send(this.token);\n      this.reconnectTimes = 0;\n    };\n    this.ws.onclose = () => {\n      clearTimeout(this.t_s);\n      this.t_s = setTimeout(() => {\n        location.reload();\n      }, 1e3 * 30);\n      console.log(\"WebSocket断开连接\");\n      this.reconnect();\n    };\n    this.ws.onerror = (err) => {\n      console.log(\"WebSocket连接出错\", err);\n    };\n  }\n  reconnect() {\n    if (this.reconnectTimes < this.maxReconnectTimes) {\n      setTimeout(() => {\n        this.connect();\n        this.reconnectTimes++;\n      }, this.reconnectTimeout);\n      this.reconnectTimeout *= 2;\n    } else {\n      console.log(\"WebSocket重连超过最大次数,放弃重连\");\n    }\n  }\n  msg(param) {\n    if (param === \"ping\") {\n      this.ws.send(param);\n    } else {\n      this.ws.send(JSON.stringify(param));\n    }\n  }\n  // 延迟发送\n  timeout(param) {\n    setTimeout(() => {\n      this.msg(param);\n    }, 2e3);\n  }\n  send(param) {\n    if (this.ws.readyState === WebSocket.OPEN) {\n      this.msg(param);\n    } else if (this.ws.readyState === WebSocket.CONNECTING) {\n      this.timeout(param);\n    } else {\n      this.timeout(param);\n    }\n  }\n}\nimport resHandle from \"@/store/modules/coinBuySell/resHandle\";\nexport function wsInit(URL) {\n  const url = URL;\n  const init = new Socket(url);\n  init.connect();\n  init.ws.onmessage = function(ev) {\n    if (ev && ev.data && ev.data.indexOf(\"subscribe\") > -1) {\n      console.log(\"subscribe->\", ev.data);\n    } else if (ev && ev.data) {\n      let data = ev.data == \"pong\" ? ev.data : eval(\"(\" + ev.data + \")\");\n      resHandle(data);\n    }\n  };\n  function heartbeat() {\n    let data2 = \"ping\";\n    init && init.send(data2);\n  }\n  heartbeat();\n  let t = null;\n  t = setInterval(heartbeat, 1e3 * 9);\n  return init;\n}\nexport default wsInit;\n",
+      "start": 1714699768204,
+      "end": 1714699769064,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/utils/WSUtil.ts"
+        ],
+        "sourcesContent": [
+          "export class Socket {\n  url: any\n  protocols: any\n  ws: any\n  reconnectTimeout: number\n  maxReconnectTimes: number\n  reconnectTimes: any\n  token: string\n  t_s: any\n  constructor(url?: any, token?: string, protocols?: any) {\n    this.url = url || ''\n    this.token = token || ''\n    // this.protocols = protocols\n    this.ws = null\n    this.reconnectTimeout = 1000\n    this.maxReconnectTimes = 10\n    this.t_s = null\n  }\n  start(Token: string, url?: string) {\n    this.reconnectTimes = 0\n    Token && (this.token = Token)\n    url && (this.url = url)\n    return this\n  }\n  connect() {\n    this.ws = new WebSocket(this.url)\n    this.ws.onopen = () => {\n      console.log('连接以打开--->', this.token, '<---token')\n      this.ws.send(this.token)\n\n      this.reconnectTimes = 0\n    }\n    this.ws.onclose = () => {\n      clearTimeout(this.t_s)\n      this.t_s = setTimeout(() => {\n        location.reload()\n      }, 1000 * 30)\n      console.log('WebSocket断开连接')\n      this.reconnect()\n    }\n    this.ws.onerror = (err: any) => {\n      console.log('WebSocket连接出错', err)\n    }\n  }\n  reconnect() {\n    if (this.reconnectTimes < this.maxReconnectTimes) {\n      setTimeout(() => {\n        this.connect()\n        this.reconnectTimes++\n      }, this.reconnectTimeout)\n      this.reconnectTimeout *= 2\n    } else {\n      console.log('WebSocket重连超过最大次数,放弃重连')\n    }\n  }\n  msg(param: any) {\n    if (param === 'ping') {\n      this.ws.send(param)\n    } else {\n      this.ws.send(JSON.stringify(param))\n    }\n  }\n  // 延迟发送\n  timeout(param: any) {\n    setTimeout(() => {\n      this.msg(param)\n    }, 2000)\n  }\n  send(param: any) {\n    if (this.ws.readyState === WebSocket.OPEN) {\n      this.msg(param)\n    } else if (this.ws.readyState === WebSocket.CONNECTING) {\n      this.timeout(param)\n    } else {\n      this.timeout(param)\n    }\n  }\n}\n\nimport resHandle from '@/store/modules/coinBuySell/resHandle'\n// callback: { (data: any): void; (arg0: any): void }\nexport function wsInit(URL?: string) {\n  // const url = import.meta.env.VITE_APP_WS_URL;\n  const url = URL\n  const init = new Socket(url)\n  init.connect()\n  init.ws.onmessage = function (ev: { data: string | string[] }) {\n    if (ev && ev.data && ev.data.indexOf('subscribe') > -1) {\n      console.log('subscribe->', ev.data)\n    } else if (ev && ev.data) {\n      let data = ev.data == 'pong' ? ev.data : eval('(' + ev.data + ')')\n      // callback(data)\n\n      // cmd 消息返回数据处理\n      // 事件 消息返回数据处理\n      // 推送买币 消息返回数据处理\n      resHandle(data)\n    }\n  }\n  // 心跳连接\n  function heartbeat() {\n    let data = 'ping'\n    // data = JSON.stringify(data)\n    init && init.send(data)\n  }\n  // 9秒一次\n  heartbeat()\n  let t = null\n  t = setInterval(heartbeat, 1000 * 9)\n  return init\n}\n\n// const socket = wsInit()\n\nexport default wsInit\n"
+        ],
+        "mappings": "AAAO,aAAM,OAAO;AAAA,EAClB;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA,YAAYA,MAAW,OAAgB,WAAiB;AACtD,SAAK,MAAMA,QAAO;AAClB,SAAK,QAAQ,SAAS;AAEtB,SAAK,KAAK;AACV,SAAK,mBAAmB;AACxB,SAAK,oBAAoB;AACzB,SAAK,MAAM;AAAA,EACb;AAAA,EACA,MAAM,OAAeA,MAAc;AACjC,SAAK,iBAAiB;AACtB,cAAU,KAAK,QAAQ;AACvB,IAAAA,SAAQ,KAAK,MAAMA;AACnB,WAAO;AAAA,EACT;AAAA,EACA,UAAU;AACR,SAAK,KAAK,IAAI,UAAU,KAAK,GAAG;AAChC,SAAK,GAAG,SAAS,MAAM;AACrB,cAAQ,IAAI,aAAa,KAAK,OAAO,WAAW;AAChD,WAAK,GAAG,KAAK,KAAK,KAAK;AAEvB,WAAK,iBAAiB;AAAA,IACxB;AACA,SAAK,GAAG,UAAU,MAAM;AACtB,mBAAa,KAAK,GAAG;AACrB,WAAK,MAAM,WAAW,MAAM;AAC1B,iBAAS,OAAO;AAAA,MAClB,GAAG,MAAO,EAAE;AACZ,cAAQ,IAAI,eAAe;AAC3B,WAAK,UAAU;AAAA,IACjB;AACA,SAAK,GAAG,UAAU,CAAC,QAAa;AAC9B,cAAQ,IAAI,iBAAiB,GAAG;AAAA,IAClC;AAAA,EACF;AAAA,EACA,YAAY;AACV,QAAI,KAAK,iBAAiB,KAAK,mBAAmB;AAChD,iBAAW,MAAM;AACf,aAAK,QAAQ;AACb,aAAK;AAAA,MACP,GAAG,KAAK,gBAAgB;AACxB,WAAK,oBAAoB;AAAA,IAC3B,OAAO;AACL,cAAQ,IAAI,wBAAwB;AAAA,IACtC;AAAA,EACF;AAAA,EACA,IAAI,OAAY;AACd,QAAI,UAAU,QAAQ;AACpB,WAAK,GAAG,KAAK,KAAK;AAAA,IACpB,OAAO;AACL,WAAK,GAAG,KAAK,KAAK,UAAU,KAAK,CAAC;AAAA,IACpC;AAAA,EACF;AAAA;AAAA,EAEA,QAAQ,OAAY;AAClB,eAAW,MAAM;AACf,WAAK,IAAI,KAAK;AAAA,IAChB,GAAG,GAAI;AAAA,EACT;AAAA,EACA,KAAK,OAAY;AACf,QAAI,KAAK,GAAG,eAAe,UAAU,MAAM;AACzC,WAAK,IAAI,KAAK;AAAA,IAChB,WAAW,KAAK,GAAG,eAAe,UAAU,YAAY;AACtD,WAAK,QAAQ,KAAK;AAAA,IACpB,OAAO;AACL,WAAK,QAAQ,KAAK;AAAA,IACpB;AAAA,EACF;AACF;AAEA,OAAO,eAAe;AAEf,gBAAS,OAAO,KAAc;AAEnC,QAAM,MAAM;AACZ,QAAM,OAAO,IAAI,OAAO,GAAG;AAC3B,OAAK,QAAQ;AACb,OAAK,GAAG,YAAY,SAAU,IAAiC;AAC7D,QAAI,MAAM,GAAG,QAAQ,GAAG,KAAK,QAAQ,WAAW,IAAI,IAAI;AACtD,cAAQ,IAAI,eAAe,GAAG,IAAI;AAAA,IACpC,WAAW,MAAM,GAAG,MAAM;AACxB,UAAI,OAAO,GAAG,QAAQ,SAAS,GAAG,OAAO,KAAK,MAAM,GAAG,OAAO,GAAG;AAMjE,gBAAU,IAAI;AAAA,IAChB;AAAA,EACF;AAEA,WAAS,YAAY;AACnB,QAAIC,QAAO;AAEX,YAAQ,KAAK,KAAKA,KAAI;AAAA,EACxB;AAEA,YAAU;AACV,MAAI,IAAI;AACR,MAAI,YAAY,WAAW,MAAO,CAAC;AACnC,SAAO;AACT;AAIA,eAAe;",
+        "names": [
+          "url",
+          "data"
+        ]
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769064,
+      "end": 1714699769064,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769064,
+      "end": 1714699769064,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699769064,
+      "end": 1714699769064,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769064,
+      "end": 1714699769064,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "export class Socket {\n  url;\n  protocols;\n  ws;\n  reconnectTimeout;\n  maxReconnectTimes;\n  reconnectTimes;\n  token;\n  t_s;\n  constructor(url2, token, protocols) {\n    this.url = url2 || \"\";\n    this.token = token || \"\";\n    this.ws = null;\n    this.reconnectTimeout = 1e3;\n    this.maxReconnectTimes = 10;\n    this.t_s = null;\n  }\n  start(Token, url2) {\n    this.reconnectTimes = 0;\n    Token && (this.token = Token);\n    url2 && (this.url = url2);\n    return this;\n  }\n  connect() {\n    this.ws = new WebSocket(this.url);\n    this.ws.onopen = () => {\n      console.log(\"连接以打开--->\", this.token, \"<---token\");\n      this.ws.send(this.token);\n      this.reconnectTimes = 0;\n    };\n    this.ws.onclose = () => {\n      clearTimeout(this.t_s);\n      this.t_s = setTimeout(() => {\n        location.reload();\n      }, 1e3 * 30);\n      console.log(\"WebSocket断开连接\");\n      this.reconnect();\n    };\n    this.ws.onerror = (err) => {\n      console.log(\"WebSocket连接出错\", err);\n    };\n  }\n  reconnect() {\n    if (this.reconnectTimes < this.maxReconnectTimes) {\n      setTimeout(() => {\n        this.connect();\n        this.reconnectTimes++;\n      }, this.reconnectTimeout);\n      this.reconnectTimeout *= 2;\n    } else {\n      console.log(\"WebSocket重连超过最大次数,放弃重连\");\n    }\n  }\n  msg(param) {\n    if (param === \"ping\") {\n      this.ws.send(param);\n    } else {\n      this.ws.send(JSON.stringify(param));\n    }\n  }\n  // 延迟发送\n  timeout(param) {\n    setTimeout(() => {\n      this.msg(param);\n    }, 2e3);\n  }\n  send(param) {\n    if (this.ws.readyState === WebSocket.OPEN) {\n      this.msg(param);\n    } else if (this.ws.readyState === WebSocket.CONNECTING) {\n      this.timeout(param);\n    } else {\n      this.timeout(param);\n    }\n  }\n}\nimport resHandle from \"@/store/modules/coinBuySell/resHandle\";\nexport function wsInit(URL) {\n  const url = URL;\n  const init = new Socket(url);\n  init.connect();\n  init.ws.onmessage = function(ev) {\n    if (ev && ev.data && ev.data.indexOf(\"subscribe\") > -1) {\n      console.log(\"subscribe->\", ev.data);\n    } else if (ev && ev.data) {\n      let data = ev.data == \"pong\" ? ev.data : eval(\"(\" + ev.data + \")\");\n      resHandle(data);\n    }\n  };\n  function heartbeat() {\n    let data2 = \"ping\";\n    init && init.send(data2);\n  }\n  heartbeat();\n  let t = null;\n  t = setInterval(heartbeat, 1e3 * 9);\n  return init;\n}\nexport default wsInit;\n",
+      "start": 1714699769064,
+      "end": 1714699769064,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nvar __defProp = Object.defineProperty;\nvar __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;\nvar __publicField = (obj, key, value) => {\n  __defNormalProp(obj, typeof key !== \"symbol\" ? key + \"\" : key, value);\n  return value;\n};\nexport class Socket {\n  constructor(url2, token, protocols) {\n    __publicField(this, \"url\");\n    __publicField(this, \"protocols\");\n    __publicField(this, \"ws\");\n    __publicField(this, \"reconnectTimeout\");\n    __publicField(this, \"maxReconnectTimes\");\n    __publicField(this, \"reconnectTimes\");\n    __publicField(this, \"token\");\n    __publicField(this, \"t_s\");\n    this.url = url2 || \"\";\n    this.token = token || \"\";\n    this.ws = null;\n    this.reconnectTimeout = 1e3;\n    this.maxReconnectTimes = 10;\n    this.t_s = null;\n  }\n  start(Token, url2) {\n    this.reconnectTimes = 0;\n    Token && (this.token = Token);\n    url2 && (this.url = url2);\n    return this;\n  }\n  connect() {\n    this.ws = new WebSocket(this.url);\n    this.ws.onopen = () => {\n      console.log(\"\\u8FDE\\u63A5\\u4EE5\\u6253\\u5F00--->\", this.token, \"<---token\");\n      this.ws.send(this.token);\n      this.reconnectTimes = 0;\n    };\n    this.ws.onclose = () => {\n      clearTimeout(this.t_s);\n      this.t_s = setTimeout(() => {\n        location.reload();\n      }, 1e3 * 30);\n      console.log(\"WebSocket\\u65AD\\u5F00\\u8FDE\\u63A5\");\n      this.reconnect();\n    };\n    this.ws.onerror = (err) => {\n      console.log(\"WebSocket\\u8FDE\\u63A5\\u51FA\\u9519\", err);\n    };\n  }\n  reconnect() {\n    if (this.reconnectTimes < this.maxReconnectTimes) {\n      setTimeout(() => {\n        this.connect();\n        this.reconnectTimes++;\n      }, this.reconnectTimeout);\n      this.reconnectTimeout *= 2;\n    } else {\n      console.log(\"WebSocket\\u91CD\\u8FDE\\u8D85\\u8FC7\\u6700\\u5927\\u6B21\\u6570,\\u653E\\u5F03\\u91CD\\u8FDE\");\n    }\n  }\n  msg(param) {\n    if (param === \"ping\") {\n      this.ws.send(param);\n    } else {\n      this.ws.send(JSON.stringify(param));\n    }\n  }\n  // 延迟发送\n  timeout(param) {\n    setTimeout(() => {\n      this.msg(param);\n    }, 2e3);\n  }\n  send(param) {\n    if (this.ws.readyState === WebSocket.OPEN) {\n      this.msg(param);\n    } else if (this.ws.readyState === WebSocket.CONNECTING) {\n      this.timeout(param);\n    } else {\n      this.timeout(param);\n    }\n  }\n}\nimport resHandle from \"@/store/modules/coinBuySell/resHandle\";\nexport function wsInit(URL) {\n  const url = URL;\n  const init = new Socket(url);\n  init.connect();\n  init.ws.onmessage = function(ev) {\n    if (ev && ev.data && ev.data.indexOf(\"subscribe\") > -1) {\n      console.log(\"subscribe->\", ev.data);\n    } else if (ev && ev.data) {\n      let data = ev.data == \"pong\" ? ev.data : eval(\"(\" + ev.data + \")\");\n      resHandle(data);\n    }\n  };\n  function heartbeat() {\n    let data2 = \"ping\";\n    init && init.send(data2);\n  }\n  heartbeat();\n  let t = null;\n  t = setInterval(heartbeat, 1e3 * 9);\n  return init;\n}\nexport default wsInit;\n",
+      "start": 1714699769064,
+      "end": 1714699769490,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/utils/WSUtil.ts\"],\n  \"sourcesContent\": [\"export class Socket {\\n  url;\\n  protocols;\\n  ws;\\n  reconnectTimeout;\\n  maxReconnectTimes;\\n  reconnectTimes;\\n  token;\\n  t_s;\\n  constructor(url2, token, protocols) {\\n    this.url = url2 || \\\"\\\";\\n    this.token = token || \\\"\\\";\\n    this.ws = null;\\n    this.reconnectTimeout = 1e3;\\n    this.maxReconnectTimes = 10;\\n    this.t_s = null;\\n  }\\n  start(Token, url2) {\\n    this.reconnectTimes = 0;\\n    Token && (this.token = Token);\\n    url2 && (this.url = url2);\\n    return this;\\n  }\\n  connect() {\\n    this.ws = new WebSocket(this.url);\\n    this.ws.onopen = () => {\\n      console.log(\\\"\\u8FDE\\u63A5\\u4EE5\\u6253\\u5F00--->\\\", this.token, \\\"<---token\\\");\\n      this.ws.send(this.token);\\n      this.reconnectTimes = 0;\\n    };\\n    this.ws.onclose = () => {\\n      clearTimeout(this.t_s);\\n      this.t_s = setTimeout(() => {\\n        location.reload();\\n      }, 1e3 * 30);\\n      console.log(\\\"WebSocket\\u65AD\\u5F00\\u8FDE\\u63A5\\\");\\n      this.reconnect();\\n    };\\n    this.ws.onerror = (err) => {\\n      console.log(\\\"WebSocket\\u8FDE\\u63A5\\u51FA\\u9519\\\", err);\\n    };\\n  }\\n  reconnect() {\\n    if (this.reconnectTimes < this.maxReconnectTimes) {\\n      setTimeout(() => {\\n        this.connect();\\n        this.reconnectTimes++;\\n      }, this.reconnectTimeout);\\n      this.reconnectTimeout *= 2;\\n    } else {\\n      console.log(\\\"WebSocket\\u91CD\\u8FDE\\u8D85\\u8FC7\\u6700\\u5927\\u6B21\\u6570,\\u653E\\u5F03\\u91CD\\u8FDE\\\");\\n    }\\n  }\\n  msg(param) {\\n    if (param === \\\"ping\\\") {\\n      this.ws.send(param);\\n    } else {\\n      this.ws.send(JSON.stringify(param));\\n    }\\n  }\\n  // \\u5EF6\\u8FDF\\u53D1\\u9001\\n  timeout(param) {\\n    setTimeout(() => {\\n      this.msg(param);\\n    }, 2e3);\\n  }\\n  send(param) {\\n    if (this.ws.readyState === WebSocket.OPEN) {\\n      this.msg(param);\\n    } else if (this.ws.readyState === WebSocket.CONNECTING) {\\n      this.timeout(param);\\n    } else {\\n      this.timeout(param);\\n    }\\n  }\\n}\\nimport resHandle from \\\"@/store/modules/coinBuySell/resHandle\\\";\\nexport function wsInit(URL) {\\n  const url = URL;\\n  const init = new Socket(url);\\n  init.connect();\\n  init.ws.onmessage = function(ev) {\\n    if (ev && ev.data && ev.data.indexOf(\\\"subscribe\\\") > -1) {\\n      console.log(\\\"subscribe->\\\", ev.data);\\n    } else if (ev && ev.data) {\\n      let data = ev.data == \\\"pong\\\" ? ev.data : eval(\\\"(\\\" + ev.data + \\\")\\\");\\n      resHandle(data);\\n    }\\n  };\\n  function heartbeat() {\\n    let data2 = \\\"ping\\\";\\n    init && init.send(data2);\\n  }\\n  heartbeat();\\n  let t = null;\\n  t = setInterval(heartbeat, 1e3 * 9);\\n  return init;\\n}\\nexport default wsInit;\\n\"],\n  \"mappings\": \";;;;;;;AAAO,aAAM,OAAO;AAAA,EASlB,YAAY,MAAM,OAAO,WAAW;AARpC;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AAEE,SAAK,MAAM,QAAQ;AACnB,SAAK,QAAQ,SAAS;AACtB,SAAK,KAAK;AACV,SAAK,mBAAmB;AACxB,SAAK,oBAAoB;AACzB,SAAK,MAAM;AAAA,EACb;AAAA,EACA,MAAM,OAAO,MAAM;AACjB,SAAK,iBAAiB;AACtB,cAAU,KAAK,QAAQ;AACvB,aAAS,KAAK,MAAM;AACpB,WAAO;AAAA,EACT;AAAA,EACA,UAAU;AACR,SAAK,KAAK,IAAI,UAAU,KAAK,GAAG;AAChC,SAAK,GAAG,SAAS,MAAM;AACrB,cAAQ,IAAI,sCAAa,KAAK,OAAO,WAAW;AAChD,WAAK,GAAG,KAAK,KAAK,KAAK;AACvB,WAAK,iBAAiB;AAAA,IACxB;AACA,SAAK,GAAG,UAAU,MAAM;AACtB,mBAAa,KAAK,GAAG;AACrB,WAAK,MAAM,WAAW,MAAM;AAC1B,iBAAS,OAAO;AAAA,MAClB,GAAG,MAAM,EAAE;AACX,cAAQ,IAAI,mCAAe;AAC3B,WAAK,UAAU;AAAA,IACjB;AACA,SAAK,GAAG,UAAU,CAAC,QAAQ;AACzB,cAAQ,IAAI,qCAAiB,GAAG;AAAA,IAClC;AAAA,EACF;AAAA,EACA,YAAY;AACV,QAAI,KAAK,iBAAiB,KAAK,mBAAmB;AAChD,iBAAW,MAAM;AACf,aAAK,QAAQ;AACb,aAAK;AAAA,MACP,GAAG,KAAK,gBAAgB;AACxB,WAAK,oBAAoB;AAAA,IAC3B,OAAO;AACL,cAAQ,IAAI,oFAAwB;AAAA,IACtC;AAAA,EACF;AAAA,EACA,IAAI,OAAO;AACT,QAAI,UAAU,QAAQ;AACpB,WAAK,GAAG,KAAK,KAAK;AAAA,IACpB,OAAO;AACL,WAAK,GAAG,KAAK,KAAK,UAAU,KAAK,CAAC;AAAA,IACpC;AAAA,EACF;AAAA;AAAA,EAEA,QAAQ,OAAO;AACb,eAAW,MAAM;AACf,WAAK,IAAI,KAAK;AAAA,IAChB,GAAG,GAAG;AAAA,EACR;AAAA,EACA,KAAK,OAAO;AACV,QAAI,KAAK,GAAG,eAAe,UAAU,MAAM;AACzC,WAAK,IAAI,KAAK;AAAA,IAChB,WAAW,KAAK,GAAG,eAAe,UAAU,YAAY;AACtD,WAAK,QAAQ,KAAK;AAAA,IACpB,OAAO;AACL,WAAK,QAAQ,KAAK;AAAA,IACpB;AAAA,EACF;AACF;AACA,OAAO,eAAe;AACf,gBAAS,OAAO,KAAK;AAC1B,QAAM,MAAM;AACZ,QAAM,OAAO,IAAI,OAAO,GAAG;AAC3B,OAAK,QAAQ;AACb,OAAK,GAAG,YAAY,SAAS,IAAI;AAC/B,QAAI,MAAM,GAAG,QAAQ,GAAG,KAAK,QAAQ,WAAW,IAAI,IAAI;AACtD,cAAQ,IAAI,eAAe,GAAG,IAAI;AAAA,IACpC,WAAW,MAAM,GAAG,MAAM;AACxB,UAAI,OAAO,GAAG,QAAQ,SAAS,GAAG,OAAO,KAAK,MAAM,GAAG,OAAO,GAAG;AACjE,gBAAU,IAAI;AAAA,IAChB;AAAA,EACF;AACA,WAAS,YAAY;AACnB,QAAI,QAAQ;AACZ,YAAQ,KAAK,KAAK,KAAK;AAAA,EACzB;AACA,YAAU;AACV,MAAI,IAAI;AACR,MAAI,YAAY,WAAW,MAAM,CAAC;AAClC,SAAO;AACT;AACA,eAAe;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769490,
+      "end": 1714699769490,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769490,
+      "end": 1714699769490,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769490,
+      "end": 1714699769490,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769490,
+      "end": 1714699769490,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769490,
+      "end": 1714699769490,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769490,
+      "end": 1714699769490,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769490,
+      "end": 1714699769490,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769490,
+      "end": 1714699769490,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769490,
+      "end": 1714699769491,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699769491,
+      "end": 1714699769491,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769491,
+      "end": 1714699769491,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769491,
+      "end": 1714699769491,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769491,
+      "end": 1714699769491,
+      "order": "normal"
+    }
+  ]
+}

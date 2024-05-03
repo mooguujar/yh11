@@ -1,0 +1,163 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/send_orderTopup.vue?vue&type=style&index=0&scoped=a1a5583c&lang.scss",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\n:deep(.van-cell) {\n  input[disabled] {\n    color: #000 !important; /* 设置你想要的颜色 */\n    -webkit-text-fill-color: #000;\n  }\n  .van-field__control {\n    font-size: 44px;\n    font-weight: 600;\n  }\n  padding-right: 0;\n  padding-left: 0;\n}\n.van-cell:after {\n  width: 100%;\n  border-bottom: 3px solid #ccc;\n  left: 0;\n}\n.confirm-dialog {\n  &__content {\n    text-align: center;\n    margin-top: 60px;\n    h4 {\n      margin-top: 35px;\n      font-family: MicrosoftYaHei-Bold;\n      font-size: 49px;\n      font-weight: 600;\n      font-stretch: normal;\n      line-height: 33px;\n      letter-spacing: 0px;\n      color: #13161b;\n      span {\n        font-family: MicrosoftYaHei;\n        font-size: 49px;\n        font-weight: normal;\n        font-stretch: normal;\n        line-height: 33px;\n        letter-spacing: 0px;\n        color: #868d9a;\n      }\n    }\n  }\n  &__form {\n    padding: 20px 40px;\n    &-item {\n      text-align: left;\n    }\n    &-btn {\n      margin-top: 30px;\n    }\n    label {\n      font-size: 24px;\n      text-align: left;\n    }\n\n    :deep(.van-field) {\n      padding: 0 0.26667rem;\n      height: 1.01333rem;\n      background-color: #ebf1f6;\n      border-radius: 0.09333rem;\n      margin-top: 30px;\n      .van-field__control {\n        line-height: 76px;\n        font-family: MicrosoftYaHei;\n        font-size: 35px;\n        font-weight: normal;\n        font-stretch: normal;\n        letter-spacing: 0px;\n        color: #13161b;\n      }\n    }\n  }\n\n  .icon-close {\n    position: absolute;\n    right: 40px;\n    top: 24px;\n  }\n}\n",
+      "start": 1714699769875,
+      "end": 1714699769875
+    },
+    {
+      "name": "vite:css",
+      "result": "@charset \"UTF-8\";\n:deep(.van-cell) {\n  padding-right: 0;\n  padding-left: 0;\n}\n:deep(.van-cell) input[disabled] {\n  color: #000 !important; /* 设置你想要的颜色 */\n  -webkit-text-fill-color: #000;\n}\n:deep(.van-cell) .van-field__control {\n  font-size: 0.58667rem;\n  font-weight: 600;\n}\n.van-cell:after {\n  width: 100%;\n  border-bottom: 0.04rem solid #ccc;\n  left: 0;\n}\n.confirm-dialog__content {\n  text-align: center;\n  margin-top: 0.8rem;\n}\n.confirm-dialog__content h4 {\n  margin-top: 0.46667rem;\n  font-family: MicrosoftYaHei-Bold;\n  font-size: 0.65333rem;\n  font-weight: 600;\n  font-stretch: normal;\n  line-height: 0.44rem;\n  letter-spacing: 0px;\n  color: #13161b;\n}\n.confirm-dialog__content h4 span {\n  font-family: MicrosoftYaHei;\n  font-size: 0.65333rem;\n  font-weight: normal;\n  font-stretch: normal;\n  line-height: 0.44rem;\n  letter-spacing: 0px;\n  color: #868d9a;\n}\n.confirm-dialog__form {\n  padding: 0.26667rem 0.53333rem;\n}\n.confirm-dialog__form-item {\n  text-align: left;\n}\n.confirm-dialog__form-btn {\n  margin-top: 0.4rem;\n}\n.confirm-dialog__form label {\n  font-size: 0.32rem;\n  text-align: left;\n}\n.confirm-dialog__form :deep(.van-field) {\n  padding: 0 0.26667rem;\n  height: 1.01333rem;\n  background-color: #ebf1f6;\n  border-radius: 0.09333rem;\n  margin-top: 0.4rem;\n}\n.confirm-dialog__form :deep(.van-field) .van-field__control {\n  line-height: 1.01333rem;\n  font-family: MicrosoftYaHei;\n  font-size: 0.46667rem;\n  font-weight: normal;\n  font-stretch: normal;\n  letter-spacing: 0px;\n  color: #13161b;\n}\n.confirm-dialog .icon-close {\n  position: absolute;\n  right: 0.53333rem;\n  top: 0.32rem;\n}",
+      "start": 1714699769876,
+      "end": 1714699769893,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769893,
+      "end": 1714699769893,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769893,
+      "end": 1714699769893,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769893,
+      "end": 1714699769893,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "@charset \"UTF-8\";\n[data-v-a1a5583c] .van-cell {\n  padding-right: 0;\n  padding-left: 0;\n}\n[data-v-a1a5583c] .van-cell input[disabled] {\n  color: #000 !important; /* 设置你想要的颜色 */\n  -webkit-text-fill-color: #000;\n}\n[data-v-a1a5583c] .van-cell .van-field__control {\n  font-size: 0.58667rem;\n  font-weight: 600;\n}\n.van-cell[data-v-a1a5583c]:after {\n  width: 100%;\n  border-bottom: 0.04rem solid #ccc;\n  left: 0;\n}\n.confirm-dialog__content[data-v-a1a5583c] {\n  text-align: center;\n  margin-top: 0.8rem;\n}\n.confirm-dialog__content h4[data-v-a1a5583c] {\n  margin-top: 0.46667rem;\n  font-family: MicrosoftYaHei-Bold;\n  font-size: 0.65333rem;\n  font-weight: 600;\n  font-stretch: normal;\n  line-height: 0.44rem;\n  letter-spacing: 0px;\n  color: #13161b;\n}\n.confirm-dialog__content h4 span[data-v-a1a5583c] {\n  font-family: MicrosoftYaHei;\n  font-size: 0.65333rem;\n  font-weight: normal;\n  font-stretch: normal;\n  line-height: 0.44rem;\n  letter-spacing: 0px;\n  color: #868d9a;\n}\n.confirm-dialog__form[data-v-a1a5583c] {\n  padding: 0.26667rem 0.53333rem;\n}\n.confirm-dialog__form-item[data-v-a1a5583c] {\n  text-align: left;\n}\n.confirm-dialog__form-btn[data-v-a1a5583c] {\n  margin-top: 0.4rem;\n}\n.confirm-dialog__form label[data-v-a1a5583c] {\n  font-size: 0.32rem;\n  text-align: left;\n}\n.confirm-dialog__form[data-v-a1a5583c] .van-field {\n  padding: 0 0.26667rem;\n  height: 1.01333rem;\n  background-color: #ebf1f6;\n  border-radius: 0.09333rem;\n  margin-top: 0.4rem;\n}\n.confirm-dialog__form[data-v-a1a5583c] .van-field .van-field__control {\n  line-height: 1.01333rem;\n  font-family: MicrosoftYaHei;\n  font-size: 0.46667rem;\n  font-weight: normal;\n  font-stretch: normal;\n  letter-spacing: 0px;\n  color: #13161b;\n}\n.confirm-dialog .icon-close[data-v-a1a5583c] {\n  position: absolute;\n  right: 0.53333rem;\n  top: 0.32rem;\n}",
+      "start": 1714699769893,
+      "end": 1714699769894,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769894,
+      "end": 1714699769894,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "@charset \"UTF-8\";\n[data-v-a1a5583c] .van-cell {\n  padding-right: 0;\n  padding-left: 0;\n}\n[data-v-a1a5583c] .van-cell input[disabled] {\n  color: #000 !important; /* 设置你想要的颜色 */\n  -webkit-text-fill-color: #000;\n}\n[data-v-a1a5583c] .van-cell .van-field__control {\n  font-size: 0.58667rem;\n  font-weight: 600;\n}\n.van-cell[data-v-a1a5583c]:after {\n  width: 100%;\n  border-bottom: 0.04rem solid #ccc;\n  left: 0;\n}\n.confirm-dialog__content[data-v-a1a5583c] {\n  text-align: center;\n  margin-top: 0.8rem;\n}\n.confirm-dialog__content h4[data-v-a1a5583c] {\n  margin-top: 0.46667rem;\n  font-family: MicrosoftYaHei-Bold;\n  font-size: 0.65333rem;\n  font-weight: 600;\n  font-stretch: normal;\n  line-height: 0.44rem;\n  letter-spacing: 0px;\n  color: #13161b;\n}\n.confirm-dialog__content h4 span[data-v-a1a5583c] {\n  font-family: MicrosoftYaHei;\n  font-size: 0.65333rem;\n  font-weight: normal;\n  font-stretch: normal;\n  line-height: 0.44rem;\n  letter-spacing: 0px;\n  color: #868d9a;\n}\n.confirm-dialog__form[data-v-a1a5583c] {\n  padding: 0.26667rem 0.53333rem;\n}\n.confirm-dialog__form-item[data-v-a1a5583c] {\n  text-align: left;\n}\n.confirm-dialog__form-btn[data-v-a1a5583c] {\n  margin-top: 0.4rem;\n}\n.confirm-dialog__form label[data-v-a1a5583c] {\n  font-size: 0.32rem;\n  text-align: left;\n}\n.confirm-dialog__form[data-v-a1a5583c] .van-field {\n  padding: 0 0.26667rem;\n  height: 1.01333rem;\n  background-color: #ebf1f6;\n  border-radius: 0.09333rem;\n  margin-top: 0.4rem;\n}\n.confirm-dialog__form[data-v-a1a5583c] .van-field .van-field__control {\n  line-height: 1.01333rem;\n  font-family: MicrosoftYaHei;\n  font-size: 0.46667rem;\n  font-weight: normal;\n  font-stretch: normal;\n  letter-spacing: 0px;\n  color: #13161b;\n}\n.confirm-dialog .icon-close[data-v-a1a5583c] {\n  position: absolute;\n  right: 0.53333rem;\n  top: 0.32rem;\n}",
+      "start": 1714699769894,
+      "end": 1714699769894,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699769894,
+      "end": 1714699769894,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769894,
+      "end": 1714699769894,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699769894,
+      "end": 1714699769894,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769894,
+      "end": 1714699769894,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769894,
+      "end": 1714699769894,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769894,
+      "end": 1714699769894,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769894,
+      "end": 1714699769894,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769894,
+      "end": 1714699769894,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769894,
+      "end": 1714699769894,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769894,
+      "end": 1714699769894,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */",
+      "start": 1714699769894,
+      "end": 1714699769894,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/send_orderTopup.vue?vue&type=style&index=0&scoped=a1a5583c&lang.scss"
+        ],
+        "sourcesContent": [
+          ""
+        ],
+        "names": [],
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769894,
+      "end": 1714699769894,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769894,
+      "end": 1714699769894,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769894,
+      "end": 1714699769894,
+      "order": "normal"
+    }
+  ]
+}

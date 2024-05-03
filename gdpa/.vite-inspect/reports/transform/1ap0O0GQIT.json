@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/activeList/index.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <nav-bar\n    hide-left\n    title=\"优惠活动\"\n    mode=\"transparent\"\n    class=\"activeList_navbar\"\n  />\n  <div class=\"activeList h-[100vh]\">\n    <div\n      class=\"listCard\"\n      v-for=\"(item, index) in homeSliderList\"\n      :key=\"item.id\"\n      @click=\"handleClick(item)\"\n    >\n      <van-image\n        :src=\"domain + homeSliderList[index].mobileimg\"\n        @error=\"onImageError($event, domain + item.mobileimg, index)\"\n      />\n    </div>\n  </div>\n</template>\n<script setup lang=\"ts\">\nimport infoIcon from '@/assets/images/common/info.png'\nimport passIcon from '@/assets/images/common/key.png'\nimport kgcoin from '@/assets/images/common/kgcoin.png'\nimport { useAppBar } from '@/components/AppBar/useAppBar'\nimport Dialog from '@/components/CommonPopup/Dialog/index'\nimport router from '@/router'\nimport { useAuthStore } from '@/store/modules/auth'\nimport { useCoinBuySellStore } from '@/store/modules/coinBuySell'\nimport { useEntryStore } from '@/store/modules/entry'\nimport { useUserStore } from '@/store/modules/user'\nimport mitt from '@/utils/mitt'\nimport { mergeHrefParams, requireImg } from '@/utils/tools'\nimport { storeToRefs } from 'pinia'\nimport { showFailToast, showToast } from 'vant'\nimport { computed, nextTick, onMounted, reactive, ref, watch } from 'vue'\nimport { useRoute } from 'vue-router'\n\nimport { IArticleListType } from '@/store/types/article'\nimport { useArticleStore } from '@/store/modules/article'\n\nconst entryStore = useEntryStore()\nconst { config } = storeToRefs(entryStore)\n\nconst search = new URLSearchParams(mergeHrefParams())\nconst hs = search.get('hs') || ''\nconst wideMode = hs === 'h'\nconst targetRoute = wideMode ? 'wideOrderCreate' : 'orderCreate'\n\nconst domain = computed(() => {\n  // console.log('(imgserver_url',(config.value.Web_Set_DefaultInfo?.imgserver_url as any)?.v);\n  return (config.value.Web_Set_DefaultInfo?.imgserver_url as any)?.v || ''\n})\nconst route = useRoute()\nuseAppBar({ mode: 'dark' })\n\nconst userStore = useUserStore()\nconst { getUserMessageList } = userStore\nonMounted(() => {})\n\nconst articleStore = useArticleStore()\nconst homeSliderList = ref<IArticleListType[]>([])\nconst { articleList_Activity_Mod } = storeToRefs(articleStore)\nconst { getArticleListApi } = articleStore\ngetArticleListApi({ bind_key: 'Activity_Mod' })\nconst authStore = useAuthStore()\n\nconst { token } = storeToRefs(authStore)\nconst isLogin = computed(() => !!token.value)\n\nwatch(\n  articleList_Activity_Mod,\n  (list, oldList) => {\n    homeSliderList.value = articleList_Activity_Mod.value\n  },\n  { deep: true, immediate: true }\n)\nconst onImageError = (e: Event, img: string, index: number) => {\n  // homeSliderList.value[index].mobileimg =\n  ;(e.target as HTMLImageElement).onerror = null\n  homeSliderList.value = []\n\n  nextTick(() => {\n    homeSliderList.value = articleList_Activity_Mod.value\n  })\n}\n\ninterface CarouselRouteKey {\n  Mod_BuyCoinsGDB: string\n  Mod_Movingbricks: string\n  Mod_PointsActivity: string\n  Mod_UserReg: string\n}\nconst carouselRouteMap = {\n  Mod_BuyCoinsGDB: '/buy_coin',\n  Mod_JumpWebUrl: {\n    WebUrlLink: 'http://baidu.com'\n  },\n  Mod_Movingbricks: '/brick',\n  Mod_PointsActivity: '/point',\n  Mod_UserReg: '/auth/register'\n}\n\nconst handleClick = async (data: any) => {\n  if (data.app_exts) {\n    const { app_action, H5_action, WebUrlLink } = JSON.parse(data.app_exts)\n    // window.log('当前轮播跳转信息', data)\n    if (app_action === 'Mod_UserReg' && isLogin) return\n    if (H5_action) {\n      router.push(H5_action)\n    } else if (app_action === 'Mod_Movingbricks') {\n      router.push('/bricks/move-brick')\n    } else if (app_action === 'Mod_PointsActivity') {\n      router.push('/point')\n    } else if (carouselRouteMap[app_action as keyof CarouselRouteKey] == 'Mod_BuyCoinsGDB') {\n      // if (await CompletionIdCardMiddleware()) {\n      //   CompletionPaymentMiddleware().then(e => {\n      router.push(carouselRouteMap[app_action as keyof CarouselRouteKey])\n      //   })\n      // }\n    } else {\n      router.push(`/iframe-page/third?url=${WebUrlLink}`)\n    }\n  }\n}\nconst msgtext = `您还未绑定该收款方式,是否前往绑定 </br>\n</br>\n</br>\n`\nconst showDIYDialog = (path: any) => {\n  Dialog.confirm({\n    title: '',\n    message: msgtext,\n    allowHtml: true,\n    messageAlign: 'center',\n    className: 'selldialog',\n    confirmButtonText: '确定',\n    cancelButtonText: '取消',\n    action: () => {\n      router.push(path)\n    }\n  })\n}\nconst msgtext2 = `绑定邮箱后，可以在有交易信息的时候及时通知到您！建议您绑定好邮箱地址。 </br>\n</br>\n</br>\n`\n</script>\n\n<style lang=\"scss\" src=\"./activeList.scss\" scoped />\n<style lang=\"scss\"></style>\n",
+      "start": 1714699769098,
+      "end": 1714699769205,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769205,
+      "end": 1714699769205,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769205,
+      "end": 1714699769205,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769205,
+      "end": 1714699769205,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769205,
+      "end": 1714699769205,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/activeList/index.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/activeList/index.vue?vue&type=script&setup=true&lang.ts\";\nimport \"./activeList.scss?vue&type=style&index=0&src=eadb4be2&scoped=eadb4be2&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-eadb4be2\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/activeList/index.vue\"]]);\n",
+      "start": 1714699769205,
+      "end": 1714699769524,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769524,
+      "end": 1714699769524,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/activeList/index.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/activeList/index.vue?vue&type=script&setup=true&lang.ts\";\nimport \"./activeList.scss?vue&type=style&index=0&src=eadb4be2&scoped=eadb4be2&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-eadb4be2\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/activeList/index.vue\"]]);\n",
+      "start": 1714699769524,
+      "end": 1714699769524,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/activeList/index.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/activeList/index.vue?vue&type=script&setup=true&lang.ts\";\nimport \"./activeList.scss?vue&type=style&index=0&src=eadb4be2&scoped=eadb4be2&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-eadb4be2\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/activeList/index.vue\"]]);\n",
+      "start": 1714699769525,
+      "end": 1714699769608,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/activeList/index.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/activeList/index.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/activeList/index.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"./activeList.scss?vue&type=style&index=0&src=eadb4be2&scoped=eadb4be2&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-eadb4be2\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/activeList/index.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,sEAAsE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769608,
+      "end": 1714699769608,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769608,
+      "end": 1714699769608,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769608,
+      "end": 1714699769608,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769608,
+      "end": 1714699769608,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769608,
+      "end": 1714699769608,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769608,
+      "end": 1714699769608,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769608,
+      "end": 1714699769608,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769608,
+      "end": 1714699769608,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769608,
+      "end": 1714699769609,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/activeList/index.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/activeList/index.vue?vue&type=script&setup=true&lang.ts\";\nimport \"./activeList.scss?vue&type=style&index=0&src=eadb4be2&scoped=eadb4be2&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-eadb4be2\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/activeList/index.vue\"]]);\n",
+      "start": 1714699769609,
+      "end": 1714699769609,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/activeList/index.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/activeList/index.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/activeList/index.vue?vue&type=script&setup=true&lang.ts\";\nimport \"./activeList.scss?vue&type=style&index=0&src=eadb4be2&scoped=eadb4be2&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-eadb4be2\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/activeList/index.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769609,
+      "end": 1714699769609,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769609,
+      "end": 1714699769609,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769609,
+      "end": 1714699769609,
+      "order": "normal"
+    }
+  ]
+}

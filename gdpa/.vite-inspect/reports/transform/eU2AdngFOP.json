@@ -1,0 +1,154 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/store/modules/article/index.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { ArticleListParams, articleListApi } from '@/apis/article'\nimport { ArticleState } from '@/store/types/article'\nimport { defineStore } from 'pinia'\n\nexport const useArticleStore = defineStore('article', {\n  state: () =>\n    ({\n      // 弹窗公告\n      articleList: [],\n      articleList_Activity_Mod: [],\n      // 首页公告弹窗是否需要显示\n      homeNoticeShowStatus: true,\n      homeNoticeShowList: []\n    } as ArticleState),\n  getters: {\n    openNotice(state) {\n      return state.articleList.filter(item => item.bind_key === 'OpenNotice')\n    },\n    rollingNotice(state) {\n      return state.articleList.filter(item => item.bind_key === 'RollingNotice')\n    },\n    homeSlider(state) {\n      return state.articleList.filter(item => item.bind_key === 'HomeHuanDeng')\n    }\n  },\n  actions: {\n    updateHomeNoticeList(list: Array<boolean | string>) {\n      this.homeNoticeShowList = list\n    },\n    updateHomeNoticeShowStatus(status: boolean) {\n      this.homeNoticeShowStatus = status\n    },\n    async getArticleListApi(params: ArticleListParams) {\n      try {\n        const response = await articleListApi(params)\n\n        if (params?.bind_key == 'Activity_Mod') {\n          this.articleList_Activity_Mod = response\n        } else {\n          this.articleList = response\n        }\n\n        return response\n      } catch (error) {\n        console.log(error)\n        throw error\n      }\n    }\n  },\n  persist: [\n    {\n      paths: ['homeNoticeShowList'],\n      storage: localStorage\n    },\n    {\n      paths: ['articleList', 'homeNoticeShowStatus'],\n      storage: sessionStorage\n    }\n  ]\n})\n",
+      "start": 1714699767999,
+      "end": 1714699768041,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768041,
+      "end": 1714699768041,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { articleListApi } from \"@/apis/article\";\nimport { defineStore } from \"pinia\";\nexport const useArticleStore = defineStore(\"article\", {\n  state: () => ({\n    // 弹窗公告\n    articleList: [],\n    articleList_Activity_Mod: [],\n    // 首页公告弹窗是否需要显示\n    homeNoticeShowStatus: true,\n    homeNoticeShowList: []\n  }),\n  getters: {\n    openNotice(state) {\n      return state.articleList.filter((item) => item.bind_key === \"OpenNotice\");\n    },\n    rollingNotice(state) {\n      return state.articleList.filter((item) => item.bind_key === \"RollingNotice\");\n    },\n    homeSlider(state) {\n      return state.articleList.filter((item) => item.bind_key === \"HomeHuanDeng\");\n    }\n  },\n  actions: {\n    updateHomeNoticeList(list) {\n      this.homeNoticeShowList = list;\n    },\n    updateHomeNoticeShowStatus(status) {\n      this.homeNoticeShowStatus = status;\n    },\n    async getArticleListApi(params) {\n      try {\n        const response = await articleListApi(params);\n        if (params?.bind_key == \"Activity_Mod\") {\n          this.articleList_Activity_Mod = response;\n        } else {\n          this.articleList = response;\n        }\n        return response;\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    }\n  },\n  persist: [\n    {\n      paths: [\"homeNoticeShowList\"],\n      storage: localStorage\n    },\n    {\n      paths: [\"articleList\", \"homeNoticeShowStatus\"],\n      storage: sessionStorage\n    }\n  ]\n});\n",
+      "start": 1714699768041,
+      "end": 1714699769063,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/store/modules/article/index.ts"
+        ],
+        "sourcesContent": [
+          "import { ArticleListParams, articleListApi } from '@/apis/article'\nimport { ArticleState } from '@/store/types/article'\nimport { defineStore } from 'pinia'\n\nexport const useArticleStore = defineStore('article', {\n  state: () =>\n    ({\n      // 弹窗公告\n      articleList: [],\n      articleList_Activity_Mod: [],\n      // 首页公告弹窗是否需要显示\n      homeNoticeShowStatus: true,\n      homeNoticeShowList: []\n    } as ArticleState),\n  getters: {\n    openNotice(state) {\n      return state.articleList.filter(item => item.bind_key === 'OpenNotice')\n    },\n    rollingNotice(state) {\n      return state.articleList.filter(item => item.bind_key === 'RollingNotice')\n    },\n    homeSlider(state) {\n      return state.articleList.filter(item => item.bind_key === 'HomeHuanDeng')\n    }\n  },\n  actions: {\n    updateHomeNoticeList(list: Array<boolean | string>) {\n      this.homeNoticeShowList = list\n    },\n    updateHomeNoticeShowStatus(status: boolean) {\n      this.homeNoticeShowStatus = status\n    },\n    async getArticleListApi(params: ArticleListParams) {\n      try {\n        const response = await articleListApi(params)\n\n        if (params?.bind_key == 'Activity_Mod') {\n          this.articleList_Activity_Mod = response\n        } else {\n          this.articleList = response\n        }\n\n        return response\n      } catch (error) {\n        console.log(error)\n        throw error\n      }\n    }\n  },\n  persist: [\n    {\n      paths: ['homeNoticeShowList'],\n      storage: localStorage\n    },\n    {\n      paths: ['articleList', 'homeNoticeShowStatus'],\n      storage: sessionStorage\n    }\n  ]\n})\n"
+        ],
+        "mappings": "AAAA,SAA4B,sBAAsB;AAElD,SAAS,mBAAmB;AAErB,aAAM,kBAAkB,YAAY,WAAW;AAAA,EACpD,OAAO,OACJ;AAAA;AAAA,IAEC,aAAa,CAAC;AAAA,IACd,0BAA0B,CAAC;AAAA;AAAA,IAE3B,sBAAsB;AAAA,IACtB,oBAAoB,CAAC;AAAA,EACvB;AAAA,EACF,SAAS;AAAA,IACP,WAAW,OAAO;AAChB,aAAO,MAAM,YAAY,OAAO,UAAQ,KAAK,aAAa,YAAY;AAAA,IACxE;AAAA,IACA,cAAc,OAAO;AACnB,aAAO,MAAM,YAAY,OAAO,UAAQ,KAAK,aAAa,eAAe;AAAA,IAC3E;AAAA,IACA,WAAW,OAAO;AAChB,aAAO,MAAM,YAAY,OAAO,UAAQ,KAAK,aAAa,cAAc;AAAA,IAC1E;AAAA,EACF;AAAA,EACA,SAAS;AAAA,IACP,qBAAqB,MAA+B;AAClD,WAAK,qBAAqB;AAAA,IAC5B;AAAA,IACA,2BAA2B,QAAiB;AAC1C,WAAK,uBAAuB;AAAA,IAC9B;AAAA,IACA,MAAM,kBAAkB,QAA2B;AACjD,UAAI;AACF,cAAM,WAAW,MAAM,eAAe,MAAM;AAE5C,YAAI,QAAQ,YAAY,gBAAgB;AACtC,eAAK,2BAA2B;AAAA,QAClC,OAAO;AACL,eAAK,cAAc;AAAA,QACrB;AAEA,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,IAAI,KAAK;AACjB,cAAM;AAAA,MACR;AAAA,IACF;AAAA,EACF;AAAA,EACA,SAAS;AAAA,IACP;AAAA,MACE,OAAO,CAAC,oBAAoB;AAAA,MAC5B,SAAS;AAAA,IACX;AAAA,IACA;AAAA,MACE,OAAO,CAAC,eAAe,sBAAsB;AAAA,MAC7C,SAAS;AAAA,IACX;AAAA,EACF;AACF,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769063,
+      "end": 1714699769063,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769063,
+      "end": 1714699769063,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699769063,
+      "end": 1714699769063,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769063,
+      "end": 1714699769063,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { articleListApi } from \"@/apis/article\";\nimport { defineStore } from \"pinia\";\nexport const useArticleStore = defineStore(\"article\", {\n  state: () => ({\n    // 弹窗公告\n    articleList: [],\n    articleList_Activity_Mod: [],\n    // 首页公告弹窗是否需要显示\n    homeNoticeShowStatus: true,\n    homeNoticeShowList: []\n  }),\n  getters: {\n    openNotice(state) {\n      return state.articleList.filter((item) => item.bind_key === \"OpenNotice\");\n    },\n    rollingNotice(state) {\n      return state.articleList.filter((item) => item.bind_key === \"RollingNotice\");\n    },\n    homeSlider(state) {\n      return state.articleList.filter((item) => item.bind_key === \"HomeHuanDeng\");\n    }\n  },\n  actions: {\n    updateHomeNoticeList(list) {\n      this.homeNoticeShowList = list;\n    },\n    updateHomeNoticeShowStatus(status) {\n      this.homeNoticeShowStatus = status;\n    },\n    async getArticleListApi(params) {\n      try {\n        const response = await articleListApi(params);\n        if (params?.bind_key == \"Activity_Mod\") {\n          this.articleList_Activity_Mod = response;\n        } else {\n          this.articleList = response;\n        }\n        return response;\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    }\n  },\n  persist: [\n    {\n      paths: [\"homeNoticeShowList\"],\n      storage: localStorage\n    },\n    {\n      paths: [\"articleList\", \"homeNoticeShowStatus\"],\n      storage: sessionStorage\n    }\n  ]\n});\n",
+      "start": 1714699769063,
+      "end": 1714699769063,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport { articleListApi } from \"@/apis/article\";\nimport { defineStore } from \"pinia\";\nexport const useArticleStore = defineStore(\"article\", {\n  state: () => ({\n    // 弹窗公告\n    articleList: [],\n    articleList_Activity_Mod: [],\n    // 首页公告弹窗是否需要显示\n    homeNoticeShowStatus: true,\n    homeNoticeShowList: []\n  }),\n  getters: {\n    openNotice(state) {\n      return state.articleList.filter((item) => item.bind_key === \"OpenNotice\");\n    },\n    rollingNotice(state) {\n      return state.articleList.filter((item) => item.bind_key === \"RollingNotice\");\n    },\n    homeSlider(state) {\n      return state.articleList.filter((item) => item.bind_key === \"HomeHuanDeng\");\n    }\n  },\n  actions: {\n    updateHomeNoticeList(list) {\n      this.homeNoticeShowList = list;\n    },\n    updateHomeNoticeShowStatus(status) {\n      this.homeNoticeShowStatus = status;\n    },\n    async getArticleListApi(params) {\n      try {\n        const response = await articleListApi(params);\n        if ((params == null ? void 0 : params.bind_key) == \"Activity_Mod\") {\n          this.articleList_Activity_Mod = response;\n        } else {\n          this.articleList = response;\n        }\n        return response;\n      } catch (error) {\n        console.log(error);\n        throw error;\n      }\n    }\n  },\n  persist: [\n    {\n      paths: [\"homeNoticeShowList\"],\n      storage: localStorage\n    },\n    {\n      paths: [\"articleList\", \"homeNoticeShowStatus\"],\n      storage: sessionStorage\n    }\n  ]\n});\n",
+      "start": 1714699769063,
+      "end": 1714699769405,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/store/modules/article/index.ts\"],\n  \"sourcesContent\": [\"import { articleListApi } from \\\"@/apis/article\\\";\\nimport { defineStore } from \\\"pinia\\\";\\nexport const useArticleStore = defineStore(\\\"article\\\", {\\n  state: () => ({\\n    // \\u5F39\\u7A97\\u516C\\u544A\\n    articleList: [],\\n    articleList_Activity_Mod: [],\\n    // \\u9996\\u9875\\u516C\\u544A\\u5F39\\u7A97\\u662F\\u5426\\u9700\\u8981\\u663E\\u793A\\n    homeNoticeShowStatus: true,\\n    homeNoticeShowList: []\\n  }),\\n  getters: {\\n    openNotice(state) {\\n      return state.articleList.filter((item) => item.bind_key === \\\"OpenNotice\\\");\\n    },\\n    rollingNotice(state) {\\n      return state.articleList.filter((item) => item.bind_key === \\\"RollingNotice\\\");\\n    },\\n    homeSlider(state) {\\n      return state.articleList.filter((item) => item.bind_key === \\\"HomeHuanDeng\\\");\\n    }\\n  },\\n  actions: {\\n    updateHomeNoticeList(list) {\\n      this.homeNoticeShowList = list;\\n    },\\n    updateHomeNoticeShowStatus(status) {\\n      this.homeNoticeShowStatus = status;\\n    },\\n    async getArticleListApi(params) {\\n      try {\\n        const response = await articleListApi(params);\\n        if (params?.bind_key == \\\"Activity_Mod\\\") {\\n          this.articleList_Activity_Mod = response;\\n        } else {\\n          this.articleList = response;\\n        }\\n        return response;\\n      } catch (error) {\\n        console.log(error);\\n        throw error;\\n      }\\n    }\\n  },\\n  persist: [\\n    {\\n      paths: [\\\"homeNoticeShowList\\\"],\\n      storage: localStorage\\n    },\\n    {\\n      paths: [\\\"articleList\\\", \\\"homeNoticeShowStatus\\\"],\\n      storage: sessionStorage\\n    }\\n  ]\\n});\\n\"],\n  \"mappings\": \";AAAA,SAAS,sBAAsB;AAC/B,SAAS,mBAAmB;AACrB,aAAM,kBAAkB,YAAY,WAAW;AAAA,EACpD,OAAO,OAAO;AAAA;AAAA,IAEZ,aAAa,CAAC;AAAA,IACd,0BAA0B,CAAC;AAAA;AAAA,IAE3B,sBAAsB;AAAA,IACtB,oBAAoB,CAAC;AAAA,EACvB;AAAA,EACA,SAAS;AAAA,IACP,WAAW,OAAO;AAChB,aAAO,MAAM,YAAY,OAAO,CAAC,SAAS,KAAK,aAAa,YAAY;AAAA,IAC1E;AAAA,IACA,cAAc,OAAO;AACnB,aAAO,MAAM,YAAY,OAAO,CAAC,SAAS,KAAK,aAAa,eAAe;AAAA,IAC7E;AAAA,IACA,WAAW,OAAO;AAChB,aAAO,MAAM,YAAY,OAAO,CAAC,SAAS,KAAK,aAAa,cAAc;AAAA,IAC5E;AAAA,EACF;AAAA,EACA,SAAS;AAAA,IACP,qBAAqB,MAAM;AACzB,WAAK,qBAAqB;AAAA,IAC5B;AAAA,IACA,2BAA2B,QAAQ;AACjC,WAAK,uBAAuB;AAAA,IAC9B;AAAA,IACA,MAAM,kBAAkB,QAAQ;AAC9B,UAAI;AACF,cAAM,WAAW,MAAM,eAAe,MAAM;AAC5C,aAAI,iCAAQ,aAAY,gBAAgB;AACtC,eAAK,2BAA2B;AAAA,QAClC,OAAO;AACL,eAAK,cAAc;AAAA,QACrB;AACA,eAAO;AAAA,MACT,SAAS,OAAO;AACd,gBAAQ,IAAI,KAAK;AACjB,cAAM;AAAA,MACR;AAAA,IACF;AAAA,EACF;AAAA,EACA,SAAS;AAAA,IACP;AAAA,MACE,OAAO,CAAC,oBAAoB;AAAA,MAC5B,SAAS;AAAA,IACX;AAAA,IACA;AAAA,MACE,OAAO,CAAC,eAAe,sBAAsB;AAAA,MAC7C,SAAS;AAAA,IACX;AAAA,EACF;AACF,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769405,
+      "end": 1714699769405,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769405,
+      "end": 1714699769405,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769405,
+      "end": 1714699769405,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769405,
+      "end": 1714699769405,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769405,
+      "end": 1714699769405,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769405,
+      "end": 1714699769405,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769405,
+      "end": 1714699769405,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769405,
+      "end": 1714699769405,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769405,
+      "end": 1714699769405,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699769407,
+      "end": 1714699769407,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769407,
+      "end": 1714699769407,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769408,
+      "end": 1714699769408,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769408,
+      "end": 1714699769408,
+      "order": "normal"
+    }
+  ]
+}

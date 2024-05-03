@@ -1,0 +1,154 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/store/index.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createPinia } from 'pinia'\nimport { useEntryStore } from './modules/entry'\nimport { useAuthStore } from './modules/auth'\n\nimport { createPersistedState } from 'pinia-plugin-persistedstate'\n\nconst pinia = createPinia()\npinia.use(\n  createPersistedState({\n    storage: sessionStorage\n  })\n)\n\nexport { useEntryStore, useAuthStore }\nexport default pinia\n",
+      "start": 1714699765945,
+      "end": 1714699765994,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699765994,
+      "end": 1714699765994,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { createPinia } from \"pinia\";\nimport { useEntryStore } from \"./modules/entry\";\nimport { useAuthStore } from \"./modules/auth\";\nimport { createPersistedState } from \"pinia-plugin-persistedstate\";\nconst pinia = createPinia();\npinia.use(\n  createPersistedState({\n    storage: sessionStorage\n  })\n);\nexport { useEntryStore, useAuthStore };\nexport default pinia;\n",
+      "start": 1714699765994,
+      "end": 1714699766177,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/store/index.ts"
+        ],
+        "sourcesContent": [
+          "import { createPinia } from 'pinia'\nimport { useEntryStore } from './modules/entry'\nimport { useAuthStore } from './modules/auth'\n\nimport { createPersistedState } from 'pinia-plugin-persistedstate'\n\nconst pinia = createPinia()\npinia.use(\n  createPersistedState({\n    storage: sessionStorage\n  })\n)\n\nexport { useEntryStore, useAuthStore }\nexport default pinia\n"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB;AAC5B,SAAS,qBAAqB;AAC9B,SAAS,oBAAoB;AAE7B,SAAS,4BAA4B;AAErC,MAAM,QAAQ,YAAY;AAC1B,MAAM;AAAA,EACJ,qBAAqB;AAAA,IACnB,SAAS;AAAA,EACX,CAAC;AACH;AAEA,SAAS,eAAe;AACxB,eAAe;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699766177,
+      "end": 1714699766177,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699766177,
+      "end": 1714699766177,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699766177,
+      "end": 1714699766177,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699766177,
+      "end": 1714699766177,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { createPinia } from \"pinia\";\nimport { useEntryStore } from \"./modules/entry\";\nimport { useAuthStore } from \"./modules/auth\";\nimport { createPersistedState } from \"pinia-plugin-persistedstate\";\nconst pinia = createPinia();\npinia.use(\n  createPersistedState({\n    storage: sessionStorage\n  })\n);\nexport { useEntryStore, useAuthStore };\nexport default pinia;\n",
+      "start": 1714699766177,
+      "end": 1714699766177,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport { createPinia } from \"pinia\";\nimport { useEntryStore } from \"./modules/entry\";\nimport { useAuthStore } from \"./modules/auth\";\nimport { createPersistedState } from \"pinia-plugin-persistedstate\";\nconst pinia = createPinia();\npinia.use(\n  createPersistedState({\n    storage: sessionStorage\n  })\n);\nexport { useEntryStore, useAuthStore };\nexport default pinia;\n",
+      "start": 1714699766178,
+      "end": 1714699766378,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/store/index.ts\"],\n  \"sourcesContent\": [\"import { createPinia } from \\\"pinia\\\";\\nimport { useEntryStore } from \\\"./modules/entry\\\";\\nimport { useAuthStore } from \\\"./modules/auth\\\";\\nimport { createPersistedState } from \\\"pinia-plugin-persistedstate\\\";\\nconst pinia = createPinia();\\npinia.use(\\n  createPersistedState({\\n    storage: sessionStorage\\n  })\\n);\\nexport { useEntryStore, useAuthStore };\\nexport default pinia;\\n\"],\n  \"mappings\": \";AAAA,SAAS,mBAAmB;AAC5B,SAAS,qBAAqB;AAC9B,SAAS,oBAAoB;AAC7B,SAAS,4BAA4B;AACrC,MAAM,QAAQ,YAAY;AAC1B,MAAM;AAAA,EACJ,qBAAqB;AAAA,IACnB,SAAS;AAAA,EACX,CAAC;AACH;AACA,SAAS,eAAe;AACxB,eAAe;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699766378,
+      "end": 1714699766378,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699766378,
+      "end": 1714699766378,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699766378,
+      "end": 1714699766378,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699766378,
+      "end": 1714699766378,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699766378,
+      "end": 1714699766378,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699766378,
+      "end": 1714699766378,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699766378,
+      "end": 1714699766378,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699766378,
+      "end": 1714699766378,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699766378,
+      "end": 1714699766379,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699766380,
+      "end": 1714699766380,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699766380,
+      "end": 1714699766380,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699766380,
+      "end": 1714699766380,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699766380,
+      "end": 1714699766380,
+      "order": "normal"
+    }
+  ]
+}

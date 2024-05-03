@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/es/switch/src/switch.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { defineComponent, h, ref, computed, reactive, nextTick, createCommentVNode, inject } from 'vue';\nimport XEUtils from 'xe-utils';\nimport GlobalConfig from '../../v-x-e-table/src/conf';\nimport { useSize } from '../../hooks/size';\nimport { getFuncText } from '../../tools/utils';\nexport default defineComponent({\n    name: 'VxeSwitch',\n    props: {\n        modelValue: [String, Number, Boolean],\n        disabled: Boolean,\n        size: { type: String, default: function () { return GlobalConfig.switch.size || GlobalConfig.size; } },\n        openLabel: String,\n        closeLabel: String,\n        openValue: { type: [String, Number, Boolean], default: true },\n        closeValue: { type: [String, Number, Boolean], default: false },\n        openIcon: String,\n        closeIcon: String\n    },\n    emits: [\n        'update:modelValue',\n        'change',\n        'focus',\n        'blur'\n    ],\n    setup: function (props, context) {\n        var emit = context.emit;\n        var $xeform = inject('$xeform', null);\n        var $xeformiteminfo = inject('$xeformiteminfo', null);\n        var xID = XEUtils.uniqueId();\n        var computeSize = useSize(props);\n        var reactData = reactive({\n            isActivated: false,\n            hasAnimat: false,\n            offsetLeft: 0\n        });\n        var $xeswitch = {\n            xID: xID,\n            props: props,\n            context: context,\n            reactData: reactData\n        };\n        var refButton = ref();\n        var switchMethods = {};\n        var computeOnShowLabel = computed(function () {\n            return getFuncText(props.openLabel);\n        });\n        var computeOffShowLabel = computed(function () {\n            return getFuncText(props.closeLabel);\n        });\n        var computeIsChecked = computed(function () {\n            return props.modelValue === props.openValue;\n        });\n        var _atimeout;\n        var clickEvent = function (evnt) {\n            if (!props.disabled) {\n                var isChecked = computeIsChecked.value;\n                clearTimeout(_atimeout);\n                var value = isChecked ? props.closeValue : props.openValue;\n                reactData.hasAnimat = true;\n                emit('update:modelValue', value);\n                switchMethods.dispatchEvent('change', { value: value }, evnt);\n                // 自动更新校验状态\n                if ($xeform && $xeformiteminfo) {\n                    $xeform.triggerItemEvent(evnt, $xeformiteminfo.itemConfig.field, value);\n                }\n                _atimeout = setTimeout(function () {\n                    reactData.hasAnimat = false;\n                }, 400);\n            }\n        };\n        var focusEvent = function (evnt) {\n            reactData.isActivated = true;\n            switchMethods.dispatchEvent('focus', { value: props.modelValue }, evnt);\n        };\n        var blurEvent = function (evnt) {\n            reactData.isActivated = false;\n            switchMethods.dispatchEvent('blur', { value: props.modelValue }, evnt);\n        };\n        switchMethods = {\n            dispatchEvent: function (type, params, evnt) {\n                emit(type, Object.assign({ $switch: $xeswitch, $event: evnt }, params));\n            },\n            focus: function () {\n                var btnElem = refButton.value;\n                reactData.isActivated = true;\n                btnElem.focus();\n                return nextTick();\n            },\n            blur: function () {\n                var btnElem = refButton.value;\n                btnElem.blur();\n                reactData.isActivated = false;\n                return nextTick();\n            }\n        };\n        Object.assign($xeswitch, switchMethods);\n        var renderVN = function () {\n            var _a;\n            var disabled = props.disabled, openIcon = props.openIcon, closeIcon = props.closeIcon;\n            var isChecked = computeIsChecked.value;\n            var vSize = computeSize.value;\n            var onShowLabel = computeOnShowLabel.value;\n            var offShowLabel = computeOffShowLabel.value;\n            return h('div', {\n                class: ['vxe-switch', isChecked ? 'is--on' : 'is--off', (_a = {},\n                        _a[\"size--\".concat(vSize)] = vSize,\n                        _a['is--disabled'] = disabled,\n                        _a['is--animat'] = reactData.hasAnimat,\n                        _a)]\n            }, [\n                h('button', {\n                    ref: refButton,\n                    class: 'vxe-switch--button',\n                    type: 'button',\n                    disabled: disabled,\n                    onClick: clickEvent,\n                    onFocus: focusEvent,\n                    onBlur: blurEvent\n                }, [\n                    h('span', {\n                        class: 'vxe-switch--label vxe-switch--label-on'\n                    }, [\n                        openIcon ? h('i', {\n                            class: ['vxe-switch--label-icon', openIcon]\n                        }) : createCommentVNode(),\n                        onShowLabel\n                    ]),\n                    h('span', {\n                        class: 'vxe-switch--label vxe-switch--label-off'\n                    }, [\n                        closeIcon ? h('i', {\n                            class: ['vxe-switch--label-icon', closeIcon]\n                        }) : createCommentVNode(),\n                        offShowLabel\n                    ]),\n                    h('span', {\n                        class: 'vxe-switch--icon'\n                    })\n                ])\n            ]);\n        };\n        $xeswitch.renderVN = renderVN;\n        return $xeswitch;\n    },\n    render: function () {\n        return this.renderVN();\n    }\n});\n",
+      "start": 1714699767777,
+      "end": 1714699767845,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767845,
+      "end": 1714699767845,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767845,
+      "end": 1714699767845,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767845,
+      "end": 1714699767845,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767845,
+      "end": 1714699767845,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767845,
+      "end": 1714699767845,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767845,
+      "end": 1714699767845,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { defineComponent, h, ref, computed, reactive, nextTick, createCommentVNode, inject } from 'vue';\nimport XEUtils from 'xe-utils';\nimport GlobalConfig from '../../v-x-e-table/src/conf';\nimport { useSize } from '../../hooks/size';\nimport { getFuncText } from '../../tools/utils';\nexport default defineComponent({\n    name: 'VxeSwitch',\n    props: {\n        modelValue: [String, Number, Boolean],\n        disabled: Boolean,\n        size: { type: String, default: function () { return GlobalConfig.switch.size || GlobalConfig.size; } },\n        openLabel: String,\n        closeLabel: String,\n        openValue: { type: [String, Number, Boolean], default: true },\n        closeValue: { type: [String, Number, Boolean], default: false },\n        openIcon: String,\n        closeIcon: String\n    },\n    emits: [\n        'update:modelValue',\n        'change',\n        'focus',\n        'blur'\n    ],\n    setup: function (props, context) {\n        var emit = context.emit;\n        var $xeform = inject('$xeform', null);\n        var $xeformiteminfo = inject('$xeformiteminfo', null);\n        var xID = XEUtils.uniqueId();\n        var computeSize = useSize(props);\n        var reactData = reactive({\n            isActivated: false,\n            hasAnimat: false,\n            offsetLeft: 0\n        });\n        var $xeswitch = {\n            xID: xID,\n            props: props,\n            context: context,\n            reactData: reactData\n        };\n        var refButton = ref();\n        var switchMethods = {};\n        var computeOnShowLabel = computed(function () {\n            return getFuncText(props.openLabel);\n        });\n        var computeOffShowLabel = computed(function () {\n            return getFuncText(props.closeLabel);\n        });\n        var computeIsChecked = computed(function () {\n            return props.modelValue === props.openValue;\n        });\n        var _atimeout;\n        var clickEvent = function (evnt) {\n            if (!props.disabled) {\n                var isChecked = computeIsChecked.value;\n                clearTimeout(_atimeout);\n                var value = isChecked ? props.closeValue : props.openValue;\n                reactData.hasAnimat = true;\n                emit('update:modelValue', value);\n                switchMethods.dispatchEvent('change', { value: value }, evnt);\n                // 自动更新校验状态\n                if ($xeform && $xeformiteminfo) {\n                    $xeform.triggerItemEvent(evnt, $xeformiteminfo.itemConfig.field, value);\n                }\n                _atimeout = setTimeout(function () {\n                    reactData.hasAnimat = false;\n                }, 400);\n            }\n        };\n        var focusEvent = function (evnt) {\n            reactData.isActivated = true;\n            switchMethods.dispatchEvent('focus', { value: props.modelValue }, evnt);\n        };\n        var blurEvent = function (evnt) {\n            reactData.isActivated = false;\n            switchMethods.dispatchEvent('blur', { value: props.modelValue }, evnt);\n        };\n        switchMethods = {\n            dispatchEvent: function (type, params, evnt) {\n                emit(type, Object.assign({ $switch: $xeswitch, $event: evnt }, params));\n            },\n            focus: function () {\n                var btnElem = refButton.value;\n                reactData.isActivated = true;\n                btnElem.focus();\n                return nextTick();\n            },\n            blur: function () {\n                var btnElem = refButton.value;\n                btnElem.blur();\n                reactData.isActivated = false;\n                return nextTick();\n            }\n        };\n        Object.assign($xeswitch, switchMethods);\n        var renderVN = function () {\n            var _a;\n            var disabled = props.disabled, openIcon = props.openIcon, closeIcon = props.closeIcon;\n            var isChecked = computeIsChecked.value;\n            var vSize = computeSize.value;\n            var onShowLabel = computeOnShowLabel.value;\n            var offShowLabel = computeOffShowLabel.value;\n            return h('div', {\n                class: ['vxe-switch', isChecked ? 'is--on' : 'is--off', (_a = {},\n                        _a[\"size--\".concat(vSize)] = vSize,\n                        _a['is--disabled'] = disabled,\n                        _a['is--animat'] = reactData.hasAnimat,\n                        _a)]\n            }, [\n                h('button', {\n                    ref: refButton,\n                    class: 'vxe-switch--button',\n                    type: 'button',\n                    disabled: disabled,\n                    onClick: clickEvent,\n                    onFocus: focusEvent,\n                    onBlur: blurEvent\n                }, [\n                    h('span', {\n                        class: 'vxe-switch--label vxe-switch--label-on'\n                    }, [\n                        openIcon ? h('i', {\n                            class: ['vxe-switch--label-icon', openIcon]\n                        }) : createCommentVNode(),\n                        onShowLabel\n                    ]),\n                    h('span', {\n                        class: 'vxe-switch--label vxe-switch--label-off'\n                    }, [\n                        closeIcon ? h('i', {\n                            class: ['vxe-switch--label-icon', closeIcon]\n                        }) : createCommentVNode(),\n                        offShowLabel\n                    ]),\n                    h('span', {\n                        class: 'vxe-switch--icon'\n                    })\n                ])\n            ]);\n        };\n        $xeswitch.renderVN = renderVN;\n        return $xeswitch;\n    },\n    render: function () {\n        return this.renderVN();\n    }\n});\n",
+      "start": 1714699767845,
+      "end": 1714699767845,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767845,
+      "end": 1714699767845,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767845,
+      "end": 1714699767845,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767845,
+      "end": 1714699767845,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767845,
+      "end": 1714699767845,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767845,
+      "end": 1714699767845,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767845,
+      "end": 1714699767845,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767845,
+      "end": 1714699767846,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767846,
+      "end": 1714699767846,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767846,
+      "end": 1714699767846,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767846,
+      "end": 1714699767846,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767846,
+      "end": 1714699767846,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767846,
+      "end": 1714699767846,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767846,
+      "end": 1714699767846,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767846,
+      "end": 1714699767846,
+      "order": "normal"
+    }
+  ]
+}

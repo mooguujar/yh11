@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/toArray.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var map = require('./map')\r\n\r\n/**\r\n * 将对象或者伪数组转为新数组\r\n *\r\n * @param {Array} list 数组\r\n * @return {Array}\r\n */\r\nfunction toArray (list) {\r\n  return map(list, function (item) {\r\n    return item\r\n  })\r\n}\r\n\r\nmodule.exports = toArray\r\n",
+      "start": 1714699767526,
+      "end": 1714699767580,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767580,
+      "end": 1714699767580,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767580,
+      "end": 1714699767580,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767580,
+      "end": 1714699767580,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767580,
+      "end": 1714699767580,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767580,
+      "end": 1714699767580,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767580,
+      "end": 1714699767580,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var map = require('./map')\r\n\r\n/**\r\n * 将对象或者伪数组转为新数组\r\n *\r\n * @param {Array} list 数组\r\n * @return {Array}\r\n */\r\nfunction toArray (list) {\r\n  return map(list, function (item) {\r\n    return item\r\n  })\r\n}\r\n\r\nmodule.exports = toArray\r\n",
+      "start": 1714699767580,
+      "end": 1714699767580,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767580,
+      "end": 1714699767580,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767580,
+      "end": 1714699767580,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767580,
+      "end": 1714699767580,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767580,
+      "end": 1714699767580,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767580,
+      "end": 1714699767580,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767580,
+      "end": 1714699767580,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/map.js?commonjs-proxy\";\n\nvar map = require$$0\r\n\r\n/**\r\n * 将对象或者伪数组转为新数组\r\n *\r\n * @param {Array} list 数组\r\n * @return {Array}\r\n */\r\nfunction toArray (list) {\r\n  return map(list, function (item) {\r\n    return item\r\n  })\r\n}\r\n\r\nvar toArray_1 = toArray\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(toArray_1);\nexport { toArray_1 as __moduleExports };",
+      "start": 1714699767580,
+      "end": 1714699768208,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;AAAA,IAAI,GAAG,GAAG,UAAgB;AAC1B;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,OAAO,EAAE,IAAI,EAAE;AACxB,EAAE,OAAO,GAAG,CAAC,IAAI,EAAE,UAAU,IAAI,EAAE;AACnC,IAAI,OAAO,IAAI;AACf,GAAG,CAAC;AACJ,CAAC;AACD;IACA,SAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768208,
+      "end": 1714699768208,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768208,
+      "end": 1714699768208,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768208,
+      "end": 1714699768208,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768208,
+      "end": 1714699768208,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768208,
+      "end": 1714699768208,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768208,
+      "end": 1714699768208,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768208,
+      "end": 1714699768208,
+      "order": "normal"
+    }
+  ]
+}

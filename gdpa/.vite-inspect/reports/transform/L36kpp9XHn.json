@@ -1,0 +1,163 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/buy.vue?vue&type=style&index=1&scoped=2f1161ed&lang.scss",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\n$spriteHome: '@/assets/images/sprites-home.png';\n$sprite-computed-factor: 0.7;\n$sprite-home-background-size: calc(108px * 7 / 10) calc(730px * 7 / 10);\n\n.copy {\n  background: url($spriteHome) calc(-0px * $sprite-computed-factor)\n    calc(-616px * $sprite-computed-factor) no-repeat;\n  width: calc(35px * $sprite-computed-factor);\n  height: calc(35px * $sprite-computed-factor);\n  background-size: $sprite-home-background-size;\n}\n.title_buy {\n  position: relative;\n}\n.redDotNum {\n  position: absolute;\n  right: -8px;\n  top: 18px;\n  width: 25px;\n  height: 25px;\n  line-height: 25px;\n  font-size: 22px;\n  background: red;\n  color: #fff;\n  border-radius: 50%;\n}\n",
+      "start": 1714699769751,
+      "end": 1714699769751
+    },
+    {
+      "name": "vite:css",
+      "result": ".copy {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -5.74933rem no-repeat;\n  width: 0.32667rem;\n  height: 0.32667rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.title_buy {\n  position: relative;\n}\n\n.redDotNum {\n  position: absolute;\n  right: -0.10667rem;\n  top: 0.24rem;\n  width: 0.33333rem;\n  height: 0.33333rem;\n  line-height: 0.33333rem;\n  font-size: 0.29333rem;\n  background: red;\n  color: #fff;\n  border-radius: 50%;\n}",
+      "start": 1714699769751,
+      "end": 1714699769804,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769804,
+      "end": 1714699769804,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769805,
+      "end": 1714699769805,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769805,
+      "end": 1714699769805,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".copy[data-v-2f1161ed] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -5.74933rem no-repeat;\n  width: 0.32667rem;\n  height: 0.32667rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.title_buy[data-v-2f1161ed] {\n  position: relative;\n}\n.redDotNum[data-v-2f1161ed] {\n  position: absolute;\n  right: -0.10667rem;\n  top: 0.24rem;\n  width: 0.33333rem;\n  height: 0.33333rem;\n  line-height: 0.33333rem;\n  font-size: 0.29333rem;\n  background: red;\n  color: #fff;\n  border-radius: 50%;\n}",
+      "start": 1714699769805,
+      "end": 1714699769809,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769809,
+      "end": 1714699769809,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": ".copy[data-v-2f1161ed] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -5.74933rem no-repeat;\n  width: 0.32667rem;\n  height: 0.32667rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.title_buy[data-v-2f1161ed] {\n  position: relative;\n}\n.redDotNum[data-v-2f1161ed] {\n  position: absolute;\n  right: -0.10667rem;\n  top: 0.24rem;\n  width: 0.33333rem;\n  height: 0.33333rem;\n  line-height: 0.33333rem;\n  font-size: 0.29333rem;\n  background: red;\n  color: #fff;\n  border-radius: 50%;\n}",
+      "start": 1714699769809,
+      "end": 1714699769809,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699769809,
+      "end": 1714699769809,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769809,
+      "end": 1714699769809,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699769809,
+      "end": 1714699769809,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769809,
+      "end": 1714699769809,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769809,
+      "end": 1714699769809,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769809,
+      "end": 1714699769809,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769809,
+      "end": 1714699769809,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769809,
+      "end": 1714699769809,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769809,
+      "end": 1714699769809,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769809,
+      "end": 1714699769809,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */",
+      "start": 1714699769809,
+      "end": 1714699769809,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Crypto/buy.vue?vue&type=style&index=1&scoped=2f1161ed&lang.scss"
+        ],
+        "sourcesContent": [
+          ""
+        ],
+        "names": [],
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769809,
+      "end": 1714699769810,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769810,
+      "end": 1714699769810,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769810,
+      "end": 1714699769810,
+      "order": "normal"
+    }
+  ]
+}

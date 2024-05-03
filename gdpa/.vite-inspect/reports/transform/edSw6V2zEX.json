@@ -1,0 +1,163 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/index.vue?vue&type=style&index=0&scoped=b6686629&lang.scss",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\n@import '@/assets/styles/sprite-home.scss';\n.customer-service-dark {\n  position: absolute;\n  right: 50px;\n}\n.top-icon-container {\n  width: 100%;\n  height: 92px;\n  padding: 0 41px;\n  .arrow-right-gray {\n    position: absolute;\n    left: 50px;\n    transform: scale(1.3) rotate(180deg);\n  }\n}\n.auth-container {\n  flex: 1;\n  background-color: #fff;\n\n  .logo-view-container {\n    width: 100%;\n    height: 314px;\n    :deep(.van-image) {\n      &.app-logo {\n        width: 139px;\n      }\n      &.app-logotext {\n        width: 154px;\n        height: 31px;\n        margin-top: 18px;\n      }\n    }\n  }\n  .tab-container {\n    width: 100%;\n    height: 50px;\n    padding: 0 220px;\n    .items-view {\n      width: 100%;\n      position: relative;\n      padding-bottom: 4px;\n      .item {\n        width: 87px;\n        color: #868d9a;\n        &.active {\n          color: var(--van-button-primary-background);\n        }\n        .name {\n          font-size: 31px;\n          transition: color 0.3s;\n        }\n      }\n      .tabs-active-bar {\n        position: absolute;\n        left: 0;\n        bottom: 0;\n        width: 87px;\n        height: 4px;\n        background-color: var(--van-button-primary-background);\n        border-radius: 2px;\n        &.tabs-move {\n          transition: all 0.3s ease-in-out;\n        }\n        &.norem {\n          height: 2px;\n        }\n      }\n    }\n  }\n}\n",
+      "start": 1714699770166,
+      "end": 1714699770166
+    },
+    {
+      "name": "vite:css",
+      "result": ".mobile {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px 0px no-repeat;\n  width: 0.38267rem;\n  height: 0.59733rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.lock {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.38267rem 0px no-repeat;\n  width: 0.45733rem;\n  height: 0.59733rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.logo {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -0.59733rem no-repeat;\n  width: 0.59733rem;\n  height: 0.52267rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.message {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -1.12rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.tabbar-home-active {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.504rem -1.12rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.tabbar-home {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -1.624rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.tabbar-mine-active {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.504rem -1.624rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.tabbar-order-active {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -2.128rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.tabbar-points-active {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.504rem -2.128rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.radio-checked {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -2.632rem no-repeat;\n  width: 0.46667rem;\n  height: 0.46667rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.verified {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.46667rem -2.632rem no-repeat;\n  width: 0.46667rem;\n  height: 0.46667rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.help {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -3.09867rem no-repeat;\n  width: 0.448rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.tabbar-mine {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.448rem -3.09867rem no-repeat;\n  width: 0.448rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.tabbar-order {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -3.54667rem no-repeat;\n  width: 0.448rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.tabbar-points {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.448rem -3.54667rem no-repeat;\n  width: 0.49467rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.customer-service-dark {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -3.99467rem no-repeat;\n  width: 0.504rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.customer-service {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.504rem -3.99467rem no-repeat;\n  width: 0.504rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.code {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -4.44267rem no-repeat;\n  width: 0.59733rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.search {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -4.89067rem no-repeat;\n  width: 0.42933rem;\n  height: 0.43867rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.transfer {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.42933rem -4.89067rem no-repeat;\n  width: 0.448rem;\n  height: 0.43867rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.banzhuan {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -5.32933rem no-repeat;\n  width: 0.476rem;\n  height: 0.42rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.collectCoin {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.59733rem -0.59733rem no-repeat;\n  width: 0.31733rem;\n  height: 0.41067rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.IDCard {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.476rem -5.32933rem no-repeat;\n  width: 0.52267rem;\n  height: 0.37333rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.wallet {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.59733rem -4.44267rem no-repeat;\n  width: 0.38267rem;\n  height: 0.35467rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.copy {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -5.74933rem no-repeat;\n  width: 0.32667rem;\n  height: 0.32667rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.bulletin {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.32667rem -5.74933rem no-repeat;\n  width: 0.42rem;\n  height: 0.308rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.eye-close {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -6.076rem no-repeat;\n  width: 0.46667rem;\n  height: 0.28933rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.eye-open {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.46667rem -6.076rem no-repeat;\n  width: 0.46667rem;\n  height: 0.28933rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.point-expires {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -6.36533rem no-repeat;\n  width: 0.28933rem;\n  height: 0.27067rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.close-dark {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.74667rem -5.74933rem no-repeat;\n  width: 0.26133rem;\n  height: 0.26133rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.close-white {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.28933rem -6.36533rem no-repeat;\n  width: 0.26133rem;\n  height: 0.26133rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.checked-in {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.55067rem -6.36533rem no-repeat;\n  width: 0.392rem;\n  height: 0.26133rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.arrow-right-gray {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.84rem 0px no-repeat;\n  width: 0.12133rem;\n  height: 0.21467rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.arrow-right {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.84rem -0.21467rem no-repeat;\n  width: 0.12133rem;\n  height: 0.21467rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.buyCoin {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -6.636rem no-repeat;\n  width: 0.392rem;\n  height: 0.17733rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.sellCoin {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.392rem -6.636rem no-repeat;\n  width: 0.40133rem;\n  height: 0.17733rem;\n  background-size: 1.008rem 6.81333rem;\n}\n\n.customer-service-dark {\n  position: absolute;\n  right: 0.66667rem;\n}\n\n.top-icon-container {\n  width: 100%;\n  height: 1.22667rem;\n  padding: 0 0.54667rem;\n}\n\n.top-icon-container .arrow-right-gray {\n  position: absolute;\n  left: 0.66667rem;\n  transform: scale(1.3) rotate(180deg);\n}\n\n.auth-container {\n  flex: 1;\n  background-color: #fff;\n}\n\n.auth-container .logo-view-container {\n  width: 100%;\n  height: 4.18667rem;\n}\n\n.auth-container .logo-view-container :deep(.van-image).app-logo {\n  width: 1.85333rem;\n}\n\n.auth-container .logo-view-container :deep(.van-image).app-logotext {\n  width: 2.05333rem;\n  height: 0.41333rem;\n  margin-top: 0.24rem;\n}\n\n.auth-container .tab-container {\n  width: 100%;\n  height: 0.66667rem;\n  padding: 0 2.93333rem;\n}\n\n.auth-container .tab-container .items-view {\n  width: 100%;\n  position: relative;\n  padding-bottom: 0.05333rem;\n}\n\n.auth-container .tab-container .items-view .item {\n  width: 1.16rem;\n  color: #868d9a;\n}\n\n.auth-container .tab-container .items-view .item.active {\n  color: var(--van-button-primary-background);\n}\n\n.auth-container .tab-container .items-view .item .name {\n  font-size: 0.41333rem;\n  transition: color 0.3s;\n}\n\n.auth-container .tab-container .items-view .tabs-active-bar {\n  position: absolute;\n  left: 0;\n  bottom: 0;\n  width: 1.16rem;\n  height: 0.05333rem;\n  background-color: var(--van-button-primary-background);\n  border-radius: 0.02667rem;\n}\n\n.auth-container .tab-container .items-view .tabs-active-bar.tabs-move {\n  transition: all 0.3s ease-in-out;\n}\n\n.auth-container .tab-container .items-view .tabs-active-bar.norem {\n  height: 2px;\n}",
+      "start": 1714699770166,
+      "end": 1714699770406,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699770406,
+      "end": 1714699770406,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699770406,
+      "end": 1714699770406,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699770406,
+      "end": 1714699770406,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".mobile[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px 0px no-repeat;\n  width: 0.38267rem;\n  height: 0.59733rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.lock[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.38267rem 0px no-repeat;\n  width: 0.45733rem;\n  height: 0.59733rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.logo[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -0.59733rem no-repeat;\n  width: 0.59733rem;\n  height: 0.52267rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.message[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -1.12rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-home-active[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.504rem -1.12rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-home[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -1.624rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-mine-active[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.504rem -1.624rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-order-active[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -2.128rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-points-active[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.504rem -2.128rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.radio-checked[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -2.632rem no-repeat;\n  width: 0.46667rem;\n  height: 0.46667rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.verified[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.46667rem -2.632rem no-repeat;\n  width: 0.46667rem;\n  height: 0.46667rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.help[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -3.09867rem no-repeat;\n  width: 0.448rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-mine[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.448rem -3.09867rem no-repeat;\n  width: 0.448rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-order[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -3.54667rem no-repeat;\n  width: 0.448rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-points[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.448rem -3.54667rem no-repeat;\n  width: 0.49467rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.customer-service-dark[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -3.99467rem no-repeat;\n  width: 0.504rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.customer-service[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.504rem -3.99467rem no-repeat;\n  width: 0.504rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.code[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -4.44267rem no-repeat;\n  width: 0.59733rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.search[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -4.89067rem no-repeat;\n  width: 0.42933rem;\n  height: 0.43867rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.transfer[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.42933rem -4.89067rem no-repeat;\n  width: 0.448rem;\n  height: 0.43867rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.banzhuan[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -5.32933rem no-repeat;\n  width: 0.476rem;\n  height: 0.42rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.collectCoin[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.59733rem -0.59733rem no-repeat;\n  width: 0.31733rem;\n  height: 0.41067rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.IDCard[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.476rem -5.32933rem no-repeat;\n  width: 0.52267rem;\n  height: 0.37333rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.wallet[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.59733rem -4.44267rem no-repeat;\n  width: 0.38267rem;\n  height: 0.35467rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.copy[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -5.74933rem no-repeat;\n  width: 0.32667rem;\n  height: 0.32667rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.bulletin[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.32667rem -5.74933rem no-repeat;\n  width: 0.42rem;\n  height: 0.308rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.eye-close[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -6.076rem no-repeat;\n  width: 0.46667rem;\n  height: 0.28933rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.eye-open[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.46667rem -6.076rem no-repeat;\n  width: 0.46667rem;\n  height: 0.28933rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.point-expires[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -6.36533rem no-repeat;\n  width: 0.28933rem;\n  height: 0.27067rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.close-dark[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.74667rem -5.74933rem no-repeat;\n  width: 0.26133rem;\n  height: 0.26133rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.close-white[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.28933rem -6.36533rem no-repeat;\n  width: 0.26133rem;\n  height: 0.26133rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.checked-in[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.55067rem -6.36533rem no-repeat;\n  width: 0.392rem;\n  height: 0.26133rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.arrow-right-gray[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.84rem 0px no-repeat;\n  width: 0.12133rem;\n  height: 0.21467rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.arrow-right[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.84rem -0.21467rem no-repeat;\n  width: 0.12133rem;\n  height: 0.21467rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.buyCoin[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -6.636rem no-repeat;\n  width: 0.392rem;\n  height: 0.17733rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.sellCoin[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.392rem -6.636rem no-repeat;\n  width: 0.40133rem;\n  height: 0.17733rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.customer-service-dark[data-v-b6686629] {\n  position: absolute;\n  right: 0.66667rem;\n}\n.top-icon-container[data-v-b6686629] {\n  width: 100%;\n  height: 1.22667rem;\n  padding: 0 0.54667rem;\n}\n.top-icon-container .arrow-right-gray[data-v-b6686629] {\n  position: absolute;\n  left: 0.66667rem;\n  transform: scale(1.3) rotate(180deg);\n}\n.auth-container[data-v-b6686629] {\n  flex: 1;\n  background-color: #fff;\n}\n.auth-container .logo-view-container[data-v-b6686629] {\n  width: 100%;\n  height: 4.18667rem;\n}\n.auth-container .logo-view-container[data-v-b6686629] .van-image.app-logo {\n  width: 1.85333rem;\n}\n.auth-container .logo-view-container[data-v-b6686629] .van-image.app-logotext {\n  width: 2.05333rem;\n  height: 0.41333rem;\n  margin-top: 0.24rem;\n}\n.auth-container .tab-container[data-v-b6686629] {\n  width: 100%;\n  height: 0.66667rem;\n  padding: 0 2.93333rem;\n}\n.auth-container .tab-container .items-view[data-v-b6686629] {\n  width: 100%;\n  position: relative;\n  padding-bottom: 0.05333rem;\n}\n.auth-container .tab-container .items-view .item[data-v-b6686629] {\n  width: 1.16rem;\n  color: #868d9a;\n}\n.auth-container .tab-container .items-view .item.active[data-v-b6686629] {\n  color: var(--van-button-primary-background);\n}\n.auth-container .tab-container .items-view .item .name[data-v-b6686629] {\n  font-size: 0.41333rem;\n  transition: color 0.3s;\n}\n.auth-container .tab-container .items-view .tabs-active-bar[data-v-b6686629] {\n  position: absolute;\n  left: 0;\n  bottom: 0;\n  width: 1.16rem;\n  height: 0.05333rem;\n  background-color: var(--van-button-primary-background);\n  border-radius: 0.02667rem;\n}\n.auth-container .tab-container .items-view .tabs-active-bar.tabs-move[data-v-b6686629] {\n  transition: all 0.3s ease-in-out;\n}\n.auth-container .tab-container .items-view .tabs-active-bar.norem[data-v-b6686629] {\n  height: 2px;\n}",
+      "start": 1714699770408,
+      "end": 1714699770422,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": ".mobile[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px 0px no-repeat;\n  width: 0.38267rem;\n  height: 0.59733rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.lock[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.38267rem 0px no-repeat;\n  width: 0.45733rem;\n  height: 0.59733rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.logo[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -0.59733rem no-repeat;\n  width: 0.59733rem;\n  height: 0.52267rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.message[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -1.12rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-home-active[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.504rem -1.12rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-home[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -1.624rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-mine-active[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.504rem -1.624rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-order-active[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -2.128rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-points-active[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.504rem -2.128rem no-repeat;\n  width: 0.504rem;\n  height: 0.504rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.radio-checked[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -2.632rem no-repeat;\n  width: 0.46667rem;\n  height: 0.46667rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.verified[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.46667rem -2.632rem no-repeat;\n  width: 0.46667rem;\n  height: 0.46667rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.help[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -3.09867rem no-repeat;\n  width: 0.448rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-mine[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.448rem -3.09867rem no-repeat;\n  width: 0.448rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-order[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -3.54667rem no-repeat;\n  width: 0.448rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.tabbar-points[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.448rem -3.54667rem no-repeat;\n  width: 0.49467rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.customer-service-dark[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -3.99467rem no-repeat;\n  width: 0.504rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.customer-service[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.504rem -3.99467rem no-repeat;\n  width: 0.504rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.code[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -4.44267rem no-repeat;\n  width: 0.59733rem;\n  height: 0.448rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.search[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -4.89067rem no-repeat;\n  width: 0.42933rem;\n  height: 0.43867rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.transfer[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.42933rem -4.89067rem no-repeat;\n  width: 0.448rem;\n  height: 0.43867rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.banzhuan[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -5.32933rem no-repeat;\n  width: 0.476rem;\n  height: 0.42rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.collectCoin[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.59733rem -0.59733rem no-repeat;\n  width: 0.31733rem;\n  height: 0.41067rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.IDCard[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.476rem -5.32933rem no-repeat;\n  width: 0.52267rem;\n  height: 0.37333rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.wallet[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.59733rem -4.44267rem no-repeat;\n  width: 0.38267rem;\n  height: 0.35467rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.copy[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -5.74933rem no-repeat;\n  width: 0.32667rem;\n  height: 0.32667rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.bulletin[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.32667rem -5.74933rem no-repeat;\n  width: 0.42rem;\n  height: 0.308rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.eye-close[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -6.076rem no-repeat;\n  width: 0.46667rem;\n  height: 0.28933rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.eye-open[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.46667rem -6.076rem no-repeat;\n  width: 0.46667rem;\n  height: 0.28933rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.point-expires[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -6.36533rem no-repeat;\n  width: 0.28933rem;\n  height: 0.27067rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.close-dark[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.74667rem -5.74933rem no-repeat;\n  width: 0.26133rem;\n  height: 0.26133rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.close-white[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.28933rem -6.36533rem no-repeat;\n  width: 0.26133rem;\n  height: 0.26133rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.checked-in[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.55067rem -6.36533rem no-repeat;\n  width: 0.392rem;\n  height: 0.26133rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.arrow-right-gray[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.84rem 0px no-repeat;\n  width: 0.12133rem;\n  height: 0.21467rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.arrow-right[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.84rem -0.21467rem no-repeat;\n  width: 0.12133rem;\n  height: 0.21467rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.buyCoin[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") 0px -6.636rem no-repeat;\n  width: 0.392rem;\n  height: 0.17733rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.sellCoin[data-v-b6686629] {\n  background: url(\"__VITE_ASSET__BPTP5uHM__\") -0.392rem -6.636rem no-repeat;\n  width: 0.40133rem;\n  height: 0.17733rem;\n  background-size: 1.008rem 6.81333rem;\n}\n.customer-service-dark[data-v-b6686629] {\n  position: absolute;\n  right: 0.66667rem;\n}\n.top-icon-container[data-v-b6686629] {\n  width: 100%;\n  height: 1.22667rem;\n  padding: 0 0.54667rem;\n}\n.top-icon-container .arrow-right-gray[data-v-b6686629] {\n  position: absolute;\n  left: 0.66667rem;\n  transform: scale(1.3) rotate(180deg);\n}\n.auth-container[data-v-b6686629] {\n  flex: 1;\n  background-color: #fff;\n}\n.auth-container .logo-view-container[data-v-b6686629] {\n  width: 100%;\n  height: 4.18667rem;\n}\n.auth-container .logo-view-container[data-v-b6686629] .van-image.app-logo {\n  width: 1.85333rem;\n}\n.auth-container .logo-view-container[data-v-b6686629] .van-image.app-logotext {\n  width: 2.05333rem;\n  height: 0.41333rem;\n  margin-top: 0.24rem;\n}\n.auth-container .tab-container[data-v-b6686629] {\n  width: 100%;\n  height: 0.66667rem;\n  padding: 0 2.93333rem;\n}\n.auth-container .tab-container .items-view[data-v-b6686629] {\n  width: 100%;\n  position: relative;\n  padding-bottom: 0.05333rem;\n}\n.auth-container .tab-container .items-view .item[data-v-b6686629] {\n  width: 1.16rem;\n  color: #868d9a;\n}\n.auth-container .tab-container .items-view .item.active[data-v-b6686629] {\n  color: var(--van-button-primary-background);\n}\n.auth-container .tab-container .items-view .item .name[data-v-b6686629] {\n  font-size: 0.41333rem;\n  transition: color 0.3s;\n}\n.auth-container .tab-container .items-view .tabs-active-bar[data-v-b6686629] {\n  position: absolute;\n  left: 0;\n  bottom: 0;\n  width: 1.16rem;\n  height: 0.05333rem;\n  background-color: var(--van-button-primary-background);\n  border-radius: 0.02667rem;\n}\n.auth-container .tab-container .items-view .tabs-active-bar.tabs-move[data-v-b6686629] {\n  transition: all 0.3s ease-in-out;\n}\n.auth-container .tab-container .items-view .tabs-active-bar.norem[data-v-b6686629] {\n  height: 2px;\n}",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Auth/index.vue?vue&type=style&index=0&scoped=b6686629&lang.scss"
+        ],
+        "sourcesContent": [
+          ""
+        ],
+        "names": [],
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770422,
+      "end": 1714699770422,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/utils/themes.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import border from '@/assets/themes/border'\nimport font from '@/assets/themes/font'\nimport imgIcon from '@/assets/themes/img-icon'\nimport type { ConfigProviderProps, ConfigProviderTheme, ConfigProviderThemeVars } from 'vant'\nexport const themesVant: Record<\n  string,\n  ConfigProviderThemeVars | ConfigProviderTheme | ConfigProviderProps | any\n> = {\n  common: {\n    ...font['common']\n  },\n  ofupay: {\n    buttonPrimaryBackground: '#1e2d7e',\n    buttonPrimaryBorderColor: '#1e2d7e'\n  },\n  def: {}\n}\n\nconst def = {\n  ...imgIcon['def'],\n  ...font['def'],\n  ...border['def']\n}\n\nconst ofupay = {\n  ...imgIcon['ofupay'],\n  ...font['ofupay'],\n  ...border['ofupay']\n}\n\nexport type themeType = 'def' | 'ofupay'\n\n// 主题变量集\nconst themeVariable = { ofupay, def }\n\nexport const changeThemeVariable = (theme: themeType) => {\n  // root-var 全局变量样式表内容\n  let themeStyleContent = ''\n  // 当前样式主题对象\n  const currentTheme = themeVariable[theme]\n\n  // 主题颜色变量\n  for (const key in currentTheme) {\n    if (Object.hasOwnProperty.call(currentTheme, key)) {\n      // 设置 root 变量\n      themeStyleContent += `\\n  --app-color-${key}: ${\n        (currentTheme as Record<string, string>)[key]\n      };`\n    }\n  }\n  themeStyleContent = `:root {${themeStyleContent}\\n}`\n\n  const rootVarStylesheet = document.querySelector('#root-var')\n  if (!rootVarStylesheet) {\n    // 创建style标签\n    const style = document.createElement('style')\n    // 设置style属性\n    style.type = 'text/css'\n    style.id = 'root-var'\n    // 将主题样式写入style内\n    style.innerHTML = themeStyleContent\n    // 将style样式存放到head标签\n    document.querySelector('head')!.appendChild(style)\n  } else {\n    rootVarStylesheet.innerHTML = themeStyleContent\n  }\n}\n\nexport default themesVant\n",
+      "start": 1714699768091,
+      "end": 1714699768112,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768112,
+      "end": 1714699768112,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import border from \"@/assets/themes/border\";\nimport font from \"@/assets/themes/font\";\nimport imgIcon from \"@/assets/themes/img-icon\";\nexport const themesVant = {\n  common: {\n    ...font[\"common\"]\n  },\n  ofupay: {\n    buttonPrimaryBackground: \"#1e2d7e\",\n    buttonPrimaryBorderColor: \"#1e2d7e\"\n  },\n  def: {}\n};\nconst def = {\n  ...imgIcon[\"def\"],\n  ...font[\"def\"],\n  ...border[\"def\"]\n};\nconst ofupay = {\n  ...imgIcon[\"ofupay\"],\n  ...font[\"ofupay\"],\n  ...border[\"ofupay\"]\n};\nconst themeVariable = { ofupay, def };\nexport const changeThemeVariable = (theme) => {\n  let themeStyleContent = \"\";\n  const currentTheme = themeVariable[theme];\n  for (const key in currentTheme) {\n    if (Object.hasOwnProperty.call(currentTheme, key)) {\n      themeStyleContent += `\n  --app-color-${key}: ${currentTheme[key]};`;\n    }\n  }\n  themeStyleContent = `:root {${themeStyleContent}\n}`;\n  const rootVarStylesheet = document.querySelector(\"#root-var\");\n  if (!rootVarStylesheet) {\n    const style = document.createElement(\"style\");\n    style.type = \"text/css\";\n    style.id = \"root-var\";\n    style.innerHTML = themeStyleContent;\n    document.querySelector(\"head\").appendChild(style);\n  } else {\n    rootVarStylesheet.innerHTML = themeStyleContent;\n  }\n};\nexport default themesVant;\n",
+      "start": 1714699768112,
+      "end": 1714699769059,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/utils/themes.ts"
+        ],
+        "sourcesContent": [
+          "import border from '@/assets/themes/border'\nimport font from '@/assets/themes/font'\nimport imgIcon from '@/assets/themes/img-icon'\nimport type { ConfigProviderProps, ConfigProviderTheme, ConfigProviderThemeVars } from 'vant'\nexport const themesVant: Record<\n  string,\n  ConfigProviderThemeVars | ConfigProviderTheme | ConfigProviderProps | any\n> = {\n  common: {\n    ...font['common']\n  },\n  ofupay: {\n    buttonPrimaryBackground: '#1e2d7e',\n    buttonPrimaryBorderColor: '#1e2d7e'\n  },\n  def: {}\n}\n\nconst def = {\n  ...imgIcon['def'],\n  ...font['def'],\n  ...border['def']\n}\n\nconst ofupay = {\n  ...imgIcon['ofupay'],\n  ...font['ofupay'],\n  ...border['ofupay']\n}\n\nexport type themeType = 'def' | 'ofupay'\n\n// 主题变量集\nconst themeVariable = { ofupay, def }\n\nexport const changeThemeVariable = (theme: themeType) => {\n  // root-var 全局变量样式表内容\n  let themeStyleContent = ''\n  // 当前样式主题对象\n  const currentTheme = themeVariable[theme]\n\n  // 主题颜色变量\n  for (const key in currentTheme) {\n    if (Object.hasOwnProperty.call(currentTheme, key)) {\n      // 设置 root 变量\n      themeStyleContent += `\\n  --app-color-${key}: ${\n        (currentTheme as Record<string, string>)[key]\n      };`\n    }\n  }\n  themeStyleContent = `:root {${themeStyleContent}\\n}`\n\n  const rootVarStylesheet = document.querySelector('#root-var')\n  if (!rootVarStylesheet) {\n    // 创建style标签\n    const style = document.createElement('style')\n    // 设置style属性\n    style.type = 'text/css'\n    style.id = 'root-var'\n    // 将主题样式写入style内\n    style.innerHTML = themeStyleContent\n    // 将style样式存放到head标签\n    document.querySelector('head')!.appendChild(style)\n  } else {\n    rootVarStylesheet.innerHTML = themeStyleContent\n  }\n}\n\nexport default themesVant\n"
+        ],
+        "mappings": "AAAA,OAAO,YAAY;AACnB,OAAO,UAAU;AACjB,OAAO,aAAa;AAEb,aAAM,aAGT;AAAA,EACF,QAAQ;AAAA,IACN,GAAG,KAAK,QAAQ;AAAA,EAClB;AAAA,EACA,QAAQ;AAAA,IACN,yBAAyB;AAAA,IACzB,0BAA0B;AAAA,EAC5B;AAAA,EACA,KAAK,CAAC;AACR;AAEA,MAAM,MAAM;AAAA,EACV,GAAG,QAAQ,KAAK;AAAA,EAChB,GAAG,KAAK,KAAK;AAAA,EACb,GAAG,OAAO,KAAK;AACjB;AAEA,MAAM,SAAS;AAAA,EACb,GAAG,QAAQ,QAAQ;AAAA,EACnB,GAAG,KAAK,QAAQ;AAAA,EAChB,GAAG,OAAO,QAAQ;AACpB;AAKA,MAAM,gBAAgB,EAAE,QAAQ,IAAI;AAE7B,aAAM,sBAAsB,CAAC,UAAqB;AAEvD,MAAI,oBAAoB;AAExB,QAAM,eAAe,cAAc,KAAK;AAGxC,aAAW,OAAO,cAAc;AAC9B,QAAI,OAAO,eAAe,KAAK,cAAc,GAAG,GAAG;AAEjD,2BAAqB;AAAA,gBAAmB,GAAG,KACxC,aAAwC,GAAG,CAC9C;AAAA,IACF;AAAA,EACF;AACA,sBAAoB,UAAU,iBAAiB;AAAA;AAE/C,QAAM,oBAAoB,SAAS,cAAc,WAAW;AAC5D,MAAI,CAAC,mBAAmB;AAEtB,UAAM,QAAQ,SAAS,cAAc,OAAO;AAE5C,UAAM,OAAO;AACb,UAAM,KAAK;AAEX,UAAM,YAAY;AAElB,aAAS,cAAc,MAAM,EAAG,YAAY,KAAK;AAAA,EACnD,OAAO;AACL,sBAAkB,YAAY;AAAA,EAChC;AACF;AAEA,eAAe;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769059,
+      "end": 1714699769059,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769059,
+      "end": 1714699769059,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699769059,
+      "end": 1714699769059,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769059,
+      "end": 1714699769059,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import border from \"@/assets/themes/border\";\nimport font from \"@/assets/themes/font\";\nimport imgIcon from \"@/assets/themes/img-icon\";\nexport const themesVant = {\n  common: {\n    ...font[\"common\"]\n  },\n  ofupay: {\n    buttonPrimaryBackground: \"#1e2d7e\",\n    buttonPrimaryBorderColor: \"#1e2d7e\"\n  },\n  def: {}\n};\nconst def = {\n  ...imgIcon[\"def\"],\n  ...font[\"def\"],\n  ...border[\"def\"]\n};\nconst ofupay = {\n  ...imgIcon[\"ofupay\"],\n  ...font[\"ofupay\"],\n  ...border[\"ofupay\"]\n};\nconst themeVariable = { ofupay, def };\nexport const changeThemeVariable = (theme) => {\n  let themeStyleContent = \"\";\n  const currentTheme = themeVariable[theme];\n  for (const key in currentTheme) {\n    if (Object.hasOwnProperty.call(currentTheme, key)) {\n      themeStyleContent += `\n  --app-color-${key}: ${currentTheme[key]};`;\n    }\n  }\n  themeStyleContent = `:root {${themeStyleContent}\n}`;\n  const rootVarStylesheet = document.querySelector(\"#root-var\");\n  if (!rootVarStylesheet) {\n    const style = document.createElement(\"style\");\n    style.type = \"text/css\";\n    style.id = \"root-var\";\n    style.innerHTML = themeStyleContent;\n    document.querySelector(\"head\").appendChild(style);\n  } else {\n    rootVarStylesheet.innerHTML = themeStyleContent;\n  }\n};\nexport default themesVant;\n",
+      "start": 1714699769059,
+      "end": 1714699769059,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport border from \"@/assets/themes/border\";\nimport font from \"@/assets/themes/font\";\nimport imgIcon from \"@/assets/themes/img-icon\";\nexport const themesVant = {\n  common: {\n    ...font[\"common\"]\n  },\n  ofupay: {\n    buttonPrimaryBackground: \"#1e2d7e\",\n    buttonPrimaryBorderColor: \"#1e2d7e\"\n  },\n  def: {}\n};\nconst def = {\n  ...imgIcon[\"def\"],\n  ...font[\"def\"],\n  ...border[\"def\"]\n};\nconst ofupay = {\n  ...imgIcon[\"ofupay\"],\n  ...font[\"ofupay\"],\n  ...border[\"ofupay\"]\n};\nconst themeVariable = { ofupay, def };\nexport const changeThemeVariable = (theme) => {\n  let themeStyleContent = \"\";\n  const currentTheme = themeVariable[theme];\n  for (const key in currentTheme) {\n    if (Object.hasOwnProperty.call(currentTheme, key)) {\n      themeStyleContent += `\n  --app-color-${key}: ${currentTheme[key]};`;\n    }\n  }\n  themeStyleContent = `:root {${themeStyleContent}\n}`;\n  const rootVarStylesheet = document.querySelector(\"#root-var\");\n  if (!rootVarStylesheet) {\n    const style = document.createElement(\"style\");\n    style.type = \"text/css\";\n    style.id = \"root-var\";\n    style.innerHTML = themeStyleContent;\n    document.querySelector(\"head\").appendChild(style);\n  } else {\n    rootVarStylesheet.innerHTML = themeStyleContent;\n  }\n};\nexport default themesVant;\n",
+      "start": 1714699769059,
+      "end": 1714699769437,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/utils/themes.ts\"],\n  \"sourcesContent\": [\"import border from \\\"@/assets/themes/border\\\";\\nimport font from \\\"@/assets/themes/font\\\";\\nimport imgIcon from \\\"@/assets/themes/img-icon\\\";\\nexport const themesVant = {\\n  common: {\\n    ...font[\\\"common\\\"]\\n  },\\n  ofupay: {\\n    buttonPrimaryBackground: \\\"#1e2d7e\\\",\\n    buttonPrimaryBorderColor: \\\"#1e2d7e\\\"\\n  },\\n  def: {}\\n};\\nconst def = {\\n  ...imgIcon[\\\"def\\\"],\\n  ...font[\\\"def\\\"],\\n  ...border[\\\"def\\\"]\\n};\\nconst ofupay = {\\n  ...imgIcon[\\\"ofupay\\\"],\\n  ...font[\\\"ofupay\\\"],\\n  ...border[\\\"ofupay\\\"]\\n};\\nconst themeVariable = { ofupay, def };\\nexport const changeThemeVariable = (theme) => {\\n  let themeStyleContent = \\\"\\\";\\n  const currentTheme = themeVariable[theme];\\n  for (const key in currentTheme) {\\n    if (Object.hasOwnProperty.call(currentTheme, key)) {\\n      themeStyleContent += `\\n  --app-color-${key}: ${currentTheme[key]};`;\\n    }\\n  }\\n  themeStyleContent = `:root {${themeStyleContent}\\n}`;\\n  const rootVarStylesheet = document.querySelector(\\\"#root-var\\\");\\n  if (!rootVarStylesheet) {\\n    const style = document.createElement(\\\"style\\\");\\n    style.type = \\\"text/css\\\";\\n    style.id = \\\"root-var\\\";\\n    style.innerHTML = themeStyleContent;\\n    document.querySelector(\\\"head\\\").appendChild(style);\\n  } else {\\n    rootVarStylesheet.innerHTML = themeStyleContent;\\n  }\\n};\\nexport default themesVant;\\n\"],\n  \"mappings\": \";AAAA,OAAO,YAAY;AACnB,OAAO,UAAU;AACjB,OAAO,aAAa;AACb,aAAM,aAAa;AAAA,EACxB,QAAQ;AAAA,IACN,GAAG,KAAK,QAAQ;AAAA,EAClB;AAAA,EACA,QAAQ;AAAA,IACN,yBAAyB;AAAA,IACzB,0BAA0B;AAAA,EAC5B;AAAA,EACA,KAAK,CAAC;AACR;AACA,MAAM,MAAM;AAAA,EACV,GAAG,QAAQ,KAAK;AAAA,EAChB,GAAG,KAAK,KAAK;AAAA,EACb,GAAG,OAAO,KAAK;AACjB;AACA,MAAM,SAAS;AAAA,EACb,GAAG,QAAQ,QAAQ;AAAA,EACnB,GAAG,KAAK,QAAQ;AAAA,EAChB,GAAG,OAAO,QAAQ;AACpB;AACA,MAAM,gBAAgB,EAAE,QAAQ,IAAI;AAC7B,aAAM,sBAAsB,CAAC,UAAU;AAC5C,MAAI,oBAAoB;AACxB,QAAM,eAAe,cAAc,KAAK;AACxC,aAAW,OAAO,cAAc;AAC9B,QAAI,OAAO,eAAe,KAAK,cAAc,GAAG,GAAG;AACjD,2BAAqB;AAAA,gBACX,GAAG,KAAK,aAAa,GAAG,CAAC;AAAA,IACrC;AAAA,EACF;AACA,sBAAoB,UAAU,iBAAiB;AAAA;AAE/C,QAAM,oBAAoB,SAAS,cAAc,WAAW;AAC5D,MAAI,CAAC,mBAAmB;AACtB,UAAM,QAAQ,SAAS,cAAc,OAAO;AAC5C,UAAM,OAAO;AACb,UAAM,KAAK;AACX,UAAM,YAAY;AAClB,aAAS,cAAc,MAAM,EAAE,YAAY,KAAK;AAAA,EAClD,OAAO;AACL,sBAAkB,YAAY;AAAA,EAChC;AACF;AACA,eAAe;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769437,
+      "end": 1714699769437,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769437,
+      "end": 1714699769437,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769437,
+      "end": 1714699769437,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769437,
+      "end": 1714699769437,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769437,
+      "end": 1714699769437,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769437,
+      "end": 1714699769437,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769437,
+      "end": 1714699769437,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769437,
+      "end": 1714699769437,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769437,
+      "end": 1714699769438,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699769438,
+      "end": 1714699769438,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769438,
+      "end": 1714699769438,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769438,
+      "end": 1714699769438,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769438,
+      "end": 1714699769438,
+      "order": "normal"
+    }
+  ]
+}

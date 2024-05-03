@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/es/tools/utils.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import XEUtils from 'xe-utils';\nimport GlobalConfig from '../v-x-e-table/src/conf';\nimport DomZIndex from 'dom-zindex';\nexport function isEnableConf(conf) {\n    return conf && conf.enabled !== false;\n}\nexport function isEmptyValue(cellValue) {\n    return cellValue === null || cellValue === undefined || cellValue === '';\n}\nexport function parseFile(file) {\n    var name = file.name;\n    var tIndex = XEUtils.lastIndexOf(name, '.');\n    var type = name.substring(tIndex + 1, name.length).toLowerCase();\n    var filename = name.substring(0, tIndex);\n    return { filename: filename, type: type };\n}\nexport function nextZIndex() {\n    return DomZIndex.getNext();\n}\nexport function getLastZIndex() {\n    return DomZIndex.getCurrent();\n}\nexport function hasChildrenList(item) {\n    return item && item.children && item.children.length > 0;\n}\nexport function getFuncText(content) {\n    return content ? XEUtils.toValueString(GlobalConfig.translate ? GlobalConfig.translate('' + content) : content) : '';\n}\nexport function formatText(value, placeholder) {\n    return '' + (isEmptyValue(value) ? (placeholder ? GlobalConfig.emptyCell : '') : value);\n}\n/**\n * 判断值为：'' | null | undefined 时都属于空值\n */\nexport function eqEmptyValue(cellValue) {\n    return cellValue === '' || XEUtils.eqNull(cellValue);\n}\n",
+      "start": 1714699767728,
+      "end": 1714699767740,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767740,
+      "end": 1714699767740,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767740,
+      "end": 1714699767740,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767740,
+      "end": 1714699767740,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767740,
+      "end": 1714699767740,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767740,
+      "end": 1714699767740,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767740,
+      "end": 1714699767740,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import XEUtils from 'xe-utils';\nimport GlobalConfig from '../v-x-e-table/src/conf';\nimport DomZIndex from 'dom-zindex';\nexport function isEnableConf(conf) {\n    return conf && conf.enabled !== false;\n}\nexport function isEmptyValue(cellValue) {\n    return cellValue === null || cellValue === undefined || cellValue === '';\n}\nexport function parseFile(file) {\n    var name = file.name;\n    var tIndex = XEUtils.lastIndexOf(name, '.');\n    var type = name.substring(tIndex + 1, name.length).toLowerCase();\n    var filename = name.substring(0, tIndex);\n    return { filename: filename, type: type };\n}\nexport function nextZIndex() {\n    return DomZIndex.getNext();\n}\nexport function getLastZIndex() {\n    return DomZIndex.getCurrent();\n}\nexport function hasChildrenList(item) {\n    return item && item.children && item.children.length > 0;\n}\nexport function getFuncText(content) {\n    return content ? XEUtils.toValueString(GlobalConfig.translate ? GlobalConfig.translate('' + content) : content) : '';\n}\nexport function formatText(value, placeholder) {\n    return '' + (isEmptyValue(value) ? (placeholder ? GlobalConfig.emptyCell : '') : value);\n}\n/**\n * 判断值为：'' | null | undefined 时都属于空值\n */\nexport function eqEmptyValue(cellValue) {\n    return cellValue === '' || XEUtils.eqNull(cellValue);\n}\n",
+      "start": 1714699767740,
+      "end": 1714699767740,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767740,
+      "end": 1714699767740,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767740,
+      "end": 1714699767740,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767740,
+      "end": 1714699767740,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767740,
+      "end": 1714699767740,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767740,
+      "end": 1714699767740,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767740,
+      "end": 1714699767740,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767740,
+      "end": 1714699767740,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767740,
+      "end": 1714699767740,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767740,
+      "end": 1714699767740,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767740,
+      "end": 1714699767740,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767740,
+      "end": 1714699767740,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767740,
+      "end": 1714699767740,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767740,
+      "end": 1714699767740,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767740,
+      "end": 1714699767740,
+      "order": "normal"
+    }
+  ]
+}

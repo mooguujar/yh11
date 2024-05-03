@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/lastEach.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var isArray = require('./isArray')\r\nvar lastArrayEach = require('./lastArrayEach')\r\nvar lastObjectEach = require('./lastObjectEach')\r\n\r\n/**\r\n  * 迭代器,从最后开始迭代\r\n  *\r\n  * @param {Object} obj 对象/数组\r\n  * @param {Function} iterate(item, index, obj) 回调\r\n  * @param {Object} context 上下文\r\n  * @return {Object}\r\n  */\r\nfunction lastEach (obj, iterate, context) {\r\n  if (obj) {\r\n    return (isArray(obj) ? lastArrayEach : lastObjectEach)(obj, iterate, context)\r\n  }\r\n  return obj\r\n}\r\n\r\nmodule.exports = lastEach\r\n",
+      "start": 1714699767611,
+      "end": 1714699767639,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767639,
+      "end": 1714699767639,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767639,
+      "end": 1714699767639,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767639,
+      "end": 1714699767639,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767639,
+      "end": 1714699767639,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767639,
+      "end": 1714699767639,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767639,
+      "end": 1714699767639,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var isArray = require('./isArray')\r\nvar lastArrayEach = require('./lastArrayEach')\r\nvar lastObjectEach = require('./lastObjectEach')\r\n\r\n/**\r\n  * 迭代器,从最后开始迭代\r\n  *\r\n  * @param {Object} obj 对象/数组\r\n  * @param {Function} iterate(item, index, obj) 回调\r\n  * @param {Object} context 上下文\r\n  * @return {Object}\r\n  */\r\nfunction lastEach (obj, iterate, context) {\r\n  if (obj) {\r\n    return (isArray(obj) ? lastArrayEach : lastObjectEach)(obj, iterate, context)\r\n  }\r\n  return obj\r\n}\r\n\r\nmodule.exports = lastEach\r\n",
+      "start": 1714699767639,
+      "end": 1714699767639,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767639,
+      "end": 1714699767639,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767639,
+      "end": 1714699767639,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767639,
+      "end": 1714699767639,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767639,
+      "end": 1714699767639,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767639,
+      "end": 1714699767639,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767639,
+      "end": 1714699767639,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isArray.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/lastArrayEach.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/lastObjectEach.js?commonjs-proxy\";\n\nvar isArray = require$$0\r\nvar lastArrayEach = require$$1\r\nvar lastObjectEach = require$$2\r\n\r\n/**\r\n  * 迭代器,从最后开始迭代\r\n  *\r\n  * @param {Object} obj 对象/数组\r\n  * @param {Function} iterate(item, index, obj) 回调\r\n  * @param {Object} context 上下文\r\n  * @return {Object}\r\n  */\r\nfunction lastEach (obj, iterate, context) {\r\n  if (obj) {\r\n    return (isArray(obj) ? lastArrayEach : lastObjectEach)(obj, iterate, context)\r\n  }\r\n  return obj\r\n}\r\n\r\nvar lastEach_1 = lastEach\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(lastEach_1);\nexport { lastEach_1 as __moduleExports };",
+      "start": 1714699767639,
+      "end": 1714699768219,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;AAAA,IAAI,OAAO,GAAG,UAAoB;AAClC,IAAI,aAAa,GAAG,UAA0B;AAC9C,IAAI,cAAc,GAAG,UAA2B;AAChD;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,QAAQ,EAAE,GAAG,EAAE,OAAO,EAAE,OAAO,EAAE;AAC1C,EAAE,IAAI,GAAG,EAAE;AACX,IAAI,OAAO,CAAC,OAAO,CAAC,GAAG,CAAC,GAAG,aAAa,GAAG,cAAc,EAAE,GAAG,EAAE,OAAO,EAAE,OAAO,CAAC;AACjF,GAAG;AACH,EAAE,OAAO,GAAG;AACZ,CAAC;AACD;IACA,UAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768219,
+      "end": 1714699768219,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768219,
+      "end": 1714699768219,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768219,
+      "end": 1714699768219,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768219,
+      "end": 1714699768219,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768219,
+      "end": 1714699768219,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768219,
+      "end": 1714699768219,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768219,
+      "end": 1714699768219,
+      "order": "normal"
+    }
+  ]
+}

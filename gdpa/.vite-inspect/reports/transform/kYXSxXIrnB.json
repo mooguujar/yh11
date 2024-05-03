@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/forOf.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var isArray = require('./isArray')\r\nvar hasOwnProp = require('./hasOwnProp')\r\n\r\n/**\r\n  * 已废弃，被 some, every 替换\r\n  * @deprecated\r\n  */\r\nfunction forOf (obj, iterate, context) {\r\n  if (obj) {\r\n    if (isArray(obj)) {\r\n      for (var index = 0, len = obj.length; index < len; index++) {\r\n        if (iterate.call(context, obj[index], index, obj) === false) {\r\n          break\r\n        }\r\n      }\r\n    } else {\r\n      for (var key in obj) {\r\n        if (hasOwnProp(obj, key)) {\r\n          if (iterate.call(context, obj[key], key, obj) === false) {\r\n            break\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\nmodule.exports = forOf\r\n",
+      "start": 1714699767602,
+      "end": 1714699767628,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767628,
+      "end": 1714699767628,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767628,
+      "end": 1714699767628,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767628,
+      "end": 1714699767628,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767628,
+      "end": 1714699767628,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767628,
+      "end": 1714699767628,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767628,
+      "end": 1714699767628,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var isArray = require('./isArray')\r\nvar hasOwnProp = require('./hasOwnProp')\r\n\r\n/**\r\n  * 已废弃，被 some, every 替换\r\n  * @deprecated\r\n  */\r\nfunction forOf (obj, iterate, context) {\r\n  if (obj) {\r\n    if (isArray(obj)) {\r\n      for (var index = 0, len = obj.length; index < len; index++) {\r\n        if (iterate.call(context, obj[index], index, obj) === false) {\r\n          break\r\n        }\r\n      }\r\n    } else {\r\n      for (var key in obj) {\r\n        if (hasOwnProp(obj, key)) {\r\n          if (iterate.call(context, obj[key], key, obj) === false) {\r\n            break\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\nmodule.exports = forOf\r\n",
+      "start": 1714699767628,
+      "end": 1714699767628,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767628,
+      "end": 1714699767628,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767628,
+      "end": 1714699767628,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767628,
+      "end": 1714699767628,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767628,
+      "end": 1714699767628,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767628,
+      "end": 1714699767628,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767628,
+      "end": 1714699767628,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isArray.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/hasOwnProp.js?commonjs-proxy\";\n\nvar isArray = require$$0\r\nvar hasOwnProp = require$$1\r\n\r\n/**\r\n  * 已废弃，被 some, every 替换\r\n  * @deprecated\r\n  */\r\nfunction forOf (obj, iterate, context) {\r\n  if (obj) {\r\n    if (isArray(obj)) {\r\n      for (var index = 0, len = obj.length; index < len; index++) {\r\n        if (iterate.call(context, obj[index], index, obj) === false) {\r\n          break\r\n        }\r\n      }\r\n    } else {\r\n      for (var key in obj) {\r\n        if (hasOwnProp(obj, key)) {\r\n          if (iterate.call(context, obj[key], key, obj) === false) {\r\n            break\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\nvar forOf_1 = forOf\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(forOf_1);\nexport { forOf_1 as __moduleExports };",
+      "start": 1714699767628,
+      "end": 1714699768104,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;AAAA,IAAI,OAAO,GAAG,UAAoB;AAClC,IAAI,UAAU,GAAG,UAAuB;AACxC;AACA;AACA;AACA;AACA;AACA,SAAS,KAAK,EAAE,GAAG,EAAE,OAAO,EAAE,OAAO,EAAE;AACvC,EAAE,IAAI,GAAG,EAAE;AACX,IAAI,IAAI,OAAO,CAAC,GAAG,CAAC,EAAE;AACtB,MAAM,KAAK,IAAI,KAAK,GAAG,CAAC,EAAE,GAAG,GAAG,GAAG,CAAC,MAAM,EAAE,KAAK,GAAG,GAAG,EAAE,KAAK,EAAE,EAAE;AAClE,QAAQ,IAAI,OAAO,CAAC,IAAI,CAAC,OAAO,EAAE,GAAG,CAAC,KAAK,CAAC,EAAE,KAAK,EAAE,GAAG,CAAC,KAAK,KAAK,EAAE;AACrE,UAAU,KAAK;AACf,SAAS;AACT,OAAO;AACP,KAAK,MAAM;AACX,MAAM,KAAK,IAAI,GAAG,IAAI,GAAG,EAAE;AAC3B,QAAQ,IAAI,UAAU,CAAC,GAAG,EAAE,GAAG,CAAC,EAAE;AAClC,UAAU,IAAI,OAAO,CAAC,IAAI,CAAC,OAAO,EAAE,GAAG,CAAC,GAAG,CAAC,EAAE,GAAG,EAAE,GAAG,CAAC,KAAK,KAAK,EAAE;AACnE,YAAY,KAAK;AACjB,WAAW;AACX,SAAS;AACT,OAAO;AACP,KAAK;AACL,GAAG;AACH,CAAC;AACD;IACA,OAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768104,
+      "end": 1714699768104,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768104,
+      "end": 1714699768104,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768104,
+      "end": 1714699768104,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768104,
+      "end": 1714699768104,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768104,
+      "end": 1714699768104,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768104,
+      "end": 1714699768104,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768105,
+      "end": 1714699768105,
+      "order": "normal"
+    }
+  ]
+}

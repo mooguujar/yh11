@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/_baseAggregator.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import baseEach from './_baseEach.js';\n\n/**\n * Aggregates elements of `collection` on `accumulator` with keys transformed\n * by `iteratee` and values set by `setter`.\n *\n * @private\n * @param {Array|Object} collection The collection to iterate over.\n * @param {Function} setter The function to set `accumulator` values.\n * @param {Function} iteratee The iteratee to transform keys.\n * @param {Object} accumulator The initial aggregated object.\n * @returns {Function} Returns `accumulator`.\n */\nfunction baseAggregator(collection, setter, iteratee, accumulator) {\n  baseEach(collection, function(value, key, collection) {\n    setter(accumulator, value, iteratee(value), collection);\n  });\n  return accumulator;\n}\n\nexport default baseAggregator;\n",
+      "start": 1714699768874,
+      "end": 1714699768897,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768897,
+      "end": 1714699768897,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768897,
+      "end": 1714699768897,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768897,
+      "end": 1714699768897,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768897,
+      "end": 1714699768897,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768897,
+      "end": 1714699768897,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768897,
+      "end": 1714699768897,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import baseEach from './_baseEach.js';\n\n/**\n * Aggregates elements of `collection` on `accumulator` with keys transformed\n * by `iteratee` and values set by `setter`.\n *\n * @private\n * @param {Array|Object} collection The collection to iterate over.\n * @param {Function} setter The function to set `accumulator` values.\n * @param {Function} iteratee The iteratee to transform keys.\n * @param {Object} accumulator The initial aggregated object.\n * @returns {Function} Returns `accumulator`.\n */\nfunction baseAggregator(collection, setter, iteratee, accumulator) {\n  baseEach(collection, function(value, key, collection) {\n    setter(accumulator, value, iteratee(value), collection);\n  });\n  return accumulator;\n}\n\nexport default baseAggregator;\n",
+      "start": 1714699768897,
+      "end": 1714699768897,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768897,
+      "end": 1714699768897,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768897,
+      "end": 1714699768897,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768897,
+      "end": 1714699768897,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768897,
+      "end": 1714699768897,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768897,
+      "end": 1714699768897,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768897,
+      "end": 1714699768897,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768897,
+      "end": 1714699768898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768898,
+      "end": 1714699768898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768898,
+      "end": 1714699768898,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768898,
+      "end": 1714699768898,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768898,
+      "end": 1714699768898,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768898,
+      "end": 1714699768898,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768898,
+      "end": 1714699768898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768898,
+      "end": 1714699768898,
+      "order": "normal"
+    }
+  ]
+}

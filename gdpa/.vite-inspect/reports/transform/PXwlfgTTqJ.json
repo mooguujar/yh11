@@ -1,0 +1,154 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/core.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import {\n  AppContext,\n  ComponentInternalInstance,\n  createVNode,\n  render,\n  VNodeProps,\n  VNodeTypes\n} from 'vue'\n\nexport interface IPopup {\n  onVanish?: () => void\n}\n\nexport function createVM<T>(\n  component: VNodeTypes,\n  props: T & IPopup & VNodeProps,\n  appContext?: AppContext | null\n): ComponentInternalInstance | null {\n  const container = document.createDocumentFragment()\n  props.onVanish = () => {\n    render(null, container as unknown as HTMLDivElement)\n  }\n  const vnode = createVNode(component, props as VNodeProps)\n  if (appContext) {\n    vnode.appContext = appContext\n  }\n  render(vnode, container as unknown as HTMLDivElement)\n  document.body.appendChild(container)\n  return vnode.component\n}\n",
+      "start": 1714699767962,
+      "end": 1714699768023,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768023,
+      "end": 1714699768023,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import {\n  createVNode,\n  render\n} from \"vue\";\nexport function createVM(component, props, appContext) {\n  const container = document.createDocumentFragment();\n  props.onVanish = () => {\n    render(null, container);\n  };\n  const vnode = createVNode(component, props);\n  if (appContext) {\n    vnode.appContext = appContext;\n  }\n  render(vnode, container);\n  document.body.appendChild(container);\n  return vnode.component;\n}\n",
+      "start": 1714699768023,
+      "end": 1714699769058,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/core.ts"
+        ],
+        "sourcesContent": [
+          "import {\n  AppContext,\n  ComponentInternalInstance,\n  createVNode,\n  render,\n  VNodeProps,\n  VNodeTypes\n} from 'vue'\n\nexport interface IPopup {\n  onVanish?: () => void\n}\n\nexport function createVM<T>(\n  component: VNodeTypes,\n  props: T & IPopup & VNodeProps,\n  appContext?: AppContext | null\n): ComponentInternalInstance | null {\n  const container = document.createDocumentFragment()\n  props.onVanish = () => {\n    render(null, container as unknown as HTMLDivElement)\n  }\n  const vnode = createVNode(component, props as VNodeProps)\n  if (appContext) {\n    vnode.appContext = appContext\n  }\n  render(vnode, container as unknown as HTMLDivElement)\n  document.body.appendChild(container)\n  return vnode.component\n}\n"
+        ],
+        "mappings": "AAAA;AAAA,EAGE;AAAA,EACA;AAAA,OAGK;AAMA,gBAAS,SACd,WACA,OACA,YACkC;AAClC,QAAM,YAAY,SAAS,uBAAuB;AAClD,QAAM,WAAW,MAAM;AACrB,WAAO,MAAM,SAAsC;AAAA,EACrD;AACA,QAAM,QAAQ,YAAY,WAAW,KAAmB;AACxD,MAAI,YAAY;AACd,UAAM,aAAa;AAAA,EACrB;AACA,SAAO,OAAO,SAAsC;AACpD,WAAS,KAAK,YAAY,SAAS;AACnC,SAAO,MAAM;AACf;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769058,
+      "end": 1714699769058,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769058,
+      "end": 1714699769058,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699769059,
+      "end": 1714699769059,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769059,
+      "end": 1714699769059,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import {\n  createVNode,\n  render\n} from \"vue\";\nexport function createVM(component, props, appContext) {\n  const container = document.createDocumentFragment();\n  props.onVanish = () => {\n    render(null, container);\n  };\n  const vnode = createVNode(component, props);\n  if (appContext) {\n    vnode.appContext = appContext;\n  }\n  render(vnode, container);\n  document.body.appendChild(container);\n  return vnode.component;\n}\n",
+      "start": 1714699769059,
+      "end": 1714699769059,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport {\n  createVNode,\n  render\n} from \"vue\";\nexport function createVM(component, props, appContext) {\n  const container = document.createDocumentFragment();\n  props.onVanish = () => {\n    render(null, container);\n  };\n  const vnode = createVNode(component, props);\n  if (appContext) {\n    vnode.appContext = appContext;\n  }\n  render(vnode, container);\n  document.body.appendChild(container);\n  return vnode.component;\n}\n",
+      "start": 1714699769059,
+      "end": 1714699769397,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/core.ts\"],\n  \"sourcesContent\": [\"import {\\n  createVNode,\\n  render\\n} from \\\"vue\\\";\\nexport function createVM(component, props, appContext) {\\n  const container = document.createDocumentFragment();\\n  props.onVanish = () => {\\n    render(null, container);\\n  };\\n  const vnode = createVNode(component, props);\\n  if (appContext) {\\n    vnode.appContext = appContext;\\n  }\\n  render(vnode, container);\\n  document.body.appendChild(container);\\n  return vnode.component;\\n}\\n\"],\n  \"mappings\": \";AAAA;AAAA,EACE;AAAA,EACA;AAAA,OACK;AACA,gBAAS,SAAS,WAAW,OAAO,YAAY;AACrD,QAAM,YAAY,SAAS,uBAAuB;AAClD,QAAM,WAAW,MAAM;AACrB,WAAO,MAAM,SAAS;AAAA,EACxB;AACA,QAAM,QAAQ,YAAY,WAAW,KAAK;AAC1C,MAAI,YAAY;AACd,UAAM,aAAa;AAAA,EACrB;AACA,SAAO,OAAO,SAAS;AACvB,WAAS,KAAK,YAAY,SAAS;AACnC,SAAO,MAAM;AACf;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769397,
+      "end": 1714699769397,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769397,
+      "end": 1714699769398,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699769398,
+      "end": 1714699769398,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769398,
+      "end": 1714699769398,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769398,
+      "end": 1714699769398,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769398,
+      "end": 1714699769398,
+      "order": "normal"
+    }
+  ]
+}

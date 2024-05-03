@@ -1,0 +1,163 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuItem.vue?vue&type=style&index=0&scoped=3ebc91da&lang.scss",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\n@import '@/assets/styles/sprite-001.scss';\n.item {\n  flex: 1;\n  text-align: center;\n  font-size: 18px;\n  &.active {\n    .title {\n      color: var(--van-button-primary-background);\n    }\n  }\n\n  .flex-item {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n  }\n\n  .icon-container {\n    position: relative;\n    height: 38px;\n    i {\n      display: block;\n    }\n    .process-order-sign {\n      position: absolute;\n      top: -15px;\n      right: -20px;\n      width: 35px;\n      height: 35px;\n      line-height: 35px;\n      background-color: #d9001c;\n      color: #fff;\n      font-size: 21px;\n      text-align: center;\n      border-radius: 50%;\n    }\n  }\n  .title {\n    color: #868d9a;\n  }\n}\n\n.active {\n  font-weight: 600;\n}\n",
+      "start": 1714699771660,
+      "end": 1714699771660
+    },
+    {
+      "name": "vite:css",
+      "result": ".copy-01 {\n  background: var(--app-color-sprite-001) -0.37333rem -1.96933rem no-repeat;\n  width: 0.35467rem;\n  height: 0.34533rem;\n  background-size: 1.876rem 2.352rem;\n}\n\n.customer-service-blue {\n  background: var(--app-color-sprite-001) 0px 0px no-repeat;\n  width: 0.54133rem;\n  height: 0.55067rem;\n  background-size: 1.876rem 2.352rem;\n}\n\n.about-us {\n  background: var(--app-color-sprite-001) -0.54133rem 0px no-repeat;\n  width: 0.532rem;\n  height: 0.532rem;\n  background-size: 1.876rem 2.352rem;\n}\n\n.mine-icon-active {\n  background: var(--app-color-sprite-001) -1.07333rem 0px no-repeat;\n  width: 0.40133rem;\n  height: 0.48533rem;\n  background-size: 1.876rem 2.352rem;\n}\n\n.help-center {\n  background: var(--app-color-sprite-001) 0px -0.55067rem no-repeat;\n  width: 0.532rem;\n  height: 0.48533rem;\n  background-size: 1.876rem 2.352rem;\n}\n\n.mine-icon {\n  background: var(--app-color-sprite-001) -1.47467rem 0px no-repeat;\n  width: 0.40133rem;\n  height: 0.476rem;\n  background-size: 1.876rem 2.352rem;\n}\n\n.buy-coin {\n  background: var(--app-color-sprite-001) -0.532rem -0.55067rem no-repeat;\n  width: 0.448rem;\n  height: 0.476rem;\n  background-size: 1.876rem 2.352rem;\n}\n\n.sell-coin {\n  background: var(--app-color-sprite-001) -0.98rem -0.55067rem no-repeat;\n  width: 0.448rem;\n  height: 0.476rem;\n  background-size: 1.876rem 2.352rem;\n}\n\n.sell-coin-active {\n  background: var(--app-color-sprite-001) -1.428rem -0.55067rem no-repeat;\n  width: 0.448rem;\n  height: 0.476rem;\n  background-size: 1.876rem 2.352rem;\n}\n\n.order-active {\n  background: var(--app-color-sprite-001) 0px -1.036rem no-repeat;\n  width: 0.38267rem;\n  height: 0.46667rem;\n  background-size: 1.876rem 2.352rem;\n}\n\n.point-active {\n  background: var(--app-color-sprite-001) -0.38267rem -1.036rem no-repeat;\n  width: 0.38267rem;\n  height: 0.46667rem;\n  background-size: 1.876rem 2.352rem;\n}\n\n.point {\n  background: var(--app-color-sprite-001) -0.76533rem -1.036rem no-repeat;\n  width: 0.392rem;\n  height: 0.46667rem;\n  background-size: 1.876rem 2.352rem;\n}\n\n.order {\n  background: var(--app-color-sprite-001) -1.15733rem -1.036rem no-repeat;\n  width: 0.392rem;\n  height: 0.46667rem;\n  background-size: 1.876rem 2.352rem;\n}\n\n.buy-coin-active {\n  background: var(--app-color-sprite-001) 0px -1.50267rem no-repeat;\n  width: 0.43867rem;\n  height: 0.46667rem;\n  background-size: 1.876rem 2.352rem;\n}\n\n.icon-ok-01 {\n  background: var(--app-color-sprite-001) -0.43867rem -1.50267rem no-repeat;\n  width: 0.38267rem;\n  height: 0.448rem;\n  background-size: 1.876rem 2.352rem;\n}\n\n.icon-choose-datetime {\n  background: var(--app-color-sprite-001) -0.82133rem -1.50267rem no-repeat;\n  width: 0.40133rem;\n  height: 0.43867rem;\n  background-size: 1.876rem 2.352rem;\n}\n\n.message-03 {\n  background: var(--app-color-sprite-001) -1.22267rem -1.50267rem no-repeat;\n  width: 0.54133rem;\n  height: 0.43867rem;\n  background-size: 1.876rem 2.352rem;\n}\n\n.customer-service-02 {\n  background: var(--app-color-sprite-001) 0px -1.96933rem no-repeat;\n  width: 0.37333rem;\n  height: 0.38267rem;\n  background-size: 1.876rem 2.352rem;\n}\n\n.copy-01 {\n  background: var(--app-color-sprite-001) -0.37333rem -1.96933rem no-repeat;\n  width: 0.35467rem;\n  height: 0.34533rem;\n  background-size: 1.876rem 2.352rem;\n}\n\n.wallet {\n  background: var(--app-color-sprite-001) -0.728rem -1.96933rem no-repeat;\n  width: 0.37333rem;\n  height: 0.34533rem;\n  background-size: 1.876rem 2.352rem;\n}\n\n.copy {\n  background: var(--app-color-sprite-001) -1.54933rem -1.036rem no-repeat;\n  width: 0.32667rem;\n  height: 0.32667rem;\n  background-size: 1.876rem 2.352rem;\n}\n\n.message-02 {\n  background: var(--app-color-sprite-001) -1.10133rem -1.96933rem no-repeat;\n  width: 0.37333rem;\n  height: 0.29867rem;\n  background-size: 1.876rem 2.352rem;\n}\n\n.filter {\n  background: var(--app-color-sprite-001) -1.47467rem -1.96933rem no-repeat;\n  width: 0.28rem;\n  height: 0.28933rem;\n  background-size: 1.876rem 2.352rem;\n}\n\n.item {\n  flex: 1;\n  text-align: center;\n  font-size: 0.24rem;\n}\n\n.item.active .title {\n  color: var(--van-button-primary-background);\n}\n\n.item .flex-item {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}\n\n.item .icon-container {\n  position: relative;\n  height: 0.50667rem;\n}\n\n.item .icon-container i {\n  display: block;\n}\n\n.item .icon-container .process-order-sign {\n  position: absolute;\n  top: -0.2rem;\n  right: -0.26667rem;\n  width: 0.46667rem;\n  height: 0.46667rem;\n  line-height: 0.46667rem;\n  background-color: #d9001c;\n  color: #fff;\n  font-size: 0.28rem;\n  text-align: center;\n  border-radius: 50%;\n}\n\n.item .title {\n  color: #868d9a;\n}\n\n.active {\n  font-weight: 600;\n}",
+      "start": 1714699771660,
+      "end": 1714699771669,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771669,
+      "end": 1714699771669,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771669,
+      "end": 1714699771669,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771669,
+      "end": 1714699771669,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".copy-01[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -0.37333rem -1.96933rem no-repeat;\n  width: 0.35467rem;\n  height: 0.34533rem;\n  background-size: 1.876rem 2.352rem;\n}\n.customer-service-blue[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) 0px 0px no-repeat;\n  width: 0.54133rem;\n  height: 0.55067rem;\n  background-size: 1.876rem 2.352rem;\n}\n.about-us[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -0.54133rem 0px no-repeat;\n  width: 0.532rem;\n  height: 0.532rem;\n  background-size: 1.876rem 2.352rem;\n}\n.mine-icon-active[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -1.07333rem 0px no-repeat;\n  width: 0.40133rem;\n  height: 0.48533rem;\n  background-size: 1.876rem 2.352rem;\n}\n.help-center[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) 0px -0.55067rem no-repeat;\n  width: 0.532rem;\n  height: 0.48533rem;\n  background-size: 1.876rem 2.352rem;\n}\n.mine-icon[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -1.47467rem 0px no-repeat;\n  width: 0.40133rem;\n  height: 0.476rem;\n  background-size: 1.876rem 2.352rem;\n}\n.buy-coin[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -0.532rem -0.55067rem no-repeat;\n  width: 0.448rem;\n  height: 0.476rem;\n  background-size: 1.876rem 2.352rem;\n}\n.sell-coin[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -0.98rem -0.55067rem no-repeat;\n  width: 0.448rem;\n  height: 0.476rem;\n  background-size: 1.876rem 2.352rem;\n}\n.sell-coin-active[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -1.428rem -0.55067rem no-repeat;\n  width: 0.448rem;\n  height: 0.476rem;\n  background-size: 1.876rem 2.352rem;\n}\n.order-active[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) 0px -1.036rem no-repeat;\n  width: 0.38267rem;\n  height: 0.46667rem;\n  background-size: 1.876rem 2.352rem;\n}\n.point-active[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -0.38267rem -1.036rem no-repeat;\n  width: 0.38267rem;\n  height: 0.46667rem;\n  background-size: 1.876rem 2.352rem;\n}\n.point[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -0.76533rem -1.036rem no-repeat;\n  width: 0.392rem;\n  height: 0.46667rem;\n  background-size: 1.876rem 2.352rem;\n}\n.order[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -1.15733rem -1.036rem no-repeat;\n  width: 0.392rem;\n  height: 0.46667rem;\n  background-size: 1.876rem 2.352rem;\n}\n.buy-coin-active[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) 0px -1.50267rem no-repeat;\n  width: 0.43867rem;\n  height: 0.46667rem;\n  background-size: 1.876rem 2.352rem;\n}\n.icon-ok-01[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -0.43867rem -1.50267rem no-repeat;\n  width: 0.38267rem;\n  height: 0.448rem;\n  background-size: 1.876rem 2.352rem;\n}\n.icon-choose-datetime[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -0.82133rem -1.50267rem no-repeat;\n  width: 0.40133rem;\n  height: 0.43867rem;\n  background-size: 1.876rem 2.352rem;\n}\n.message-03[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -1.22267rem -1.50267rem no-repeat;\n  width: 0.54133rem;\n  height: 0.43867rem;\n  background-size: 1.876rem 2.352rem;\n}\n.customer-service-02[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) 0px -1.96933rem no-repeat;\n  width: 0.37333rem;\n  height: 0.38267rem;\n  background-size: 1.876rem 2.352rem;\n}\n.copy-01[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -0.37333rem -1.96933rem no-repeat;\n  width: 0.35467rem;\n  height: 0.34533rem;\n  background-size: 1.876rem 2.352rem;\n}\n.wallet[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -0.728rem -1.96933rem no-repeat;\n  width: 0.37333rem;\n  height: 0.34533rem;\n  background-size: 1.876rem 2.352rem;\n}\n.copy[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -1.54933rem -1.036rem no-repeat;\n  width: 0.32667rem;\n  height: 0.32667rem;\n  background-size: 1.876rem 2.352rem;\n}\n.message-02[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -1.10133rem -1.96933rem no-repeat;\n  width: 0.37333rem;\n  height: 0.29867rem;\n  background-size: 1.876rem 2.352rem;\n}\n.filter[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -1.47467rem -1.96933rem no-repeat;\n  width: 0.28rem;\n  height: 0.28933rem;\n  background-size: 1.876rem 2.352rem;\n}\n.item[data-v-3ebc91da] {\n  flex: 1;\n  text-align: center;\n  font-size: 0.24rem;\n}\n.item.active .title[data-v-3ebc91da] {\n  color: var(--van-button-primary-background);\n}\n.item .flex-item[data-v-3ebc91da] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}\n.item .icon-container[data-v-3ebc91da] {\n  position: relative;\n  height: 0.50667rem;\n}\n.item .icon-container i[data-v-3ebc91da] {\n  display: block;\n}\n.item .icon-container .process-order-sign[data-v-3ebc91da] {\n  position: absolute;\n  top: -0.2rem;\n  right: -0.26667rem;\n  width: 0.46667rem;\n  height: 0.46667rem;\n  line-height: 0.46667rem;\n  background-color: #d9001c;\n  color: #fff;\n  font-size: 0.28rem;\n  text-align: center;\n  border-radius: 50%;\n}\n.item .title[data-v-3ebc91da] {\n  color: #868d9a;\n}\n.active[data-v-3ebc91da] {\n  font-weight: 600;\n}",
+      "start": 1714699771669,
+      "end": 1714699771670,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771670,
+      "end": 1714699771670,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": ".copy-01[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -0.37333rem -1.96933rem no-repeat;\n  width: 0.35467rem;\n  height: 0.34533rem;\n  background-size: 1.876rem 2.352rem;\n}\n.customer-service-blue[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) 0px 0px no-repeat;\n  width: 0.54133rem;\n  height: 0.55067rem;\n  background-size: 1.876rem 2.352rem;\n}\n.about-us[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -0.54133rem 0px no-repeat;\n  width: 0.532rem;\n  height: 0.532rem;\n  background-size: 1.876rem 2.352rem;\n}\n.mine-icon-active[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -1.07333rem 0px no-repeat;\n  width: 0.40133rem;\n  height: 0.48533rem;\n  background-size: 1.876rem 2.352rem;\n}\n.help-center[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) 0px -0.55067rem no-repeat;\n  width: 0.532rem;\n  height: 0.48533rem;\n  background-size: 1.876rem 2.352rem;\n}\n.mine-icon[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -1.47467rem 0px no-repeat;\n  width: 0.40133rem;\n  height: 0.476rem;\n  background-size: 1.876rem 2.352rem;\n}\n.buy-coin[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -0.532rem -0.55067rem no-repeat;\n  width: 0.448rem;\n  height: 0.476rem;\n  background-size: 1.876rem 2.352rem;\n}\n.sell-coin[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -0.98rem -0.55067rem no-repeat;\n  width: 0.448rem;\n  height: 0.476rem;\n  background-size: 1.876rem 2.352rem;\n}\n.sell-coin-active[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -1.428rem -0.55067rem no-repeat;\n  width: 0.448rem;\n  height: 0.476rem;\n  background-size: 1.876rem 2.352rem;\n}\n.order-active[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) 0px -1.036rem no-repeat;\n  width: 0.38267rem;\n  height: 0.46667rem;\n  background-size: 1.876rem 2.352rem;\n}\n.point-active[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -0.38267rem -1.036rem no-repeat;\n  width: 0.38267rem;\n  height: 0.46667rem;\n  background-size: 1.876rem 2.352rem;\n}\n.point[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -0.76533rem -1.036rem no-repeat;\n  width: 0.392rem;\n  height: 0.46667rem;\n  background-size: 1.876rem 2.352rem;\n}\n.order[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -1.15733rem -1.036rem no-repeat;\n  width: 0.392rem;\n  height: 0.46667rem;\n  background-size: 1.876rem 2.352rem;\n}\n.buy-coin-active[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) 0px -1.50267rem no-repeat;\n  width: 0.43867rem;\n  height: 0.46667rem;\n  background-size: 1.876rem 2.352rem;\n}\n.icon-ok-01[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -0.43867rem -1.50267rem no-repeat;\n  width: 0.38267rem;\n  height: 0.448rem;\n  background-size: 1.876rem 2.352rem;\n}\n.icon-choose-datetime[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -0.82133rem -1.50267rem no-repeat;\n  width: 0.40133rem;\n  height: 0.43867rem;\n  background-size: 1.876rem 2.352rem;\n}\n.message-03[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -1.22267rem -1.50267rem no-repeat;\n  width: 0.54133rem;\n  height: 0.43867rem;\n  background-size: 1.876rem 2.352rem;\n}\n.customer-service-02[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) 0px -1.96933rem no-repeat;\n  width: 0.37333rem;\n  height: 0.38267rem;\n  background-size: 1.876rem 2.352rem;\n}\n.copy-01[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -0.37333rem -1.96933rem no-repeat;\n  width: 0.35467rem;\n  height: 0.34533rem;\n  background-size: 1.876rem 2.352rem;\n}\n.wallet[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -0.728rem -1.96933rem no-repeat;\n  width: 0.37333rem;\n  height: 0.34533rem;\n  background-size: 1.876rem 2.352rem;\n}\n.copy[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -1.54933rem -1.036rem no-repeat;\n  width: 0.32667rem;\n  height: 0.32667rem;\n  background-size: 1.876rem 2.352rem;\n}\n.message-02[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -1.10133rem -1.96933rem no-repeat;\n  width: 0.37333rem;\n  height: 0.29867rem;\n  background-size: 1.876rem 2.352rem;\n}\n.filter[data-v-3ebc91da] {\n  background: var(--app-color-sprite-001) -1.47467rem -1.96933rem no-repeat;\n  width: 0.28rem;\n  height: 0.28933rem;\n  background-size: 1.876rem 2.352rem;\n}\n.item[data-v-3ebc91da] {\n  flex: 1;\n  text-align: center;\n  font-size: 0.24rem;\n}\n.item.active .title[data-v-3ebc91da] {\n  color: var(--van-button-primary-background);\n}\n.item .flex-item[data-v-3ebc91da] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}\n.item .icon-container[data-v-3ebc91da] {\n  position: relative;\n  height: 0.50667rem;\n}\n.item .icon-container i[data-v-3ebc91da] {\n  display: block;\n}\n.item .icon-container .process-order-sign[data-v-3ebc91da] {\n  position: absolute;\n  top: -0.2rem;\n  right: -0.26667rem;\n  width: 0.46667rem;\n  height: 0.46667rem;\n  line-height: 0.46667rem;\n  background-color: #d9001c;\n  color: #fff;\n  font-size: 0.28rem;\n  text-align: center;\n  border-radius: 50%;\n}\n.item .title[data-v-3ebc91da] {\n  color: #868d9a;\n}\n.active[data-v-3ebc91da] {\n  font-weight: 600;\n}",
+      "start": 1714699771670,
+      "end": 1714699771670,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699771670,
+      "end": 1714699771670,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771670,
+      "end": 1714699771670,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699771670,
+      "end": 1714699771670,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771670,
+      "end": 1714699771670,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771670,
+      "end": 1714699771670,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771670,
+      "end": 1714699771670,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699771670,
+      "end": 1714699771670,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771670,
+      "end": 1714699771670,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771670,
+      "end": 1714699771670,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771670,
+      "end": 1714699771670,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */",
+      "start": 1714699771670,
+      "end": 1714699771670,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuItem.vue?vue&type=style&index=0&scoped=3ebc91da&lang.scss"
+        ],
+        "sourcesContent": [
+          ""
+        ],
+        "names": [],
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771670,
+      "end": 1714699771670,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771670,
+      "end": 1714699771670,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771670,
+      "end": 1714699771670,
+      "order": "normal"
+    }
+  ]
+}

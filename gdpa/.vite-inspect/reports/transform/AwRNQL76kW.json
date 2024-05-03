@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/LuckyDraw.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\nimport noData from '@/assets/images/common/noData-gold.png'\nimport iconWarning from '@/assets/images/common/warning.png'\nimport { useAuthStore } from '@/store'\nimport { useCommonStore } from '@/store/modules/common'\nimport { useEntryStore } from '@/store/modules/entry'\nimport { useTaskActivityStore } from '@/store/modules/taskActivity'\nimport { INormal } from '@/store/types/entry'\nimport {\n  IAwardData,\n  IGameRecord,\n  IGameRecordData,\n  IPlayTurntableData,\n  ITurntableAward,\n  ITurntableOption\n} from '@/store/types/taskActivity'\nimport dayjs from 'dayjs'\nimport { storeToRefs } from 'pinia'\nimport { showToast } from 'vant'\nimport { computed, onBeforeUnmount, onMounted, reactive, ref } from 'vue'\nimport { Vue3SeamlessScroll as SeamlessScroll } from 'vue3-seamless-scroll'\n\nconst coin_name = sessionStorage.getItem('coin_name')\nconst emit = defineEmits(['update-coins'])\n\ntype TTurntableAward = Partial<ITurntableAward>\n\n// 抽奖记录\nconst winRecordList = ref<IGameRecord[]>([])\n// 抽奖轮盘奖项列表\nconst awardLoopList = ref<TTurntableAward[]>([\n  {\n    class: 'RMB-4'\n  },\n  {\n    class: 'point-1'\n  },\n  {\n    class: 'RMB-gold-box'\n  },\n  {\n    class: 'lucky-star'\n  },\n  {\n    class: 'point-5'\n  },\n  {\n    class: 'point-8'\n  },\n  {\n    class: 'RMB-1'\n  },\n  {\n    class: 'RMB-silver-box'\n  },\n  {\n    class: 'point-3'\n  },\n  {\n    class: 'RMB-3'\n  }\n])\ninterface IAwardState {\n  currentIndex: number // 当前位置\n  isRunning: boolean // 是否正在抽奖\n  speed: number // 抽奖转动速度\n  runTurnTableTimer: NodeJS.Timeout | null // 抽奖轮盘计时器\n  turnTableLimitTimer: NodeJS.Timeout | null // 抽奖频率计时器\n  currentRunCount: number // 已跑次数\n  totalRunCount: number // 总共跑动次数 10的倍数\n  prizeId: number // 中奖id\n  continue: number // 是否可以继续抽奖\n}\n// 抽奖相关数据状态\nconst awardState = reactive<IAwardState>({\n  currentIndex: -1, // 当前位置\n  isRunning: false, // 是否正在抽奖\n  speed: 10, // 抽奖转动速度\n  runTurnTableTimer: null, // 抽奖轮盘计时器\n  turnTableLimitTimer: null, // 抽奖频率计时器\n  currentRunCount: 0, // 已跑次数\n  totalRunCount: 40, // 总共跑动次数 10的倍数\n  prizeId: 0, // 中奖id\n  continue: 1 // 是否可以继续抽奖\n})\nconst awardResult = reactive<IPlayTurntableData>({\n  awards: [],\n  mtype: {\n    '0': 0,\n    '1': 0,\n    '20': 0\n  }\n})\n// 奖品高亮顺序\nconst prizeSort = [0, 1, 2, 3, 4, 9, 8, 7, 6, 5, 0]\n// 抽奖按钮\nconst btnList = ref<ITurntableOption[]>([])\n\nconst entryStore = useEntryStore()\nconst { config } = storeToRefs(entryStore)\n\nconst appDomain = computed(() => {\n  return (config.value.Web_Set_DefaultInfo?.imgserver_url as INormal).v || ''\n})\n\nconst taskActivityStore = useTaskActivityStore()\nconst { getTurntableAwardsApi, getGameRecordApi, getPlayTurntableApi } = taskActivityStore\nconst { turntableAwards, awardRecord } = storeToRefs(taskActivityStore)\n\nconst handleTurnTableAwardsData = (data: IAwardData) => {\n  awardLoopList.value = data.awards\n  btnList.value = data.options\n}\n// 获取轮盘奖项列表\nconst getTurntableAwards = async () => {\n  try {\n    let res: IAwardData = turntableAwards.value\n\n    if (!res.awards?.length) {\n      res = await getTurntableAwardsApi()\n    }\n\n    handleTurnTableAwardsData(res)\n\n    window.log('轮盘奖项列表', res)\n  } catch (error) {\n    console.error(error)\n  }\n}\n// 获取抽奖记录\nconst getGameRecord = async (isReq: boolean = false) => {\n  try {\n    let res: IGameRecordData\n\n    if (awardRecord.value.count && !isReq) {\n      res = awardRecord.value\n    } else {\n      res = await getGameRecordApi()\n    }\n\n    if (res.list?.length) {\n      winRecordList.value = res.list\n    }\n\n    window.log('抽奖记录', res)\n  } catch (error) {\n    console.error(error)\n  }\n}\n\n// 要执行总步数\nconst totalRunStep = computed(() => {\n  return awardState.totalRunCount + prizeSort.indexOf(awardState.prizeId)\n})\n\n// 获取随机数\nconst getRandomNum = () => {\n  // 这里一次必然可以取到 时间为1次\n  return prizeSort[Math.floor(Math.random() * prizeSort.length)]\n}\n\nconst authStore = useAuthStore()\nconst { getUserMoneyByMType } = storeToRefs(authStore)\n// 点击抽奖\nconst runTurntable = (item: ITurntableOption) => {\n  const point = +(getUserMoneyByMType.value(20)?.coincash ?? 0)\n  if (point < +item.consume) {\n    showToast({\n      message: '积分不足',\n      icon: iconWarning\n    })\n\n    return\n  }\n  if (!awardState.continue) {\n    showToast({\n      message: '10秒内只能操作一次',\n      icon: iconWarning\n    })\n\n    return\n  }\n\n  if (!awardState.isRunning) {\n    // 重置数据\n    awardState.currentRunCount = 0\n    awardState.speed = 30\n    awardState.isRunning = true\n\n    // 如果接口突然报错如何处理？直接调用stopRun()方法停止转动\n    getTurnTableData(item.id)\n  }\n}\n\nconst startRun = () => {\n  stopRun()\n  // window.log('--currentRunCount-totalRunStep--', awardState.currentRunCount, totalRunStep.value)\n  // 要执行总步数\n  // 已走步数超过\n  if (awardState.currentRunCount > totalRunStep.value) {\n    awardState.isRunning = false\n    showDialog.value = true\n    awardState.currentIndex = -1\n    emit('update-coins', true)\n    getGameRecord(true)\n    return\n  }\n  awardState.currentIndex = prizeSort[awardState.currentRunCount % 10]\n  // 如果当前步数超过了2/3则速度慢下来\n  if (awardState.currentRunCount > Math.floor((awardState.totalRunCount * 2) / 3)) {\n    awardState.speed = awardState.speed + Math.floor(awardState.currentRunCount / 3)\n    // console.log('速度>>>>', awardState.speed)\n  }\n  awardState.runTurnTableTimer = setTimeout(() => {\n    awardState.currentRunCount++\n    startRun()\n  }, awardState.speed)\n}\n\nconst stopRun = () => {\n  awardState.runTurnTableTimer && clearTimeout(awardState.runTurnTableTimer)\n}\n\nconst commonStore = useCommonStore()\n// 轮盘抽奖\nconst getTurnTableData = async (id: number) => {\n  try {\n    commonStore.setShowLoading(true)\n    awardState.continue = 0\n\n    const params = {\n      config_id: id\n    }\n\n    const res = await getPlayTurntableApi(params)\n\n    if (res.awards?.length) {\n      awardResult.awards = res.awards\n      awardResult.mtype = res.mtype\n\n      const prizeId = awardLoopList.value.findIndex(\n        item => item.turntable_idd === res.awards[0].turntable_idd\n      )\n\n      if (~prizeId) {\n        awardState.prizeId = prizeId\n        startRun()\n      }\n    }\n\n    window.log('抽奖', res)\n  } catch (error) {\n    console.error(error)\n  } finally {\n    commonStore.setShowLoading(false)\n\n    awardState.turnTableLimitTimer && clearTimeout(awardState.turnTableLimitTimer)\n    awardState.turnTableLimitTimer = setTimeout(() => {\n      awardState.isRunning = false\n      awardState.continue = 1\n    }, 10 * 1000)\n  }\n}\n\nconst showDialog = ref(false)\n\nconst closeDialog = () => {\n  showDialog.value = false\n}\n\nonMounted(() => {\n  getTurntableAwards()\n  getGameRecord()\n})\nonBeforeUnmount(() => {\n  awardState.runTurnTableTimer && clearTimeout(awardState.runTurnTableTimer)\n  awardState.runTurnTableTimer = null\n  awardState.turnTableLimitTimer && clearTimeout(awardState.turnTableLimitTimer)\n  awardState.turnTableLimitTimer = null\n})\n</script>\n\n<template>\n  <div class=\"lucky-draw-container\">\n    <div class=\"draw-middle-container flex items-center\">\n      <div class=\"award-loop-container flex items-center flex-wrap\">\n        <div\n          v-for=\"(item, index) in awardLoopList\"\n          :key=\"item.id\"\n          class=\"item-award flex flex-col items-center justify-between\"\n          :class=\"{ active: awardState.currentIndex === index }\"\n        >\n          <div class=\"icon-container flex items-center justify-center\">\n            <img\n              v-if=\"item.activity_img\"\n              :src=\"appDomain + item.activity_img\"\n            />\n            <i\n              v-else\n              :class=\"item.class\"\n            ></i>\n          </div>\n          <div\n            class=\"award-name\"\n            :class=\"{ 'final-award-name': item.turntable_name && item.turntable_name.length > 5 }\"\n          >\n            {{ item.turntable_name }}\n          </div>\n        </div>\n      </div>\n      <div class=\"right-scroll-container\">\n        <div class=\"title\">中奖记录</div>\n        <div\n          class=\"winning-record\"\n          :class=\"!winRecordList.length ? 'flex items-center justify-center' : ''\"\n        >\n          <SeamlessScroll\n            v-if=\"winRecordList.length\"\n            :list=\"winRecordList\"\n            :limitScrollNum=\"7\"\n            :step=\"0.3\"\n            class=\"seamless-scroll\"\n          >\n            <div\n              v-for=\"(item, index) in winRecordList\"\n              :key=\"index\"\n              class=\"item-award-history ellipsis\"\n            >\n              {{ dayjs(item.addtime).format('HH:mm') }}中奖{{ item.record_desc }}\n            </div>\n          </SeamlessScroll>\n\n          <div\n            v-else\n            class=\"no-data flex flex-col items-center justify-center text-center\"\n          >\n            <img :src=\"noData\" />\n            <div class=\"text-no-data\">暂无数据</div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"lottery-container flex items-center justify-between\">\n      <div\n        v-for=\"item in btnList\"\n        :key=\"item.id\"\n        class=\"award-btn\"\n        @click=\"runTurntable(item)\"\n      >\n        <div className=\"item-name\">{{ item.title }}</div>\n        <div className=\"item-required-point\">({{ item.consume }}积分)</div>\n        <div\n          v-if=\"item.discount\"\n          class=\"discount\"\n        >\n          <div className=\"discount-num\">{{ item.discount }}</div>\n        </div>\n      </div>\n    </div>\n\n    <van-dialog\n      v-model:show=\"showDialog\"\n      theme=\"round-button\"\n      confirmButtonText=\"确定\"\n      class=\"point-dialog award-result-dialog\"\n    >\n      <i\n        class=\"close-white block icon-pos\"\n        @click=\"closeDialog\"\n      ></i>\n      <div class=\"title\">抽奖结果</div>\n      <div class=\"content\">\n        <div class=\"result-summary\">\n          <div\n            v-if=\"!awardResult.mtype['1'] && !awardResult.mtype['20']\"\n            class=\"item-result-title lucky-king\"\n          >\n            {{ awardResult.awards[0]?.turntable_name }}\n          </div>\n          <template v-else>\n            <div\n              v-if=\"awardResult.mtype['20']\"\n              class=\"item-result-title\"\n            >\n              <span>获得积分：</span>\n              <span class=\"result-value\">+{{ awardResult.mtype['20'] }}</span>\n            </div>\n            <div\n              v-if=\"awardResult.mtype['1']\"\n              class=\"item-result-title\"\n            >\n              <span>获得{{ coin_name }}：</span>\n              <span class=\"result-value\">+{{ awardResult.mtype['1'].toTruncFixed(2) }}</span>\n            </div>\n          </template>\n        </div>\n        <div class=\"award-list-container flex flex-wrap justify-between\">\n          <div\n            v-for=\"(item, index) in awardResult.awards\"\n            :key=\"index\"\n            class=\"item-award flex flex-col justify-center items-center\"\n          >\n            <div class=\"award-icon\"><img :src=\"appDomain + item.activity_img\" /></div>\n            <div class=\"award-name\">{{ item.turntable_name }}</div>\n          </div>\n        </div>\n      </div>\n    </van-dialog>\n  </div>\n</template>\n\n<style lang=\"scss\" score>\n@import '@/assets/styles/sprite-point.scss';\n\n.lucky-draw-container {\n  position: relative;\n  width: 100%;\n  height: 460px;\n  margin: 30px 0;\n  background: url('@/assets/images/common/lucky-draw.png') center / cover no-repeat;\n  .draw-middle-container {\n    position: absolute;\n    top: 97px;\n    left: 15px;\n    width: 680px;\n    height: 258px;\n    padding: 15px 22px;\n    overflow: auto;\n    .award-loop-container {\n      width: 472px;\n      min-width: 472px;\n      gap: 13px;\n      .item-award {\n        width: 84px;\n        height: 105px;\n        justify-content: space-between;\n        padding-bottom: 9px;\n        background-color: #fff;\n        border-radius: 7px;\n        &.active {\n          border: 6px solid #57fb07;\n        }\n        .icon-container {\n          height: calc(100% - 28px);\n          transform: scale(0.85);\n          .RMB-gold-box,\n          .RMB-silver-box,\n          .lucky-star,\n          .point-8 {\n            margin-top: 5px;\n          }\n          img {\n            width: 100%;\n          }\n        }\n        .award-name {\n          font-size: 17px;\n          color: #cf0224;\n        }\n        .final-award-name {\n          font-size: 16px;\n        }\n      }\n    }\n    .right-scroll-container {\n      align-self: flex-start;\n      margin-left: 10px;\n      color: #fff;\n      .title {\n        margin-bottom: 10px;\n        font-size: 24px;\n        color: #ffdae0;\n        text-align: left;\n      }\n      .winning-record {\n        // display: block;\n        width: 146px;\n        height: 180px;\n        gap: 20px;\n        font-size: 18px;\n        color: #fabe73;\n        overflow: auto;\n        .seamless-scroll {\n          height: 180px;\n          overflow: hidden;\n        }\n        .item-award-history {\n          width: 100%;\n          flex: 0 0 26px;\n        }\n        .no-data {\n          img {\n            width: 140px;\n            // height: 110px;\n          }\n          .text-no-data {\n            width: 100%;\n            margin-bottom: 22px;\n            font-size: 12px;\n          }\n        }\n      }\n    }\n  }\n  .lottery-container {\n    position: absolute;\n    left: 15px;\n    bottom: 15px;\n    width: calc(100% - 30px);\n    height: 80px;\n    .award-btn {\n      position: relative;\n      text-align: center;\n      .discount {\n        position: absolute;\n        top: -18px;\n        right: -14px;\n        .discount-num {\n          position: absolute;\n          top: 26px;\n          left: 50%;\n          transform: translate3d(-50%, -50%, 0);\n          font-size: 17px;\n          color: #fff;\n          white-space: nowrap;\n        }\n      }\n    }\n    .item-name {\n      font-size: 25px;\n      color: #cf0224;\n      font-weight: bold;\n    }\n    .item-required-point {\n      font-size: 17px;\n      color: #bb7100;\n    }\n  }\n\n  .award-result-dialog {\n    .content {\n      padding-top: 17px !important;\n      padding-bottom: 17px !important;\n      .result-summary {\n        padding-bottom: 17px;\n        font-size: 25px;\n        color: #787f8c;\n        border-bottom: 1px solid #d9dde8;\n      }\n      .result-value {\n        margin-left: 16px;\n        color: #13161b;\n      }\n      .award-list-container {\n        width: 100%;\n        height: 270px;\n        padding: 18px 10px 0 10px;\n        gap: 15px 0;\n        overflow-y: auto;\n        .item-award {\n          width: 105px;\n          height: 105px;\n          padding: 5px 0;\n          color: #8e8f90;\n          background-color: #fff;\n          border-radius: 7px;\n          .award-icon {\n            width: 60%;\n            img {\n              margin-top: 0;\n            }\n          }\n          .award-name {\n            font-size: 22px;\n          }\n        }\n      }\n    }\n  }\n}\n</style>\n",
+      "start": 1714699770786,
+      "end": 1714699770801,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699770801,
+      "end": 1714699770801,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699770801,
+      "end": 1714699770801,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699770801,
+      "end": 1714699770801,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699770801,
+      "end": 1714699770801,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/LuckyDraw.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/LuckyDraw.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/LuckyDraw.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/LuckyDraw.vue\"]]);\n",
+      "start": 1714699770801,
+      "end": 1714699771799,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771799,
+      "end": 1714699771799,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/LuckyDraw.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/LuckyDraw.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/LuckyDraw.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/LuckyDraw.vue\"]]);\n",
+      "start": 1714699771799,
+      "end": 1714699771799,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/LuckyDraw.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/LuckyDraw.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/LuckyDraw.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/LuckyDraw.vue\"]]);\n",
+      "start": 1714699771799,
+      "end": 1714699771931,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/LuckyDraw.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/LuckyDraw.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/LuckyDraw.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/LuckyDraw.vue?vue&type=style&index=0&score=true&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/LuckyDraw.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,UAAU,0EAA0E,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771931,
+      "end": 1714699771931,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771931,
+      "end": 1714699771931,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771931,
+      "end": 1714699771931,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771931,
+      "end": 1714699771931,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771931,
+      "end": 1714699771931,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699771931,
+      "end": 1714699771931,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771931,
+      "end": 1714699771931,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771931,
+      "end": 1714699771931,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771931,
+      "end": 1714699771931,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/LuckyDraw.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/LuckyDraw.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/LuckyDraw.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/LuckyDraw.vue\"]]);\n",
+      "start": 1714699771931,
+      "end": 1714699771931,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/LuckyDraw.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/LuckyDraw.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/LuckyDraw.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/LuckyDraw.vue?vue&type=style&index=0&score=true&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/LuckyDraw.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771931,
+      "end": 1714699771931,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771931,
+      "end": 1714699771931,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771931,
+      "end": 1714699771931,
+      "order": "normal"
+    }
+  ]
+}

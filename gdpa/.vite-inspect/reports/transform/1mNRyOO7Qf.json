@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/getWhatYear.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var staticStrFirst = require('./staticStrFirst')\r\nvar staticStrLast = require('./staticStrLast')\r\n\r\nvar helperGetDateFullYear = require('./helperGetDateFullYear')\r\n\r\nvar getWhatMonth = require('./getWhatMonth')\r\nvar toStringDate = require('./toStringDate')\r\nvar isValidDate = require('./isValidDate')\r\n\r\n/**\r\n  * 返回前几年或后几年的日期\r\n  *\r\n  * @param {Date} date 日期或数字\r\n  * @param {Number} offset 年(默认当前年)、前几个年(数值)、后几个年(数值)\r\n  * @param {Number/String} month 获取哪月(null默认当前年)、年初(first)、年末(last)、指定月份（0-11）\r\n  * @return {Date}\r\n  */\r\nfunction getWhatYear (date, offset, month) {\r\n  var number\r\n  date = toStringDate(date)\r\n  if (isValidDate(date)) {\r\n    if (offset) {\r\n      number = offset && !isNaN(offset) ? offset : 0\r\n      date.setFullYear(helperGetDateFullYear(date) + number)\r\n    }\r\n    if (month || !isNaN(month)) {\r\n      if (month === staticStrFirst) {\r\n        return new Date(helperGetDateFullYear(date), 0, 1)\r\n      } else if (month === staticStrLast) {\r\n        date.setMonth(11)\r\n        return getWhatMonth(date, 0, staticStrLast)\r\n      } else {\r\n        date.setMonth(month)\r\n      }\r\n    }\r\n  }\r\n  return date\r\n}\r\n\r\nmodule.exports = getWhatYear\r\n",
+      "start": 1714699767673,
+      "end": 1714699767705,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767705,
+      "end": 1714699767705,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767705,
+      "end": 1714699767705,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767705,
+      "end": 1714699767705,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767705,
+      "end": 1714699767705,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767705,
+      "end": 1714699767705,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767705,
+      "end": 1714699767705,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var staticStrFirst = require('./staticStrFirst')\r\nvar staticStrLast = require('./staticStrLast')\r\n\r\nvar helperGetDateFullYear = require('./helperGetDateFullYear')\r\n\r\nvar getWhatMonth = require('./getWhatMonth')\r\nvar toStringDate = require('./toStringDate')\r\nvar isValidDate = require('./isValidDate')\r\n\r\n/**\r\n  * 返回前几年或后几年的日期\r\n  *\r\n  * @param {Date} date 日期或数字\r\n  * @param {Number} offset 年(默认当前年)、前几个年(数值)、后几个年(数值)\r\n  * @param {Number/String} month 获取哪月(null默认当前年)、年初(first)、年末(last)、指定月份（0-11）\r\n  * @return {Date}\r\n  */\r\nfunction getWhatYear (date, offset, month) {\r\n  var number\r\n  date = toStringDate(date)\r\n  if (isValidDate(date)) {\r\n    if (offset) {\r\n      number = offset && !isNaN(offset) ? offset : 0\r\n      date.setFullYear(helperGetDateFullYear(date) + number)\r\n    }\r\n    if (month || !isNaN(month)) {\r\n      if (month === staticStrFirst) {\r\n        return new Date(helperGetDateFullYear(date), 0, 1)\r\n      } else if (month === staticStrLast) {\r\n        date.setMonth(11)\r\n        return getWhatMonth(date, 0, staticStrLast)\r\n      } else {\r\n        date.setMonth(month)\r\n      }\r\n    }\r\n  }\r\n  return date\r\n}\r\n\r\nmodule.exports = getWhatYear\r\n",
+      "start": 1714699767705,
+      "end": 1714699767705,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767705,
+      "end": 1714699767705,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767705,
+      "end": 1714699767705,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767705,
+      "end": 1714699767705,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767705,
+      "end": 1714699767705,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767705,
+      "end": 1714699767705,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767705,
+      "end": 1714699767705,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/staticStrFirst.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/staticStrLast.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/helperGetDateFullYear.js?commonjs-proxy\";\nimport require$$3 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/getWhatMonth.js?commonjs-proxy\";\nimport require$$4 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/toStringDate.js?commonjs-proxy\";\nimport require$$5 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isValidDate.js?commonjs-proxy\";\n\nvar staticStrFirst = require$$0\r\nvar staticStrLast = require$$1\r\n\r\nvar helperGetDateFullYear = require$$2\r\n\r\nvar getWhatMonth = require$$3\r\nvar toStringDate = require$$4\r\nvar isValidDate = require$$5\r\n\r\n/**\r\n  * 返回前几年或后几年的日期\r\n  *\r\n  * @param {Date} date 日期或数字\r\n  * @param {Number} offset 年(默认当前年)、前几个年(数值)、后几个年(数值)\r\n  * @param {Number/String} month 获取哪月(null默认当前年)、年初(first)、年末(last)、指定月份（0-11）\r\n  * @return {Date}\r\n  */\r\nfunction getWhatYear (date, offset, month) {\r\n  var number\r\n  date = toStringDate(date)\r\n  if (isValidDate(date)) {\r\n    if (offset) {\r\n      number = offset && !isNaN(offset) ? offset : 0\r\n      date.setFullYear(helperGetDateFullYear(date) + number)\r\n    }\r\n    if (month || !isNaN(month)) {\r\n      if (month === staticStrFirst) {\r\n        return new Date(helperGetDateFullYear(date), 0, 1)\r\n      } else if (month === staticStrLast) {\r\n        date.setMonth(11)\r\n        return getWhatMonth(date, 0, staticStrLast)\r\n      } else {\r\n        date.setMonth(month)\r\n      }\r\n    }\r\n  }\r\n  return date\r\n}\r\n\r\nvar getWhatYear_1 = getWhatYear\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(getWhatYear_1);\nexport { getWhatYear_1 as __moduleExports };",
+      "start": 1714699767705,
+      "end": 1714699768242,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;;;;;AAAA,IAAI,cAAc,GAAG,UAA2B;AAChD,IAAI,aAAa,GAAG,UAA0B;AAC9C;AACA,IAAI,qBAAqB,GAAG,UAAkC;AAC9D;AACA,IAAI,YAAY,GAAG,UAAyB;AAC5C,IAAI,YAAY,GAAG,UAAyB;AAC5C,IAAI,WAAW,GAAG,UAAwB;AAC1C;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,WAAW,EAAE,IAAI,EAAE,MAAM,EAAE,KAAK,EAAE;AAC3C,EAAE,IAAI,MAAM;AACZ,EAAE,IAAI,GAAG,YAAY,CAAC,IAAI,CAAC;AAC3B,EAAE,IAAI,WAAW,CAAC,IAAI,CAAC,EAAE;AACzB,IAAI,IAAI,MAAM,EAAE;AAChB,MAAM,MAAM,GAAG,MAAM,IAAI,CAAC,KAAK,CAAC,MAAM,CAAC,GAAG,MAAM,GAAG,CAAC;AACpD,MAAM,IAAI,CAAC,WAAW,CAAC,qBAAqB,CAAC,IAAI,CAAC,GAAG,MAAM,CAAC;AAC5D,KAAK;AACL,IAAI,IAAI,KAAK,IAAI,CAAC,KAAK,CAAC,KAAK,CAAC,EAAE;AAChC,MAAM,IAAI,KAAK,KAAK,cAAc,EAAE;AACpC,QAAQ,OAAO,IAAI,IAAI,CAAC,qBAAqB,CAAC,IAAI,CAAC,EAAE,CAAC,EAAE,CAAC,CAAC;AAC1D,OAAO,MAAM,IAAI,KAAK,KAAK,aAAa,EAAE;AAC1C,QAAQ,IAAI,CAAC,QAAQ,CAAC,EAAE,CAAC;AACzB,QAAQ,OAAO,YAAY,CAAC,IAAI,EAAE,CAAC,EAAE,aAAa,CAAC;AACnD,OAAO,MAAM;AACb,QAAQ,IAAI,CAAC,QAAQ,CAAC,KAAK,CAAC;AAC5B,OAAO;AACP,KAAK;AACL,GAAG;AACH,EAAE,OAAO,IAAI;AACb,CAAC;AACD;IACA,aAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768242,
+      "end": 1714699768242,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768242,
+      "end": 1714699768242,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768242,
+      "end": 1714699768242,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768242,
+      "end": 1714699768242,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768242,
+      "end": 1714699768242,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768242,
+      "end": 1714699768242,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768243,
+      "end": 1714699768243,
+      "order": "normal"
+    }
+  ]
+}

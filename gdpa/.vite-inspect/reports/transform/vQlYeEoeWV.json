@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <div :class=\"`rmb w-100 bg-white`\">\n    <nav-bar\n      :title=\"templateText.page_title\"\n      :mode=\"`transparent`\"\n    />\n\n    <div class=\"order-content overflow-y-auto h-[calc(100vh-100px)] pb-[40px]\">\n      <div class=\"bg-[#fff] flex items-center flex-wrap justify-center\">\n        <van-field\n          v-model=\"account_email\"\n          placeholder=\"请输入邮箱地址\"\n          :disabled=\"hasBindEmail && !isUpdatingEmail\"\n        ></van-field>\n        <van-field\n          v-if=\"!hasBindEmail || (isUpdatingEmail && hasBindEmail)\"\n          v-model=\"valid_code\"\n          placeholder=\"请输入邮箱验证码\"\n        >\n          <template\n            #button\n            v-if=\"isShowSendCodeButton\"\n          >\n            <div\n              v-if=\"!isCountDown\"\n              class=\"text-[var(--van-button-primary-background)] cursor-pointer\"\n              @click=\"sendCodeToEmail\"\n            >\n              {{ '发送验证码' }}\n            </div>\n            <div\n              v-else\n              class=\"text-[#787f8c]\"\n            >\n              已发送验证码 {{ countDownSec }}s\n            </div>\n          </template>\n        </van-field>\n        <van-cell\n          v-if=\"hasBindEmail\"\n          class=\"mb-[20px]\"\n          center\n          title=\"是否接收买卖币邮箱通知\"\n        >\n          <template #right-icon>\n            <div class=\"relative flex_s\">\n              <!-- inactive-color=\"#fff\" -->\n              <van-switch\n                v-model=\"checked\"\n                @change=\";(checked = !checked), (isConfirmDialog = true), (setSwitch = true)\"\n                active-color=\"#49ae74\"\n              ></van-switch>\n              <span\n                class=\"text-[#fff] text_switch\"\n                @click=\";(isConfirmDialog = true), (setSwitch = true)\"\n                :class=\"checked ? '' : '!text-[#ccc] !left-[45px] '\"\n              >\n                {{ checked ? '开启' : '关闭' }}\n              </span>\n            </div>\n          </template>\n        </van-cell>\n\n        <van-button\n          size=\"large\"\n          class=\"!fixed bottom-[60px] !w-[650px]\"\n          color=\"var(--van-button-primary-background)\"\n          @click=\"\n            () =>\n              hasBindEmail\n                ? isUpdatingEmail\n                  ? handleConfirmDialog(true)\n                  : startUpdate()\n                : handleConfirmDialog(true)\n          \"\n        >\n          {{ templateText.button_text }}\n        </van-button>\n      </div>\n      <van-dialog\n        v-model:show=\"isConfirmDialog\"\n        title=\"身份验证\"\n        confirmButtonText=\"提交\"\n        theme=\"round-button\"\n        className=\"dialog-bulletin\"\n        @confirm=\"() => (setSwitch ? switchChange() : !hasBindEmail ? bindEmail() : editEmail())\"\n      >\n        <i\n          class=\"icon-close close-dark block\"\n          @click=\"handleConfirmDialog(false), (setSwitch = false)\"\n        ></i>\n        <div>\n          <van-field\n            v-model=\"pay_pass\"\n            placeholder=\"请输入支付密码\"\n            type=\"number\"\n            :maxlength=\"6\"\n            clickable\n            @touchstart.stop=\"showKeyboard = true\"\n            @focus=\"showKeyboard = true\"\n          />\n          <!-- <van-field\n            v-if=\"checked && setSwitch\"\n            v-model=\"valid_code\"\n            placeholder=\"请输入邮箱验证码\"\n          >\n            <template #button>\n              <div\n                v-if=\"!isCountDown\"\n                class=\"text-[var(--van-button-primary-background)] cursor-pointer\"\n                @click=\"sendCodeToEmail\"\n              >\n                {{ '发送验证码' }}\n              </div>\n              <div\n                v-else\n                class=\"text-[#787f8c]\"\n              >\n                已发送验证码 {{ countDownSec }}s\n              </div>\n            </template>\n          </van-field> -->\n        </div>\n      </van-dialog>\n      <!-- <van-number-keyboard\n        v-model=\"pay_pass\"\n        :show=\"showKeyboard\"\n        :maxlength=\"6\"\n        @blur=\"showKeyboard = false\"\n        class=\"!z-[3000]\"\n      /> -->\n      <!-- <van-dialog v-model:show=\"dialogContent.show\" :title=\"dialogContent.title\" theme=\"round-button\"\n        :className=\"['dialog-deal']\" :confirmButtonText=\"dialogContent.confirmButtonText\" @confirm=\"onConfirm\">\n        <i class=\"icon-close block close-dark\" @click=\"onClose\"></i>\n        <div class=\"flex flex-col items-center justify-between\">\n          <img :src=\"dialogContent.img\" :class=\"!authStore?.userInfo.verified_status ? 'verifi-id' : 'add-card'\" />\n          <div class=\"content text-center\">{{ dialogContent.content }}</div>\n        </div>\n      </van-dialog> -->\n    </div>\n  </div>\n</template>\n\n<script setup lang=\"ts\">\nimport { uploadImgApi } from '@/apis/common'\nimport { sendCodeToEmailAPI, bindEmailAPI, updateEmailAPI, emailSwitch } from '@/apis/user'\nimport info from '@/assets/images/common/info.png'\nimport success from '@/assets/images/common/success.png'\nimport { useAuthStore } from '@/store'\nimport { showToast } from 'vant'\nimport { onMounted, ref, watch } from 'vue'\nimport { useRouter } from 'vue-router'\nimport mitt from '@/utils/mitt'\nimport { computed } from 'vue'\nconst checked = ref(false)\nconst setSwitch = ref(false)\nconst router = useRouter()\nconst authStore = useAuthStore()\n\nconst showInfoToast = (title: string) => {\n  return showToast({\n    message: title,\n    icon: info\n  })\n}\n\nconst switchChange = () => {\n  if (!pay_pass.value || !regPayPass.test(pay_pass.value)) {\n    pay_pass.value = ''\n    // valid_code.value = ''\n    return showInfoToast('请输入6位支付密码')\n  } else {\n    setSwitch.value = false\n  }\n  // if (checked.value && !!!valid_code.value) {\n  //   valid_code.value = ''\n  //   return showInfoToast('请输入邮箱验证码')\n  // } else {\n  //   setSwitch.value = false\n  // }\n  // console.log('checked.value', checked.value)\n  let parm = {\n    email: account_email.value, //email\n    // emailcode: valid_code.value, //邮箱验证码[发送type=6]\n    pass: pay_pass.value, //支付密码\n    type: 2, //\t开关类型： 1安全验证开关2买卖币交易通知邮件开关\n    status: checked.value ? 2 : 1\n  }\n  // console.log('parm', parm)\n  emailSwitch(parm).then(data => {\n    // console.log('data', data.code)\n    if (data.code) return (pay_pass.value = '')\n    checked.value = !checked.value\n    pay_pass.value = ''\n    showToast({\n      message: '修改成功',\n      icon: info\n    })\n  })\n}\nconst showSuceedToast = (title: string) => {\n  return showToast({\n    message: title,\n    icon: success\n  })\n}\n\nconst isConfirmDialog = ref(false)\nconst pay_pass = ref('')\nconst isLoading = ref(false)\nconst regPayPass = /^[0-9]{6}$/\n\nconst showKeyboard = ref(false)\n\nconst isCountDown = ref(false)\nconst countDownSec = ref(60)\n\nconst isUpdatingEmail = ref(false)\nconst hasBindEmail = computed(() => !!authStore?.userInfo?.email)\nconst isShowSendCodeButton = computed(\n  () => !authStore?.userInfo?.email || (!!authStore?.userInfo?.email && isUpdatingEmail.value)\n)\nconst is_email_sellbuy = computed(() => {\n  // console.log('authStore?.userInfo?.is_email_sellbuy', authStore?.userInfo?.is_email_sellbuy)\n  return authStore?.userInfo?.is_email_sellbuy || 1\n})\nwatch(\n  is_email_sellbuy,\n  n => {\n    // console.log('n', n)\n    checked.value = n == 1 ? true : false\n  },\n  {\n    immediate: true\n  }\n)\nconst account_email = ref(authStore?.userInfo?.email)\n\nconst valid_code = ref('')\n\nconst sendCodeToEmail = async () => {\n  try {\n    if (isLoading.value) {\n      return\n    }\n    if (!account_email.value) {\n      return showInfoToast('请输入邮箱地址')\n    }\n    isLoading.value = true\n    const res = await sendCodeToEmailAPI({\n      email: account_email.value,\n      type: 5,\n      uuid: authStore?.userInfo?.uuid\n    })\n    console.log(res, 'res')\n    if (!res.code) {\n      showSuceedToast('验证码发送成功')\n      countDownSec.value = res.nexttime\n      isCountDown.value = true\n      let timer: any = setInterval(() => {\n        if (countDownSec.value > 0) {\n          countDownSec.value = countDownSec.value - 1\n        } else {\n          isCountDown.value = false\n          countDownSec.value = 0\n          clearInterval(timer)\n        }\n      }, 1000)\n    }\n  } catch (e) {\n    console.log(e)\n  } finally {\n    isLoading.value = false\n  }\n}\n\nconst startUpdate = () => {\n  account_email.value = ''\n  isUpdatingEmail.value = true\n}\n\nconst handleConfirmDialog = (open: boolean) => {\n  if (authStore?.userInfo?.verified_status !== 1) {\n    return showInfoToast('请先完成实名认证')\n  }\n\n  if (!account_email.value) {\n    return showInfoToast('请输入邮箱地址')\n  }\n\n  if (!account_email.value.includes('@')) {\n    return showInfoToast('请输入正确的邮箱格式')\n  }\n\n  // if (!valid_code.value) {\n  //   return showInfoToast('请输入验证码')\n  // }\n\n  isConfirmDialog.value = open\n  // if (!bind_bank.value.coin_address) {\n  //   if (!coin_address.value || !regBankCode.test(coin_address.value))\n  //     return showInfoToast('请输入16位-19位数字钱包编号')\n  //   isConfirmDialog.value = open\n  // } else {\n  //   isConfirmDialog.value = open\n  // }\n}\n\nconst bindEmail = async () => {\n  // if (isLoading.value) return\n  if (authStore?.userInfo?.verified_status !== 1) {\n    return showInfoToast('请先完成实名认证')\n  }\n  if (!pay_pass.value || !regPayPass.test(pay_pass.value)) {\n    pay_pass.value = ''\n    return showInfoToast('请输入6位支付密码')\n  }\n  try {\n    const res = await bindEmailAPI({\n      email: account_email.value,\n      emailcode: valid_code.value,\n      pass: pay_pass.value\n    })\n    if (!res.code) {\n      showSuceedToast('绑定成功')\n      setTimeout(() => {\n        router.back()\n      }, 1000)\n    }\n  } catch (e) {\n    console.log(e)\n  } finally {\n    isLoading.value = false\n    isConfirmDialog.value = false\n    pay_pass.value = ''\n  }\n}\n\nconst editEmail = async () => {\n  if (isLoading.value) return\n  if (authStore?.userInfo?.verified_status !== 1) {\n    return showInfoToast('请先完成实名认证')\n  }\n  if (!pay_pass.value || !regPayPass.test(pay_pass.value)) {\n    pay_pass.value = ''\n    return showInfoToast('请输入6位支付密码')\n  }\n  try {\n    const res = await updateEmailAPI({\n      newemail: account_email.value,\n      newemailcode: valid_code.value,\n      email: authStore?.userInfo?.email,\n      pass: pay_pass.value\n    })\n    if (!res.code) {\n      showSuceedToast('编辑成功')\n      setTimeout(() => {\n        router.back()\n      }, 1000)\n    }\n  } catch (e) {\n    console.log(e)\n  } finally {\n    isLoading.value = false\n    isConfirmDialog.value = false\n    pay_pass.value = ''\n  }\n}\n\nconst templateText = computed(() => ({\n  page_title: hasBindEmail.value ? '修改邮箱' : '邮箱绑定',\n  button_text: hasBindEmail.value ? (isUpdatingEmail.value ? '保存' : '修改邮箱') : '确认'\n  // button_action: hasBindEmail.value ? (isUpdatingEmail.value ? handleConfirmDialog(true) : startUpdate()) : handleConfirmDialog(true),\n}))\n\n// const bindEmail = async () => {\n//   try {\n//     if (isLoading.value) {\n//       return\n//     }\n//     isLoading.value = true\n//     if (!account_email.value) {\n//       isLoading.value = false\n//       return showInfoToast('请输入信箱')\n//     }\n//     if (!valid_code.value) {\n//       isLoading.value = false\n//       return showInfoToast('请输入验证码')\n//     }\n//     const res = await sendCodeToEmailAPI({\n//       email: account_email.value,\n//       type: 5,\n//       uuid: authStore?.userInfo?.uuid,\n//     })\n//     console.log(res, 'res')\n//     if (!res.code) {\n//       showSuceedToast('验证码发送成功')\n//       isCountDown.value = true\n//       let timer: any = setInterval(() => {\n//         if (countDownSec.value > 0) {\n//           countDownSec.value = countDownSec.value - 1\n//         } else {\n//           countDownSec.value = 0\n//           clearInterval(timer)\n//         }\n//       }, 1000)\n//     }\n\n//   } catch (e) {\n//     console.log(e)\n//   } finally {\n//     isLoading.value = false\n//     isConfirmDialog.value = false\n//   }\n// }\n\n// const bind_bank = ref({})\n// const getWallets = async () => {\n//   await getWithdrawddresslist({})\n//   const bind_list = coin.withdrawddresslist.filter(address => address.coin_protocol === 'SZRMB')\n//   console.log(bind_list, 'bind_list')\n//   if (bind_list.length > 0) {\n//     bind_bank.value = bind_list[0]\n//     img.value = bind_bank.value?.code_imgurl\n//   } else {\n//     bind_bank.value = {}\n//     img.value = ''\n//   }\n// }\nonMounted(async () => {\n  // await getWallets()\n  await authStore.getUserInfo()\n  mitt.emit('number-keyboard-show')\n})\n</script>\n\n<style lang=\"scss\" scoped>\n@import '@/assets/styles/sprite-mine.scss';\n@import '@/assets/styles/sprite-home.scss';\n@import '@/assets/styles/sprite-002.scss';\n\n.rmb {\n  position: relative;\n  flex-direction: column;\n  width: 100%;\n  height: 100%;\n}\n\n:deep(.van-field__label) {\n  font-size: 28px;\n  color: #13161b;\n  margin-bottom: 8px;\n}\n:deep(.van-cell__value) {\n  height: 90px;\n  background: #ebf1f6;\n  border: 1px solid #eee;\n  display: flex;\n  align-items: center;\n  font-size: 28px;\n  margin-bottom: 30px;\n  padding: 15px;\n  border-radius: 22px;\n}\n\n:deep(.van-cell) {\n  padding-bottom: 0;\n  padding-top: 0;\n}\n\n:deep(.van-cell:after) {\n  display: none;\n}\n\n:deep(.van-button--large) {\n  width: 92%;\n  height: 90px;\n  margin: 0 auto;\n  font-size: 31px;\n  border-radius: 22px;\n}\n\n:deep(.van-field__body) {\n  width: 100%;\n}\n\n:deep(.van-field__control:disabled) {\n  color: #000;\n  -webkit-text-fill-color: #000;\n}\n\n:deep(.dialog-bulletin) {\n  width: 708px;\n  height: auto;\n  padding: 20px 30px 30px 30px;\n  border-radius: 10px;\n\n  .van-dialog__header {\n    padding: 0;\n    font-size: 29px;\n    color: #13161b;\n    font-weight: normal;\n  }\n\n  .van-dialog__content {\n    margin: 33px 0 35px 0;\n    font-size: 25px;\n    color: #787f8c;\n    text-align: justify;\n  }\n\n  .van-dialog__footer {\n    padding: 0;\n  }\n\n  .van-dialog__confirm {\n    width: 100%;\n    height: 80px;\n    font-size: 31px;\n    background: var(--van-button-primary-background);\n    border-radius: 8px;\n    border-width: 0;\n  }\n\n  .icon-close {\n    position: absolute;\n    right: 40px;\n    top: 35px;\n  }\n\n  img {\n    width: 100%;\n    margin-top: 20px;\n  }\n\n  .van-cell {\n    padding: 0;\n  }\n}\n\n:deep(.dialog-deal) {\n  width: 708px;\n  height: auto;\n  padding: 40px;\n\n  .van-dialog__header {\n    padding: 0;\n    font-size: 29px;\n    color: #13161b;\n  }\n\n  .van-dialog__content {\n    margin: 33px 0 35px 0;\n    font-size: 25px;\n    color: #787f8c;\n    text-align: justify;\n  }\n\n  .van-dialog__footer {\n    padding: 0;\n  }\n\n  .van-dialog__confirm,\n  .btn-confirm {\n    width: 100%;\n    height: 80px;\n    font-size: 31px;\n    background: var(--van-button-primary-background);\n    color: #fff;\n    border: 0;\n    border-radius: 8px;\n  }\n\n  .dialog-radio-controler {\n    margin-top: 20px;\n\n    .radio {\n      margin-right: 10px;\n    }\n\n    .radio-uncheck {\n      width: 35px;\n      height: 35px;\n      border: 1px solid #868d9a;\n      border-radius: 50%;\n    }\n\n    .radio-text {\n      font-size: 25px;\n      color: #13161b;\n    }\n  }\n\n  .icon-close {\n    position: absolute;\n    right: 40px;\n    top: 24px;\n  }\n\n  img {\n    width: 100%;\n\n    &.verifi-id {\n      width: 260px;\n    }\n\n    &.add-card {\n      width: 295px;\n    }\n  }\n\n  .content {\n    width: 380px;\n    margin-top: 24px;\n  }\n}\n.text_switch {\n  position: absolute;\n  left: 19px;\n  font-size: 24px;\n  top: -3px;\n}\n</style>\n\n<style lang=\"css\">\n:root {\n  --van-field-placeholder-text-color: #787f8c;\n  --van-switch-width: 110px;\n  --van-switch-height: 43px;\n  --van-switch-node-size: 34px;\n}\n</style>\n",
+      "start": 1714699769218,
+      "end": 1714699769291,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769291,
+      "end": 1714699769291,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769291,
+      "end": 1714699769291,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769291,
+      "end": 1714699769291,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769291,
+      "end": 1714699769291,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue?vue&type=style&index=0&scoped=9f1d3ee5&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue?vue&type=style&index=1&lang.css\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-9f1d3ee5\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue\"]]);\n",
+      "start": 1714699769291,
+      "end": 1714699769534,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769534,
+      "end": 1714699769534,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue?vue&type=style&index=0&scoped=9f1d3ee5&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue?vue&type=style&index=1&lang.css\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-9f1d3ee5\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue\"]]);\n",
+      "start": 1714699769534,
+      "end": 1714699769534,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue?vue&type=style&index=0&scoped=9f1d3ee5&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue?vue&type=style&index=1&lang.css\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-9f1d3ee5\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue\"]]);\n",
+      "start": 1714699769534,
+      "end": 1714699769810,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue?vue&type=style&index=0&scoped=9f1d3ee5&lang.scss\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue?vue&type=style&index=1&lang.css\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-9f1d3ee5\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,qEAAqE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769810,
+      "end": 1714699769810,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769810,
+      "end": 1714699769810,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769810,
+      "end": 1714699769810,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769810,
+      "end": 1714699769810,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769810,
+      "end": 1714699769810,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769810,
+      "end": 1714699769810,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769810,
+      "end": 1714699769810,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769810,
+      "end": 1714699769810,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769810,
+      "end": 1714699769810,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue?vue&type=style&index=0&scoped=9f1d3ee5&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue?vue&type=style&index=1&lang.css\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-9f1d3ee5\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue\"]]);\n",
+      "start": 1714699769810,
+      "end": 1714699769810,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue?vue&type=style&index=0&scoped=9f1d3ee5&lang.scss\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue?vue&type=style&index=1&lang.css\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-9f1d3ee5\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Mine/bind_email.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769810,
+      "end": 1714699769810,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769810,
+      "end": 1714699769810,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769811,
+      "end": 1714699769811,
+      "order": "normal"
+    }
+  ]
+}

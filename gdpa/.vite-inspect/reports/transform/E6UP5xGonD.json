@@ -1,0 +1,142 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/es/v-x-e-table/src/interceptor.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import XEUtils from 'xe-utils';\nimport { warnLog } from '../../tools/log';\nvar storeMap = {};\nexport var interceptor = {\n    mixin: function (options) {\n        XEUtils.each(options, function (callback, type) { return interceptor.add(type, callback); });\n        return interceptor;\n    },\n    get: function (type) {\n        return storeMap[type] || [];\n    },\n    add: function (type, callback) {\n        // 检测类型\n        if (process.env.NODE_ENV === 'development') {\n            var eventTypes = ['created', 'mounted', 'activated', 'beforeUnmount', 'unmounted', 'event.clearActived', 'event.clearFilter', 'event.clearAreas', 'event.showMenu', 'event.keydown', 'event.export', 'event.import'];\n            if (eventTypes.indexOf(type) === -1) {\n                warnLog('vxe.error.errProp', [\"Interceptor.\".concat(type), eventTypes.join('|')]);\n            }\n        }\n        if (callback) {\n            var eList = storeMap[type];\n            if (!eList) {\n                eList = storeMap[type] = [];\n            }\n            // 检测重复\n            if (process.env.NODE_ENV === 'development') {\n                if (eList.indexOf(callback) > -1) {\n                    warnLog('vxe.error.coverProp', ['Interceptor', type]);\n                }\n            }\n            eList.push(callback);\n        }\n        return interceptor;\n    },\n    delete: function (type, callback) {\n        var eList = storeMap[type];\n        if (eList) {\n            if (callback) {\n                XEUtils.remove(eList, function (fn) { return fn === callback; });\n            }\n            else {\n                delete storeMap[type];\n            }\n        }\n    }\n};\n",
+      "start": 1714699767723,
+      "end": 1714699767738,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767738,
+      "end": 1714699767738,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767738,
+      "end": 1714699767738,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767738,
+      "end": 1714699767738,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767738,
+      "end": 1714699767738,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767738,
+      "end": 1714699767738,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767738,
+      "end": 1714699767738,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import XEUtils from 'xe-utils';\nimport { warnLog } from '../../tools/log';\nvar storeMap = {};\nexport var interceptor = {\n    mixin: function (options) {\n        XEUtils.each(options, function (callback, type) { return interceptor.add(type, callback); });\n        return interceptor;\n    },\n    get: function (type) {\n        return storeMap[type] || [];\n    },\n    add: function (type, callback) {\n        // 检测类型\n        if (process.env.NODE_ENV === 'development') {\n            var eventTypes = ['created', 'mounted', 'activated', 'beforeUnmount', 'unmounted', 'event.clearActived', 'event.clearFilter', 'event.clearAreas', 'event.showMenu', 'event.keydown', 'event.export', 'event.import'];\n            if (eventTypes.indexOf(type) === -1) {\n                warnLog('vxe.error.errProp', [\"Interceptor.\".concat(type), eventTypes.join('|')]);\n            }\n        }\n        if (callback) {\n            var eList = storeMap[type];\n            if (!eList) {\n                eList = storeMap[type] = [];\n            }\n            // 检测重复\n            if (process.env.NODE_ENV === 'development') {\n                if (eList.indexOf(callback) > -1) {\n                    warnLog('vxe.error.coverProp', ['Interceptor', type]);\n                }\n            }\n            eList.push(callback);\n        }\n        return interceptor;\n    },\n    delete: function (type, callback) {\n        var eList = storeMap[type];\n        if (eList) {\n            if (callback) {\n                XEUtils.remove(eList, function (fn) { return fn === callback; });\n            }\n            else {\n                delete storeMap[type];\n            }\n        }\n    }\n};\n",
+      "start": 1714699767738,
+      "end": 1714699767738,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767738,
+      "end": 1714699767738,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "result": "import XEUtils from \"xe-utils\";\nimport { warnLog } from \"../../tools/log\";\nvar storeMap = {};\nexport var interceptor = {\n  mixin: function(options) {\n    XEUtils.each(options, function(callback, type) {\n      return interceptor.add(type, callback);\n    });\n    return interceptor;\n  },\n  get: function(type) {\n    return storeMap[type] || [];\n  },\n  add: function(type, callback) {\n    if (false) {\n      var eventTypes = [\"created\", \"mounted\", \"activated\", \"beforeUnmount\", \"unmounted\", \"event.clearActived\", \"event.clearFilter\", \"event.clearAreas\", \"event.showMenu\", \"event.keydown\", \"event.export\", \"event.import\"];\n      if (eventTypes.indexOf(type) === -1) {\n        warnLog(\"vxe.error.errProp\", [\"Interceptor.\".concat(type), eventTypes.join(\"|\")]);\n      }\n    }\n    if (callback) {\n      var eList = storeMap[type];\n      if (!eList) {\n        eList = storeMap[type] = [];\n      }\n      if (false) {\n        if (eList.indexOf(callback) > -1) {\n          warnLog(\"vxe.error.coverProp\", [\"Interceptor\", type]);\n        }\n      }\n      eList.push(callback);\n    }\n    return interceptor;\n  },\n  delete: function(type, callback) {\n    var eList = storeMap[type];\n    if (eList) {\n      if (callback) {\n        XEUtils.remove(eList, function(fn) {\n          return fn === callback;\n        });\n      } else {\n        delete storeMap[type];\n      }\n    }\n  }\n};\n",
+      "start": 1714699767738,
+      "end": 1714699767769,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767769,
+      "end": 1714699767769,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767769,
+      "end": 1714699767769,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767769,
+      "end": 1714699767769,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767769,
+      "end": 1714699767769,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767769,
+      "end": 1714699767770,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767770,
+      "end": 1714699767770,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767770,
+      "end": 1714699767770,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767770,
+      "end": 1714699767770,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767770,
+      "end": 1714699767770,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767770,
+      "end": 1714699767770,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767770,
+      "end": 1714699767770,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767770,
+      "end": 1714699767770,
+      "order": "normal"
+    }
+  ]
+}

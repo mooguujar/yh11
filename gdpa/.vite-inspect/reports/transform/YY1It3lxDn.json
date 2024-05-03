@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/_asciiWords.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "/** Used to match words composed of alphanumeric characters. */\nvar reAsciiWord = /[^\\x00-\\x2f\\x3a-\\x40\\x5b-\\x60\\x7b-\\x7f]+/g;\n\n/**\n * Splits an ASCII `string` into an array of its words.\n *\n * @private\n * @param {string} The string to inspect.\n * @returns {Array} Returns the words of `string`.\n */\nfunction asciiWords(string) {\n  return string.match(reAsciiWord) || [];\n}\n\nexport default asciiWords;\n",
+      "start": 1714699768766,
+      "end": 1714699768781,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768781,
+      "end": 1714699768781,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768781,
+      "end": 1714699768781,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768781,
+      "end": 1714699768781,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768781,
+      "end": 1714699768781,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768781,
+      "end": 1714699768781,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768781,
+      "end": 1714699768781,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "/** Used to match words composed of alphanumeric characters. */\nvar reAsciiWord = /[^\\x00-\\x2f\\x3a-\\x40\\x5b-\\x60\\x7b-\\x7f]+/g;\n\n/**\n * Splits an ASCII `string` into an array of its words.\n *\n * @private\n * @param {string} The string to inspect.\n * @returns {Array} Returns the words of `string`.\n */\nfunction asciiWords(string) {\n  return string.match(reAsciiWord) || [];\n}\n\nexport default asciiWords;\n",
+      "start": 1714699768781,
+      "end": 1714699768781,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768781,
+      "end": 1714699768781,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768781,
+      "end": 1714699768781,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768781,
+      "end": 1714699768781,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768781,
+      "end": 1714699768781,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768781,
+      "end": 1714699768781,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768781,
+      "end": 1714699768781,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768781,
+      "end": 1714699768781,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768781,
+      "end": 1714699768781,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768781,
+      "end": 1714699768781,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768781,
+      "end": 1714699768781,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768781,
+      "end": 1714699768781,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768781,
+      "end": 1714699768781,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768781,
+      "end": 1714699768781,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768781,
+      "end": 1714699768781,
+      "order": "normal"
+    }
+  ]
+}

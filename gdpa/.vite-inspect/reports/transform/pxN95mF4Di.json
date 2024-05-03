@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Home/index.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\nimport brickMakeMoney from '@/assets/images/bricks/brick-make-money.png'\nimport topIconBgImg from '@/assets/images/common/icon_bg.png'\nimport { useAppBar } from '@/components/AppBar/useAppBar'\nimport Bulletin from '@/components/Home/Bulletin.vue'\nimport Slider from '@/components/Home/Slider.vue'\nimport BuyCoin from '@/pages/Crypto/buy.vue'\nimport { useEntryStore } from '@/store'\nimport { useArticleStore } from '@/store/modules/article'\nimport { useAuthStore } from '@/store/modules/auth'\nimport { useUserStore } from '@/store/modules/user'\nimport { IArticleListType } from '@/store/types/article'\nimport { SellOrder } from '@/store/types/buySellCoin'\nimport { INormal, IWebUrlLink } from '@/store/types/entry'\nimport mitt from '@/utils/mitt'\nimport { requireImg } from '@/utils/tools'\nimport dayjs from 'dayjs'\nimport { cloneDeep } from 'lodash-es'\nimport { storeToRefs } from 'pinia'\nimport { computed, onMounted, reactive, ref } from 'vue'\nimport { useRoute, useRouter } from 'vue-router'\n\n// 异步加载我的挂单\n// const MyPendingOrder = defineAsyncComponent(() => import('@/components/Home/MyPendingOrder.vue'))\n\nconst topIconBg = ref(`url(${topIconBgImg})`)\n\nuseAppBar({ mode: 'dark' })\n\nconst entryStore = useEntryStore()\nconst { config } = storeToRefs(entryStore)\n\nconst domain = computed(() => {\n  return (config.value.Web_Set_DefaultInfo?.imgserver_url as INormal).v || ''\n})\n\nconst adModWebUrlLink = computed<IWebUrlLink>(\n  () => config.value.Web_Set_DefaultInfo?.AD_Mod_WebUrlLink ?? {}\n)\n\nconst router = useRouter()\nconst changeRoute = (path: string) => {\n  router.push(path)\n}\n\nconst authStore = useAuthStore()\nconst { userInfo, processnum } = storeToRefs(authStore)\nconst logout = () => {\n  authStore.logout()\n  router.push('/auth/login')\n}\n\nconst currArticleIndex = ref(0)\nconst dialog = reactive({\n  show: false,\n  data: {} as IArticleListType,\n  allowShow: true\n})\nconst dialogBgImg = ref(`url('')`)\nconst articleStore = useArticleStore()\nconst { getArticleListApi, updateHomeNoticeList, updateHomeNoticeShowStatus } = articleStore\nconst { openNotice, homeNoticeShowList, homeNoticeShowStatus } = storeToRefs(articleStore)\n\nconst onClose = () => {\n  const _homeNoticeShowList = cloneDeep(homeNoticeShowList).value\n  const dateNow = dayjs().format('YYYY-MM-DD')\n\n  // 更新当前弹窗今日显示状态\n  _homeNoticeShowList[currArticleIndex.value] = dialog.allowShow ? true : dateNow\n  updateHomeNoticeList(_homeNoticeShowList)\n\n  currArticleIndex.value++\n  dialog.show = false\n\n  setTimeout(() => {\n    window.log(\n      '关闭',\n      currArticleIndex.value,\n      dialog,\n      _homeNoticeShowList,\n      homeNoticeShowList.value[currArticleIndex.value]\n    )\n\n    // 如果当前公告索引值小于公告列表长度，就设置下一个公告弹窗内容，否则，就更新首页公告显示状态\n    if (currArticleIndex.value < openNotice.value.length) {\n      const dateReg = /^\\d{4}-\\d{2}-\\d{2}$/\n      let date = null\n      if (dateReg.test(_homeNoticeShowList[currArticleIndex.value] as string)) {\n        date = _homeNoticeShowList[currArticleIndex.value]\n      }\n\n      if (dayjs().isSame(dayjs(date as string), 'day')) return\n\n      dialog.data = openNotice.value[currArticleIndex.value]\n      dialogBgImg.value = dialog.data.img ? `url(${domain.value + dialog.data.img})` : `url('')`\n      dialog.allowShow = true\n      dialog.show = true\n    } else {\n      updateHomeNoticeShowStatus(false)\n    }\n  }, 50)\n}\n\nconst handleOpenNoticeData = async () => {\n  try {\n    const res = openNotice.value\n\n    window.log('弹窗公告内容', res)\n    if (res.length) {\n      const _homeNoticeShowList = cloneDeep(homeNoticeShowList).value.map(\n        (item: any) => typeof item === 'boolean' || !dayjs().isSame(dayjs(item), 'day') || item\n      )\n      const allShow = _homeNoticeShowList.every((item: any) => item === true)\n\n      updateHomeNoticeList(allShow ? [] : _homeNoticeShowList)\n\n      // 未点击过 '今日不再显示'\n      if (!_homeNoticeShowList.length) {\n        dialog.data = res[0]\n        dialogBgImg.value = dialog.data.img ? `url(${domain.value + dialog.data.img})` : `url('')`\n        dialog.show = true\n        return\n      }\n\n      const showNoticeIndex = _homeNoticeShowList.findIndex((item: any) => item === true)\n\n      window.log('homeNoticeShowList', homeNoticeShowList)\n\n      // 首页公告弹窗过滤出今日要显示的公告列表，若存在，则显示\n      if (~showNoticeIndex) {\n        currArticleIndex.value = showNoticeIndex\n        dialog.data = res[showNoticeIndex]\n        dialogBgImg.value = dialog.data.img ? `url(${domain.value + dialog.data.img})` : `url('')`\n        dialog.show = true\n      }\n    }\n  } catch (error) {\n    console.error(error)\n  }\n}\n\nconst onCheck = () => {\n  dialog.allowShow = !dialog.allowShow\n}\n\nconst { token, getUserMoneyByMType, getFreezeMoney } = storeToRefs(authStore)\n\nconst goPage = (routePath: string) => {\n  if (!routePath) return\n  router.push(routePath)\n}\n\n// 可售金额\nconst canSaleAmount = computed(() => {\n  const coinCash = +(getUserMoneyByMType.value(1)?.available_coincash ?? 0)\n  const freeSellAmount = +(userInfo.value?.freesell_amount ?? 0)\n\n  if (freeSellAmount > coinCash) return coinCash.toTruncFixed(2)\n  return freeSellAmount < 0 ? '0.00' : freeSellAmount.toTruncFixed(2)\n})\n\n// 不可售金额\nconst notSaleAmount = computed(() => {\n  const coinCash = +(getUserMoneyByMType.value(1)?.available_coincash ?? 0)\n  return (coinCash - +canSaleAmount.value).toTruncFixed(2)\n})\n\nconst handleArticleData = () => {\n  // 如果公告今日未显示过，就获取公告数据，进行显示\n  if (homeNoticeShowStatus.value) {\n    handleOpenNoticeData()\n  }\n}\n\nconst userStore = useUserStore()\nconst { getUserMessageList } = userStore\nconst { userMessage } = storeToRefs(userStore)\n// 站内信未读数量\nconst unReadCount = computed(() => userMessage.value.un_read ?? 0)\n// 搬砖卖币未处理订单数\nconst unHandleOrderCount = computed(() => {\n  const sellOrders =\n    processnum.value?.sell_orders?.filter((item: SellOrder) => item.mtype === 30) ?? []\n\n  return sellOrders.length\n})\n\nconst route = useRoute()\n\nonMounted(() => {\n  // 获取最新用户信息\n  authStore.getUserInfo().then(() => {\n    if (route.name === 'Home' && processnum.value?.total) {\n      mitt.emit('global-notification', { type: 'ProcessOrder', value: processnum.value })\n    }\n  })\n  // 获取站内信未读数量\n  getUserMessageList({})\n})\n</script>\n\n<template>\n  <template v-if=\"!adModWebUrlLink.theme_activities_show\">\n    <nav-bar\n      class=\"nav-bar\"\n      title=\"买币\"\n      mode=\"icons\"\n    />\n    <div class=\"blue-bg\"></div>\n  </template>\n  <template v-else>\n    <div\n      class=\"activity-bg\"\n      @click.self=\"goPage('/activity/collect-cards')\"\n    >\n      <nav-bar\n        v-if=\"adModWebUrlLink.theme_activities_show\"\n        class=\"nav-bar\"\n        title=\"买币\"\n        mode=\"icons\"\n      />\n      <Bulletin @update-article=\"handleArticleData\" />\n      <img\n        class=\"yanhua01\"\n        :src=\"requireImg('activity/yanhua01.png')\"\n      />\n      <img\n        class=\"yanhua02\"\n        :src=\"requireImg('activity/yanhua02.png')\"\n      />\n      <img\n        class=\"yanhua03\"\n        :src=\"requireImg('activity/yanhua03.png')\"\n      />\n      <img\n        class=\"denglong\"\n        :src=\"requireImg('activity/denglong.png')\"\n      />\n\n      <div\n        class=\"btn-activity-container\"\n        @click=\"goPage('/activity/collect-cards')\"\n      >\n        <div class=\"btn-get-now\"></div>\n      </div>\n\n      <div class=\"border-highlight\"></div>\n    </div>\n  </template>\n\n  <div\n    class=\"home-container flex flex-col\"\n    :class=\"{ 'mt-t0': adModWebUrlLink.theme_activities_show }\"\n  >\n    <div class=\"main-content-container flex flex-col\">\n      <template v-if=\"!adModWebUrlLink.theme_activities_show\">\n        <Bulletin @update-article=\"handleArticleData\" />\n        <Slider />\n      </template>\n      <BuyCoin />\n    </div>\n\n    <div\n      class=\"go-banzhuan flex items-start\"\n      @click=\"goPage('/bricks/move-brick')\"\n    >\n      <img :src=\"brickMakeMoney\" />\n      <span>搬砖赚钱</span>\n      <div\n        v-if=\"unHandleOrderCount\"\n        class=\"process-order-sign\"\n      >\n        {{ unHandleOrderCount }}\n      </div>\n    </div>\n\n    <van-dialog\n      v-model:show=\"dialog.show\"\n      :title=\"dialog.data.img ? '' : dialog.data.desc\"\n      theme=\"round-button\"\n      :className=\"['dialog-open-notice', { 'dialog-bg-img': dialog.data.img }]\"\n      @confirm=\"onClose\"\n    >\n      <i\n        class=\"icon-close block\"\n        :class=\"dialog.data.img ? 'close-white' : 'close-dark'\"\n        @click=\"onClose\"\n      ></i>\n      <div\n        class=\"dialog-content\"\n        v-html=\"dialog.data.img ? '' : dialog.data.content\"\n        v-content\n      ></div>\n\n      <template #footer>\n        <div\n          class=\"btn-confirm flex items-center justify-center\"\n          @click=\"onClose\"\n        >\n          我知道了\n        </div>\n        <div class=\"dialog-radio-controler flex items-center justify-center\">\n          <i\n            class=\"radio\"\n            :class=\"dialog.allowShow ? 'radio-uncheck' : 'radio-checked'\"\n            @click=\"onCheck\"\n          ></i>\n          <div class=\"radio-text\">今日不再显示</div>\n        </div>\n      </template>\n    </van-dialog>\n  </div>\n</template>\n\n<style lang=\"scss\" scoped>\n@import '@/assets/styles/sprite-home.scss';\n@import '@/assets/styles/sprite-001.scss';\n.blue-bg {\n  width: 100%;\n  height: 30px;\n  background-color: var(--van-button-primary-background);\n}\n\n.activity-bg {\n  position: relative;\n  width: 10rem;\n  flex: 0 0 460px;\n  background: url('@/assets/images/activity/activity-banner-bg.png') no-repeat left top / cover;\n  background-size: 100% 422px;\n  .nav-bar--icons {\n    background-color: transparent;\n  }\n  .bulletin-container {\n    width: 676px;\n    height: 47px;\n    margin: 0 auto;\n    padding: 0 18px;\n    color: #fff1cf;\n    font-size: 23px;\n    background-color: rgba(0, 0, 0, 0.12);\n    border-radius: 30px;\n  }\n\n  .btn-activity-container {\n    position: absolute;\n    width: 286px;\n    height: 85px;\n    bottom: 0;\n    left: 50%;\n    transform: translate3d(-50%, 0, 0);\n    overflow: hidden;\n  }\n  .btn-get-now {\n    position: relative;\n    width: 100%;\n    height: 100%;\n    background: url('@/assets/images/activity/btn-get-now.png') no-repeat center / cover;\n    background-size: 100% 100%;\n    animation: btnScale 1s ease-in-out infinite;\n    &::after {\n      content: '';\n      width: 100px;\n      height: 85px;\n      background: url('@/assets/images/activity/btn-guang.png') no-repeat center / cover;\n      background-size: 100% 100%;\n      position: absolute;\n      top: 0;\n      left: 0;\n      opacity: 0;\n      animation: glareMove 2.5s 1s linear infinite;\n    }\n  }\n\n  .yanhua01 {\n    width: 56px;\n    height: 75px;\n    position: absolute;\n    top: 125px;\n    left: 0;\n    opacity: 0;\n    animation: yanhuaBloom01 3s ease-in-out infinite;\n  }\n  .yanhua02 {\n    width: 53px;\n    height: 53px;\n    position: absolute;\n    top: 143px;\n    left: 124px;\n    opacity: 0;\n    animation: yanhuaBloom01 3s 1s ease-in-out infinite;\n  }\n  .yanhua03 {\n    width: 89px;\n    height: 67px;\n    position: absolute;\n    top: 128px;\n    right: 0;\n    opacity: 0;\n    animation: yanhuaBloom01 3s 2s ease-in-out infinite;\n  }\n  .denglong {\n    width: 77px;\n    height: 84px;\n    position: absolute;\n    top: 113px;\n    right: 124px;\n    opacity: 0;\n    animation: denglongMove 2s 2s ease-in-out infinite;\n  }\n\n  .border-highlight {\n    width: 130px;\n    height: 57px;\n    background: url('@/assets/images/activity/border-guang.png') no-repeat center / cover;\n    background-size: 100% 100%;\n    position: absolute;\n    bottom: 250px;\n    // left: 186px;\n    left: 170px;\n    opacity: 0;\n    animation: borderHighlight 4s ease-in-out infinite;\n  }\n}\n\n.home-container {\n  position: relative;\n  width: 100%;\n  height: calc(100% - 30px);\n  margin-top: -30px;\n  background-color: #ebf1f6;\n  overflow: hidden;\n  border-top-left-radius: 15px;\n  border-top-right-radius: 15px;\n  &.mt-t0 {\n    margin-top: 0;\n    .go-banzhuan {\n      top: 30px;\n    }\n  }\n\n  .topbar-container {\n    width: 100%;\n    height: 264px;\n    flex: 0 0 264px;\n    padding: 0 30px;\n    box-sizing: border-box;\n    background-color: var(--van-button-primary-background);\n\n    .topbar-content-view {\n      position: relative;\n      width: 100%;\n      height: 90px;\n\n      .top-icon-bg {\n        display: flex;\n        align-items: center;\n        justify-content: space-between;\n        width: 132px;\n        height: 50px;\n        padding: 0 19px;\n        background: v-bind('topIconBg') no-repeat center / cover;\n      }\n\n      .logo-container {\n        position: absolute;\n        top: 48px;\n        left: 50%;\n        transform: translate3d(-50%, 0, 0);\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n\n        .home-top-logo {\n          width: 45px;\n        }\n\n        .text-logo {\n          margin-left: 10px;\n          font-size: 42px;\n          color: #fff;\n        }\n      }\n\n      .help {\n        margin: 0 28px;\n      }\n\n      .message {\n        position: relative;\n        margin-bottom: -3px;\n        margin-right: auto;\n      }\n\n      .unread-sign {\n        position: absolute;\n        top: -7px;\n        right: -9px;\n        width: 24px;\n        height: 24px;\n        line-height: 24px;\n        background-color: red;\n        color: #fff;\n        font-size: 14px;\n        text-align: center;\n        border-radius: 50%;\n      }\n    }\n  }\n\n  .main-content-container {\n    flex: 1;\n    width: 100%;\n    padding: 0 20px;\n\n    .wallet-info-container {\n      position: relative;\n      width: 100%;\n      z-index: 1;\n\n      .wallet-info {\n        width: 100%;\n        // margin-top: -140px;\n        border-radius: 14px;\n        background-color: #fff;\n\n        .wallet-main-content {\n          padding: 21px;\n          font-size: 26px;\n          color: #868d9a;\n\n          .text-funding-details {\n            color: var(--van-button-primary-background);\n          }\n        }\n      }\n    }\n  }\n\n  .go-banzhuan {\n    position: absolute;\n    right: 0;\n    top: 356px;\n    width: 198px;\n    height: 52px;\n    padding: 10px 0 12px 22px;\n    color: #fff;\n    background-color: #fea703;\n    font-size: 25px;\n    border-top-left-radius: 26px;\n    border-bottom-left-radius: 26px;\n    white-space: nowrap;\n    img {\n      width: 31px;\n      height: 31px;\n      margin-right: 7px;\n    }\n    .process-order-sign {\n      position: absolute;\n      top: -7px;\n      right: 6px;\n      width: 35px;\n      height: 35px;\n      line-height: 35px;\n      background-color: #d9001c;\n      color: #fff;\n      font-size: 21px;\n      text-align: center;\n      border-radius: 50%;\n    }\n  }\n\n  :deep(.dialog-open-notice) {\n    width: 708px;\n    height: auto;\n    padding: 40px;\n\n    .van-dialog__header {\n      padding: 0;\n      font-size: 29px;\n      color: #13161b;\n    }\n\n    .van-dialog__content {\n      max-height: 600px;\n      margin: 33px 0 35px 0;\n      font-size: 25px;\n      color: #787f8c;\n      text-align: justify;\n      overflow-y: auto;\n    }\n\n    .dialog-content {\n      img {\n        width: 100%;\n        &[alt*='['] {\n          width: auto;\n        }\n      }\n    }\n\n    .van-dialog__footer {\n      padding: 0;\n    }\n\n    .van-dialog__confirm,\n    .btn-confirm {\n      width: 100%;\n      height: 80px;\n      font-size: 31px;\n      background: var(--van-button-primary-background);\n      color: #fff;\n      border: 0;\n      border-radius: 8px;\n    }\n\n    .dialog-radio-controler {\n      margin-top: 20px;\n\n      .radio {\n        margin-right: 10px;\n      }\n\n      .radio-uncheck {\n        width: 35px;\n        height: 35px;\n        border: 1px solid #868d9a;\n        border-radius: 50%;\n      }\n\n      .radio-text {\n        font-size: 25px;\n        color: #13161b;\n      }\n    }\n\n    .icon-close {\n      position: absolute;\n      right: 40px;\n      top: 24px;\n    }\n\n    img {\n      width: 100%;\n      margin-top: 20px;\n    }\n\n    &.dialog-bg-img {\n      padding: 0;\n\n      .van-dialog__content {\n        height: 572px;\n        max-height: 600px;\n        margin: 0;\n        background: v-bind('dialogBgImg') no-repeat center / cover;\n        overflow-y: auto;\n      }\n\n      .van-dialog__confirm {\n        margin: 0 40px 40px 40px;\n      }\n\n      .btn-confirm {\n        width: 626px;\n        margin: 0 auto;\n        margin-top: 30px;\n      }\n\n      .dialog-radio-controler {\n        margin: 20px auto;\n      }\n    }\n  }\n}\n\n@keyframes btnScale {\n  0% {\n    transform: scale(0.85);\n  }\n  50% {\n    transform: scale(1);\n  }\n  100% {\n    transform: scale(0.85);\n  }\n}\n@keyframes glareMove {\n  0% {\n    left: -20px;\n    opacity: 0;\n  }\n  5% {\n    opacity: 0.5;\n  }\n  45% {\n    opacity: 0.5;\n  }\n  55% {\n    left: 170px;\n    opacity: 0;\n  }\n  100% {\n    left: 170px;\n    opacity: 0;\n  }\n}\n@keyframes yanhuaBloom01 {\n  0% {\n    transform: scale(0);\n    opacity: 0;\n  }\n  25% {\n    transform: scale(1);\n    opacity: 0.8;\n  }\n  30% {\n    opacity: 0;\n  }\n  100% {\n    opacity: 0;\n  }\n}\n@keyframes denglongMove {\n  0% {\n    transform: translate3d(0, 0, 0);\n    opacity: 0.7;\n  }\n  40% {\n    transform: perspective(500px) translate3d(90px, -120px, -500px);\n    opacity: 0;\n  }\n  100% {\n    opacity: 0;\n  }\n}\n@keyframes borderHighlight {\n  0% {\n    opacity: 0;\n  }\n  5% {\n    opacity: 1;\n  }\n  30% {\n    opacity: 1;\n    left: 440px;\n  }\n  35% {\n    opacity: 0;\n    left: 440px;\n  }\n  100% {\n    opacity: 0;\n  }\n}\n</style>\n",
+      "start": 1714699769098,
+      "end": 1714699769169,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769169,
+      "end": 1714699769169,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699769169,
+      "end": 1714699769169,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769169,
+      "end": 1714699769169,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769169,
+      "end": 1714699769169,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Home/index.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Home/index.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Home/index.vue?vue&type=style&index=0&scoped=d4abb783&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-d4abb783\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Home/index.vue\"]]);\n",
+      "start": 1714699769169,
+      "end": 1714699769524,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769524,
+      "end": 1714699769524,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Home/index.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Home/index.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Home/index.vue?vue&type=style&index=0&scoped=d4abb783&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-d4abb783\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Home/index.vue\"]]);\n",
+      "start": 1714699769524,
+      "end": 1714699769524,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Home/index.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Home/index.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Home/index.vue?vue&type=style&index=0&scoped=d4abb783&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-d4abb783\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Home/index.vue\"]]);\n",
+      "start": 1714699769524,
+      "end": 1714699769607,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Home/index.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Home/index.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Home/index.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Home/index.vue?vue&type=style&index=0&scoped=d4abb783&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-d4abb783\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Home/index.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,gEAAgE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769607,
+      "end": 1714699769607,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769607,
+      "end": 1714699769607,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769607,
+      "end": 1714699769607,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769607,
+      "end": 1714699769607,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769607,
+      "end": 1714699769607,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769607,
+      "end": 1714699769607,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769607,
+      "end": 1714699769607,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769607,
+      "end": 1714699769607,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769607,
+      "end": 1714699769607,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Home/index.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Home/index.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Home/index.vue?vue&type=style&index=0&scoped=d4abb783&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-d4abb783\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Home/index.vue\"]]);\n",
+      "start": 1714699769607,
+      "end": 1714699769607,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Home/index.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Home/index.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Home/index.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Home/index.vue?vue&type=style&index=0&scoped=d4abb783&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-d4abb783\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/pages/Home/index.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769608,
+      "end": 1714699769608,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769608,
+      "end": 1714699769608,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769608,
+      "end": 1714699769608,
+      "order": "normal"
+    }
+  ]
+}

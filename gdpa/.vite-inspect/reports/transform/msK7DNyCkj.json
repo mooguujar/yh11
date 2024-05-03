@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/map.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var each = require('./each')\r\n\r\n/**\r\n  * 指定方法后的返回值组成的新数组\r\n  *\r\n  * @param {Object} obj 对象/数组\r\n  * @param {Function} iterate(item, index, obj) 回调\r\n  * @param {Object} context 上下文\r\n  * @return {Array}\r\n  */\r\nfunction map (obj, iterate, context) {\r\n  var result = []\r\n  if (obj && arguments.length > 1) {\r\n    if (obj.map) {\r\n      return obj.map(iterate, context)\r\n    } else {\r\n      each(obj, function () {\r\n        result.push(iterate.apply(context, arguments))\r\n      })\r\n    }\r\n  }\r\n  return result\r\n}\r\n\r\nmodule.exports = map\r\n",
+      "start": 1714699767515,
+      "end": 1714699767566,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767566,
+      "end": 1714699767566,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767566,
+      "end": 1714699767566,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767566,
+      "end": 1714699767566,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767566,
+      "end": 1714699767566,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767566,
+      "end": 1714699767566,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767566,
+      "end": 1714699767566,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var each = require('./each')\r\n\r\n/**\r\n  * 指定方法后的返回值组成的新数组\r\n  *\r\n  * @param {Object} obj 对象/数组\r\n  * @param {Function} iterate(item, index, obj) 回调\r\n  * @param {Object} context 上下文\r\n  * @return {Array}\r\n  */\r\nfunction map (obj, iterate, context) {\r\n  var result = []\r\n  if (obj && arguments.length > 1) {\r\n    if (obj.map) {\r\n      return obj.map(iterate, context)\r\n    } else {\r\n      each(obj, function () {\r\n        result.push(iterate.apply(context, arguments))\r\n      })\r\n    }\r\n  }\r\n  return result\r\n}\r\n\r\nmodule.exports = map\r\n",
+      "start": 1714699767566,
+      "end": 1714699767566,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767566,
+      "end": 1714699767566,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767566,
+      "end": 1714699767566,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767566,
+      "end": 1714699767566,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767566,
+      "end": 1714699767566,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767566,
+      "end": 1714699767566,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767566,
+      "end": 1714699767566,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/each.js?commonjs-proxy\";\n\nvar each = require$$0\r\n\r\n/**\r\n  * 指定方法后的返回值组成的新数组\r\n  *\r\n  * @param {Object} obj 对象/数组\r\n  * @param {Function} iterate(item, index, obj) 回调\r\n  * @param {Object} context 上下文\r\n  * @return {Array}\r\n  */\r\nfunction map (obj, iterate, context) {\r\n  var result = []\r\n  if (obj && arguments.length > 1) {\r\n    if (obj.map) {\r\n      return obj.map(iterate, context)\r\n    } else {\r\n      each(obj, function () {\r\n        result.push(iterate.apply(context, arguments))\r\n      })\r\n    }\r\n  }\r\n  return result\r\n}\r\n\r\nvar map_1 = map\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(map_1);\nexport { map_1 as __moduleExports };",
+      "start": 1714699767566,
+      "end": 1714699768188,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;AAAA,IAAI,IAAI,GAAG,UAAiB;AAC5B;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,GAAG,EAAE,GAAG,EAAE,OAAO,EAAE,OAAO,EAAE;AACrC,EAAE,IAAI,MAAM,GAAG,EAAE;AACjB,EAAE,IAAI,GAAG,IAAI,SAAS,CAAC,MAAM,GAAG,CAAC,EAAE;AACnC,IAAI,IAAI,GAAG,CAAC,GAAG,EAAE;AACjB,MAAM,OAAO,GAAG,CAAC,GAAG,CAAC,OAAO,EAAE,OAAO,CAAC;AACtC,KAAK,MAAM;AACX,MAAM,IAAI,CAAC,GAAG,EAAE,YAAY;AAC5B,QAAQ,MAAM,CAAC,IAAI,CAAC,OAAO,CAAC,KAAK,CAAC,OAAO,EAAE,SAAS,CAAC,CAAC;AACtD,OAAO,CAAC;AACR,KAAK;AACL,GAAG;AACH,EAAE,OAAO,MAAM;AACf,CAAC;AACD;IACA,KAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768188,
+      "end": 1714699768188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768188,
+      "end": 1714699768188,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768188,
+      "end": 1714699768188,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768188,
+      "end": 1714699768188,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768188,
+      "end": 1714699768188,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768188,
+      "end": 1714699768188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768188,
+      "end": 1714699768188,
+      "order": "normal"
+    }
+  ]
+}

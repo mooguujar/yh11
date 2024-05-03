@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/wrapperReverse.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import LazyWrapper from './_LazyWrapper.js';\nimport LodashWrapper from './_LodashWrapper.js';\nimport reverse from './reverse.js';\nimport thru from './thru.js';\n\n/**\n * This method is the wrapper version of `_.reverse`.\n *\n * **Note:** This method mutates the wrapped array.\n *\n * @name reverse\n * @memberOf _\n * @since 0.1.0\n * @category Seq\n * @returns {Object} Returns the new `lodash` wrapper instance.\n * @example\n *\n * var array = [1, 2, 3];\n *\n * _(array).reverse().value()\n * // => [3, 2, 1]\n *\n * console.log(array);\n * // => [3, 2, 1]\n */\nfunction wrapperReverse() {\n  var value = this.__wrapped__;\n  if (value instanceof LazyWrapper) {\n    var wrapped = value;\n    if (this.__actions__.length) {\n      wrapped = new LazyWrapper(this);\n    }\n    wrapped = wrapped.reverse();\n    wrapped.__actions__.push({\n      'func': thru,\n      'args': [reverse],\n      'thisArg': undefined\n    });\n    return new LodashWrapper(wrapped, this.__chain__);\n  }\n  return this.thru(reverse);\n}\n\nexport default wrapperReverse;\n",
+      "start": 1714699768575,
+      "end": 1714699768604,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768604,
+      "end": 1714699768604,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768604,
+      "end": 1714699768604,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768604,
+      "end": 1714699768604,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768604,
+      "end": 1714699768604,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768604,
+      "end": 1714699768604,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768604,
+      "end": 1714699768604,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import LazyWrapper from './_LazyWrapper.js';\nimport LodashWrapper from './_LodashWrapper.js';\nimport reverse from './reverse.js';\nimport thru from './thru.js';\n\n/**\n * This method is the wrapper version of `_.reverse`.\n *\n * **Note:** This method mutates the wrapped array.\n *\n * @name reverse\n * @memberOf _\n * @since 0.1.0\n * @category Seq\n * @returns {Object} Returns the new `lodash` wrapper instance.\n * @example\n *\n * var array = [1, 2, 3];\n *\n * _(array).reverse().value()\n * // => [3, 2, 1]\n *\n * console.log(array);\n * // => [3, 2, 1]\n */\nfunction wrapperReverse() {\n  var value = this.__wrapped__;\n  if (value instanceof LazyWrapper) {\n    var wrapped = value;\n    if (this.__actions__.length) {\n      wrapped = new LazyWrapper(this);\n    }\n    wrapped = wrapped.reverse();\n    wrapped.__actions__.push({\n      'func': thru,\n      'args': [reverse],\n      'thisArg': undefined\n    });\n    return new LodashWrapper(wrapped, this.__chain__);\n  }\n  return this.thru(reverse);\n}\n\nexport default wrapperReverse;\n",
+      "start": 1714699768604,
+      "end": 1714699768604,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768604,
+      "end": 1714699768604,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768604,
+      "end": 1714699768604,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768604,
+      "end": 1714699768604,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768604,
+      "end": 1714699768604,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768604,
+      "end": 1714699768604,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768604,
+      "end": 1714699768604,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768604,
+      "end": 1714699768605,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768605,
+      "end": 1714699768605,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768605,
+      "end": 1714699768605,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768605,
+      "end": 1714699768605,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768605,
+      "end": 1714699768605,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768605,
+      "end": 1714699768605,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768605,
+      "end": 1714699768605,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768605,
+      "end": 1714699768605,
+      "order": "normal"
+    }
+  ]
+}

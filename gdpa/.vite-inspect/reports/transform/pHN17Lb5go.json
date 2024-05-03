@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/coupon-cell/CouponCell.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { defineComponent } from \"vue\";\nimport { isDef, truthProp, makeArrayProp, makeStringProp, makeNumericProp, createNamespace } from \"../utils/index.mjs\";\nimport { Cell } from \"../cell/index.mjs\";\nconst [name, bem, t] = createNamespace(\"coupon-cell\");\nconst couponCellProps = {\n  title: String,\n  border: truthProp,\n  editable: truthProp,\n  coupons: makeArrayProp(),\n  currency: makeStringProp(\"\\xA5\"),\n  chosenCoupon: makeNumericProp(-1)\n};\nfunction formatValue({\n  coupons,\n  chosenCoupon,\n  currency\n}) {\n  const coupon = coupons[+chosenCoupon];\n  if (coupon) {\n    let value = 0;\n    if (isDef(coupon.value)) {\n      ({\n        value\n      } = coupon);\n    } else if (isDef(coupon.denominations)) {\n      value = coupon.denominations;\n    }\n    return `-${currency} ${(value / 100).toFixed(2)}`;\n  }\n  return coupons.length === 0 ? t(\"noCoupon\") : t(\"count\", coupons.length);\n}\nvar stdin_default = defineComponent({\n  name,\n  props: couponCellProps,\n  setup(props) {\n    return () => {\n      const selected = props.coupons[+props.chosenCoupon];\n      return _createVNode(Cell, {\n        \"class\": bem(),\n        \"value\": formatValue(props),\n        \"title\": props.title || t(\"title\"),\n        \"border\": props.border,\n        \"isLink\": props.editable,\n        \"valueClass\": bem(\"value\", {\n          selected\n        })\n      }, null);\n    };\n  }\n});\nexport {\n  couponCellProps,\n  stdin_default as default\n};\n",
+      "start": 1714699767247,
+      "end": 1714699767290,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767290,
+      "end": 1714699767290,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767290,
+      "end": 1714699767290,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767290,
+      "end": 1714699767290,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767290,
+      "end": 1714699767290,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767290,
+      "end": 1714699767290,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767290,
+      "end": 1714699767290,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { defineComponent } from \"vue\";\nimport { isDef, truthProp, makeArrayProp, makeStringProp, makeNumericProp, createNamespace } from \"../utils/index.mjs\";\nimport { Cell } from \"../cell/index.mjs\";\nconst [name, bem, t] = createNamespace(\"coupon-cell\");\nconst couponCellProps = {\n  title: String,\n  border: truthProp,\n  editable: truthProp,\n  coupons: makeArrayProp(),\n  currency: makeStringProp(\"\\xA5\"),\n  chosenCoupon: makeNumericProp(-1)\n};\nfunction formatValue({\n  coupons,\n  chosenCoupon,\n  currency\n}) {\n  const coupon = coupons[+chosenCoupon];\n  if (coupon) {\n    let value = 0;\n    if (isDef(coupon.value)) {\n      ({\n        value\n      } = coupon);\n    } else if (isDef(coupon.denominations)) {\n      value = coupon.denominations;\n    }\n    return `-${currency} ${(value / 100).toFixed(2)}`;\n  }\n  return coupons.length === 0 ? t(\"noCoupon\") : t(\"count\", coupons.length);\n}\nvar stdin_default = defineComponent({\n  name,\n  props: couponCellProps,\n  setup(props) {\n    return () => {\n      const selected = props.coupons[+props.chosenCoupon];\n      return _createVNode(Cell, {\n        \"class\": bem(),\n        \"value\": formatValue(props),\n        \"title\": props.title || t(\"title\"),\n        \"border\": props.border,\n        \"isLink\": props.editable,\n        \"valueClass\": bem(\"value\", {\n          selected\n        })\n      }, null);\n    };\n  }\n});\nexport {\n  couponCellProps,\n  stdin_default as default\n};\n",
+      "start": 1714699767290,
+      "end": 1714699767290,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767290,
+      "end": 1714699767290,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767290,
+      "end": 1714699767290,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767290,
+      "end": 1714699767290,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767290,
+      "end": 1714699767290,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767290,
+      "end": 1714699767290,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767290,
+      "end": 1714699767290,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767290,
+      "end": 1714699767290,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767290,
+      "end": 1714699767290,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767290,
+      "end": 1714699767290,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767290,
+      "end": 1714699767290,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767290,
+      "end": 1714699767290,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767290,
+      "end": 1714699767290,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767290,
+      "end": 1714699767290,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767290,
+      "end": 1714699767290,
+      "order": "normal"
+    }
+  ]
+}

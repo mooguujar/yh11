@@ -1,0 +1,163 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Mine/UserMoneyDetails.vue?vue&type=style&index=0&scoped=ef39e481&lang.scss",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\n.user-money-details-container {\n  width: 100%;\n  height: 100%;\n  padding-bottom: 20px;\n  background-color: #fff;\n  overflow-y: auto;\n  scroll-behavior: smooth;\n  .item-list {\n    padding: 20px;\n    &.hairline-border::after {\n      border-width: 0 !important;\n      border-bottom-width: 1px !important;\n    }\n  }\n  .item-title-amount {\n    font-size: 28px;\n    .title {\n      color: #13161b;\n    }\n    .income {\n      color: #ffc400;\n    }\n    .pay-out {\n      color: #13161b;\n    }\n  }\n  .item-datetime-balance {\n    margin: 20px 0;\n    font-size: 25px;\n    color: #868d9a;\n  }\n  .item-remark {\n    font-size: 21px;\n    color: #868d9a;\n    text-align: justify;\n  }\n}\n",
+      "start": 1714699771971,
+      "end": 1714699771971
+    },
+    {
+      "name": "vite:css",
+      "result": ".user-money-details-container {\n  width: 100%;\n  height: 100%;\n  padding-bottom: 0.26667rem;\n  background-color: #fff;\n  overflow-y: auto;\n  scroll-behavior: smooth;\n}\n.user-money-details-container .item-list {\n  padding: 0.26667rem;\n}\n.user-money-details-container .item-list.hairline-border::after {\n  border-width: 0 !important;\n  border-bottom-width: 1px !important;\n}\n.user-money-details-container .item-title-amount {\n  font-size: 0.37333rem;\n}\n.user-money-details-container .item-title-amount .title {\n  color: #13161b;\n}\n.user-money-details-container .item-title-amount .income {\n  color: #ffc400;\n}\n.user-money-details-container .item-title-amount .pay-out {\n  color: #13161b;\n}\n.user-money-details-container .item-datetime-balance {\n  margin: 0.26667rem 0;\n  font-size: 0.33333rem;\n  color: #868d9a;\n}\n.user-money-details-container .item-remark {\n  font-size: 0.28rem;\n  color: #868d9a;\n  text-align: justify;\n}",
+      "start": 1714699771971,
+      "end": 1714699772014,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699772014,
+      "end": 1714699772014,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699772014,
+      "end": 1714699772015,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699772016,
+      "end": 1714699772016,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".user-money-details-container[data-v-ef39e481] {\n  width: 100%;\n  height: 100%;\n  padding-bottom: 0.26667rem;\n  background-color: #fff;\n  overflow-y: auto;\n  scroll-behavior: smooth;\n}\n.user-money-details-container .item-list[data-v-ef39e481] {\n  padding: 0.26667rem;\n}\n.user-money-details-container .item-list.hairline-border[data-v-ef39e481]::after {\n  border-width: 0 !important;\n  border-bottom-width: 1px !important;\n}\n.user-money-details-container .item-title-amount[data-v-ef39e481] {\n  font-size: 0.37333rem;\n}\n.user-money-details-container .item-title-amount .title[data-v-ef39e481] {\n  color: #13161b;\n}\n.user-money-details-container .item-title-amount .income[data-v-ef39e481] {\n  color: #ffc400;\n}\n.user-money-details-container .item-title-amount .pay-out[data-v-ef39e481] {\n  color: #13161b;\n}\n.user-money-details-container .item-datetime-balance[data-v-ef39e481] {\n  margin: 0.26667rem 0;\n  font-size: 0.33333rem;\n  color: #868d9a;\n}\n.user-money-details-container .item-remark[data-v-ef39e481] {\n  font-size: 0.28rem;\n  color: #868d9a;\n  text-align: justify;\n}",
+      "start": 1714699772016,
+      "end": 1714699772022,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699772022,
+      "end": 1714699772022,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": ".user-money-details-container[data-v-ef39e481] {\n  width: 100%;\n  height: 100%;\n  padding-bottom: 0.26667rem;\n  background-color: #fff;\n  overflow-y: auto;\n  scroll-behavior: smooth;\n}\n.user-money-details-container .item-list[data-v-ef39e481] {\n  padding: 0.26667rem;\n}\n.user-money-details-container .item-list.hairline-border[data-v-ef39e481]::after {\n  border-width: 0 !important;\n  border-bottom-width: 1px !important;\n}\n.user-money-details-container .item-title-amount[data-v-ef39e481] {\n  font-size: 0.37333rem;\n}\n.user-money-details-container .item-title-amount .title[data-v-ef39e481] {\n  color: #13161b;\n}\n.user-money-details-container .item-title-amount .income[data-v-ef39e481] {\n  color: #ffc400;\n}\n.user-money-details-container .item-title-amount .pay-out[data-v-ef39e481] {\n  color: #13161b;\n}\n.user-money-details-container .item-datetime-balance[data-v-ef39e481] {\n  margin: 0.26667rem 0;\n  font-size: 0.33333rem;\n  color: #868d9a;\n}\n.user-money-details-container .item-remark[data-v-ef39e481] {\n  font-size: 0.28rem;\n  color: #868d9a;\n  text-align: justify;\n}",
+      "start": 1714699772022,
+      "end": 1714699772022,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699772025,
+      "end": 1714699772025,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699772025,
+      "end": 1714699772025,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699772025,
+      "end": 1714699772025,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699772025,
+      "end": 1714699772025,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699772025,
+      "end": 1714699772025,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699772025,
+      "end": 1714699772025,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699772025,
+      "end": 1714699772025,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699772025,
+      "end": 1714699772025,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699772025,
+      "end": 1714699772025,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699772025,
+      "end": 1714699772025,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */",
+      "start": 1714699772025,
+      "end": 1714699772025,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Mine/UserMoneyDetails.vue?vue&type=style&index=0&scoped=ef39e481&lang.scss"
+        ],
+        "sourcesContent": [
+          ""
+        ],
+        "names": [],
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699772025,
+      "end": 1714699772025,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699772025,
+      "end": 1714699772025,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699772026,
+      "end": 1714699772026,
+      "order": "normal"
+    }
+  ]
+}

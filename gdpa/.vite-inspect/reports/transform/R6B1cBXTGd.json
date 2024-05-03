@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/BuySellCoin.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<script setup lang=\"ts\">\nimport { computed, onMounted } from 'vue'\n\ninterface Props {\n  data: Record<string, any>\n}\nconst props = withDefaults(defineProps<Props>(), {\n  data: () => ({\n    icon: '',\n    title: '',\n    amount: '',\n    limitAmount: '',\n    count: 0,\n    limitCount: 5,\n    text: '',\n    btnText: ''\n  })\n})\n\nconst taskPercentage = computed(() => (props.data.count / props.data.limitCount) * 100)\n\nonMounted(() => {\n  //\n})\n</script>\n\n<template>\n  <div class=\"buy-sell-coin-container\">\n    <div class=\"flex justify-between\">\n      <img\n        :src=\"data.icon\"\n        class=\"w-[88px] h-[88px] mr-[20px]\"\n      />\n      <div class=\"flex flex-col flex-1\">\n        <div class=\"flex justify-between items-center mb-[22px]\">\n          <div>\n            <span class=\"text-[26px] text-[#681704]\">{{ data.title }}</span>\n            <span class=\"text-[26px] text-[#b1a7a7]\">\n              （{{ data.amount }}/{{ data.limitAmount }}）\n            </span>\n          </div>\n          <div class=\"text-[26px] text-[#681704]\">{{ data.count }}/{{ data.limitCount }}</div>\n        </div>\n        <van-progress\n          pivot-text=\"\"\n          color=\"linear-gradient(to right, #e8466b 15%, #ea5451 47%, #ec6342 100%)\"\n          track-color=\"#d1d1d1\"\n          :percentage=\"taskPercentage\"\n          stroke-width=\"10\"\n        />\n      </div>\n    </div>\n\n    <div class=\"flex justify-between items-center mt-[6px] pl-[7px]\">\n      <div\n        class=\"text-desc text-[21px] text-[#b1a7a7]\"\n        v-html=\"data.text\"\n      ></div>\n\n      <slot></slot>\n    </div>\n  </div>\n</template>\n\n<style lang=\"scss\" scoped>\n.buy-sell-coin-container {\n  padding: 20px 23px;\n  border-radius: 14px;\n  border: 2px solid #f7d6c2;\n  background-image: linear-gradient(0deg, #fffaea 0%, #fff2d3 50%, #ffeabb 100%);\n  .text-desc {\n    :deep(span) {\n      font-size: 21px;\n      font-weight: bold;\n      color: #df4954;\n    }\n  }\n}\n</style>\n",
+      "start": 1714699771850,
+      "end": 1714699771858,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771858,
+      "end": 1714699771858,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771858,
+      "end": 1714699771858,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771858,
+      "end": 1714699771858,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771858,
+      "end": 1714699771858,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/BuySellCoin.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/BuySellCoin.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/BuySellCoin.vue?vue&type=style&index=0&scoped=d083c9a7&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-d083c9a7\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/BuySellCoin.vue\"]]);\n",
+      "start": 1714699771858,
+      "end": 1714699771932,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/BuySellCoin.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/BuySellCoin.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/BuySellCoin.vue?vue&type=style&index=0&scoped=d083c9a7&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-d083c9a7\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/BuySellCoin.vue\"]]);\n",
+      "start": 1714699771932,
+      "end": 1714699771932,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/BuySellCoin.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/BuySellCoin.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/BuySellCoin.vue?vue&type=style&index=0&scoped=d083c9a7&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-d083c9a7\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/BuySellCoin.vue\"]]);\n",
+      "start": 1714699771932,
+      "end": 1714699772167,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/BuySellCoin.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/BuySellCoin.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/BuySellCoin.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/BuySellCoin.vue?vue&type=style&index=0&scoped=d083c9a7&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-d083c9a7\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/BuySellCoin.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,+EAA+E,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699772167,
+      "end": 1714699772167,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699772167,
+      "end": 1714699772167,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699772167,
+      "end": 1714699772167,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699772167,
+      "end": 1714699772167,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699772167,
+      "end": 1714699772167,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699772167,
+      "end": 1714699772167,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699772167,
+      "end": 1714699772167,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699772167,
+      "end": 1714699772167,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699772167,
+      "end": 1714699772168,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/BuySellCoin.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/BuySellCoin.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/BuySellCoin.vue?vue&type=style&index=0&scoped=d083c9a7&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-d083c9a7\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/BuySellCoin.vue\"]]);\n",
+      "start": 1714699772168,
+      "end": 1714699772168,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/BuySellCoin.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/BuySellCoin.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/BuySellCoin.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/BuySellCoin.vue?vue&type=style&index=0&scoped=d083c9a7&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-d083c9a7\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Activity/BuySellCoin.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699772168,
+      "end": 1714699772168,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699772168,
+      "end": 1714699772168,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699772168,
+      "end": 1714699772168,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/numeric-data.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "const Mode = require('./mode')\n\nfunction NumericData (data) {\n  this.mode = Mode.NUMERIC\n  this.data = data.toString()\n}\n\nNumericData.getBitsLength = function getBitsLength (length) {\n  return 10 * Math.floor(length / 3) + ((length % 3) ? ((length % 3) * 3 + 1) : 0)\n}\n\nNumericData.prototype.getLength = function getLength () {\n  return this.data.length\n}\n\nNumericData.prototype.getBitsLength = function getBitsLength () {\n  return NumericData.getBitsLength(this.data.length)\n}\n\nNumericData.prototype.write = function write (bitBuffer) {\n  let i, group, value\n\n  // The input data string is divided into groups of three digits,\n  // and each group is converted to its 10-bit binary equivalent.\n  for (i = 0; i + 3 <= this.data.length; i += 3) {\n    group = this.data.substr(i, 3)\n    value = parseInt(group, 10)\n\n    bitBuffer.put(value, 10)\n  }\n\n  // If the number of input digits is not an exact multiple of three,\n  // the final one or two digits are converted to 4 or 7 bits respectively.\n  const remainingNum = this.data.length - i\n  if (remainingNum > 0) {\n    group = this.data.substr(i)\n    value = parseInt(group, 10)\n\n    bitBuffer.put(value, remainingNum * 3 + 1)\n  }\n}\n\nmodule.exports = NumericData\n",
+      "start": 1714699771069,
+      "end": 1714699771090,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771090,
+      "end": 1714699771090,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771090,
+      "end": 1714699771090,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771090,
+      "end": 1714699771090,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771090,
+      "end": 1714699771090,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771090,
+      "end": 1714699771090,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771090,
+      "end": 1714699771090,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "const Mode = require('./mode')\n\nfunction NumericData (data) {\n  this.mode = Mode.NUMERIC\n  this.data = data.toString()\n}\n\nNumericData.getBitsLength = function getBitsLength (length) {\n  return 10 * Math.floor(length / 3) + ((length % 3) ? ((length % 3) * 3 + 1) : 0)\n}\n\nNumericData.prototype.getLength = function getLength () {\n  return this.data.length\n}\n\nNumericData.prototype.getBitsLength = function getBitsLength () {\n  return NumericData.getBitsLength(this.data.length)\n}\n\nNumericData.prototype.write = function write (bitBuffer) {\n  let i, group, value\n\n  // The input data string is divided into groups of three digits,\n  // and each group is converted to its 10-bit binary equivalent.\n  for (i = 0; i + 3 <= this.data.length; i += 3) {\n    group = this.data.substr(i, 3)\n    value = parseInt(group, 10)\n\n    bitBuffer.put(value, 10)\n  }\n\n  // If the number of input digits is not an exact multiple of three,\n  // the final one or two digits are converted to 4 or 7 bits respectively.\n  const remainingNum = this.data.length - i\n  if (remainingNum > 0) {\n    group = this.data.substr(i)\n    value = parseInt(group, 10)\n\n    bitBuffer.put(value, remainingNum * 3 + 1)\n  }\n}\n\nmodule.exports = NumericData\n",
+      "start": 1714699771090,
+      "end": 1714699771090,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699771090,
+      "end": 1714699771090,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771090,
+      "end": 1714699771090,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771090,
+      "end": 1714699771090,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771090,
+      "end": 1714699771090,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771090,
+      "end": 1714699771090,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771090,
+      "end": 1714699771090,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/qrcode@1.5.3/node_modules/qrcode/lib/core/mode.js?commonjs-proxy\";\n\nconst Mode = require$$0\n\nfunction NumericData (data) {\n  this.mode = Mode.NUMERIC\n  this.data = data.toString()\n}\n\nNumericData.getBitsLength = function getBitsLength (length) {\n  return 10 * Math.floor(length / 3) + ((length % 3) ? ((length % 3) * 3 + 1) : 0)\n}\n\nNumericData.prototype.getLength = function getLength () {\n  return this.data.length\n}\n\nNumericData.prototype.getBitsLength = function getBitsLength () {\n  return NumericData.getBitsLength(this.data.length)\n}\n\nNumericData.prototype.write = function write (bitBuffer) {\n  let i, group, value\n\n  // The input data string is divided into groups of three digits,\n  // and each group is converted to its 10-bit binary equivalent.\n  for (i = 0; i + 3 <= this.data.length; i += 3) {\n    group = this.data.substr(i, 3)\n    value = parseInt(group, 10)\n\n    bitBuffer.put(value, 10)\n  }\n\n  // If the number of input digits is not an exact multiple of three,\n  // the final one or two digits are converted to 4 or 7 bits respectively.\n  const remainingNum = this.data.length - i\n  if (remainingNum > 0) {\n    group = this.data.substr(i)\n    value = parseInt(group, 10)\n\n    bitBuffer.put(value, remainingNum * 3 + 1)\n  }\n}\n\nvar numericData = NumericData\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(numericData);\nexport { numericData as __moduleExports };",
+      "start": 1714699771090,
+      "end": 1714699771103,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;AAAA,MAAM,IAAI,GAAG,UAAiB;AAC9B;AACA,SAAS,WAAW,EAAE,IAAI,EAAE;AAC5B,EAAE,IAAI,CAAC,IAAI,GAAG,IAAI,CAAC,OAAO;AAC1B,EAAE,IAAI,CAAC,IAAI,GAAG,IAAI,CAAC,QAAQ,EAAE;AAC7B,CAAC;AACD;AACA,WAAW,CAAC,aAAa,GAAG,SAAS,aAAa,EAAE,MAAM,EAAE;AAC5D,EAAE,OAAO,EAAE,GAAG,IAAI,CAAC,KAAK,CAAC,MAAM,GAAG,CAAC,CAAC,IAAI,CAAC,MAAM,GAAG,CAAC,KAAK,CAAC,MAAM,GAAG,CAAC,IAAI,CAAC,GAAG,CAAC,IAAI,CAAC,CAAC;AAClF,CAAC;AACD;AACA,WAAW,CAAC,SAAS,CAAC,SAAS,GAAG,SAAS,SAAS,IAAI;AACxD,EAAE,OAAO,IAAI,CAAC,IAAI,CAAC,MAAM;AACzB,CAAC;AACD;AACA,WAAW,CAAC,SAAS,CAAC,aAAa,GAAG,SAAS,aAAa,IAAI;AAChE,EAAE,OAAO,WAAW,CAAC,aAAa,CAAC,IAAI,CAAC,IAAI,CAAC,MAAM,CAAC;AACpD,CAAC;AACD;AACA,WAAW,CAAC,SAAS,CAAC,KAAK,GAAG,SAAS,KAAK,EAAE,SAAS,EAAE;AACzD,EAAE,IAAI,CAAC,EAAE,KAAK,EAAE,KAAK;AACrB;AACA;AACA;AACA,EAAE,KAAK,CAAC,GAAG,CAAC,EAAE,CAAC,GAAG,CAAC,IAAI,IAAI,CAAC,IAAI,CAAC,MAAM,EAAE,CAAC,IAAI,CAAC,EAAE;AACjD,IAAI,KAAK,GAAG,IAAI,CAAC,IAAI,CAAC,MAAM,CAAC,CAAC,EAAE,CAAC,CAAC;AAClC,IAAI,KAAK,GAAG,QAAQ,CAAC,KAAK,EAAE,EAAE,CAAC;AAC/B;AACA,IAAI,SAAS,CAAC,GAAG,CAAC,KAAK,EAAE,EAAE,CAAC;AAC5B,GAAG;AACH;AACA;AACA;AACA,EAAE,MAAM,YAAY,GAAG,IAAI,CAAC,IAAI,CAAC,MAAM,GAAG,CAAC;AAC3C,EAAE,IAAI,YAAY,GAAG,CAAC,EAAE;AACxB,IAAI,KAAK,GAAG,IAAI,CAAC,IAAI,CAAC,MAAM,CAAC,CAAC,CAAC;AAC/B,IAAI,KAAK,GAAG,QAAQ,CAAC,KAAK,EAAE,EAAE,CAAC;AAC/B;AACA,IAAI,SAAS,CAAC,GAAG,CAAC,KAAK,EAAE,YAAY,GAAG,CAAC,GAAG,CAAC,CAAC;AAC9C,GAAG;AACH,CAAC;AACD;IACA,WAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771103,
+      "end": 1714699771103,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771103,
+      "end": 1714699771103,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771103,
+      "end": 1714699771103,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699771103,
+      "end": 1714699771103,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771103,
+      "end": 1714699771103,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771103,
+      "end": 1714699771103,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771103,
+      "end": 1714699771103,
+      "order": "normal"
+    }
+  ]
+}

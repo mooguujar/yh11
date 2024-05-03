@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/toArrayTree.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var setupDefaults = require('./setupDefaults')\r\n\r\nvar map = require('./map')\r\nvar orderBy = require('./orderBy')\r\n\r\nvar clone = require('./clone')\r\nvar eqNull = require('./eqNull')\r\nvar each = require('./each')\r\nvar remove = require('./remove')\r\n\r\nvar assign = require('./assign')\r\n\r\nfunction strictTree (array, optChildren) {\r\n  each(array, function (item) {\r\n    if (item[optChildren] && !item[optChildren].length) {\r\n      remove(item, optChildren)\r\n    }\r\n  })\r\n}\r\n\r\n/**\r\n  * 将一个带层级的数据列表转成树结构\r\n  *\r\n  * @param {Array} array 数组\r\n  * @param {Object} options {strict: false, parentKey: 'parentId', key: 'id', children: 'children', mapChildren: 'children', data: 'data'}\r\n  * @return {Array}\r\n  */\r\nfunction toArrayTree (array, options) {\r\n  var opts = assign({}, setupDefaults.treeOptions, options)\r\n  var optStrict = opts.strict\r\n  var optKey = opts.key\r\n  var optParentKey = opts.parentKey\r\n  var optChildren = opts.children\r\n  var optMapChildren = opts.mapChildren\r\n  var optSortKey = opts.sortKey\r\n  var optReverse = opts.reverse\r\n  var optData = opts.data\r\n  var result = []\r\n  var treeMap = {}\r\n  var idsMap = {}\r\n  var id, treeData, parentId\r\n\r\n  if (optSortKey) {\r\n    array = orderBy(clone(array), optSortKey)\r\n    if (optReverse) {\r\n      array = array.reverse()\r\n    }\r\n  }\r\n\r\n  each(array, function (item) {\r\n    id = item[optKey]\r\n    idsMap[id] = true\r\n  })\r\n\r\n  each(array, function (item) {\r\n    id = item[optKey]\r\n\r\n    if (optData) {\r\n      treeData = {}\r\n      treeData[optData] = item\r\n    } else {\r\n      treeData = item\r\n    }\r\n\r\n    parentId = item[optParentKey]\r\n    treeMap[id] = treeMap[id] || []\r\n    treeMap[parentId] = treeMap[parentId] || []\r\n    treeMap[parentId].push(treeData)\r\n    treeData[optKey] = id\r\n    treeData[optParentKey] = parentId\r\n    treeData[optChildren] = treeMap[id]\r\n    if (optMapChildren) {\r\n      treeData[optMapChildren] = treeMap[id]\r\n    }\r\n\r\n    if (!optStrict || (optStrict && eqNull(parentId))) {\r\n      if (!idsMap[parentId]) {\r\n        result.push(treeData)\r\n      }\r\n    }\r\n  })\r\n\r\n  if (optStrict) {\r\n    strictTree(array, optChildren)\r\n  }\r\n\r\n  return result\r\n}\r\n\r\nmodule.exports = toArrayTree\r\n",
+      "start": 1714699767574,
+      "end": 1714699767603,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767603,
+      "end": 1714699767603,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767603,
+      "end": 1714699767603,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767603,
+      "end": 1714699767603,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767603,
+      "end": 1714699767603,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767603,
+      "end": 1714699767603,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767603,
+      "end": 1714699767603,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var setupDefaults = require('./setupDefaults')\r\n\r\nvar map = require('./map')\r\nvar orderBy = require('./orderBy')\r\n\r\nvar clone = require('./clone')\r\nvar eqNull = require('./eqNull')\r\nvar each = require('./each')\r\nvar remove = require('./remove')\r\n\r\nvar assign = require('./assign')\r\n\r\nfunction strictTree (array, optChildren) {\r\n  each(array, function (item) {\r\n    if (item[optChildren] && !item[optChildren].length) {\r\n      remove(item, optChildren)\r\n    }\r\n  })\r\n}\r\n\r\n/**\r\n  * 将一个带层级的数据列表转成树结构\r\n  *\r\n  * @param {Array} array 数组\r\n  * @param {Object} options {strict: false, parentKey: 'parentId', key: 'id', children: 'children', mapChildren: 'children', data: 'data'}\r\n  * @return {Array}\r\n  */\r\nfunction toArrayTree (array, options) {\r\n  var opts = assign({}, setupDefaults.treeOptions, options)\r\n  var optStrict = opts.strict\r\n  var optKey = opts.key\r\n  var optParentKey = opts.parentKey\r\n  var optChildren = opts.children\r\n  var optMapChildren = opts.mapChildren\r\n  var optSortKey = opts.sortKey\r\n  var optReverse = opts.reverse\r\n  var optData = opts.data\r\n  var result = []\r\n  var treeMap = {}\r\n  var idsMap = {}\r\n  var id, treeData, parentId\r\n\r\n  if (optSortKey) {\r\n    array = orderBy(clone(array), optSortKey)\r\n    if (optReverse) {\r\n      array = array.reverse()\r\n    }\r\n  }\r\n\r\n  each(array, function (item) {\r\n    id = item[optKey]\r\n    idsMap[id] = true\r\n  })\r\n\r\n  each(array, function (item) {\r\n    id = item[optKey]\r\n\r\n    if (optData) {\r\n      treeData = {}\r\n      treeData[optData] = item\r\n    } else {\r\n      treeData = item\r\n    }\r\n\r\n    parentId = item[optParentKey]\r\n    treeMap[id] = treeMap[id] || []\r\n    treeMap[parentId] = treeMap[parentId] || []\r\n    treeMap[parentId].push(treeData)\r\n    treeData[optKey] = id\r\n    treeData[optParentKey] = parentId\r\n    treeData[optChildren] = treeMap[id]\r\n    if (optMapChildren) {\r\n      treeData[optMapChildren] = treeMap[id]\r\n    }\r\n\r\n    if (!optStrict || (optStrict && eqNull(parentId))) {\r\n      if (!idsMap[parentId]) {\r\n        result.push(treeData)\r\n      }\r\n    }\r\n  })\r\n\r\n  if (optStrict) {\r\n    strictTree(array, optChildren)\r\n  }\r\n\r\n  return result\r\n}\r\n\r\nmodule.exports = toArrayTree\r\n",
+      "start": 1714699767603,
+      "end": 1714699767603,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767603,
+      "end": 1714699767603,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767603,
+      "end": 1714699767603,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767603,
+      "end": 1714699767603,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767603,
+      "end": 1714699767603,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767603,
+      "end": 1714699767603,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767603,
+      "end": 1714699767603,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/setupDefaults.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/map.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/orderBy.js?commonjs-proxy\";\nimport require$$3 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/clone.js?commonjs-proxy\";\nimport require$$4 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/eqNull.js?commonjs-proxy\";\nimport require$$5 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/each.js?commonjs-proxy\";\nimport require$$6 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/remove.js?commonjs-proxy\";\nimport require$$7 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/assign.js?commonjs-proxy\";\n\nvar setupDefaults = require$$0\r\n\r\nvar map = require$$1\r\nvar orderBy = require$$2\r\n\r\nvar clone = require$$3\r\nvar eqNull = require$$4\r\nvar each = require$$5\r\nvar remove = require$$6\r\n\r\nvar assign = require$$7\r\n\r\nfunction strictTree (array, optChildren) {\r\n  each(array, function (item) {\r\n    if (item[optChildren] && !item[optChildren].length) {\r\n      remove(item, optChildren)\r\n    }\r\n  })\r\n}\r\n\r\n/**\r\n  * 将一个带层级的数据列表转成树结构\r\n  *\r\n  * @param {Array} array 数组\r\n  * @param {Object} options {strict: false, parentKey: 'parentId', key: 'id', children: 'children', mapChildren: 'children', data: 'data'}\r\n  * @return {Array}\r\n  */\r\nfunction toArrayTree (array, options) {\r\n  var opts = assign({}, setupDefaults.treeOptions, options)\r\n  var optStrict = opts.strict\r\n  var optKey = opts.key\r\n  var optParentKey = opts.parentKey\r\n  var optChildren = opts.children\r\n  var optMapChildren = opts.mapChildren\r\n  var optSortKey = opts.sortKey\r\n  var optReverse = opts.reverse\r\n  var optData = opts.data\r\n  var result = []\r\n  var treeMap = {}\r\n  var idsMap = {}\r\n  var id, treeData, parentId\r\n\r\n  if (optSortKey) {\r\n    array = orderBy(clone(array), optSortKey)\r\n    if (optReverse) {\r\n      array = array.reverse()\r\n    }\r\n  }\r\n\r\n  each(array, function (item) {\r\n    id = item[optKey]\r\n    idsMap[id] = true\r\n  })\r\n\r\n  each(array, function (item) {\r\n    id = item[optKey]\r\n\r\n    if (optData) {\r\n      treeData = {}\r\n      treeData[optData] = item\r\n    } else {\r\n      treeData = item\r\n    }\r\n\r\n    parentId = item[optParentKey]\r\n    treeMap[id] = treeMap[id] || []\r\n    treeMap[parentId] = treeMap[parentId] || []\r\n    treeMap[parentId].push(treeData)\r\n    treeData[optKey] = id\r\n    treeData[optParentKey] = parentId\r\n    treeData[optChildren] = treeMap[id]\r\n    if (optMapChildren) {\r\n      treeData[optMapChildren] = treeMap[id]\r\n    }\r\n\r\n    if (!optStrict || (optStrict && eqNull(parentId))) {\r\n      if (!idsMap[parentId]) {\r\n        result.push(treeData)\r\n      }\r\n    }\r\n  })\r\n\r\n  if (optStrict) {\r\n    strictTree(array, optChildren)\r\n  }\r\n\r\n  return result\r\n}\r\n\r\nvar toArrayTree_1 = toArrayTree\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(toArrayTree_1);\nexport { toArrayTree_1 as __moduleExports };",
+      "start": 1714699767603,
+      "end": 1714699768239,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "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"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768239,
+      "end": 1714699768239,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768239,
+      "end": 1714699768239,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768239,
+      "end": 1714699768239,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768239,
+      "end": 1714699768239,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768239,
+      "end": 1714699768239,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768239,
+      "end": 1714699768239,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768239,
+      "end": 1714699768239,
+      "order": "normal"
+    }
+  ]
+}

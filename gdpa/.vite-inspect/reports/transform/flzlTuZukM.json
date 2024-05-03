@@ -1,0 +1,156 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/router/module/activity.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "const activity = [\n  {\n    path: '/activity',\n    name: 'Activity',\n    component: () => import(/* webpackChunkName: \"auth\" */ '@/pages/Activity/index.vue'),\n    children: [\n      {\n        path: 'collect-cards',\n        name: 'CollectCards',\n        component: () => import(/* webpackChunkName: \"auth\" */ '@/pages/Activity/CollectCards.vue'),\n        meta: {\n          title: '集福卡瓜分10万大奖'\n        }\n      },\n      {\n        path: 'app-collect-cards',\n        name: 'AppCollectCards',\n        component: () => import(/* webpackChunkName: \"auth\" */ '@/pages/Activity/CollectCards.vue'),\n        meta: {\n          title: '集福卡瓜分10万大奖'\n        }\n      },\n      {\n        path: 'ranking-list',\n        name: 'RankingList',\n        component: () => import(/* webpackChunkName: \"auth\" */ '@/pages/Activity/RankingList.vue')\n      }\n    ]\n  },\n  {\n    path: '/activityRules',\n    name: 'activityRules',\n    component: () =>\n      import(/* webpackChunkName: \"activity\" */ '@/pages/Activity/Subpages/activityRules.vue')\n  },\n  {\n    path: '/giftCard',\n    name: 'giftCard',\n    component: () =>\n      import(/* webpackChunkName: \"activity\" */ '@/pages/Activity/Subpages/giftCard.vue')\n  },\n  {\n    path: '/giftResult',\n    name: 'giftResult',\n    component: () =>\n      import(/* webpackChunkName: \"activity\" */ '@/pages/Activity/Subpages/giftResult.vue')\n  },\n  {\n    path: '/cardReceive',\n    name: 'cardReceive',\n    component: () =>\n      import(/* webpackChunkName: \"activity\" */ '@/pages/Activity/Subpages/cardReceive.vue')\n  },\n  {\n    path: '/cardRecord',\n    name: 'cardRecord',\n    component: () =>\n      import(/* webpackChunkName: \"activity\" */ '@/pages/Activity/Subpages/cardRecord.vue')\n  },\n  {\n    path: '/applyRecord',\n    name: 'applyRecord',\n    component: () =>\n      import(/* webpackChunkName: \"activity\" */ '@/pages/Activity/Subpages/applyRecord.vue')\n  },\n  {\n    path: '/activityRecord',\n    name: 'activityRecord',\n    component: () =>\n      import(/* webpackChunkName: \"activity\" */ '@/pages/Activity/Subpages/activityRecord.vue')\n  }\n]\n\nexport default activity\n",
+      "start": 1714699767896,
+      "end": 1714699767998,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767998,
+      "end": 1714699767998,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "const activity = [\n  {\n    path: \"/activity\",\n    name: \"Activity\",\n    component: () => import(\n      /* webpackChunkName: \"auth\" */\n      \"@/pages/Activity/index.vue\"\n    ),\n    children: [\n      {\n        path: \"collect-cards\",\n        name: \"CollectCards\",\n        component: () => import(\n          /* webpackChunkName: \"auth\" */\n          \"@/pages/Activity/CollectCards.vue\"\n        ),\n        meta: {\n          title: \"集福卡瓜分10万大奖\"\n        }\n      },\n      {\n        path: \"app-collect-cards\",\n        name: \"AppCollectCards\",\n        component: () => import(\n          /* webpackChunkName: \"auth\" */\n          \"@/pages/Activity/CollectCards.vue\"\n        ),\n        meta: {\n          title: \"集福卡瓜分10万大奖\"\n        }\n      },\n      {\n        path: \"ranking-list\",\n        name: \"RankingList\",\n        component: () => import(\n          /* webpackChunkName: \"auth\" */\n          \"@/pages/Activity/RankingList.vue\"\n        )\n      }\n    ]\n  },\n  {\n    path: \"/activityRules\",\n    name: \"activityRules\",\n    component: () => import(\n      /* webpackChunkName: \"activity\" */\n      \"@/pages/Activity/Subpages/activityRules.vue\"\n    )\n  },\n  {\n    path: \"/giftCard\",\n    name: \"giftCard\",\n    component: () => import(\n      /* webpackChunkName: \"activity\" */\n      \"@/pages/Activity/Subpages/giftCard.vue\"\n    )\n  },\n  {\n    path: \"/giftResult\",\n    name: \"giftResult\",\n    component: () => import(\n      /* webpackChunkName: \"activity\" */\n      \"@/pages/Activity/Subpages/giftResult.vue\"\n    )\n  },\n  {\n    path: \"/cardReceive\",\n    name: \"cardReceive\",\n    component: () => import(\n      /* webpackChunkName: \"activity\" */\n      \"@/pages/Activity/Subpages/cardReceive.vue\"\n    )\n  },\n  {\n    path: \"/cardRecord\",\n    name: \"cardRecord\",\n    component: () => import(\n      /* webpackChunkName: \"activity\" */\n      \"@/pages/Activity/Subpages/cardRecord.vue\"\n    )\n  },\n  {\n    path: \"/applyRecord\",\n    name: \"applyRecord\",\n    component: () => import(\n      /* webpackChunkName: \"activity\" */\n      \"@/pages/Activity/Subpages/applyRecord.vue\"\n    )\n  },\n  {\n    path: \"/activityRecord\",\n    name: \"activityRecord\",\n    component: () => import(\n      /* webpackChunkName: \"activity\" */\n      \"@/pages/Activity/Subpages/activityRecord.vue\"\n    )\n  }\n];\nexport default activity;\n",
+      "start": 1714699767998,
+      "end": 1714699769059,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/router/module/activity.ts"
+        ],
+        "sourcesContent": [
+          "const activity = [\n  {\n    path: '/activity',\n    name: 'Activity',\n    component: () => import(/* webpackChunkName: \"auth\" */ '@/pages/Activity/index.vue'),\n    children: [\n      {\n        path: 'collect-cards',\n        name: 'CollectCards',\n        component: () => import(/* webpackChunkName: \"auth\" */ '@/pages/Activity/CollectCards.vue'),\n        meta: {\n          title: '集福卡瓜分10万大奖'\n        }\n      },\n      {\n        path: 'app-collect-cards',\n        name: 'AppCollectCards',\n        component: () => import(/* webpackChunkName: \"auth\" */ '@/pages/Activity/CollectCards.vue'),\n        meta: {\n          title: '集福卡瓜分10万大奖'\n        }\n      },\n      {\n        path: 'ranking-list',\n        name: 'RankingList',\n        component: () => import(/* webpackChunkName: \"auth\" */ '@/pages/Activity/RankingList.vue')\n      }\n    ]\n  },\n  {\n    path: '/activityRules',\n    name: 'activityRules',\n    component: () =>\n      import(/* webpackChunkName: \"activity\" */ '@/pages/Activity/Subpages/activityRules.vue')\n  },\n  {\n    path: '/giftCard',\n    name: 'giftCard',\n    component: () =>\n      import(/* webpackChunkName: \"activity\" */ '@/pages/Activity/Subpages/giftCard.vue')\n  },\n  {\n    path: '/giftResult',\n    name: 'giftResult',\n    component: () =>\n      import(/* webpackChunkName: \"activity\" */ '@/pages/Activity/Subpages/giftResult.vue')\n  },\n  {\n    path: '/cardReceive',\n    name: 'cardReceive',\n    component: () =>\n      import(/* webpackChunkName: \"activity\" */ '@/pages/Activity/Subpages/cardReceive.vue')\n  },\n  {\n    path: '/cardRecord',\n    name: 'cardRecord',\n    component: () =>\n      import(/* webpackChunkName: \"activity\" */ '@/pages/Activity/Subpages/cardRecord.vue')\n  },\n  {\n    path: '/applyRecord',\n    name: 'applyRecord',\n    component: () =>\n      import(/* webpackChunkName: \"activity\" */ '@/pages/Activity/Subpages/applyRecord.vue')\n  },\n  {\n    path: '/activityRecord',\n    name: 'activityRecord',\n    component: () =>\n      import(/* webpackChunkName: \"activity\" */ '@/pages/Activity/Subpages/activityRecord.vue')\n  }\n]\n\nexport default activity\n"
+        ],
+        "mappings": "AAAA,MAAM,WAAW;AAAA,EACf;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MAAM;AAAA;AAAA,MAAsC;AAAA,IAA4B;AAAA,IACnF,UAAU;AAAA,MACR;AAAA,QACE,MAAM;AAAA,QACN,MAAM;AAAA,QACN,WAAW,MAAM;AAAA;AAAA,UAAsC;AAAA,QAAmC;AAAA,QAC1F,MAAM;AAAA,UACJ,OAAO;AAAA,QACT;AAAA,MACF;AAAA,MACA;AAAA,QACE,MAAM;AAAA,QACN,MAAM;AAAA,QACN,WAAW,MAAM;AAAA;AAAA,UAAsC;AAAA,QAAmC;AAAA,QAC1F,MAAM;AAAA,UACJ,OAAO;AAAA,QACT;AAAA,MACF;AAAA,MACA;AAAA,QACE,MAAM;AAAA,QACN,MAAM;AAAA,QACN,WAAW,MAAM;AAAA;AAAA,UAAsC;AAAA,QAAkC;AAAA,MAC3F;AAAA,IACF;AAAA,EACF;AAAA,EACA;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MACT;AAAA;AAAA,MAA0C;AAAA,IAA6C;AAAA,EAC3F;AAAA,EACA;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MACT;AAAA;AAAA,MAA0C;AAAA,IAAwC;AAAA,EACtF;AAAA,EACA;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MACT;AAAA;AAAA,MAA0C;AAAA,IAA0C;AAAA,EACxF;AAAA,EACA;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MACT;AAAA;AAAA,MAA0C;AAAA,IAA2C;AAAA,EACzF;AAAA,EACA;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MACT;AAAA;AAAA,MAA0C;AAAA,IAA0C;AAAA,EACxF;AAAA,EACA;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MACT;AAAA;AAAA,MAA0C;AAAA,IAA2C;AAAA,EACzF;AAAA,EACA;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MACT;AAAA;AAAA,MAA0C;AAAA,IAA8C;AAAA,EAC5F;AACF;AAEA,eAAe;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769059,
+      "end": 1714699769059,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769059,
+      "end": 1714699769059,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699769059,
+      "end": 1714699769059,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769059,
+      "end": 1714699769059,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "const activity = [\n  {\n    path: \"/activity\",\n    name: \"Activity\",\n    component: () => import(\n      /* webpackChunkName: \"auth\" */\n      \"@/pages/Activity/index.vue\"\n    ),\n    children: [\n      {\n        path: \"collect-cards\",\n        name: \"CollectCards\",\n        component: () => import(\n          /* webpackChunkName: \"auth\" */\n          \"@/pages/Activity/CollectCards.vue\"\n        ),\n        meta: {\n          title: \"集福卡瓜分10万大奖\"\n        }\n      },\n      {\n        path: \"app-collect-cards\",\n        name: \"AppCollectCards\",\n        component: () => import(\n          /* webpackChunkName: \"auth\" */\n          \"@/pages/Activity/CollectCards.vue\"\n        ),\n        meta: {\n          title: \"集福卡瓜分10万大奖\"\n        }\n      },\n      {\n        path: \"ranking-list\",\n        name: \"RankingList\",\n        component: () => import(\n          /* webpackChunkName: \"auth\" */\n          \"@/pages/Activity/RankingList.vue\"\n        )\n      }\n    ]\n  },\n  {\n    path: \"/activityRules\",\n    name: \"activityRules\",\n    component: () => import(\n      /* webpackChunkName: \"activity\" */\n      \"@/pages/Activity/Subpages/activityRules.vue\"\n    )\n  },\n  {\n    path: \"/giftCard\",\n    name: \"giftCard\",\n    component: () => import(\n      /* webpackChunkName: \"activity\" */\n      \"@/pages/Activity/Subpages/giftCard.vue\"\n    )\n  },\n  {\n    path: \"/giftResult\",\n    name: \"giftResult\",\n    component: () => import(\n      /* webpackChunkName: \"activity\" */\n      \"@/pages/Activity/Subpages/giftResult.vue\"\n    )\n  },\n  {\n    path: \"/cardReceive\",\n    name: \"cardReceive\",\n    component: () => import(\n      /* webpackChunkName: \"activity\" */\n      \"@/pages/Activity/Subpages/cardReceive.vue\"\n    )\n  },\n  {\n    path: \"/cardRecord\",\n    name: \"cardRecord\",\n    component: () => import(\n      /* webpackChunkName: \"activity\" */\n      \"@/pages/Activity/Subpages/cardRecord.vue\"\n    )\n  },\n  {\n    path: \"/applyRecord\",\n    name: \"applyRecord\",\n    component: () => import(\n      /* webpackChunkName: \"activity\" */\n      \"@/pages/Activity/Subpages/applyRecord.vue\"\n    )\n  },\n  {\n    path: \"/activityRecord\",\n    name: \"activityRecord\",\n    component: () => import(\n      /* webpackChunkName: \"activity\" */\n      \"@/pages/Activity/Subpages/activityRecord.vue\"\n    )\n  }\n];\nexport default activity;\n",
+      "start": 1714699769059,
+      "end": 1714699769059,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nconst activity = [\n  {\n    path: \"/activity\",\n    name: \"Activity\",\n    component: () => import(\n      /* webpackChunkName: \"auth\" */\n      \"@/pages/Activity/index.vue\"\n    ),\n    children: [\n      {\n        path: \"collect-cards\",\n        name: \"CollectCards\",\n        component: () => import(\n          /* webpackChunkName: \"auth\" */\n          \"@/pages/Activity/CollectCards.vue\"\n        ),\n        meta: {\n          title: \"\\u96C6\\u798F\\u5361\\u74DC\\u520610\\u4E07\\u5927\\u5956\"\n        }\n      },\n      {\n        path: \"app-collect-cards\",\n        name: \"AppCollectCards\",\n        component: () => import(\n          /* webpackChunkName: \"auth\" */\n          \"@/pages/Activity/CollectCards.vue\"\n        ),\n        meta: {\n          title: \"\\u96C6\\u798F\\u5361\\u74DC\\u520610\\u4E07\\u5927\\u5956\"\n        }\n      },\n      {\n        path: \"ranking-list\",\n        name: \"RankingList\",\n        component: () => import(\n          /* webpackChunkName: \"auth\" */\n          \"@/pages/Activity/RankingList.vue\"\n        )\n      }\n    ]\n  },\n  {\n    path: \"/activityRules\",\n    name: \"activityRules\",\n    component: () => import(\n      /* webpackChunkName: \"activity\" */\n      \"@/pages/Activity/Subpages/activityRules.vue\"\n    )\n  },\n  {\n    path: \"/giftCard\",\n    name: \"giftCard\",\n    component: () => import(\n      /* webpackChunkName: \"activity\" */\n      \"@/pages/Activity/Subpages/giftCard.vue\"\n    )\n  },\n  {\n    path: \"/giftResult\",\n    name: \"giftResult\",\n    component: () => import(\n      /* webpackChunkName: \"activity\" */\n      \"@/pages/Activity/Subpages/giftResult.vue\"\n    )\n  },\n  {\n    path: \"/cardReceive\",\n    name: \"cardReceive\",\n    component: () => import(\n      /* webpackChunkName: \"activity\" */\n      \"@/pages/Activity/Subpages/cardReceive.vue\"\n    )\n  },\n  {\n    path: \"/cardRecord\",\n    name: \"cardRecord\",\n    component: () => import(\n      /* webpackChunkName: \"activity\" */\n      \"@/pages/Activity/Subpages/cardRecord.vue\"\n    )\n  },\n  {\n    path: \"/applyRecord\",\n    name: \"applyRecord\",\n    component: () => import(\n      /* webpackChunkName: \"activity\" */\n      \"@/pages/Activity/Subpages/applyRecord.vue\"\n    )\n  },\n  {\n    path: \"/activityRecord\",\n    name: \"activityRecord\",\n    component: () => import(\n      /* webpackChunkName: \"activity\" */\n      \"@/pages/Activity/Subpages/activityRecord.vue\"\n    )\n  }\n];\nexport default activity;\n",
+      "start": 1714699769059,
+      "end": 1714699769439,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/router/module/activity.ts\"],\n  \"sourcesContent\": [\"const activity = [\\n  {\\n    path: \\\"/activity\\\",\\n    name: \\\"Activity\\\",\\n    component: () => import(\\n      /* webpackChunkName: \\\"auth\\\" */\\n      \\\"@/pages/Activity/index.vue\\\"\\n    ),\\n    children: [\\n      {\\n        path: \\\"collect-cards\\\",\\n        name: \\\"CollectCards\\\",\\n        component: () => import(\\n          /* webpackChunkName: \\\"auth\\\" */\\n          \\\"@/pages/Activity/CollectCards.vue\\\"\\n        ),\\n        meta: {\\n          title: \\\"\\u96C6\\u798F\\u5361\\u74DC\\u520610\\u4E07\\u5927\\u5956\\\"\\n        }\\n      },\\n      {\\n        path: \\\"app-collect-cards\\\",\\n        name: \\\"AppCollectCards\\\",\\n        component: () => import(\\n          /* webpackChunkName: \\\"auth\\\" */\\n          \\\"@/pages/Activity/CollectCards.vue\\\"\\n        ),\\n        meta: {\\n          title: \\\"\\u96C6\\u798F\\u5361\\u74DC\\u520610\\u4E07\\u5927\\u5956\\\"\\n        }\\n      },\\n      {\\n        path: \\\"ranking-list\\\",\\n        name: \\\"RankingList\\\",\\n        component: () => import(\\n          /* webpackChunkName: \\\"auth\\\" */\\n          \\\"@/pages/Activity/RankingList.vue\\\"\\n        )\\n      }\\n    ]\\n  },\\n  {\\n    path: \\\"/activityRules\\\",\\n    name: \\\"activityRules\\\",\\n    component: () => import(\\n      /* webpackChunkName: \\\"activity\\\" */\\n      \\\"@/pages/Activity/Subpages/activityRules.vue\\\"\\n    )\\n  },\\n  {\\n    path: \\\"/giftCard\\\",\\n    name: \\\"giftCard\\\",\\n    component: () => import(\\n      /* webpackChunkName: \\\"activity\\\" */\\n      \\\"@/pages/Activity/Subpages/giftCard.vue\\\"\\n    )\\n  },\\n  {\\n    path: \\\"/giftResult\\\",\\n    name: \\\"giftResult\\\",\\n    component: () => import(\\n      /* webpackChunkName: \\\"activity\\\" */\\n      \\\"@/pages/Activity/Subpages/giftResult.vue\\\"\\n    )\\n  },\\n  {\\n    path: \\\"/cardReceive\\\",\\n    name: \\\"cardReceive\\\",\\n    component: () => import(\\n      /* webpackChunkName: \\\"activity\\\" */\\n      \\\"@/pages/Activity/Subpages/cardReceive.vue\\\"\\n    )\\n  },\\n  {\\n    path: \\\"/cardRecord\\\",\\n    name: \\\"cardRecord\\\",\\n    component: () => import(\\n      /* webpackChunkName: \\\"activity\\\" */\\n      \\\"@/pages/Activity/Subpages/cardRecord.vue\\\"\\n    )\\n  },\\n  {\\n    path: \\\"/applyRecord\\\",\\n    name: \\\"applyRecord\\\",\\n    component: () => import(\\n      /* webpackChunkName: \\\"activity\\\" */\\n      \\\"@/pages/Activity/Subpages/applyRecord.vue\\\"\\n    )\\n  },\\n  {\\n    path: \\\"/activityRecord\\\",\\n    name: \\\"activityRecord\\\",\\n    component: () => import(\\n      /* webpackChunkName: \\\"activity\\\" */\\n      \\\"@/pages/Activity/Subpages/activityRecord.vue\\\"\\n    )\\n  }\\n];\\nexport default activity;\\n\"],\n  \"mappings\": \";AAAA,MAAM,WAAW;AAAA,EACf;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MAAM;AAAA;AAAA,MAEf;AAAA,IACF;AAAA,IACA,UAAU;AAAA,MACR;AAAA,QACE,MAAM;AAAA,QACN,MAAM;AAAA,QACN,WAAW,MAAM;AAAA;AAAA,UAEf;AAAA,QACF;AAAA,QACA,MAAM;AAAA,UACJ,OAAO;AAAA,QACT;AAAA,MACF;AAAA,MACA;AAAA,QACE,MAAM;AAAA,QACN,MAAM;AAAA,QACN,WAAW,MAAM;AAAA;AAAA,UAEf;AAAA,QACF;AAAA,QACA,MAAM;AAAA,UACJ,OAAO;AAAA,QACT;AAAA,MACF;AAAA,MACA;AAAA,QACE,MAAM;AAAA,QACN,MAAM;AAAA,QACN,WAAW,MAAM;AAAA;AAAA,UAEf;AAAA,QACF;AAAA,MACF;AAAA,IACF;AAAA,EACF;AAAA,EACA;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MAAM;AAAA;AAAA,MAEf;AAAA,IACF;AAAA,EACF;AAAA,EACA;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MAAM;AAAA;AAAA,MAEf;AAAA,IACF;AAAA,EACF;AAAA,EACA;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MAAM;AAAA;AAAA,MAEf;AAAA,IACF;AAAA,EACF;AAAA,EACA;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MAAM;AAAA;AAAA,MAEf;AAAA,IACF;AAAA,EACF;AAAA,EACA;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MAAM;AAAA;AAAA,MAEf;AAAA,IACF;AAAA,EACF;AAAA,EACA;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MAAM;AAAA;AAAA,MAEf;AAAA,IACF;AAAA,EACF;AAAA,EACA;AAAA,IACE,MAAM;AAAA,IACN,MAAM;AAAA,IACN,WAAW,MAAM;AAAA;AAAA,MAEf;AAAA,IACF;AAAA,EACF;AACF;AACA,eAAe;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769439,
+      "end": 1714699769439,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769439,
+      "end": 1714699769439,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769439,
+      "end": 1714699769439,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769439,
+      "end": 1714699769439,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769439,
+      "end": 1714699769439,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769439,
+      "end": 1714699769439,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769439,
+      "end": 1714699769439,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769439,
+      "end": 1714699769439,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769439,
+      "end": 1714699769440,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699769440,
+      "end": 1714699769440,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769440,
+      "end": 1714699769440,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "result": "import { __vitePreload } from \"\u0000vite/preload-helper.js\";\"use strict\";\nconst activity = [\n  {\n    path: \"/activity\",\n    name: \"Activity\",\n    component: () => __vitePreload(() => import(\n      /* webpackChunkName: \"auth\" */\n      \"@/pages/Activity/index.vue\"\n    ),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url),\n    children: [\n      {\n        path: \"collect-cards\",\n        name: \"CollectCards\",\n        component: () => __vitePreload(() => import(\n          /* webpackChunkName: \"auth\" */\n          \"@/pages/Activity/CollectCards.vue\"\n        ),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url),\n        meta: {\n          title: \"\\u96C6\\u798F\\u5361\\u74DC\\u520610\\u4E07\\u5927\\u5956\"\n        }\n      },\n      {\n        path: \"app-collect-cards\",\n        name: \"AppCollectCards\",\n        component: () => __vitePreload(() => import(\n          /* webpackChunkName: \"auth\" */\n          \"@/pages/Activity/CollectCards.vue\"\n        ),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url),\n        meta: {\n          title: \"\\u96C6\\u798F\\u5361\\u74DC\\u520610\\u4E07\\u5927\\u5956\"\n        }\n      },\n      {\n        path: \"ranking-list\",\n        name: \"RankingList\",\n        component: () => __vitePreload(() => import(\n          /* webpackChunkName: \"auth\" */\n          \"@/pages/Activity/RankingList.vue\"\n        ),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url)\n      }\n    ]\n  },\n  {\n    path: \"/activityRules\",\n    name: \"activityRules\",\n    component: () => __vitePreload(() => import(\n      /* webpackChunkName: \"activity\" */\n      \"@/pages/Activity/Subpages/activityRules.vue\"\n    ),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url)\n  },\n  {\n    path: \"/giftCard\",\n    name: \"giftCard\",\n    component: () => __vitePreload(() => import(\n      /* webpackChunkName: \"activity\" */\n      \"@/pages/Activity/Subpages/giftCard.vue\"\n    ),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url)\n  },\n  {\n    path: \"/giftResult\",\n    name: \"giftResult\",\n    component: () => __vitePreload(() => import(\n      /* webpackChunkName: \"activity\" */\n      \"@/pages/Activity/Subpages/giftResult.vue\"\n    ),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url)\n  },\n  {\n    path: \"/cardReceive\",\n    name: \"cardReceive\",\n    component: () => __vitePreload(() => import(\n      /* webpackChunkName: \"activity\" */\n      \"@/pages/Activity/Subpages/cardReceive.vue\"\n    ),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url)\n  },\n  {\n    path: \"/cardRecord\",\n    name: \"cardRecord\",\n    component: () => __vitePreload(() => import(\n      /* webpackChunkName: \"activity\" */\n      \"@/pages/Activity/Subpages/cardRecord.vue\"\n    ),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url)\n  },\n  {\n    path: \"/applyRecord\",\n    name: \"applyRecord\",\n    component: () => __vitePreload(() => import(\n      /* webpackChunkName: \"activity\" */\n      \"@/pages/Activity/Subpages/applyRecord.vue\"\n    ),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url)\n  },\n  {\n    path: \"/activityRecord\",\n    name: \"activityRecord\",\n    component: () => __vitePreload(() => import(\n      /* webpackChunkName: \"activity\" */\n      \"@/pages/Activity/Subpages/activityRecord.vue\"\n    ),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url)\n  }\n];\nexport default activity;\n",
+      "start": 1714699769440,
+      "end": 1714699769440,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769440,
+      "end": 1714699769440,
+      "order": "normal"
+    }
+  ]
+}

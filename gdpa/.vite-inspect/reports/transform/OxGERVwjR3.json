@@ -1,0 +1,165 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/AuthExpirePopup/AuthExpirePopup.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"van-dialog__title\" }\nconst _hoisted_2 = { class: \"van-action-bar van-safe-area-bottom van-dialog__footer\" }\n\nimport { ref } from 'vue'\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'AuthExpirePopup',\n  props: {\n  action: {\n    type: Function,\n    required: true\n  },\n  msgtext: {\n    type: String,\n    default: '登录已过期，请返回游戏大厅。',\n    required: false\n  }\n},\n  setup(__props, { expose: __expose }) {\n\nconst visible = ref(true)\n\nconst props = __props\n\nconst onConfirm = () => {\n  props.action()\n  visible.value = false\n}\n\n__expose({\n  visible\n})\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_van_button = _resolveComponent(\"van-button\")!\n  const _component_van_dialog = _resolveComponent(\"van-dialog\")!\n\n  return (_openBlock(), _createBlock(_component_van_dialog, {\n    show: visible.value,\n    \"onUpdate:show\": _cache[0] || (_cache[0] = ($event: any) => ((visible).value = $event)),\n    theme: \"round-button\"\n  }, {\n    title: _withCtx(() => [\n      _createElementVNode(\"h5\", _hoisted_1, _toDisplayString(__props.msgtext), 1 /* TEXT */)\n    ]),\n    footer: _withCtx(() => [\n      _createElementVNode(\"div\", _hoisted_2, [\n        _createVNode(_component_van_button, {\n          type: \"primary\",\n          block: \"\",\n          onClick: onConfirm\n        }, {\n          default: _withCtx(() => [\n            _createTextVNode(\" 确定 \")\n          ]),\n          _: 1 /* STABLE */\n        })\n      ])\n    ]),\n    _: 1 /* STABLE */\n  }, 8 /* PROPS */, [\"show\"]))\n}\n}\n\n})",
+      "start": 1714699769240,
+      "end": 1714699769240
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699769240,
+      "end": 1714699769240,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createBlock as _createBlock } from \"vue\";\nconst _hoisted_1 = { class: \"van-dialog__title\" };\nconst _hoisted_2 = { class: \"van-action-bar van-safe-area-bottom van-dialog__footer\" };\nimport { ref } from \"vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"AuthExpirePopup\",\n  props: {\n    action: {\n      type: Function,\n      required: true\n    },\n    msgtext: {\n      type: String,\n      default: \"登录已过期，请返回游戏大厅。\",\n      required: false\n    }\n  },\n  setup(__props, { expose: __expose }) {\n    const visible = ref(true);\n    const props = __props;\n    const onConfirm = () => {\n      props.action();\n      visible.value = false;\n    };\n    __expose({\n      visible\n    });\n    return (_ctx, _cache) => {\n      const _component_van_button = _resolveComponent(\"van-button\");\n      const _component_van_dialog = _resolveComponent(\"van-dialog\");\n      return _openBlock(), _createBlock(_component_van_dialog, {\n        show: visible.value,\n        \"onUpdate:show\": _cache[0] || (_cache[0] = ($event) => visible.value = $event),\n        theme: \"round-button\"\n      }, {\n        title: _withCtx(() => [\n          _createElementVNode(\n            \"h5\",\n            _hoisted_1,\n            _toDisplayString(__props.msgtext),\n            1\n            /* TEXT */\n          )\n        ]),\n        footer: _withCtx(() => [\n          _createElementVNode(\"div\", _hoisted_2, [\n            _createVNode(_component_van_button, {\n              type: \"primary\",\n              block: \"\",\n              onClick: onConfirm\n            }, {\n              default: _withCtx(() => [\n                _createTextVNode(\" 确定 \")\n              ]),\n              _: 1\n              /* STABLE */\n            })\n          ])\n        ]),\n        _: 1\n        /* STABLE */\n      }, 8, [\"show\"]);\n    };\n  }\n});\n",
+      "start": 1714699769240,
+      "end": 1714699769517,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/AuthExpirePopup/AuthExpirePopup.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"van-dialog__title\" }\nconst _hoisted_2 = { class: \"van-action-bar van-safe-area-bottom van-dialog__footer\" }\n\nimport { ref } from 'vue'\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'AuthExpirePopup',\n  props: {\n  action: {\n    type: Function,\n    required: true\n  },\n  msgtext: {\n    type: String,\n    default: '登录已过期，请返回游戏大厅。',\n    required: false\n  }\n},\n  setup(__props, { expose: __expose }) {\n\nconst visible = ref(true)\n\nconst props = __props\n\nconst onConfirm = () => {\n  props.action()\n  visible.value = false\n}\n\n__expose({\n  visible\n})\n\nreturn (_ctx: any,_cache: any) => {\n  const _component_van_button = _resolveComponent(\"van-button\")!\n  const _component_van_dialog = _resolveComponent(\"van-dialog\")!\n\n  return (_openBlock(), _createBlock(_component_van_dialog, {\n    show: visible.value,\n    \"onUpdate:show\": _cache[0] || (_cache[0] = ($event: any) => ((visible).value = $event)),\n    theme: \"round-button\"\n  }, {\n    title: _withCtx(() => [\n      _createElementVNode(\"h5\", _hoisted_1, _toDisplayString(__props.msgtext), 1 /* TEXT */)\n    ]),\n    footer: _withCtx(() => [\n      _createElementVNode(\"div\", _hoisted_2, [\n        _createVNode(_component_van_button, {\n          type: \"primary\",\n          block: \"\",\n          onClick: onConfirm\n        }, {\n          default: _withCtx(() => [\n            _createTextVNode(\" 确定 \")\n          ]),\n          _: 1 /* STABLE */\n        })\n      ])\n    ]),\n    _: 1 /* STABLE */\n  }, 8 /* PROPS */, [\"show\"]))\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,mBAAmB,kBAAkB,sBAAsB,qBAAqB,mBAAmB,kBAAkB,oBAAoB,mBAAmB,WAAW,UAAU,eAAe,cAAc,aAAa,YAAY,eAAe,oBAAoB;AAEnR,MAAM,aAAa,EAAE,OAAO,oBAAoB;AAChD,MAAM,aAAa,EAAE,OAAO,yDAAyD;AAErF,SAAS,WAAW;AAGpB,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,OAAO;AAAA,IACP,QAAQ;AAAA,MACN,MAAM;AAAA,MACN,UAAU;AAAA,IACZ;AAAA,IACA,SAAS;AAAA,MACP,MAAM;AAAA,MACN,SAAS;AAAA,MACT,UAAU;AAAA,IACZ;AAAA,EACF;AAAA,EACE,MAAM,SAAS,EAAE,QAAQ,SAAS,GAAG;AAEvC,UAAM,UAAU,IAAI,IAAI;AAExB,UAAM,QAAQ;AAEd,UAAM,YAAY,MAAM;AACtB,YAAM,OAAO;AACb,cAAQ,QAAQ;AAAA,IAClB;AAEA,aAAS;AAAA,MACP;AAAA,IACF,CAAC;AAED,WAAO,CAAC,MAAU,WAAgB;AAChC,YAAM,wBAAwB,kBAAkB,YAAY;AAC5D,YAAM,wBAAwB,kBAAkB,YAAY;AAE5D,aAAQ,WAAW,GAAG,aAAa,uBAAuB;AAAA,QACxD,MAAM,QAAQ;AAAA,QACd,iBAAiB,OAAO,CAAC,MAAM,OAAO,CAAC,IAAI,CAAC,WAAkB,QAAS,QAAQ;AAAA,QAC/E,OAAO;AAAA,MACT,GAAG;AAAA,QACD,OAAO,SAAS,MAAM;AAAA,UACpB;AAAA,YAAoB;AAAA,YAAM;AAAA,YAAY,iBAAiB,QAAQ,OAAO;AAAA,YAAG;AAAA;AAAA,UAAY;AAAA,QACvF,CAAC;AAAA,QACD,QAAQ,SAAS,MAAM;AAAA,UACrB,oBAAoB,OAAO,YAAY;AAAA,YACrC,aAAa,uBAAuB;AAAA,cAClC,MAAM;AAAA,cACN,OAAO;AAAA,cACP,SAAS;AAAA,YACX,GAAG;AAAA,cACD,SAAS,SAAS,MAAM;AAAA,gBACtB,iBAAiB,MAAM;AAAA,cACzB,CAAC;AAAA,cACD,GAAG;AAAA;AAAA,YACL,CAAC;AAAA,UACH,CAAC;AAAA,QACH,CAAC;AAAA,QACD,GAAG;AAAA;AAAA,MACL,GAAG,GAAe,CAAC,MAAM,CAAC;AAAA,IAC5B;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699769517,
+      "end": 1714699769517,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699769517,
+      "end": 1714699769517,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699769517,
+      "end": 1714699769517,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769517,
+      "end": 1714699769517,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createBlock as _createBlock } from \"vue\";\nconst _hoisted_1 = { class: \"van-dialog__title\" };\nconst _hoisted_2 = { class: \"van-action-bar van-safe-area-bottom van-dialog__footer\" };\nimport { ref } from \"vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"AuthExpirePopup\",\n  props: {\n    action: {\n      type: Function,\n      required: true\n    },\n    msgtext: {\n      type: String,\n      default: \"登录已过期，请返回游戏大厅。\",\n      required: false\n    }\n  },\n  setup(__props, { expose: __expose }) {\n    const visible = ref(true);\n    const props = __props;\n    const onConfirm = () => {\n      props.action();\n      visible.value = false;\n    };\n    __expose({\n      visible\n    });\n    return (_ctx, _cache) => {\n      const _component_van_button = _resolveComponent(\"van-button\");\n      const _component_van_dialog = _resolveComponent(\"van-dialog\");\n      return _openBlock(), _createBlock(_component_van_dialog, {\n        show: visible.value,\n        \"onUpdate:show\": _cache[0] || (_cache[0] = ($event) => visible.value = $event),\n        theme: \"round-button\"\n      }, {\n        title: _withCtx(() => [\n          _createElementVNode(\n            \"h5\",\n            _hoisted_1,\n            _toDisplayString(__props.msgtext),\n            1\n            /* TEXT */\n          )\n        ]),\n        footer: _withCtx(() => [\n          _createElementVNode(\"div\", _hoisted_2, [\n            _createVNode(_component_van_button, {\n              type: \"primary\",\n              block: \"\",\n              onClick: onConfirm\n            }, {\n              default: _withCtx(() => [\n                _createTextVNode(\" 确定 \")\n              ]),\n              _: 1\n              /* STABLE */\n            })\n          ])\n        ]),\n        _: 1\n        /* STABLE */\n      }, 8, [\"show\"]);\n    };\n  }\n});\n",
+      "start": 1714699769517,
+      "end": 1714699769517,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createBlock as _createBlock } from \"vue\";\nconst _hoisted_1 = { class: \"van-dialog__title\" };\nconst _hoisted_2 = { class: \"van-action-bar van-safe-area-bottom van-dialog__footer\" };\nimport { ref } from \"vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"AuthExpirePopup\",\n  props: {\n    action: {\n      type: Function,\n      required: true\n    },\n    msgtext: {\n      type: String,\n      default: \"\\u767B\\u5F55\\u5DF2\\u8FC7\\u671F\\uFF0C\\u8BF7\\u8FD4\\u56DE\\u6E38\\u620F\\u5927\\u5385\\u3002\",\n      required: false\n    }\n  },\n  setup(__props, { expose: __expose }) {\n    const visible = ref(true);\n    const props = __props;\n    const onConfirm = () => {\n      props.action();\n      visible.value = false;\n    };\n    __expose({\n      visible\n    });\n    return (_ctx, _cache) => {\n      const _component_van_button = _resolveComponent(\"van-button\");\n      const _component_van_dialog = _resolveComponent(\"van-dialog\");\n      return _openBlock(), _createBlock(_component_van_dialog, {\n        show: visible.value,\n        \"onUpdate:show\": _cache[0] || (_cache[0] = ($event) => visible.value = $event),\n        theme: \"round-button\"\n      }, {\n        title: _withCtx(() => [\n          _createElementVNode(\n            \"h5\",\n            _hoisted_1,\n            _toDisplayString(__props.msgtext),\n            1\n            /* TEXT */\n          )\n        ]),\n        footer: _withCtx(() => [\n          _createElementVNode(\"div\", _hoisted_2, [\n            _createVNode(_component_van_button, {\n              type: \"primary\",\n              block: \"\",\n              onClick: onConfirm\n            }, {\n              default: _withCtx(() => [\n                _createTextVNode(\" \\u786E\\u5B9A \")\n              ]),\n              _: 1\n              /* STABLE */\n            })\n          ])\n        ]),\n        _: 1\n        /* STABLE */\n      }, 8, [\"show\"]);\n    };\n  }\n});\n",
+      "start": 1714699769517,
+      "end": 1714699769607,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/AuthExpirePopup/AuthExpirePopup.vue?vue&type=script&setup=true&lang.ts\"],\n  \"sourcesContent\": [\"import { defineComponent as _defineComponent } from \\\"vue\\\";\\nimport { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createBlock as _createBlock } from \\\"vue\\\";\\nconst _hoisted_1 = { class: \\\"van-dialog__title\\\" };\\nconst _hoisted_2 = { class: \\\"van-action-bar van-safe-area-bottom van-dialog__footer\\\" };\\nimport { ref } from \\\"vue\\\";\\nexport default /* @__PURE__ */ _defineComponent({\\n  __name: \\\"AuthExpirePopup\\\",\\n  props: {\\n    action: {\\n      type: Function,\\n      required: true\\n    },\\n    msgtext: {\\n      type: String,\\n      default: \\\"\\u767B\\u5F55\\u5DF2\\u8FC7\\u671F\\uFF0C\\u8BF7\\u8FD4\\u56DE\\u6E38\\u620F\\u5927\\u5385\\u3002\\\",\\n      required: false\\n    }\\n  },\\n  setup(__props, { expose: __expose }) {\\n    const visible = ref(true);\\n    const props = __props;\\n    const onConfirm = () => {\\n      props.action();\\n      visible.value = false;\\n    };\\n    __expose({\\n      visible\\n    });\\n    return (_ctx, _cache) => {\\n      const _component_van_button = _resolveComponent(\\\"van-button\\\");\\n      const _component_van_dialog = _resolveComponent(\\\"van-dialog\\\");\\n      return _openBlock(), _createBlock(_component_van_dialog, {\\n        show: visible.value,\\n        \\\"onUpdate:show\\\": _cache[0] || (_cache[0] = ($event) => visible.value = $event),\\n        theme: \\\"round-button\\\"\\n      }, {\\n        title: _withCtx(() => [\\n          _createElementVNode(\\n            \\\"h5\\\",\\n            _hoisted_1,\\n            _toDisplayString(__props.msgtext),\\n            1\\n            /* TEXT */\\n          )\\n        ]),\\n        footer: _withCtx(() => [\\n          _createElementVNode(\\\"div\\\", _hoisted_2, [\\n            _createVNode(_component_van_button, {\\n              type: \\\"primary\\\",\\n              block: \\\"\\\",\\n              onClick: onConfirm\\n            }, {\\n              default: _withCtx(() => [\\n                _createTextVNode(\\\" \\u786E\\u5B9A \\\")\\n              ]),\\n              _: 1\\n              /* STABLE */\\n            })\\n          ])\\n        ]),\\n        _: 1\\n        /* STABLE */\\n      }, 8, [\\\"show\\\"]);\\n    };\\n  }\\n});\\n\"],\n  \"mappings\": \";AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,mBAAmB,kBAAkB,sBAAsB,qBAAqB,mBAAmB,kBAAkB,oBAAoB,mBAAmB,WAAW,UAAU,eAAe,cAAc,aAAa,YAAY,eAAe,oBAAoB;AACnR,MAAM,aAAa,EAAE,OAAO,oBAAoB;AAChD,MAAM,aAAa,EAAE,OAAO,yDAAyD;AACrF,SAAS,WAAW;AACpB,eAA+B,iCAAiB;AAAA,EAC9C,QAAQ;AAAA,EACR,OAAO;AAAA,IACL,QAAQ;AAAA,MACN,MAAM;AAAA,MACN,UAAU;AAAA,IACZ;AAAA,IACA,SAAS;AAAA,MACP,MAAM;AAAA,MACN,SAAS;AAAA,MACT,UAAU;AAAA,IACZ;AAAA,EACF;AAAA,EACA,MAAM,SAAS,EAAE,QAAQ,SAAS,GAAG;AACnC,UAAM,UAAU,IAAI,IAAI;AACxB,UAAM,QAAQ;AACd,UAAM,YAAY,MAAM;AACtB,YAAM,OAAO;AACb,cAAQ,QAAQ;AAAA,IAClB;AACA,aAAS;AAAA,MACP;AAAA,IACF,CAAC;AACD,WAAO,CAAC,MAAM,WAAW;AACvB,YAAM,wBAAwB,kBAAkB,YAAY;AAC5D,YAAM,wBAAwB,kBAAkB,YAAY;AAC5D,aAAO,WAAW,GAAG,aAAa,uBAAuB;AAAA,QACvD,MAAM,QAAQ;AAAA,QACd,iBAAiB,OAAO,CAAC,MAAM,OAAO,CAAC,IAAI,CAAC,WAAW,QAAQ,QAAQ;AAAA,QACvE,OAAO;AAAA,MACT,GAAG;AAAA,QACD,OAAO,SAAS,MAAM;AAAA,UACpB;AAAA,YACE;AAAA,YACA;AAAA,YACA,iBAAiB,QAAQ,OAAO;AAAA,YAChC;AAAA;AAAA,UAEF;AAAA,QACF,CAAC;AAAA,QACD,QAAQ,SAAS,MAAM;AAAA,UACrB,oBAAoB,OAAO,YAAY;AAAA,YACrC,aAAa,uBAAuB;AAAA,cAClC,MAAM;AAAA,cACN,OAAO;AAAA,cACP,SAAS;AAAA,YACX,GAAG;AAAA,cACD,SAAS,SAAS,MAAM;AAAA,gBACtB,iBAAiB,gBAAM;AAAA,cACzB,CAAC;AAAA,cACD,GAAG;AAAA;AAAA,YAEL,CAAC;AAAA,UACH,CAAC;AAAA,QACH,CAAC;AAAA,QACD,GAAG;AAAA;AAAA,MAEL,GAAG,GAAG,CAAC,MAAM,CAAC;AAAA,IAChB;AAAA,EACF;AACF,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769607,
+      "end": 1714699769607,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769607,
+      "end": 1714699769607,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769607,
+      "end": 1714699769607,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769607,
+      "end": 1714699769607,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769607,
+      "end": 1714699769607,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769607,
+      "end": 1714699769607,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769607,
+      "end": 1714699769607,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769607,
+      "end": 1714699769607,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769607,
+      "end": 1714699769607,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */import { Dialog as __unplugin_components_1 } from 'vant/es';import 'vant/es/dialog/style/index';\nimport { Button as __unplugin_components_0 } from 'vant/es';import 'vant/es/button/style/index';\n\"use strict\";\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createBlock as _createBlock } from \"vue\";\nconst _hoisted_1 = { class: \"van-dialog__title\" };\nconst _hoisted_2 = { class: \"van-action-bar van-safe-area-bottom van-dialog__footer\" };\nimport { ref } from \"vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"AuthExpirePopup\",\n  props: {\n    action: {\n      type: Function,\n      required: true\n    },\n    msgtext: {\n      type: String,\n      default: \"\\u767B\\u5F55\\u5DF2\\u8FC7\\u671F\\uFF0C\\u8BF7\\u8FD4\\u56DE\\u6E38\\u620F\\u5927\\u5385\\u3002\",\n      required: false\n    }\n  },\n  setup(__props, { expose: __expose }) {\n    const visible = ref(true);\n    const props = __props;\n    const onConfirm = () => {\n      props.action();\n      visible.value = false;\n    };\n    __expose({\n      visible\n    });\n    return (_ctx, _cache) => {\n      const _component_van_button = __unplugin_components_0;\n      const _component_van_dialog = __unplugin_components_1;\n      return _openBlock(), _createBlock(_component_van_dialog, {\n        show: visible.value,\n        \"onUpdate:show\": _cache[0] || (_cache[0] = ($event) => visible.value = $event),\n        theme: \"round-button\"\n      }, {\n        title: _withCtx(() => [\n          _createElementVNode(\n            \"h5\",\n            _hoisted_1,\n            _toDisplayString(__props.msgtext),\n            1\n            /* TEXT */\n          )\n        ]),\n        footer: _withCtx(() => [\n          _createElementVNode(\"div\", _hoisted_2, [\n            _createVNode(_component_van_button, {\n              type: \"primary\",\n              block: \"\",\n              onClick: onConfirm\n            }, {\n              default: _withCtx(() => [\n                _createTextVNode(\" \\u786E\\u5B9A \")\n              ]),\n              _: 1\n              /* STABLE */\n            })\n          ])\n        ]),\n        _: 1\n        /* STABLE */\n      }, 8, [\"show\"]);\n    };\n  }\n});\n",
+      "start": 1714699769607,
+      "end": 1714699769608,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/CommonPopup/AuthExpirePopup/AuthExpirePopup.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createBlock as _createBlock } from \"vue\";\nconst _hoisted_1 = { class: \"van-dialog__title\" };\nconst _hoisted_2 = { class: \"van-action-bar van-safe-area-bottom van-dialog__footer\" };\nimport { ref } from \"vue\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"AuthExpirePopup\",\n  props: {\n    action: {\n      type: Function,\n      required: true\n    },\n    msgtext: {\n      type: String,\n      default: \"\\u767B\\u5F55\\u5DF2\\u8FC7\\u671F\\uFF0C\\u8BF7\\u8FD4\\u56DE\\u6E38\\u620F\\u5927\\u5385\\u3002\",\n      required: false\n    }\n  },\n  setup(__props, { expose: __expose }) {\n    const visible = ref(true);\n    const props = __props;\n    const onConfirm = () => {\n      props.action();\n      visible.value = false;\n    };\n    __expose({\n      visible\n    });\n    return (_ctx, _cache) => {\n      const _component_van_button = _resolveComponent(\"van-button\");\n      const _component_van_dialog = _resolveComponent(\"van-dialog\");\n      return _openBlock(), _createBlock(_component_van_dialog, {\n        show: visible.value,\n        \"onUpdate:show\": _cache[0] || (_cache[0] = ($event) => visible.value = $event),\n        theme: \"round-button\"\n      }, {\n        title: _withCtx(() => [\n          _createElementVNode(\n            \"h5\",\n            _hoisted_1,\n            _toDisplayString(__props.msgtext),\n            1\n            /* TEXT */\n          )\n        ]),\n        footer: _withCtx(() => [\n          _createElementVNode(\"div\", _hoisted_2, [\n            _createVNode(_component_van_button, {\n              type: \"primary\",\n              block: \"\",\n              onClick: onConfirm\n            }, {\n              default: _withCtx(() => [\n                _createTextVNode(\" \\u786E\\u5B9A \")\n              ]),\n              _: 1\n              /* STABLE */\n            })\n          ])\n        ]),\n        _: 1\n        /* STABLE */\n      }, 8, [\"show\"]);\n    };\n  }\n});\n"
+        ],
+        "names": [],
+        "mappings": ";;AAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,oCAAoC,uBAA+B;AACnE,oCAAoC,uBAA+B;AACnE;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769608,
+      "end": 1714699769608,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769608,
+      "end": 1714699769608,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769608,
+      "end": 1714699769608,
+      "order": "normal"
+    }
+  ]
+}

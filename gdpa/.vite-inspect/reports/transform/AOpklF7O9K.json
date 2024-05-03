@@ -1,0 +1,148 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/list/index.css",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": ":root,:host{--van-list-text-color: var(--van-text-color-2);--van-list-text-font-size: var(--van-font-size-md);--van-list-text-line-height: 50px;--van-list-loading-icon-size: 16px}.van-list__loading,.van-list__finished-text,.van-list__error-text{color:var(--van-list-text-color);font-size:var(--van-list-text-font-size);line-height:var(--van-list-text-line-height);text-align:center}.van-list__placeholder{height:0;pointer-events:none}.van-list__loading-icon .van-loading__spinner{width:var(--van-list-loading-icon-size);height:var(--van-list-loading-icon-size)}\n",
+      "start": 1714699770853,
+      "end": 1714699770861,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "result": ":root,:host{--van-list-text-color: var(--van-text-color-2);--van-list-text-font-size: var(--van-font-size-md);--van-list-text-line-height: 1.33333rem;--van-list-loading-icon-size: 0.42667rem}.van-list__loading,.van-list__finished-text,.van-list__error-text{color:var(--van-list-text-color);font-size:var(--van-list-text-font-size);line-height:var(--van-list-text-line-height);text-align:center}.van-list__placeholder{height:0;pointer-events:none}.van-list__loading-icon .van-loading__spinner{width:var(--van-list-loading-icon-size);height:var(--van-list-loading-icon-size)}\n",
+      "start": 1714699770861,
+      "end": 1714699770862,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699770862,
+      "end": 1714699770862,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699770862,
+      "end": 1714699770862,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699770862,
+      "end": 1714699770862,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699770862,
+      "end": 1714699770862,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699770862,
+      "end": 1714699770862,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": ":root,:host{--van-list-text-color: var(--van-text-color-2);--van-list-text-font-size: var(--van-font-size-md);--van-list-text-line-height: 1.33333rem;--van-list-loading-icon-size: 0.42667rem}.van-list__loading,.van-list__finished-text,.van-list__error-text{color:var(--van-list-text-color);font-size:var(--van-list-text-font-size);line-height:var(--van-list-text-line-height);text-align:center}.van-list__placeholder{height:0;pointer-events:none}.van-list__loading-icon .van-loading__spinner{width:var(--van-list-loading-icon-size);height:var(--van-list-loading-icon-size)}\n",
+      "start": 1714699770862,
+      "end": 1714699770862,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699770862,
+      "end": 1714699770862,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699770862,
+      "end": 1714699770862,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1714699770862,
+      "end": 1714699770862,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699770862,
+      "end": 1714699770862,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699770862,
+      "end": 1714699770862,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699770862,
+      "end": 1714699770862,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699770862,
+      "end": 1714699770862,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699770862,
+      "end": 1714699770862,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699770862,
+      "end": 1714699770862,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699770862,
+      "end": 1714699770862,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699770862,
+      "end": 1714699770862,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699770862,
+      "end": 1714699770862,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699770862,
+      "end": 1714699770862,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699770862,
+      "end": 1714699770862,
+      "order": "normal"
+    }
+  ]
+}

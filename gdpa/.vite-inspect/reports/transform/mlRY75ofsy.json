@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/zip.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var unzip = require('./unzip')\r\n\r\n/**\r\n * 将每个数组中相应位置的值合并在一起\r\n *\r\n * @param {Array*} array 数组\r\n */\r\nfunction zip () {\r\n  return unzip(arguments)\r\n}\r\n\r\nmodule.exports = zip\r\n",
+      "start": 1714699767567,
+      "end": 1714699767592,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767592,
+      "end": 1714699767592,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767592,
+      "end": 1714699767592,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767592,
+      "end": 1714699767592,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767592,
+      "end": 1714699767592,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767592,
+      "end": 1714699767592,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767592,
+      "end": 1714699767592,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var unzip = require('./unzip')\r\n\r\n/**\r\n * 将每个数组中相应位置的值合并在一起\r\n *\r\n * @param {Array*} array 数组\r\n */\r\nfunction zip () {\r\n  return unzip(arguments)\r\n}\r\n\r\nmodule.exports = zip\r\n",
+      "start": 1714699767592,
+      "end": 1714699767592,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767592,
+      "end": 1714699767592,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767592,
+      "end": 1714699767592,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767592,
+      "end": 1714699767592,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767592,
+      "end": 1714699767592,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767592,
+      "end": 1714699767592,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767592,
+      "end": 1714699767592,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/unzip.js?commonjs-proxy\";\n\nvar unzip = require$$0\r\n\r\n/**\r\n * 将每个数组中相应位置的值合并在一起\r\n *\r\n * @param {Array*} array 数组\r\n */\r\nfunction zip () {\r\n  return unzip(arguments)\r\n}\r\n\r\nvar zip_1 = zip\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(zip_1);\nexport { zip_1 as __moduleExports };",
+      "start": 1714699767592,
+      "end": 1714699768218,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;AAAA,IAAI,KAAK,GAAG,UAAkB;AAC9B;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,GAAG,IAAI;AAChB,EAAE,OAAO,KAAK,CAAC,SAAS,CAAC;AACzB,CAAC;AACD;IACA,KAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768218,
+      "end": 1714699768218,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768218,
+      "end": 1714699768218,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768218,
+      "end": 1714699768218,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768218,
+      "end": 1714699768218,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768218,
+      "end": 1714699768218,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768218,
+      "end": 1714699768218,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768218,
+      "end": 1714699768218,
+      "order": "normal"
+    }
+  ]
+}

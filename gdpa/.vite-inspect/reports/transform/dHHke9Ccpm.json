@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/invoke.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import baseInvoke from './_baseInvoke.js';\nimport baseRest from './_baseRest.js';\n\n/**\n * Invokes the method at `path` of `object`.\n *\n * @static\n * @memberOf _\n * @since 4.0.0\n * @category Object\n * @param {Object} object The object to query.\n * @param {Array|string} path The path of the method to invoke.\n * @param {...*} [args] The arguments to invoke the method with.\n * @returns {*} Returns the result of the invoked method.\n * @example\n *\n * var object = { 'a': [{ 'b': { 'c': [1, 2, 3, 4] } }] };\n *\n * _.invoke(object, 'a[0].b.c.slice', 1, 3);\n * // => [2, 3]\n */\nvar invoke = baseRest(baseInvoke);\n\nexport default invoke;\n",
+      "start": 1714699768383,
+      "end": 1714699768406,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768406,
+      "end": 1714699768406,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768406,
+      "end": 1714699768406,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768406,
+      "end": 1714699768406,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768406,
+      "end": 1714699768406,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699768406,
+      "end": 1714699768406,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699768406,
+      "end": 1714699768406,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import baseInvoke from './_baseInvoke.js';\nimport baseRest from './_baseRest.js';\n\n/**\n * Invokes the method at `path` of `object`.\n *\n * @static\n * @memberOf _\n * @since 4.0.0\n * @category Object\n * @param {Object} object The object to query.\n * @param {Array|string} path The path of the method to invoke.\n * @param {...*} [args] The arguments to invoke the method with.\n * @returns {*} Returns the result of the invoked method.\n * @example\n *\n * var object = { 'a': [{ 'b': { 'c': [1, 2, 3, 4] } }] };\n *\n * _.invoke(object, 'a[0].b.c.slice', 1, 3);\n * // => [2, 3]\n */\nvar invoke = baseRest(baseInvoke);\n\nexport default invoke;\n",
+      "start": 1714699768406,
+      "end": 1714699768406,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699768406,
+      "end": 1714699768406,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699768406,
+      "end": 1714699768406,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699768406,
+      "end": 1714699768406,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699768406,
+      "end": 1714699768406,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699768406,
+      "end": 1714699768406,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699768406,
+      "end": 1714699768406,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699768406,
+      "end": 1714699768406,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768406,
+      "end": 1714699768406,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768406,
+      "end": 1714699768406,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768406,
+      "end": 1714699768406,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768406,
+      "end": 1714699768406,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768406,
+      "end": 1714699768406,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768406,
+      "end": 1714699768406,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768406,
+      "end": 1714699768406,
+      "order": "normal"
+    }
+  ]
+}

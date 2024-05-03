@@ -1,0 +1,158 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuBar.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\n  <div\n    class=\"tab-bar hairline-border\"\n    ref=\"tabBar\"\n  >\n    <template\n      v-for=\"item in menuData\"\n      :key=\"item.routePath\"\n    >\n      <MenuItem\n        v-if=\"item.title != '扫码' || (item.title == '扫码' && inweb)\"\n        :title=\"item.title\"\n        :route-path=\"item.routePath\"\n        :icon=\"item.icon\"\n        :img_src=\"item.img_src\"\n      ></MenuItem>\n    </template>\n  </div>\n</template>\n\n<script setup lang=\"ts\">\nimport { onMounted, reactive, ref } from 'vue'\nimport MenuItem from './MenuItem.vue'\nimport { requireImg } from '@/utils/tools'\nimport { InWEB } from '@/utils/tools'\nconst inweb = ref(false)\nconst menuData = reactive([\n  {\n    title: '买币',\n    routePath: '/index',\n    icon: 'buy-coin',\n    active: true\n  },\n  {\n    title: '卖币',\n    routePath: '/sell-coin',\n    icon: 'sell-coin',\n    active: false\n  },\n  {\n    title: '订单',\n    routePath: '/order',\n    icon: 'order',\n    active: false\n  },\n  {\n    title: '活动',\n    routePath: '/activeList',\n    icon: 'point',\n    active: false\n  },\n  {\n    title: '扫码',\n    routePath: '/scanQR',\n    img_src: requireImg('qr.png', 1),\n    active: false\n  },\n  {\n    title: '我的',\n    routePath: '/mine',\n    icon: 'mine-icon',\n    active: false\n  }\n])\n\nlet tabBar = ref(null)\nonMounted(() => {\n  inweb.value = InWEB()\n})\n</script>\n\n<style lang=\"scss\" scoped>\n.tab-bar {\n  background: #fff;\n  color: #1a1a1a;\n  width: 100%;\n  flex: 0 0 130px;\n  display: flex;\n  justify-content: space-around;\n  color: #cccccc;\n  font-size: 16px;\n  z-index: 99;\n  &.hairline-border::after {\n    border: 0 !important;\n    border-top: 1px solid #d6dce8 !important;\n  }\n}\n</style>\n",
+      "start": 1714699768092,
+      "end": 1714699768202,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699768202,
+      "end": 1714699768202,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699768202,
+      "end": 1714699768202,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699768202,
+      "end": 1714699768202,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699768202,
+      "end": 1714699768202,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuBar.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuBar.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuBar.vue?vue&type=style&index=0&scoped=dbcb2355&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-dbcb2355\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuBar.vue\"]]);\n",
+      "start": 1714699768202,
+      "end": 1714699769059,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699769059,
+      "end": 1714699769059,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuBar.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuBar.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuBar.vue?vue&type=style&index=0&scoped=dbcb2355&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-dbcb2355\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuBar.vue\"]]);\n",
+      "start": 1714699769059,
+      "end": 1714699769059,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuBar.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuBar.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuBar.vue?vue&type=style&index=0&scoped=dbcb2355&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-dbcb2355\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuBar.vue\"]]);\n",
+      "start": 1714699769060,
+      "end": 1714699769405,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuBar.vue\"],\n  \"sourcesContent\": [\"import _sfc_main from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuBar.vue?vue&type=script&setup=true&lang.ts\\\";\\nexport * from \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuBar.vue?vue&type=script&setup=true&lang.ts\\\";\\nimport \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuBar.vue?vue&type=style&index=0&scoped=dbcb2355&lang.scss\\\";\\nimport _export_sfc from \\\"\\\\0plugin-vue:export-helper\\\";\\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\\\"__scopeId\\\", \\\"data-v-dbcb2355\\\"], [\\\"__file\\\", \\\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuBar.vue\\\"]]);\\n\"],\n  \"mappings\": \";AAAA,OAAO,eAAe;AACtB,cAAc;AACd,OAAO;AACP,OAAO,iBAAiB;AACxB,eAA+B,4BAAY,WAAW,CAAC,CAAC,aAAa,iBAAiB,GAAG,CAAC,UAAU,uEAAuE,CAAC,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699769405,
+      "end": 1714699769405,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699769405,
+      "end": 1714699769405,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699769405,
+      "end": 1714699769405,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699769405,
+      "end": 1714699769405,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699769405,
+      "end": 1714699769405,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699769405,
+      "end": 1714699769405,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699769405,
+      "end": 1714699769405,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699769405,
+      "end": 1714699769405,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699769405,
+      "end": 1714699769405,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuBar.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuBar.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuBar.vue?vue&type=style&index=0&scoped=dbcb2355&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-dbcb2355\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuBar.vue\"]]);\n",
+      "start": 1714699769405,
+      "end": 1714699769407,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuBar.vue"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport _sfc_main from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuBar.vue?vue&type=script&setup=true&lang.ts\";\nexport * from \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuBar.vue?vue&type=script&setup=true&lang.ts\";\nimport \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuBar.vue?vue&type=style&index=0&scoped=dbcb2355&lang.scss\";\nimport _export_sfc from \"\\0plugin-vue:export-helper\";\nexport default /* @__PURE__ */ _export_sfc(_sfc_main, [[\"__scopeId\", \"data-v-dbcb2355\"], [\"__file\", \"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Menu/MenuBar.vue\"]]);\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699769407,
+      "end": 1714699769407,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699769407,
+      "end": 1714699769408,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699769408,
+      "end": 1714699769408,
+      "order": "normal"
+    }
+  ]
+}

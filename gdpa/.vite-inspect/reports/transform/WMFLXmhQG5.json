@@ -1,0 +1,165 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue?vue&type=script&setup=true&lang.ts",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "import { defineComponent as _defineComponent } from 'vue'\nimport { createElementVNode as _createElementVNode, unref as _unref, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"total-task-container\" }\nconst _hoisted_2 = /*#__PURE__*/_createElementVNode(\"div\", { class: \"container-title\" }, \"累计任务\", -1 /* HOISTED */)\n\nimport { computed, onMounted, ref } from 'vue'\nimport Task from './Task.vue'\nimport { TOTALTASK } from './tools'\nimport { useTaskActivityStore } from '@/store/modules/taskActivity'\nimport { IAllTaskData } from '@/store/types/taskActivity'\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TotalTask',\n  setup(__props) {\n\nconst taskActivityStore = useTaskActivityStore()\nconst { getAllTaskBandsListApi } = taskActivityStore\nconst totalTaskList = ref<IAllTaskData[]>([])\n\nconst getAllTaskBandsList = async () => {\n  try {\n    const res = await getAllTaskBandsListApi()\n\n    if (res) {\n      window.log('累计任务列表', res)\n      totalTaskList.value = res\n    }\n  } catch (error) {\n    console.error(error)\n  }\n}\n\nonMounted(() => {\n  getAllTaskBandsList()\n})\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _hoisted_2,\n    _createVNode(Task, {\n      list: totalTaskList.value,\n      type: _unref(TOTALTASK),\n      onUpdateList: getAllTaskBandsList\n    }, null, 8 /* PROPS */, [\"list\", \"type\"])\n  ]))\n}\n}\n\n})",
+      "start": 1714699771924,
+      "end": 1714699771924
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771924,
+      "end": 1714699771924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { createElementVNode as _createElementVNode, unref as _unref, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"total-task-container\" };\nconst _hoisted_2 = /* @__PURE__ */ _createElementVNode(\n  \"div\",\n  { class: \"container-title\" },\n  \"累计任务\",\n  -1\n  /* HOISTED */\n);\nimport { onMounted, ref } from \"vue\";\nimport Task from \"./Task.vue\";\nimport { TOTALTASK } from \"./tools\";\nimport { useTaskActivityStore } from \"@/store/modules/taskActivity\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"TotalTask\",\n  setup(__props) {\n    const taskActivityStore = useTaskActivityStore();\n    const { getAllTaskBandsListApi } = taskActivityStore;\n    const totalTaskList = ref([]);\n    const getAllTaskBandsList = async () => {\n      try {\n        const res = await getAllTaskBandsListApi();\n        if (res) {\n          window.log(\"累计任务列表\", res);\n          totalTaskList.value = res;\n        }\n      } catch (error) {\n        console.error(error);\n      }\n    };\n    onMounted(() => {\n      getAllTaskBandsList();\n    });\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _hoisted_2,\n        _createVNode(Task, {\n          list: totalTaskList.value,\n          type: _unref(TOTALTASK),\n          onUpdateList: getAllTaskBandsList\n        }, null, 8, [\"list\", \"type\"])\n      ]);\n    };\n  }\n});\n",
+      "start": 1714699771924,
+      "end": 1714699772152,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "import { defineComponent as _defineComponent } from 'vue'\nimport { createElementVNode as _createElementVNode, unref as _unref, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"total-task-container\" }\nconst _hoisted_2 = /*#__PURE__*/_createElementVNode(\"div\", { class: \"container-title\" }, \"累计任务\", -1 /* HOISTED */)\n\nimport { computed, onMounted, ref } from 'vue'\nimport Task from './Task.vue'\nimport { TOTALTASK } from './tools'\nimport { useTaskActivityStore } from '@/store/modules/taskActivity'\nimport { IAllTaskData } from '@/store/types/taskActivity'\n\n\nexport default /*#__PURE__*/_defineComponent({\n  __name: 'TotalTask',\n  setup(__props) {\n\nconst taskActivityStore = useTaskActivityStore()\nconst { getAllTaskBandsListApi } = taskActivityStore\nconst totalTaskList = ref<IAllTaskData[]>([])\n\nconst getAllTaskBandsList = async () => {\n  try {\n    const res = await getAllTaskBandsListApi()\n\n    if (res) {\n      window.log('累计任务列表', res)\n      totalTaskList.value = res\n    }\n  } catch (error) {\n    console.error(error)\n  }\n}\n\nonMounted(() => {\n  getAllTaskBandsList()\n})\n\nreturn (_ctx: any,_cache: any) => {\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _hoisted_2,\n    _createVNode(Task, {\n      list: totalTaskList.value,\n      type: _unref(TOTALTASK),\n      onUpdateList: getAllTaskBandsList\n    }, null, 8 /* PROPS */, [\"list\", \"type\"])\n  ]))\n}\n}\n\n})"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,sBAAsB,qBAAqB,SAAS,QAAQ,eAAe,cAAc,aAAa,YAAY,sBAAsB,2BAA2B;AAE5K,MAAM,aAAa,EAAE,OAAO,uBAAuB;AACnD,MAAM,aAA0B;AAAA,EAAoB;AAAA,EAAO,EAAE,OAAO,kBAAkB;AAAA,EAAG;AAAA,EAAQ;AAAA;AAAgB;AAEjH,SAAmB,WAAW,WAAW;AACzC,OAAO,UAAU;AACjB,SAAS,iBAAiB;AAC1B,SAAS,4BAA4B;AAIrC,eAA4B,iCAAiB;AAAA,EAC3C,QAAQ;AAAA,EACR,MAAM,SAAS;AAEjB,UAAM,oBAAoB,qBAAqB;AAC/C,UAAM,EAAE,uBAAuB,IAAI;AACnC,UAAM,gBAAgB,IAAoB,CAAC,CAAC;AAE5C,UAAM,sBAAsB,YAAY;AACtC,UAAI;AACF,cAAM,MAAM,MAAM,uBAAuB;AAEzC,YAAI,KAAK;AACP,iBAAO,IAAI,UAAU,GAAG;AACxB,wBAAc,QAAQ;AAAA,QACxB;AAAA,MACF,SAAS,OAAO;AACd,gBAAQ,MAAM,KAAK;AAAA,MACrB;AAAA,IACF;AAEA,cAAU,MAAM;AACd,0BAAoB;AAAA,IACtB,CAAC;AAED,WAAO,CAAC,MAAU,WAAgB;AAChC,aAAQ,WAAW,GAAG,oBAAoB,OAAO,YAAY;AAAA,QAC3D;AAAA,QACA,aAAa,MAAM;AAAA,UACjB,MAAM,cAAc;AAAA,UACpB,MAAM,OAAO,SAAS;AAAA,UACtB,cAAc;AAAA,QAChB,GAAG,MAAM,GAAe,CAAC,QAAQ,MAAM,CAAC;AAAA,MAC1C,CAAC;AAAA,IACH;AAAA,EACA;AAEA,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699772152,
+      "end": 1714699772152,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699772152,
+      "end": 1714699772152,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699772152,
+      "end": 1714699772152,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699772152,
+      "end": 1714699772152,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { defineComponent as _defineComponent } from \"vue\";\nimport { createElementVNode as _createElementVNode, unref as _unref, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"total-task-container\" };\nconst _hoisted_2 = /* @__PURE__ */ _createElementVNode(\n  \"div\",\n  { class: \"container-title\" },\n  \"累计任务\",\n  -1\n  /* HOISTED */\n);\nimport { onMounted, ref } from \"vue\";\nimport Task from \"./Task.vue\";\nimport { TOTALTASK } from \"./tools\";\nimport { useTaskActivityStore } from \"@/store/modules/taskActivity\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"TotalTask\",\n  setup(__props) {\n    const taskActivityStore = useTaskActivityStore();\n    const { getAllTaskBandsListApi } = taskActivityStore;\n    const totalTaskList = ref([]);\n    const getAllTaskBandsList = async () => {\n      try {\n        const res = await getAllTaskBandsListApi();\n        if (res) {\n          window.log(\"累计任务列表\", res);\n          totalTaskList.value = res;\n        }\n      } catch (error) {\n        console.error(error);\n      }\n    };\n    onMounted(() => {\n      getAllTaskBandsList();\n    });\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _hoisted_2,\n        _createVNode(Task, {\n          list: totalTaskList.value,\n          type: _unref(TOTALTASK),\n          onUpdateList: getAllTaskBandsList\n        }, null, 8, [\"list\", \"type\"])\n      ]);\n    };\n  }\n});\n",
+      "start": 1714699772152,
+      "end": 1714699772152,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "result": "\"use strict\";\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { createElementVNode as _createElementVNode, unref as _unref, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"total-task-container\" };\nconst _hoisted_2 = /* @__PURE__ */ _createElementVNode(\n  \"div\",\n  { class: \"container-title\" },\n  \"\\u7D2F\\u8BA1\\u4EFB\\u52A1\",\n  -1\n  /* HOISTED */\n);\nimport { onMounted, ref } from \"vue\";\nimport Task from \"./Task.vue\";\nimport { TOTALTASK } from \"./tools\";\nimport { useTaskActivityStore } from \"@/store/modules/taskActivity\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"TotalTask\",\n  setup(__props) {\n    const taskActivityStore = useTaskActivityStore();\n    const { getAllTaskBandsListApi } = taskActivityStore;\n    const totalTaskList = ref([]);\n    const getAllTaskBandsList = async () => {\n      try {\n        const res = await getAllTaskBandsListApi();\n        if (res) {\n          window.log(\"\\u7D2F\\u8BA1\\u4EFB\\u52A1\\u5217\\u8868\", res);\n          totalTaskList.value = res;\n        }\n      } catch (error) {\n        console.error(error);\n      }\n    };\n    onMounted(() => {\n      getAllTaskBandsList();\n    });\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _hoisted_2,\n        _createVNode(Task, {\n          list: totalTaskList.value,\n          type: _unref(TOTALTASK),\n          onUpdateList: getAllTaskBandsList\n        }, null, 8, [\"list\", \"type\"])\n      ]);\n    };\n  }\n});\n",
+      "start": 1714699772152,
+      "end": 1714699772241,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue?vue&type=script&setup=true&lang.ts\"],\n  \"sourcesContent\": [\"import { defineComponent as _defineComponent } from \\\"vue\\\";\\nimport { createElementVNode as _createElementVNode, unref as _unref, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \\\"vue\\\";\\nconst _hoisted_1 = { class: \\\"total-task-container\\\" };\\nconst _hoisted_2 = /* @__PURE__ */ _createElementVNode(\\n  \\\"div\\\",\\n  { class: \\\"container-title\\\" },\\n  \\\"\\u7D2F\\u8BA1\\u4EFB\\u52A1\\\",\\n  -1\\n  /* HOISTED */\\n);\\nimport { onMounted, ref } from \\\"vue\\\";\\nimport Task from \\\"./Task.vue\\\";\\nimport { TOTALTASK } from \\\"./tools\\\";\\nimport { useTaskActivityStore } from \\\"@/store/modules/taskActivity\\\";\\nexport default /* @__PURE__ */ _defineComponent({\\n  __name: \\\"TotalTask\\\",\\n  setup(__props) {\\n    const taskActivityStore = useTaskActivityStore();\\n    const { getAllTaskBandsListApi } = taskActivityStore;\\n    const totalTaskList = ref([]);\\n    const getAllTaskBandsList = async () => {\\n      try {\\n        const res = await getAllTaskBandsListApi();\\n        if (res) {\\n          window.log(\\\"\\u7D2F\\u8BA1\\u4EFB\\u52A1\\u5217\\u8868\\\", res);\\n          totalTaskList.value = res;\\n        }\\n      } catch (error) {\\n        console.error(error);\\n      }\\n    };\\n    onMounted(() => {\\n      getAllTaskBandsList();\\n    });\\n    return (_ctx, _cache) => {\\n      return _openBlock(), _createElementBlock(\\\"div\\\", _hoisted_1, [\\n        _hoisted_2,\\n        _createVNode(Task, {\\n          list: totalTaskList.value,\\n          type: _unref(TOTALTASK),\\n          onUpdateList: getAllTaskBandsList\\n        }, null, 8, [\\\"list\\\", \\\"type\\\"])\\n      ]);\\n    };\\n  }\\n});\\n\"],\n  \"mappings\": \";AAAA,SAAS,mBAAmB,wBAAwB;AACpD,SAAS,sBAAsB,qBAAqB,SAAS,QAAQ,eAAe,cAAc,aAAa,YAAY,sBAAsB,2BAA2B;AAC5K,MAAM,aAAa,EAAE,OAAO,uBAAuB;AACnD,MAAM,aAA6B;AAAA,EACjC;AAAA,EACA,EAAE,OAAO,kBAAkB;AAAA,EAC3B;AAAA,EACA;AAAA;AAEF;AACA,SAAS,WAAW,WAAW;AAC/B,OAAO,UAAU;AACjB,SAAS,iBAAiB;AAC1B,SAAS,4BAA4B;AACrC,eAA+B,iCAAiB;AAAA,EAC9C,QAAQ;AAAA,EACR,MAAM,SAAS;AACb,UAAM,oBAAoB,qBAAqB;AAC/C,UAAM,EAAE,uBAAuB,IAAI;AACnC,UAAM,gBAAgB,IAAI,CAAC,CAAC;AAC5B,UAAM,sBAAsB,YAAY;AACtC,UAAI;AACF,cAAM,MAAM,MAAM,uBAAuB;AACzC,YAAI,KAAK;AACP,iBAAO,IAAI,wCAAU,GAAG;AACxB,wBAAc,QAAQ;AAAA,QACxB;AAAA,MACF,SAAS,OAAO;AACd,gBAAQ,MAAM,KAAK;AAAA,MACrB;AAAA,IACF;AACA,cAAU,MAAM;AACd,0BAAoB;AAAA,IACtB,CAAC;AACD,WAAO,CAAC,MAAM,WAAW;AACvB,aAAO,WAAW,GAAG,oBAAoB,OAAO,YAAY;AAAA,QAC1D;AAAA,QACA,aAAa,MAAM;AAAA,UACjB,MAAM,cAAc;AAAA,UACpB,MAAM,OAAO,SAAS;AAAA,UACtB,cAAc;AAAA,QAChB,GAAG,MAAM,GAAG,CAAC,QAAQ,MAAM,CAAC;AAAA,MAC9B,CAAC;AAAA,IACH;AAAA,EACF;AACF,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699772241,
+      "end": 1714699772241,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699772241,
+      "end": 1714699772241,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699772241,
+      "end": 1714699772241,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699772241,
+      "end": 1714699772241,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699772241,
+      "end": 1714699772241,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699772241,
+      "end": 1714699772241,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699772241,
+      "end": 1714699772241,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699772241,
+      "end": 1714699772241,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699772241,
+      "end": 1714699772242,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "result": "/* unplugin-vue-components disabled */\"use strict\";\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { createElementVNode as _createElementVNode, unref as _unref, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"total-task-container\" };\nconst _hoisted_2 = /* @__PURE__ */ _createElementVNode(\n  \"div\",\n  { class: \"container-title\" },\n  \"\\u7D2F\\u8BA1\\u4EFB\\u52A1\",\n  -1\n  /* HOISTED */\n);\nimport { onMounted, ref } from \"vue\";\nimport Task from \"./Task.vue\";\nimport { TOTALTASK } from \"./tools\";\nimport { useTaskActivityStore } from \"@/store/modules/taskActivity\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"TotalTask\",\n  setup(__props) {\n    const taskActivityStore = useTaskActivityStore();\n    const { getAllTaskBandsListApi } = taskActivityStore;\n    const totalTaskList = ref([]);\n    const getAllTaskBandsList = async () => {\n      try {\n        const res = await getAllTaskBandsListApi();\n        if (res) {\n          window.log(\"\\u7D2F\\u8BA1\\u4EFB\\u52A1\\u5217\\u8868\", res);\n          totalTaskList.value = res;\n        }\n      } catch (error) {\n        console.error(error);\n      }\n    };\n    onMounted(() => {\n      getAllTaskBandsList();\n    });\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _hoisted_2,\n        _createVNode(Task, {\n          list: totalTaskList.value,\n          type: _unref(TOTALTASK),\n          onUpdateList: getAllTaskBandsList\n        }, null, 8, [\"list\", \"type\"])\n      ]);\n    };\n  }\n});\n",
+      "start": 1714699772242,
+      "end": 1714699772242,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "/Users/afeng/Desktop/work/gdpayh5-web/src/components/Point/TotalTask.vue?vue&type=script&setup=true&lang.ts"
+        ],
+        "sourcesContent": [
+          "\"use strict\";\nimport { defineComponent as _defineComponent } from \"vue\";\nimport { createElementVNode as _createElementVNode, unref as _unref, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\";\nconst _hoisted_1 = { class: \"total-task-container\" };\nconst _hoisted_2 = /* @__PURE__ */ _createElementVNode(\n  \"div\",\n  { class: \"container-title\" },\n  \"\\u7D2F\\u8BA1\\u4EFB\\u52A1\",\n  -1\n  /* HOISTED */\n);\nimport { onMounted, ref } from \"vue\";\nimport Task from \"./Task.vue\";\nimport { TOTALTASK } from \"./tools\";\nimport { useTaskActivityStore } from \"@/store/modules/taskActivity\";\nexport default /* @__PURE__ */ _defineComponent({\n  __name: \"TotalTask\",\n  setup(__props) {\n    const taskActivityStore = useTaskActivityStore();\n    const { getAllTaskBandsListApi } = taskActivityStore;\n    const totalTaskList = ref([]);\n    const getAllTaskBandsList = async () => {\n      try {\n        const res = await getAllTaskBandsListApi();\n        if (res) {\n          window.log(\"\\u7D2F\\u8BA1\\u4EFB\\u52A1\\u5217\\u8868\", res);\n          totalTaskList.value = res;\n        }\n      } catch (error) {\n        console.error(error);\n      }\n    };\n    onMounted(() => {\n      getAllTaskBandsList();\n    });\n    return (_ctx, _cache) => {\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _hoisted_2,\n        _createVNode(Task, {\n          list: totalTaskList.value,\n          type: _unref(TOTALTASK),\n          onUpdateList: getAllTaskBandsList\n        }, null, 8, [\"list\", \"type\"])\n      ]);\n    };\n  }\n});\n"
+        ],
+        "names": [],
+        "mappings": "sCAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;"
+      }
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699772242,
+      "end": 1714699772242,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699772242,
+      "end": 1714699772242,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699772242,
+      "end": 1714699772242,
+      "order": "normal"
+    }
+  ]
+}

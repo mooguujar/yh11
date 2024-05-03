@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vxe-table@4.5.21_vue@3.4.19_xe-utils@3.5.24/node_modules/vxe-table/es/checkbox/src/group.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { defineComponent, h, provide, computed, inject } from 'vue';\nimport GlobalConfig from '../../v-x-e-table/src/conf';\nimport XEUtils from 'xe-utils';\nimport { useSize } from '../../hooks/size';\nexport default defineComponent({\n    name: 'VxeCheckboxGroup',\n    props: {\n        modelValue: Array,\n        disabled: Boolean,\n        max: { type: [String, Number], default: null },\n        size: { type: String, default: function () { return GlobalConfig.checkbox.size || GlobalConfig.size; } }\n    },\n    emits: [\n        'update:modelValue',\n        'change'\n    ],\n    setup: function (props, context) {\n        var slots = context.slots, emit = context.emit;\n        var $xeform = inject('$xeform', null);\n        var $xeformiteminfo = inject('$xeformiteminfo', null);\n        var xID = XEUtils.uniqueId();\n        var computeIsMaximize = computed(function () {\n            var modelValue = props.modelValue, max = props.max;\n            if (max) {\n                return (modelValue ? modelValue.length : 0) >= XEUtils.toNumber(max);\n            }\n            return false;\n        });\n        var computeMaps = {\n            computeIsMaximize: computeIsMaximize\n        };\n        var $xecheckboxgroup = {\n            xID: xID,\n            props: props,\n            context: context,\n            getComputeMaps: function () { return computeMaps; }\n        };\n        useSize(props);\n        var checkboxGroupMethods = {\n            dispatchEvent: function (type, params, evnt) {\n                emit(type, Object.assign({ $checkboxGroup: $xecheckboxgroup, $event: evnt }, params));\n            }\n        };\n        var checkboxGroupPrivateMethods = {\n            handleChecked: function (params, evnt) {\n                var checked = params.checked, label = params.label;\n                var checklist = props.modelValue || [];\n                var checkIndex = checklist.indexOf(label);\n                if (checked) {\n                    if (checkIndex === -1) {\n                        checklist.push(label);\n                    }\n                }\n                else {\n                    checklist.splice(checkIndex, 1);\n                }\n                emit('update:modelValue', checklist);\n                $xecheckboxgroup.dispatchEvent('change', Object.assign({ checklist: checklist }, params), evnt);\n                // 自动更新校验状态\n                if ($xeform && $xeformiteminfo) {\n                    $xeform.triggerItemEvent(evnt, $xeformiteminfo.itemConfig.field, checklist);\n                }\n            }\n        };\n        Object.assign($xecheckboxgroup, checkboxGroupMethods, checkboxGroupPrivateMethods);\n        var renderVN = function () {\n            return h('div', {\n                class: 'vxe-checkbox-group'\n            }, slots.default ? slots.default({}) : []);\n        };\n        $xecheckboxgroup.renderVN = renderVN;\n        provide('$xecheckboxgroup', $xecheckboxgroup);\n        return renderVN;\n    }\n});\n",
+      "start": 1714699767740,
+      "end": 1714699767778,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { defineComponent, h, provide, computed, inject } from 'vue';\nimport GlobalConfig from '../../v-x-e-table/src/conf';\nimport XEUtils from 'xe-utils';\nimport { useSize } from '../../hooks/size';\nexport default defineComponent({\n    name: 'VxeCheckboxGroup',\n    props: {\n        modelValue: Array,\n        disabled: Boolean,\n        max: { type: [String, Number], default: null },\n        size: { type: String, default: function () { return GlobalConfig.checkbox.size || GlobalConfig.size; } }\n    },\n    emits: [\n        'update:modelValue',\n        'change'\n    ],\n    setup: function (props, context) {\n        var slots = context.slots, emit = context.emit;\n        var $xeform = inject('$xeform', null);\n        var $xeformiteminfo = inject('$xeformiteminfo', null);\n        var xID = XEUtils.uniqueId();\n        var computeIsMaximize = computed(function () {\n            var modelValue = props.modelValue, max = props.max;\n            if (max) {\n                return (modelValue ? modelValue.length : 0) >= XEUtils.toNumber(max);\n            }\n            return false;\n        });\n        var computeMaps = {\n            computeIsMaximize: computeIsMaximize\n        };\n        var $xecheckboxgroup = {\n            xID: xID,\n            props: props,\n            context: context,\n            getComputeMaps: function () { return computeMaps; }\n        };\n        useSize(props);\n        var checkboxGroupMethods = {\n            dispatchEvent: function (type, params, evnt) {\n                emit(type, Object.assign({ $checkboxGroup: $xecheckboxgroup, $event: evnt }, params));\n            }\n        };\n        var checkboxGroupPrivateMethods = {\n            handleChecked: function (params, evnt) {\n                var checked = params.checked, label = params.label;\n                var checklist = props.modelValue || [];\n                var checkIndex = checklist.indexOf(label);\n                if (checked) {\n                    if (checkIndex === -1) {\n                        checklist.push(label);\n                    }\n                }\n                else {\n                    checklist.splice(checkIndex, 1);\n                }\n                emit('update:modelValue', checklist);\n                $xecheckboxgroup.dispatchEvent('change', Object.assign({ checklist: checklist }, params), evnt);\n                // 自动更新校验状态\n                if ($xeform && $xeformiteminfo) {\n                    $xeform.triggerItemEvent(evnt, $xeformiteminfo.itemConfig.field, checklist);\n                }\n            }\n        };\n        Object.assign($xecheckboxgroup, checkboxGroupMethods, checkboxGroupPrivateMethods);\n        var renderVN = function () {\n            return h('div', {\n                class: 'vxe-checkbox-group'\n            }, slots.default ? slots.default({}) : []);\n        };\n        $xecheckboxgroup.renderVN = renderVN;\n        provide('$xecheckboxgroup', $xecheckboxgroup);\n        return renderVN;\n    }\n});\n",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767778,
+      "end": 1714699767778,
+      "order": "normal"
+    }
+  ]
+}

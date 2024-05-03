@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/loading/Loading.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { computed, defineComponent } from \"vue\";\nimport { extend, addUnit, numericProp, getSizeStyle, makeStringProp, createNamespace } from \"../utils/index.mjs\";\nconst [name, bem] = createNamespace(\"loading\");\nconst SpinIcon = Array(12).fill(null).map((_, index) => _createVNode(\"i\", {\n  \"class\": bem(\"line\", String(index + 1))\n}, null));\nconst CircularIcon = _createVNode(\"svg\", {\n  \"class\": bem(\"circular\"),\n  \"viewBox\": \"25 25 50 50\"\n}, [_createVNode(\"circle\", {\n  \"cx\": \"50\",\n  \"cy\": \"50\",\n  \"r\": \"20\",\n  \"fill\": \"none\"\n}, null)]);\nconst loadingProps = {\n  size: numericProp,\n  type: makeStringProp(\"circular\"),\n  color: String,\n  vertical: Boolean,\n  textSize: numericProp,\n  textColor: String\n};\nvar stdin_default = defineComponent({\n  name,\n  props: loadingProps,\n  setup(props, {\n    slots\n  }) {\n    const spinnerStyle = computed(() => extend({\n      color: props.color\n    }, getSizeStyle(props.size)));\n    const renderIcon = () => {\n      const DefaultIcon = props.type === \"spinner\" ? SpinIcon : CircularIcon;\n      return _createVNode(\"span\", {\n        \"class\": bem(\"spinner\", props.type),\n        \"style\": spinnerStyle.value\n      }, [slots.icon ? slots.icon() : DefaultIcon]);\n    };\n    const renderText = () => {\n      var _a;\n      if (slots.default) {\n        return _createVNode(\"span\", {\n          \"class\": bem(\"text\"),\n          \"style\": {\n            fontSize: addUnit(props.textSize),\n            color: (_a = props.textColor) != null ? _a : props.color\n          }\n        }, [slots.default()]);\n      }\n    };\n    return () => {\n      const {\n        type,\n        vertical\n      } = props;\n      return _createVNode(\"div\", {\n        \"class\": bem([type, {\n          vertical\n        }]),\n        \"aria-live\": \"polite\",\n        \"aria-busy\": true\n      }, [renderIcon(), renderText()]);\n    };\n  }\n});\nexport {\n  stdin_default as default,\n  loadingProps\n};\n",
+      "start": 1714699767292,
+      "end": 1714699767314,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767314,
+      "end": 1714699767314,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767314,
+      "end": 1714699767314,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767314,
+      "end": 1714699767314,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767314,
+      "end": 1714699767314,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767314,
+      "end": 1714699767314,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767314,
+      "end": 1714699767314,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport { computed, defineComponent } from \"vue\";\nimport { extend, addUnit, numericProp, getSizeStyle, makeStringProp, createNamespace } from \"../utils/index.mjs\";\nconst [name, bem] = createNamespace(\"loading\");\nconst SpinIcon = Array(12).fill(null).map((_, index) => _createVNode(\"i\", {\n  \"class\": bem(\"line\", String(index + 1))\n}, null));\nconst CircularIcon = _createVNode(\"svg\", {\n  \"class\": bem(\"circular\"),\n  \"viewBox\": \"25 25 50 50\"\n}, [_createVNode(\"circle\", {\n  \"cx\": \"50\",\n  \"cy\": \"50\",\n  \"r\": \"20\",\n  \"fill\": \"none\"\n}, null)]);\nconst loadingProps = {\n  size: numericProp,\n  type: makeStringProp(\"circular\"),\n  color: String,\n  vertical: Boolean,\n  textSize: numericProp,\n  textColor: String\n};\nvar stdin_default = defineComponent({\n  name,\n  props: loadingProps,\n  setup(props, {\n    slots\n  }) {\n    const spinnerStyle = computed(() => extend({\n      color: props.color\n    }, getSizeStyle(props.size)));\n    const renderIcon = () => {\n      const DefaultIcon = props.type === \"spinner\" ? SpinIcon : CircularIcon;\n      return _createVNode(\"span\", {\n        \"class\": bem(\"spinner\", props.type),\n        \"style\": spinnerStyle.value\n      }, [slots.icon ? slots.icon() : DefaultIcon]);\n    };\n    const renderText = () => {\n      var _a;\n      if (slots.default) {\n        return _createVNode(\"span\", {\n          \"class\": bem(\"text\"),\n          \"style\": {\n            fontSize: addUnit(props.textSize),\n            color: (_a = props.textColor) != null ? _a : props.color\n          }\n        }, [slots.default()]);\n      }\n    };\n    return () => {\n      const {\n        type,\n        vertical\n      } = props;\n      return _createVNode(\"div\", {\n        \"class\": bem([type, {\n          vertical\n        }]),\n        \"aria-live\": \"polite\",\n        \"aria-busy\": true\n      }, [renderIcon(), renderText()]);\n    };\n  }\n});\nexport {\n  stdin_default as default,\n  loadingProps\n};\n",
+      "start": 1714699767314,
+      "end": 1714699767314,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767314,
+      "end": 1714699767314,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767314,
+      "end": 1714699767314,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767314,
+      "end": 1714699767314,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767314,
+      "end": 1714699767314,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767314,
+      "end": 1714699767314,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767314,
+      "end": 1714699767314,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767314,
+      "end": 1714699767314,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767314,
+      "end": 1714699767314,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767314,
+      "end": 1714699767314,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767314,
+      "end": 1714699767314,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767314,
+      "end": 1714699767314,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767314,
+      "end": 1714699767314,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767314,
+      "end": 1714699767314,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767314,
+      "end": 1714699767314,
+      "order": "normal"
+    }
+  ]
+}

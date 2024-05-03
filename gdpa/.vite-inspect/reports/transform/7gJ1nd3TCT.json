@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/vant@4.8.4_vue@3.4.19/node_modules/vant/es/area/Area.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode, mergeProps as _mergeProps } from \"vue\";\nimport { ref, watch, computed, defineComponent } from \"vue\";\nimport { pick, extend, makeArrayProp, makeNumericProp, createNamespace } from \"../utils/index.mjs\";\nimport { pickerSharedProps } from \"../picker/Picker.mjs\";\nimport { INHERIT_PROPS, INHERIT_SLOTS, formatDataForCascade } from \"./utils.mjs\";\nimport { useExpose } from \"../composables/use-expose.mjs\";\nimport { Picker } from \"../picker/index.mjs\";\nconst [name, bem] = createNamespace(\"area\");\nconst areaProps = extend({}, pick(pickerSharedProps, INHERIT_PROPS), {\n  modelValue: String,\n  columnsNum: makeNumericProp(3),\n  columnsPlaceholder: makeArrayProp(),\n  areaList: {\n    type: Object,\n    default: () => ({})\n  }\n});\nvar stdin_default = defineComponent({\n  name,\n  props: areaProps,\n  emits: [\"change\", \"confirm\", \"cancel\", \"update:modelValue\"],\n  setup(props, {\n    emit,\n    slots\n  }) {\n    const codes = ref([]);\n    const picker = ref();\n    const columns = computed(() => formatDataForCascade(props));\n    const onChange = (...args) => emit(\"change\", ...args);\n    const onCancel = (...args) => emit(\"cancel\", ...args);\n    const onConfirm = (...args) => emit(\"confirm\", ...args);\n    watch(codes, (newCodes) => {\n      const lastCode = newCodes.length ? newCodes[newCodes.length - 1] : \"\";\n      if (lastCode && lastCode !== props.modelValue) {\n        emit(\"update:modelValue\", lastCode);\n      }\n    }, {\n      deep: true\n    });\n    watch(() => props.modelValue, (newCode) => {\n      if (newCode) {\n        const lastCode = codes.value.length ? codes.value[codes.value.length - 1] : \"\";\n        if (newCode !== lastCode) {\n          codes.value = [`${newCode.slice(0, 2)}0000`, `${newCode.slice(0, 4)}00`, newCode].slice(0, +props.columnsNum);\n        }\n      } else {\n        codes.value = [];\n      }\n    }, {\n      immediate: true\n    });\n    useExpose({\n      confirm: () => {\n        var _a;\n        return (_a = picker.value) == null ? void 0 : _a.confirm();\n      },\n      getSelectedOptions: () => {\n        var _a;\n        return ((_a = picker.value) == null ? void 0 : _a.getSelectedOptions()) || [];\n      }\n    });\n    return () => _createVNode(Picker, _mergeProps({\n      \"ref\": picker,\n      \"modelValue\": codes.value,\n      \"onUpdate:modelValue\": ($event) => codes.value = $event,\n      \"class\": bem(),\n      \"columns\": columns.value,\n      \"onChange\": onChange,\n      \"onCancel\": onCancel,\n      \"onConfirm\": onConfirm\n    }, pick(props, INHERIT_PROPS)), pick(slots, INHERIT_SLOTS));\n  }\n});\nexport {\n  areaProps,\n  stdin_default as default\n};\n",
+      "start": 1714699767147,
+      "end": 1714699767188,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "import { createVNode as _createVNode, mergeProps as _mergeProps } from \"vue\";\nimport { ref, watch, computed, defineComponent } from \"vue\";\nimport { pick, extend, makeArrayProp, makeNumericProp, createNamespace } from \"../utils/index.mjs\";\nimport { pickerSharedProps } from \"../picker/Picker.mjs\";\nimport { INHERIT_PROPS, INHERIT_SLOTS, formatDataForCascade } from \"./utils.mjs\";\nimport { useExpose } from \"../composables/use-expose.mjs\";\nimport { Picker } from \"../picker/index.mjs\";\nconst [name, bem] = createNamespace(\"area\");\nconst areaProps = extend({}, pick(pickerSharedProps, INHERIT_PROPS), {\n  modelValue: String,\n  columnsNum: makeNumericProp(3),\n  columnsPlaceholder: makeArrayProp(),\n  areaList: {\n    type: Object,\n    default: () => ({})\n  }\n});\nvar stdin_default = defineComponent({\n  name,\n  props: areaProps,\n  emits: [\"change\", \"confirm\", \"cancel\", \"update:modelValue\"],\n  setup(props, {\n    emit,\n    slots\n  }) {\n    const codes = ref([]);\n    const picker = ref();\n    const columns = computed(() => formatDataForCascade(props));\n    const onChange = (...args) => emit(\"change\", ...args);\n    const onCancel = (...args) => emit(\"cancel\", ...args);\n    const onConfirm = (...args) => emit(\"confirm\", ...args);\n    watch(codes, (newCodes) => {\n      const lastCode = newCodes.length ? newCodes[newCodes.length - 1] : \"\";\n      if (lastCode && lastCode !== props.modelValue) {\n        emit(\"update:modelValue\", lastCode);\n      }\n    }, {\n      deep: true\n    });\n    watch(() => props.modelValue, (newCode) => {\n      if (newCode) {\n        const lastCode = codes.value.length ? codes.value[codes.value.length - 1] : \"\";\n        if (newCode !== lastCode) {\n          codes.value = [`${newCode.slice(0, 2)}0000`, `${newCode.slice(0, 4)}00`, newCode].slice(0, +props.columnsNum);\n        }\n      } else {\n        codes.value = [];\n      }\n    }, {\n      immediate: true\n    });\n    useExpose({\n      confirm: () => {\n        var _a;\n        return (_a = picker.value) == null ? void 0 : _a.confirm();\n      },\n      getSelectedOptions: () => {\n        var _a;\n        return ((_a = picker.value) == null ? void 0 : _a.getSelectedOptions()) || [];\n      }\n    });\n    return () => _createVNode(Picker, _mergeProps({\n      \"ref\": picker,\n      \"modelValue\": codes.value,\n      \"onUpdate:modelValue\": ($event) => codes.value = $event,\n      \"class\": bem(),\n      \"columns\": columns.value,\n      \"onChange\": onChange,\n      \"onCancel\": onCancel,\n      \"onConfirm\": onConfirm\n    }, pick(props, INHERIT_PROPS)), pick(slots, INHERIT_SLOTS));\n  }\n});\nexport {\n  areaProps,\n  stdin_default as default\n};\n",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699767188,
+      "end": 1714699767188,
+      "order": "normal"
+    }
+  ]
+}

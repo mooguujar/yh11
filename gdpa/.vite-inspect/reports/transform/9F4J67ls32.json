@@ -1,0 +1,140 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/html5-qrcode@2.3.8/node_modules/html5-qrcode/esm/ui/scanner/base.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var PublicUiElementIdAndClasses = (function () {\n    function PublicUiElementIdAndClasses() {\n    }\n    PublicUiElementIdAndClasses.ALL_ELEMENT_CLASS = \"html5-qrcode-element\";\n    PublicUiElementIdAndClasses.CAMERA_PERMISSION_BUTTON_ID = \"html5-qrcode-button-camera-permission\";\n    PublicUiElementIdAndClasses.CAMERA_START_BUTTON_ID = \"html5-qrcode-button-camera-start\";\n    PublicUiElementIdAndClasses.CAMERA_STOP_BUTTON_ID = \"html5-qrcode-button-camera-stop\";\n    PublicUiElementIdAndClasses.TORCH_BUTTON_ID = \"html5-qrcode-button-torch\";\n    PublicUiElementIdAndClasses.CAMERA_SELECTION_SELECT_ID = \"html5-qrcode-select-camera\";\n    PublicUiElementIdAndClasses.FILE_SELECTION_BUTTON_ID = \"html5-qrcode-button-file-selection\";\n    PublicUiElementIdAndClasses.ZOOM_SLIDER_ID = \"html5-qrcode-input-range-zoom\";\n    PublicUiElementIdAndClasses.SCAN_TYPE_CHANGE_ANCHOR_ID = \"html5-qrcode-anchor-scan-type-change\";\n    PublicUiElementIdAndClasses.TORCH_BUTTON_CLASS_TORCH_ON = \"html5-qrcode-button-torch-on\";\n    PublicUiElementIdAndClasses.TORCH_BUTTON_CLASS_TORCH_OFF = \"html5-qrcode-button-torch-off\";\n    return PublicUiElementIdAndClasses;\n}());\nexport { PublicUiElementIdAndClasses };\nvar BaseUiElementFactory = (function () {\n    function BaseUiElementFactory() {\n    }\n    BaseUiElementFactory.createElement = function (elementType, elementId) {\n        var element = (document.createElement(elementType));\n        element.id = elementId;\n        element.classList.add(PublicUiElementIdAndClasses.ALL_ELEMENT_CLASS);\n        if (elementType === \"button\") {\n            element.setAttribute(\"type\", \"button\");\n        }\n        return element;\n    };\n    return BaseUiElementFactory;\n}());\nexport { BaseUiElementFactory };\n//# sourceMappingURL=base.js.map",
+      "start": 1714699771223,
+      "end": 1714699771242,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var PublicUiElementIdAndClasses = (function () {\n    function PublicUiElementIdAndClasses() {\n    }\n    PublicUiElementIdAndClasses.ALL_ELEMENT_CLASS = \"html5-qrcode-element\";\n    PublicUiElementIdAndClasses.CAMERA_PERMISSION_BUTTON_ID = \"html5-qrcode-button-camera-permission\";\n    PublicUiElementIdAndClasses.CAMERA_START_BUTTON_ID = \"html5-qrcode-button-camera-start\";\n    PublicUiElementIdAndClasses.CAMERA_STOP_BUTTON_ID = \"html5-qrcode-button-camera-stop\";\n    PublicUiElementIdAndClasses.TORCH_BUTTON_ID = \"html5-qrcode-button-torch\";\n    PublicUiElementIdAndClasses.CAMERA_SELECTION_SELECT_ID = \"html5-qrcode-select-camera\";\n    PublicUiElementIdAndClasses.FILE_SELECTION_BUTTON_ID = \"html5-qrcode-button-file-selection\";\n    PublicUiElementIdAndClasses.ZOOM_SLIDER_ID = \"html5-qrcode-input-range-zoom\";\n    PublicUiElementIdAndClasses.SCAN_TYPE_CHANGE_ANCHOR_ID = \"html5-qrcode-anchor-scan-type-change\";\n    PublicUiElementIdAndClasses.TORCH_BUTTON_CLASS_TORCH_ON = \"html5-qrcode-button-torch-on\";\n    PublicUiElementIdAndClasses.TORCH_BUTTON_CLASS_TORCH_OFF = \"html5-qrcode-button-torch-off\";\n    return PublicUiElementIdAndClasses;\n}());\nexport { PublicUiElementIdAndClasses };\nvar BaseUiElementFactory = (function () {\n    function BaseUiElementFactory() {\n    }\n    BaseUiElementFactory.createElement = function (elementType, elementId) {\n        var element = (document.createElement(elementType));\n        element.id = elementId;\n        element.classList.add(PublicUiElementIdAndClasses.ALL_ELEMENT_CLASS);\n        if (elementType === \"button\") {\n            element.setAttribute(\"type\", \"button\");\n        }\n        return element;\n    };\n    return BaseUiElementFactory;\n}());\nexport { BaseUiElementFactory };\n//# sourceMappingURL=base.js.map",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699771242,
+      "end": 1714699771242,
+      "order": "normal"
+    }
+  ]
+}

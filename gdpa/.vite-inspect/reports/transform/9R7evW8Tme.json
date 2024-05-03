@@ -1,0 +1,149 @@
+{
+  "resolvedId": "/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isElement.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var isString = require('./isString')\r\nvar isNumber = require('./isNumber')\r\n\r\n/**\r\n  * 判断是否Element对象\r\n  *\r\n  * @param {Object} obj 对象\r\n  * @return {Boolean}\r\n  */\r\nfunction isElement (obj) {\r\n  return !!(obj && isString(obj.nodeName) && isNumber(obj.nodeType))\r\n}\r\n\r\nmodule.exports = isElement\r\n",
+      "start": 1714699767631,
+      "end": 1714699767652,
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css",
+      "start": 1714699767652,
+      "end": 1714699767652,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1714699767652,
+      "end": 1714699767652,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1714699767652,
+      "end": 1714699767652,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1714699767652,
+      "end": 1714699767652,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1714699767652,
+      "end": 1714699767652,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1714699767652,
+      "end": 1714699767652,
+      "order": "normal"
+    },
+    {
+      "name": "vite-plugin-vconsole",
+      "result": "var isString = require('./isString')\r\nvar isNumber = require('./isNumber')\r\n\r\n/**\r\n  * 判断是否Element对象\r\n  *\r\n  * @param {Object} obj 对象\r\n  * @return {Boolean}\r\n  */\r\nfunction isElement (obj) {\r\n  return !!(obj && isString(obj.nodeName) && isNumber(obj.nodeType))\r\n}\r\n\r\nmodule.exports = isElement\r\n",
+      "start": 1714699767652,
+      "end": 1714699767652,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "esbuild",
+      "start": 1714699767652,
+      "end": 1714699767652,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1714699767652,
+      "end": 1714699767652,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1714699767652,
+      "end": 1714699767652,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1714699767652,
+      "end": 1714699767652,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1714699767652,
+      "end": 1714699767652,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1714699767652,
+      "end": 1714699767652,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport require$$0 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isString.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000/Users/afeng/Desktop/work/gdpayh5-web/node_modules/.pnpm/xe-utils@3.5.24/node_modules/xe-utils/isNumber.js?commonjs-proxy\";\n\nvar isString = require$$0\r\nvar isNumber = require$$1\r\n\r\n/**\r\n  * 判断是否Element对象\r\n  *\r\n  * @param {Object} obj 对象\r\n  * @return {Boolean}\r\n  */\r\nfunction isElement (obj) {\r\n  return !!(obj && isString(obj.nodeName) && isNumber(obj.nodeType))\r\n}\r\n\r\nvar isElement_1 = isElement\n\nexport default /*@__PURE__*/commonjsHelpers.getDefaultExportFromCjs(isElement_1);\nexport { isElement_1 as __moduleExports };",
+      "start": 1714699767652,
+      "end": 1714699768089,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;AAAA,IAAI,QAAQ,GAAG,UAAqB;AACpC,IAAI,QAAQ,GAAG,UAAqB;AACpC;AACA;AACA;AACA;AACA;AACA;AACA;AACA,SAAS,SAAS,EAAE,GAAG,EAAE;AACzB,EAAE,OAAO,CAAC,EAAE,GAAG,IAAI,QAAQ,CAAC,GAAG,CAAC,QAAQ,CAAC,IAAI,QAAQ,CAAC,GAAG,CAAC,QAAQ,CAAC,CAAC;AACpE,CAAC;AACD;IACA,WAAc,GAAG"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1714699768089,
+      "end": 1714699768089,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1714699768089,
+      "end": 1714699768089,
+      "order": "normal"
+    },
+    {
+      "name": "unplugin-auto-import",
+      "start": 1714699768089,
+      "end": 1714699768089,
+      "order": "post"
+    },
+    {
+      "name": "unplugin-vue-components",
+      "start": 1714699768089,
+      "end": 1714699768089,
+      "order": "post"
+    },
+    {
+      "name": "vite:style-import",
+      "start": 1714699768089,
+      "end": 1714699768089,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1714699768089,
+      "end": 1714699768089,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1714699768089,
+      "end": 1714699768089,
+      "order": "normal"
+    }
+  ]
+}
